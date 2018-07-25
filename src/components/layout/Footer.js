@@ -55,7 +55,11 @@ const Footer = () => {
         <div className="copyright">
           <p>
             Copyright © 2018 The Kyma project authors.{" "}
-            <a href="https://www.sap.com/corporate/en/legal/privacy.html" target="_blank">
+            <a
+              href="https://www.sap.com/corporate/en/legal/privacy.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Privacy Statement
             </a>
           </p>
