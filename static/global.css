@@ -1188,10 +1188,9 @@ h3 {
   display: -ms-flexbox;
   display: flex;
   margin-top: 3.5%;
-  margin-bottom: 10%;
+  margin-bottom: 12%;
   transition: 0.3s;
 }
-
 .bg-m .container {
   z-index: 100;
   position: relative;
@@ -1216,11 +1215,9 @@ h3 {
   }
 }
 
-@media (min-width: 768px) {
-  .img-treasure {
-    padding-left: 10px;
-    padding-right: 20px;
-  }
+.treasure-svg {
+  width: 475px;
+  height: 415px;
 }
 
 #star-top {
@@ -1268,10 +1265,9 @@ h3 {
   }
 }
 
-@media (min-width: 768px) {
-  .img-mission {
-    padding-left: 10px;
-  }
+.mission-svg {
+  width: 457px;
+  height: 317px;
 }
 
 #cloud-1 {
@@ -1346,6 +1342,13 @@ h3 {
   }
 }
 
+footer {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
 .bg-f {
   position: relative;
   background: url("./img/footer.svg") no-repeat;
@@ -1381,7 +1384,7 @@ h3 {
 
 .link-twitter svg {
   position: relative;
-  margin-right: 3px;
+  margin-right: 2px;
   top: -1px;
 }
 
@@ -1455,7 +1458,7 @@ h3 {
 }
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", Arial, sans-serif;
   line-height: 1.625;
   font-weight: 500;
   color: #485766;
@@ -1464,6 +1467,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+}
+
+main {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .align--center {
