@@ -303,7 +303,7 @@ const WhatIs = () => {
                   <title id="buttonGithub">GitHub Logo</title>
                   <use xlinkHref="#github" />
                 </svg>
-                Get it on GitHub
+                <span>Get it on GitHub</span>
               </a>
             </div>
           </div>

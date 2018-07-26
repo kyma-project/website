@@ -748,6 +748,28 @@ h3 {
   z-index: -1;
   transition: 0.3s;
 }
+
+.bg-h.blog-header:before {
+  background: url("./img/blog-header.svg") no-repeat;
+}
+
+.bg-h.blog-header {
+  margin-bottom: 3vw;
+}
+
+@media (max-width: 1000px) {
+  .bg-h.blog-header:before {
+    top: -12vw;
+    background-size: cover;
+  } 
+}
+
+@media (max-width:  750px) {
+  .bg-h.blog-header:before {
+    top: -10vw;
+  } 
+}
+
 @media (max-width: 575px) {
   .bg-h:before {
     background-size: 100% 43vw;
@@ -759,7 +781,12 @@ h3 {
     background-size: 100% 500px;
     min-height: 500px;
   }
+
+  .bg-h.blog-header:before {
+    top: -5vw;
+  }
 }
+
 .bg-h .container {
   z-index: 100;
   position: relative;
@@ -1524,8 +1551,8 @@ svg {
   max-width: 100%;
 }
 
-.btn > svg {
-  padding-right: 7px;
+.btn svg + span {
+  margin-left: 7px;
 }
 
 .copyright {

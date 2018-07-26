@@ -8,7 +8,7 @@ import CookieMessageBanner from "../cookiee/CookieeMessageBanner";
 const Wrapper = styled.main`
   width: 100%;
   margin: -60px auto 0;
-  padding: 15px;
+  padding: 20px;
   max-width: 1200px;
 `;
 
@@ -17,7 +17,7 @@ const DefaultLayout = ({ pageId, pageName, children }) => {
     <main className="content-layout" style={{opacity: 0, visibility: "hidden"}}>
       <SiteMetadata pageId={pageId} pageName={pageName} />
       <CookieMessageBanner/>
-      <Header />
+      <Header headerClassName="blog-header" logoClassName="sprite-icon--inverse" />
       <Wrapper>
         <div>{children}</div>
       </Wrapper>
