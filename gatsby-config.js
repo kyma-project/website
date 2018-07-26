@@ -1,10 +1,17 @@
 module.exports = {
   // Data exported with GraphQL API
   siteMetadata: {
-    navigation: [{ path: "/blog", id: "blog" }],
-    languages: [
-      { code: "en", label: "English" }
-    ]
+    navigation: [
+      {
+        path: "https://github.com/kyma-project",
+        id: "documentation"
+      },
+      {
+        path: "/blog",
+        id: "blog"
+      }
+    ],
+    languages: [{ code: "en", label: "English" }]
   },
   // Gatsby Config
   plugins: [
@@ -37,7 +44,8 @@ module.exports = {
       options: {
         trackingId: "UA-122665881-1",
         head: false,
-      },
-    },
+        anonymize: true,
+      }
+    }
   ]
 };

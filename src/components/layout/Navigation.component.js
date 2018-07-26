@@ -16,20 +16,24 @@ const NavigationComponent = ({ items = [], t }) => {
   return (
     <>
       <ul id="kyma-menu" className="kyma-menu">
-        <li key="docs">
-          <a className="link link-blog" href="https://github.com/kyma-project/kyma/tree/master/docs">
-            Docs
-          </a>
-        </li>
-        {items.map(item => (
-          <li key={item.id}>
+        {items.map(item => {
+          const linkComponent = item.path.includes("//") ? (
+            <a className="link link-blog" href={item.path}>
+              {t(item.id)}
+            </a>
+          ) : (
             <Link className="link link-blog" to={item.path}>
               {t(item.id)}
             </Link>
-          </li>
-        ))}
+          );
+
+          return <li key={item.id}>{linkComponent}</li>;
+        })}
         <li>
-          <a href="https://github.com/kyma-project/kyma" className="btn btn-github">
+          <a
+            href="https://github.com/kyma-project"
+            className="btn btn-github"
+          >
             <svg
               className="sprite-icon sprite-icon--28 sprite-icon--inverse"
               role="img"
