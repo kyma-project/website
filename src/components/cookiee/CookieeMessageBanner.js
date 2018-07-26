@@ -1,6 +1,7 @@
 import React from "react";
 import CookieBanner from "react-cookie-banner";
 import styled from "styled-components";
+import { translate } from "react-i18next";
 
 const StyledCookieBanner = styled(CookieBanner)`
   position: fixed;
@@ -49,22 +50,22 @@ const StyledCookieBanner = styled(CookieBanner)`
   }
 `;
 
-const CookieMessageBanner = () => (
+const CookieMessageBanner = ({t}) => (
   <StyledCookieBanner
     disableStyle={true}
     dismissOnScroll={false}
-    message="We use cookies for the best online experience."
+    message={t("message")}
     link={
       <a
-        href="https://www.sap.com/corporate/en/legal/privacy.html"
+        href={t("link")}
         target="_blank"
         rel="noopener noreferrer"
       >
-        Read our Privacy Statement
+        {t("readPrivacyStatement")}
       </a>
     }
-    buttonMessage="Close"
+    buttonMessage={t("close")}
   />
 );
 
-export default CookieMessageBanner;
+export default translate("CookieBanner")(CookieMessageBanner);
