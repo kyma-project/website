@@ -18,11 +18,11 @@ const NavigationComponent = ({ items = [], t }) => {
       <ul id="kyma-menu" className="kyma-menu">
         {items.map(item => {
           const linkComponent = item.path.includes("//") ? (
-            <a className="link link-blog" href={item.path}>
+            <a className="link link-ordinary" href={item.path}>
               {t(item.id)}
             </a>
           ) : (
-            <Link className="link link-blog" to={item.path}>
+            <Link className="link link-ordinary" to={item.path}>
               {t(item.id)}
             </Link>
           );

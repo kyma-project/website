@@ -829,7 +829,7 @@ h3 {
   float: right;
   margin-top: 0;
 }
-.kyma-menu .link-blog {
+.kyma-menu .link-ordinary {
   font-size: 18px;
   margin-right: 15px;
 }
@@ -859,7 +859,7 @@ h3 {
     padding: 30px 30px 0 10px;
   }
   .kyma-menu .btn-github {
-    margin-left: 30px;
+    margin-left: 15px;
   }
   .kyma-menu .link-blog {
     padding: 20px;
@@ -873,7 +873,7 @@ h3 {
   .kyma-menu.offcanvas + .btn-burger span:nth-child(1) {
     transform: rotate(45deg);
     top: 22px;
-    left: 18px;
+    left: 17px;
   }
   .kyma-menu.offcanvas + .btn-burger span:nth-child(2) {
     width: 0;
@@ -890,6 +890,7 @@ h3 {
     height: 50px;
     width: 70px;
     z-index: 300;
+    outline: none;
   }
   .btn-burger span {
     display: block;
@@ -1188,7 +1189,7 @@ h3 {
   display: -ms-flexbox;
   display: flex;
   margin-top: 3.5%;
-  margin-bottom: 12%;
+  margin-bottom: 0;
   transition: 0.3s;
 }
 .bg-m .container {
@@ -1523,7 +1524,6 @@ svg {
   max-width: 100%;
 }
 
-
 .btn > svg {
   padding-right: 7px;
 }
@@ -1546,6 +1546,12 @@ svg {
 
 .content-layout {
   transition: opacity 0.3s ease-out;
-  opacity: 1!important;
-  visibility: visible!important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+@media (max-width: 480px) {
+  .bg-m {
+    margin-bottom: 10%;
+  }
 }

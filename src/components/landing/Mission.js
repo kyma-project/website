@@ -26,6 +26,7 @@ const MissionComponent = ({ t }) => {
       <div className="col-5 col-md-6 col-sm-9">
         <svg
           viewBox="0 0 505 351"
+          className="mission-svg"
           version="1.1"
           xmlns="http://www.w3.org/2000/svg"
           aria-labelledby="mission-title"
