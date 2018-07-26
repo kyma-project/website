@@ -13,7 +13,7 @@ const Footer = () => {
           <use xlinkHref="#logo-single" />
         </svg>
         <a
-          href="https://github.com/kyma-project/kyma"
+          href="https://github.com/kyma-project"
           className="link link-github"
         >
           <svg

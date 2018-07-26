@@ -3,7 +3,7 @@ module.exports = {
   siteMetadata: {
     navigation: [
       {
-        path: "https://github.com/kyma-project",
+        path: "https://github.com/kyma-project/kyma/tree/master/docs",
         id: "documentation"
       },
       {

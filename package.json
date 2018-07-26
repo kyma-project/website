@@ -7,7 +7,7 @@
     "develop": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "publish": "gatsby build && gh-pages -d public -m 'Deploy new version of site'"
+    "publish": "gatsby build && gh-pages -d public -m 'Deploy new version of site' -o upstream"
   },
   "dependencies": {
     "babel-plugin-styled-components": "^1.5.1",
