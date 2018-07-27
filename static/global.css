@@ -784,6 +784,7 @@ h3 {
 
   .bg-h.blog-header:before {
     top: -5vw;
+    min-height: 35vw;
   }
 }
 
