@@ -328,7 +328,6 @@ const FeaturesComponent = ({ t }) => {
             </defs>
             <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
               <g transform="translate(-588.000000, -733.000000)">
-                <rect fill="#FFFFFF" x="0" y="0" width="1440" height="2914" />
                 <g
                   id="connectivity-Element-37"
                   transform="translate(588.000000, 733.000000)"
@@ -531,7 +530,6 @@ const FeaturesComponent = ({ t }) => {
                 id="Kyma-landingpage"
                 transform="translate(-1021.000000, -693.000000)"
               >
-                <rect fill="#FFFFFF" x="0" y="0" width="1440" height="2914" />
                 <g
                   id="Element-36"
                   transform="translate(1021.000000, 693.000000)"
