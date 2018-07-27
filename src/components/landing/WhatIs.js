@@ -283,8 +283,7 @@ const WhatIs = () => {
               <p>
                 It provides the last mile capabilities that a developer needs to
                 build a cloud-native application using several open-source
-                projects under the Cloud Native Computing Foundation (CNCF),
-                such as Kubernetes, Istio, NATS, Kubeless, and Prometheus, to
+                projects such as Kubernetes, Istio, NATS, Kubeless, and Prometheus, to
                 name a few.
               </p>
               <p>
