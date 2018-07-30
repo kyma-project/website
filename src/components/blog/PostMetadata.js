@@ -1,4 +1,5 @@
 import React from "react";
+import { translate } from "react-i18next";
 import styled from "styled-components";
 
 import colors from "../../config/colors";
@@ -14,14 +15,12 @@ const Text = styled.p`
   color: ${colors.gray};
 `;
 
-const PostMetadata = ({ author, date }) => {
+const PostMetadata = ({ author, date, t }) => {
   return (
     <Wrapper>
-      <Text>
-        {author} on {date}
-      </Text>
+      <Text>{t("blog.postMetadata", { author, date })}</Text>
     </Wrapper>
   );
 };
 
-export default PostMetadata;
+export default translate("UI")(PostMetadata);

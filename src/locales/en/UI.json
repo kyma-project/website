@@ -31,6 +31,10 @@
     "readPrivacyStatement": "Read our Privacy Statement",
     "close": "Close"
   },
+  "blog": {
+    "tags": "Tags",
+    "postMetadata": "{{author}} on {{date}}" 
+  },
   "logo": "Logo",
   "icon": "Icon",
   "copyright": "Copyright © 2018 The Kyma project authors.",
