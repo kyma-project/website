@@ -13,36 +13,40 @@ const NavigationComponent = ({ items = [], t }) => {
     }
   };
 
+  const githubKey = `socialMedia.github`;
+  const github = {
+    name: t(`${githubKey}.name`),
+    url: t(`${githubKey}.url`)
+  };
+
   return (
     <>
       <ul id="kyma-menu" className="kyma-menu">
         {items.map(item => {
+          const linkTitle = t(`navigation.${item.id}`);
           const linkComponent = item.path.includes("//") ? (
             <a className="link link-ordinary" href={item.path}>
-              {t(item.id)}
+              {linkTitle}
             </a>
           ) : (
             <Link className="link link-ordinary" to={item.path}>
-              {t(item.id)}
+              {linkTitle}
             </Link>
           );
 
           return <li key={item.id}>{linkComponent}</li>;
         })}
         <li>
-          <a
-            href="https://github.com/kyma-project"
-            className="btn btn-github"
-          >
+          <a href={github.url} className="btn btn-github">
             <svg
               className="sprite-icon sprite-icon--28 sprite-icon--inverse"
               role="img"
               aria-labelledby="logoGithub"
             >
-              <title id="logoGithub">GitHub Logo</title>
+              <title id="logoGithub">{`${github.name} ${t("logo")}`}</title>
               <use xlinkHref="#github" />
             </svg>
-            <span className="hidden-md">GitHub</span>
+            <span className="hidden-md">{github.name}</span>
           </a>
         </li>
       </ul>
@@ -65,5 +69,5 @@ export const query = graphql`
   }
 `;
 
-const Navigation = translate("Navigation")(NavigationComponent);
+const Navigation = translate("UI")(NavigationComponent);
 export default Navigation;

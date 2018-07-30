@@ -2,6 +2,15 @@ import React from "react";
 import { translate } from "react-i18next";
 
 const Footer = ({ t }) => {
+  const translateLink = socialMediaPortal => ({
+    name: t(`socialMedia.${socialMediaPortal}.name`),
+    url: t(`socialMedia.${socialMediaPortal}.url`)
+  });
+
+  const twitter = translateLink("twitter");
+  const github = translateLink("github");
+  const slack = translateLink("slack");
+
   return (
     <footer>
       <div className="bg-f">
@@ -11,50 +20,43 @@ const Footer = ({ t }) => {
             role="img"
             aria-labelledby="title"
           >
-            <title id="title">{`${t("logoTitle")} ${t("logo")}`}</title>
+            <title id="title">{`${t("metadata.title")} ${t(
+              "logo"
+            )}`}</title>
             <use xlinkHref="#logo-single" />
           </svg>
-          <a
-            href="https://github.com/kyma-project"
-            className="link link-github"
-          >
+          <a href={github.url} className="link link-github">
             <svg
               className="sprite-icon sprite-icon--12 sprite-icon--inverse"
               role="img"
               aria-labelledby="githublLink"
             >
-              <title id="githublLink">{`${t("github")} ${t("logo")}`}</title>
+              <title id="githublLink">{`${github.name} ${t("logo")}`}</title>
               <use xlinkHref="#github" />
             </svg>
-            {t("github")}
+            {github.name}
           </a>
-          <a
-            href="https://twitter.com/kymaproject"
-            className="link link-twitter"
-          >
+          <a href={twitter.url} className="link link-twitter">
             <svg
               className="sprite-icon sprite-icon--12 sprite-icon--inverse"
               role="img"
               aria-labelledby="twitterlLink"
             >
-              <title id="twitterlLink">t{`${t("twitter")} ${t("icon")}`}</title>
+              <title id="twitterlLink">t{`${twitter.name} ${t("icon")}`}</title>
               <use xlinkHref="#twitter" />
             </svg>
-            {t("twitter")}
+            {twitter.name}
           </a>
-          <a
-            href="https://join.slack.com/t/kyma-community/shared_invite/enQtNDAwNzE4Mjk2NDE3LTJhOTlmZjM5YzkwNmEzNmY3ZjE2MTU2OTMxOGE4ZDM0MmU4ZWRkZGJiODgzNmRmMTYxMDYwNjZiMDAwMTA2OWM"
-            className="link link-slack"
-          >
+          <a href={slack.url} className="link link-slack">
             <svg
               className="sprite-icon sprite-icon--12 sprite-icon--inverse"
               role="img"
               aria-labelledby="slackLink"
             >
-              <title id="slackLink">{`${t("slack")} ${t("icon")}`}</title>
+              <title id="slackLink">{`${slack.name} ${t("icon")}`}</title>
               <use xlinkHref="#slack" />
             </svg>
-            {t("slack")}
+            {slack.name}
           </a>
 
           <div className="copyright">
@@ -75,4 +77,4 @@ const Footer = ({ t }) => {
   );
 };
 
-export default translate("Footer")(Footer);
+export default translate(["UI"])(Footer);

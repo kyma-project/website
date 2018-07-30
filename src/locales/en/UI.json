@@ -1,0 +1,39 @@
+{
+  "metadata": {
+    "title": "Kyma",
+    "description":
+      "A flexible and easy way to integrate and extend enterprise applications in a cloud-native world"
+  },
+  "navigation": {
+    "home": "Home",
+    "blog": "Blog",
+    "documentation": "Docs",
+    "not-found": "Page not found"
+  },
+  "socialMedia": {
+    "twitter": {
+      "name": "Twitter",
+      "url": "https://twitter.com/kymaproject"
+    },
+    "github": {
+      "name": "GitHub",
+      "url": "https://github.com/kyma-project"
+    },
+    "slack": {
+      "name": "Slack",
+      "url":
+        "https://join.slack.com/t/kyma-community/shared_invite/enQtNDAwNzE4Mjk2NDE3LTJhOTlmZjM5YzkwNmEzNmY3ZjE2MTU2OTMxOGE4ZDM0MmU4ZWRkZGJiODgzNmRmMTYxMDYwNjZiMDAwMTA2OWM"
+    }
+  },
+  "cookieBanner": {
+    "message": "We use cookies for the best online experience.",
+    "link": "https://www.sap.com/corporate/en/legal/privacy.html",
+    "readPrivacyStatement": "Read our Privacy Statement",
+    "close": "Close"
+  },
+  "logo": "Logo",
+  "icon": "Icon",
+  "copyright": "Copyright © 2018 The Kyma project authors.",
+  "privacyStatement": "Privacy Statement",
+  "privacyStatementLink": "https://www.sap.com/corporate/en/legal/privacy.html"
+}

@@ -6,12 +6,12 @@ import { withPrefix } from "gatsby";
 import Sprites from "./Sprites";
 
 const SiteMetadataComponent = ({ pageId = "", pageName = "", t }) => {
-  const title = t("title");
-  const description = t("description");
+  const title = t("metadata.title");
+  const description = t("metadata.description");
 
   let pageTitle;
   if (pageId) {
-    const pageTitleKey = "Navigation:" + pageId;
+    const pageTitleKey = `navigation.${pageId}`;
     pageTitle = t(pageTitleKey);
   } else {
     pageTitle = pageName;
@@ -61,7 +61,7 @@ const SiteMetadataComponent = ({ pageId = "", pageName = "", t }) => {
   );
 };
 
-const SiteMetadata = translate(["SiteMetadata", "Navigation"])(
+const SiteMetadata = translate("UI")(
   SiteMetadataComponent
 );
 export default SiteMetadata;

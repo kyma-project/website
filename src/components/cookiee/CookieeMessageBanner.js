@@ -28,12 +28,14 @@ const StyledCookieBanner = styled(CookieBanner)`
     cursor: pointer;
     transition: all ease-out 0.2s;
 
-    &:hover, &:focus, &:active {
+    &:hover,
+    &:focus,
+    &:active {
       background: #fff;
       color: #1ea393;
     }
 
-    @media (max-width: 730px){
+    @media (max-width: 730px) {
       display: block;
       margin: 0 auto;
       margin-top: 10px;
@@ -50,22 +52,25 @@ const StyledCookieBanner = styled(CookieBanner)`
   }
 `;
 
-const CookieMessageBanner = ({t}) => (
-  <StyledCookieBanner
-    disableStyle={true}
-    dismissOnScroll={false}
-    message={t("message")}
-    link={
-      <a
-        href={t("link")}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {t("readPrivacyStatement")}
-      </a>
-    }
-    buttonMessage={t("close")}
-  />
-);
+const CookieMessageBanner = ({ t }) => {
+  const tPrefix = "cookieBanner";
+  const getTranslation = (key) => {
+    return t(`${tPrefix}.${key}`);
+  }
 
-export default translate("CookieBanner")(CookieMessageBanner);
+  return (
+    <StyledCookieBanner
+      disableStyle={true}
+      dismissOnScroll={false}
+      message={getTranslation("message")}
+      link={
+        <a href={getTranslation("link")} target="_blank" rel="noopener noreferrer">
+          {getTranslation("readPrivacyStatement")}
+        </a>
+      }
+      buttonMessage={getTranslation("close")}
+    />
+  );
+};
+
+export default translate("UI")(CookieMessageBanner);
