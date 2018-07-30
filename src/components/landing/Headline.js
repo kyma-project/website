@@ -1,11 +1,13 @@
 import React from "react";
 import { translate } from "react-i18next";
+import { displayHeaderWithLineBreaks } from "../../helpers/textWithLineBreaks";
 
 const HeadlineComponent = ({ t }) => {
+  const headline = t('headline')
   return (
     <div className="row">
       <h1 className="col-12 kyma-headline">
-        A flexible and easy <br />way to connect and extend <br />enterprise applications <br />in a cloud-native world
+        {displayHeaderWithLineBreaks(headline)}
       </h1>
     </div>);
 };

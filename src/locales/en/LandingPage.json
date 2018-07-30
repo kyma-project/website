@@ -1,6 +1,13 @@
 {
   "headline":
-    "A flexible and easy \nway to integrate and \nextend enterprise applications \nin a cloud-native world",
+    "A flexible and easy way to \nconnect and extend enterprise applications in a cloud-native world",
+  "mission": {
+    "headline": "Kyma mission: \nMake simple things simple again!",
+    "paragraphs": [
+      "Kyma aims to equip enterprise software users with agile tools to customize, extend, and integrate any API-enabled application and tailor it to their needs.",
+      "Kyma makes the development and operation of microservices-based solutions easy by providing consistent service management capabilities and the integration of the existing enterprise software in a service-oriented manner."
+    ]
+  },
   "whatIs": {
     "headline": "What is Kyma?",
     "paragraphs": [
