@@ -1249,51 +1249,6 @@ h3 {
   height: 415px;
 }
 
-#star-top {
-  transform-origin: 212px 57px;
-  animation: star 6s linear infinite;
-}
-
-#star-left {
-  transform-origin: 209px 138px;
-  animation: star-reverse 5s linear infinite;
-}
-
-#star-right {
-  transform-origin: 318px 140px;
-  animation: star 4s linear infinite;
-}
-
-@keyframes star {
-  0% {
-    opacity: 0;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.1) rotate3d(0, 0, 1, 20deg);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1);
-  }
-}
-
-@keyframes star-reverse {
-  0% {
-    opacity: 0;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.1) rotate3d(0, 0, 1, -20deg);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1);
-  }
-}
-
 .mission-svg {
   width: 457px;
   height: 317px;
