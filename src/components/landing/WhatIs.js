@@ -1,6 +1,17 @@
 import React from "react";
+import { translate } from "react-i18next";
 
-const WhatIs = () => {
+const WhatIs = ({ t }) => {
+
+  const github = {
+    name: t(`UI:socialMedia.github.name`),
+    url: t(`UI:socialMedia.github.url`)
+  };
+
+  const sectionPrefix = "whatIs";
+  const paragraphs =
+    t(`${sectionPrefix}.paragraphs`, { returnObjects: true }) || [];
+
   return (
     <section className="bg-m">
       <div className="container">
@@ -277,32 +288,25 @@ const WhatIs = () => {
             </svg>
           </div>
           <div className="col-6 col-md-9 col-sm-12 content-inverse">
-            <h2>What is Kyma?</h2>
+            <h2>{t(`${sectionPrefix}.headline`)}</h2>
             <div>
-              <p>Kyma is a cloud-native application development framework.</p>
-              <p>
-                It provides the last mile capabilities that a developer needs to
-                build a cloud-native application using several open-source
-                projects such as Kubernetes, Istio, NATS, Kubeless, and Prometheus, to
-                name a few.
-              </p>
-              <p>
-                It is designed natively on Kubernetes and, therefore, it is
-                portable to all major cloud providers.
-              </p>
-              <a
-                href="https://github.com/kyma-project"
-                className="btn btn-github"
-              >
+              {paragraphs.map((paragraph, idx) => <p key={idx}>{paragraph}</p>)}
+              <a href={github.url} className="btn btn-github">
                 <svg
                   className="sprite-icon sprite-icon--28 sprite-icon--inverse"
                   role="img"
                   aria-labelledby="buttonGithub"
                 >
-                  <title id="buttonGithub">GitHub Logo</title>
+                  <title id="buttonGithub">{`${github.name} ${t(
+                    "UI:logo"
+                  )}`}</title>
                   <use xlinkHref="#github" />
                 </svg>
-                <span>Get it on GitHub</span>
+                <span>
+                  {t("whatIs.action", {
+                    site: github.name
+                  })}
+                </span>
               </a>
             </div>
           </div>
@@ -312,4 +316,4 @@ const WhatIs = () => {
   );
 };
 
-export default WhatIs;
+export default translate(["LandingPage", "UI"])(WhatIs);

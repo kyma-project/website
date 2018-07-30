@@ -1,3 +1,13 @@
 {
-  "headline": "A flexible and easy \nway to integrate and \nextend enterprise applications \nin a cloud-native world"
+  "headline":
+    "A flexible and easy \nway to integrate and \nextend enterprise applications \nin a cloud-native world",
+  "whatIs": {
+    "headline": "What is Kyma?",
+    "paragraphs": [
+      "Kyma is a cloud-native application development framework.",
+      "It provides the last mile capabilities that a developer needs to build a cloud-native application using several open-source projects such as Kubernetes, Istio, NATS, Kubeless, and Prometheus, to name a few.",
+      "It is designed natively on Kubernetes and, therefore, it is portable to all major cloud providers."
+    ],
+    "action": "Get it on {{site}}"
+  }
 }
