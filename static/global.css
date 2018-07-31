@@ -1075,127 +1075,8 @@ h3 {
   padding: 5px;
 }
 
-#connectivity-circle-small {
-  transform-origin: 50% 50%;
-  animation: connectivity-small 2s linear infinite;
-}
-
-#connectivity-circle-middle {
-  transform-origin: 50% 50%;
-  animation: connectivity-middle 2s linear infinite;
-}
-
-#connectivity-circle-big {
-  transform-origin: 50% 50%;
-  animation: connectivity-big 2s linear infinite;
-}
-
-@keyframes connectivity-small {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1) translate(-9px, -8px);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-@keyframes connectivity-middle {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1) translate(-6px, 7px);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-@keyframes connectivity-big {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05) translate(0, -1px);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
 .extendable-svg {
   padding: 5px;
-}
-
-#extendable-rect-right-bottom {
-  transform-origin: 50% 50%;
-  animation: extendable-rect-right-bottom 3s linear infinite;
-}
-
-#extendable-rect-left-bottom {
-  transform-origin: 50% 50%;
-  animation: extendable-rect-left-bottom 3s linear infinite;
-}
-
-#extendable-rect-right-top {
-  transform-origin: 50% 50%;
-  animation: extendable-rect-right-top 3s linear infinite;
-}
-
-#extendable-rect-left-top {
-  transform-origin: 50% 50%;
-  animation: extendable-rect-left-top 3s linear infinite;
-}
-
-@keyframes extendable-rect-right-bottom {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: translate(6px, 7px);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-@keyframes extendable-rect-left-bottom {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: translate(-6px, 7px);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-@keyframes extendable-rect-right-top {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: translate(6px, -7px);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-@keyframes extendable-rect-left-top {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: translate(-6px, -7px);
-  }
-  100% {
-    transform: scale(1);
-  }
 }
 
 .home-link {
@@ -1431,8 +1312,13 @@ img {
   height: auto;
 }
 
-svg {
+svg, object {
   max-width: 100%;
+}
+
+.img-wrap object {
+  width: 100%;
+  height: 100%;
 }
 
 .btn svg + span {

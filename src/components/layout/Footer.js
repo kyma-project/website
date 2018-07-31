@@ -2,10 +2,7 @@ import React from "react";
 import { translate } from "react-i18next";
 
 const Footer = ({ t }) => {
-  const translateLink = socialMediaPortal => ({
-    name: t(`socialMedia.${socialMediaPortal}.name`),
-    url: t(`socialMedia.${socialMediaPortal}.url`)
-  });
+  const translateLink = socialMediaPortal => (t(`socialMedia.${socialMediaPortal}`, {returnObjects: true}));
 
   const twitter = translateLink("twitter");
   const github = translateLink("github");

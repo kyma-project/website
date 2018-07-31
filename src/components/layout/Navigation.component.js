@@ -13,11 +13,7 @@ const NavigationComponent = ({ items = [], t }) => {
     }
   };
 
-  const githubKey = `socialMedia.github`;
-  const github = {
-    name: t(`${githubKey}.name`),
-    url: t(`${githubKey}.url`)
-  };
+  const github = t(`socialMedia.github`, {returnObjects: true})
 
   return (
     <>
