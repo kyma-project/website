@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 import colors from "../../config/colors";
 
-const FooterWrapper = styled.div`
+const FooterWrapper = styled.footer`
   margin-top: 30px;
 `;
 

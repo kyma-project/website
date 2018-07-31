@@ -5,7 +5,7 @@ import styled from "styled-components";
 import colors from "../../config/colors";
 import PostMetadata from "./PostMetadata";
 
-const Wrapper = styled.div`
+const Wrapper = styled.header`
   margin: 30px 0;
 `;
 
