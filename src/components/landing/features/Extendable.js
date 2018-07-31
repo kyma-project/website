@@ -1,105 +1,157 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg class="extendable-svg" version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                             width="269px" height="256px" viewBox="0 0 269 256" xml:space="preserve" aria-labelledby="extendable-title">
+import React from "react";
+import styled from "styled-components";
+
+const StyledSvg = styled.svg`
+  padding: 5px;
+  max-width: 100%;
+
+  #extendable-rect-right-bottom {
+    transform-origin: 50% 50%;
+    animation: extendable-rect-right-bottom 3s linear infinite;
+  }
+
+  #extendable-rect-left-bottom {
+    transform-origin: 50% 50%;
+    animation: extendable-rect-left-bottom 3s linear infinite;
+  }
+
+  #extendable-rect-right-top {
+    transform-origin: 50% 50%;
+    animation: extendable-rect-right-top 3s linear infinite;
+  }
+
+  #extendable-rect-left-top {
+    transform-origin: 50% 50%;
+    animation: extendable-rect-left-top 3s linear infinite;
+  }
+
+  @keyframes extendable-rect-right-bottom {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: translate(6px, 7px);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes extendable-rect-left-bottom {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: translate(-6px, 7px);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes extendable-rect-right-top {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: translate(6px, -7px);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes extendable-rect-left-top {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: translate(-6px, -7px);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+`;
+
+const Extendable = () => (
+  <StyledSvg
+    version="1.1"
+    id="Ebene_1"
+    xmlns="http://www.w3.org/2000/svg"
+    width="269px"
+    height="256px"
+    viewBox="0 0 269 256"
+    xmlSpace="preserve"
+    aria-labelledby="extendable-title"
+  >
     <title id="extendable-title">Open and extendable illustration</title>
-    <style>
-        .extendable-svg {
-        padding: 5px;
-        max-width: 100%;
-        }
-
-        #extendable-rect-right-bottom {
-        transform-origin: 50% 50%;
-        animation: extendable-rect-right-bottom 3s linear infinite;
-        }
-
-        #extendable-rect-left-bottom {
-        transform-origin: 50% 50%;
-        animation: extendable-rect-left-bottom 3s linear infinite;
-        }
-
-        #extendable-rect-right-top {
-        transform-origin: 50% 50%;
-        animation: extendable-rect-right-top 3s linear infinite;
-        }
-
-        #extendable-rect-left-top {
-        transform-origin: 50% 50%;
-        animation: extendable-rect-left-top 3s linear infinite;
-        }
-
-        @keyframes extendable-rect-right-bottom {
-        0% {
-            transform: scale(1);
-        }
-        50% {
-            transform: translate(6px, 7px);
-        }
-        100% {
-            transform: scale(1);
-        }
-        }
-
-        @keyframes extendable-rect-left-bottom {
-        0% {
-            transform: scale(1);
-        }
-        50% {
-            transform: translate(-6px, 7px);
-        }
-        100% {
-            transform: scale(1);
-        }
-        }
-
-        @keyframes extendable-rect-right-top {
-        0% {
-            transform: scale(1);
-        }
-        50% {
-            transform: translate(6px, -7px);
-        }
-        100% {
-            transform: scale(1);
-        }
-        }
-
-        @keyframes extendable-rect-left-top {
-        0% {
-            transform: scale(1);
-        }
-        50% {
-            transform: translate(-6px, -7px);
-        }
-        100% {
-            transform: scale(1);
-        }
-        }    
-    </style>
-    <g id="extendable-Element-35-Copy-2" transform="translate(171.000000, 726.000000)">
-        <g id="extendable-Combined-Shape" transform="translate(0.000000, 37.000000)" >
-            <g id="extendable-Mask">
-                    <linearGradient id="extendable-path-2_2_" gradientUnits="userSpaceOnUse" x1="-99.0684" y1="-571.7988" x2="-98.5136" y2="-573.2733" gradientTransform="matrix(262.4462 0 0 -217.9854 25911.1172 -125378.1875)">
-                    <stop  offset="0" style="stop-color:#0B74DE"/>
-                    <stop  offset="1" style="stop-color:#4D10E1"/>
-                </linearGradient>
-                <path id="extendable-path-2_1_" fill="url(#extendable-path-2_2_)" d="M-40.379-724.823
+    <g
+      id="extendable-Element-35-Copy-2"
+      transform="translate(171.000000, 726.000000)"
+    >
+      <g
+        id="extendable-Combined-Shape"
+        transform="translate(0.000000, 37.000000)"
+      >
+        <g id="extendable-Mask">
+          <linearGradient
+            id="extendable-path-2_2_"
+            gradientUnits="userSpaceOnUse"
+            x1="-99.0684"
+            y1="-571.7988"
+            x2="-98.5136"
+            y2="-573.2733"
+            gradientTransform="matrix(262.4462 0 0 -217.9854 25911.1172 -125378.1875)"
+          >
+            <stop offset="0" style={{stopColor:"#0B74DE"}} />
+            <stop offset="1" style={{stopColor:"#4D10E1"}} />
+          </linearGradient>
+          <path
+            id="extendable-path-2_1_"
+            fill="url(#extendable-path-2_2_)"
+            d="M-40.379-724.823
                     c-83.417-3.338-141.19,39.894-128.996,91.623c13.311,55.56,71.084,113.544,128.996,124.174
-                    c59.118,10.931,116.891-23.849,130.202-78.362C102.018-644.615,44.244-711.052-40.379-724.823z"/>
-            </g>
-            <defs>
-                <filter id="Adobe_OpacityMaskFilter" filterUnits="userSpaceOnUse" x="-123" y="-648" width="109.516" height="106.832">
-                    <feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
-                </filter>
-            </defs>
-            <mask maskUnits="userSpaceOnUse" x="-123" y="-648" width="109.516" height="106.832" id="extendable-mask-3">
-                <g filter="url(#Adobe_OpacityMaskFilter)">
-                    <path id="extendable-path-2" fill="#FFFFFF" d="M-40.379-724.823c-83.417-3.338-141.19,39.894-128.996,91.623
+                    c59.118,10.931,116.891-23.849,130.202-78.362C102.018-644.615,44.244-711.052-40.379-724.823z"
+          />
+        </g>
+        <defs>
+          <filter
+            id="Adobe_OpacityMaskFilter"
+            filterUnits="userSpaceOnUse"
+            x="-123"
+            y="-648"
+            width="109.516"
+            height="106.832"
+          >
+            <feColorMatrix
+              type="matrix"
+              values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+        <mask
+          maskUnits="userSpaceOnUse"
+          x="-123"
+          y="-648"
+          width="109.516"
+          height="106.832"
+          id="extendable-mask-3"
+        >
+          <g filter="url(#Adobe_OpacityMaskFilter)">
+            <path
+              id="extendable-path-2"
+              fill="#FFFFFF"
+              d="M-40.379-724.823c-83.417-3.338-141.19,39.894-128.996,91.623
                         c13.311,55.56,71.084,113.544,128.996,124.174c59.118,10.931,116.891-23.849,130.202-78.362
-                        C102.018-644.615,44.244-711.052-40.379-724.823z"/>
-                </g>
-            </mask>
-            <path id="extendable-rect-left-bottom" fill="#3298FF" d="M-23.899-555.418c0.001-1.381,1.12-2.5,2.5-2.5s2.499,1.119,2.5,2.5
+                        C102.018-644.615,44.244-711.052-40.379-724.823z"
+            />
+          </g>
+        </mask>
+        <path
+          id="extendable-rect-left-bottom"
+          fill="#3298FF"
+          d="M-23.899-555.418c0.001-1.381,1.12-2.5,2.5-2.5s2.499,1.119,2.5,2.5
                 c-0.001,1.38-1.12,2.499-2.5,2.5C-22.779-552.919-23.898-554.038-23.899-555.418z M-23.899-567.168c0.001-1.381,1.12-2.5,2.5-2.5
                 s2.499,1.119,2.5,2.5c-0.001,1.38-1.12,2.499-2.5,2.5C-22.779-564.669-23.898-565.788-23.899-567.168z M-23.899-578.918
                 c0.001-0.662,0.265-1.297,0.733-1.764c0.469-0.468,1.104-0.729,1.767-0.727c0.662-0.002,1.298,0.259,1.767,0.727
@@ -169,39 +221,108 @@
                 c0.119,0.116,0.226,0.243,0.319,0.38c0.088,0.137,0.166,0.281,0.23,0.43c0.123,0.306,0.187,0.631,0.189,0.96
                 c-0.002,0.165-0.019,0.329-0.05,0.49c-0.032,0.158-0.079,0.312-0.14,0.46c-0.065,0.149-0.142,0.293-0.23,0.43
                 c-0.093,0.138-0.2,0.265-0.319,0.381c-0.114,0.117-0.238,0.224-0.37,0.319c-0.142,0.087-0.289,0.164-0.44,0.23
-                c-0.149,0.06-0.303,0.107-0.46,0.14c-0.162,0.031-0.326,0.048-0.49,0.05C-120.664-640.269-120.828-640.285-120.989-640.317z"/>
-        </g>
-            <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="-97.7578" y1="-532.4717" x2="-98.6859" y2="-535.3293" gradientTransform="matrix(220.1035 0 0 -219.1035 21724.8477 -117910.2266)">
-            <stop  offset="0" style="stop-color:#00E833"/>
-            <stop  offset="1" style="stop-color:#0B74DE"/>
-        </linearGradient>
-        <path fill="url(#SVGID_1_)" d="M33.25-656.25l-3.666-3.5l-40.657,42.104l-57.426-55.603l-3.833,3.417l58.125,56.112
+                c-0.149,0.06-0.303,0.107-0.46,0.14c-0.162,0.031-0.326,0.048-0.49,0.05C-120.664-640.269-120.828-640.285-120.989-640.317z"
+        />
+      </g>
+      <linearGradient
+        id="SVGID_1_"
+        gradientUnits="userSpaceOnUse"
+        x1="-97.7578"
+        y1="-532.4717"
+        x2="-98.6859"
+        y2="-535.3293"
+        gradientTransform="matrix(220.1035 0 0 -219.1035 21724.8477 -117910.2266)"
+      >
+        <stop offset="0" style={{stopColor:"#00E833"}} />
+        <stop offset="1" style={{stopColor:"#0B74DE"}} />
+      </linearGradient>
+      <path
+        fill="url(#SVGID_1_)"
+        d="M33.25-656.25l-3.666-3.5l-40.657,42.104l-57.426-55.603l-3.833,3.417l58.125,56.112
             c-0.062,0.442-0.008,0.902,0.174,1.331c0.392,0.924,1.298,1.523,2.74,1.485l78.628,76.073l3.583-3.75l-78.396-75.589L33.25-656.25z
-            "/>
-            <linearGradient id="extendable-Shape_3_" gradientUnits="userSpaceOnUse" x1="-99.6406" y1="-538.9062" x2="-97.8338" y2="-536.9236" gradientTransform="matrix(99.1035 0 0 -99.1036 9745.8486 -53890.25)">
-            <stop  offset="0" style="stop-color:#00E833"/>
-            <stop  offset="1" style="stop-color:#3197FE"/>
-        </linearGradient>
-        <path id="extendable-rect-right-top" fill="url(#extendable-Shape_3_)" d="M-2-721v54.512c0,1.326,0.527,2.598,1.465,3.536l34.591,34.591
-            c0.938,0.938,2.21,1.464,3.536,1.464h54.512c2.762,0,5-2.238,5-5V-721c0-2.761-2.238-5-5-5H3C0.238-726-2-723.761-2-721z"/>
-            <linearGradient id="extendable-Shape_4_" gradientUnits="userSpaceOnUse" x1="-96.6465" y1="-538.1768" x2="-97.7924" y2="-537.0216" gradientTransform="matrix(99.1035 0 0 -99.1035 9624.8516 -53890.2305)">
-            <stop  offset="0" style="stop-color:#00E833"/>
-            <stop  offset="1" style="stop-color:#3197FE"/>
-        </linearGradient>
-        <path id="extendable-rect-left-top" fill="url(#extendable-Shape_4_)" d="M-23.896-721v54.512c0,1.326-0.527,2.598-1.465,3.536
+            "
+      />
+      <linearGradient
+        id="extendable-Shape_3_"
+        gradientUnits="userSpaceOnUse"
+        x1="-99.6406"
+        y1="-538.9062"
+        x2="-97.8338"
+        y2="-536.9236"
+        gradientTransform="matrix(99.1035 0 0 -99.1036 9745.8486 -53890.25)"
+      >
+        <stop offset="0" style={{stopColor:"#00E833"}} />
+        <stop offset="1" style={{stopColor:"#3197FE"}} />
+      </linearGradient>
+      <path
+        id="extendable-rect-right-top"
+        fill="url(#extendable-Shape_3_)"
+        d="M-2-721v54.512c0,1.326,0.527,2.598,1.465,3.536l34.591,34.591
+            c0.938,0.938,2.21,1.464,3.536,1.464h54.512c2.762,0,5-2.238,5-5V-721c0-2.761-2.238-5-5-5H3C0.238-726-2-723.761-2-721z"
+      />
+      <linearGradient
+        id="extendable-Shape_4_"
+        gradientUnits="userSpaceOnUse"
+        x1="-96.6465"
+        y1="-538.1768"
+        x2="-97.7924"
+        y2="-537.0216"
+        gradientTransform="matrix(99.1035 0 0 -99.1035 9624.8516 -53890.2305)"
+      >
+        <stop offset="0" style={{stopColor:"#00E833"}} />
+        <stop offset="1" style={{stopColor:"#3197FE"}} />
+      </linearGradient>
+      <path
+        id="extendable-rect-left-top"
+        fill="url(#extendable-Shape_4_)"
+        d="M-23.896-721v54.512c0,1.326-0.527,2.598-1.465,3.536
             l-34.591,34.591c-0.938,0.938-2.209,1.464-3.535,1.464H-118c-2.761,0-5-2.239-5-5V-721c0-2.761,2.239-5,5-5h89.104
-            C-26.135-726-23.896-723.761-23.896-721z"/>
-            <linearGradient id="extendable-Shape_5_" gradientUnits="userSpaceOnUse" x1="-100.2583" y1="-534.4707" x2="-97.8099" y2="-537.0026" gradientTransform="matrix(99.1035 0 0 -99.1035 9745.8486 -53770.2266)">
-            <stop  offset="0" style="stop-color:#00E833"/>
-            <stop  offset="1" style="stop-color:#3197FE"/>
-        </linearGradient>
-        <path id="extendable-rect-right-bottom" fill="url(#extendable-Shape_5_)" d="M-2-511.896v-54.512c0-1.326,0.527-2.599,1.465-3.536
+            C-26.135-726-23.896-723.761-23.896-721z"
+      />
+      <linearGradient
+        id="extendable-Shape_5_"
+        gradientUnits="userSpaceOnUse"
+        x1="-100.2583"
+        y1="-534.4707"
+        x2="-97.8099"
+        y2="-537.0026"
+        gradientTransform="matrix(99.1035 0 0 -99.1035 9745.8486 -53770.2266)"
+      >
+        <stop offset="0" style={{stopColor:"#00E833"}} />
+        <stop offset="1" style={{stopColor:"#3197FE"}} />
+      </linearGradient>
+      <path
+        id="extendable-rect-right-bottom"
+        fill="url(#extendable-Shape_5_)"
+        d="M-2-511.896v-54.512c0-1.326,0.527-2.599,1.465-3.536
             l34.591-34.591c0.938-0.938,2.21-1.464,3.536-1.464h54.512c2.762,0,5,2.239,5,5v89.104c0,2.762-2.238,5-5,5H3
-            c-1.326,0-2.598-0.527-3.535-1.465S-2-510.57-2-511.896z"/>
-        <g id="extendable-circle">
-            <circle id="extendable-path-8" fill="#3298FF" cx="-11.731" cy="-613.367" r="27.5"/>
-            <circle id="extendable-path-8_1_" fill="none" cx="-11.731" cy="-613.367" r="27.5"/>
-            <circle id="extendable-Oval" fill="#00E833" cx="-11.731" cy="-613.367" r="10"/>
-        </g>
+            c-1.326,0-2.598-0.527-3.535-1.465S-2-510.57-2-511.896z"
+      />
+      <g id="extendable-circle">
+        <circle
+          id="extendable-path-8"
+          fill="#3298FF"
+          cx="-11.731"
+          cy="-613.367"
+          r="27.5"
+        />
+        <circle
+          id="extendable-path-8_1_"
+          fill="none"
+          cx="-11.731"
+          cy="-613.367"
+          r="27.5"
+        />
+        <circle
+          id="extendable-Oval"
+          fill="#00E833"
+          cx="-11.731"
+          cy="-613.367"
+          r="10"
+        />
+      </g>
     </g>
-</svg>
+  </StyledSvg>
+);
+
+export default Extendable;

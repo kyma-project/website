@@ -18,7 +18,7 @@ const WhatIs = ({ t }) => {
       <div className="container">
         <div className="row row--space-between row--sm-align-center">
           <div className="col-5 col-md-6 col-sm-9">
-            <object data={WhatIsSvg} />
+            <object type="image/svg+xml" data={WhatIsSvg} aria-label="Illustration of a pirate treasure" />
           </div>
           <div className="col-6 col-md-9 col-sm-12 content-inverse">
             <h2>{t(`${sectionPrefix}.headline`)}</h2>

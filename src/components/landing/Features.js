@@ -1,19 +1,21 @@
 import React from "react";
 import { translate } from "react-i18next";
 
-import FeatureConnectivitySvg from "./assets/feature-connectivity.svg";
-import FeatureExtendableSvg from "./assets/feature-extendable.svg";
-import FeatureTechIndependentSvg from "./assets/feature-tech-independent.svg";
+import Connectivity from "./features/Connectivity";
+import Extendable from "./features/Extendable";
+import TechIndependent from "./features/TechIndependent";
 
 const FeaturesComponent = ({ t }) => {
-  const getImage = sectionId => {
+  const getIllustrationComponent = sectionId => {
     switch (sectionId) {
       case "openAndExtendable":
-        return FeatureExtendableSvg;
+        return <Extendable/>;
       case "seamlessConnectivity":
-        return FeatureConnectivitySvg;
+        return <Connectivity/>;
       case "coherentAndTechnologyIndependent":
-        return FeatureTechIndependentSvg;
+        return <TechIndependent/>;
+      default:
+        return null;
     }
   };
 
@@ -25,7 +27,7 @@ const FeaturesComponent = ({ t }) => {
           <section className="col-4 col-md-12" key={section.id}>
             <h3>{section.headline}</h3>
             <div className="img-wrap">
-              <object data={getImage(section.id)} />
+              {getIllustrationComponent(section.id)}
             </div>
             <ul className="list-disc">
               {section.bulletPoints.map((bulletPoint, idx) => (
