@@ -1,8 +1,10 @@
 import React from "react";
-import NavigationContainer from "./Navigation.container";
+import { translate } from "react-i18next";
 import Link from "gatsby-link";
 
-const Header = ({headerClassName, logoClassName}) => {
+import NavigationContainer from "./Navigation.container";
+
+const Header = ({headerClassName, logoClassName, t}) => {
   return (
     <header className={`bg-h ${headerClassName ? headerClassName : ''}`}>
       <div className="container">
@@ -12,7 +14,7 @@ const Header = ({headerClassName, logoClassName}) => {
             role="img"
             aria-labelledby="logoTitle"
           >
-            <title id="logoTitle">Kyma Logo</title>
+            <title id="logoTitle">{`${t("metadata.title")} ${t("logo")}`}</title>
             <use xlinkHref="#logo" />
           </svg>
         </Link>
@@ -23,4 +25,4 @@ const Header = ({headerClassName, logoClassName}) => {
   );
 };
 
-export default Header;
+export default translate(["UI"])(Header);

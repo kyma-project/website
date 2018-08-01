@@ -1,10 +1,11 @@
 import React from "react";
+import { translate } from "react-i18next";
 import styled from "styled-components";
 
 import colors from "../../config/colors";
 
-const FooterWrapper = styled.div`
-    margin-top: 30px;
+const FooterWrapper = styled.footer`
+  margin-top: 30px;
 `;
 
 const TagsWrapper = styled.ul`
@@ -13,10 +14,10 @@ const TagsWrapper = styled.ul`
 `;
 
 const TagsText = styled.p`
-    font-weight: bold;
-    display: block;
-    margin-bottom: 16px;
-    color: ${colors.gray};
+  font-weight: bold;
+  display: block;
+  margin-bottom: 16px;
+  color: ${colors.gray};
 `;
 
 const TagPill = styled.li`
@@ -28,14 +29,14 @@ const TagPill = styled.li`
   margin-bottom: 15px;
 
   & + & {
-      margin-left: 15px;
+    margin-left: 15px;
   }
 `;
 
-const PostFooter = ({ tags }) => {
+const PostFooter = ({ tags, t }) => {
   return (
     <FooterWrapper>
-      <TagsText>Tags</TagsText>
+      <TagsText>{t("blog.tags")}</TagsText>
       <TagsWrapper>
         {tags.map((tag, idx) => <TagPill key={idx}>{tag}</TagPill>)}
       </TagsWrapper>
@@ -43,4 +44,4 @@ const PostFooter = ({ tags }) => {
   );
 };
 
-export default PostFooter;
+export default translate("UI")(PostFooter);

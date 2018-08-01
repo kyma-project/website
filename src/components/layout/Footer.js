@@ -1,6 +1,13 @@
 import React from "react";
+import { translate } from "react-i18next";
 
-const Footer = () => {
+const Footer = ({ t }) => {
+  const translateLink = socialMediaPortal => (t(`socialMedia.${socialMediaPortal}`, {returnObjects: true}));
+
+  const twitter = translateLink("twitter");
+  const github = translateLink("github");
+  const slack = translateLink("slack");
+
   return (
     <footer>
       <div className="bg-f">
@@ -10,61 +17,54 @@ const Footer = () => {
             role="img"
             aria-labelledby="title"
           >
-            <title id="title">Kyma Logo</title>
+            <title id="title">{`${t("metadata.title")} ${t(
+              "logo"
+            )}`}</title>
             <use xlinkHref="#logo-single" />
           </svg>
-          <a
-            href="https://github.com/kyma-project"
-            className="link link-github"
-          >
+          <a href={github.url} className="link link-github">
             <svg
               className="sprite-icon sprite-icon--12 sprite-icon--inverse"
               role="img"
               aria-labelledby="githublLink"
             >
-              <title id="githublLink">twitter icon</title>
+              <title id="githublLink">{`${github.name} ${t("logo")}`}</title>
               <use xlinkHref="#github" />
             </svg>
-            GitHub
+            {github.name}
           </a>
-          <a
-            href="https://twitter.com/kymaproject"
-            className="link link-twitter"
-          >
+          <a href={twitter.url} className="link link-twitter">
             <svg
               className="sprite-icon sprite-icon--12 sprite-icon--inverse"
               role="img"
               aria-labelledby="twitterlLink"
             >
-              <title id="twitterlLink">twitter icon</title>
+              <title id="twitterlLink">t{`${twitter.name} ${t("icon")}`}</title>
               <use xlinkHref="#twitter" />
             </svg>
-            Twitter
+            {twitter.name}
           </a>
-          <a
-            href="https://join.slack.com/t/kyma-community/shared_invite/enQtNDAwNzE4Mjk2NDE3LTJhOTlmZjM5YzkwNmEzNmY3ZjE2MTU2OTMxOGE4ZDM0MmU4ZWRkZGJiODgzNmRmMTYxMDYwNjZiMDAwMTA2OWM"
-            className="link link-slack"
-          >
+          <a href={slack.url} className="link link-slack">
             <svg
               className="sprite-icon sprite-icon--12 sprite-icon--inverse"
               role="img"
               aria-labelledby="slackLink"
             >
-              <title id="slackLink">slack icon</title>
+              <title id="slackLink">{`${slack.name} ${t("icon")}`}</title>
               <use xlinkHref="#slack" />
             </svg>
-            Slack
+            {slack.name}
           </a>
 
           <div className="copyright">
             <p>
-              Copyright © 2018 The Kyma project authors.{" "}
+              {`${t("copyright")} `}
               <a
-                href="https://www.sap.com/corporate/en/legal/privacy.html"
+                href={t("privacyStatementLink")}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Privacy Statement
+                {t("privacyStatement")}
               </a>
             </p>
           </div>
@@ -74,4 +74,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default translate(["UI"])(Footer);

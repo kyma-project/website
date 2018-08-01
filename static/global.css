@@ -7,7 +7,7 @@
   padding-left: 30px;
   margin-left: auto;
   margin-right: auto;
-  transition: 0.3s;
+  
 }
 
 .row {
@@ -41,7 +41,7 @@
   -ms-flex-direction: column;
   flex-direction: column;
   margin-bottom: 40px;
-  transition: 0.35s;
+  
 }
 
 .col-2 {
@@ -54,7 +54,7 @@
   -ms-flex-direction: column;
   flex-direction: column;
   margin-bottom: 40px;
-  transition: 0.35s;
+  
 }
 
 .col-3 {
@@ -67,7 +67,7 @@
   -ms-flex-direction: column;
   flex-direction: column;
   margin-bottom: 40px;
-  transition: 0.35s;
+  
 }
 
 .col-4 {
@@ -80,7 +80,7 @@
   -ms-flex-direction: column;
   flex-direction: column;
   margin-bottom: 40px;
-  transition: 0.35s;
+  
 }
 
 .col-5 {
@@ -93,7 +93,7 @@
   -ms-flex-direction: column;
   flex-direction: column;
   margin-bottom: 40px;
-  transition: 0.35s;
+  
 }
 
 .col-6 {
@@ -106,7 +106,7 @@
   -ms-flex-direction: column;
   flex-direction: column;
   margin-bottom: 40px;
-  transition: 0.35s;
+  
 }
 
 .col-7 {
@@ -119,7 +119,7 @@
   -ms-flex-direction: column;
   flex-direction: column;
   margin-bottom: 40px;
-  transition: 0.35s;
+  
 }
 
 .col-8 {
@@ -132,7 +132,7 @@
   -ms-flex-direction: column;
   flex-direction: column;
   margin-bottom: 40px;
-  transition: 0.35s;
+  
 }
 
 .col-9 {
@@ -145,7 +145,7 @@
   -ms-flex-direction: column;
   flex-direction: column;
   margin-bottom: 40px;
-  transition: 0.35s;
+  
 }
 
 .col-10 {
@@ -158,7 +158,7 @@
   -ms-flex-direction: column;
   flex-direction: column;
   margin-bottom: 40px;
-  transition: 0.35s;
+  
 }
 
 .col-11 {
@@ -171,7 +171,7 @@
   -ms-flex-direction: column;
   flex-direction: column;
   margin-bottom: 40px;
-  transition: 0.35s;
+  
 }
 
 .col-12 {
@@ -184,7 +184,7 @@
   -ms-flex-direction: column;
   flex-direction: column;
   margin-bottom: 40px;
-  transition: 0.35s;
+  
 }
 
 @media (max-width: 767px) {
@@ -198,7 +198,7 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    transition: 0.35s;
+    
   }
   .col-md-2 {
     padding: 0 15px;
@@ -210,7 +210,7 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    transition: 0.35s;
+    
   }
   .col-md-3 {
     padding: 0 15px;
@@ -222,7 +222,7 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    transition: 0.35s;
+    
   }
   .col-md-4 {
     padding: 0 15px;
@@ -234,7 +234,7 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    transition: 0.35s;
+    
   }
   .col-md-5 {
     padding: 0 15px;
@@ -246,7 +246,7 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    transition: 0.35s;
+    
   }
   .col-md-6 {
     padding: 0 15px;
@@ -258,7 +258,7 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    transition: 0.35s;
+    
   }
   .col-md-7 {
     padding: 0 15px;
@@ -270,7 +270,7 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    transition: 0.35s;
+    
   }
   .col-md-8 {
     padding: 0 15px;
@@ -282,7 +282,7 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    transition: 0.35s;
+    
   }
   .col-md-9 {
     padding: 0 15px;
@@ -294,7 +294,7 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    transition: 0.35s;
+    
   }
   .col-md-10 {
     padding: 0 15px;
@@ -306,7 +306,7 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    transition: 0.35s;
+    
   }
   .col-md-11 {
     padding: 0 15px;
@@ -318,7 +318,7 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    transition: 0.35s;
+    
   }
   .col-md-12 {
     padding: 0 15px;
@@ -330,7 +330,7 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    transition: 0.35s;
+    
   }
   .hidden-md {
     display: none;
@@ -348,7 +348,7 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    transition: 0.35s;
+    
   }
   .col-sm-2 {
     padding: 0 15px;
@@ -360,7 +360,7 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    transition: 0.35s;
+    
   }
   .col-sm-3 {
     padding: 0 15px;
@@ -372,7 +372,7 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    transition: 0.35s;
+    
   }
   .col-sm-4 {
     padding: 0 15px;
@@ -384,7 +384,7 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    transition: 0.35s;
+    
   }
   .col-sm-5 {
     padding: 0 15px;
@@ -396,7 +396,7 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    transition: 0.35s;
+    
   }
   .col-sm-6 {
     padding: 0 15px;
@@ -408,7 +408,7 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    transition: 0.35s;
+    
   }
   .col-sm-7 {
     padding: 0 15px;
@@ -420,7 +420,7 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    transition: 0.35s;
+    
   }
   .col-sm-8 {
     padding: 0 15px;
@@ -432,7 +432,7 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    transition: 0.35s;
+    
   }
   .col-sm-9 {
     padding: 0 15px;
@@ -444,7 +444,7 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    transition: 0.35s;
+    
   }
   .col-sm-10 {
     padding: 0 15px;
@@ -456,7 +456,7 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    transition: 0.35s;
+    
   }
   .col-sm-11 {
     padding: 0 15px;
@@ -468,7 +468,7 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    transition: 0.35s;
+    
   }
   .col-sm-12 {
     padding: 0 15px;
@@ -480,7 +480,7 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    transition: 0.35s;
+    
   }
   .hidden-sm {
     display: none;
@@ -498,7 +498,7 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    transition: 0.35s;
+    
   }
   .col-lg-2 {
     padding: 0 15px;
@@ -510,7 +510,7 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    transition: 0.35s;
+    
   }
   .col-lg-3 {
     padding: 0 15px;
@@ -522,7 +522,7 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    transition: 0.35s;
+    
   }
   .col-lg-4 {
     padding: 0 15px;
@@ -534,7 +534,7 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    transition: 0.35s;
+    
   }
   .col-lg-5 {
     padding: 0 15px;
@@ -546,7 +546,7 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    transition: 0.35s;
+    
   }
   .col-lg-6 {
     padding: 0 15px;
@@ -558,7 +558,7 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    transition: 0.35s;
+    
   }
   .col-lg-7 {
     padding: 0 15px;
@@ -570,7 +570,7 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    transition: 0.35s;
+    
   }
   .col-lg-8 {
     padding: 0 15px;
@@ -582,7 +582,7 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    transition: 0.35s;
+    
   }
   .col-lg-9 {
     padding: 0 15px;
@@ -594,7 +594,7 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    transition: 0.35s;
+    
   }
   .col-lg-10 {
     padding: 0 15px;
@@ -606,7 +606,7 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    transition: 0.35s;
+    
   }
   .col-lg-11 {
     padding: 0 15px;
@@ -618,7 +618,7 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    transition: 0.35s;
+    
   }
   .col-lg-12 {
     padding: 0 15px;
@@ -630,7 +630,7 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    transition: 0.35s;
+    
   }
 }
 
@@ -746,7 +746,7 @@ h3 {
   width: 100%;
   position: absolute;
   z-index: -1;
-  transition: 0.3s;
+  
 }
 
 .bg-h.blog-header:before {
@@ -761,6 +761,7 @@ h3 {
   .bg-h.blog-header:before {
     top: -12vw;
     background-size: cover;
+    background-position: center center;
   } 
 }
 
@@ -992,7 +993,7 @@ h3 {
   max-width: 228px;
 }
 .kyma-attr ul {
-  transition: 0.35s;
+  
 }
 @media (min-width: 373px) {
   .kyma-attr ul {
@@ -1020,184 +1021,6 @@ h3 {
   }
 }
 
-#technology-circle {
-  animation: tech-circle 27s linear infinite;
-}
-
-#technology-triangle {
-  animation: tech-triangle 24s linear infinite;
-}
-
-#technology-rect {
-  animation: tech-rect 22s linear infinite;
-}
-
-@keyframes tech-circle {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-  20% {
-    transform: translate3d(0, -30px, 0);
-  }
-  70% {
-    transform: translate3d(0, 70px, 0);
-  }
-  100% {
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-@keyframes tech-triangle {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-  50% {
-    transform: translate3d(0, 130px, 0);
-  }
-  100% {
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-@keyframes tech-rect {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-  50% {
-    transform: translate3d(0, -60px, 0);
-  }
-  100% {
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-.connectivity-svg {
-  padding: 5px;
-}
-
-#connectivity-circle-small {
-  transform-origin: 50% 50%;
-  animation: connectivity-small 2s linear infinite;
-}
-
-#connectivity-circle-middle {
-  transform-origin: 50% 50%;
-  animation: connectivity-middle 2s linear infinite;
-}
-
-#connectivity-circle-big {
-  transform-origin: 50% 50%;
-  animation: connectivity-big 2s linear infinite;
-}
-
-@keyframes connectivity-small {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1) translate(-9px, -8px);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-@keyframes connectivity-middle {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1) translate(-6px, 7px);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-@keyframes connectivity-big {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05) translate(0, -1px);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-.extendable-svg {
-  padding: 5px;
-}
-
-#extendable-rect-right-bottom {
-  transform-origin: 50% 50%;
-  animation: extendable-rect-right-bottom 3s linear infinite;
-}
-
-#extendable-rect-left-bottom {
-  transform-origin: 50% 50%;
-  animation: extendable-rect-left-bottom 3s linear infinite;
-}
-
-#extendable-rect-right-top {
-  transform-origin: 50% 50%;
-  animation: extendable-rect-right-top 3s linear infinite;
-}
-
-#extendable-rect-left-top {
-  transform-origin: 50% 50%;
-  animation: extendable-rect-left-top 3s linear infinite;
-}
-
-@keyframes extendable-rect-right-bottom {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: translate(6px, 7px);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-@keyframes extendable-rect-left-bottom {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: translate(-6px, 7px);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-@keyframes extendable-rect-right-top {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: translate(6px, -7px);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-@keyframes extendable-rect-left-top {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: translate(-6px, -7px);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
 .home-link {
   width: 173px;
   max-height: 61px;
@@ -1218,13 +1041,13 @@ h3 {
   display: flex;
   margin-top: 3.5%;
   margin-bottom: 0;
-  transition: 0.3s;
+  
 }
 .bg-m .container {
   z-index: 100;
   position: relative;
   padding-top: 3%;
-  transition: 0.3s;
+  
 }
 @media (max-width: 767px) {
   .bg-m .container {
@@ -1249,126 +1072,9 @@ h3 {
   height: 415px;
 }
 
-#star-top {
-  transform-origin: 212px 57px;
-  animation: star 6s linear infinite;
-}
-
-#star-left {
-  transform-origin: 209px 138px;
-  animation: star-reverse 5s linear infinite;
-}
-
-#star-right {
-  transform-origin: 318px 140px;
-  animation: star 4s linear infinite;
-}
-
-@keyframes star {
-  0% {
-    opacity: 0;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.1) rotate3d(0, 0, 1, 20deg);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1);
-  }
-}
-
-@keyframes star-reverse {
-  0% {
-    opacity: 0;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.1) rotate3d(0, 0, 1, -20deg);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1);
-  }
-}
-
 .mission-svg {
   width: 457px;
   height: 317px;
-}
-
-#cloud-1 {
-  animation: cloud-1 30s linear infinite;
-}
-
-#cloud-2 {
-  animation: cloud-2 30s linear infinite;
-}
-
-#cloud-3 {
-  animation: cloud-3 50s linear infinite;
-}
-
-@keyframes cloud-1 {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-  60% {
-    transform: translate3d(490px, 0, 0);
-  }
-  62% {
-    opacity: 0;
-    transform: translate3d(-300px, 0, 0);
-  }
-  63% {
-    opacity: 0.2;
-    transform: translate3d(-300px, 0, 0);
-  }
-  100% {
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-@keyframes cloud-2 {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-  30% {
-    transform: translate3d(150px, 0, 0);
-  }
-  32% {
-    opacity: 0;
-    transform: translate3d(-500px, 0, 0);
-  }
-  33% {
-    opacity: 0.2;
-    transform: translate3d(-500px, 0, 0);
-  }
-  100% {
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-@keyframes cloud-3 {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-  75% {
-    transform: translate3d(550px, 0, 0);
-  }
-  77% {
-    opacity: 0;
-    transform: translate3d(-150px, 0, 0);
-  }
-  78% {
-    opacity: 0.2;
-    transform: translate3d(-150px, 0, 0);
-  }
-  100% {
-    transform: translate3d(0, 0, 0);
-  }
 }
 
 footer {
@@ -1391,7 +1097,7 @@ footer {
   display: -ms-flexbox;
   display: flex;
   margin-top: 7.5%;
-  transition: 0.3s;
+  
 }
 .bg-f .container {
   z-index: 100;
@@ -1427,7 +1133,7 @@ footer {
   padding: 0 18px;
   line-height: 46px;
   background-color: transparent;
-  transition: 0.2s;
+  transition: background-color ease-out 0.2s;
   text-decoration: none;
 }
 
@@ -1451,7 +1157,6 @@ footer {
   color: #ffffff;
   font-size: 14px;
   text-decoration: none;
-  transition: 0.2s;
 }
 .link:before {
   display: inline-block;
@@ -1583,3 +1288,4 @@ svg {
     margin-bottom: 10%;
   }
 }
+

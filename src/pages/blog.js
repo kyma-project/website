@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Post from "../components/blog/Post";
 import DefaultLayout from "../components/layout/DefaultLayout";
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
   max-width: 850px;
 `;
 
