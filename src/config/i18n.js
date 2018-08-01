@@ -15,14 +15,14 @@ i18n
     defaultNS: "translations",
     debug: false,
     interpolation: {
-      escapeValue: false
+      escapeValue: false,
     },
     react: {
-      wait: true
+      wait: true,
     },
     backend: {
       loadPath: withPrefix("/locales/{{lng}}/{{ns}}.json"),
-    }
+    },
   });
 
 export default i18n;

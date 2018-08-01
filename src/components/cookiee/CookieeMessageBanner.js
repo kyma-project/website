@@ -54,9 +54,9 @@ const StyledCookieBanner = styled(CookieBanner)`
 
 const CookieMessageBanner = ({ t }) => {
   const tPrefix = "cookieBanner";
-  const getTranslation = (key) => {
+  const getTranslation = key => {
     return t(`${tPrefix}.${key}`);
-  }
+  };
 
   return (
     <StyledCookieBanner
@@ -64,7 +64,11 @@ const CookieMessageBanner = ({ t }) => {
       dismissOnScroll={false}
       message={getTranslation("message")}
       link={
-        <a href={getTranslation("link")} target="_blank" rel="noopener noreferrer">
+        <a
+          href={getTranslation("link")}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           {getTranslation("readPrivacyStatement")}
         </a>
       }

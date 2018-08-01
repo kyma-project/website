@@ -2,7 +2,8 @@ import React from "react";
 import { translate } from "react-i18next";
 
 const Footer = ({ t }) => {
-  const translateLink = socialMediaPortal => (t(`socialMedia.${socialMediaPortal}`, {returnObjects: true}));
+  const translateLink = socialMediaPortal =>
+    t(`socialMedia.${socialMediaPortal}`, { returnObjects: true });
 
   const twitter = translateLink("twitter");
   const github = translateLink("github");
@@ -17,9 +18,7 @@ const Footer = ({ t }) => {
             role="img"
             aria-labelledby="title"
           >
-            <title id="title">{`${t("metadata.title")} ${t(
-              "logo"
-            )}`}</title>
+            <title id="title">{`${t("metadata.title")} ${t("logo")}`}</title>
             <use xlinkHref="#logo-single" />
           </svg>
           <a href={github.url} className="link link-github">

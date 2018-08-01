@@ -19,7 +19,11 @@ const MissionComponent = ({ t }) => {
         </div>
       </div>
       <div className="col-5 col-md-6 col-sm-9">
-        <object type="image/svg+xml" data={MissionSvg} aria-label="Illustration showing mountains" />
+        <object
+          type="image/svg+xml"
+          data={MissionSvg}
+          aria-label="Illustration showing mountains"
+        />
       </div>
     </div>
   );

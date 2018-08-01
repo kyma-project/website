@@ -5,17 +5,17 @@ import NavigationComponent from "./Navigation.component";
 const NavigationContainer = ({ props }) => (
   <StaticQuery
     query={graphql`
-    query NavigationQuery {
-      site {
-        siteMetadata {
-          navigation {
-            id
-            path
+      query NavigationQuery {
+        site {
+          siteMetadata {
+            navigation {
+              id
+              path
+            }
           }
         }
       }
-    }
-  `}
+    `}
     render={data => {
       const languages =
         (data.site &&

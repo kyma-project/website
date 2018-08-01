@@ -18,7 +18,7 @@ const Post = ({ metadata = {}, html }) => {
   const { title, author, tags = [], date, path } = metadata;
   return (
     <PostWrapper>
-      <PostHeader title={title} author={author} date={date} path={path}/>
+      <PostHeader title={title} author={author} date={date} path={path} />
       <PostContent html={html} />
       <PostFooter tags={tags} />
     </PostWrapper>

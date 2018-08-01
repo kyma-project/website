@@ -4,14 +4,14 @@ module.exports = {
     navigation: [
       {
         path: "https://github.com/kyma-project/kyma/tree/master/docs",
-        id: "documentation"
+        id: "documentation",
       },
       {
         path: "/blog",
-        id: "blog"
-      }
+        id: "blog",
+      },
     ],
-    languages: [{ code: "en", label: "English" }]
+    languages: [{ code: "en", label: "English" }],
   },
   // Gatsby Config
   plugins: [
@@ -20,8 +20,8 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/src/blog-posts`,
-        name: "markdown-pages"
-      }
+        name: "markdown-pages",
+      },
     },
     `gatsby-plugin-sharp`,
     {
@@ -32,11 +32,11 @@ module.exports = {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 1000,
-              linkImagesToOriginal: false
-            }
-          }
-        ]
-      }
+              linkImagesToOriginal: false,
+            },
+          },
+        ],
+      },
     },
     `gatsby-plugin-styled-components`,
     {
@@ -45,7 +45,7 @@ module.exports = {
         trackingId: "UA-122665881-1",
         head: false,
         anonymize: true,
-      }
-    }
-  ]
+      },
+    },
+  ],
 };

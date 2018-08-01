@@ -9,11 +9,11 @@ const FeaturesComponent = ({ t }) => {
   const getIllustrationComponent = sectionId => {
     switch (sectionId) {
       case "openAndExtendable":
-        return <Extendable/>;
+        return <Extendable />;
       case "seamlessConnectivity":
-        return <Connectivity/>;
+        return <Connectivity />;
       case "coherentAndTechnologyIndependent":
-        return <TechIndependent/>;
+        return <TechIndependent />;
       default:
         return null;
     }

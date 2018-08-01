@@ -1,17 +1,22 @@
 {
   "name": "kyma-website",
   "description": "Kyma Project Website",
-  "license": "Apache 2.0",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kyma-project/website"
+  },
   "scripts": {
     "start": "npm run develop",
     "develop": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "publish": "gatsby build && gh-pages -d public -m 'Deploy new version of site' -o upstream"
+    "publish":
+      "gatsby build && gh-pages -d public -m 'Deploy new version of site' -o upstream"
   },
   "dependencies": {
     "babel-plugin-styled-components": "^1.5.1",
-    "gatsby": "^2.0.0-beta.59",
+    "gatsby": "^2.0.0-beta.65",
     "gatsby-plugin-google-analytics": "^1.0.31",
     "gatsby-plugin-react-helmet": "^2.0.11",
     "gatsby-plugin-sharp": "^1.6.48",
@@ -19,18 +24,27 @@
     "gatsby-remark-images": "^1.5.67",
     "gatsby-source-filesystem": "^1.5.39",
     "gatsby-transformer-remark": "^1.7.44",
-    "grid-styled": "^5.0.2",
-    "i18next": "^11.4.0",
-    "i18next-browser-languagedetector": "^2.2.0",
+    "i18next": "^11.5.0",
+    "i18next-browser-languagedetector": "^2.2.2",
     "i18next-xhr-backend": "^1.5.1",
     "react": "^16.3.2",
     "react-cookie-banner": "^4.0.0",
     "react-dom": "^16.3.2",
     "react-helmet": "^5.2.0",
-    "react-i18next": "^7.9.0",
+    "react-i18next": "^7.10.1",
     "styled-components": "^3.3.3"
   },
   "devDependencies": {
-    "gh-pages": "^1.2.0"
+    "gh-pages": "^1.2.0",
+    "husky": "^1.0.0-rc.13",
+    "lint-staged": "^7.2.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,json,css}": ["prettier --write", "git add"]
   }
 }

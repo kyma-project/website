@@ -104,8 +104,8 @@ const Extendable = () => (
             y2="-573.2733"
             gradientTransform="matrix(262.4462 0 0 -217.9854 25911.1172 -125378.1875)"
           >
-            <stop offset="0" style={{stopColor:"#0B74DE"}} />
-            <stop offset="1" style={{stopColor:"#4D10E1"}} />
+            <stop offset="0" style={{ stopColor: "#0B74DE" }} />
+            <stop offset="1" style={{ stopColor: "#4D10E1" }} />
           </linearGradient>
           <path
             id="extendable-path-2_1_"
@@ -233,8 +233,8 @@ const Extendable = () => (
         y2="-535.3293"
         gradientTransform="matrix(220.1035 0 0 -219.1035 21724.8477 -117910.2266)"
       >
-        <stop offset="0" style={{stopColor:"#00E833"}} />
-        <stop offset="1" style={{stopColor:"#0B74DE"}} />
+        <stop offset="0" style={{ stopColor: "#00E833" }} />
+        <stop offset="1" style={{ stopColor: "#0B74DE" }} />
       </linearGradient>
       <path
         fill="url(#SVGID_1_)"
@@ -251,8 +251,8 @@ const Extendable = () => (
         y2="-536.9236"
         gradientTransform="matrix(99.1035 0 0 -99.1036 9745.8486 -53890.25)"
       >
-        <stop offset="0" style={{stopColor:"#00E833"}} />
-        <stop offset="1" style={{stopColor:"#3197FE"}} />
+        <stop offset="0" style={{ stopColor: "#00E833" }} />
+        <stop offset="1" style={{ stopColor: "#3197FE" }} />
       </linearGradient>
       <path
         id="extendable-rect-right-top"
@@ -269,8 +269,8 @@ const Extendable = () => (
         y2="-537.0216"
         gradientTransform="matrix(99.1035 0 0 -99.1035 9624.8516 -53890.2305)"
       >
-        <stop offset="0" style={{stopColor:"#00E833"}} />
-        <stop offset="1" style={{stopColor:"#3197FE"}} />
+        <stop offset="0" style={{ stopColor: "#00E833" }} />
+        <stop offset="1" style={{ stopColor: "#3197FE" }} />
       </linearGradient>
       <path
         id="extendable-rect-left-top"
@@ -288,8 +288,8 @@ const Extendable = () => (
         y2="-537.0026"
         gradientTransform="matrix(99.1035 0 0 -99.1035 9745.8486 -53770.2266)"
       >
-        <stop offset="0" style={{stopColor:"#00E833"}} />
-        <stop offset="1" style={{stopColor:"#3197FE"}} />
+        <stop offset="0" style={{ stopColor: "#00E833" }} />
+        <stop offset="1" style={{ stopColor: "#3197FE" }} />
       </linearGradient>
       <path
         id="extendable-rect-right-bottom"

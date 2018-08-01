@@ -6,7 +6,7 @@ import WhatIsSvg from "./assets/whatIs.svg";
 const WhatIs = ({ t }) => {
   const github = {
     name: t(`UI:socialMedia.github.name`),
-    url: t(`UI:socialMedia.github.url`)
+    url: t(`UI:socialMedia.github.url`),
   };
 
   const sectionPrefix = "whatIs";
@@ -18,7 +18,11 @@ const WhatIs = ({ t }) => {
       <div className="container">
         <div className="row row--space-between row--sm-align-center">
           <div className="col-5 col-md-6 col-sm-9">
-            <object type="image/svg+xml" data={WhatIsSvg} aria-label="Illustration of a pirate treasure" />
+            <object
+              type="image/svg+xml"
+              data={WhatIsSvg}
+              aria-label="Illustration of a pirate treasure"
+            />
           </div>
           <div className="col-6 col-md-9 col-sm-12 content-inverse">
             <h2>{t(`${sectionPrefix}.headline`)}</h2>
@@ -31,13 +35,13 @@ const WhatIs = ({ t }) => {
                   aria-labelledby="buttonGithub"
                 >
                   <title id="buttonGithub">{`${github.name} ${t(
-                    "UI:logo"
+                    "UI:logo",
                   )}`}</title>
                   <use xlinkHref="#github" />
                 </svg>
                 <span>
                   {t("whatIs.action", {
-                    site: github.name
+                    site: github.name,
                   })}
                 </span>
               </a>
