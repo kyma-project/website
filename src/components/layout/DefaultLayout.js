@@ -14,10 +14,16 @@ const Wrapper = styled.main`
 
 const DefaultLayout = ({ pageId, pageName, children }) => {
   return (
-    <main className="content-layout" style={{opacity: 0, visibility: "hidden"}}>
+    <main
+      className="content-layout"
+      style={{ opacity: 0, visibility: "hidden" }}
+    >
       <SiteMetadata pageId={pageId} pageName={pageName} />
-      <CookieMessageBanner/>
-      <Header headerClassName="blog-header" logoClassName="sprite-icon--inverse" />
+      <CookieMessageBanner />
+      <Header
+        headerClassName="blog-header"
+        logoClassName="sprite-icon--inverse"
+      />
       <Wrapper>
         <div>{children}</div>
       </Wrapper>

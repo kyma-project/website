@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const BlockSpan = styled.span`
-    display: block;
+  display: block;
 `;
 
 export const displayHeaderWithLineBreaks = text => {

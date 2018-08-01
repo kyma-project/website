@@ -13,7 +13,7 @@ const NavigationComponent = ({ items = [], t }) => {
     }
   };
 
-  const github = t(`socialMedia.github`, {returnObjects: true})
+  const github = t(`socialMedia.github`, { returnObjects: true });
 
   return (
     <>

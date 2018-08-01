@@ -61,7 +61,5 @@ const SiteMetadataComponent = ({ pageId = "", pageName = "", t }) => {
   );
 };
 
-const SiteMetadata = translate("UI")(
-  SiteMetadataComponent
-);
+const SiteMetadata = translate("UI")(SiteMetadataComponent);
 export default SiteMetadata;

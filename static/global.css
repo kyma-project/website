@@ -7,7 +7,6 @@
   padding-left: 30px;
   margin-left: auto;
   margin-right: auto;
-  
 }
 
 .row {
@@ -41,7 +40,6 @@
   -ms-flex-direction: column;
   flex-direction: column;
   margin-bottom: 40px;
-  
 }
 
 .col-2 {
@@ -54,7 +52,6 @@
   -ms-flex-direction: column;
   flex-direction: column;
   margin-bottom: 40px;
-  
 }
 
 .col-3 {
@@ -67,7 +64,6 @@
   -ms-flex-direction: column;
   flex-direction: column;
   margin-bottom: 40px;
-  
 }
 
 .col-4 {
@@ -80,7 +76,6 @@
   -ms-flex-direction: column;
   flex-direction: column;
   margin-bottom: 40px;
-  
 }
 
 .col-5 {
@@ -93,7 +88,6 @@
   -ms-flex-direction: column;
   flex-direction: column;
   margin-bottom: 40px;
-  
 }
 
 .col-6 {
@@ -106,7 +100,6 @@
   -ms-flex-direction: column;
   flex-direction: column;
   margin-bottom: 40px;
-  
 }
 
 .col-7 {
@@ -119,7 +112,6 @@
   -ms-flex-direction: column;
   flex-direction: column;
   margin-bottom: 40px;
-  
 }
 
 .col-8 {
@@ -132,7 +124,6 @@
   -ms-flex-direction: column;
   flex-direction: column;
   margin-bottom: 40px;
-  
 }
 
 .col-9 {
@@ -145,7 +136,6 @@
   -ms-flex-direction: column;
   flex-direction: column;
   margin-bottom: 40px;
-  
 }
 
 .col-10 {
@@ -158,7 +148,6 @@
   -ms-flex-direction: column;
   flex-direction: column;
   margin-bottom: 40px;
-  
 }
 
 .col-11 {
@@ -171,7 +160,6 @@
   -ms-flex-direction: column;
   flex-direction: column;
   margin-bottom: 40px;
-  
 }
 
 .col-12 {
@@ -184,7 +172,6 @@
   -ms-flex-direction: column;
   flex-direction: column;
   margin-bottom: 40px;
-  
 }
 
 @media (max-width: 767px) {
@@ -198,7 +185,6 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    
   }
   .col-md-2 {
     padding: 0 15px;
@@ -210,7 +196,6 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    
   }
   .col-md-3 {
     padding: 0 15px;
@@ -222,7 +207,6 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    
   }
   .col-md-4 {
     padding: 0 15px;
@@ -234,7 +218,6 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    
   }
   .col-md-5 {
     padding: 0 15px;
@@ -246,7 +229,6 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    
   }
   .col-md-6 {
     padding: 0 15px;
@@ -258,7 +240,6 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    
   }
   .col-md-7 {
     padding: 0 15px;
@@ -270,7 +251,6 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    
   }
   .col-md-8 {
     padding: 0 15px;
@@ -282,7 +262,6 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    
   }
   .col-md-9 {
     padding: 0 15px;
@@ -294,7 +273,6 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    
   }
   .col-md-10 {
     padding: 0 15px;
@@ -306,7 +284,6 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    
   }
   .col-md-11 {
     padding: 0 15px;
@@ -318,7 +295,6 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    
   }
   .col-md-12 {
     padding: 0 15px;
@@ -330,7 +306,6 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    
   }
   .hidden-md {
     display: none;
@@ -348,7 +323,6 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    
   }
   .col-sm-2 {
     padding: 0 15px;
@@ -360,7 +334,6 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    
   }
   .col-sm-3 {
     padding: 0 15px;
@@ -372,7 +345,6 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    
   }
   .col-sm-4 {
     padding: 0 15px;
@@ -384,7 +356,6 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    
   }
   .col-sm-5 {
     padding: 0 15px;
@@ -396,7 +367,6 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    
   }
   .col-sm-6 {
     padding: 0 15px;
@@ -408,7 +378,6 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    
   }
   .col-sm-7 {
     padding: 0 15px;
@@ -420,7 +389,6 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    
   }
   .col-sm-8 {
     padding: 0 15px;
@@ -432,7 +400,6 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    
   }
   .col-sm-9 {
     padding: 0 15px;
@@ -444,7 +411,6 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    
   }
   .col-sm-10 {
     padding: 0 15px;
@@ -456,7 +422,6 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    
   }
   .col-sm-11 {
     padding: 0 15px;
@@ -468,7 +433,6 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    
   }
   .col-sm-12 {
     padding: 0 15px;
@@ -480,7 +444,6 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    
   }
   .hidden-sm {
     display: none;
@@ -498,7 +461,6 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    
   }
   .col-lg-2 {
     padding: 0 15px;
@@ -510,7 +472,6 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    
   }
   .col-lg-3 {
     padding: 0 15px;
@@ -522,7 +483,6 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    
   }
   .col-lg-4 {
     padding: 0 15px;
@@ -534,7 +494,6 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    
   }
   .col-lg-5 {
     padding: 0 15px;
@@ -546,7 +505,6 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    
   }
   .col-lg-6 {
     padding: 0 15px;
@@ -558,7 +516,6 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    
   }
   .col-lg-7 {
     padding: 0 15px;
@@ -570,7 +527,6 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    
   }
   .col-lg-8 {
     padding: 0 15px;
@@ -582,7 +538,6 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    
   }
   .col-lg-9 {
     padding: 0 15px;
@@ -594,7 +549,6 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    
   }
   .col-lg-10 {
     padding: 0 15px;
@@ -606,7 +560,6 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    
   }
   .col-lg-11 {
     padding: 0 15px;
@@ -618,7 +571,6 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    
   }
   .col-lg-12 {
     padding: 0 15px;
@@ -630,7 +582,6 @@
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 40px;
-    
   }
 }
 
@@ -746,7 +697,6 @@ h3 {
   width: 100%;
   position: absolute;
   z-index: -1;
-  
 }
 
 .bg-h.blog-header:before {
@@ -762,13 +712,13 @@ h3 {
     top: -12vw;
     background-size: cover;
     background-position: center center;
-  } 
+  }
 }
 
-@media (max-width:  750px) {
+@media (max-width: 750px) {
   .bg-h.blog-header:before {
     top: -10vw;
-  } 
+  }
 }
 
 @media (max-width: 575px) {
@@ -993,7 +943,6 @@ h3 {
   max-width: 228px;
 }
 .kyma-attr ul {
-  
 }
 @media (min-width: 373px) {
   .kyma-attr ul {
@@ -1041,13 +990,11 @@ h3 {
   display: flex;
   margin-top: 3.5%;
   margin-bottom: 0;
-  
 }
 .bg-m .container {
   z-index: 100;
   position: relative;
   padding-top: 3%;
-  
 }
 @media (max-width: 767px) {
   .bg-m .container {
@@ -1097,7 +1044,6 @@ footer {
   display: -ms-flexbox;
   display: flex;
   margin-top: 7.5%;
-  
 }
 .bg-f .container {
   z-index: 100;
@@ -1288,4 +1234,3 @@ svg {
     margin-bottom: 10%;
   }
 }
-

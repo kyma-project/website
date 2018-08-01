@@ -37,6 +37,6 @@ class LanguageSwitcherComponent extends Component {
 }
 
 const LanguageSwitcher = translate("LanguageSwitcher")(
-  LanguageSwitcherComponent
+  LanguageSwitcherComponent,
 );
 export default LanguageSwitcher;

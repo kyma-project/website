@@ -5,7 +5,7 @@ const colors = {
   violet: "#4d10e1",
   green: "#00e833",
   lightGray: "#f2f2f2",
-  gray: "#485766"
+  gray: "#485766",
 };
 
 export default colors;

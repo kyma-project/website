@@ -5,7 +5,7 @@ exports.onPostBootstrap = () => {
   console.log("Copying locales");
   fs.copySync(
     path.join(__dirname, "/src/locales"),
-    path.join(__dirname, "/public/locales")
+    path.join(__dirname, "/public/locales"),
   );
 };
 
@@ -38,7 +38,7 @@ exports.createPages = ({ actions, graphql }) => {
       createPage({
         path: node.frontmatter.path,
         component: blogPostTemplate,
-        context: {} // additional data can be passed via context
+        context: {}, // additional data can be passed via context
       });
     });
   });
