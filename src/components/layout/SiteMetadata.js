@@ -50,6 +50,13 @@ const SiteMetadataComponent = ({ pageId = "", pageName = "", t }) => {
         />
         <meta name="msapplication-TileColor" content="#2b5797" />
         <meta name="theme-color" content="#ffffff" />
+        <meta property="og:title" content={fullSiteTitle} />
+        <meta property="og:description" content={description} />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content={withPrefix("/kyma-logo.png")} />
+        <meta name="twitter:title" content={fullSiteTitle} />>
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={withPrefix("/kyma-logo.png")} />
         <link
           rel="stylesheet"
           type="text/css"
