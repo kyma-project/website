@@ -34,9 +34,7 @@ const WhatIs = ({ t }) => {
                   role="img"
                   aria-labelledby="buttonGithub"
                 >
-                  <title id="buttonGithub">{`${github.name} ${t(
-                    "UI:logo",
-                  )}`}</title>
+                  <title id="buttonGithub">{github.name}</title>
                   <use xlinkHref="#github" />
                 </svg>
                 <span>

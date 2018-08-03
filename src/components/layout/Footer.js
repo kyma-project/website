@@ -18,7 +18,7 @@ const Footer = ({ t }) => {
             role="img"
             aria-labelledby="title"
           >
-            <title id="title">{`${t("metadata.title")} ${t("logo")}`}</title>
+            <title id="title">{t("metadata.title")}</title>
             <use xlinkHref="#logo-single" />
           </svg>
           <a href={github.url} className="link link-github">
@@ -27,7 +27,7 @@ const Footer = ({ t }) => {
               role="img"
               aria-labelledby="githublLink"
             >
-              <title id="githublLink">{`${github.name} ${t("logo")}`}</title>
+              <title id="githublLink">{github.name}</title>
               <use xlinkHref="#github" />
             </svg>
             {github.name}
@@ -38,7 +38,7 @@ const Footer = ({ t }) => {
               role="img"
               aria-labelledby="twitterlLink"
             >
-              <title id="twitterlLink">t{`${twitter.name} ${t("icon")}`}</title>
+              <title id="twitterlLink">t{twitter.name}</title>
               <use xlinkHref="#twitter" />
             </svg>
             {twitter.name}
@@ -49,7 +49,7 @@ const Footer = ({ t }) => {
               role="img"
               aria-labelledby="slackLink"
             >
-              <title id="slackLink">{`${slack.name} ${t("icon")}`}</title>
+              <title id="slackLink">{slack.name}</title>
               <use xlinkHref="#slack" />
             </svg>
             {slack.name}

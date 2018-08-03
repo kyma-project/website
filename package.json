@@ -16,9 +16,9 @@
   },
   "dependencies": {
     "babel-plugin-styled-components": "^1.5.1",
-    "gatsby": "^2.0.0-beta.65",
+    "gatsby": "^2.0.0-beta.66",
     "gatsby-plugin-google-analytics": "^1.0.31",
-    "gatsby-plugin-react-helmet": "^2.0.11",
+    "gatsby-plugin-react-helmet": "^3.0.0-beta.4",
     "gatsby-plugin-sharp": "^1.6.48",
     "gatsby-plugin-styled-components": "^3.0.0-beta.3",
     "gatsby-remark-images": "^1.5.67",

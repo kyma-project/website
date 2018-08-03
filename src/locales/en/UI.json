@@ -1,6 +1,7 @@
 {
   "metadata": {
     "title": "Kyma",
+    "shortDescription": "Cloud-native application development framework",
     "description":
       "A flexible and easy way to integrate and extend enterprise applications in a cloud-native world"
   },
@@ -35,8 +36,6 @@
     "tags": "Tags",
     "postMetadata": "{{author}} on {{date}}"
   },
-  "logo": "Logo",
-  "icon": "Icon",
   "copyright": "Copyright © 2018 The Kyma project authors.",
   "privacyStatement": "Privacy Statement",
   "privacyStatementLink": "https://www.sap.com/corporate/en/legal/privacy.html"

@@ -39,7 +39,7 @@ const NavigationComponent = ({ items = [], t }) => {
               role="img"
               aria-labelledby="logoGithub"
             >
-              <title id="logoGithub">{`${github.name} ${t("logo")}`}</title>
+              <title id="logoGithub">{github.name}</title>
               <use xlinkHref="#github" />
             </svg>
             <span className="hidden-md">{github.name}</span>

@@ -16,9 +16,7 @@ const Header = ({ headerClassName, logoClassName, t }) => {
             role="img"
             aria-labelledby="logoTitle"
           >
-            <title id="logoTitle">{`${t("metadata.title")} ${t(
-              "logo",
-            )}`}</title>
+            <title id="logoTitle">{t("metadata.title")}</title>
             <use xlinkHref="#logo" />
           </svg>
         </Link>

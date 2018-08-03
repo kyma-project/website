@@ -2,11 +2,10 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import "../../config/i18n";
 import { translate } from "react-i18next";
-import { withPrefix } from "gatsby";
 import Sprites from "./Sprites";
 
 const SiteMetadataComponent = ({ pageId = "", pageName = "", t }) => {
-  const title = t("metadata.title");
+  const title = `${t("metadata.title")} - ${t("metadata.shortDescription")}`;
   const description = t("metadata.description");
 
   let pageTitle;
@@ -17,51 +16,18 @@ const SiteMetadataComponent = ({ pageId = "", pageName = "", t }) => {
     pageTitle = pageName;
   }
 
-  const fullSiteTitle = (pageTitle ? `${pageTitle} - ` : "") + title;
+  const fullSiteTitle = (pageTitle ? `${pageTitle} | ` : "") + title;
 
   return (
     <>
-      <Helmet defer={false}>
+      <Helmet defaultTitle={title}>
         <title>{fullSiteTitle}</title>
         <meta name="description" content={description} />
-        <style />
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href={withPrefix("/apple-touch-icon.png")}
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href={withPrefix("/favicon-32x32.png")}
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href={withPrefix("/favicon-16x16.png")}
-        />
-        <link rel="manifest" href={withPrefix("/site.webmanifest")} />
-        <link
-          rel="mask-icon"
-          href={withPrefix("/safari-pinned-tab.svg")}
-          color="#2872dd"
-        />
-        <meta name="msapplication-TileColor" content="#2b5797" />
-        <meta name="theme-color" content="#ffffff" />
         <meta property="og:title" content={fullSiteTitle} />
         <meta property="og:description" content={description} />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content={withPrefix("/kyma-logo.png")} />
         <meta name="twitter:title" content={fullSiteTitle} />>
         <meta name="twitter:description" content={description} />
-        <meta name="twitter:image" content={withPrefix("/kyma-logo.png")} />
-        <link
-          rel="stylesheet"
-          type="text/css"
-          href={withPrefix("/global.css")}
-        />
       </Helmet>
       <Sprites />
     </>
