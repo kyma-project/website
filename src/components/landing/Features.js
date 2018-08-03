@@ -1,11 +1,11 @@
 import React from "react";
-import { translate } from "react-i18next";
+import landingPage from "../../locales/en/LandingPage.json";
 
 import Connectivity from "./features/Connectivity";
 import Extendable from "./features/Extendable";
 import TechIndependent from "./features/TechIndependent";
 
-const FeaturesComponent = ({ t }) => {
+const Features = () => {
   const getIllustrationComponent = sectionId => {
     switch (sectionId) {
       case "openAndExtendable":
@@ -19,7 +19,7 @@ const FeaturesComponent = ({ t }) => {
     }
   };
 
-  const sections = t("features", { returnObjects: true }) || [];
+  const sections = landingPage.features || [];
   return (
     <div className="row kyma-attr row--sm-align-center">
       {sections.map(section => {
@@ -41,5 +41,4 @@ const FeaturesComponent = ({ t }) => {
   );
 };
 
-const Features = translate("LandingPage")(FeaturesComponent);
 export default Features;

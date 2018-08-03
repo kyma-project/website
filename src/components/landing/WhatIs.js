@@ -1,17 +1,17 @@
 import React from "react";
-import { translate } from "react-i18next";
+import landingPage from "../../locales/en/LandingPage.json";
+import ui from "../../locales/en/UI.json";
 
 import WhatIsSvg from "./assets/whatIs.svg";
 
-const WhatIs = ({ t }) => {
+const WhatIs = () => {
   const github = {
-    name: t(`UI:socialMedia.github.name`),
-    url: t(`UI:socialMedia.github.url`),
+    name: ui.socialMedia.github.name,
+    url: ui.socialMedia.github.url,
   };
 
   const sectionPrefix = "whatIs";
-  const paragraphs =
-    t(`${sectionPrefix}.paragraphs`, { returnObjects: true }) || [];
+  const paragraphs = landingPage[sectionPrefix].paragraphs || [];
 
   return (
     <section className="bg-m">
@@ -25,7 +25,7 @@ const WhatIs = ({ t }) => {
             />
           </div>
           <div className="col-6 col-md-9 col-sm-12 content-inverse">
-            <h2>{t(`${sectionPrefix}.headline`)}</h2>
+            <h2>{landingPage[sectionPrefix].headline}</h2>
             <div>
               {paragraphs.map((paragraph, idx) => <p key={idx}>{paragraph}</p>)}
               <a href={github.url} className="btn btn-github">
@@ -38,9 +38,7 @@ const WhatIs = ({ t }) => {
                   <use xlinkHref="#github" />
                 </svg>
                 <span>
-                  {t("whatIs.action", {
-                    site: github.name,
-                  })}
+                  {landingPage.whatIs.action.replace("{{site}}", github.name)}
                 </span>
               </a>
             </div>
@@ -51,4 +49,4 @@ const WhatIs = ({ t }) => {
   );
 };
 
-export default translate(["LandingPage", "UI"])(WhatIs);
+export default WhatIs;

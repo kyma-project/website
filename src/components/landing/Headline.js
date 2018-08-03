@@ -1,9 +1,9 @@
 import React from "react";
-import { translate } from "react-i18next";
+import landingPage from "../../locales/en/LandingPage.json";
 import { displayHeaderWithLineBreaks } from "../../helpers/textWithLineBreaks";
 
-const HeadlineComponent = ({ t }) => {
-  const headline = t("headline");
+const Headline = () => {
+  const headline = landingPage.headline;
   return (
     <div className="row">
       <h1 className="col-12 kyma-headline">
@@ -13,5 +13,4 @@ const HeadlineComponent = ({ t }) => {
   );
 };
 
-const Headline = translate("LandingPage")(HeadlineComponent);
 export default Headline;
