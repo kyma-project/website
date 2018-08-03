@@ -1,17 +1,17 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import "../../config/i18n";
-import { translate } from "react-i18next";
+
+import ui from "../../locales/en/UI.json";
 import Sprites from "./Sprites";
 
-const SiteMetadataComponent = ({ pageId = "", pageName = "", t }) => {
-  const title = `${t("metadata.title")} - ${t("metadata.shortDescription")}`;
-  const description = t("metadata.description");
+const SiteMetadata = ({ pageId = "", pageName = "", t }) => {
+  const title = `${ui.metadata.title} - ${ui.metadata.shortDescription}`;
+  const description = ui.metadata.description;
 
   let pageTitle;
   if (pageId) {
-    const pageTitleKey = `navigation.${pageId}`;
-    pageTitle = t(pageTitleKey);
+    pageTitle = ui.navigation[pageId];
   } else {
     pageTitle = pageName;
   }
@@ -20,8 +20,11 @@ const SiteMetadataComponent = ({ pageId = "", pageName = "", t }) => {
 
   return (
     <>
-      <Helmet defaultTitle={title}>
-        <title>{fullSiteTitle}</title>
+      <Helmet
+        title={pageTitle}
+        defaultTitle={title}
+        titleTemplate={`%s | ${title}`}
+      >
         <meta name="description" content={description} />
         <meta property="og:title" content={fullSiteTitle} />
         <meta property="og:description" content={description} />
@@ -34,5 +37,4 @@ const SiteMetadataComponent = ({ pageId = "", pageName = "", t }) => {
   );
 };
 
-const SiteMetadata = translate("UI")(SiteMetadataComponent);
 export default SiteMetadata;

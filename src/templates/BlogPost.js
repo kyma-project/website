@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import { graphql } from "gatsby";
 import Post from "../components/blog/Post";
 import DefaultLayout from "../components/layout/DefaultLayout";
@@ -9,6 +10,7 @@ const BlogPostPage = ({ data }) => {
 
   return (
     <DefaultLayout pageName={frontmatter.title}>
+      <Helmet />
       <Post metadata={frontmatter} html={html} />
     </DefaultLayout>
   );

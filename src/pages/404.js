@@ -1,12 +1,17 @@
 import React from "react";
-
-import DefaultLayout from "../components/layout/DefaultLayout";
+import { Helmet } from "react-helmet";
+import LandingLayout from "../components/layout/LandingLayout";
 
 const NotFoundPage = () => {
   return (
-    <DefaultLayout pageId="not-found">
-      <p>404 - Page not found</p>
-    </DefaultLayout>
+    <LandingLayout pageId="not-found">
+      <Helmet />
+      <div className="container">
+        <div className="row">
+          <h1 className="col-12 kyma-headline">404</h1>
+        </div>
+      </div>
+    </LandingLayout>
   );
 };
 

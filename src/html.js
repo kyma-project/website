@@ -10,11 +10,6 @@ class HTML extends React.Component {
         <head>
           <meta charSet="utf-8" />
           <meta httpEquiv="x-ua-compatible" content="ie=edge" />
-          <title>Kyma - cloud-native application development framework</title>
-          <meta
-            name="description"
-            content="A flexible and easy way to integrate and extend enterprise applications in a cloud-native world"
-          />
           <meta
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
