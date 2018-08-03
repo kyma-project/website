@@ -1,6 +1,6 @@
 import React from "react";
-import { translate } from "react-i18next";
 import Link from "gatsby-link";
+import ui from "../../locales/en/UI.json";
 
 import NavigationContainer from "./Navigation.container";
 
@@ -16,7 +16,7 @@ const Header = ({ headerClassName, logoClassName, t }) => {
             role="img"
             aria-labelledby="logoTitle"
           >
-            <title id="logoTitle">{t("metadata.title")}</title>
+            <title id="logoTitle">{ui.metadata.title}</title>
             <use xlinkHref="#logo" />
           </svg>
         </Link>
@@ -27,4 +27,4 @@ const Header = ({ headerClassName, logoClassName, t }) => {
   );
 };
 
-export default translate(["UI"])(Header);
+export default Header;

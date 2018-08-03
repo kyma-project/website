@@ -1,9 +1,8 @@
 import React from "react";
-import { translate } from "react-i18next";
+import ui from "../../locales/en/UI.json";
 
 const Footer = ({ t }) => {
-  const translateLink = socialMediaPortal =>
-    t(`socialMedia.${socialMediaPortal}`, { returnObjects: true });
+  const translateLink = socialMediaPortal => ui.socialMedia[socialMediaPortal];
 
   const twitter = translateLink("twitter");
   const github = translateLink("github");
@@ -18,7 +17,7 @@ const Footer = ({ t }) => {
             role="img"
             aria-labelledby="title"
           >
-            <title id="title">{t("metadata.title")}</title>
+            <title id="title">{ui.metadata.title}</title>
             <use xlinkHref="#logo-single" />
           </svg>
           <a href={github.url} className="link link-github">
@@ -57,13 +56,13 @@ const Footer = ({ t }) => {
 
           <div className="copyright">
             <p>
-              {`${t("copyright")} `}
+              {ui.copyright}{" "}
               <a
-                href={t("privacyStatementLink")}
+                href={ui.privacyStatementLink}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {t("privacyStatement")}
+                {ui.privacyStatement}
               </a>
             </p>
           </div>
@@ -73,4 +72,4 @@ const Footer = ({ t }) => {
   );
 };
 
-export default translate(["UI"])(Footer);
+export default Footer;
