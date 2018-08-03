@@ -1,6 +1,6 @@
 import React from "react";
-import { translate } from "react-i18next";
 import styled from "styled-components";
+import ui from "../../locales/en/UI.json";
 
 import colors from "../../config/colors";
 
@@ -33,10 +33,10 @@ const TagPill = styled.li`
   }
 `;
 
-const PostFooter = ({ tags, t }) => {
+const PostFooter = ({ tags }) => {
   return (
     <FooterWrapper>
-      <TagsText>{t("blog.tags")}</TagsText>
+      <TagsText>{ui.blog.tags}</TagsText>
       <TagsWrapper>
         {tags.map((tag, idx) => <TagPill key={idx}>{tag}</TagPill>)}
       </TagsWrapper>
@@ -44,4 +44,4 @@ const PostFooter = ({ tags, t }) => {
   );
 };
 
-export default translate("UI")(PostFooter);
+export default PostFooter;

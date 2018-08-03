@@ -1,7 +1,7 @@
 import React from "react";
 import CookieBanner from "react-cookie-banner";
 import styled from "styled-components";
-import { translate } from "react-i18next";
+import ui from "../../locales/en/UI.json";
 
 const StyledCookieBanner = styled(CookieBanner)`
   position: fixed;
@@ -55,7 +55,7 @@ const StyledCookieBanner = styled(CookieBanner)`
 const CookieMessageBanner = ({ t }) => {
   const tPrefix = "cookieBanner";
   const getTranslation = key => {
-    return t(`${tPrefix}.${key}`);
+    return ui[tPrefix][key];
   };
 
   return (
@@ -77,4 +77,4 @@ const CookieMessageBanner = ({ t }) => {
   );
 };
 
-export default translate("UI")(CookieMessageBanner);
+export default CookieMessageBanner;

@@ -1,6 +1,6 @@
 import React from "react";
-import { translate } from "react-i18next";
 import styled from "styled-components";
+import ui from "../../locales/en/UI.json";
 
 import colors from "../../config/colors";
 
@@ -15,12 +15,15 @@ const Text = styled.p`
   color: ${colors.gray};
 `;
 
-const PostMetadata = ({ author, date, t }) => {
+const PostMetadata = ({ author, date }) => {
+  const text = ui.blog.postMetadata
+    .replace("{{author}}", author)
+    .replace("{{date}}", date);
   return (
     <Wrapper>
-      <Text>{t("blog.postMetadata", { author, date })}</Text>
+      <Text>{text}</Text>
     </Wrapper>
   );
 };
 
-export default translate("UI")(PostMetadata);
+export default PostMetadata;
