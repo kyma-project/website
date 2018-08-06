@@ -43,3 +43,21 @@ exports.createPages = ({ actions, graphql }) => {
     });
   });
 };
+
+exports.onCreateWebpackConfig = ({ stage, actions }) => {
+  if (stage === "build-html") {
+    actions.setWebpackConfig({
+      module: {
+        rules: [
+          {
+            test: path.resolve(
+              __dirname,
+              "node_modules/@kyma-project/react-components/lib/index.js",
+            ),
+            use: "null-loader",
+          },
+        ],
+      },
+    });
+  }
+};

@@ -11,11 +11,15 @@
     "develop": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "publish": "gatsby build && gh-pages -d public -m 'Deploy new version of site' -o upstream"
+    "publish:upstream": "gatsby build && gh-pages -d public -m 'Deploy new version of site' -o upstream",
+    "publish:origin": "gatsby build --prefix-paths && gh-pages -d public -m 'Deploy new version of site' -o origin"
   },
   "dependencies": {
+    "@kyma-project/react-components": "0.0.12",
+    "axios": "^0.18.0",
     "babel-plugin-styled-components": "^1.5.1",
     "gatsby": "^2.0.0-beta.66",
+    "gatsby-plugin-create-client-paths": "^2.0.0-beta.4",
     "gatsby-plugin-google-analytics": "^1.0.31",
     "gatsby-plugin-react-helmet": "^3.0.0-beta.4",
     "gatsby-plugin-sharp": "^2.0.0-beta.7",
@@ -24,14 +28,20 @@
     "gatsby-remark-images": "^2.0.1-beta.10",
     "gatsby-source-filesystem": "^1.5.39",
     "gatsby-transformer-remark": "^2.1.1-beta.6",
+    "gatsby-transformer-json": "^2.1.1-beta.5",
     "i18next": "^11.5.0",
     "i18next-browser-languagedetector": "^2.2.2",
     "i18next-xhr-backend": "^1.5.1",
+    "null-loader": "^0.1.1",
     "react": "^16.3.2",
     "react-cookie-banner": "^4.0.0",
     "react-dom": "^16.3.2",
     "react-helmet": "^5.2.0",
+    "react-highlight": "^0.12.0",
     "react-i18next": "^7.10.1",
+    "react-router": "^4.3.1",
+    "react-scrollable-anchor": "^0.6.1",
+    "react-sticky": "^6.0.3",
     "styled-components": "^3.3.3"
   },
   "devDependencies": {

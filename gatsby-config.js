@@ -3,7 +3,7 @@ module.exports = {
   siteMetadata: {
     navigation: [
       {
-        path: "https://github.com/kyma-project/kyma/tree/master/docs",
+        path: "/documentation",
         id: "documentation",
       },
       {
@@ -20,7 +20,14 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/src/blog-posts`,
-        name: "markdown-pages",
+        name: "blog",
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/static/docs`,
+        name: "docs",
       },
     },
     `gatsby-plugin-sharp`,
@@ -48,5 +55,10 @@ module.exports = {
         anonymize: true,
       },
     },
+    {
+      resolve: `gatsby-plugin-create-client-paths`,
+      options: { prefixes: [`/documentation/*`] },
+    },
   ],
+  pathPrefix: "/website",
 };

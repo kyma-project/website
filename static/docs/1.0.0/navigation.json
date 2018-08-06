@@ -1,0 +1,459 @@
+{
+  "topics": [
+    {
+      "id": "api-gateway",
+      "contentType": "components",
+      "sections": [
+        {
+          "topicType": "Overview",
+          "titles": [{ "name": "Overview", "anchor": "overview", "titles": [] }]
+        },
+        {
+          "topicType": "Architecture",
+          "titles": [
+            { "name": "Architecture", "anchor": "architecture", "titles": [] }
+          ]
+        },
+        {
+          "topicType": "Security",
+          "titles": [{ "name": "Security", "anchor": "security", "titles": [] }]
+        },
+        {
+          "topicType": "CRD",
+          "titles": [{ "name": "API", "anchor": "crd", "titles": [] }]
+        }
+      ]
+    },
+    {
+      "id": "application-connector",
+      "contentType": "components",
+      "sections": [
+        {
+          "topicType": "Overview",
+          "titles": [
+            {
+              "name": "The Application Connector",
+              "anchor": "overview",
+              "titles": []
+            }
+          ]
+        },
+        {
+          "topicType": "Architecture",
+          "titles": [
+            {
+              "name": "Architecture",
+              "anchor": "architecture",
+              "titles": [
+                {
+                  "name": "Application Connector components",
+                  "anchor": "application-connector-components"
+                },
+                {
+                  "name": "Ingress-Gateway controller",
+                  "anchor": "ingress-gateway-controller"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "topicType": "Details",
+          "titles": [
+            {
+              "name": "Details",
+              "anchor": "details",
+              "titles": [
+                {
+                  "name": "Deploy a new Application Connector",
+                  "anchor": "deploy-a-new-application-connector"
+                },
+                {
+                  "name": "Application Connector security",
+                  "anchor": "application-connector-security"
+                },
+                {
+                  "name": "Consuming applications through the Service Catalog",
+                  "anchor": "consuming-applications-through-the-service-catalog"
+                },
+                { "name": "API", "anchor": "api" },
+                {
+                  "name": "RemoteEnvironment custom resource",
+                  "anchor": "remoteenvironment-custom-resource"
+                },
+                {
+                  "name": "Automatic connection configuration",
+                  "anchor": "automatic-connection-configuration"
+                },
+                {
+                  "name": "Passing a header with the access token",
+                  "anchor": "passing-a-header-with-the-access-token"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "topicType": "Examples",
+          "titles": [{ "name": "Examples", "anchor": "examples", "titles": [] }]
+        }
+      ]
+    },
+    {
+      "id": "authorization-and-authentication",
+      "contentType": "components",
+      "sections": [
+        {
+          "topicType": "Overview",
+          "titles": [{ "name": "Overview", "anchor": "overview", "titles": [] }]
+        },
+        {
+          "topicType": "Architecture",
+          "titles": [
+            { "name": "Architecture", "anchor": "architecture", "titles": [] }
+          ]
+        },
+        {
+          "topicType": "Details",
+          "titles": [
+            {
+              "name": "Add an Identity Provider to Dex",
+              "anchor": "details",
+              "titles": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "event-bus",
+      "contentType": "components",
+      "sections": [
+        {
+          "topicType": "Overview",
+          "titles": [{ "name": "Overview", "anchor": "overview", "titles": [] }]
+        },
+        {
+          "topicType": "Details",
+          "titles": [
+            {
+              "name": "Details",
+              "anchor": "details",
+              "titles": [
+                { "name": "Basic concepts", "anchor": "basic-concepts" },
+                {
+                  "name": "Event flow requirements",
+                  "anchor": "event-flow-requirements"
+                },
+                { "name": "Troubleshooting", "anchor": "troubleshooting" }
+              ]
+            }
+          ]
+        },
+        {
+          "topicType": "Architecture",
+          "titles": [
+            { "name": "Architecture", "anchor": "architecture", "titles": [] }
+          ]
+        },
+        {
+          "topicType": "CLI reference",
+          "titles": [
+            { "name": "CLI reference", "anchor": "cli-reference", "titles": [] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "monitoring",
+      "contentType": "components",
+      "sections": [
+        {
+          "topicType": "Overview",
+          "titles": [{ "name": "Overview", "anchor": "overview", "titles": [] }]
+        },
+        {
+          "topicType": "Architecture",
+          "titles": [
+            { "name": "Architecture", "anchor": "architecture", "titles": [] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "serverless",
+      "contentType": "components",
+      "sections": [
+        {
+          "topicType": "Overview",
+          "titles": [{ "name": "Overview", "anchor": "overview", "titles": [] }]
+        },
+        {
+          "topicType": "Details",
+          "titles": [
+            {
+              "name": "Details",
+              "anchor": "details",
+              "titles": [
+                { "name": "Custom Resources", "anchor": "custom-resources" },
+                { "name": "Managing Lambdas", "anchor": "managing-lambdas" }
+              ]
+            }
+          ]
+        },
+        {
+          "topicType": "Architecture",
+          "titles": [
+            { "name": "Architecture", "anchor": "architecture", "titles": [] }
+          ]
+        },
+        {
+          "topicType": "Model",
+          "titles": [
+            {
+              "name": "The Node.js Programming Model",
+              "anchor": "model",
+              "titles": []
+            }
+          ]
+        },
+        {
+          "topicType": "CLI reference",
+          "titles": [
+            { "name": "CLI reference", "anchor": "cli-reference", "titles": [] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "service-brokers",
+      "contentType": "components",
+      "sections": [
+        {
+          "topicType": "Overview",
+          "titles": [
+            {
+              "name": "Overview",
+              "anchor": "overview",
+              "titles": [
+                { "name": "Service Brokers", "anchor": "service-brokers" },
+                { "name": "Azure Broker", "anchor": "azure-broker" },
+                {
+                  "name": "Remote Environment Broker",
+                  "anchor": "remote-environment-broker"
+                },
+                { "name": "Helm Broker", "anchor": "helm-broker" }
+              ]
+            }
+          ]
+        },
+        {
+          "topicType": "Configuration",
+          "titles": [
+            {
+              "name": "Configuration",
+              "anchor": "configuration",
+              "titles": [
+                {
+                  "name": "Configure Helm Broker",
+                  "anchor": "configure-helm-broker"
+                },
+                {
+                  "name": "How to create a yBundle",
+                  "anchor": "how-to-create-a-ybundle"
+                },
+                { "name": "Binding yBundles", "anchor": "binding-ybundles" },
+                {
+                  "name": "Enable the Azure Broker for local deployment",
+                  "anchor": "enable-the-azure-broker-for-local-deployment"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "topicType": "Architecture",
+          "titles": [
+            {
+              "name": "Architecture",
+              "anchor": "architecture",
+              "titles": [
+                {
+                  "name": "The Remote Environment Broker workflow",
+                  "anchor": "the-remote-environment-broker-workflow"
+                },
+                {
+                  "name": "Helm Broker workflow",
+                  "anchor": "helm-broker-workflow"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "topicType": "Examples",
+          "titles": [
+            {
+              "name": "EnvironmentMapping tutorial",
+              "anchor": "examples",
+              "titles": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "service-catalog",
+      "contentType": "components",
+      "sections": [
+        {
+          "topicType": "Overview",
+          "titles": [{ "name": "Overview", "anchor": "overview", "titles": [] }]
+        },
+        {
+          "topicType": "Details",
+          "titles": [
+            {
+              "name": "Details",
+              "anchor": "details",
+              "titles": [
+                { "name": "Resources", "anchor": "resources" },
+                {
+                  "name": "Add a service to the Catalog",
+                  "anchor": "add-a-service-to-the-catalog"
+                },
+                {
+                  "name": "Provisioning and binding",
+                  "anchor": "provisioning-and-binding"
+                },
+                {
+                  "name": "Unbinding corner case",
+                  "anchor": "unbinding-corner-case"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "topicType": "Architecture",
+          "titles": [
+            { "name": "Architecture", "anchor": "architecture", "titles": [] }
+          ]
+        },
+        {
+          "topicType": "CLI reference",
+          "titles": [
+            { "name": "CLI reference", "anchor": "cli-reference", "titles": [] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "service-mesh",
+      "contentType": "components",
+      "sections": [
+        {
+          "topicType": "Overview",
+          "titles": [
+            {
+              "name": "Overview",
+              "anchor": "overview",
+              "titles": [
+                { "name": "Overview", "anchor": "overview" },
+                {
+                  "name": "Sidecar Proxy Injection",
+                  "anchor": "sidecar-proxy-injection"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tracing",
+      "contentType": "components",
+      "sections": [
+        {
+          "topicType": "Overview",
+          "titles": [{ "name": "Overview", "anchor": "overview", "titles": [] }]
+        },
+        {
+          "topicType": "Architecture",
+          "titles": [
+            { "name": "Architecture", "anchor": "architecture", "titles": [] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kyma",
+      "contentType": "root",
+      "sections": [
+        {
+          "topicType": "Overview",
+          "titles": [{ "name": "Overview", "anchor": "overview", "titles": [] }]
+        },
+        {
+          "topicType": "Details",
+          "titles": [
+            {
+              "name": "Details",
+              "anchor": "details",
+              "titles": [
+                { "name": "Components", "anchor": "components" },
+                { "name": "Environments", "anchor": "environments" },
+                {
+                  "name": "Prerequisites reasoning",
+                  "anchor": "prerequisites-reasoning"
+                },
+                { "name": "Reinstall Kyma", "anchor": "reinstall-kyma" },
+                { "name": "Testing Kyma", "anchor": "testing-kyma" },
+                { "name": "Charts", "anchor": "charts" },
+                {
+                  "name":
+                    "How to deploy a Docker image from a private registry",
+                  "anchor":
+                    "how-to-deploy-a-docker-image-from-a-private-registry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "topicType": "Getting Started",
+          "titles": [
+            {
+              "name": "Getting Started",
+              "anchor": "getting-started",
+              "titles": [
+                {
+                  "name": "Local Kyma installation",
+                  "anchor": "local-kyma-installation"
+                },
+                {
+                  "name": "Sample service deployment on local",
+                  "anchor": "sample-service-deployment-on-local"
+                },
+                {
+                  "name": "Sample service deployment on a cluster",
+                  "anchor": "sample-service-deployment-on-a-cluster"
+                },
+                {
+                  "name": "Develop a service locally without using Docker",
+                  "anchor": "develop-a-service-locally-without-using-docker"
+                },
+                {
+                  "name":
+                    "Publish a service Docker image and deploy it to Kyma",
+                  "anchor":
+                    "publish-a-service-docker-image-and-deploy-it-to-kyma"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
