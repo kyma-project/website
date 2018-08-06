@@ -52,7 +52,7 @@ const StyledCookieBanner = styled(CookieBanner)`
   }
 `;
 
-const CookieMessageBanner = ({ t }) => {
+const CookieMessageBanner = () => {
   const tPrefix = "cookieBanner";
   const getTranslation = key => {
     return ui[tPrefix][key];

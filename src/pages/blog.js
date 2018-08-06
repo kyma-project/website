@@ -22,7 +22,9 @@ const BlogPage = ({ data }) => {
 
   return (
     <DefaultLayout pageId="blog">
-      <Helmet />
+      <Helmet>
+        <meta property="og:type" content="article" />
+      </Helmet>
       <Wrapper>
         <ul>{posts}</ul>
       </Wrapper>

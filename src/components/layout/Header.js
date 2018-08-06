@@ -4,7 +4,7 @@ import ui from "../../locales/en/UI.json";
 
 import NavigationContainer from "./Navigation.container";
 
-const Header = ({ headerClassName, logoClassName, t }) => {
+const Header = ({ headerClassName, logoClassName }) => {
   return (
     <header className={`bg-h ${headerClassName ? headerClassName : ""}`}>
       <div className="container">

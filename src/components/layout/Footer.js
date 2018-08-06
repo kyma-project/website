@@ -1,7 +1,7 @@
 import React from "react";
 import ui from "../../locales/en/UI.json";
 
-const Footer = ({ t }) => {
+const Footer = () => {
   const translateLink = socialMediaPortal => ui.socialMedia[socialMediaPortal];
 
   const twitter = translateLink("twitter");

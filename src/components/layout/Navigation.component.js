@@ -2,7 +2,7 @@ import React from "react";
 import { Link, graphql } from "gatsby";
 import ui from "../../locales/en/UI.json";
 
-const Navigation = ({ items = [], t }) => {
+const Navigation = ({ items = [] }) => {
   const toggleMenu = () => {
     const elem = document.getElementById("kyma-menu");
     if (elem.classList.contains("offcanvas")) {

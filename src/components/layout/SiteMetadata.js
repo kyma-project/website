@@ -5,7 +5,7 @@ import "../../config/i18n";
 import ui from "../../locales/en/UI.json";
 import Sprites from "./Sprites";
 
-const SiteMetadata = ({ pageId = "", pageName = "", t }) => {
+const SiteMetadata = ({ pageId = "", pageName = "" }) => {
   const title = `${ui.metadata.title} - ${ui.metadata.shortDescription}`;
   const description = ui.metadata.description;
 
@@ -17,6 +17,8 @@ const SiteMetadata = ({ pageId = "", pageName = "", t }) => {
   }
 
   const fullSiteTitle = (pageTitle ? `${pageTitle} | ` : "") + title;
+
+  const twitterUsername = ui.socialMedia.twitter.username;
 
   return (
     <>
@@ -31,6 +33,7 @@ const SiteMetadata = ({ pageId = "", pageName = "", t }) => {
         <meta property="og:type" content="website" />
         <meta name="twitter:title" content={fullSiteTitle} />>
         <meta name="twitter:description" content={description} />
+        <meta name="twitter:site" content={twitterUsername} />
       </Helmet>
       <Sprites />
     </>

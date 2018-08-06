@@ -14,7 +14,8 @@
   "socialMedia": {
     "twitter": {
       "name": "Twitter",
-      "url": "https://twitter.com/kymaproject"
+      "url": "https://twitter.com/kymaproject",
+      "username": "kymaproject"
     },
     "github": {
       "name": "GitHub",
