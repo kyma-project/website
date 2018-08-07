@@ -11,8 +11,7 @@
     "develop": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "publish":
-      "gatsby build && gh-pages -d public -m 'Deploy new version of site' -o upstream"
+    "publish": "gatsby build && gh-pages -d public -m 'Deploy new version of site' -o upstream"
   },
   "dependencies": {
     "babel-plugin-styled-components": "^1.5.1",
@@ -45,6 +44,15 @@
     }
   },
   "lint-staged": {
-    "*.{js,json,css}": ["prettier --write", "git add"]
+    "linters": {
+      "*.{js,json,css}": [
+        "prettier --write",
+        "git add"
+      ]
+    },
+    "ignore": [
+      "package.json",
+      "package-lock.json"
+    ]
   }
 }
