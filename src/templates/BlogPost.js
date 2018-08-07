@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet";
 import { graphql } from "gatsby";
 import Post from "../components/blog/Post";
 import DefaultLayout from "../components/layout/DefaultLayout";
+import PostsWrapper from "../components/blog/PostsWrapper";
 
 const DESCRIPTION_LENGTH = 297;
 
@@ -23,7 +24,9 @@ const BlogPostPage = ({ data }) => {
           <meta key={tag} property="article:tag" content={tag} />
         ))}
       </Helmet>
-      <Post metadata={frontmatter} html={html} />
+      <PostsWrapper>
+        <Post metadata={frontmatter} html={html} />
+      </PostsWrapper>
     </DefaultLayout>
   );
 };

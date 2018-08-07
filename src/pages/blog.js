@@ -4,9 +4,10 @@ import { graphql } from "gatsby";
 import styled from "styled-components";
 import Post from "../components/blog/Post";
 import DefaultLayout from "../components/layout/DefaultLayout";
+import PostsWrapper from "../components/blog/PostsWrapper";
 
-const Wrapper = styled.section`
-  max-width: 850px;
+const PostList = styled.ul`
+  margin: 0;
 `;
 
 const BlogPage = ({ data }) => {
@@ -25,9 +26,9 @@ const BlogPage = ({ data }) => {
       <Helmet>
         <meta property="og:type" content="article" />
       </Helmet>
-      <Wrapper>
-        <ul>{posts}</ul>
-      </Wrapper>
+      <PostsWrapper>
+        <PostList>{posts}</PostList>
+      </PostsWrapper>
     </DefaultLayout>
   );
 };
