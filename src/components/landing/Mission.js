@@ -1,14 +1,12 @@
 import React from "react";
-import { translate } from "react-i18next";
-
+import landingPage from "../../locales/en/LandingPage.json";
 import MissionSvg from "./assets/mission.svg";
 import { displayHeaderWithLineBreaks } from "../../helpers/textWithLineBreaks";
 
-const MissionComponent = ({ t }) => {
+const Mission = () => {
   const sectionPrefix = "mission";
-  const headline = t(`${sectionPrefix}.headline`);
-  const paragraphs =
-    t(`${sectionPrefix}.paragraphs`, { returnObjects: true }) || [];
+  const headline = landingPage[sectionPrefix].headline;
+  const paragraphs = landingPage[sectionPrefix].paragraphs || [];
 
   return (
     <div className="row row--space-between row--sm-align-center kyma-margin-top">
@@ -29,5 +27,4 @@ const MissionComponent = ({ t }) => {
   );
 };
 
-const Mission = translate("LandingPage")(MissionComponent);
 export default Mission;

@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import Headline from "../components/landing/Headline";
 import Features from "../components/landing/Features";
 import WhatIs from "../components/landing/WhatIs";
@@ -7,6 +8,7 @@ import Mission from "../components/landing/Mission";
 
 const IndexPage = () => (
   <LandingLayout>
+    <Helmet />
     <div className="container">
       <Headline />
       <Mission />

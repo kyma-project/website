@@ -1,9 +1,8 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
+import ui from "../../locales/en/UI.json";
 
-import { translate } from "react-i18next";
-
-const NavigationComponent = ({ items = [], t }) => {
+const Navigation = ({ items = [] }) => {
   const toggleMenu = () => {
     const elem = document.getElementById("kyma-menu");
     if (elem.classList.contains("offcanvas")) {
@@ -13,13 +12,13 @@ const NavigationComponent = ({ items = [], t }) => {
     }
   };
 
-  const github = t(`socialMedia.github`, { returnObjects: true });
+  const github = ui.socialMedia.github;
 
   return (
     <>
       <ul id="kyma-menu" className="kyma-menu">
         {items.map(item => {
-          const linkTitle = t(`navigation.${item.id}`);
+          const linkTitle = ui.navigation[item.id];
           const linkComponent = item.path.includes("//") ? (
             <a className="link link-ordinary" href={item.path}>
               {linkTitle}
@@ -39,7 +38,7 @@ const NavigationComponent = ({ items = [], t }) => {
               role="img"
               aria-labelledby="logoGithub"
             >
-              <title id="logoGithub">{`${github.name} ${t("logo")}`}</title>
+              <title id="logoGithub">{github.name}</title>
               <use xlinkHref="#github" />
             </svg>
             <span className="hidden-md">{github.name}</span>
@@ -65,5 +64,4 @@ export const query = graphql`
   }
 `;
 
-const Navigation = translate("UI")(NavigationComponent);
 export default Navigation;

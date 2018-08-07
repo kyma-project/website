@@ -1,8 +1,9 @@
 {
   "metadata": {
     "title": "Kyma",
+    "shortDescription": "Cloud-native application development framework",
     "description":
-      "A flexible and easy way to integrate and extend enterprise applications in a cloud-native world"
+      "Kyma is an open source, cloud-native application development framework. It provides the last mile capabilities that a developer needs to build a cloud-native application"
   },
   "navigation": {
     "home": "Home",
@@ -13,7 +14,8 @@
   "socialMedia": {
     "twitter": {
       "name": "Twitter",
-      "url": "https://twitter.com/kymaproject"
+      "url": "https://twitter.com/kymaproject",
+      "username": "kymaproject"
     },
     "github": {
       "name": "GitHub",
@@ -35,8 +37,6 @@
     "tags": "Tags",
     "postMetadata": "{{author}} on {{date}}"
   },
-  "logo": "Logo",
-  "icon": "Icon",
   "copyright": "Copyright © 2018 The Kyma project authors.",
   "privacyStatement": "Privacy Statement",
   "privacyStatementLink": "https://www.sap.com/corporate/en/legal/privacy.html"

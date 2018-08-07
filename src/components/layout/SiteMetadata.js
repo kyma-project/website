@@ -1,72 +1,43 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import "../../config/i18n";
-import { translate } from "react-i18next";
-import { withPrefix } from "gatsby";
+
+import ui from "../../locales/en/UI.json";
 import Sprites from "./Sprites";
 
-const SiteMetadataComponent = ({ pageId = "", pageName = "", t }) => {
-  const title = t("metadata.title");
-  const description = t("metadata.description");
+const SiteMetadata = ({ pageId = "", pageName = "" }) => {
+  const title = `${ui.metadata.title} - ${ui.metadata.shortDescription}`;
+  const description = ui.metadata.description;
 
   let pageTitle;
   if (pageId) {
-    const pageTitleKey = `navigation.${pageId}`;
-    pageTitle = t(pageTitleKey);
+    pageTitle = ui.navigation[pageId];
   } else {
     pageTitle = pageName;
   }
 
-  const fullSiteTitle = (pageTitle ? `${pageTitle} - ` : "") + title;
+  const fullSiteTitle = (pageTitle ? `${pageTitle} | ` : "") + title;
+
+  const twitterUsername = ui.socialMedia.twitter.username;
 
   return (
     <>
-      <Helmet defer={false}>
-        <title>{fullSiteTitle}</title>
+      <Helmet
+        title={pageTitle}
+        defaultTitle={title}
+        titleTemplate={`%s | ${title}`}
+      >
         <meta name="description" content={description} />
-        <style />
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href={withPrefix("/apple-touch-icon.png")}
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href={withPrefix("/favicon-32x32.png")}
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href={withPrefix("/favicon-16x16.png")}
-        />
-        <link rel="manifest" href={withPrefix("/site.webmanifest")} />
-        <link
-          rel="mask-icon"
-          href={withPrefix("/safari-pinned-tab.svg")}
-          color="#2872dd"
-        />
-        <meta name="msapplication-TileColor" content="#2b5797" />
-        <meta name="theme-color" content="#ffffff" />
         <meta property="og:title" content={fullSiteTitle} />
         <meta property="og:description" content={description} />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content={withPrefix("/kyma-logo.png")} />
         <meta name="twitter:title" content={fullSiteTitle} />>
         <meta name="twitter:description" content={description} />
-        <meta name="twitter:image" content={withPrefix("/kyma-logo.png")} />
-        <link
-          rel="stylesheet"
-          type="text/css"
-          href={withPrefix("/global.css")}
-        />
+        <meta name="twitter:site" content={twitterUsername} />
       </Helmet>
       <Sprites />
     </>
   );
 };
 
-const SiteMetadata = translate("UI")(SiteMetadataComponent);
 export default SiteMetadata;
