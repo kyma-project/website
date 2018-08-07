@@ -3,7 +3,7 @@
     "title": "Kyma",
     "shortDescription": "Cloud-native application development framework",
     "description":
-      "A flexible and easy way to integrate and extend enterprise applications in a cloud-native world"
+      "Kyma is an open source, cloud-native application development framework. It provides the last mile capabilities that a developer needs to build a cloud-native application"
   },
   "navigation": {
     "home": "Home",
