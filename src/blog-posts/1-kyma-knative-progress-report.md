@@ -1,9 +1,9 @@
 ---
-path: "/blog/kyma-knative-progress-report "
-date: "2018-08-09 "
-author: "Ralf Hofmann, Kyma Cloud Software Architecture "
-tags: ["kyma ", "cloud ", "native ", "GoogleNext2018 ", "knative ", "istio ", "kubernetes "]
-title: "Kyma and Knative Integration - Progress Update "
+path: "/blog/kyma-knative-progress-report"
+date: "2018-08-09"
+author: "Ralf Hofmann, Kyma Cloud Software Architecture"
+tags: ["kyma", "cloud", "native", "GoogleNext2018", "knative", "istio", "kubernetes"]
+title: "Kyma and Knative Integration - Progress Update"
 ---
 
 When Kyma was introduced to the public a few weeks ago at [Google Cloud Next ’18](https://cloud.withgoogle.com/next18/sf/), we talked about the strong partnership that we have with the Knative community. Kyma and Knative provide two complementary sets of building blocks, which together offer a powerful framework and a toolset to build cloud-native solutions on top of Kubernetes.
