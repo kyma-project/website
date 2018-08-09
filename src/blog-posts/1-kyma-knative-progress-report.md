@@ -10,7 +10,7 @@ When Kyma was introduced to the public a few weeks ago at [Google Cloud Next ’
 
 ![Kyma and Knative](assets/1-kyma-knative.png)
 
-If you look at the Kyma source code right now, you might wonder why you are not finding many references to Knative. The answer is quite simple. In the last month and a half, the entire Kyma team has been working on restructuring the repositories, making them ready to go open source and remove all internal references and tool dependencies. We've done all of that from a stable branch.  
+If you look at the Kyma source code right now, you might wonder why you are not finding many references to Knative. The answer is quite simple. In the last month and a half, the entire Kyma team has been working on restructuring the repositories, making them ready to go open source and removing all internal references and tool dependencies. We've done all of that from a stable branch.  
 
 In parallel to those major changes, we have a fork with Kyma and Knative integrated. It was used to build some first proof-of-concept cloud-native solutions using Knative and Kyma deployed together. The fork is also the basis for our stage demo shown during [the project launch](https://www.youtube.com/watch?v=NaaGPGKyXEc&amp;feature=youtu.be&amp;t=42m50s). This was our first approach at combining the projects. As both Kyma and Knative are really young and going through a number of changes, some of our design decisions have not been optimal in retrospect. 
  
