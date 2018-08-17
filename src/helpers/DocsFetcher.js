@@ -2,11 +2,24 @@ import axios from "axios";
 import { withPrefix } from "gatsby";
 
 const DOCS_LOCATION = "docs";
+const LATEST_VERSION = "latest";
 
 class DocsFetcher {
-  constructor(version) {
+  constructor(selected, versions = []) {
+    let version;
+
+    if (selected === LATEST_VERSION) {
+      version = this.selectLatestVersion(versions);
+    } else {
+      version = selected;
+    }
+
     this.setVersion(version);
   }
+
+  selectLatestVersion = versions => {
+    return versions.sort().reverse()[0];
+  };
 
   fetchNavigation = async () => {
     return await this.fetch(

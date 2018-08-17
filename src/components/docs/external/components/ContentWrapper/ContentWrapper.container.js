@@ -39,7 +39,8 @@ export default class extends React.Component {
   }
 
   updateContent = async (version, type, id) => {
-    const docsFetcher = new DocsFetcher(version);
+    const versions = this.props.versions;
+    const docsFetcher = new DocsFetcher(version, versions);
     let content;
     let err;
     try {

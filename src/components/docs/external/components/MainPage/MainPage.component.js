@@ -159,6 +159,7 @@ class MainPage extends Component {
               <CenterSideWrapper>
                 <ContentWrapper
                   version={this.props.version}
+                  versions={this.props.versions}
                   item={this.state.active}
                 />
               </CenterSideWrapper>

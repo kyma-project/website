@@ -10,8 +10,7 @@ class Docs extends React.Component {
   constructor(props) {
     super(props);
 
-    const { versions = [] } = props;
-    const latestVersion = versions[0];
+    const latestVersion = "latest";
     const version =
       (props.match.params && props.match.params.version) || latestVersion;
 
@@ -31,7 +30,7 @@ class Docs extends React.Component {
   async refetchDocs(version) {
     this.setState({ loading: true, version });
 
-    const docsFetcher = new DocsFetcher(version);
+    const docsFetcher = new DocsFetcher(version, this.props.versions);
 
     let err;
     let navigation;
@@ -84,6 +83,7 @@ class Docs extends React.Component {
           manifest={state.manifest.spec}
           docsFetcher={this.docsFetcher}
           version={state.version}
+          versions={props.versions}
           topNavComponent={
             <>
               <BackToTop />

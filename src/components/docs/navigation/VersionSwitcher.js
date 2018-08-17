@@ -26,6 +26,7 @@ const VersionSwitcher = ({ versions, currentVersion, onChange }) => {
     <Wrapper>
       <Label>{ui.docs.version}</Label>
       <VersionSelect onChange={onChange} defaultValue={currentVersion}>
+        <option key="latest">{ui.docs.latest}</option>
         {versions.map(version => (
           <option key={version} value={version}>
             {version}
