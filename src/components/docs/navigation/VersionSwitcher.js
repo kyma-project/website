@@ -23,11 +23,15 @@ const VersionSelect = styled.select`
 `;
 
 const VersionSwitcher = ({ versions, currentVersion, onChange }) => {
+  // TODO: Uncomment commented code to enable versioning
+  // const latestVersion = "latest";
   return (
     <Wrapper>
       <Label>{ui.docs.version}</Label>
       <VersionSelect onChange={onChange} defaultValue={currentVersion}>
-        <option key="latest">{ui.docs.latest}</option>
+        {/* <option key={latestVersion} value={latestVersion}>
+          {ui.docs.latest}
+        </option> */}
         {versions.map(version => (
           <option key={version} value={version}>
             {version}
