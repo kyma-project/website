@@ -1,7 +1,7 @@
 import React from "react";
 import DocsFetcher from "../../helpers/DocsFetcher";
 import MainPage from "./external/components/MainPage/MainPage.component";
-import VersionSwitcher from "./navigation/VersionSwitcher";
+// import VersionSwitcher from "./navigation/VersionSwitcher";
 import { Text } from "@kyma-project/react-components";
 import { displayError } from "../../helpers/displayError";
 import BackToTop from "./navigation/BackToTop";
@@ -91,11 +91,12 @@ class Docs extends React.PureComponent {
           topNavComponent={
             <>
               <BackToTop />
-              <VersionSwitcher
+              {/* TODO: Uncomment commented code to enable versioning */}
+              {/* <VersionSwitcher
                 versions={props.versions}
                 currentVersion={state.version}
                 onChange={this.changeVersion}
-              />
+              /> */}
             </>
           }
         />
