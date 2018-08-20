@@ -6,7 +6,7 @@ import { Text } from "@kyma-project/react-components";
 import { displayError } from "../../helpers/displayError";
 import BackToTop from "./navigation/BackToTop";
 
-class Docs extends React.Component {
+class Docs extends React.PureComponent {
   constructor(props) {
     super(props);
 
@@ -84,6 +84,10 @@ class Docs extends React.Component {
           docsFetcher={this.docsFetcher}
           version={state.version}
           versions={props.versions}
+          location={props.location}
+          history={props.history}
+          match={props.match}
+          pageName={props.pageName}
           topNavComponent={
             <>
               <BackToTop />
@@ -94,7 +98,6 @@ class Docs extends React.Component {
               />
             </>
           }
-          {...props}
         />
       </>
     );

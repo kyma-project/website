@@ -1,10 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
 import { StickyContainer, Sticky } from "react-sticky";
-import { ThemeWrapper } from "@kyma-project/react-components";
 import ColumnsWrapper from "../ColumnsWrapper/ColumnsWrapper.component";
 import ContentWrapper from "../ContentWrapper/ContentWrapper.container";
-import { goToAnchor, goToTop } from "react-scrollable-anchor";
+import { goToTop } from "react-scrollable-anchor";
 import NavigationSidebar from "../../../navigation/NavigationSidebar";
 import { DOCS_RESPONSIVE_BREAKPOINT } from "../../../../../constans/docs";
 
@@ -43,7 +42,7 @@ function getRoot(manifest) {
   return null;
 }
 
-class MainPage extends Component {
+class MainPage extends React.PureComponent {
   constructor(props) {
     super(props);
 
@@ -79,7 +78,6 @@ class MainPage extends Component {
     if (activeLink.hash) {
       link = `${link}#${activeLink.hash}`;
       this.props.history.push(link);
-      goToAnchor(activeLink.hash);
     } else {
       this.props.history.push(link);
       goToTop();
@@ -137,44 +135,40 @@ class MainPage extends Component {
     }
 
     return (
-      <ThemeWrapper>
-        <div className="App">
-          <StickyContainer>
-            <ColumnsWrapper>
-              <SideWrapper>
-                <Sticky>
-                  {({ style }) => (
-                    <div style={style}>
-                      <NavigationSidebar
-                        ref={this.navSidebar}
-                        topNavComponent={this.props.topNavComponent}
-                        items={this.state.navigationList}
-                        topics={topics}
-                        active={this.state.active}
-                        activeNav={this.state.activeNav}
-                        callbackParent={(newState, options) => {
-                          this.chooseActive(newState, options);
-                        }}
-                        setActiveNav={newState => {
-                          this.setActiveNav(newState);
-                        }}
-                        history={this.props.history}
-                      />
-                    </div>
-                  )}
-                </Sticky>
-              </SideWrapper>
-              <CenterSideWrapper>
-                <ContentWrapper
-                  version={this.props.version}
-                  versions={this.props.versions}
-                  item={this.state.active}
-                />
-              </CenterSideWrapper>
-            </ColumnsWrapper>
-          </StickyContainer>
-        </div>
-      </ThemeWrapper>
+      <StickyContainer>
+        <ColumnsWrapper>
+          <SideWrapper>
+            <Sticky>
+              {({ style }) => (
+                <div style={style}>
+                  <NavigationSidebar
+                    ref={this.navSidebar}
+                    topNavComponent={this.props.topNavComponent}
+                    items={this.state.navigationList}
+                    topics={topics}
+                    active={this.state.active}
+                    activeNav={this.state.activeNav}
+                    callbackParent={(newState, options) => {
+                      this.chooseActive(newState, options);
+                    }}
+                    setActiveNav={newState => {
+                      this.setActiveNav(newState);
+                    }}
+                    history={this.props.history}
+                  />
+                </div>
+              )}
+            </Sticky>
+          </SideWrapper>
+          <CenterSideWrapper>
+            <ContentWrapper
+              version={this.props.version}
+              versions={this.props.versions}
+              item={this.state.active}
+            />
+          </CenterSideWrapper>
+        </ColumnsWrapper>
+      </StickyContainer>
     );
   }
 }

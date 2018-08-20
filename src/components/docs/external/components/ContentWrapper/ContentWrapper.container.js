@@ -6,8 +6,9 @@ import ui from "../../../../../locales/en/UI.json";
 import DocsFetcher from "../../../../../helpers/DocsFetcher";
 import { displayError } from "../../../../../helpers/displayError";
 import Text from "../../../../content/Text";
+import { goToAnchor } from "react-scrollable-anchor";
 
-export default class extends React.Component {
+export default class extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -16,25 +17,30 @@ export default class extends React.Component {
     };
   }
   async componentDidMount() {
-    const type = this.props.item.type;
-    const id = this.props.item.id;
+    const { type, id, hash } = this.props.item;
     await this.updateContent(this.props.version, type, id);
+    goToAnchor(hash);
   }
 
   async UNSAFE_componentWillReceiveProps(newProps) {
-    const type = newProps.item.type;
-    const id = newProps.item.id;
-    const version = newProps.version;
+    const { version, item } = newProps;
+    const { type, id, hash } = item;
+
+    const currentItem = { ...this.props.item };
 
     if (
-      type !== this.props.item.type ||
-      id !== this.props.item.id ||
+      type !== currentItem.type ||
+      id !== currentItem.id ||
       version !== this.props.version
     ) {
       this.setState({
         loading: true,
       });
       await this.updateContent(version, type, id);
+    }
+
+    if (hash !== currentItem.hash) {
+      goToAnchor(hash);
     }
   }
 

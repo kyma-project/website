@@ -41,7 +41,6 @@ const Items = styled.ul`
   transition: max-height ease-in-out 0.7s;
 `;
 
-//TODO: Move to constans
 const ACTIVE_COLOR = "#167ee6";
 const Item = styled.li`
   display: block;
