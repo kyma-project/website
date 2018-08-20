@@ -1,5 +1,5 @@
 import React from "react";
-import CookieBanner from "react-cookie-banner";
+import CookieBanner from "react-cookie-banner/lib";
 import styled from "styled-components";
 import ui from "../../locales/en/UI.json";
 
