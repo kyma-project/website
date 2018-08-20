@@ -63,6 +63,10 @@ class NavigationSidebar extends React.Component {
     this.setState({ visible: !this.state.visible });
   };
 
+  hide = () => {
+    this.setState({ visible: false });
+  };
+
   resize = () => {
     const newVisible = window.innerWidth > DOCS_RESPONSIVE_BREAKPOINT;
 

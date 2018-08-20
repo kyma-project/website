@@ -94,8 +94,8 @@ const Link = styled.a`
 
 function SecondarySubLink(props) {
   const { rootId, type, items, active, activeNav } = props;
-  let onClick = clickedItem => {
-    props.callbackParent(clickedItem);
+  let onClick = (clickedItem, options) => {
+    props.callbackParent(clickedItem, options);
   };
   let setActiveNav = clickedItem => {
     props.setActiveNav(clickedItem);
@@ -140,11 +140,14 @@ function SecondarySubLink(props) {
                       <Link
                         active={isActive}
                         onClick={() => {
-                          onClick({
-                            id: rootId,
-                            type: type,
-                            hash: hash,
-                          });
+                          onClick(
+                            {
+                              id: rootId,
+                              type: type,
+                              hash: hash,
+                            },
+                            { hasSubElements },
+                          );
                         }}
                       >
                         {element.name}
@@ -175,8 +178,8 @@ function SecondarySubLink(props) {
 
 function TertiarySubLink(props) {
   const { rootId, parentId, type, items, active, activeNav } = props;
-  let onClick = clickedItem => {
-    props.callbackParent(clickedItem);
+  let onClick = (clickedItem, options) => {
+    props.callbackParent(clickedItem, options);
   };
 
   const isActiveNav =
@@ -199,11 +202,14 @@ function TertiarySubLink(props) {
                 <Link
                   active={isActive}
                   onClick={() => {
-                    onClick({
-                      id: rootId,
-                      type: type,
-                      hash: `${parentId}-${element.anchor}`,
-                    });
+                    onClick(
+                      {
+                        id: rootId,
+                        type: type,
+                        hash: `${parentId}-${element.anchor}`,
+                      },
+                      { hasSubElements: false },
+                    );
                   }}
                 >
                   {element.name}
@@ -217,8 +223,8 @@ function TertiarySubLink(props) {
 }
 
 function NavigationList(props) {
-  let onClick = clickedItem => {
-    props.callbackParent(clickedItem);
+  let onClick = (clickedItem, options) => {
+    props.callbackParent(clickedItem, options);
   };
   let setActiveNav = clickedItem => {
     props.setActiveNav(clickedItem);
@@ -250,11 +256,14 @@ function NavigationList(props) {
                   !props.active.hash && props.active.id === props.items.root.id
                 }
                 onClick={() => {
-                  onClick({
-                    id: props.items.root.id,
-                    type: "root",
-                    hash: "",
-                  });
+                  onClick(
+                    {
+                      id: props.items.root.id,
+                      type: "root",
+                      hash: "",
+                    },
+                    { hasSubElements: props.topics && props.topics.length > 0 },
+                  );
                 }}
               >
                 {props.items.root.displayName}
@@ -309,11 +318,19 @@ function NavigationList(props) {
                   <Link
                     active={!props.active.hash && props.active.id === item.id}
                     onClick={() =>
-                      onClick({
-                        id: item.id,
-                        type: "components",
-                        hash: "",
-                      })
+                      onClick(
+                        {
+                          id: item.id,
+                          type: "components",
+                          hash: "",
+                        },
+                        {
+                          hasSubElements:
+                            topics &&
+                            topics.sections &&
+                            topics.sections.length > 0,
+                        },
+                      )
                     }
                   >
                     {item.displayName}

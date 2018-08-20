@@ -19,6 +19,7 @@ const VersionSelect = styled.select`
   float: right;
   position: relative;
   top: 3px;
+  font-size: 16px;
 `;
 
 const VersionSwitcher = ({ versions, currentVersion, onChange }) => {

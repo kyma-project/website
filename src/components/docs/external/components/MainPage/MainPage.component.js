@@ -62,9 +62,11 @@ class MainPage extends Component {
       },
       navigationList: manifest,
     };
+
+    this.navSidebar = React.createRef();
   }
 
-  chooseActive(activeLink) {
+  chooseActive(activeLink, { hasSubElements }) {
     this.setState({
       active: activeLink,
       activeNav: activeLink,
@@ -81,6 +83,11 @@ class MainPage extends Component {
     } else {
       this.props.history.push(link);
       goToTop();
+    }
+
+    // Hide navigation on Click on mobile
+    if (window.innerWidth < DOCS_RESPONSIVE_BREAKPOINT && !hasSubElements) {
+      this.navSidebar.current && this.navSidebar.current.hide();
     }
   }
 
@@ -139,13 +146,14 @@ class MainPage extends Component {
                   {({ style }) => (
                     <div style={style}>
                       <NavigationSidebar
+                        ref={this.navSidebar}
                         topNavComponent={this.props.topNavComponent}
                         items={this.state.navigationList}
                         topics={topics}
                         active={this.state.active}
                         activeNav={this.state.activeNav}
-                        callbackParent={newState => {
-                          this.chooseActive(newState);
+                        callbackParent={(newState, options) => {
+                          this.chooseActive(newState, options);
                         }}
                         setActiveNav={newState => {
                           this.setActiveNav(newState);
