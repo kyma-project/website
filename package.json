@@ -11,8 +11,10 @@
     "develop": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "publish:upstream": "gatsby build && gh-pages -d public -m 'Deploy new version of site' -o upstream",
-    "publish:origin": "gatsby build --prefix-paths && gh-pages -d public -m 'Deploy new version of site' -o origin"
+    "publish:origin":
+      "gatsby build && gh-pages -d public -m 'Deploy new version of site' -o origin",
+    "publish:upstream":
+      "gatsby build && gh-pages -d public -m 'Deploy new version of site' -o upstream"
   },
   "dependencies": {
     "@kyma-project/react-components": "0.0.12",
