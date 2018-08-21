@@ -72,7 +72,7 @@ export default class extends React.PureComponent {
       if (doc.source.search(/.?\/?assets/g) !== -1) {
         doc.source = doc.source.replace(
           /src="\.?\/?assets/g,
-          `src="/docs/${version}/${type}/${id}/assets`,
+          `src="/documentation/${version}/${type}/${id}/assets`,
         );
       }
 

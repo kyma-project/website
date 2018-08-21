@@ -1,7 +1,7 @@
 import axios from "axios";
 import { withPrefix } from "gatsby";
 
-const DOCS_LOCATION = "docs";
+const DOCS_LOCATION = "documentation";
 const LATEST_VERSION = "latest";
 
 class DocsFetcher {

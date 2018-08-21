@@ -14,7 +14,7 @@ const DocsContainer = ({ versions = [] }) => {
     return null;
   }
 
-  const pageName = "documentation";
+  const pageName = "docs";
   const renderDocs = props => (
     <Docs versions={versions} pageName={pageName} {...props} />
   );

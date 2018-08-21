@@ -3,7 +3,7 @@ module.exports = {
   siteMetadata: {
     navigation: [
       {
-        path: "/documentation",
+        path: "/docs",
         id: "documentation",
       },
       {
@@ -26,7 +26,7 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/static/docs`,
+        path: `${__dirname}/static/documentation`,
         name: "docs",
       },
     },
@@ -57,7 +57,7 @@ module.exports = {
     },
     {
       resolve: `gatsby-plugin-create-client-paths`,
-      options: { prefixes: [`/documentation/*`] },
+      options: { prefixes: [`/docs/*`] },
     },
   ],
   pathPrefix: "/website",
