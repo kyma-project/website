@@ -6,7 +6,7 @@ def isMaster = params.GIT_BRANCH == "master"
 echo """
 ********************************
 Job started with the following parameters:
-DOCKER_REGISTRY=${env.OPEN_DOCKER_REGISTRY}
+DOCKER_REGISTRY=${env.DOCKER_REGISTRY}
 GIT_REVISION=${params.GIT_REVISION}
 GIT_BRANCH=${params.GIT_BRANCH}
 DOCS_VERSION=${params.DOCS_VERSION}
@@ -28,7 +28,7 @@ podTemplate(label: label) {
                         }
 
                         if(isMaster) {
-                            stage("prepare ssh for git") {
+                            stage("prepare ssh key for git config") {
                                 withCredentials([sshUserPrivateKey(credentialsId: "bitbucket-rw", keyFileVariable: 'sshfile')]) {
                                     sh "cp ${sshfile} ssh_key.pem"
                                 }
@@ -36,17 +36,25 @@ podTemplate(label: label) {
 
                             if(params.DOCS_VERSION) {
                                 stage("prepare docs and navigation") {
-                                    withCredentials([sshUserPrivateKey(credentialsId: "bitbucket-rw", keyFileVariable: 'sshfile')]) {
-                                        execute("./prepare-docs.sh -s ${sshfile} -v ${params.DOCS_VERSION}")
-                                    }
+                                    sh "./scripts/prepare-docs.sh -v ${params.DOCS_VERSION} -f ./cloneRepoFolder"
+                                }
+
+                                stage("convert and copy manifest") {
+                                    execute("./scripts/convert-yaml.sh -i ./cloneRepoFolder/docs/manifest.yaml -o ./static/documentation/${params.DOCS_VERSION}/manifest.json")
+                                }
+
+                                stage("push new docs to master") {
+                                    sh "./scripts/commit-docs.sh -v ${params.DOCS_VERSION} -s ./ssh_key.pem"
                                 }
                             }
 
                             stage("push new version of $application") {
-                                execute("./prepare-website.sh")
+                                execute("./scripts/prepare-website.sh -s /website/ssh_key.pem")
                             }
                         } else {
-                            execute("npm run build")
+                            stage("build $application") {
+                                execute("npm run build")
+                            }
                         }
                     }
                 }
