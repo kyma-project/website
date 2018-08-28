@@ -90,7 +90,6 @@ const ContentWrapper = ({ content }) => {
                   </div>
                 );
               })}
-            <Text>{content.description}</Text>
           </ContentDescription>
         </Wrapper>
       )}
