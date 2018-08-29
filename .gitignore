@@ -60,3 +60,6 @@ typings/
 .cache/
 public
 yarn-error.log
+
+# temporary folder
+temporaryFolder/

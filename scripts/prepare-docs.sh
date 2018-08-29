@@ -5,45 +5,55 @@ GREEN='\033[0;32m'
 INVERTED='\033[7m'
 NC='\033[0m' # No Color
 
-documentationRepo="git@github.com:kyma-project/kyma.git"
+documentationRepo="https://github.com/kyma-project/kyma.git"
 docsGeneratorImage="eu.gcr.io/kyma-project/content-to-json-generator:0.0.1"
 navGeneratorImage="eu.gcr.io/kyma-project/navigation-builder:0.0.1"
-temporaryFolder="temporaryFolder"
 
 # clean and remove cloned repo
-function removeTemporaryFiles {
-    rm -rf ${temporaryFolder}
+function removeCloneRepoFolder {
+    rm -rf ${cloneRepoFolder}
 }
 
 # arguments
-SSH_FILE=
 DOCS_VERSION=
+CLONE_REPO_FOLDER=
 
 # read arguments
-while getopts 's:v:' flag; do
-  case "${flag}" in
-    s) SSH_FILE=${OPTARG} ;;
-    v) DOCS_VERSION=${OPTARG} ;;
-  esac
+while test $# -gt 0; do
+    case "$1" in
+        --docs-version | -v)
+            shift
+            DOCS_VERSION=$1
+            shift
+            ;;
+        --clone-repo-folder | -f)
+            shift
+            CLONE_REPO_FOLDER=$1
+            shift
+            ;;
+        *)
+            echo "$1 is not a recognized flag!"
+            exit 1;
+            ;;
+    esac
 done
 
 # initial clean
-removeTemporaryFiles
-
-echo "Configure git to clone and push..."
-
-# configure git
-sh ./git_config.sh -s $SSH_FILE
+removeCloneRepoFolder
 
 # clone repo with specific version & go to documentation
-git clone ${documentationRepo} ./${temporaryFolder}
-cd ${temporaryFolder}
+echo "Clone repo..."
+
+git clone ${documentationRepo} ${CLONE_REPO_FOLDER}
+cd ${CLONE_REPO_FOLDER}
 
 git checkout ${DOCS_VERSION}
 
+# prepare docs
+echo "Prepare documentation..."
+
 cd docs
 
-# prepare docs
 for dir in */
 do
     for file in "$dir"/docs.config.json
@@ -57,14 +67,14 @@ do
 
             if [ ${docsResult} != 0 ]; then
                 echo -e "${RED}✗ generate docs for $dir${NC}\n$docsResult${NC}\n"
-                removeTemporaryFiles
+                removeCloneRepoFolder
                 exit 1
             else echo -e "${GREEN}√ generate docs for $dir ${NC}\n"
             fi
 
             cd ${currentPath}out
 
-            # copy to static/docs/${DOCS_VERSION}
+            # copy to static/documentation/${DOCS_VERSION}
             docuType="$(ls)"
             mkdir -p ../../../../static/documentation/${DOCS_VERSION}/${docuType}
             cp -R ${docuType} ../../../../static/documentation/${DOCS_VERSION}
@@ -76,32 +86,15 @@ done
 cd ../..
 
 # generate navigation
-docsPath="$(pwd)/static/docs/$DOCS_VERSION"
+echo "Generate navigation..."
+
+docsPath="$(pwd)/static/documentation/$DOCS_VERSION"
 docker run -v ${docsPath}:/app/docs ${navGeneratorImage}
 navigationResult=$?
 
 if [ ${navigationResult} != 0 ]; then
     echo -e "${RED}✗ generate navigation${NC}\n$navigationResult${NC}\n"
-    removeTemporaryFiles
+    removeCloneRepoFolder
     exit 1
 else echo -e "${GREEN}√ generate navigation${NC}\n"
-fi
-
-# convert and copy manifest
-npm install -g js-yaml
-js-yaml ./${temporaryFolder}/docs/manifest.yaml > ./static/documentation/${DOCS_VERSION}/manifest.json
-
-# push to remote
-echo "Push generated docs.."
-
-git add static/docs/${DOCS_VERSION}
-git commit -m "Import docs for Kyma v$DOCS_VERSION"
-git push origin HEAD:master
-gitResult=$?
-
-if [ ${gitResult} != 0 ]; then
-    echo -e "${RED}✗ git push fail${NC}\n$gitResult${NC}\n"
-    removeTemporaryFiles
-    exit 1
-else echo -e "${GREEN}√ git push${NC}\n"
 fi
