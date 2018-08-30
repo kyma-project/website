@@ -25,9 +25,17 @@ podTemplate(label: label) {
                         }
 
                         stage("resolve dependencies $application") {
-                            execute("npm install")
+                            execute("npm install -f")
                         }
 
+                        if (isMaster) {
+                            stage("IP scan $application (WhiteSource)") {
+                                withCredentials([string(credentialsId: 'whitesource_apikey', variable: 'apikey')]) {
+                                    execute("make scan", ["API_KEY=$apikey"])
+                                }
+                            }
+                        }
+                        
                         if(isMaster) {
                             stage("prepare ssh key for git config") {
                                 withCredentials([sshUserPrivateKey(credentialsId: "bitbucket-rw", keyFileVariable: 'sshfile')]) {
