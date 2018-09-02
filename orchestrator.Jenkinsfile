@@ -11,7 +11,7 @@ Monorepo root orchestrator: This Jenkinsfile runs the Jenkinsfiles of all subpro
         - current app version
 
 */
-def label = "kyma-${UUID.randomUUID().toString()}"
+def label = "website-${UUID.randomUUID().toString()}"
 appVersion = "0.1." + env.BUILD_NUMBER
 
 /*
@@ -19,7 +19,9 @@ appVersion = "0.1." + env.BUILD_NUMBER
     IMPORTANT NOTE: Projects trigger jobs and therefore are expected to have a job defined with the same name in the seed job.
 */
 projects = [
-    "docs-navigation-builder"
+    "prepare",
+    "docs-navigation-builder",
+    "governance"
 ]
 
 /*
@@ -58,16 +60,6 @@ podTemplate(label: label) {
                                         ]
                                 }
                         }
-                    }
-
-                    stage('launch website Jenkinsfile') {
-                        build job: 'website/prepare',
-                            wait: true,
-                            parameters: [
-                                string(name:'GIT_REVISION', value: "$commitID"),
-                                string(name:'GIT_BRANCH', value: "${env.BRANCH_NAME}"),
-                                string(name:'DOCS_VERSION', value: ""),
-                            ]
                     }
                 }
             }
@@ -109,6 +101,10 @@ String[] changedProjects() {
     // parse changeset and keep only relevant folders -> match with projects defined
     for (int i=0; i < allProjects.size(); i++) {
         for (int j=0; j < allChanges.size(); j++) {
+            if (projects[i] == "prepare" && changesForPrepareWebsite(allChanges[j]) && !res.contains(projects[i])) {
+                res.add(allProjects[i])
+                break // already found a change in the current project, no need to continue iterating the changeset
+            }
             if (allChanges[j].startsWith(allProjects[i]) && changeIsValidFileType(allChanges[j],allProjects[i]) && !res.contains(allProjects[i])) {
                 res.add(allProjects[i])
                 break // already found a change in the current project, no need to continue iterating the changeset
@@ -125,6 +121,10 @@ String[] changedProjects() {
 
 boolean changeIsValidFileType(String change, String project){
     return !change.endsWith(".md") || "docs".equals(project);
+}
+
+boolean changesForPrepareWebsite(String change){
+    return change.startsWith("static") || change.startsWith("src");
 }
 
 /**

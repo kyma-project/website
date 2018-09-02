@@ -9,6 +9,7 @@ Job started with the following parameters:
 DOCKER_REGISTRY=${env.DOCKER_REGISTRY}
 GIT_REVISION=${params.GIT_REVISION}
 GIT_BRANCH=${params.GIT_BRANCH}
+APP_VERSION=${params.APP_VERSION}
 DOCS_VERSION=${params.DOCS_VERSION}
 ********************************
 """
