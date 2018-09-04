@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { sortByOrder, filterWithoutInternal } from "../../helpers/helpers";
 import MDContent from "../../../../content/MDContent";
-import Text from "../../../../content/Text";
 
 const Wrapper = styled.div`
   box-sizing: border-box;
