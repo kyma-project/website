@@ -70,20 +70,22 @@ const ContentWrapper = ({ content }) => {
           <ContentDescription>
             {docs &&
               docs.map((item, i) => {
-                const hash = `${removeSpaces(item.type)}-${removeSpaces(
+                const type = item.type ? item.type : item.title;
+                const hash = `${removeSpaces(type)}-${removeSpaces(
                   item.title,
                 )}`;
                 let isFirtsOfType = false;
-                const currentTypeHash = `${removeSpaces(
-                  item.type,
-                )}-${removeSpaces(item.type)}`;
-
+                const currentTypeHash = `${removeSpaces(type)}-${removeSpaces(
+                  type,
+                )}`;
                 isFirtsOfType = lastTypeHash !== currentTypeHash;
                 lastTypeHash = currentTypeHash;
-
                 return (
                   <div key={i}>
-                    {isFirtsOfType && <Anchor id={currentTypeHash} />}
+                    {isFirtsOfType &&
+                      currentTypeHash !== hash && (
+                        <Anchor id={currentTypeHash} />
+                      )}
                     <Header id={hash}>{item.title}</Header>
                     <MDContent html={item.source} />
                   </div>
