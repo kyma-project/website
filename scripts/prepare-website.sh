@@ -7,6 +7,7 @@ NC='\033[0m' # No Color
 
 # arguments
 SSH_FILE=
+OVERWRITE=
 
 # read arguments
 while test $# -gt 0; do
@@ -14,6 +15,11 @@ while test $# -gt 0; do
         --ssh-file | -s)
             shift
             SSH_FILE=$1
+            shift
+            ;;
+        --overwrite-git-config)
+            shift
+            OVERWRITE=$1
             shift
             ;;
         *)
@@ -25,27 +31,29 @@ done
 
 echo "Configure git to push new version of website..."
 
-# make ssh dir
-mkdir /root/.ssh/
+if $OVERWRITE; then
+    # make ssh dir
+    mkdir /root/.ssh/
 
-# create known_hosts file
-touch /root/.ssh/known_hosts
+    # create known_hosts file
+    touch /root/.ssh/known_hosts
 
-# add github to known_hosts
-ssh-keyscan -H github.com >> ~/.ssh/known_hosts
+    # add github to known_hosts
+    ssh-keyscan -H github.com >> ~/.ssh/known_hosts
 
-# key need to be only readable
-chmod 400 $SSH_FILE
+    # key need to be only readable
+    chmod 400 $SSH_FILE
 
-# create a authentication agent
-eval `ssh-agent -s`
+    # create a authentication agent
+    eval `ssh-agent -s`
 
-# add ssh-key
-ssh-add $SSH_FILE
-ssh-add -l
+    # add ssh-key
+    ssh-add $SSH_FILE
+    ssh-add -l
 
-# configure git
-sh ./scripts/git-config.sh -s $SSH_FILE
+    # configure git
+    sh ./scripts/git-config.sh -s $SSH_FILE
+fi
 
 # prepare website
 echo "Prepare website..."

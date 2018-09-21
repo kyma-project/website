@@ -3,6 +3,7 @@
 # arguments
 DOCS_VERSION=
 SSH_FILE=
+OVERWRITE=
 
 # read arguments
 while test $# -gt 0; do
@@ -17,6 +18,11 @@ while test $# -gt 0; do
             SSH_FILE=$1
             shift
             ;;
+        --overwrite-git-config)
+            shift
+            OVERWRITE=$1
+            shift
+            ;;
         *)
             echo "$1 is not a recognized flag!"
             exit 1;
@@ -27,7 +33,9 @@ done
 echo "Configure git to push..."
 
 # configure git
-sh ./scripts/git-config.sh -s $SSH_FILE
+if $OVERWRITE; then
+    sh ./scripts/git-config.sh -s $SSH_FILE
+fi
 
 # push to remote
 echo "Push generated docs.."

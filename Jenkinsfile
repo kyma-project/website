@@ -53,12 +53,12 @@ podTemplate(label: label) {
                                 }
 
                                 stage("push new docs to master") {
-                                    sh "./scripts/commit-docs.sh -v ${params.DOCS_VERSION} -s ./ssh_key.pem"
+                                    sh "./scripts/commit-docs.sh -v ${params.DOCS_VERSION} -s ./ssh_key.pem --overwrite-git-config"
                                 }
                             }
 
                             stage("push new version of $application") {
-                                execute("./scripts/prepare-website.sh -s /website/ssh_key.pem")
+                                execute("./scripts/prepare-website.sh -s /website/ssh_key.pem --overwrite-git-config")
                             }
                         } else {
                             stage("build $application") {
