@@ -13,6 +13,7 @@ const Navigation = ({ items = [] }) => {
   };
 
   const github = ui.socialMedia.github;
+  const slack = ui.socialMedia.slack;
 
   return (
     <>
@@ -32,17 +33,30 @@ const Navigation = ({ items = [] }) => {
           return <li key={item.id}>{linkComponent}</li>;
         })}
         <li>
-          <a href={github.url} className="btn btn-github">
+          <a href={slack.url} className="btn btn-slack" target="_blank" rel="noopener noreferrer">
             <svg
-              className="sprite-icon sprite-icon--28 sprite-icon--inverse"
+              className="sprite-icon sprite-icon--25 sprite-icon--inverse"
               role="img"
-              aria-labelledby="logoGithub"
+              aria-labelledby="logoSlack"
             >
-              <title id="logoGithub">{github.name}</title>
-              <use xlinkHref="#github" />
+              <title id="logoSlack">{slack.name}</title>
+              <use xlinkHref="#slack" />
             </svg>
-            <span className="hidden-md">{github.name}</span>
+            <span className="hidden-md">{slack.name}</span>
           </a>
+        </li>
+        <li>
+          <a href={github.url} className="btn btn-github" target="_blank" rel="noopener noreferrer">
+              <svg
+                className="sprite-icon sprite-icon--25 sprite-icon--inverse"
+                role="img"
+                aria-labelledby="logoGithub"
+              >
+                <title id="logoGithub">{github.name}</title>
+                <use xlinkHref="#github" />
+              </svg>
+              <span className="hidden-md">{github.name}</span>
+            </a>
         </li>
       </ul>
 
