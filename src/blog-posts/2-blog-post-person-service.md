@@ -19,7 +19,7 @@ This hands-on guide provides an end to end example application implementation in
 - Leverage Kubernetes Self-Healing
 - Use tracing and logging support
 
-We would like to get your feedback. If you face issues or remarks while testing Kyma, feel free to report them on [GitHub](https://github.com/kyma-project).  
+We would like to get your feedback. If you face issues or remarks while testing Kyma, feel free to report them on [GitHub](https://github.com/kyma-incubator/examples).  
 
 We also ask you to join the Kyma community on [Twitter](https://twitter.com/kymaproject) and [LinkedIn](https://www.linkedin.com/company/kyma-project/). 
 
