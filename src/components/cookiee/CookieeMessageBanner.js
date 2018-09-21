@@ -1,5 +1,5 @@
 import React from "react";
-import CookieBanner from "react-cookie-banner";
+import CookieBanner from "react-cookie-banner/lib";
 import styled from "styled-components";
 import ui from "../../locales/en/UI.json";
 
@@ -63,15 +63,12 @@ const CookieMessageBanner = () => {
       disableStyle={true}
       dismissOnScroll={false}
       message={getTranslation("message")}
-      link={
-        <a
-          href={getTranslation("link")}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {getTranslation("readPrivacyStatement")}
-        </a>
-      }
+      link={{
+        msg: getTranslation("readPrivacyStatement"),
+        url: getTranslation("link"),
+        rel: "noopener noreferrer",
+        target: "_blank",
+      }}
       buttonMessage={getTranslation("close")}
     />
   );

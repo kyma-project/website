@@ -3,7 +3,7 @@ module.exports = {
   siteMetadata: {
     navigation: [
       {
-        path: "https://github.com/kyma-project/kyma/tree/master/docs",
+        path: "/docs",
         id: "documentation",
       },
       {
@@ -20,7 +20,14 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/src/blog-posts`,
-        name: "markdown-pages",
+        name: "blog",
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/static/documentation`,
+        name: "docs",
       },
     },
     `gatsby-plugin-sharp`,
@@ -31,10 +38,11 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 1000,
+              maxWidth: 1200,
               linkImagesToOriginal: false,
             },
           },
+          `gatsby-remark-copy-linked-files`,
         ],
       },
     },
@@ -47,5 +55,10 @@ module.exports = {
         anonymize: true,
       },
     },
+    {
+      resolve: `gatsby-plugin-create-client-paths`,
+      options: { prefixes: [`/docs/*`] },
+    },
   ],
+  pathPrefix: "/website",
 };

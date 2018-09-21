@@ -37,7 +37,18 @@
     "tags": "Tags",
     "postMetadata": "{{author}} on {{date}}"
   },
+  "docs": {
+    "version": "Version:",
+    "backToTop": "Back to top",
+    "showNavigation": "Show navigation",
+    "hideNavigation": "Hide navigation",
+    "latest": "Latest"
+  },
   "copyright": "Copyright © 2018 The Kyma project authors.",
   "privacyStatement": "Privacy Statement",
-  "privacyStatementLink": "https://www.sap.com/corporate/en/legal/privacy.html"
+  "privacyStatementLink": "https://www.sap.com/corporate/en/legal/privacy.html",
+  "errors": {
+    "general": "A general error occurred. Please try again.",
+    "404": "Page not found."
+  }
 }

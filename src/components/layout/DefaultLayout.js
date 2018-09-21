@@ -7,9 +7,13 @@ import CookieMessageBanner from "../cookiee/CookieeMessageBanner";
 
 const Wrapper = styled.main`
   width: 100%;
-  margin: -60px auto 0;
+  margin: 0 auto;
   padding: 20px;
   max-width: 1200px;
+
+  @media (max-width: 760px) {
+    padding: 0;
+  }
 `;
 
 const DefaultLayout = ({ pageId, pageName, children }) => {

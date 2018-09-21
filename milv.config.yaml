@@ -1,0 +1,4 @@
+white-list-external: ["localhost", "kyma.local"]
+black-list: ["node_modules"]
+timeout: 60
+request-repeats: 5

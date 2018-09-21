@@ -1,6 +1,5 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import "../../config/i18n";
 
 import ui from "../../locales/en/UI.json";
 import Sprites from "./Sprites";
