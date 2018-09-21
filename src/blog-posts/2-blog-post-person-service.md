@@ -1,7 +1,7 @@
 ---
 path: "/blog/blog-post-person-service"
 date: "2018-09-24"
-author: "Andreas Krause, Kyma Enablement Software Architecture"
+author: "Andreas Krause, Kyma Cloud Software Enablement"
 tags: ["kyma", "cloud", "native", "application", "extension", "example", "integration"]
 title: "Get started guide for developers on Kyma"
 ---
