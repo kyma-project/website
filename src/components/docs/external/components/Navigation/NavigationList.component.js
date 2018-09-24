@@ -92,112 +92,67 @@ const Link = styled.a`
 `;
 
 function SecondarySubLink(props) {
-  const { rootId, type, items, active, activeNav } = props;
+  const { rootId, parentId, type, items, active, activeNav } = props;
   let onClick = (clickedItem, options) => {
     props.callbackParent(clickedItem, options);
   };
   let setActiveNav = clickedItem => {
     props.setActiveNav(clickedItem);
   };
-  return (
-    <Items secondary marginTop show={activeNav.id === rootId}>
-      {items.map((item, index) => {
-        const topicType = item.topicType.replace(/ /g, "-").toLowerCase();
-        return (
-          <Item key={`${rootId}-${index}`}>
-            {item &&
-              item.titles &&
-              item.titles.map(element => {
-                const hash = `${topicType}-${element.anchor}`;
-                const isActive =
-                  active.hash && active.id === rootId && active.hash === hash;
-                const hasSubElements =
-                  element && element.titles && element.titles.length > 0;
+  const isActiveNav = parentId
+    ? activeNav.id === rootId &&
+      activeNav.hash &&
+      activeNav.hash.indexOf(parentId) !== -1
+    : activeNav.id === rootId;
 
-                const isActiveNavArrow =
-                  hasSubElements &&
-                  activeNav.id === rootId &&
-                  activeNav.hash &&
-                  activeNav.hash.indexOf(element.anchor) !== -1;
-
-                return (
-                  <div key={`${rootId}-${element.anchor}`}>
-                    <LinkWrapper>
-                      {hasSubElements && (
-                        <Arrow
-                          onClick={() => {
-                            setActiveNav({
-                              id: rootId,
-                              type: type,
-                              hash: hash,
-                            });
-                          }}
-                          active={isActive}
-                          activeArrow={isActiveNavArrow}
-                        />
-                      )}
-                      <Link
-                        active={isActive}
-                        onClick={() => {
-                          onClick(
-                            {
-                              id: rootId,
-                              type: type,
-                              hash: hash,
-                            },
-                            { hasSubElements },
-                          );
-                        }}
-                      >
-                        {element.name}
-                      </Link>
-                    </LinkWrapper>
-                    {hasSubElements && (
-                      <TertiarySubLink
-                        items={element}
-                        type={type}
-                        rootId={rootId}
-                        parentId={element.anchor}
-                        history={props.history}
-                        active={active}
-                        activeNav={activeNav}
-                        callbackParent={props.callbackParent}
-                        topicType={topicType}
-                      />
-                    )}
-                  </div>
-                );
-              })}
-          </Item>
-        );
-      })}
-    </Items>
-  );
-}
-
-function TertiarySubLink(props) {
-  const { rootId, parentId, type, items, active, activeNav } = props;
-  let onClick = (clickedItem, options) => {
-    props.callbackParent(clickedItem, options);
-  };
-
-  const isActiveNav =
-    activeNav.id === rootId &&
-    activeNav.hash &&
-    activeNav.hash.indexOf(parentId) !== -1;
   return (
     <Items secondary marginTop show={isActiveNav}>
       {items &&
-        items.titles &&
-        items.titles.map(element => {
-          const isActive =
-            active.hash &&
-            active.id === rootId &&
-            active.hash === `${parentId}-${element.anchor}`;
+        items.map((item, index) => {
+          let hash, isActive, topicType;
+          if (parentId) {
+            hash = `${parentId}-${item.anchor}`;
+            isActive =
+              active.hash &&
+              active.id === rootId &&
+              active.hash === `${parentId}-${item.anchor}`;
+          } else {
+            topicType = item.topicType
+              ? item.topicType.replace(/ /g, "-").toLowerCase()
+              : item.anchor;
+            hash = `${topicType}-${item.anchor}`;
+            isActive =
+              active.hash && active.id === rootId && active.hash === hash;
+          }
 
+          const hasSubElements = item && item.titles && item.titles.length > 0;
+          const isActiveNavArrow =
+            hasSubElements &&
+            activeNav.id === rootId &&
+            activeNav.hash &&
+            activeNav.hash.indexOf(item.anchor) !== -1;
           return (
-            <Item key={`${rootId}-${parentId}-${element.anchor}`}>
+            <Item
+              key={
+                parentId
+                  ? `${rootId}-${parentId}-${item.anchor}`
+                  : `${rootId}-${item.anchor}`
+              }
+            >
               <LinkWrapper>
+                {hasSubElements && (
+                  <Arrow
+                    onClick={() => {
+                      setActiveNav({
+                        id: rootId,
+                        type: type,
+                        hash: hash,
+                      });
+                    }}
+                    active={isActive}
+                    activeArrow={isActiveNavArrow}
+                  />
+                )}
                 <Link
                   active={isActive}
                   onClick={() => {
@@ -205,15 +160,27 @@ function TertiarySubLink(props) {
                       {
                         id: rootId,
                         type: type,
-                        hash: `${parentId}-${element.anchor}`,
+                        hash: hash,
                       },
-                      { hasSubElements: false },
+                      { hasSubElements },
                     );
                   }}
                 >
-                  {element.name}
+                  {item.name}
                 </Link>
               </LinkWrapper>
+              {hasSubElements && (
+                <SecondarySubLink
+                  items={item.titles}
+                  type={type}
+                  rootId={rootId}
+                  parentId={item.anchor}
+                  history={props.history}
+                  active={active}
+                  activeNav={activeNav}
+                  callbackParent={props.callbackParent}
+                />
+              )}
             </Item>
           );
         })}
@@ -329,8 +296,7 @@ function NavigationList(props) {
                             topics.sections &&
                             topics.sections.length > 0,
                         },
-                      )
-                    }
+                      )}
                   >
                     {item.displayName}
                   </Link>

@@ -77,30 +77,26 @@ function createTopicNavigation(json) {
     entry.docs.map(d => {
       let section = {};
       let sec = obj.sections.find(s => s.topicType === d.type);
-      let countbyType = entry.docs.filter(s => s.type === d.type).length;
 
       if (!sec) {
         let subsection = {};
         section = {
-          topicType: d.type,
-          titles: [
-            {
-              name: countbyType > 1 ? d.type : d.title,
-              anchor: toAnchor(d.type),
-              titles: [],
-            },
-          ],
+          topicType: d.type ? d.type : null,
+          name: d.type ? d.type : d.title,
+          anchor: toAnchor(d.type ? d.type : d.title),
+          titles: [],
         };
 
-        if (countbyType > 1) {
-          section.titles[section.titles.length - 1].titles.push({
+        if (d.type) {
+          section.titles.push({
             name: d.title,
             anchor: toAnchor(d.title),
           });
         }
+
         obj.sections.push(section);
       } else {
-        sec.titles[sec.titles.length - 1].titles.push({
+        sec.titles.push({
           name: d.title,
           anchor: toAnchor(d.title),
         });
