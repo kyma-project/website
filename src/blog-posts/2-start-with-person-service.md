@@ -1,12 +1,12 @@
 ---
-path: "/blog/blog-post-person-service"
+path: "/blog/start-with-person-service"
 date: "2018-09-24"
 author: "Andreas Krause, Kyma Cloud Software Enablement"
 tags: ["kyma", "cloud", "native", "application", "extension", "example", "integration"]
 title: "Get started guide for developers on Kyma"
 ---
 
-Now that Kyma is out there available to the world you are most probably keen on testing and implementing your own scenarios leveraging Kyma. Well, we are happy to introduce you to a getting started guide for developers which is [a sample application based on Spring Boot] (https://github.com/kyma-incubator/examples/tree/master/personservice) showing the features on Kyma.
+Now that Kyma is out there available to the world you are most probably keen on testing and implementing your own scenarios leveraging Kyma. Well, we are happy to introduce you to a getting started guide for developers which is [a sample application based on Spring Boot](https://github.com/kyma-incubator/examples/tree/master/personservice) showing the features on Kyma.
 
 This hands-on guide provides an end-to-end example application implementation in Java and Spring Boot running on Kyma. In the end state, you as a developer will understand all the features Kyma delivers. To summarize, this guide teaches you how to:
 
