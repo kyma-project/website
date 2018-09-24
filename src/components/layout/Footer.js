@@ -7,6 +7,8 @@ const Footer = () => {
   const twitter = translateLink("twitter");
   const github = translateLink("github");
   const slack = translateLink("slack");
+  const linkedin = translateLink("linkedin");
+  const youtube = translateLink("youtube");
 
   return (
     <footer>
@@ -20,9 +22,9 @@ const Footer = () => {
             <title id="title">{ui.metadata.title}</title>
             <use xlinkHref="#logo-single" />
           </svg>
-          <a href={github.url} className="link link-github">
+          <a href={github.url} className="link link-media link-github" target="_blank" rel="noopener noreferrer">
             <svg
-              className="sprite-icon sprite-icon--12 sprite-icon--inverse"
+              className="sprite-icon sprite-icon--14 sprite-icon--inverse"
               role="img"
               aria-labelledby="githublLink"
             >
@@ -31,9 +33,9 @@ const Footer = () => {
             </svg>
             {github.name}
           </a>
-          <a href={twitter.url} className="link link-twitter">
+          <a href={twitter.url} className="link link-media link-twitter" target="_blank" rel="noopener noreferrer">
             <svg
-              className="sprite-icon sprite-icon--12 sprite-icon--inverse"
+              className="sprite-icon sprite-icon--15 sprite-icon--inverse"
               role="img"
               aria-labelledby="twitterlLink"
             >
@@ -42,9 +44,9 @@ const Footer = () => {
             </svg>
             {twitter.name}
           </a>
-          <a href={slack.url} className="link link-slack">
+          <a href={slack.url} className="link link-media link-slack" target="_blank" rel="noopener noreferrer">
             <svg
-              className="sprite-icon sprite-icon--12 sprite-icon--inverse"
+              className="sprite-icon sprite-icon--15 sprite-icon--inverse"
               role="img"
               aria-labelledby="slackLink"
             >
@@ -52,6 +54,28 @@ const Footer = () => {
               <use xlinkHref="#slack" />
             </svg>
             {slack.name}
+          </a>
+          <a href={linkedin.url} className="link link-media link-linkedin" target="_blank" rel="noopener noreferrer">
+            <svg
+              className="sprite-icon sprite-icon--14 sprite-icon--inverse"
+              role="img"
+              aria-labelledby="linkedin"
+            >
+              <title id="linkedinLink">{linkedin.name}</title>
+              <use xlinkHref="#linkedin" />
+            </svg>
+            {linkedin.name}
+          </a>
+          <a href={youtube.url} className="link link-media link-youtube" target="_blank" rel="noopener noreferrer">
+            <svg
+              className="sprite-icon sprite-icon--15 sprite-icon--inverse"
+              role="img"
+              aria-labelledby="youtube"
+            >
+              <title id="youtubeLink">{youtube.name}</title>
+              <use xlinkHref="#youtube" />
+            </svg>
+            {youtube.name}
           </a>
 
           <div className="copyright">

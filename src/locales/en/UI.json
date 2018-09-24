@@ -25,6 +25,16 @@
       "name": "Slack",
       "url":
         "https://join.slack.com/t/kyma-community/shared_invite/enQtNDAwNzE4Mjk2NDE3LTJhOTlmZjM5YzkwNmEzNmY3ZjE2MTU2OTMxOGE4ZDM0MmU4ZWRkZGJiODgzNmRmMTYxMDYwNjZiMDAwMTA2OWM"
+    },
+    "linkedin": {
+      "name": "LinkedIn",
+      "url":
+        "https://www.linkedin.com/company/kyma-project/"
+    },
+    "youtube": {
+      "name": "YouTube",
+      "url":
+        "https://www.youtube.com/channel/UC8Q8bBtYe9gQN-dQ-_L8JvQ"
     }
   },
   "cookieBanner": {
