@@ -6,8 +6,8 @@ INVERTED='\033[7m'
 NC='\033[0m' # No Color
 
 documentationRepo="https://github.com/kyma-project/kyma.git"
-docsGeneratorImage="eu.gcr.io/kyma-project/content-to-json-generator:0.0.1"
-navGeneratorImage="eu.gcr.io/kyma-project/navigation-builder:0.1.17"
+docsGeneratorImage="eu.gcr.io/kyma-project/content-to-json-generator:0.0.2"
+navGeneratorImage="eu.gcr.io/kyma-project/navigation-builder:0.1.20"
 
 # clean and remove cloned repo
 function removeCloneRepoFolder {
