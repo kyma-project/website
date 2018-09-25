@@ -47,6 +47,10 @@
       {
         "displayName": "Authorization and Authentication",
         "id": "authorization-and-authentication"
+      },
+      {
+        "displayName": "Logging",
+        "id": "logging"
       }
     ]
   }
