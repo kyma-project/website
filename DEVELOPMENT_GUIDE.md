@@ -74,8 +74,8 @@ Follow these steps to contribute your content:
 
 ## Step by step instruction of how to develop and what parts to do when?
 
-wat
+What? Is this section neccesary?
 
 ## What are requirements of good contribution?
 
-wat
+What? Is this section neccesary?
