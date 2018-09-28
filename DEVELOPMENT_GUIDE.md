@@ -44,7 +44,7 @@ The repository has the following structure:
 ```
   ├── .github                     # Pull request and issue templates
   ├── docs-navigation-builder     # Used for creating navigation file out of documentation
-  ├── scripts                     # Scripts used in Continous Integration/CI/Jenkinsfile; don't use locally
+  ├── scripts                     # Scripts used in Continous Integration; don't use locally
   ├── src                         # Source code of website
        ├── blog-posts             # Blog posts
        ├── components             # Structure of various parts of website
