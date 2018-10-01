@@ -6,13 +6,13 @@ tags: ["kyma", "cloud", "knative", "application", "extension", "serverless", "ku
 title: "How Kubeless will be replaced with knative"
 ---
 
-As knative is the new cool kid on the block, we are planning to replace kubeless with knative technology. Beside the fact, that it is new, we think it makes sense to base our solution on technology supported by some of the biggest IT companies in the world.
+Knative is a important new project in the cloud native world. As it is back by some of the biggest player in this domain and covers major parts of an Serverless Arichtecture we are planning to replace kubeless with it.
 
 In general kubeless and knative are sharing the same patterns. Kubeless takes some code, builds an image out of it and starts it on kubernetes. Knative is doing the same. Nevertheless, they are different and to provide the same commodity as our users are used to with kubeless, we have to do some extra work to replace it with knative.
 
 ## Architecture
 
-So far the architecture is not shaped out fully. Many details have to be sorted out and defined. The Idea is to use knative as it is and try to bridge the existing gaps using custom components or pushing them back to the knative community. In the end knative should provide the same functionality as kubeless is doing today.
+So far the architecture is not shaped out fully. Many details have to be sorted out and defined. The Idea is to use knative as it is and try to bridge the existing gaps using custom components, available 3rd Party Tools (e.g. Riff) or pushing enhancements to the knative community. In the end knative should provide the same functionality as kubeless is doing today.
 
 ![Serverless Kyma Architecture](./assets/3-serverless-kyma-architecture.png)
 
