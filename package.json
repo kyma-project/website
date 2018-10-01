@@ -28,8 +28,8 @@
     "gatsby-remark-copy-linked-files": "^2.0.0-beta.3",
     "gatsby-remark-images": "^2.0.1-beta.10",
     "gatsby-source-filesystem": "^2.0.1-rc.1",
-    "gatsby-transformer-remark": "^2.1.1-beta.6",
     "gatsby-transformer-json": "^2.1.1-beta.5",
+    "gatsby-transformer-remark": "^2.1.1-beta.6",
     "i18next": "^11.5.0",
     "i18next-browser-languagedetector": "^2.2.2",
     "i18next-xhr-backend": "^1.5.1",
@@ -49,6 +49,7 @@
     "gh-pages": "^1.2.0",
     "husky": "^1.0.0-rc.13",
     "lint-staged": "^7.2.0",
+    "prettier": "^1.14.3",
     "safe-buffer": "5.1.1"
   },
   "husky": {
@@ -58,7 +59,7 @@
   },
   "lint-staged": {
     "linters": {
-      "*.{js,json,css}": [
+      "*.{js,json,css,jsx}": [
         "prettier --write",
         "git add"
       ]
