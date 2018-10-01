@@ -16,7 +16,7 @@ So far the architecture is not shaped out fully. Many details have to be sorted 
 
 ![Serverless Kyma Architecture](./assets/3-serverless-kyma-architecture.png)
 
-The centerpice of the architecture are the knative serving and build components. As a kyma related component a custom build template is required providing the function interface available in kubeless.
+The core of the of the architecture are the knative serving and build components. As a kyma related component a custom build template is required providing the function interface available in kubeless.
 
 Beside the build template a custom docker registry is required to store the build artifacts and a storage solution to store the function code. This could be a git repository or a blob storage like minio or S3. At the end the customer should be able to decide, if he likes to keep the function code in his own git repo or if he likes to store it in a storage solution provided by kyma.
 
