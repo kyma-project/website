@@ -6,13 +6,13 @@ tags: ["kyma", "cloud", "knative", "application", "extension", "serverless", "ku
 title: "How Kubeless will be replaced with knative"
 ---
 
-As knative is the new cool kid on the block, we are planning to replace kubeless with knative technology. Beside the fakt, that it is new, we think it makes sense to base our solution on technology supported by some of the biggest IT companies in the world.
+As knative is the new cool kid on the block, we are planning to replace kubeless with knative technology. Beside the fact, that it is new, we think it makes sense to base our solution on technology supported by some of the biggest IT companies in the world.
 
 In general kubeless and knative are sharing the same patterns. Kubeless takes some code, builds an image out of it and starts it on kubernetes. Knative is doing the same. Nevertheless, they are different and to provide the same commodity as our users are used to with kubeless, we have to do some extra work to replace it with knative.
 
 ## Architecture
 
-So far the architecture is not shaped out fully. Many details have to be sorted out and defined. The Idea is to use knative as it is and try to bridge the existing gaps using custom components or pushing them back to the knative community. At the end knative should provide the same functionality as kubeless is doing today.
+So far the architecture is not shaped out fully. Many details have to be sorted out and defined. The Idea is to use knative as it is and try to bridge the existing gaps using custom components or pushing them back to the knative community. In the end knative should provide the same functionality as kubeless is doing today.
 
 ![Serverless Kyma Architecture](./assets/3-serverless-kyma-architecture.png)
 
@@ -22,4 +22,4 @@ Beside the build template a custom docker registry is required to store the buil
 
 ## Implementation
 
-As the implementation involves multiple components and will have breaking changes, we will keep kubeless till we are sure, the new version is working like expected. In the first step, knative-serving and -build components will be integrated as optional modules of kyma. If this is working, the other parts like docker registry, blob storage, build template etc. are enabled step by step. As a last step a new (forked) lambda UI will be created and adjusted to the needs of kantive. As soon as everything is working fine, kubeless is faded out. That said, knative will be the new default and kubeless can be enabled as long as there are still old deployments available. As soon as we are sure, nobody is using the old kubless based implementation it will be removed completely.
+As the implementation involves multiple components and will have breaking changes, we will keep kubeless till we are sure, the new version is working like expected. In the first step, knative-serving and -build components will be integrated as optional modules of kyma. If this is working, the other parts like docker registry, blob storage, build template etc. are enabled step by step. As a last step a new (forked) lambda UI will be created and adjusted to the needs of knative. As soon as everything is working fine, kubeless is faded out. That said, knative will be the new default and kubeless can be enabled as long as there are still old deployments available. As soon as we are sure, nobody is using the old kubeless based implementation it will be removed completely.
