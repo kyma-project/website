@@ -5,6 +5,7 @@ author: "Krassimir Semerdzhiev, Kyma Open Source Strategist"
 tags: ["kyma", "ambassadors", "event", "extensibility", "serverless", "teched"]
 title: "Kyma at SAP TechEd"
 ---
+![Kyma at TechEd](./assets/kyma-at-sap-teched.jpg)
 
 [SAP TechEd](https://events.sap.com/teched/en/home) is the premier SAP technology conference, which takes place every year on 3 continents and is an excellent source of news on the technical and platform offerings of SAP. In 2018 it&#39;s scheduled in Las Vegas, Barcelona and Bangalore. Being used in a number of implementation projects and also being the basis for the upcoming SAP Cloud Platform Extension Factory lab preview – it was important to ensure that we have Kyma ambassadors on each of those events, who can answer questions and generally serve as a contact point on-site for people to reach to.
 
