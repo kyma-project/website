@@ -1014,7 +1014,7 @@ h3 {
 .kyma-attr {
   margin-top: 10%;
 }
-.kyma-attr h3 {
+.kyma-attr h2, .kyma-attr h3 {
   text-align: center;
 }
 @media (min-width: 768px) {
@@ -1220,20 +1220,37 @@ footer {
   margin-right: 15px;
 }
 
+.btn-github {
+  border-color: #2852c7;
+  background-color: #2852c7;
+}
+
+.kyma-menu .btn-github {
+  border-color: #ffffff;
+  color: #ffffff;
+  background-color: transparent;
+}
+
 .kyma-margin-top {
   margin-top: 10%;
 }
 
-.btn-github, .btn-slack {
+.btn-github, .btn-slack, .btn-documentation {
   padding: 10px 18px;
 }
 
-.btn:active,
-.btn:focus,
-.btn:hover {
+.btn:active, .kyma-menu .btn-github:active,
+.btn:focus, .kyma-menu .btn-github:focus,
+.btn:hover, .kyma-menu .btn-github:hover {
   cursor: pointer;
   background-color: rgba(255, 255, 255, 0.1);
   outline: none;
+}
+
+.btn-github:active,
+.btn-github:focus,
+.btn-github:hover {
+  background-color: rgba(40, 82, 199, 0.9);
 }
 
 .link {
