@@ -9,11 +9,11 @@ const Features = () => {
   const getIllustrationComponent = sectionId => {
     switch (sectionId) {
       case "applicationConnector":
-        return <Extendable />;
-      case "serverless":
         return <Connectivity />;
-      case "serviceCatalog":
+      case "serverless":
         return <TechIndependent />;
+      case "serviceCatalog":
+        return <Extendable />;
       default:
         return null;
     }

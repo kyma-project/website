@@ -4,15 +4,15 @@
   "whatIs": {
     "headline": "What is Kyma?",
     "paragraphs": [
-      "Kyma is an open-source project designed natively on Kubernetes. It allows you to extend and customize cloud-based and on-premise enterprise applications in a quick and modern way, using serverless computing and microservice architecture.",
-      "Use Kyma to create extensions for the existing systems, regardless of the language they are written in. Customize your extensions with minimum effort and time devoted to learning their configuration details."
+      "Kyma is an open-source project designed natively on Kubernetes. It allows you to extend and customize cloud-based and on-premise enterprise applications in a quick and modern way, using serverless computing or microservice architecture.",
+      "Kyma provides a set of cloud-native components and services required to build modern, end-to-end user experience scenarios that follow a best-practices approach to performance, scalability, efficiency, and security. Use the familiar, idiomatic language and standardized patterns that Kyma offers to extend a single enterprise application or combine existing systems to create new functionalities."
     ],
     "action": "Get it on {{site}}"
   },
   "makesSpecial": {
     "headline": "What makes Kyma so special?",
     "paragraphs": [
-      "Major open-source and cloud-native projects, such as Istio, NATS, Kubeless, and Prometheus, constitute 90% of Kyma. Its uniqueness lies in the \"glue\" that holds these components together. It collects those cutting-edge solutions in one place and combines them with the 10% of in-house developed features that allow you to create application extensions, and connect services easily and intuitively in one place."
+      "Major open-source and cloud-native projects, such as Istio, NATS, Kubeless, and Prometheus, constitute the cornerstone of Kyma. Its uniqueness, however, lies in the \"glue\" that holds these components together. Kyma collects those cutting-edge solutions in one place and combines them with the in-house developed features that allow you to connect and extend your enterprise applications easily and intuitively."
     ],
     "action": "Read the Docs"
   },
@@ -22,18 +22,22 @@
       "headline": "Application Connector",
       "bulletPoints": [
         "Simplifies and secures the connection between external systems and Kyma",
-        "Registers external Events and APIs in the Service Catalog",
+        "Registers external Events and APIs in the Service Catalog and simplifies the API usage",
         "Provides asynchronous communication with services and lambdas deployed in Kyma through Events",
-        "Manages access to external systems"
+        "Manages secure access to external systems",
+        "Provides monitoring and tracing capabilities to facilitate operational aspects"
       ]
     },
     {
       "id": "serverless",
       "headline": "Serverless",
       "bulletPoints": [
-        "Ensures quick deployments",
+        "Ensures quick deployments following a lambda function approach",
         "Enables scaling independent of the core applications",
-        "Gives a possibility to revert changes without causing production system downtime"
+        "Gives a possibility to revert changes without causing production system downtime",
+        "Supports the complete asynchronous programming model",
+        "Offers loose coupling of Event providers and consumers",
+        "Enables flexible application scalability and availability"
       ]
     },
     {
@@ -41,7 +45,9 @@
       "headline": "Service Catalog",
       "bulletPoints": [
         "Connects services from external sources",
-        "Unifies the consumption of internal and external services thanks to compliance with the Open Service Broker standard"
+        "Unifies the consumption of internal and external services thanks to compliance with the Open Service Broker standard",
+        "Provides a standardized approach to managing the API consumption and access",
+        "Eases the development effort by providing a catalog of API and Event documentation to support automatic client code generation"
       ]
     }
   ]
