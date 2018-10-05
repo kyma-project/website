@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Separator } from "@kyma-project/react-components";
-import { DOCS_RESPONSIVE_BREAKPOINT } from "../../../../../constans/docs";
+import { DOCS_RESPONSIVE_BREAKPOINT } from "../../../../../constants/docs";
 
 const Wrapper = styled.div`
   overflow-y: auto;
