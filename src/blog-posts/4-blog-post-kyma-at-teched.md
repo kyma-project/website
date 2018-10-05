@@ -14,7 +14,7 @@ As the centerpiece of a number of implementation projects, and the cornerstone o
 
 - For the [Las Vegas (02-05.Oct)](http://events.sap.com/teched-2018-usa/en/home) event the ambassadors include myself ([@evilyeti](https://twitter.com/evilyeti)), Gopi Kannappan ([@gopikannappan](https://twitter.com/gopikannappan)) and Hisar Balik. You can find us hanging around the SAP Cloud Platform booths and on the C/4HANA sessions we have on the agenda.
 
-- [For the Barcelona (23-25.Oct)](http://events.sap.com/teched-2018-emea/en/home) event the ambassadors are Marco Dorn ([@mado0803](https://twitter.com/mado0803)), Stanimir Ivanov ([@s1vanov](https://twitter.com/s1vanov)) and Lukasz Szymik ([@lszymik](https://twitter.com/lszymik)) who will also be available either at the SAP Cloud Platform booths or at the C/4 HANA sessions they'll run.
+- [For the Barcelona (23-25.Oct)](http://events.sap.com/teched-2018-emea/en/home) event the ambassadors are Marco Dorn ([@mado0803](https://twitter.com/mado0803)), Stanimir Ivanov ([@s1vanov](https://twitter.com/s1vanov)) and Lukasz Szymik ([@lszymik](https://twitter.com/lszymik)) who will also be available either at the SAP Cloud Platform booths or at the C/4HANA sessions they'll run.
 
 - Last but not least – for the [Bangalore (25-30.Nov)](http://events.sap.com/teched-2018-india/en/home) event we have Johannes Engelke ([@quablab](https://twitter.com/quablab)) and Sayan Hazra as the ambassadors. They'll make sure to spread the word about Kyma, and tell the attendees all about the extensibility of the product, and the Serverless functions.
 
