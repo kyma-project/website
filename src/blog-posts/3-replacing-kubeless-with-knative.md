@@ -1,9 +1,9 @@
 ---
-path: "/blog/how-kubeless-will-be-replaced-with-Knative"
+path: "/blog/replacing-kubeless-with-Knative"
 date: "2018-09-27"
 author: "Johannes Engelke, Kyma Product Owner Serverless"
 tags: ["kyma", "cloud", "Knative", "application", "extension", "serverless", "kubeless"]
-title: "How Kubeless will be replaced with Knative"
+title: "Replacing Kubeless with Knative"
 ---
 
 [Knative](https://github.com/Knative/) is an important new project in the cloud-native world that was announced as a "Kubernetes-based platform to build, deploy, and manage modern serverless workloads." It is an opinionated approach covering the best practices around three areas of developing cloud-native applications: building containers (and functions), serving (and dynamically scaling) workloads, and eventing. Knative is an open-source set of components and is being actively developed by Google in close partnership with Pivotal, IBM, Red Hat, and SAP.
