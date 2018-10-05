@@ -6,13 +6,13 @@ tags: ["kyma", "ambassadors", "event", "extensibility", "serverless", "teched"]
 title: "Kyma at SAP TechEd"
 ---
 
-[SAP TechEd](https://events.sap.com/teched/en/home) is the premier SAP technology conference, which takes place every year on 3 continents and is an excellent source of news on the technical and platform offerings of SAP. In 2018 the conference venues are located in Las Vegas, Barcelona, and Bangalore. 
+[SAP TechEd](https://events.sap.com/teched/en/home) is the premier SAP technology conference, which takes place every year on 3 continents and is an excellent source of news on the technical and platform offerings of SAP. In 2018 the conference venues are located in Las Vegas, Barcelona, and Bangalore.
 
 ![Kyma at TechEd](./assets/kyma-at-sap-teched.jpg)
 
 As the centerpiece of a number of implementation projects, and the cornerstone of the upcoming SAP Cloud Platform Extension Factory Lab Preview, Kyma must be represented by the best ambassadors on each of the three events. These people will represent the product, answer all questions and be the first point of contact for all the attendees interested in Kyma.
 
-- For the [Las Vegas (02-05.Oct)](http://events.sap.com/teched-2018-usa/en/home) event the ambassadors include myself ([@evilyeti](https://twitter.com/evilyeti)), Gopi Kannappan ([@gopikannappan](https://twitter.com/gopikannappan)) and Hisar Balik. You can find us hanging around the SAP Cloud Platform booths and on the C/4 HANA sessions we have on the agenda.
+- For the [Las Vegas (02-05.Oct)](http://events.sap.com/teched-2018-usa/en/home) event the ambassadors include myself ([@evilyeti](https://twitter.com/evilyeti)), Gopi Kannappan ([@gopikannappan](https://twitter.com/gopikannappan)) and Hisar Balik. You can find us hanging around the SAP Cloud Platform booths and on the C/4HANA sessions we have on the agenda.
 
 - [For the Barcelona (23-25.Oct)](http://events.sap.com/teched-2018-emea/en/home) event the ambassadors are Marco Dorn ([@mado0803](https://twitter.com/mado0803)), Stanimir Ivanov ([@s1vanov](https://twitter.com/s1vanov)) and Lukasz Szymik ([@lszymik](https://twitter.com/lszymik)) who will also be available either at the SAP Cloud Platform booths or at the C/4 HANA sessions they'll run.
 
