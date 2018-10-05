@@ -996,10 +996,9 @@ h3 {
     display: block;
     padding: 0px 25px 10px 25px;
     position: relative;
-    top: 55px;
   }
   .kyma-menu > li:first-child {
-    padding: 25px 25px 10px 25px;
+    padding: 25px 25px 65px 25px;
   }
 }
 
