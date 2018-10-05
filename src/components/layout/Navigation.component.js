@@ -18,6 +18,13 @@ const Navigation = ({ items = [] }) => {
   return (
     <>
       <ul id="kyma-menu" className="kyma-menu">
+        <li>
+          <button className="btn btn-burger" onClick={toggleMenu}>
+            <span />
+            <span />
+            <span />
+          </button>
+        </li>
         {items.map(item => {
           const linkTitle = ui.navigation[item.id];
           const linkComponent = item.path.includes("//") ? (

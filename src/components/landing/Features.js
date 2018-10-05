@@ -8,12 +8,12 @@ import TechIndependent from "./features/TechIndependent";
 const Features = () => {
   const getIllustrationComponent = sectionId => {
     switch (sectionId) {
-      case "openAndExtendable":
-        return <Extendable />;
-      case "seamlessConnectivity":
+      case "applicationConnector":
         return <Connectivity />;
-      case "coherentAndTechnologyIndependent":
+      case "serverless":
         return <TechIndependent />;
+      case "serviceCatalog":
+        return <Extendable />;
       default:
         return null;
     }
@@ -22,6 +22,7 @@ const Features = () => {
   const sections = landingPage.features || [];
   return (
     <div className="row kyma-attr row--sm-align-center">
+      <h2 className="col-12 col-md-12">Key features</h2>
       {sections.map(section => {
         return (
           <section className="col-4 col-md-12" key={section.id}>

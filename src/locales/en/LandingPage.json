@@ -1,44 +1,53 @@
 {
   "headline":
     "A flexible and easy way to \nconnect and extend enterprise applications in a cloud-native world",
-  "mission": {
-    "headline": "Kyma mission: \nMake simple things simple again!",
-    "paragraphs": [
-      "Kyma aims to equip enterprise software users with agile tools to customize, extend, and integrate any API-enabled application and tailor it to their needs.",
-      "Kyma makes the development and operation of microservices-based solutions easy by providing consistent service management capabilities and the integration of the existing enterprise software in a service-oriented manner."
-    ]
-  },
   "whatIs": {
     "headline": "What is Kyma?",
     "paragraphs": [
-      "Kyma is a cloud-native application development framework.",
-      "It provides the last mile capabilities that a developer needs to build a cloud-native application using several open-source projects such as Kubernetes, Istio, NATS, Kubeless, and Prometheus, to name a few.",
-      "It is designed natively on Kubernetes and, therefore, it is portable to all major cloud providers."
+      "Kyma is an open-source project designed natively on Kubernetes. It allows you to extend and customize cloud-based and on-premise enterprise applications in a quick and modern way, using serverless computing or microservice architecture.",
+      "Kyma provides a set of cloud-native components and services required to build modern, end-to-end user experience scenarios that follow a best-practices approach to performance, scalability, efficiency, and security. Use the familiar, idiomatic language and standardized patterns that Kyma offers to extend a single enterprise application or combine existing systems to create new functionalities."
     ],
     "action": "Get it on {{site}}"
   },
+  "makesSpecial": {
+    "headline": "What makes Kyma so special?",
+    "paragraphs": [
+      "Major open-source and cloud-native projects, such as Istio, NATS, Kubeless, and Prometheus, constitute the cornerstone of Kyma. Its uniqueness, however, lies in the \"glue\" that holds these components together. Kyma collects those cutting-edge solutions in one place and combines them with the in-house developed features that allow you to connect and extend your enterprise applications easily and intuitively."
+    ],
+    "action": "Read the Docs"
+  },
   "features": [
     {
-      "id": "openAndExtendable",
-      "headline": "Open and extendable",
+      "id": "applicationConnector",
+      "headline": "Application Connector",
       "bulletPoints": [
-        "Consume services from different sources.",
-        "Unify the consumption of internal and external services through the Open Service Broker standard-compliant Service Catalog."
+        "Simplifies and secures the connection between external systems and Kyma",
+        "Registers external Events and APIs in the Service Catalog and simplifies the API usage",
+        "Provides asynchronous communication with services and lambdas deployed in Kyma through Events",
+        "Manages secure access to external systems",
+        "Provides monitoring and tracing capabilities to facilitate operational aspects"
       ]
     },
     {
-      "id": "seamlessConnectivity",
-      "headline": "Seamless connectivity",
+      "id": "serverless",
+      "headline": "Serverless",
       "bulletPoints": [
-        "Leverage HTTP/2 for optimized latency and payload.",
-        "Ensure flexible add-on triggers, including Events and HTTP requests."
+        "Ensures quick deployments following a lambda function approach",
+        "Enables scaling independent of the core applications",
+        "Gives a possibility to revert changes without causing production system downtime",
+        "Supports the complete asynchronous programming model",
+        "Offers loose coupling of Event providers and consumers",
+        "Enables flexible application scalability and availability"
       ]
     },
     {
-      "id": "coherentAndTechnologyIndependent",
-      "headline": "Coherent and technology-independent",
+      "id": "serviceCatalog",
+      "headline": "Service Catalog",
       "bulletPoints": [
-        "A programming language-agnostic add-on model that allows you to customize a software solution using the technology stack you are most experienced with."
+        "Connects services from external sources",
+        "Unifies the consumption of internal and external services thanks to compliance with the Open Service Broker standard",
+        "Provides a standardized approach to managing the API consumption and access",
+        "Eases the development effort by providing a catalog of API and Event documentation to support automatic client code generation"
       ]
     }
   ]

@@ -1,19 +1,21 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import Headline from "../components/landing/Headline";
-import Features from "../components/landing/Features";
-import WhatIs from "../components/landing/WhatIs";
+
 import LandingLayout from "../components/layout/LandingLayout";
-import Mission from "../components/landing/Mission";
+
+import Headline from "../components/landing/Headline";
+import WhatIs from "../components/landing/WhatIs";
+import MakesSpecial from "../components/landing/MakesSpecial";
+import Features from "../components/landing/Features";
 
 const IndexPage = () => (
   <LandingLayout>
     <Helmet />
     <div className="container">
       <Headline />
-      <Mission />
+      <WhatIs />
     </div>
-    <WhatIs />
+    <MakesSpecial />
     <div className="container">
       <Features />
     </div>

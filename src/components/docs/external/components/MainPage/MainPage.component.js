@@ -5,7 +5,7 @@ import ColumnsWrapper from "../ColumnsWrapper/ColumnsWrapper.component";
 import ContentWrapper from "../ContentWrapper/ContentWrapper.container";
 import { goToTop } from "react-scrollable-anchor";
 import NavigationSidebar from "../../../navigation/NavigationSidebar";
-import { DOCS_RESPONSIVE_BREAKPOINT } from "../../../../../constans/docs";
+import { DOCS_RESPONSIVE_BREAKPOINT } from "../../../../../constants/docs";
 
 const SideWrapper = styled.div`
   box-sizing: border-box;
