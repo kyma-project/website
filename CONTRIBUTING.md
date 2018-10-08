@@ -9,6 +9,8 @@ For additional, project-specific guidelines, see the respective sections of this
 
 Global `CSS` rules are stored in a [global.css](./static/global.css) file, you do not need to import it to apply them, but use [styled-components](https://www.styled-components.com/) with color schema defined in [this](./src/config/colors.js) file for developing new components.
 
+//write anything about GraphQL used by Gatsby? Gatsby is mentioned in very first line in readme, and anyone who contributes to this project would first read gatbsy's docs
+
 ## Naming guidelines
 
 Name variables using _`camelCase`_ convention.

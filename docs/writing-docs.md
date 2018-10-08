@@ -31,4 +31,4 @@ type: {SECTION_TITLE}
 2. Make pull request
 3. Wait for review
 4. After merge of your documentation into `kyma` repository, ask
-   //do what exactly
+   //do what exactly? ask someone in our kyma-community slack to take care of this issue? Is it my role as contributor?
