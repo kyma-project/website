@@ -40,8 +40,8 @@ The Application Connector, that alows you to connect external systems into Kyma 
 Kyma has not a new component to enhance its logging capabilities. It uses [Logspout and OK Log](https://kyma-project.io/docs/latest/components/logging).
 
 ## Monitoring
-[TODO]
-Users can store their own dashboards in Grafana.
+
+Through proper Graphana configuration now all the dashboards created by you in runtime are persisted and Pods restarts do not remove them.
 
 ## Tracing
 
