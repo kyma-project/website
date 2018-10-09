@@ -24,8 +24,6 @@ type: {SECTION_TITLE}
 {CONTENT_WRITTEN_IN_MARKDOWN}
 ```
 
-//note -> add two pics with comparison?
-
 > **NOTE:** Omit curly braces in actual document.
 
 2. Make pull request

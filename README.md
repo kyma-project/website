@@ -10,23 +10,7 @@ This repository contains website source for [`kyma-project.io`](https://kyma-pro
 
 Use the following tools to set up the project:
 
-- [npm](https://www.npmjs.com/)
-
-## Installation
-
-To install all dependencies, run:
-
-```
-npm install
-```
-
-## Development
-
-In order to launch the development server with hot reloading functionality, run the following command:
-
-```
-npm run develop
-```
+- [Node.js](https://nodejs.org/en/)
 
 ## Usage
 
@@ -34,4 +18,22 @@ To build production ready website, run the following command:
 
 ```
 npm run build
+```
+
+## Development
+
+### Install dependencies
+
+To install all dependencies, run:
+
+```
+npm install
+```
+
+### Launch website locally
+
+In order to launch the development server with hot reloading functionality, run the following command:
+
+```
+npm run develop
 ```
