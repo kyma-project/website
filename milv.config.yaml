@@ -1,4 +1,22 @@
-white-list-external: ["localhost", "kyma.local"]
-black-list: ["node_modules"]
+white-list-external: 
+  - localhost
+  - kyma.local
+black-list: 
+  - node_modules
 timeout: 60
 request-repeats: 5
+files:
+  - path: ./website/src/blog-posts/5-release-notes-041.md
+    config:
+      white-list-internal:
+        - /blog/introducing-project-kyma
+        - /docs/latest/components/api-gateway
+        - /docs/latest/components/api-gateway#architecture-architecture
+        - /docs/latest/components/application-connector#custom-resource-remoteenvironment
+        - /docs/latest/components/logging
+        - /docs/latest/components/event-bus#details-service-programming-model
+        - /docs/latest/components/tracing#overview-overview
+        - /docs/latest/root/kyma#custom-resource-installation
+        - /docs/latest/root/kyma#overview-overview
+        - /docs/latest/root/kyma#getting-started-helm-overrides-for-kyma-installation
+        - /docs/latest/root/kyma#getting-started-install-kyma-on-a-gke-cluster
