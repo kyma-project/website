@@ -14,5 +14,6 @@ files:
         "/docs/latest/components/event-bus#details-service-programming-model",
         "/docs/latest/components/tracing#overview-overview",
         "/docs/latest/root/kyma#custom-resource-installation",
-        "/docs/latest/root/kyma#overview-overview"
+        "/docs/latest/root/kyma#overview-overview",
+        "/docs/latest/root/kyma#getting-started-helm-overrides-for-kyma-installation"
       ]
