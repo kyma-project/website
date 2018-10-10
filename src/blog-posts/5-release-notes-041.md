@@ -29,7 +29,7 @@ The Service Catalog, that is one of our key features, has undergone a lot of imp
 ![](./assets/filter.png)
 
 The Console UI is not everything, however. These are further changes:
-- We Catalog was upgraded to v0.1.34 that supports the Environment-wide resources (ServiceBroker, ServiceClass, ServicePlan). The related Console views do not support it yet.
+- The Catalog was upgraded to v0.1.34 that supports the Environment-wide resources (ServiceBroker, ServiceClass, ServicePlan). The related Console views do not support it yet.
 - A new dashboard was provided in Grafana to improve Service Catalog-related operations.
 ![](./assets/sc_grafana_dashboard.png)
 
