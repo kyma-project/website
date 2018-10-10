@@ -19,3 +19,4 @@ files:
         - /docs/latest/root/kyma#custom-resource-installation
         - /docs/latest/root/kyma#overview-overview
         - /docs/latest/root/kyma#getting-started-helm-overrides-for-kyma-installation
+        - /docs/latest/root/kyma#getting-started-install-kyma-on-a-gke-cluster
