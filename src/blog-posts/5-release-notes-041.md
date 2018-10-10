@@ -14,7 +14,7 @@ Now that we have our first official release, it is time to sum up what we have r
 
 In the area of security, we have focused on our [API Gateway](/docs/latest/components/api-gateway) that you can use to easily expose your API in a secure way. The following things have been improved:
 * When you create the `Api` kind, `hostname` is validated to make sure you provided the correct domain and that there are no duplicates.
-* The [architecture](/docs/latest/components/api-gateway#architecture-architecture) of the API Gateway component has changed. Now, services are exposed by the Istio Gateway and the Istio Virtual Service, instead of the Istio Ingress.
+* The [architecture](/docs/latest/components/api-gateway#architecture-architecture) of the API Gateway component has changed. The services are now exposed by the Istio Gateway and the Istio Virtual Service, instead of the Istio Ingress.
 * You can create several APIs for a single service in the Console UI by creating the API for a specific service in the **Services** view, or several different APIs from the **APIs** view.
 ![](./assets/multi-api.png)
 
