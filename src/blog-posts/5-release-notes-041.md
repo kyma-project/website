@@ -67,7 +67,7 @@ At the moment, Kyma is using Istio [1.0.1](https://istio.io/about/notes/1.0.1/).
 ## Installation
 
 The following improvements have been done in the installation area:
-- The [Kyma installation on a Google Kupernetes Engine cluster](https://github.com/kyma-project/kyma/blob/master/docs/kyma/docs/032-gs-gke-installation.md) is now possible mainly due to the implementation of the [API Server Proxy](https://github.com/kyma-project/kyma/blob/master/components/apiserver-proxy/README.md) component.
+- The [Kyma installation on a Google Kubernetes Engine cluster](/docs/latest/root/kyma#getting-started-install-kyma-on-a-gke-cluster) is now possible mainly due to the implementation of the [API Server Proxy](https://github.com/kyma-project/kyma/blob/master/components/apiserver-proxy/README.md) component.
 - Now, you can [override values in Helm charts](/docs/latest/root/kyma#getting-started-helm-overrides-for-kyma-installation) using config maps annotated with the `installer: overrides` label.
 - The extended [`Installation ` custom resource](/docs/latest/root/kyma#custom-resource-installation) has been enabled to allow you to provide a declarative list of modules that will be installed during the Kyma provisioning process.
 
