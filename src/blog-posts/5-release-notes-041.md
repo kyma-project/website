@@ -23,7 +23,7 @@ In the area of security, we have focused on our [API Gateway](/docs/latest/compo
 
 The Service Catalog, that is one of our key features, has undergone a lot of improvements over the last months, mainly thanks to your valuable feedback. To be more specific, the Console UI part of the Catalog has been improved through the following changes:
 - The multi-step service provisioning wizard was replaced with a one-step wizard
-- You can preview the Instance's parameters by clicking the Instance's Plan name both on the list of all Service Instances and in the given Service Instance's details preview.
+- You can preview the Instance's parameters by clicking the Instance's Plan name both on the list of all Service Instances and in the given Service Instance's details.
 ![](./assets/instance_params.png)
 - The Service Catalog's left navigation was removed and filtering is now available next to the search box. In its current form, it aims to support new filter options that will be introduced in the future. It also scales much better now when there are many values provided in the filters.
 ![](./assets/filter.png)
