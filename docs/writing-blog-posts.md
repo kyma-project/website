@@ -4,7 +4,7 @@
 2. Prepare content.
 3. Make a pull request.
 4. Wait for review.
-5. After merge site will be rebuilt automatically, and you blogpost will appear in our site.
+5. After merge site will be rebuilt automatically, and you blog post will appear in our site.
 
 Blog post should have following format:
 
@@ -26,7 +26,7 @@ title: {TITLE}
 
 Where:
 
-- `ADDRESS` is last part of site's address in location bar, for example if you want your blog post to appear under `https://kyma-project.io/blog/some-address`, then second line looks must like this: `path: "/blog/some-address"`
+- `ADDRESS` is last part of site's address in location bar, for example if you want your blog post to appear under `https://kyma-project.io/blog/some-address`, then second line looks must like this: `path: /blog/some-address`
 - `DATE` is date of publication of your blog post, in `YYYY-MM-DD` format
 - `AUTHOR` is your name with optional title
 - `CONTENT` is written in Markdown and/or HTML.
@@ -108,14 +108,15 @@ In your Markdown, use following snippet:
 If you link to other Markdown files you can optionally link to particular paragraph, as shown in the example:
 
 ```Markdown
-[README](../README.md#Development)
+[README](../README.md#development)
 ```
 
-[README](../README.md#Development)
+[README](../README.md#development)
 
 ### Link to documentation
 
 ////link to website, or to .md file in kyma repo?
+
 Do it as shown in the example:
 
 ```
