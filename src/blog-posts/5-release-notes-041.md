@@ -7,74 +7,74 @@ tags:
 title: "Release 0.4.1 is out!"
 ---
 
-It's been a while since we introduced Kyma to open source community. Many things changed in the project since it's [announcement in July](/blog/introducing-project-kyma).
-Now we have our first official release and it is time to sum up what we worked on:
+ It has been a while since we introduced Kyma to the open-source community. Many things have changed in the project since its [announcement](/blog/introducing-project-kyma) in July.
+Now that we have our first official release, it is time to sum up what we have recently worked on:
 
 ## Security 
 
-In the area of the security we focused on our [API Gateway](/docs/latest/components/api-gateway) that you can use to expose easily your API in a secured way. The following things got improved:
-* Now when you create `Api` kind, `hostname` is validated to make sure you provided correct domain and that there are no duplicates.
-* The [architecture](/docs/latest/components/api-gateway#architecture-architecture) of the component changed and not Istio Ingress is used to expose a Service but the Istio Gateway and the Istion Virtual Service.
-* In Console UI you can now create several APIs for a single Service. You can create API for a specific Service in the Service view, or several different APIs from an API view
+In the area of security, we have focused on our [API Gateway](/docs/latest/components/api-gateway) that you can use to easily expose your API in a secure way. The following things have been improved:
+* Now, when you create the `Api` kind, `hostname` is validated to make sure you provided the correct domain and that there are no duplicates.
+* The [architecture](/docs/latest/components/api-gateway#architecture-architecture) of the API Gateway component has changed. Now, services are exposed by the Istio Gateway and the Istio Virtual Service, instead of the Istio Ingress.
+* Now, you can create several APIs for a single service in the Console UI by creating the API for a specific service in the **Services** view, or several different APIs from the **APIs** view.
 ![](./assets/multi-api.png)
 
 
 ## Service Catalog
 
-The Service Catalog that is one of out key features got a lot of improvements over last months, mainly thanks to your valuable feedback. To be more specific, Console UI part of the Catalog was improved:
-- Multistep service provisioning wizard is now replaced with one step wizard
-- In list of ServiceInstances and the ServiceInstance details now you can preview the instance parameters by clicking the instance Plan name
+The Service Catalog, that is one of our key features, has undergone a lot of improvements over the last months, mainly thanks to your valuable feedback. To be more specific, the Console UI part of the Catalog has been improved through the following changes:
+- The multi-step service provisioning wizard was replaced with a one-step wizard
+- Now, you can preview the Instance's parameters by clicking the Instance's Plan name both on the list of all Service Instances and in the given Service Instance's details preview. 
 ![](./assets/instance_params.png)
-- Individual left navigation is removed and filtering moved next to the search. Now the filtering is enabled to support more different filters in the future and the scales much better in case there are many values provided in the filters.
+- The Service Catalog's left navigation was removed and filtering is now available next to the search box. In its current form, it aims to support new filter options that will be introduced in the future. It also scales much better now when there are many values provided in the filters.
 ![](./assets/filter.png)
 
-Console UI is not everything though. The following things are done as well:
-- Catalog is upgraded to v0.1.34 with namespace-scope resources (ServiceBroker, ServiceClass, ServicePlan) support. Related Console views do not support it yet.
-- In Grafana you can find a dedicated Service Catalog dashboard that improves operations
+The Console UI is not everything, though:
+- The Catalog was upgraded to v0.1.34 that supports the Environment-wide resources (ServiceBroker, ServiceClass, ServicePlan). The related Console views do not support it yet.
+- A new dashboard was provided in Grafana to improve Service Catalog-related operations.
 ![](./assets/sc_grafana_dashboard.png)
 
 ## Application Connector
 
-The Application Connector, that alows you to connect external systems into Kyma went through major improvements:
-- Management of the Remote Environments (RE) is no longer done through the Helm chart. Now we have a controller that reacts on changes in RE and setups the whole environment,
-- The [RemoteEnvironments CRD](/docs/latest/components/application-connector#custom-resource-remoteenvironment) is now enhanced with extra label field. Now you can now in a flexible way mark what is the purpose of the Remote Environment,
-- The Application Connector has been powered by OAuth token caching functionality.
+The Application Connector, that allows you to connect external systems into Kyma, went through major improvements:
+- Management of the Remote Environments (RE) is no longer done through the Helm chart. Now, we have a controller that reacts to changes in the RE and sets up the whole environment.
+- The [RemoteEnvironments CRD](/docs/latest/components/application-connector#custom-resource-remoteenvironment) is enhanced with an extra label field. Now, you can mark the purpose of the Remote Environment in a flexible way.
+- The OAuth token caching functionality was added to the Application Connector. 
 
 ## Logging 
 
-Kyma has not a new component to enhance its logging capabilities. It uses [Logspout and OK Log](/docs/latest/components/logging).
+Kyma has a new component to enhance its logging capabilities. This component is based on [Logspout and OK Log](/docs/latest/components/logging).
 
 ## Monitoring
 
-Through proper Graphana configuration now all the dashboards created by you in runtime are persisted and Pods restarts do not remove them.
+Through the proper Grafana configuration, all dashboards created by you in the runtime are persistent and Pods restarts do not remove them.
 
 ## Event Bus
 
-Our Kyma would not be great without support for asynchronous communication between services. This is what we improved:
-- Enabled an event lifecycle for storing events in a cluster that by default is set to 24h. You may configure the lifecycle in NATS streaming StatefulSet if you want by changing this value `max_age`.
-- Added documentation for service programming model for event subscribers. Read more [here](/docs/latest/components/event-bus#details-service-programming-model)
+Our Kyma would not be so great without the support for the asynchronous communication between services. This is what we improved in that scope:
+- We enabled an Event lifecycle for storing Events in a cluster. By default, it is set to 24h, but you can configure the lifecycle in the NATS Streaming's StatefulSet by changing the `max_age` value.
+- We added the documentation for the service programming model for the Event subscribers. Read more [here](/docs/latest/components/event-bus#details-service-programming-model).
 
 ## Tracing
 
-As you know, to enable backend for tracing Kyma uses Jeager. To improve its usage and make it clear for you how to use it in best way we:
-- Secured the Jeager UI and you can access it easily without `port-forward`. Read more about [Jeager](/docs/latest/components/tracing#overview-overview)
-- Created an example on how to enable tracing for an application. Read more [here](https://github.com/kyma-project/examples/tree/master/example-tracing)
+As you know, Kyma uses Jaeger as the tracing back-end. To improve its usage, we:
+- Secured the Jaeger UI so that you can access it easily without port-forwarding. Read more about [Jaeger](/docs/latest/components/tracing#overview-overview).
+- Created an example on how to enable tracing for an application. Read more [here](https://github.com/kyma-project/examples/tree/master/example-tracing).
 
 ## Service Mesh
 
-Kyma uses Istio [1.0.1](https://istio.io/about/notes/1.0.1/) now.
+At the moment, Kyma is using Istio [1.0.1](https://istio.io/about/notes/1.0.1/).
 
 ## Installation
 
-The following improvements vere done in installation area:
-- [Installation on Google Kupernetes Engine](https://github.com/kyma-project/kyma/blob/master/docs/kyma/docs/032-gs-gke-installation.md) is possible mainly due to Apiserver Proxy implementation (https://github.com/kyma-project/kyma/blob/master/components/apiserver-proxy/README.md)
-- Possibility to override values in charts using config maps annotated with label `installer: overrides` (https://github.com/kyma-project/kyma/blob/master/docs/kyma/docs/037-gs-installation-overrides.md)
-- Extended [Installation custom resource](/docs/latest/root/kyma#custom-resource-installation) with possibility to provide a declarative list of modules that will be installed during Kyma provisioning
+The following improvements have been done in the installation area:
+- The [Kyma installation on a Google Kupernetes Engine cluster](https://github.com/kyma-project/kyma/blob/master/docs/kyma/docs/032-gs-gke-installation.md) is now possible mainly due to the implementation of the [API Server Proxy](https://github.com/kyma-project/kyma/blob/master/components/apiserver-proxy/README.md) component.
+- Now, you can [override values in Helm charts](/docs/latest/root/kyma#getting-started-helm-overrides-for-kyma-installation) using config maps annotated with the `installer: overrides` label.
+- The extended [`Installation ` custom resource](/docs/latest/root/kyma#custom-resource-installation) has been enabled to allow you to provide a declarative list of modules that will be installed during the Kyma provisioning process.
 
 ## Documentation 
 
-Few weeks after Kyma announcement we made sure our documentation is available on our official site https://kyma-project.io/docs/. Remember thought that this is not the only place where you can read the docs. Since the very beginning we made documentation part of the Console UI so whenever you provision Kyma cluster, docs for given Kyma version are always there for you. Last few months we improved:
-- [Kyma overview](/docs/latest/root/kyma#overview-overview) documentation and many other sections, like consistency of [Custom Resource reference](/docs/latest/components/service-catalog#custom-resource-custom-resource) documentation.
-- The feel and look of the documentation, improved navigation, worked on consistency and readibility of the content.
+A few weeks after the Kyma announcement, we published the official documentation on our `https://kyma-project.io/docs/` website. It is worth remembering, however, that this is not the only place where you can read the docs. Since the very beginning, the Kyma documentation has been an integral part of the Console UI, so whenever you provision a Kyma cluster, docs for a given Kyma version are always there for you. In the last few months we have improved the following features in that area:
+- The [Kyma overview](/docs/latest/root/kyma#overview-overview) documentation and many other sections, like consistency of the [Custom Resource reference](/docs/latest/components/service-catalog#custom-resource-custom-resource) documents.
+- The general feel and look of the documentation, its navigation, consistency, and the readability of the content.
 ![](./assets/docs-ui.png)
 
