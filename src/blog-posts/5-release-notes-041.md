@@ -36,7 +36,7 @@ The Console UI is not everything, however. These are further changes:
 ## Application Connector
 
 The Application Connector, that allows you to connect external systems with Kyma, went through major improvements:
-- Management of the Remote Environments (RE) is no longer done through the Helm chart. Instead, we have a controller that reacts to changes in the RE and sets up the whole environment.
+- Management of the Remote Environments (RE) is no longer done through the Helm chart. Instead, we have a controller that reacts to changes in the RE and sets up the whole Environment.
 - The [RemoteEnvironments CRD](/docs/latest/components/application-connector#custom-resource-remoteenvironment) is enhanced with an extra label field. Now, you can mark the purpose of the Remote Environment in a flexible way.
 - The OAuth token caching functionality was added to the Application Connector.
 
