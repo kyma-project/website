@@ -12,9 +12,9 @@ Now that we have our first official release, it is time to sum up what we have r
 
 ## Security
 
-In the area of security, we have focused on our [API Gateway](/docs/latest/components/api-gateway) that you can use to easily expose your API in a secure way. The following things have been improved:
+In the area of security, we have focused on our [API Gateway](/docs/latest/components/api-gateway) that you can use to expose your API easily and in a secure way. We have improved the following things:
 * When you create the `Api` kind, `hostname` is validated to make sure you provided the correct domain and that there are no duplicates.
-* The [architecture](/docs/latest/components/api-gateway#architecture-architecture) of the API Gateway component has changed. Now, services are exposed by the Istio Gateway and the Istio Virtual Service, instead of the Istio Ingress.
+* The [architecture](/docs/latest/components/api-gateway#architecture-architecture) of the API Gateway component has changed. The services are now exposed by the Istio Gateway and the Istio Virtual Service, instead of the Istio Ingress.
 * You can create several APIs for a single service in the Console UI by creating the API for a specific service in the **Services** view, or several different APIs from the **APIs** view.
 ![](./assets/multi-api.png)
 
@@ -23,20 +23,20 @@ In the area of security, we have focused on our [API Gateway](/docs/latest/compo
 
 The Service Catalog, that is one of our key features, has undergone a lot of improvements over the last months, mainly thanks to your valuable feedback. To be more specific, the Console UI part of the Catalog has been improved through the following changes:
 - The multi-step service provisioning wizard was replaced with a one-step wizard
-- You can preview the Instance's parameters by clicking the Instance's Plan name both on the list of all Service Instances and in the given Service Instance's details preview.
+- You can preview the Instance's parameters by clicking the Instance's Plan name both on the list of all Service Instances and in the given Service Instance's details.
 ![](./assets/instance_params.png)
 - The Service Catalog's left navigation was removed and filtering is now available next to the search box. In its current form, it aims to support new filter options that will be introduced in the future. It also scales much better now when there are many values provided in the filters.
 ![](./assets/filter.png)
 
-The Console UI is not everything, though:
+The Console UI is not everything, however. These are further changes:
 - The Catalog was upgraded to v0.1.34 that supports the Environment-wide resources (ServiceBroker, ServiceClass, ServicePlan). The related Console views do not support it yet.
 - A new dashboard was provided in Grafana to improve Service Catalog-related operations.
 ![](./assets/sc_grafana_dashboard.png)
 
 ## Application Connector
 
-The Application Connector, that allows you to connect external systems into Kyma, went through major improvements:
-- Management of the Remote Environments (RE) is no longer done through the Helm chart. Now, we have a controller that reacts to changes in the RE and sets up the whole environment.
+The Application Connector, that allows you to connect external systems with Kyma, went through major improvements:
+- Management of the Remote Environments (RE) is no longer done through the Helm chart. Instead, we have a controller that reacts to changes in the RE and sets up the whole Environment.
 - The [RemoteEnvironments CRD](/docs/latest/components/application-connector#custom-resource-remoteenvironment) is enhanced with an extra label field. Now, you can mark the purpose of the Remote Environment in a flexible way.
 - The OAuth token caching functionality was added to the Application Connector.
 
