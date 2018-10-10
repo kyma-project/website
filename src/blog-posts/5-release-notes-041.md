@@ -10,12 +10,12 @@ title: "Release 0.4.1 is out!"
  It has been a while since we introduced Kyma to the open-source community. Many things have changed in the project since its [announcement](/blog/introducing-project-kyma) in July.
 Now that we have our first official release, it is time to sum up what we have recently worked on:
 
-## Security 
+## Security
 
 In the area of security, we have focused on our [API Gateway](/docs/latest/components/api-gateway) that you can use to easily expose your API in a secure way. The following things have been improved:
-* Now, when you create the `Api` kind, `hostname` is validated to make sure you provided the correct domain and that there are no duplicates.
+* When you create the `Api` kind, `hostname` is validated to make sure you provided the correct domain and that there are no duplicates.
 * The [architecture](/docs/latest/components/api-gateway#architecture-architecture) of the API Gateway component has changed. Now, services are exposed by the Istio Gateway and the Istio Virtual Service, instead of the Istio Ingress.
-* Now, you can create several APIs for a single service in the Console UI by creating the API for a specific service in the **Services** view, or several different APIs from the **APIs** view.
+* You can create several APIs for a single service in the Console UI by creating the API for a specific service in the **Services** view, or several different APIs from the **APIs** view.
 ![](./assets/multi-api.png)
 
 
@@ -23,7 +23,7 @@ In the area of security, we have focused on our [API Gateway](/docs/latest/compo
 
 The Service Catalog, that is one of our key features, has undergone a lot of improvements over the last months, mainly thanks to your valuable feedback. To be more specific, the Console UI part of the Catalog has been improved through the following changes:
 - The multi-step service provisioning wizard was replaced with a one-step wizard
-- Now, you can preview the Instance's parameters by clicking the Instance's Plan name both on the list of all Service Instances and in the given Service Instance's details preview. 
+- You can preview the Instance's parameters by clicking the Instance's Plan name both on the list of all Service Instances and in the given Service Instance's details preview.
 ![](./assets/instance_params.png)
 - The Service Catalog's left navigation was removed and filtering is now available next to the search box. In its current form, it aims to support new filter options that will be introduced in the future. It also scales much better now when there are many values provided in the filters.
 ![](./assets/filter.png)
@@ -38,9 +38,9 @@ The Console UI is not everything, though:
 The Application Connector, that allows you to connect external systems into Kyma, went through major improvements:
 - Management of the Remote Environments (RE) is no longer done through the Helm chart. Now, we have a controller that reacts to changes in the RE and sets up the whole environment.
 - The [RemoteEnvironments CRD](/docs/latest/components/application-connector#custom-resource-remoteenvironment) is enhanced with an extra label field. Now, you can mark the purpose of the Remote Environment in a flexible way.
-- The OAuth token caching functionality was added to the Application Connector. 
+- The OAuth token caching functionality was added to the Application Connector.
 
-## Logging 
+## Logging
 
 Kyma has a new component to enhance its logging capabilities. This component is based on [Logspout and OK Log](/docs/latest/components/logging).
 
@@ -68,13 +68,12 @@ At the moment, Kyma is using Istio [1.0.1](https://istio.io/about/notes/1.0.1/).
 
 The following improvements have been done in the installation area:
 - The [Kyma installation on a Google Kubernetes Engine cluster](/docs/latest/root/kyma#getting-started-install-kyma-on-a-gke-cluster) is now possible mainly due to the implementation of the [API Server Proxy](https://github.com/kyma-project/kyma/blob/master/components/apiserver-proxy/README.md) component.
-- Now, you can [override values in Helm charts](/docs/latest/root/kyma#getting-started-helm-overrides-for-kyma-installation) using config maps annotated with the `installer: overrides` label.
+- You can [override values in Helm charts](/docs/latest/root/kyma#getting-started-helm-overrides-for-kyma-installation) using config maps annotated with the `installer: overrides` label.
 - The extended [`Installation ` custom resource](/docs/latest/root/kyma#custom-resource-installation) has been enabled to allow you to provide a declarative list of modules that will be installed during the Kyma provisioning process.
 
-## Documentation 
+## Documentation
 
 A few weeks after the Kyma announcement, we published the official documentation on our `https://kyma-project.io/docs/` website. It is worth remembering, however, that this is not the only place where you can read the docs. Since the very beginning, the Kyma documentation has been an integral part of the Console UI, so whenever you provision a Kyma cluster, docs for a given Kyma version are always there for you. In the last few months we have improved the following features in that area:
 - The [Kyma overview](/docs/latest/root/kyma#overview-overview) documentation and many other sections, like consistency of the [Custom Resource reference](/docs/latest/components/service-catalog#custom-resource-custom-resource) documents.
 - The general feel and look of the documentation, its navigation, consistency, and the readability of the content.
 ![](./assets/docs-ui.png)
-
