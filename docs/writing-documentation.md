@@ -1,6 +1,6 @@
 # How to add documentation?
 
-1. Fork [kyma-project/kyma](https://github.com/kyma-project/kyma/)
+1. Follow rules in [CONTRIBUTING.md](https://github.com/kyma-project/community/blob/master/CONTRIBUTING.md#contribution-rules) from `kyma-project/community`
 2. Add documentation file written in Markdown in appropriate folder in [docs](https://github.com/kyma-project/kyma/tree/master/docs) folder.
 
 Add this file in `/docs/{DIRECTORY}/docs`, where content fits this schema:
@@ -29,4 +29,6 @@ type: {SECTION_TITLE}
 2. Make pull request
 3. Wait for review
 4. After merge of your documentation into `kyma` repository, ask
-   //do what exactly? ask someone in our kyma-community slack to take care of this issue? Is it my role as contributor?
+   ////do what exactly? ask someone in our kyma-community slack to take care of this issue? Is it my role as contributor?
+
+   ////It's all already written in paragraph mentioned in 1. - how to write documentation is already in scope of this task, make new issue with this or just do it?

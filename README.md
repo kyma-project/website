@@ -37,3 +37,5 @@ In order to launch the development server with hot reloading functionality, run 
 ```
 npm run develop
 ```
+
+////unless npm run develop is really enough and by running this command I have kyma-project.io on local host with blog posts and documentation in it and I can start development with nice hot reload - yes it was for me

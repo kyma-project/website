@@ -3,6 +3,8 @@
 To contribute to this project, follow the rules from the general [CONTRIBUTING.md](https://github.com/kyma-project/community/blob/master/CONTRIBUTING.md) document in the `community` repository.
 For additional, project-specific guidelines, see the respective sections of this document.
 
+////I'm missing basic steps for contribution that talks about forking https://github.com/kyma-project/kyma#development - isn't it here?
+
 ## Implementation guidelines
 
 ### General implementation rules:
