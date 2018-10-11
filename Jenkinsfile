@@ -27,7 +27,7 @@ podTemplate(label: label) {
                         stage("resolve dependencies $application") {
                             execute("npm install -f")
                         }
-                        
+
                         if(isMaster) {
                             stage("IP scan $application (WhiteSource)") {
                                 withCredentials([string(credentialsId: 'whitesource_apikey', variable: 'apikey')]) {
@@ -41,17 +41,9 @@ podTemplate(label: label) {
                                 }
                             }
 
-                            if(params.DOCS_VERSION) {
-                                stage("prepare docs and navigation") {
-                                    sh "./scripts/prepare-docs.sh -v ${params.DOCS_VERSION} -f ./cloneRepoFolder"
-                                }
-
-                                stage("convert and copy manifest") {
-                                    execute("./scripts/convert-yaml.sh -i ./cloneRepoFolder/docs/manifest.yaml -o ./static/documentation/${params.DOCS_VERSION}/manifest.json")
-                                }
-
-                                stage("push new docs to master") {
-                                    sh "./scripts/commit-docs.sh -v ${params.DOCS_VERSION} -s ./ssh_key.pem --overwrite-git-config"
+                            stage("generate and publish documentation") {
+                                withCredentials([string(credentialsId: 'public-github-token', variable: 'token')]) {
+                                    sh "./scripts/generate-docs.sh --publish --ssh-file ./ssh_key.pem --token ${token}"
                                 }
                             }
 

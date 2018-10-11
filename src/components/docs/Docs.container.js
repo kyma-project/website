@@ -9,20 +9,26 @@ const Wrapper = styled.div`
   margin-top: 30px;
 `;
 
-const DocsContainer = ({ versions = [] }) => {
+const DocsContainer = ({ latestVersion, versions = [] }) => {
   if (versions.length === 0) {
     return null;
   }
 
   const pageName = "docs";
   const renderDocs = props => (
-    <Docs versions={versions} pageName={pageName} {...props} />
+    <Docs
+      latestVersion={latestVersion}
+      versions={versions}
+      pageName={pageName}
+      {...props}
+    />
   );
 
   return (
     <Wrapper>
       <Switch>
         <Route exact path={`/${pageName}/`} render={renderDocs} />
+        <Route exact path={`/${pageName}/:type/:id`} render={renderDocs} />
         <Route exact path={`/${pageName}/:version/`} render={renderDocs} />
         <Route
           exact

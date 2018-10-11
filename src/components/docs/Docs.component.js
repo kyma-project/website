@@ -1,7 +1,7 @@
 import React from "react";
 import DocsFetcher from "../../helpers/DocsFetcher";
 import MainPage from "./external/components/MainPage/MainPage.component";
-// import VersionSwitcher from "./navigation/VersionSwitcher";
+import VersionSwitcher from "./navigation/VersionSwitcher";
 import { Text } from "@kyma-project/react-components";
 import { displayError } from "../../helpers/displayError";
 import BackToTop from "./navigation/BackToTop";
@@ -10,15 +10,16 @@ class Docs extends React.PureComponent {
   constructor(props) {
     super(props);
 
-    const latestVersion = "latest";
+    const propsVersion =
+      (props.match.params && props.match.params.version) || "latest";
     const version =
-      (props.match.params && props.match.params.version) || latestVersion;
+      propsVersion === "latest" ? props.latestVersion : propsVersion;
 
     this.state = {
       loading: true,
       navigation: null,
       manifest: null,
-      version,
+      version: version,
       error: undefined,
     };
   }
@@ -30,7 +31,11 @@ class Docs extends React.PureComponent {
   async refetchDocs(version) {
     this.setState({ loading: true, version });
 
-    const docsFetcher = new DocsFetcher(version, this.props.versions);
+    const docsFetcher = new DocsFetcher(
+      this.props.latestVersion,
+      version,
+      this.props.versions,
+    );
 
     let err;
     let navigation;
@@ -51,16 +56,22 @@ class Docs extends React.PureComponent {
   }
 
   changeVersion = async e => {
-    const version = this.state.version;
     const newVersion = e.target.value;
 
-    const currentPath = this.props.history.location.pathname;
-    if (currentPath.search(version) === -1) {
-      this.props.history.push(`${this.props.pageName}/${newVersion}/`);
-    } else {
-      this.props.history.push(currentPath.replace(version, newVersion));
+    let path = `/${this.props.pageName}`;
+    if (newVersion !== this.props.latestVersion) {
+      path += `/${newVersion}`;
     }
 
+    if (this.props.match.params.type && this.props.match.params.id) {
+      path += `/${this.props.match.params.type}/${this.props.match.params.id}`;
+    }
+
+    if (this.props.location.hash) {
+      path += this.props.location.hash;
+    }
+
+    this.props.history.replace(path);
     await this.refetchDocs(newVersion);
   };
 
@@ -83,6 +94,7 @@ class Docs extends React.PureComponent {
           manifest={state.manifest.spec}
           docsFetcher={this.docsFetcher}
           version={state.version}
+          latestVersion={props.latestVersion}
           versions={props.versions}
           location={props.location}
           history={props.history}
@@ -91,12 +103,12 @@ class Docs extends React.PureComponent {
           topNavComponent={
             <>
               <BackToTop />
-              {/* TODO: Uncomment commented code to enable versioning */}
-              {/* <VersionSwitcher
+              <VersionSwitcher
+                latestVersion={props.latestVersion}
                 versions={props.versions}
                 currentVersion={state.version}
                 onChange={this.changeVersion}
-              /> */}
+              />
             </>
           }
         />

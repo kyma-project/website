@@ -57,14 +57,15 @@ typings/
 # dotenv environment variables file
 .env
 
-# IntelliJ files
+# IDE
 .idea/
+.vscode/
 
 .cache/
 public
 yarn-error.log
 
 # temporary folder
-temporaryFolder/
+temp-*/
 
 .DS_Store

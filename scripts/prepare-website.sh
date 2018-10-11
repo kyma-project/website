@@ -52,7 +52,7 @@ if $OVERWRITE; then
     ssh-add -l
 
     # configure git
-    sh ./scripts/git-config.sh -s $SSH_FILE
+    sh ./scripts/helpers/git-config.sh -s $SSH_FILE
 fi
 
 # prepare website

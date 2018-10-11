@@ -22,17 +22,20 @@ const VersionSelect = styled.select`
   font-size: 16px;
 `;
 
-const VersionSwitcher = ({ versions, currentVersion, onChange }) => {
-  // TODO: Uncomment commented code to enable versioning
-  // const latestVersion = "latest";
+const VersionSwitcher = ({
+  latestVersion,
+  versions,
+  currentVersion,
+  onChange,
+}) => {
   return (
     <Wrapper>
       <Label>{ui.docs.version}</Label>
       <VersionSelect onChange={onChange} defaultValue={currentVersion}>
-        {/* <option key={latestVersion} value={latestVersion}>
-          {ui.docs.latest}
-        </option> */}
-        {versions.map(version => (
+        <option key={latestVersion} value={latestVersion}>
+          {latestVersion} ({ui.docs.latest})
+        </option>
+        {versions.filter(version => version !== latestVersion).map(version => (
           <option key={version} value={version}>
             {version}
           </option>
