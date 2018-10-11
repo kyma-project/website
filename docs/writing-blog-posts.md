@@ -78,10 +78,10 @@ Example:
 You can also use HTML tags to show and position images:
 
 ```HTML
-    <img src="{RELATIVE_PATH_OR_LINK}" >
+<img src="{RELATIVE_PATH_OR_LINK}" >
 ```
 
-Example usage with mixed tags:
+Example usage with mixed elements:
 
 ```HTML
 <p align="center">
@@ -90,7 +90,7 @@ Example usage with mixed tags:
 ```
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/kyma-project/kyma/master/logo.png" width="235">
+    <img src="https://raw.githubusercontent.com/kyma-project/kyma/master/logo.png" width="235">
 </p>
 
 ---
@@ -114,8 +114,6 @@ If you link to other Markdown files you can optionally link to particular paragr
 [README](../README.md#development)
 
 ### Link to documentation
-
-////link to website, or to .md file in kyma repo?
 
 Do it as shown in the example:
 

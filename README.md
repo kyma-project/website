@@ -32,10 +32,8 @@ npm install
 
 ### Launch website locally
 
-In order to launch the development server with hot reloading functionality, run the following command:
+In order to launch the development server with hot reloading functionality (any change in files in `src` folder is immediately visible in browser), run the following command:
 
 ```
 npm run develop
 ```
-
-////unless npm run develop is really enough and by running this command I have kyma-project.io on local host with blog posts and documentation in it and I can start development with nice hot reload - yes it was for me

@@ -3,13 +3,11 @@
 To contribute to this project, follow the rules from the general [CONTRIBUTING.md](https://github.com/kyma-project/community/blob/master/CONTRIBUTING.md) document in the `community` repository.
 For additional, project-specific guidelines, see the respective sections of this document.
 
-////I'm missing basic steps for contribution that talks about forking https://github.com/kyma-project/kyma#development - isn't it here?
-
 ## Implementation guidelines
 
 ### General implementation rules:
 
-Global `CSS` rules are stored in a [global.css](./static/global.css) file, you do not need to import it to apply them, but use [styled-components](https://www.styled-components.com/) with color schema defined in [this](./src/config/colors.js) file for developing new components.
+Global `CSS` rules are stored in a [global.css](./static/global.css) file. You do not need to explicitly import it to apply them, but use [styled-components](https://www.styled-components.com/) with color schema defined in [this](./src/config/colors.js) file for developing new components.
 
 ## Naming guidelines
 
@@ -17,4 +15,4 @@ Name variables using _`camelCase`_ convention.
 
 ## Code quality
 
-- Describe any new application configuration options in the [README.md](./README.md) document.
+Describe any new application configuration options in the [README.md](./README.md) document.
