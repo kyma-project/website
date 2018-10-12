@@ -27,7 +27,7 @@ title: {TITLE}
 Where:
 
 - `ADDRESS` is last part of site's address in location bar, for example if you want your blog post to appear under `https://kyma-project.io/blog/some-address`, then second line looks must like this: `path: /blog/some-address`
-- `DATE` is date of publication of your blog post, in `YYYY-MM-DD` format
+- `DATE` is the date of publication of your blog post, in `YYYY-MM-DD` format
 - `AUTHOR` is your name with optional title
 - `CONTENT` is written in Markdown and/or HTML.
 
@@ -54,7 +54,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer volutpat interd
 
 ## Add image to content
 
-To add image to your blog post copy desired image to `src/blog-posts/assets` and write:
+To add the image to your blog post copy desired image to `src/blog-posts/assets` and write:
 
 ```
 ![{ALT_TITLE}](./assets/{IMAGE_FILENAME} "{TEXT_WHILE_HOVERING}")

@@ -23,5 +23,5 @@ This repository has the following structure:
   │    ├── locales                # Localization files
   │    ├── pages                  # Main pages displayed on website
   │    └── templates              # template files, e.g. for blog post
-  └── static                      # Documentation created during build process, fonts, and images; don't edit documentation files
+  └── static                      # Documentation created during build process, fonts, and images; don't edit documentation files here
 ```
