@@ -4,7 +4,7 @@
 2. Prepare content.
 3. Make a pull request.
 4. Wait for review.
-5. After merge site will be rebuilt automatically, and you blog post will appear in our site.
+5. After merge site will be rebuilt automatically, and your blog post will appear in our site.
 
 Blog post should have following format:
 
