@@ -33,7 +33,7 @@ const Banner = () => {
   return (
     <Wrapper>
       <MainRow>
-        Join us for the &nbsp;<BannerLink href="https://events.sap.com/sap-cx-live/en/hackathon-live" target="_blank">SAP Customer Experience LIVE Hackathon, Barcelona, October 9</BannerLink> &nbsp;&&nbsp; <BannerLink href="https://events.sap.com/sap-cx-live/en/home" target="_blank">SAP Customer Experience LIVE, Barcelona, October 10-11</BannerLink>
+        Join us for the &nbsp;<BannerLink href="https://kyma-project.io/blog/blog-post-kyma-at-teched/" target="_blank">SAP TechEd, Barcelona, October 23-25</BannerLink>
       </MainRow>
     </Wrapper>
   );
