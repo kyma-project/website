@@ -29,7 +29,7 @@ title: {TITLE}
 Replace these parameters with real values:
 
 - `{ADDRESS}` is the last part of the site's address in the location bar. For example, if you want your blog post to appear under `https://kyma-project.io/blog/some-address`, the second line should look like this: `path: /blog/some-address`.
-- `{DATE}` is the date when you want your blog post to appear on the website. Use the `YYYY-MM-DD` date format.
+- `{DATE}` is your blog post's publication date, in the `YYYY-MM-DD` format.
 - `{AUTHOR}` is your name with an optional position name.
 - `{CONTENT}` is written in Markdown and/or HTML.
 
