@@ -1,0 +1,19 @@
+{
+  "id": "service-mesh",
+  "displayName": "Service Mesh",
+  "description": "Overal documentation for Service Mesh",
+  "type": "Components",
+  "docs": [
+    {
+      "order": "001-overview-service-mesh",
+      "title": "Overview",
+      "source": "<p>Kyma Service Mesh is the component responsible for service-to-service communication, proxying, service discovery, traceability, and security. Kyma Service Mesh\nis based on <a href=\"https://istio.io/docs/concepts/what-is-istio/overview.html\" target=\"_blank\">Istio</a> open platform. The main principle of Kyma Service Mesh operation is the process of injecting Pods of every service with an Envoy - a sidecar proxy which intercepts the communication between the services and regulates it by applying and enforcing the rules you create. Kyma <a href=\"https://github.com/coreos/dex\" target=\"_blank\">Dex</a>, which is also a part of the Service Mesh, allows you to integrate any <a href=\"https://openid.net/connect/\" target=\"_blank\">OpenID Connect</a>-compliant identity provider or a SAML2-based enterprise authentication server with your solution.</p>\n<p>See this <a href=\"https://istio.io/docs/concepts/what-is-istio/arch.svg\" target=\"_blank\">Istio diagram</a> to understand the relationship between the Istio components and Services.</p>\n"
+    },
+    {
+      "order": "005-details-sidecar-proxy-injection",
+      "title": "Sidecar Proxy Injection",
+      "type": "Details",
+      "source": "<p>By default, the Istio Sidecar Injector watches all Pod creation operations on all Namespaces but it does not inject the newly created Pods with a sidecar proxy.</p>\n<p>To enable the sidecar proxy injection, set the <strong>istio-injection</strong> label value to <code>enabled</code> for the Namespace in which you want to enable the sidecar proxy injection. Use this command:</p>\n<pre><code>kubectl label namespace {YOUR_NAMESPACE} istio-injection=enabled\n</code></pre><p>With the sidecar proxy injection enabled, you can inject the sidecar to Pods of a selected deployment in the given Namespace. Add this annotation to the deployment configuration file:</p>\n<pre><code>sidecar.istio.io/inject: &quot;true&quot;\n</code></pre><p>Read the <a href=\"https://istio.io/docs/setup/kubernetes/sidecar-injection.html\" target=\"_blank\">Installing the Istio Sidecar</a> document to learn more about sidecar proxy injection.</p>\n"
+    }
+  ]
+}
