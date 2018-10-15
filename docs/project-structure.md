@@ -4,24 +4,24 @@ This repository has the following structure:
 
 ```
   ├── .github                     # Pull request and issue templates
-  ├── docs-navigation-builder     # Used for creating navigation file out of documentation
-  ├── scripts                     # Scripts used in Continous Integration; don't use locally
-  ├── src                         # Source code of website
+  ├── docs-navigation-builder     # Repository used for creating a navigation file out of the documentation
+  ├── scripts                     # Scripts used in Continous Integration (do not use them locally)
+  ├── src                         # Website's source code
   │    ├── blog-posts             # Blog posts
-  │    ├── components             # Structure of various parts of website
-  │    │       ├── blog           # Structure and styles of blog posts
-  │    │       ├── content        # Styled content of blog posts
+  │    ├── components             # Structure of website's components
+  │    │       ├── blog           # Structure and styles of the blog posts
+  │    │       ├── content        # Styled content of the blog posts
   │    │       ├── cookiee        # Cookie banner
-  │    │       ├── docs           # Structure and styles of documentation
-  │    │       ├── landing        # Structure and styles of parts of landing page
-  │    │       ├── layout         # General strucuture and styles of website
+  │    │       ├── docs           # Documentation structure and styles
+  │    │       ├── landing        # Landing page structure and styles
+  │    │       ├── layout         # Website structure and styles
   │    │       ├── loading        # Loading indicator
   │    │       └── translation    # Language switcher
   │    ├── config                 # Configuration files
-  │    ├── constants              # Constants used throught project
+  │    ├── constants              # Constants used in the project
   │    ├── helpers                # Various helper functions
   │    ├── locales                # Localization files
-  │    ├── pages                  # Main pages displayed on website
-  │    └── templates              # template files, e.g. for blog post
-  └── static                      # Documentation created during build process, fonts, and images; don't edit documentation files here
+  │    ├── pages                  # Main pages displayed on the website
+  │    └── templates              # Template files, for example, for a blog post
+  └── static                      # Documentation created during the build process, fonts, and images (do not edit the documentation files there)
 ```
