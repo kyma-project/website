@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 def label = "kyma-${UUID.randomUUID().toString()}"
-def application = 'navigation-builder'
+def application = 'documentation-generator'
 def isMaster = params.GIT_BRANCH == 'master'
 
 def dockerPushRoot = isMaster 
@@ -53,6 +53,29 @@ podTemplate(label: label) {
                             execute("npm install --no-optional")
                         }
 
+                        stage("code quality $application") {
+                            execute("make validate")
+                        }
+
+                        stage("test $application") {
+                            execute("make test", ["CI=true"])
+                        }
+
+                        if (isMaster) {
+                            stage("IP scan $application (WhiteSource)") {
+                                withCredentials([string(credentialsId: 'whitesource_apikey', variable: 'apikey')]) {
+                                    execute("make scan", ["API_KEY=$apikey"])
+                                }
+                            }
+
+                            // stage("security scan $application (Checkmarx)"){
+                            //     scan.checkmarx(projectname: "KYMA_" + application.toUpperCase() + "_" + "MASTER", credentialsId: 'checkmarx' )
+                            // }
+                        }
+
+                        stage("build $application") {
+                            execute('make build')
+                        }
 
                         stage("build image $application") {
                             dir(env.APP_FOLDER){

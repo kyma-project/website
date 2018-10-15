@@ -20,7 +20,7 @@ appVersion = "0.1." + env.BUILD_NUMBER
 */
 projects = [
     "prepare",
-    "docs-navigation-builder",
+    "tools/documentation-generator",
     "governance"
 ]
 
