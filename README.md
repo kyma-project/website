@@ -20,11 +20,9 @@ To build a production-ready website, run the following command:
 npm run build
 ```
 
-## Learn how to work with project
-
 ### Install dependencies
 
-To install all dependencies, run:
+To install all dependencies, run this command:
 
 ```
 npm install
@@ -32,7 +30,7 @@ npm install
 
 ### Launch the website locally
 
-In order to launch the development server with hot reloading functionality (any change in files in `src` folder is immediately visible in browser), run the following command:
+Launch the development server with the hot reloading functionality that allows any change in files in the `src` folder to be immediately visible in the browser. Run the following command:
 
 ```
 npm run develop
