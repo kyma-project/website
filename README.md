@@ -14,13 +14,13 @@ Use the following tools to set up the project:
 
 ## Usage
 
-To build production ready website, run the following command:
+To build a production-ready website, run the following command:
 
 ```
 npm run build
 ```
 
-## Development
+## Learn how to work with project
 
 ### Install dependencies
 
@@ -30,7 +30,7 @@ To install all dependencies, run:
 npm install
 ```
 
-### Launch website locally
+### Launch the website locally
 
 In order to launch the development server with hot reloading functionality (any change in files in `src` folder is immediately visible in browser), run the following command:
 

@@ -1,5 +1,7 @@
 # Writing blog posts
 
+Follow these steps to add a new post on the website:
+
 1. Create a new file in `src/blog-posts` with filename following format `{NUMBER}-{NAME}.md`.
 2. Prepare content.
 3. Make a pull request.
