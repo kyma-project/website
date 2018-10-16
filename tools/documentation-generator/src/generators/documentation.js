@@ -1,22 +1,36 @@
-const { execSync } = require("child_process");
 const fs = require("fs-extra");
+const external = require("./external/documentation/generator");
 
-const CONVERTER_IMAGE =
-  "eu.gcr.io/kyma-project/content-to-json-generator:0.0.2";
+async function generateDocumentation(source, output) {
+  fs.removeSync(output);
+  fs.mkdirsSync(output);
 
-function generateDocumentation(source, output) {
-  fs.removeSync(`${output}`);
-  fs.mkdirsSync(`${output}`);
-
-  fs.readdirSync(source)
+  const paths = fs
+    .readdirSync(source)
     .map(element => `${source}/${element}`)
     .filter(element => fs.lstatSync(element).isDirectory())
-    .filter(element => fs.pathExistsSync(`${element}/docs.config.json`))
-    .forEach(element => {
-      execSync(
-        `docker run --rm -v ${element}:/app/documentation -v ${output}:/app/out -e APP_OUT_PATH="/../out" ${CONVERTER_IMAGE}`,
-      );
-    });
+    .filter(element => fs.pathExistsSync(`${element}/docs.config.json`));
+
+  for (let i in paths) {
+    const basePath = paths[i];
+    const config = {
+      srcPath: `${basePath}/docs`,
+      srcApiPath: `${basePath}/api`,
+      srcAsyncApiPath: `${basePath}/asyncApi`,
+      docsConfigPath: `${basePath}/docs.config.json`,
+      outPath: output,
+      resourcesBaseURI: "{PLACEHOLDER_APP_RESOURCES_BASE_URI}",
+
+      API_SWAGGER_FILENAME: "apiSpec.json",
+      API_RAML_FILENAME: "apiSpec.raml",
+      ASYNC_API_FILENAME: "asyncApiSpec.json",
+      DOCUMENT_EXTENSIONS: [".html", ".md"],
+      RESOURCES_DIRECTORY: "assets",
+      RESULT_FILENAME: "content.json",
+    };
+
+    await external.generateDocumentation(config);
+  }
 }
 
 module.exports = {

@@ -3,11 +3,7 @@ const compareVersions = require("compare-versions");
 function groupReleaseByName(releases) {
   const releaseMap = new Map();
 
-  releases.forEach(release => {
-    if (release.prerelease) {
-      return;
-    }
-
+  releases.filter(release => !release.prerelease).forEach(release => {
     const name = getReleaseName(release);
     let rel = releaseMap.get(name);
     if (!rel) {
@@ -46,7 +42,7 @@ function getReleasesToUpdate(documentationConfig, newestReleases) {
   newestReleases.forEach((release, key) => {
     const current = currentReleases.find(current => current.name === key);
 
-    if (!current || compareVersions(current.tag, release.tag_name) < 0) {
+    if (!current || current.tag !== release.tag_name) {
       result.set(key, release.tag_name);
     }
   });
@@ -56,7 +52,7 @@ function getReleasesToUpdate(documentationConfig, newestReleases) {
 
 function getReleaseName(release) {
   const fullName = release.name ? release.name : release.tag_name;
-  return fullName.match(/^[0-9]+.[0-9]+/)[0];
+  return fullName.match(/^v?[0-9]+.[0-9]+/)[0];
 }
 
 module.exports = {

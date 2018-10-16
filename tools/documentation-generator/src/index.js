@@ -18,7 +18,7 @@ async function run(config) {
   const configPath = path.resolve(config.documentationConfig);
   const tempPath = path.resolve(config.temp);
 
-  const kymaGitHub = new github.GitHub(
+  const gitHubApi = new github.GitHub(
     config.organization,
     config.repository,
     config.token,
@@ -32,8 +32,7 @@ async function run(config) {
   console.log(
     `Checking releases for ${config.organization}/${config.repository}`,
   );
-  const releases = await kymaGitHub.getReleases();
-  const latestRelease = await kymaGitHub.getLatestRelease();
+  const releases = await gitHubApi.getReleases();
   const groupedReleases = groupReleaseByName(releases);
   const newestReleases = getNewestReleases(groupedReleases);
   const outdatedReleases = getReleasesToUpdate(
@@ -41,14 +40,15 @@ async function run(config) {
     newestReleases,
   );
 
+  fs.mkdirsSync(outputPath);
+  fs.mkdirsSync(tempPath);
   if (outdatedReleases.size > 0) {
-    fs.mkdirsSync(tempPath);
-
     const git = new Git(config.organization, config.repository, tempPath);
     console.log(`Cloning ${config.organization}/${config.repository}`);
     git.clone();
 
-    outdatedReleases.forEach((release, key) => {
+    for (let key of outdatedReleases.keys()) {
+      const release = outdatedReleases.get(key);
       console.log(
         `Generating documentation for release ${key} from tag ${release}`,
       );
@@ -60,20 +60,25 @@ async function run(config) {
       const manifestOutput = `${output}/manifest.json`;
 
       console.log(`Generating documentation to ${output}`);
-      generateDocumentation(docsDir, output);
+      await generateDocumentation(docsDir, output);
       console.log(`Generating navigation to ${navigationOutput}`);
       generateNavigation(output, navigationOutput);
       console.log(`Generating manifest to ${manifestOutput}`);
       generateManifest(manifestFile, manifestOutput);
-    });
+    }
+
+    console.log(`Generating documentation config to ${configPath}`);
+    generateConfiguration(newestReleases, configPath);
   } else {
     console.log("Documentation is up-to-date");
   }
-
-  console.log(`Generation documentation config to ${configPath}`);
-  generateConfiguration(latestRelease, newestReleases, configPath);
 }
 
 (async () => {
-  await run(config);
+  try {
+    await run(config);
+  } catch (err) {
+    console.error(err);
+    process.exit(1);
+  }
 })();
