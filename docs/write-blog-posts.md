@@ -77,6 +77,8 @@ Example:
 
 ![Kyma logo](https://raw.githubusercontent.com/kyma-project/website/master/static/android-chrome-192x192.png "Hover over me!")
 
+However, it is advised to download the image, put it into the `assets` folder, and refer to its relative path instead of an absolute link from the Internet.
+
 You can also use HTML tags to show and position images:
 
 ```HTML
@@ -87,12 +89,12 @@ See the example usage with mixed elements:
 
 ```HTML
 <p align="center">
-    <img src="https://raw.githubusercontent.com/kyma-project/kyma/master/logo.png" width="235">
+    <img src="assets/logo.png" width="235">
 </p>
 ```
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/kyma-project/kyma/master/logo.png" width="235">
+    <img src="assets/logo.png" width="235">
 </p>
 
 ---
