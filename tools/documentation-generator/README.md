@@ -20,14 +20,14 @@ npm start
 
 The configuration options are as follows:
 
-| Name                | Default value     | Description                                          |
-| ------------------- | ----------------- | ---------------------------------------------------- |
-| APP_TOKEN           | `null`            | The GitHub API OAuth token.                          |
-| APP_ORGANIZATION    | `kyma-project`    | The GitHub organization that owns given repository.  |
-| APP_REPOSITORY      | `kyma`            | The repository with documentation.                   |
-| APP_OUTPUT          | `out`             | The path for storing the results.                    |
-| APP_DOC_CONFIG_FILE | `out/config.json` | The path to the website documentation configuration. |
-| APP_TEMP            | `temp`            | The path for storing temporary data.                 |
+| Name                | Default value     | Description                                           |
+| ------------------- | ----------------- | ----------------------------------------------------- |
+| APP_TOKEN           | `null`            | The GitHub API OAuth token.                           |
+| APP_ORGANIZATION    | `kyma-project`    | The GitHub organization that owns a given repository. |
+| APP_REPOSITORY      | `kyma`            | The repository with documentation.                    |
+| APP_OUTPUT          | `out`             | The path for storing the results.                     |
+| APP_DOC_CONFIG_FILE | `out/config.json` | The path to the website documentation configuration.  |
+| APP_TEMP            | `temp`            | The path for storing temporary data.                  |
 
 ### Docker
 
