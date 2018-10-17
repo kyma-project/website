@@ -100,14 +100,14 @@ podTemplate(label: label) {
 }
 
 def execute(command, envs = []) {
-    def repositoryName = 'navigation-builder'
+    def repositoryName = 'documentation-generator'
     def buildpack = 'node-buildpack:0.0.9'
     def envText = ''
     for (it in envs) {
         envText = "$envText --env $it"
     }
     workDir = pwd()
-    sh "docker run --rm -v $workDir/$repositoryName:/$repositoryName -w /$repositoryName $envText ${env.DOCKER_REGISTRY}$buildpack /bin/bash -c '$command'"
+    sh "docker run --rm -v $workDir:/$repositoryName -w /$repositoryName $envText ${env.DOCKER_REGISTRY}$buildpack /bin/bash -c '$command'"
 
 
 }
