@@ -9,7 +9,7 @@ class GitHub {
 
     if (token) {
       this.octokit.authenticate({
-        type: "oauth",
+        type: "token",
         token: token,
       });
     }
