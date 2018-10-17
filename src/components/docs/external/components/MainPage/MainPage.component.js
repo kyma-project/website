@@ -71,15 +71,17 @@ class MainPage extends React.PureComponent {
       activeNav: activeLink,
     });
 
-    let link = `/${this.props.pageName}/${this.props.version}/${
-      activeLink.type
-    }/${activeLink.id}`;
+    let link = `/${this.props.pageName}`;
+    if (this.props.version !== this.props.latestVersion) {
+      link += `/${this.props.version}`;
+    }
+    link += `/${activeLink.type}/${activeLink.id}`;
 
     if (activeLink.hash) {
       link = `${link}#${activeLink.hash}`;
-      this.props.history.push(link);
+      this.props.history.replace(link);
     } else {
-      this.props.history.push(link);
+      this.props.history.replace(link);
       goToTop();
     }
 
@@ -162,6 +164,7 @@ class MainPage extends React.PureComponent {
           </SideWrapper>
           <CenterSideWrapper>
             <ContentWrapper
+              latestVersion={this.props.latestVersion}
               version={this.props.version}
               versions={this.props.versions}
               item={this.state.active}

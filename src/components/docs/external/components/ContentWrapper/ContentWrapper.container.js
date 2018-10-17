@@ -46,7 +46,8 @@ export default class extends React.PureComponent {
 
   updateContent = async (version, type, id) => {
     const versions = this.props.versions;
-    const docsFetcher = new DocsFetcher(version, versions);
+    const latest = this.props.latestVersion;
+    const docsFetcher = new DocsFetcher(latest, version, versions);
     let content;
     let err;
     try {

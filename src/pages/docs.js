@@ -3,18 +3,19 @@ import { Helmet } from "react-helmet";
 import DocsContainer from "../components/docs/Docs.container";
 import DefaultLayout from "../components/layout/DefaultLayout";
 import { graphql } from "gatsby";
+import compareVersions from "compare-versions";
 
 const DocsPage = ({ data }) => {
   const edges = data.allDirectory.edges || [];
   const versions = edges
     .map(edge => edge.node.relativePath)
-    .sort()
+    .sort(compareVersions)
     .reverse();
 
   return (
     <DefaultLayout pageId="documentation">
       <Helmet />
-      <DocsContainer versions={versions} />
+      <DocsContainer latestVersion={versions[0]} versions={versions} />
     </DefaultLayout>
   );
 };
