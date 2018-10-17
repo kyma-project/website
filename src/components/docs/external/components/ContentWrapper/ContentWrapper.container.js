@@ -6,7 +6,7 @@ import ui from "../../../../../locales/en/UI.json";
 import DocsFetcher from "../../../../../helpers/DocsFetcher";
 import { displayError } from "../../../../../helpers/displayError";
 import Text from "../../../../content/Text";
-import { anchorate } from "anchorate";
+import { goToAnchor } from "react-scrollable-anchor";
 
 export default class extends React.PureComponent {
   constructor(props) {
@@ -17,9 +17,9 @@ export default class extends React.PureComponent {
     };
   }
   async componentDidMount() {
-    const { type, id } = this.props.item;
+    const { type, id, hash } = this.props.item;
     await this.updateContent(this.props.version, type, id);
-    anchorate();
+    goToAnchor(hash);
   }
 
   async UNSAFE_componentWillReceiveProps(newProps) {
@@ -40,7 +40,7 @@ export default class extends React.PureComponent {
     }
 
     if (hash !== currentItem.hash) {
-      anchorate();
+      goToAnchor(hash);
     }
   }
 

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { StickyContainer, Sticky } from "react-sticky";
 import ColumnsWrapper from "../ColumnsWrapper/ColumnsWrapper.component";
 import ContentWrapper from "../ContentWrapper/ContentWrapper.container";
+import { goToTop } from "react-scrollable-anchor";
 import NavigationSidebar from "../../../navigation/NavigationSidebar";
 import { DOCS_RESPONSIVE_BREAKPOINT } from "../../../../../constants/docs";
 
@@ -49,13 +50,13 @@ class MainPage extends React.PureComponent {
     const root = getRoot(manifest);
     this.state = {
       active: {
-        id: props.id || root,
-        type: props.type || "root",
+        id: props.match.params.id || root,
+        type: props.match.params.type || "root",
         hash: props.location.hash.replace(/#/g, ""),
       },
       activeNav: {
-        id: props.id || root,
-        type: props.type || "root",
+        id: props.match.params.id || root,
+        type: props.match.params.type || "root",
         hash: props.location.hash.replace(/#/g, ""),
       },
       navigationList: manifest,
@@ -70,15 +71,16 @@ class MainPage extends React.PureComponent {
       activeNav: activeLink,
     });
 
-    let link = `/${this.props.pageName}/${this.props
-      .version}/${activeLink.type}/${activeLink.id}`;
+    let link = `/${this.props.pageName}/${this.props.version}/${
+      activeLink.type
+    }/${activeLink.id}`;
 
     if (activeLink.hash) {
       link = `${link}#${activeLink.hash}`;
-      window.history.pushState(null, null, link);
+      this.props.history.push(link);
     } else {
-      window.history.pushState(null, null, link);
-      window.scrollTo(0, 0);
+      this.props.history.push(link);
+      goToTop();
     }
 
     // Hide navigation on Click on mobile

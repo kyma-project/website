@@ -63,7 +63,7 @@ const ContentWrapper = ({ content }) => {
   };
 
   return (
-    <>
+    <div>
       {content && (
         <Wrapper>
           <ContentHeader>{content.displayName}</ContentHeader>
@@ -94,7 +94,7 @@ const ContentWrapper = ({ content }) => {
           </ContentDescription>
         </Wrapper>
       )}
-    </>
+    </div>
   );
 };
 export default ContentWrapper;

@@ -11,7 +11,8 @@ class Docs extends React.PureComponent {
     super(props);
 
     const latestVersion = "latest";
-    const version = props.version || latestVersion;
+    const version =
+      (props.match.params && props.match.params.version) || latestVersion;
 
     this.state = {
       loading: true,
@@ -84,7 +85,8 @@ class Docs extends React.PureComponent {
           version={state.version}
           versions={props.versions}
           location={props.location}
-          navigate={props.navigate}
+          history={props.history}
+          match={props.match}
           pageName={props.pageName}
           topNavComponent={
             <>

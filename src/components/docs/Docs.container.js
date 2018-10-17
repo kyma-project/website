@@ -1,5 +1,5 @@
 import React from "react";
-import { Router } from "@reach/router";
+import { Switch, Route } from "react-router-dom";
 import Docs from "./Docs.component";
 import styled from "styled-components";
 
@@ -15,18 +15,21 @@ const DocsContainer = ({ versions = [] }) => {
   }
 
   const pageName = "docs";
-
-  const RenderDocs = props => (
+  const renderDocs = props => (
     <Docs versions={versions} pageName={pageName} {...props} />
   );
 
   return (
     <Wrapper>
-      <Router>
-        <RenderDocs path={`/${pageName}`} />
-        <RenderDocs path={`/${pageName}/:version`} />
-        <RenderDocs path={`/${pageName}/:version/:type/:id`} />
-      </Router>
+      <Switch>
+        <Route exact path={`/${pageName}/`} render={renderDocs} />
+        <Route exact path={`/${pageName}/:version/`} render={renderDocs} />
+        <Route
+          exact
+          path={`/${pageName}/:version/:type/:id`}
+          render={renderDocs}
+        />
+      </Switch>
     </Wrapper>
   );
 };
