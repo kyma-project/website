@@ -50,5 +50,20 @@
         "Eases the development effort by providing a catalog of API and Event documentation to support automatic client code generation"
       ]
     }
-  ]
+  ],
+  "community": {
+    "headline": "Connect with Kyma community and get involved!",
+    "paragraphs": [
+      "Kyma is the open source project with an active and vibrant community supporting the Kyma development and drive it forward."
+    ],
+    "SIG": {
+      "paragraph": "If you´d like to contribute to the Kyma project, participate in our",
+      "link": {
+        "name": "Special Interest Group"
+      }
+    },
+    "links": {
+      "paragraph": "Talk to Us!"
+    }
+  }
 }

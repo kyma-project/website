@@ -7,6 +7,7 @@ import Headline from "../components/landing/Headline";
 import WhatIs from "../components/landing/WhatIs";
 import MakesSpecial from "../components/landing/MakesSpecial";
 import Features from "../components/landing/Features";
+import Community from "../components/landing/Community";
 
 const IndexPage = () => (
   <LandingLayout>
@@ -19,6 +20,7 @@ const IndexPage = () => (
     <div className="container">
       <Features />
     </div>
+    <Community />
   </LandingLayout>
 );
 

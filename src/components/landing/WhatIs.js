@@ -35,7 +35,7 @@ const WhatIs = () => {
           </a>
         </div>
       </div>
-      <div className="col-5 col-md-6 col-sm-9">
+      <div className="col-6 col-md-9 col-sm-12">
         <object
           type="image/svg+xml"
           data={WhatIsSvg}
