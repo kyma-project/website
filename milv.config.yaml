@@ -2,6 +2,7 @@ white-list-external:
   - localhost
   - kyma.local
   - https://kyma-project.io/blog/some-address
+  - https://kyma-project.io/docs/latest/root/kyma#overview-in-a-nutshell
 black-list:
   - node_modules
 timeout: 60
@@ -21,4 +22,3 @@ files:
         - /docs/latest/root/kyma#overview-overview
         - /docs/latest/root/kyma#getting-started-helm-overrides-for-kyma-installation
         - /docs/latest/root/kyma#getting-started-install-kyma-on-a-gke-cluster
-        - /docs/latest/root/kyma#overview-in-a-nutshell
