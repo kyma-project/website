@@ -57,11 +57,7 @@ podTemplate(label: label) {
                             execute("make validate")
                         }
 
-                        stage("test $application") {
-                            execute("make test", ["CI=true"])
-                        }
-
-                        if (isMaster) {
+                        if (isMaster || true) {
                             stage("IP scan $application (WhiteSource)") {
                                 withCredentials([string(credentialsId: 'whitesource_apikey', variable: 'apikey')]) {
                                     execute("make scan", ["API_KEY=$apikey"])
