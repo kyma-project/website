@@ -107,7 +107,7 @@ def execute(command, envs = []) {
         envText = "$envText --env $it"
     }
     workDir = pwd()
-    sh "docker run --rm -v $workDir:/$repositoryName -w /$repositoryName $envText ${env.DOCKER_REGISTRY}$buildpack /bin/bash -c '$command'"
+    sh "docker run --rm -v $workDir:/$repositoryName -w /$repositoryName/$env.APP_FOLDER $envText ${env.DOCKER_REGISTRY}$buildpack /bin/bash -c '$command'"
 
 
 }
