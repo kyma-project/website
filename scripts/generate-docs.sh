@@ -18,7 +18,7 @@ trap on_exit EXIT
 readonly SCRIPTS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 readonly KYMA_REPOSITORY="https://github.com/kyma-project/kyma.git"
 readonly DOCUMENTATION_DIR="${SCRIPTS_DIR}/../static/documentation"
-readonly GENERATOR_IMAGE="hudymi/documentation-generator:0.1.0"
+readonly GENERATOR_IMAGE="eu.gcr.io/kyma-project/documentation-generator:0.1.49"
 
 # Colors
 readonly ARGS=("$@")
@@ -54,7 +54,7 @@ init() {
                 ;;
             --token | -t)
                 shift
-                TOKEN="?access_token=${1}"
+                TOKEN=${1}
                 shift
                 ;;
             --help | -h)
@@ -76,13 +76,13 @@ generate() {
                -e APP_OUTPUT="/app/documentation" \
                -e APP_DOC_CONFIG_FILE="/app/documentation/config.json" \
                -e APP_TOKEN="${TOKEN}" \
-               ${GENERATOR_IMAGE}
+               ${GENERATOR_IMAGE} || return
 }
 
 publish() {
     if [[ -n ${SSH_FILE} ]]; then
         echo "Configuring git"
-        bash "${SCRIPTS_DIR}/helpers/git-config.sh" --ssh-file "${SSH_FILE}"
+        bash "${SCRIPTS_DIR}/helpers/git-config.sh" --ssh-file "${SSH_FILE}" || return
     fi
 
     echo "Detecting changes"
@@ -94,11 +94,11 @@ publish() {
     fi
 
     echo "Commit documentation"
-    git add "${DOCUMENTATION_DIR}"
-    git commit -m "Publish documentation for Kyma"
+    git add "${DOCUMENTATION_DIR}" || return
+    git commit -m "Publish documentation for Kyma" --no-verify || return
 
     echo "Pushing documentation to master"
-    git push origin HEAD:master
+    git push origin HEAD:master || return
 }
 
 main() {
