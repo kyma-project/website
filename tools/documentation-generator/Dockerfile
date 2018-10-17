@@ -1,14 +1,15 @@
-FROM node:10.11.0-alpine
+FROM node:10.12.0-alpine
 
 LABEL source git@github.com:kyma-project/website.git
 
+RUN apk update && apk upgrade && \
+    apk add --no-cache git
+
 WORKDIR /app
 
-# Install dependencies
 COPY package.json package-lock.json /app/
 RUN npm install
 
-# Copy app sources
-COPY index.js /app/
+COPY src/ /app/src/
 
 CMD ["npm", "start"]
