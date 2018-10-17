@@ -47,7 +47,7 @@ async function run(config) {
     console.log(`Cloning ${config.organization}/${config.repository}`);
     git.clone();
 
-    for (let key of outdatedReleases.keys()) {
+    for (const key of outdatedReleases.keys()) {
       const release = outdatedReleases.get(key);
       console.log(
         `Generating documentation for release ${key} from tag ${release}`,

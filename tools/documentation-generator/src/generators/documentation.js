@@ -11,13 +11,12 @@ async function generateDocumentation(source, output) {
     .filter(element => fs.lstatSync(element).isDirectory())
     .filter(element => fs.pathExistsSync(`${element}/docs.config.json`));
 
-  for (let i in paths) {
-    const basePath = paths[i];
+  for (const path of paths) {
     const config = {
-      srcPath: `${basePath}/docs`,
-      srcApiPath: `${basePath}/api`,
-      srcAsyncApiPath: `${basePath}/asyncApi`,
-      docsConfigPath: `${basePath}/docs.config.json`,
+      srcPath: `${path}/docs`,
+      srcApiPath: `${path}/api`,
+      srcAsyncApiPath: `${path}/asyncApi`,
+      docsConfigPath: `${path}/docs.config.json`,
       outPath: output,
       resourcesBaseURI: "{PLACEHOLDER_APP_RESOURCES_BASE_URI}",
 
