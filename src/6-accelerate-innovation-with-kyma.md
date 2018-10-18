@@ -26,7 +26,7 @@ This way, Kyma enables businesses to:
 
 - **Be open and extendable:** Using any Open Service Broker API specification-compatible service is a "plug and play" affair which gives you access to a catalog of reusable, integrated services for developers, both in-house and 3rd party. This allows you to use business services and technical backing services from different vendors to extend your existing applications.
 
-- **Be seamlessly connected:** Simplified approach to have secure connectivity between systems allows seamless API and event integration of the existing applications. It is possible to manage and orchestrate existing applications to build common extension solution even in heterogenous landscapes. Additionally, there is one connection with multiple possibilities.
+- **Be seamlessly connected:** The simplified approach to secure connectivity between systems allows seamless API and event integration of the existing applications. You can manage and orchestrate existing applications to build common extension solution even in heterogeneous landscapes. A single connection gives you multiple possibilities.
 
 - **Use any programming language:** It allows developers to develop microservices or serverless functions using any programming language of choice, thus allowing companies to have more options at hiring developers.
 
