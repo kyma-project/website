@@ -8,8 +8,6 @@ title: "Accelerate innovation with Kyma"
 
 Is Tesla Model X still a car, or is it a smart device? This might sound like a silly question, as the Model X has all of the usual "car" traits: an engine, metal bodywork, rims, tires, etc. On paper, the Model X might look like yet another car, but its uniqueness, aside from the electric engine, of course, lies in the software innovation that Tesla brings to the market. The ability to update the onboard software over-the-air and bring new features and functionalities to a car is a key factor that attracts consumers to buy Teslas. This revolution shows that innovation, even in industries as old as car manufacturing, is an important and powerful tool that allows to penetrate the market faster. Many of the leading car manufacturers are still trying to catch up with Tesla's success. Businesses need to leverage new technologies, take on innovations and transform digitally to be competitive. Simply put - innovate or perish!
 
-Therefore, companies that leverage technology to create competitive advantage will win.
-
 On our ongoing innovation journey, we have identified several challenges for companies that go through this process of digital transformation:
 
 - **Heterogeneous Product Portfolio:** Single-vendor solutions are a thing of the past. (ref: https://www.thoughtworks.com/de/insights/blog/implications-tech-stack-complexity-executives). Companies don't want to invest in a single vendor product stack. They need to have best of breed products. Heterogeneity is unavoidable, so software product companies need to be ready to embrace the diversity and be open to work hand in hand with the dreaded competition.
