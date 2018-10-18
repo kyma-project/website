@@ -30,7 +30,7 @@ This way, Kyma enables businesses to:
 
 - **Use any programming language:** Develop microservices or serverless functions using any programming language and enjoy more hiring options as a result.
 
-- **Bring speed and agility:** Businesses don&#39;t have to wait for months or years to deliver specific scenarios or use cases, with Kyma these can be delivered faster (within days or weeks) and costs less.
+- **Bring speed and agility:** Businesses don't have to wait for months or years to deliver specific scenarios or use cases. With Kyma the delivery times are faster (within days or weeks) and the entire process costs less.
 
 - **To accelerate innovation:** In many cases innovation starts as a test or a trail. In such cases, both speed and low cost are of great importance. Kyma enables businesses to start working on their solutions immediately instead of finding the right technology and integration options first. Kyma brings the startup culture to enterprises.
 
