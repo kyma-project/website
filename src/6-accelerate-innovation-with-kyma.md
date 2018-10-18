@@ -28,7 +28,7 @@ This way, Kyma enables businesses to:
 
 - **Be seamlessly connected:** The simplified approach to secure connectivity between systems allows seamless API and event integration of the existing applications. You can manage and orchestrate existing applications to build common extension solution even in heterogeneous landscapes. A single connection gives you multiple possibilities.
 
-- **Use any programming language:** It allows developers to develop microservices or serverless functions using any programming language of choice, thus allowing companies to have more options at hiring developers.
+- **Use any programming language:** Develop microservices or serverless functions using any programming language and enjoy more hiring options as a result.
 
 - **Bring speed and agility:** Businesses don&#39;t have to wait for months or years to deliver specific scenarios or use cases, with Kyma these can be delivered faster (within days or weeks) and costs less.
 
