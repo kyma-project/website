@@ -18,7 +18,7 @@ On our ongoing innovation journey, we have identified several challenges for com
 
 - **Cloud-native:** Companies are moving faster towards using cloud-native open source stacks for production (ref: https://www.cncf.io/blog/2018/08/29/cncf-survey-use-of-cloud-native-technologies-in-production-has-grown-over-200-percent/). The Cloud Native Computing Foundation (CNCF) describes "cloud-native" software as one that is container-packaged, dynamically orchestrated and managed, and microservice-architected. Building cloud-native solutions is not easy. It requires better inter-service communication, proper traceability of transactions across solutions, logging across several services and solutions, proper monitoring and operating hundreds of services.
 
-- **Need for Speed:** Some of our customers say, &quot;Speed is the new ultimate currency&quot;. It&#39;s challenging to develop at a faster pace while facing the challenges of heterogeneity, monolithic deployment and the need to make every developer in the organization a cloud-native developer.
+- **The "need for speed":** Some of our customers say that "speed is the new ultimate currency". It's challenging to develop at a faster pace while facing the challenges of heterogeneity, monolithic deployment and trying to teach every developer in the organization the ways of cloud-native development.
 
 Kyma has worked hard to overcome these challenges and support businesses throughout their digital transformation journey. Kyma is an open-source project designed natively on Kubernetes. It allows you to extend and customize cloud-based and on-premise enterprise applications in a quick and modern way, using serverless computing and microservice architecture.
 
