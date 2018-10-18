@@ -24,7 +24,7 @@ Kyma has worked hard to overcome these challenges and support businesses through
 
 This way, Kyma enables businesses to:
 
-- **Be open and extendable:** Its openness allows you to plug and play any service that adheres to open service broker API specification providing a catalog of reusable, integrated services for developers, both in-house and 3rd party services. This provides the possibility to bring business services and technical backing services from different vendor to extend your existing applications.
+- **Be open and extendable:** Using any Open Service Broker API specification-compatible service is a "plug and play" affair which gives you access to a catalog of reusable, integrated services for developers, both in-house and 3rd party. This allows you to use business services and technical backing services from different vendors to extend your existing applications.
 
 - **Be seamlessly connected:** Simplified approach to have secure connectivity between systems allows seamless API and event integration of the existing applications. It is possible to manage and orchestrate existing applications to build common extension solution even in heterogenous landscapes. Additionally, there is one connection with multiple possibilities.
 
