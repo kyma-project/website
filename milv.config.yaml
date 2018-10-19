@@ -1,7 +1,9 @@
-white-list-external: 
+white-list-external:
   - localhost
   - kyma.local
-black-list: 
+  - https://kyma-project.io/blog/some-address
+  - https://kyma-project.io/docs/latest/root/kyma#overview-in-a-nutshell
+black-list:
   - node_modules
 timeout: 60
 request-repeats: 5
