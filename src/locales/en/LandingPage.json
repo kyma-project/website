@@ -52,18 +52,21 @@
     }
   ],
   "community": {
-    "headline": "Connect with Kyma community and get involved!",
+    "headline": "Connect with the Kyma community and get involved!",
     "paragraphs": [
-      "Kyma is the open source project with an active and vibrant community supporting the Kyma development and drive it forward."
+      "Kyma has an active and vibrant community that supports its development and helps to drive it forward."
     ],
     "SIG": {
-      "paragraph": "If you´d like to contribute to the Kyma project, participate in our",
+      "paragraph": [
+        "Join the community and participate in our",
+        "meetings"
+      ],
       "link": {
-        "name": "Special Interest Group"
+        "name": "Special Interest Group and Working Group"
       }
     },
     "links": {
-      "paragraph": "Talk to Us!"
+      "paragraph": "Talk to us!"
     }
   }
 }

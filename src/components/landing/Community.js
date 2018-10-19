@@ -20,7 +20,7 @@ const Community = () => {
 
   const sigLink = (
     <div>
-        <p>{sig.paragraph} <a href={sigGroup.url} target="_blank" rel="noopener noreferrer" className="link-sig">{sig.link.name}.</a></p>
+        <p>{sig.paragraph[0]} <a href={sigGroup.url} target="_blank" rel="noopener noreferrer" className="link-sig">{sig.link.name}</a> {sig.paragraph[1]}.</p>
     </div>
   )
 

@@ -1157,6 +1157,9 @@ h3 {
   .bg-b {
     margin-bottom: -132px;
   }
+  .bg-b object {
+    margin-top: 112px;
+  }
 }
 
 .community--links {

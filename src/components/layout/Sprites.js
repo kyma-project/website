@@ -175,7 +175,6 @@ const Sprites = () => {
         <symbol id="github-bg">
           <path 
             id="Rectangle-6" 
-            class="st0" 
             d="M46.8,48.2c-4.6,3-33.9,5.8-41.4,0S-1,16.2,3.9,7.2s37.4-10.1,42.9,0S51.3,45.2,46.8,48.2z"
           />
         </symbol>
