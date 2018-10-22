@@ -19,6 +19,7 @@ const HTML = ({
         content="width=device-width, initial-scale=1, shrink-to-fit=no"
       />
       <meta name="msapplication-TileColor" content="#2b5797" />
+      <meta name="google-site-verification" content="qHt6OkQ1MXU5a4ZLlkLLPRB35ZOu_upyScm2O9Jf8PY" />
       <meta name="theme-color" content="#ffffff" />
       <meta property="og:image" content={withPrefix("/logo.png")} />
       <meta name="twitter:card" content="summary" />
