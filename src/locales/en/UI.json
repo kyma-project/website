@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "Kyma",
-    "shortDescription": "Easy way to extend enterprise applications on Kubernetes.",
+    "shortDescription": "An easy way to extend enterprise applications on Kubernetes.",
     "description": "Kyma is an open-source project designed natively on Kubernetes. It allows you to extend enterprise applications in a quick and modern way, using serverless computing or microservice architecture."
   },
   "navigation": {
