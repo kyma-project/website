@@ -50,5 +50,23 @@
         "Eases the development effort by providing a catalog of API and Event documentation to support automatic client code generation"
       ]
     }
-  ]
+  ],
+  "community": {
+    "headline": "Connect with the Kyma community and get involved!",
+    "paragraphs": [
+      "Kyma has an active and vibrant community that supports its development and helps to drive it forward."
+    ],
+    "SIG": {
+      "paragraph": [
+        "Join the community and participate in our",
+        "meetings"
+      ],
+      "link": {
+        "name": "Special Interest Group and Working Group"
+      }
+    },
+    "links": {
+      "paragraph": "Talk to us!"
+    }
+  }
 }
