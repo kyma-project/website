@@ -1,8 +1,8 @@
 {
   "metadata": {
     "title": "Kyma",
-    "shortDescription": "Cloud-native application development framework",
-    "description": "Kyma is an open source, cloud-native application development framework. It provides the last mile capabilities that a developer needs to build a cloud-native application"
+    "shortDescription": "An easy way to extend enterprise applications on Kubernetes.",
+    "description": "Kyma is an open-source project designed natively on Kubernetes. It allows you to extend enterprise applications in a quick and modern way, using serverless computing or microservice architecture."
   },
   "navigation": {
     "home": "Home",
