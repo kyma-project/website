@@ -59,7 +59,7 @@ const Footer = () => {
             <svg
               className="sprite-icon sprite-icon--14 sprite-icon--inverse"
               role="img"
-              aria-labelledby="linkedin"
+              aria-labelledby="linkedinLink"
             >
               <title id="linkedinLink">{linkedin.name}</title>
               <use xlinkHref="#linkedin" />
@@ -70,7 +70,7 @@ const Footer = () => {
             <svg
               className="sprite-icon sprite-icon--15 sprite-icon--inverse"
               role="img"
-              aria-labelledby="youtube"
+              aria-labelledby="youtubeLink"
             >
               <title id="youtubeLink">{youtube.name}</title>
               <use xlinkHref="#youtube" />

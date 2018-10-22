@@ -16,7 +16,7 @@ const MakesSpecial = () => {
     <section className="bg-m">
       <div className="container">
         <div className="row row--space-between row--sm-align-center">
-          <div className="col-5 col-md-6 col-sm-9">
+          <div className="col-6 col-md-9 col-sm-12">
             <object
               type="image/svg+xml"
               data={MakesSpecialSvg}
