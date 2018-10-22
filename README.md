@@ -4,7 +4,7 @@
 
 This repository contains website source for [`kyma-project.io`](https://kyma-project.io). It uses [GatsbyJS](https://www.gatsbyjs.org/) for static site generation.
 
-> **NOTE:** The description of the application configuration, the project structure, the architecture, and other project-specific details are located in the [`docs`](./docs/README.md) directory.
+## Installation
 
 ## Prerequisites
 

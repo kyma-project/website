@@ -26,7 +26,7 @@ const fadeInOut = keyframes`
 
 const Wrapper = styled.section`
   box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2);
-  background-color: #0b74de;
+  background-color: ${colors.blue};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -135,6 +135,7 @@ const Icon = styled.img`
   margin-top: 20px;
   margin-bottom: 20px;
 `;
+//make icon work with pics with other width than 30px;
 
 function filterEventsFromData(arg) {
   return arg.filter(element => {
