@@ -1,0 +1,23 @@
+{
+  "linkData": [
+    {
+      "text": "some kind of long textsome kind of longsome kind of long textsome kind of long textsome kind of long text some kind of long textsome kind oflong text some kind of long text",
+
+      "startDate": "20-10-2018",
+      "endDate": " 28-11-2018"
+    },
+    {
+      "text": "OTHER LONG TEXT OTHER LONG TEXT OTHER LONG TEXT OTHER LONG TEXT OTHER LONG TEXTTHER LONG TEXT OTHER LONG TEXT OTHER LONG TEXT",
+      "link": "http://colorschemedesigner.com/csd-3.5/",
+      "startDate": "10-10-2018",
+      "endDate": " 28-10-2018"
+    },
+    {
+      "text": "help",
+      "link": "https://google.pl",
+      "startDate": "01-10-2018",
+      "endDate": " 02-10-2018"
+    }
+  ],
+  "icon": "https://cdn0.iconfinder.com/data/icons/customicondesignoffice5/256/examples.png"
+}

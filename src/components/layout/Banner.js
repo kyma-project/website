@@ -1,26 +1,27 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
+import data from "./data.json";
+import colors from "./../../config/colors";
+const ANIMATION_DURATION = 4000;
+const MAX_TEXT_LENGTH = 100;
 
-const JsonOrYaml = {
-  title:
-    "Join us for the SAP Customer Experience LIVE Hackathon, Barcelona, October 9",
-  icon:
-    "https://cdn0.iconfinder.com/data/icons/customicondesignoffice5/256/examples.png",
-  link: "https://www.styled-components.com/docs/basics",
-};
 const fadeInOut = keyframes`
 0%   { 
   opacity: 0;
   transform: translateY(100%);
 }
-33%,66%{
+20%,80%{
   opacity:1;
   transform: translateY(0);
   };
-100%{
+97%{
   opacity:0;
   transform: translateY(-100%);
 };
+100%{
+  opacity:0;
+  transform: translateY(-100%);
+}
 `;
 
 const Wrapper = styled.section`
@@ -30,6 +31,7 @@ const Wrapper = styled.section`
   justify-content: center;
   align-items: center;
 `;
+
 const InnerWrapper = styled.div`
   width: 1200px;
   max-width: 1200px;
@@ -38,12 +40,18 @@ const InnerWrapper = styled.div`
   align-items: center;
 `;
 
+const TextWrapper = styled.div`
+  padding: 20px 15px;
+`;
 const Text = styled.p`
-  animation: ${fadeInOut} 3s infinite;
+  ${props =>
+    props.animate &&
+    `animation: ${fadeInOut} infinite;
+  animation-duration: ${ANIMATION_DURATION / 1000}s;`};
   margin-top: 0;
   margin-bottom: 0;
   font-family: Poppins;
-  text-align: center;
+  text-align: left;
   vertical-align: center;
   align-items: center;
   justify-content: center;
@@ -55,22 +63,13 @@ const Text = styled.p`
   letter-spacing: normal;
   text-decoration: none;
   color: #fff;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  width: 20ch;
-  ${Wrapper}:hover & {
-    width: min-content;
-  }
 `;
-const Dot = styled.div`
-  height: 4px;
-  width: 4px;
-  margin: 3px auto;
-  border-radius: 4px;
-  background-color: #3298ff;
-`;
-const animSecond = keyframes`
+const Link = Text.extend`
+  text-decoration: underline;
+  display: inline-block;
+`.withComponent("a");
+
+const DotAnimation = keyframes`
 0%   { 
   opacity: 0;
   transform: translateY(17px);
@@ -78,33 +77,50 @@ const animSecond = keyframes`
 10%{
   opacity:1;
 }
-33%,66%{
+20%,80%{
+  opacity:1;
   transform: translateY(0);
   width:8px;
   height:8px;
   border-radius:8px;
-  background-color:#00e833;
+  background-color:${colors.green};
   };
-  90%{
-    opacity:1;
-    transform: translateY(-17px);
+90%{
+  opacity:1;
   }
 100%{
   opacity:0;
   transform: translateY(-17px);
 };
 `;
-const First = styled(Dot)``;
-const Second = styled(Dot)`
-  animation: ${animSecond} 3s infinite;
+const Dot = styled.div`
+  height: 4px;
+  width: 4px;
+  margin: 3px auto;
+  border-radius: 4px;
+  background-color: ${colors.lightBlue};
 `;
-const Third = styled(Dot)``;
+
+const AnimatedDot = styled(Dot)`
+  ${props =>
+    props.animate &&
+    `animation: ${DotAnimation} ${ANIMATION_DURATION / 1000}s infinite;`};
+  ${props =>
+    !props.animate &&
+    `width:8px;
+    height:8px;
+    border-radius:8px;
+    background-color:${colors.green};
+  `};
+`;
 
 const DotsWrapper = styled.section`
   height: 45px;
   width: 8px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 25px;
   min-width: 8px;
-  margin-left: 15px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -120,62 +136,92 @@ const Icon = styled.img`
   margin-bottom: 20px;
 `;
 
-const TextWrapper = styled.div`
-  padding: 20px 15px;
-`;
+function filterEventsFromData(arg) {
+  return arg.filter(element => {
+    const endDate = parseDate(element.endDate);
+    const startDate = parseDate(element.startDate);
+    return (
+      startDate.getTime() < new Date().getTime() &&
+      new Date().getTime() < endDate.getTime()
+    );
+  });
+}
 
-// const BannerLink = styled.a`
-//   color: #fff;
-//   text-decoration: underline;
-// `;
-const jsonText = [
-  "some kind of long textsome kind of longsome kind of long textsome kind of long textsome kind of long text some kind of long textsome kind oflong text some kind of long text",
-  "OTHER LONG TEXT OTHER LONG TEXT OTHER LONG TEXT OTHER LONG TEXT OTHER LONG TEXTTHER LONG TEXT OTHER LONG TEXT OTHER LONG TEXT",
-  "heeeeeeelp",
-];
+function parseDate(arg) {
+  const splitDate = arg.split("-");
+  return new Date(`${splitDate[1]}-${splitDate[0]}-${splitDate[2]}`);
+}
 
 class Banner extends React.Component {
   state = {
-    text: jsonText[0],
+    src: filterEventsFromData(data.linkData),
+    text: filterEventsFromData(data.linkData)[0].text,
+    link: filterEventsFromData(data.linkData)[0].links,
     val: 1,
+    mouseIsHovering: false,
   };
 
-  truncate = (text, length) => text.slice(0, length) + "...";
+  truncate = (text, length) =>
+    text.length <= length ? text : text.slice(0, length) + "...";
 
-  // shiftTrueToRight = arg => {
-  //   const arr = Array(arg.length).fill(false);
-  //   const trueIndex = arg.indexOf(true);
-  //   if (trueIndex === arg.length - 1) {
-  //     arr[0] = true;
-  //   } else {
-  //     arr[trueIndex + 1] = true;
-  //   }
-  //   return arr;
-  // };
+  isThereMoreThenOneText = () => this.state.src.length > 1;
+
   componentDidMount = () => {
-    this.timer = setInterval(() => {
-      this.setState({
-        text: jsonText[this.state.val],
-        val: jsonText[this.state.val + 1] ? this.state.val + 1 : 0,
-        // propsForDots: this.shiftTrueToRight(this.state.propsForDots),
-      });
-    }, 3000);
+    if (this.isThereMoreThenOneText()) {
+      this.timer = setInterval(() => {
+        this.setState(prevState => ({
+          text:
+            prevState.src[prevState.val] && prevState.src[prevState.val].text
+              ? prevState.src[prevState.val].text
+              : prevState.text,
+          val: prevState.src[prevState.val + 1] ? prevState.val + 1 : 0,
+          link:
+            prevState.src[prevState.val] && prevState.src[prevState.val].link
+              ? prevState.src[prevState.val].link
+              : null,
+        }));
+      }, ANIMATION_DURATION);
+    }
   };
+
   componentWillUnmount = () => {
-    clearInterval(this.timer);
+    this.timer && clearInterval(this.timer);
   };
+
   render() {
     return (
-      <Wrapper>
+      <Wrapper
+        onMouseEnter={() => {
+          this.setState({ mouseIsHovering: true });
+        }}
+        onMouseLeave={() => {
+          this.setState({ mouseIsHovering: false });
+        }}
+      >
         <InnerWrapper>
           <DotsWrapper>
-            <First />
-            <Second />
-            <Third />
+            <Dot />
+            <AnimatedDot animate={this.isThereMoreThenOneText()} />
+            <Dot />
           </DotsWrapper>
-          {JsonOrYaml.icon && <Icon src={JsonOrYaml.icon} alt="Banner Icon" />}
+          {data.icon && <Icon src={data.icon} alt="Banner Icon" />}
           <TextWrapper>
-            <Text>{this.state.text}</Text>
+            {this.state.link ? (
+              <Link
+                href={this.state.link}
+                animate={this.isThereMoreThenOneText()}
+              >
+                {this.state.mouseIsHovering
+                  ? this.state.text
+                  : this.truncate(this.state.text, MAX_TEXT_LENGTH)}
+              </Link>
+            ) : (
+              <Text animate={this.isThereMoreThenOneText()}>
+                {this.state.mouseIsHovering
+                  ? this.state.text
+                  : this.truncate(this.state.text, MAX_TEXT_LENGTH)}
+              </Text>
+            )}
           </TextWrapper>
         </InnerWrapper>
       </Wrapper>
@@ -184,19 +230,3 @@ class Banner extends React.Component {
 }
 
 export default Banner;
-// Join us for the &nbsp;
-// <BannerLink
-// href="https://events.sap.com/sap-cx-live/en/hackathon-live"
-// target="_blank"
-// rel="noopener noreferrer"
-// >
-// SAP Customer Experience LIVE Hackathon, Barcelona, October 9
-// </BannerLink>{" "}
-// &nbsp;&&nbsp;{" "}
-// <BannerLink
-// href="https://events.sap.com/sap-cx-live/en/home"
-// target="_blank"
-// rel="noopener noreferrer"
-// >
-// SAP Customer Experience LIVE, Barcelona, October 10-11
-// </BannerLink>
