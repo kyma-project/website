@@ -63,9 +63,6 @@ const TechIndependent = () => (
     xmlns="http://www.w3.org/2000/svg"
     aria-labelledby="technology-title"
   >
-    <title id="technology-title">
-      Coherent &amp; technology-independents illustration
-    </title>
     <defs>
       <linearGradient
         x1="-11.982605%"

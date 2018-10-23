@@ -85,7 +85,6 @@ const Extendable = () => (
     xmlSpace="preserve"
     aria-labelledby="extendable-title"
   >
-    <title id="extendable-title">Open and extendable illustration</title>
     <g
       id="extendable-Element-35-Copy-2"
       transform="translate(171.000000, 726.000000)"

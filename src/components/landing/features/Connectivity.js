@@ -66,7 +66,6 @@ const Connectivity = () => (
     xmlns="http://www.w3.org/2000/svg"
     aria-labelledby="connectivity-title"
   >
-    <title id="connectivity-title">Seamless connectivity illustration</title>
     <defs>
       <linearGradient
         x1="61.9382502%"
