@@ -27,16 +27,14 @@ podTemplate(label: label) {
                             validateLinks('--ignore-external', repositoryName)
                         }
 
-                        if (!isMaster) {
+                        if (isMaster) {
+                            stage("validate external links") {
+                                validateLinks('--ignore-internal', repositoryName)
+                            }
+                        } else {
                             stage("validate external links in changed markdown files") {
                                 def changes = changedMarkdownFiles(repositoryName).join(" ")
                                 validateLinks("--ignore-internal ${changes}", repositoryName)
-                            }
-                        }
-
-                        if(isMaster || params.TRIGGER_FULL_VALIDATION) {
-                            stage("validate external links") {
-                                validateLinks('--ignore-internal', repositoryName)
                             }
                         }
                     }

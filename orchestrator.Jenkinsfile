@@ -124,7 +124,7 @@ String[] changedProjects() {
     // parse changeset and keep only relevant folders -> match with projects defined
     for (int i=0; i < allProjects.size(); i++) {
         for (int j=0; j < allChanges.size(); j++) {
-            if (projects[i] == "prepare" && changesForPrepareWebsite(allChanges[j]) && !res.contains(projects[i])) {
+            if (allProjects[i] == "prepare" && changesForPrepareWebsite(allChanges[j]) && !res.contains(allProjects[i])) {
                 res.add(allProjects[i])
                 break // already found a change in the current project, no need to continue iterating the changeset
             }
@@ -132,8 +132,8 @@ String[] changedProjects() {
                 res.add(allProjects[i])
                 break // already found a change in the current project, no need to continue iterating the changeset
             }
-            if (projects[i] == "governance" && allChanges[j].endsWith(".md") && !res.contains(projects[i])) {
-                res.add(projects[i])
+            if (env.BRANCH_NAME != 'master' && allProjects[i] == "governance" && allChanges[j].endsWith(".md") && !res.contains(allProjects[i])) {
+                res.add(allProjects[i])
                 break // already found a change in one of the .md files, no need to continue iterating the changeset
             }
         }
@@ -156,7 +156,7 @@ boolean changesForPrepareWebsite(String change){
 @NonCPS
 String changeset() {
     // on branch get changeset comparing with master
-    if (env.BRANCH_NAME != "master") {
+    if (env.BRANCH_NAME != 'master') {
         echo "Fetching changes between origin/${env.BRANCH_NAME} and origin/master."
         return sh (script: "git --no-pager diff --name-only origin/master...origin/${env.BRANCH_NAME} | grep -v 'vendor\\|node_modules' || echo ''", returnStdout: true)
     }
