@@ -11,6 +11,8 @@ const tryRequire = path => {
   }
 };
 
+const ANIMATION_DURATION = 4000;
+
 function filterEventsFromData(arg) {
   const filtered = arg.filter(element => {
     const endDate = parseDate(element.endDate);
@@ -29,13 +31,10 @@ function parseDate(arg) {
 }
 
 const initialValueOfData = filterEventsFromData(data);
+const iconsArray = initialValueOfData.map(element => tryRequire(element.icon));
 class Banner extends React.Component {
   state = {
     dataSource: initialValueOfData,
-    text: initialValueOfData[0].text,
-    url: initialValueOfData[0].url,
-    icon: initialValueOfData[0].icon,
-    counter: 1,
     wrapperHeight: undefined,
     activeDot: [true, ...Array(initialValueOfData.length - 1).fill(false)],
   };
@@ -46,36 +45,28 @@ class Banner extends React.Component {
     if (arg.indexOf(true) + 1 === arg.length) {
       return [true, ...Array(arg.length - 1).fill(false)];
     } else {
-      const arr = Array(arg.length).fill(false);
-      arr[arg.indexOf(true) + 1] = true;
-      return arr;
+      const ret = Array(arg.length).fill(false);
+      ret[arg.indexOf(true) + 1] = true;
+      return ret;
     }
   };
+
+  timerFunc = () =>
+    setInterval(() => {
+      const activeDotArr = this.shiftTrueToRight(this.state.activeDot);
+      this.setState({
+        activeDot: activeDotArr,
+      });
+    }, ANIMATION_DURATION);
+
+  resetTimerTick = () => {
+    clearInterval(this.timer);
+    this.timer = this.timerFunc();
+  };
+
   componentDidMount = () => {
     if (this.isThereMoreThenOneText()) {
-      this.timer = setInterval(() => {
-        this.setState(prevState => ({
-          text:
-            prevState.dataSource[prevState.counter] &&
-            prevState.dataSource[prevState.counter].text
-              ? prevState.dataSource[prevState.counter].text
-              : prevState.text,
-          url:
-            prevState.dataSource[prevState.counter] &&
-            prevState.dataSource[prevState.counter].url
-              ? prevState.dataSource[prevState.counter].url
-              : null,
-          counter: prevState.dataSource[prevState.counter + 1]
-            ? prevState.counter + 1
-            : 0,
-          icon:
-            prevState.dataSource[prevState.counter] &&
-            prevState.dataSource[prevState.counter].icon
-              ? prevState.dataSource[prevState.counter].icon
-              : null,
-          activeDot: this.shiftTrueToRight(this.state.activeDot),
-        }));
-      }, ANIMATION_DURATION);
+      this.timer = this.timerFunc();
     }
     if (!this.state.wrapperHeight) {
       this.setState({ wrapperHeight: this.wrapper.clientHeight });
@@ -87,7 +78,6 @@ class Banner extends React.Component {
   };
 
   render() {
-    console.log("rerender");
     return (
       <Wrapper>
         <InnerWrapper
@@ -95,40 +85,56 @@ class Banner extends React.Component {
           innerRef={divElement => (this.wrapper = divElement)}
         >
           {this.state.height}
-          <DotsWrapper>
-            {this.state.dataSource.map((_, index) => (
-              <Dot
-                key={index}
-                active={this.state.activeDot[index]}
-                onClick={() => {
-                  const arr = Array(this.state.dataSource.length).fill(false);
-                  arr[index] = true;
-                  this.setState({
-                    counter: index,
-                    text: this.state.dataSource[index].text,
-                    url: this.state.dataSource[index].url,
-                    icon: this.state.dataSource[index].icon,
-                    activeDot: arr,
-                  });
-                }}
-              />
-            ))}
-          </DotsWrapper>
-          {this.state.icon && (
-            <Icon src={tryRequire(this.state.icon)} alt="Banner Icon" />
+          {this.isThereMoreThenOneText() && (
+            <DotsWrapper>
+              {this.state.dataSource.map((_, index) => (
+                <Dot
+                  key={index}
+                  active={this.state.activeDot[index]}
+                  onClick={() => {
+                    const arr = Array(this.state.dataSource.length).fill(false);
+                    arr[index] = true;
+                    this.setState({
+                      activeDot: arr,
+                    });
+                    this.resetTimerTick();
+                  }}
+                />
+              ))}
+            </DotsWrapper>
           )}
+          {iconsArray.map((el, idx) => {
+            if (el) {
+              return (
+                <Icon
+                  key={idx}
+                  active={this.state.activeDot[idx]}
+                  src={el}
+                  alt="Banner Icon"
+                />
+              );
+            }
+            return null;
+          })}
           <TextWrapper>
-            {this.state.dataSource.map((element, idx) => {
+            {this.state.dataSource.map((element, index) => {
               if (element.url) {
                 return (
-                  <Link href={element.url} active={this.state.activeDot[idx]}>
+                  <Link
+                    key={index}
+                    active={this.state.activeDot[index]}
+                    href={element.url}
+                  >
                     {element.text}
                   </Link>
                 );
+              } else {
+                return (
+                  <Text key={index} active={this.state.activeDot[index]}>
+                    {element.text}
+                  </Text>
+                );
               }
-              return (
-                <Text active={this.state.activeDot[idx]}>{element.text}</Text>
-              );
             })}
           </TextWrapper>
         </InnerWrapper>
@@ -139,62 +145,6 @@ class Banner extends React.Component {
 
 export default Banner;
 
-// const moveBottomTop = keyframes`
-// 0%   {
-//   opacity: 0;
-//   transform: translateY(100%);
-// }
-// 20%,80%{
-//   opacity:1;
-//   transform: translateY(0);
-//   };
-// 97%{
-//   opacity:0;
-//   transform: translateY(-100%);
-// };
-// 100%{
-//   opacity:0;
-//   transform: translateY(-100%);
-// }
-// `;
-const fadeInOut = keyframes`
-0%   { 
-  opacity: 0;
-}
-20%,80%{
-  opacity:1;
-  };
-97%{
-  opacity:0;
-};
-100%{
-  opacity:0;
-}
-`;
-// const dotAnimation = keyframes`
-// 0%   {
-//   opacity: 0;
-//   transform: translateY(17px);
-// }
-// 20%,80%{
-//   opacity:1;
-//   transform: translateY(0);
-//   width:8px;
-//   height:8px;
-//   border-radius:8px;
-//   background-color:${colors.green};
-//   };
-// 100%{
-//   opacity:0;
-//   transform: translateY(-17px);
-// };
-// `;
-const ANIMATION_DURATION = 2000;
-// const moveBottomTopRule = `${moveBottomTop} ${ANIMATION_DURATION / 1000}s;`;
-// const dotAnimationRule = `${dotAnimation} ${ANIMATION_DURATION /
-//   1000}s;`;
-const fadeInOutRule = `${fadeInOut} ${ANIMATION_DURATION / 1000}s`;
-
 const Wrapper = styled.section`
   box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2);
   background-color: ${colors.blue};
@@ -204,6 +154,7 @@ const Wrapper = styled.section`
 `;
 
 const InnerWrapper = styled.div`
+  padding-left: 15px;
   ${props => props.height && `min-height: ${props.height}px;`};
   width: 1200px;
   max-width: 1200px;
@@ -215,9 +166,29 @@ const InnerWrapper = styled.div`
 const TextWrapper = styled.div`
   padding: 20px 15px;
 `;
+const fadeInOut = keyframes`
+0%   { 
+  opacity: 0;
+}
+2%{
+  opacity:0;
+}
+20%,80%{
+  opacity:1;
+  };
+98%{
+  opacity:0;
+};
+100%{
+  opacity:0;
+}
+`;
+
+const fadeInOutRule = `${fadeInOut} ${ANIMATION_DURATION / 1000}s`;
 const Text = styled.p`
+  animation: ${fadeInOutRule};
   display: none;
-  ${props => props.active && `display: block;`};
+  ${props => props.active && `display:unset;`};
   margin-top: 0;
   margin-bottom: 0;
   font-family: Poppins;
@@ -236,19 +207,7 @@ const Text = styled.p`
 `;
 const Link = Text.extend`
   text-decoration: underline;
-  display: inline-block;
 `.withComponent("a");
-
-// const AnimatedDot = styled(Dot)`
-//   ${props => props.animate && `animation: ${dotAnimationRule}`};
-//   ${props =>
-//     !props.animate &&
-//     `width:8px;
-//     height:8px;
-//     border-radius:8px;
-//     background-color:${colors.green};
-//   `};
-// `;
 
 const DotsWrapper = styled.section`
   height: 45px;
@@ -262,10 +221,12 @@ const DotsWrapper = styled.section`
   justify-content: space-around;
 `;
 
-const transitionDuration = `${ANIMATION_DURATION / 5000}s`;
+const transitionDuration = `${ANIMATION_DURATION / 6000}s`;
+
 const Dot = styled.div`
-  height: 8px;
-  width: 8px;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
   background-color: ${colors.lightBlue};
   ${props => props.active && `background-color: ${colors.green};`};
   transition: ${transitionDuration};
@@ -273,7 +234,11 @@ const Dot = styled.div`
     cursor: pointer;
   }
 `;
+
 const Icon = styled.img`
+  animation: ${fadeInOutRule};
+  display: none;
+  ${props => props.active && `display:block;`};
   width: 30px;
   max-width: 30px;
   min-width: 30px;
@@ -282,5 +247,4 @@ const Icon = styled.img`
   margin-left: 15px;
   margin-top: 20px;
   margin-bottom: 20px;
-  animation: ${fadeInOutRule};
 `;
