@@ -52,12 +52,13 @@ class Banner extends React.Component {
   };
 
   timerFunc = () =>
-    setInterval(() => {
-      const activeDotArr = this.shiftTrueToRight(this.state.activeDot);
-      this.setState({
-        activeDot: activeDotArr,
-      });
-    }, ANIMATION_DURATION);
+    setInterval(
+      () =>
+        this.setState({
+          activeDot: this.shiftTrueToRight(this.state.activeDot),
+        }),
+      ANIMATION_DURATION,
+    );
 
   resetTimerTick = () => {
     clearInterval(this.timer);
@@ -107,6 +108,7 @@ class Banner extends React.Component {
             if (el) {
               return (
                 <Icon
+                  multipleTexts={this.isThereMoreThenOneText()}
                   key={idx}
                   active={this.state.activeDot[idx]}
                   src={el}
@@ -121,6 +123,7 @@ class Banner extends React.Component {
               if (element.url) {
                 return (
                   <Link
+                    multipleTexts={this.isThereMoreThenOneText()}
                     key={index}
                     active={this.state.activeDot[index]}
                     href={element.url}
@@ -130,7 +133,11 @@ class Banner extends React.Component {
                 );
               } else {
                 return (
-                  <Text key={index} active={this.state.activeDot[index]}>
+                  <Text
+                    multipleTexts={this.isThereMoreThenOneText()}
+                    key={index}
+                    active={this.state.activeDot[index]}
+                  >
                     {element.text}
                   </Text>
                 );
@@ -186,7 +193,7 @@ const fadeInOut = keyframes`
 
 const fadeInOutRule = `${fadeInOut} ${ANIMATION_DURATION / 1000}s`;
 const Text = styled.p`
-  animation: ${fadeInOutRule};
+  ${props => props.multipleTexts && `animation: ${fadeInOutRule};`};
   display: none;
   ${props => props.active && `display:unset;`};
   margin-top: 0;
@@ -210,8 +217,7 @@ const Link = Text.extend`
 `.withComponent("a");
 
 const DotsWrapper = styled.section`
-  height: 45px;
-  width: 8px;
+  min-height: 45px;
   margin-top: 10px;
   margin-bottom: 10px;
   margin-left: 25px;
@@ -224,8 +230,10 @@ const DotsWrapper = styled.section`
 const transitionDuration = `${ANIMATION_DURATION / 6000}s`;
 
 const Dot = styled.div`
-  height: 10px;
-  width: 10px;
+  height: 8px;
+  width: 8px;
+  margin-top: 4px;
+  margin-bottom: 4px;
   border-radius: 50%;
   background-color: ${colors.lightBlue};
   ${props => props.active && `background-color: ${colors.green};`};
@@ -236,12 +244,10 @@ const Dot = styled.div`
 `;
 
 const Icon = styled.img`
-  animation: ${fadeInOutRule};
+  ${props => props.multipleTexts && `animation: ${fadeInOutRule};`};
   display: none;
   ${props => props.active && `display:block;`};
   width: 30px;
-  max-width: 30px;
-  min-width: 30px;
   height: 45px;
   object-fit: fill;
   margin-left: 15px;
