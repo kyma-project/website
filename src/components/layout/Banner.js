@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import data from "./data.json";
 import colors from "./../../config/colors";
 
@@ -14,7 +14,7 @@ const tryRequire = path => {
 const ANIMATION_DURATION = 4000;
 
 function filterEventsFromData(arg) {
-  const filtered = arg.filter(element => {
+  return arg.filter(element => {
     const endDate = parseDate(element.endDate);
     const startDate = parseDate(element.startDate);
     return (
@@ -22,7 +22,6 @@ function filterEventsFromData(arg) {
       new Date().getTime() < endDate.getTime()
     );
   });
-  return filtered.sort((a, b) => a.text.length < b.text.length);
 }
 
 function parseDate(arg) {
@@ -31,32 +30,25 @@ function parseDate(arg) {
 }
 
 const initialValueOfData = filterEventsFromData(data);
-const iconsArray = initialValueOfData.map(element => tryRequire(element.icon));
+// const iconsArray = initialValueOfData.map(element => tryRequire(element.icon));
 class Banner extends React.Component {
   state = {
     dataSource: initialValueOfData,
     wrapperHeight: undefined,
-    activeDot: [true, ...Array(initialValueOfData.length - 1).fill(false)],
+    activeBanner: 0,
   };
 
   isThereMoreThenOneText = () => this.state.dataSource.length > 1;
 
-  shiftTrueToRight = arg => {
-    if (arg.indexOf(true) + 1 === arg.length) {
-      return [true, ...Array(arg.length - 1).fill(false)];
-    } else {
-      const ret = Array(arg.length).fill(false);
-      ret[arg.indexOf(true) + 1] = true;
-      return ret;
-    }
-  };
-
   timerFunc = () =>
     setInterval(
       () =>
-        this.setState({
-          activeDot: this.shiftTrueToRight(this.state.activeDot),
-        }),
+        this.setState(prevState => ({
+          activeBanner:
+            this.state.dataSource.length - 1 === prevState.activeBanner
+              ? 0
+              : prevState.activeBanner + 1,
+        })),
       ANIMATION_DURATION,
     );
 
@@ -70,7 +62,10 @@ class Banner extends React.Component {
       this.timer = this.timerFunc();
     }
     if (!this.state.wrapperHeight) {
-      this.setState({ wrapperHeight: this.wrapper.clientHeight });
+      const maxElemHeight = Math.max(
+        ...this.wrapper.map(element => Number(element.clientHeight)),
+      );
+      this.setState({ wrapperHeight: maxElemHeight });
     }
   };
 
@@ -81,22 +76,16 @@ class Banner extends React.Component {
   render() {
     return (
       <Wrapper>
-        <InnerWrapper
-          height={this.state.wrapperHeight}
-          innerRef={divElement => (this.wrapper = divElement)}
-        >
-          {this.state.height}
+        <InnerWrapper height={this.state.wrapperHeight}>
           {this.isThereMoreThenOneText() && (
             <DotsWrapper>
               {this.state.dataSource.map((_, index) => (
                 <Dot
                   key={index}
-                  active={this.state.activeDot[index]}
+                  active={index === this.state.activeBanner}
                   onClick={() => {
-                    const arr = Array(this.state.dataSource.length).fill(false);
-                    arr[index] = true;
                     this.setState({
-                      activeDot: arr,
+                      activeBanner: index,
                     });
                     this.resetTimerTick();
                   }}
@@ -104,46 +93,31 @@ class Banner extends React.Component {
               ))}
             </DotsWrapper>
           )}
-          {iconsArray.map((el, idx) => {
-            if (el) {
-              return (
-                <Icon
-                  multipleTexts={this.isThereMoreThenOneText()}
-                  key={idx}
-                  active={this.state.activeDot[idx]}
-                  src={el}
-                  alt="Banner Icon"
-                />
-              );
-            }
-            return null;
-          })}
-          <TextWrapper>
-            {this.state.dataSource.map((element, index) => {
-              if (element.url) {
-                return (
-                  <Link
-                    multipleTexts={this.isThereMoreThenOneText()}
-                    key={index}
-                    active={this.state.activeDot[index]}
-                    href={element.url}
-                  >
-                    {element.text}
-                  </Link>
-                );
-              } else {
-                return (
-                  <Text
-                    multipleTexts={this.isThereMoreThenOneText()}
-                    key={index}
-                    active={this.state.activeDot[index]}
-                  >
-                    {element.text}
-                  </Text>
-                );
+
+          {this.state.dataSource.map((elem, index) => (
+            <ContentWrapper
+              multipleTexts={this.isThereMoreThenOneText()}
+              innerRef={divElement =>
+                this.wrapper
+                  ? (this.wrapper[index] = divElement)
+                  : (this.wrapper = [divElement])
               }
-            })}
-          </TextWrapper>
+              zIndex={index === this.state.activeBanner ? index + 10 : index}
+              active={index === this.state.activeBanner}
+              key={index}
+            >
+              {elem.icon && (
+                <Icon src={tryRequire(elem.icon)} alt="Banner Icon" />
+              )}
+              {elem.url ? (
+                <Link href={elem.url} target="_blank">
+                  {elem.text}
+                </Link>
+              ) : (
+                <Text>{elem.text}</Text>
+              )}
+            </ContentWrapper>
+          ))}
         </InnerWrapper>
       </Wrapper>
     );
@@ -168,41 +142,33 @@ const InnerWrapper = styled.div`
   display: flex;
   justify-content: left;
   align-items: center;
+  position: relative;
 `;
 
-const TextWrapper = styled.div`
-  padding: 20px 15px;
-`;
-const fadeInOut = keyframes`
-0%   { 
-  opacity: 0;
-}
-2%{
-  opacity:0;
-}
-20%,80%{
-  opacity:1;
-  };
-98%{
-  opacity:0;
-};
-100%{
-  opacity:0;
-}
-`;
-
-const fadeInOutRule = `${fadeInOut} ${ANIMATION_DURATION / 1000}s`;
-const Text = styled.p`
-  ${props => props.multipleTexts && `animation: ${fadeInOutRule};`};
-  display: none;
-  ${props => props.active && `display:unset;`};
-  margin-top: 0;
-  margin-bottom: 0;
-  font-family: Poppins;
-  text-align: left;
-  vertical-align: center;
+const ContentWrapper = styled.div`
+  z-index: ${props => props.zIndex + 20};
+  position: absolute;
+  left: ${props => (props.multipleTexts ? "50px" : "20px")};
+  display: flex;
+  justify-content: left;
+  align-content: center;
   align-items: center;
-  justify-content: center;
+  text-align: center;
+  transition: opacity 0.5s ease-out;
+  opacity: 0;
+  ${props => props.active && `opacity:1`};
+`;
+
+const Text = styled.p`
+  display: block;
+  margin-left: 15px;
+  && {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  text-align: left;
+  padding-right: 10px;
+  font-family: Poppins;
   font-size: 16px;
   font-weight: 500;
   font-style: normal;
@@ -244,13 +210,13 @@ const Dot = styled.div`
 `;
 
 const Icon = styled.img`
-  ${props => props.multipleTexts && `animation: ${fadeInOutRule};`};
-  display: none;
-  ${props => props.active && `display:block;`};
   width: 30px;
+  min-width: 30px;
   height: 45px;
   object-fit: fill;
+  display: block;
   margin-left: 15px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 0;
 `;

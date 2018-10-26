@@ -1,11 +1,5 @@
 [
   {
-    "text": "OTHER LONG TEXT OTHER LONG TEXT OTHER LONG TEXT OTHER LONGLONG TEXTTHER LONG TEXT OTHER",
-    "startDate": "20-10-2018",
-    "endDate": " 28-11-2018",
-    "icon": "./assets/examples.png"
-  },
-  {
     "text": "heeeeey",
     "url": "http://colorschemedesigner.com/csd-3.5/",
     "startDate": "10-10-2018",
@@ -18,5 +12,11 @@
     "startDate": "01-10-2018",
     "endDate": " 31-10-2018",
     "icon": "./assets/17271979.jpeg"
+  },
+  {
+    "text": "OTHER LONG TONG TEXT OTHER LON LONG TEXT OTHER LONG TEXT OT O",
+    "startDate": "20-10-2018",
+    "endDate": " 28-11-2018",
+    "icon": "./assets/examples.png"
   }
 ]
