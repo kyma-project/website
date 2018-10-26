@@ -11,8 +11,6 @@ const tryRequire = path => {
   }
 };
 
-const ANIMATION_DURATION = 4000;
-
 function filterEventsFromData(arg) {
   return arg.filter(element => {
     const endDate = parseDate(element.endDate);
@@ -29,6 +27,7 @@ function parseDate(arg) {
   return new Date(`${splitDate[1]}-${splitDate[0]}-${splitDate[2]}`);
 }
 
+const ANIMATION_DURATION = 4000;
 const initialValueOfData = filterEventsFromData(data);
 // const iconsArray = initialValueOfData.map(element => tryRequire(element.icon));
 class Banner extends React.Component {
@@ -37,8 +36,6 @@ class Banner extends React.Component {
     wrapperHeight: undefined,
     activeBanner: 0,
   };
-
-  isThereMoreThenOneText = () => this.state.dataSource.length > 1;
 
   timerFunc = () =>
     setInterval(
@@ -57,13 +54,14 @@ class Banner extends React.Component {
     this.timer = this.timerFunc();
   };
 
+  isThereMoreThenOneText = () => this.state.dataSource.length > 1;
   componentDidMount = () => {
     if (this.isThereMoreThenOneText()) {
       this.timer = this.timerFunc();
     }
     if (!this.state.wrapperHeight) {
       const maxElemHeight = Math.max(
-        ...this.wrapper.map(element => Number(element.clientHeight)),
+        ...this.wrapper.map(element => element.clientHeight),
       );
       this.setState({ wrapperHeight: maxElemHeight });
     }
@@ -154,7 +152,7 @@ const ContentWrapper = styled.div`
   align-content: center;
   align-items: center;
   text-align: center;
-  transition: opacity 0.5s ease-out;
+  transition: opacity 0.2s ease-out;
   opacity: 0;
   ${props => props.active && `opacity:1`};
 `;
@@ -193,8 +191,6 @@ const DotsWrapper = styled.section`
   justify-content: space-around;
 `;
 
-const transitionDuration = `${ANIMATION_DURATION / 6000}s`;
-
 const Dot = styled.div`
   height: 8px;
   width: 8px;
@@ -203,7 +199,7 @@ const Dot = styled.div`
   border-radius: 50%;
   background-color: ${colors.lightBlue};
   ${props => props.active && `background-color: ${colors.green};`};
-  transition: ${transitionDuration};
+  transition: opacity 0.2s ease-out;
   &:hover {
     cursor: pointer;
   }
