@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import data from "./data.json";
+import bannerData from "./banner-data.json";
 import colors from "./../../config/colors";
 
 const tryRequire = path => {
@@ -28,7 +28,7 @@ function parseDate(arg) {
 }
 
 const ANIMATION_DURATION = 4000;
-const initialValueOfData = filterEventsFromData(data);
+const initialValueOfData = filterEventsFromData(bannerData);
 // const iconsArray = initialValueOfData.map(element => tryRequire(element.icon));
 class Banner extends React.Component {
   state = {

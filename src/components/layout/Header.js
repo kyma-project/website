@@ -1,14 +1,14 @@
 import React from "react";
 import Link from "gatsby-link";
 import ui from "../../locales/en/UI.json";
-import data from "./data.json";
+import bannerData from "./banner-data.json";
 import NavigationContainer from "./Navigation.container";
 import Banner from "./Banner";
 
 const Header = ({ headerClassName, logoClassName }) => {
   return (
     <>
-      {data && data.length > 0 && <Banner />}
+      {bannerData && bannerData.length > 0 && <Banner />}
       <header className={`bg-h ${headerClassName ? headerClassName : ""}`}>
         <div className="container">
           <Link className="home-link" to="/">
