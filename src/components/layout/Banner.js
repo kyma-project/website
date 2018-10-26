@@ -108,7 +108,7 @@ class Banner extends React.Component {
                 <Icon src={tryRequire(elem.icon)} alt="Banner Icon" />
               )}
               {elem.url ? (
-                <Link href={elem.url} target="_blank">
+                <Link href={elem.url} target={elem.external ? "_blank" : ""}>
                   {elem.text}
                 </Link>
               ) : (
