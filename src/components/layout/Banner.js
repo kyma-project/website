@@ -33,7 +33,12 @@ const Banner = () => {
   return (
     <Wrapper>
       <MainRow>
-        Join us for the &nbsp;<BannerLink href="https://kyma-project.io/blog/blog-post-kyma-at-teched/" target="_blank">SAP TechEd, Barcelona, October 23-25</BannerLink>
+        Join us for the &nbsp;<BannerLink
+          href="https://kyma-project.io/blog/blog-post-kyma-at-teched/"
+          target="_blank"
+        >
+          SAP TechEd, Bangalore, November 25-30
+        </BannerLink>
       </MainRow>
     </Wrapper>
   );
