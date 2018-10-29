@@ -2,7 +2,7 @@ import React from "react";
 import landingPage from "../../locales/en/LandingPage.json";
 import ui from "../../locales/en/UI.json";
 
-import WhatIsSvg from "./assets/whatIs.svg";
+import WhatIsSvg from "./features/WhatIs";
 
 const WhatIs = () => {
   const sectionPrefix = "whatIs";
@@ -36,11 +36,7 @@ const WhatIs = () => {
         </div>
       </div>
       <div className="col-6 col-md-9 col-sm-12">
-        <object
-          type="image/svg+xml"
-          data={WhatIsSvg}
-          aria-label="Illustration showing mountains"
-        />
+        <WhatIsSvg />
       </div>
     </div>
   );
