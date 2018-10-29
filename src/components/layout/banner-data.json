@@ -1,11 +1,8 @@
 [
   {
     "text": "heeeeey",
-    "url": "http://colorschemedesigner.com/csd-3.5/",
-    "external": true,
     "startDate": "10-10-2018",
-    "endDate": " 28-10-2018",
-    "icon": "./assets/1885909.png"
+    "endDate": " 6-12-2018"
   },
   {
     "text": "Join us for the  SAP TechEd, Barcelona, October 23-25",
@@ -16,11 +13,11 @@
     "icon": "./assets/17271979.jpeg"
   },
   {
-    "text": "OTHER LONG TONG TEXT OTHER LON LONG TEXT OTHER LONG TEXT OT O",
+    "text": "internal link",
     "url": "/blog",
     "external": false,
     "startDate": "20-10-2018",
-    "endDate": " 28-11-2018",
+    "endDate": " 5-12-2018",
     "icon": "./assets/examples.png"
   }
 ]

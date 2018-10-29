@@ -1,52 +1,45 @@
 import React from "react";
 import styled from "styled-components";
-import bannerData from "./banner-data.json";
 import colors from "./../../config/colors";
 
-const tryRequire = path => {
-  try {
-    return require(`${path}`);
-  } catch (err) {
-    return null;
-  }
-};
-
-function filterEventsFromData(arg) {
-  return arg.filter(element => {
-    const endDate = parseDate(element.endDate);
-    const startDate = parseDate(element.startDate);
-    return (
-      startDate.getTime() < new Date().getTime() &&
-      new Date().getTime() < endDate.getTime()
-    );
-  });
-}
-
-function parseDate(arg) {
-  const splitDate = arg.split("-");
-  return new Date(`${splitDate[1]}-${splitDate[0]}-${splitDate[2]}`);
-}
-
-const ANIMATION_DURATION = 4000;
-const initialValueOfData = filterEventsFromData(bannerData);
-// const iconsArray = initialValueOfData.map(element => tryRequire(element.icon));
 class Banner extends React.Component {
+  filterEventsFromData = arg => {
+    return arg.filter(element => {
+      const endDate = this.parseDate(element.endDate);
+      const startDate = this.parseDate(element.startDate);
+      const currentDate = Date.now();
+      if (endDate && startDate) {
+        return (
+          startDate.getTime() < currentDate && currentDate < endDate.getTime()
+        );
+      }
+      return false;
+    });
+  };
+  parseDate = arg => {
+    const splitDate = arg.split("-");
+    if (splitDate.length === 3) {
+      return new Date(`${splitDate[1]}-${splitDate[0]}-${splitDate[2]}`);
+    }
+    return null;
+  };
+
   state = {
-    dataSource: initialValueOfData,
+    slides: this.filterEventsFromData(this.props.slides),
     wrapperHeight: undefined,
-    activeBanner: 0,
+    currentBanner: 0,
   };
 
   timerFunc = () =>
     setInterval(
       () =>
         this.setState(prevState => ({
-          activeBanner:
-            this.state.dataSource.length - 1 === prevState.activeBanner
+          currentBanner:
+            this.state.slides.length - 1 === prevState.currentBanner
               ? 0
-              : prevState.activeBanner + 1,
+              : prevState.currentBanner + 1,
         })),
-      ANIMATION_DURATION,
+      this.props.duration || 4000,
     );
 
   resetTimerTick = () => {
@@ -54,9 +47,10 @@ class Banner extends React.Component {
     this.timer = this.timerFunc();
   };
 
-  isThereMoreThenOneText = () => this.state.dataSource.length > 1;
+  multipleSlides = () => this.state.slides.length > 1;
+
   componentDidMount = () => {
-    if (this.isThereMoreThenOneText()) {
+    if (this.multipleSlides()) {
       this.timer = this.timerFunc();
     }
     if (!this.state.wrapperHeight) {
@@ -75,47 +69,60 @@ class Banner extends React.Component {
     return (
       <Wrapper>
         <InnerWrapper height={this.state.wrapperHeight}>
-          {this.isThereMoreThenOneText() && (
-            <DotsWrapper>
-              {this.state.dataSource.map((_, index) => (
-                <Dot
+          {this.multipleSlides() && (
+            <CircleWrapper>
+              {this.state.slides.map((_, index) => (
+                <Circle
                   key={index}
-                  active={index === this.state.activeBanner}
+                  active={index === this.state.currentBanner}
                   onClick={() => {
                     this.setState({
-                      activeBanner: index,
+                      currentBanner: index,
                     });
                     this.resetTimerTick();
                   }}
                 />
               ))}
-            </DotsWrapper>
+            </CircleWrapper>
           )}
-
-          {this.state.dataSource.map((elem, index) => (
-            <ContentWrapper
-              multipleTexts={this.isThereMoreThenOneText()}
-              innerRef={divElement =>
-                this.wrapper
-                  ? (this.wrapper[index] = divElement)
-                  : (this.wrapper = [divElement])
+          {this.state.slides.map((elem, index) => {
+            let icon;
+            if (elem.icon) {
+              try {
+                icon = require(`${elem.icon}`);
+              } catch (err) {
+                console.error(err);
               }
-              zIndex={index === this.state.activeBanner ? index + 10 : index}
-              active={index === this.state.activeBanner}
-              key={index}
-            >
-              {elem.icon && (
-                <Icon src={tryRequire(elem.icon)} alt="Banner Icon" />
-              )}
-              {elem.url ? (
-                <Link href={elem.url} target={elem.external ? "_blank" : ""}>
-                  {elem.text}
-                </Link>
-              ) : (
-                <Text>{elem.text}</Text>
-              )}
-            </ContentWrapper>
-          ))}
+            }
+            return (
+              <ContentWrapper
+                multipleSlides={this.multipleSlides()}
+                innerRef={divElement =>
+                  this.wrapper
+                    ? (this.wrapper[index] = divElement)
+                    : (this.wrapper = [divElement])
+                }
+                active={index === this.state.currentBanner}
+                key={index}
+              >
+                {elem.icon && icon && <Icon src={icon} alt="Banner Icon" />}
+                {elem.text ? (
+                  elem.url ? (
+                    <Link
+                      href={elem.url}
+                      target={elem.external ? "_blank" : "_self"}
+                    >
+                      {elem.text}
+                    </Link>
+                  ) : (
+                    <Text>{elem.text}</Text>
+                  )
+                ) : (
+                  <Text>{"Provide valid text for banner"}</Text>
+                )}
+              </ContentWrapper>
+            );
+          })}
         </InnerWrapper>
       </Wrapper>
     );
@@ -133,7 +140,10 @@ const Wrapper = styled.section`
 `;
 
 const InnerWrapper = styled.div`
-  padding-left: 15px;
+  padding: 0 30px;
+  @media (max-width: 736px) {
+    padding: 0 15px;
+  }
   ${props => props.height && `min-height: ${props.height}px;`};
   width: 1200px;
   max-width: 1200px;
@@ -144,22 +154,24 @@ const InnerWrapper = styled.div`
 `;
 
 const ContentWrapper = styled.div`
-  z-index: ${props => props.zIndex + 20};
+  z-index: ${props => (props.active ? "10" : "1")};
+  opacity: ${props => (props.active ? "1" : "0")};
   position: absolute;
-  left: ${props => (props.multipleTexts ? "50px" : "20px")};
+  left: ${props => (props.multipleSlides ? "40px" : "15px")};
+  @media (max-width: 736px) {
+    left: ${props => (props.multipleSlides ? "25px" : "0px")};
+  }
   display: flex;
   justify-content: left;
   align-content: center;
   align-items: center;
   text-align: center;
   transition: opacity 0.2s ease-out;
-  opacity: 0;
-  ${props => props.active && `opacity:1`};
 `;
 
 const Text = styled.p`
   display: block;
-  margin-left: 15px;
+  padding-left: 10px;
   && {
     margin-top: 10px;
     margin-bottom: 10px;
@@ -177,21 +189,18 @@ const Text = styled.p`
   color: #fff;
 `;
 const Link = Text.extend`
-  text-decoration: underline;
+  text-decoration: underline; /*todo - ask lukasz*/
 `.withComponent("a");
 
-const DotsWrapper = styled.section`
+const CircleWrapper = styled.section`
   min-height: 45px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin-left: 25px;
   min-width: 8px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 `;
 
-const Dot = styled.div`
+const Circle = styled.div`
   height: 8px;
   width: 8px;
   margin-top: 4px;
@@ -206,13 +215,10 @@ const Dot = styled.div`
 `;
 
 const Icon = styled.img`
-  width: 30px;
-  min-width: 30px;
-  height: 45px;
+  max-width: 30px;
+  width: 100%;
+  max-height: 45px;
   object-fit: fill;
   display: block;
-  margin-left: 15px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin-right: 0;
+  margin: 10px 0 10px 5px;
 `;
