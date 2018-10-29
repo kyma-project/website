@@ -115,7 +115,7 @@ const CommunitySvg = () => (
             C323.3,104.8,322.1,101.2,318.3,102.9z M404.3,254.9c-4,1.7-5.9,4.7-3.6,9c2.8,4.4,4.6,3.5,8,2c4.6-2,7.3-5.2,5.3-8.8
             C412.5,254,408.1,253.2,404.3,254.9L404.3,254.9z"/>
     </g>
-    <path opacity="0.6" fill="#095EB3" enable-background="new" d="M397.4,109.8c-8.9-10-22.1-14.7-33.6-15.2 c-15.5-0.8-18.1,9.5-11.7,17.5c4.7,6.6,19,12,32.1,12.5C397.7,125.3,404.5,119.1,397.4,109.8z"/>
+    <path opacity="0.6" fill="#095EB3" enableBackground="new" d="M397.4,109.8c-8.9-10-22.1-14.7-33.6-15.2 c-15.5-0.8-18.1,9.5-11.7,17.5c4.7,6.6,19,12,32.1,12.5C397.7,125.3,404.5,119.1,397.4,109.8z"/>
     <path fill="#FCD100" d="M498.8,8.7L496,19l-10.3,2.7l10.3,2.8l2.8,10.3l2.7-10.3l10.3-2.8L501.5,19L498.8,8.7z M70.7,353.9 l-2.8,10.3l-10.3,2.7l10.3,2.8l2.8,10.3l2.7-10.3l10.3-2.8l-10.3-2.7L70.7,353.9z"/>
     <path fill="#FCD000" d="M101.5,208.5l10.3-2.8l-10.3-2.7l-2.7-10.3L96,203l-10.3,2.7l10.3,2.8l2.8,10.3L101.5,208.5z"/>
     <circle fill="#4D10E1" cx="153.1" cy="205.4" r="15.5"/>
@@ -124,32 +124,32 @@ const CommunitySvg = () => (
           c-0.5-2.1-4.1-4.1-13.9-3.2c-0.3-0.8-1.2-2.2-1.4-2.5c17-1.8,21,1.5,22.2,6.7c1.6,7.1-18.9,17.8-45.9,24.1s-50.2,5.6-51.9-1.5
           C75.2,314.2,81.9,308.4,92.4,303.5z"/>
     <g id="community-satellite-left">
-      <circle opacity="0.6" fill="#00E833" enable-background="new" cx="" cy="" r="12"/>
-      <circle fill="#00E833" cx="" cy="" r="8.1"/>
+      <circle opacity="0.6" fill="#00E833" enableBackground="new" cx="0" cy="0" r="12"/>
+      <circle fill="#00E833" cx="0" cy="0" r="8.1"/>
       <animateMotion dur="25s" repeatCount="indefinite">
         <mpath xlinkHref="#community-ellipse-3"> </mpath>
       </animateMotion>
     </g>
     <g id="community-satellite-right">
-      <circle opacity="0.6" fill="#00E833" enable-background="new" cx="" cy="" r="12"/>
-      <circle fill="#00E833" cx="" cy="" r="8.1"/>
+      <circle opacity="0.6" fill="#00E833" enableBackground="new" cx="0" cy="0" r="12"/>
+      <circle fill="#00E833" cx="0" cy="0" r="8.1"/>
       <animateMotion dur="35s" repeatCount="indefinite" begin="11s">
         <mpath xlinkHref="#community-ellipse-2"> </mpath>
       </animateMotion>
     </g>
     <g id="community-satellite-top">
-      <circle opacity="0.6" fill="#00E833" enable-background="new" cx="" cy="" r="12"/>
-      <circle fill="#00E833" cx="" cy="" r="8.1"/>
+      <circle opacity="0.6" fill="#00E833" enableBackground="new" cx="0" cy="0" r="12"/>
+      <circle fill="#00E833" cx="0" cy="0" r="8.1"/>
       <animateMotion dur="30s" repeatCount="indefinite" begin="5s">
         <mpath xlinkHref="#community-ellipse-1"> </mpath>
       </animateMotion>
     </g>
-    <path fill="none" stroke="#00E833" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10"
-          stroke-dasharray="2,12" d="M323.9,59.8c12.1-19.6,24.9-30.3,36.6-28.3c28.6,4.7,39.7,82.9,24.8,174.7S335.1,368.6,306.5,364c-11.6-1.9-20.3-15.8-25.6-37.7"/>
-    <path fill="none" stroke="#00E833" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10"
-          stroke-dasharray="2,12" d="M496.7,155.7c9.3,3.7,15.3,8.8,17,15.4c7.2,27.1-59.4,68.2-148.7,91.8s-167.5,20.9-174.7-6.2c-2.9-10.9,6.3-24.2,24.1-37.6"/>
-    <path fill="none" stroke="#00E833" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10"
-          stroke-dasharray="2,12" d="M502.8,206.8c17.4,19.2,25.2,35.3,19.7,44.9c-12.5,21.6-88.8,0.8-170.4-46.5S214.5,102,227,80.4c5.3-9.2,22.2-10.7,46.2-5.8"/>
+    <path fill="none" stroke="#00E833" strokeWidth="4" strokeLinecap="round" strokeMiterlimit="10"
+          strokeDasharray="2,12" d="M323.9,59.8c12.1-19.6,24.9-30.3,36.6-28.3c28.6,4.7,39.7,82.9,24.8,174.7S335.1,368.6,306.5,364c-11.6-1.9-20.3-15.8-25.6-37.7"/>
+    <path fill="none" stroke="#00E833" strokeWidth="4" strokeLinecap="round" strokeMiterlimit="10"
+          strokeDasharray="2,12" d="M496.7,155.7c9.3,3.7,15.3,8.8,17,15.4c7.2,27.1-59.4,68.2-148.7,91.8s-167.5,20.9-174.7-6.2c-2.9-10.9,6.3-24.2,24.1-37.6"/>
+    <path fill="none" stroke="#00E833" strokeWidth="4" strokeLinecap="round" strokeMiterlimit="10"
+          strokeDasharray="2,12" d="M502.8,206.8c17.4,19.2,25.2,35.3,19.7,44.9c-12.5,21.6-88.8,0.8-170.4-46.5S214.5,102,227,80.4c5.3-9.2,22.2-10.7,46.2-5.8"/>
 
     <path id="community-ellipse-1" opacity="0" xmlns="http://www.w3.org/2000/svg" className="st17"
           d="M323.9,59.8c12.1-19.6,24.9-30.3,36.6-28.3c28.6,4.7,39.7,82.9,24.8,174.7S335.1,368.6,306.5,364  c-11.6-1.9-20.3-15.8-25.6-37.7L323.9,59.8z"/>

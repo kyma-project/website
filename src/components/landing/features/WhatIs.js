@@ -280,7 +280,7 @@ const WhatIsSvg = () => (
           <clipPath id="whatis-clip-path-1">
             <use xlinkHref="#whatis-href-path-1"  overflow="visible"/>
           </clipPath>
-          <g clip-path="url(#whatis-clip-path-1)">
+          <g clipPath="url(#whatis-clip-path-1)">
             <path fill="#0B74DE" d="M203.349,321.932l13.749-68.433l69.776,14.019l-13.749,68.433L203.349,321.932z"/>
           </g>
         </g>
@@ -294,7 +294,7 @@ const WhatIsSvg = () => (
           <clipPath id="whatis-clip-path-2">
             <use xlinkHref="#whatis-href-path-2"  overflow="visible"/>
           </clipPath>
-          <g clip-path="url(#whatis-clip-path-2)">
+          <g clipPath="url(#whatis-clip-path-2)">
             <path fill="#0B74DE" d="M222.567,299.768l3.89-19.363l22.373,4.495l-3.89,19.363L222.567,299.768z"/>
           </g>
         </g>
@@ -308,7 +308,7 @@ const WhatIsSvg = () => (
           <clipPath id="whatis-clip-path-3">
             <use xlinkHref="#whatis-href-path-3"  overflow="visible"/>
           </clipPath>
-          <g clip-path="url(#whatis-clip-path-3)">
+          <g clipPath="url(#whatis-clip-path-3)">
             <path fill="#0B74DE" d="M220.994,307.69l5.456-27.157l41.373,8.312l-5.456,27.157L220.994,307.69z"/>
           </g>
         </g>
@@ -322,7 +322,7 @@ const WhatIsSvg = () => (
           <clipPath id="whatis-clip-path-4">
             <use xlinkHref="#whatis-href-path-4"  overflow="visible"/>
           </clipPath>
-          <g clip-path="url(#whatis-clip-path-4)">
+          <g clipPath="url(#whatis-clip-path-4)">
             <path fill="#0B74DE" d="M229.62,290.016l3.13-15.579l18.177,3.652l-3.13,15.579L229.62,290.016z"/>
           </g>
         </g>
@@ -336,7 +336,7 @@ const WhatIsSvg = () => (
           <clipPath id="whatis-clip-path-5">
             <use xlinkHref="#whatis-href-path-5"  overflow="visible"/>
           </clipPath>
-          <g clip-path="url(#whatis-clip-path-5)">
+          <g clipPath="url(#whatis-clip-path-5)">
             <path fill="#0B74DE" d="M237.102,297.104l4.008-19.951l22.098,4.44l-4.008,19.951L237.102,297.104z"/>
           </g>
         </g>
