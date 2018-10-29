@@ -1,11 +1,11 @@
 [
   {
-    "text": "heeeeey",
+    "text": "A flexible and easy way to connect and extend enterprise",
     "startDate": "10-10-2018",
     "endDate": " 6-12-2018"
   },
   {
-    "text": "Join us for the  SAP TechEd, Barcelona, October 23-25",
+    "text": "Join us for the  SAP TechEd, Bangalore, November 25-30",
     "url": "https://google.pl",
     "external": true,
     "startDate": "01-10-2018",
@@ -13,7 +13,7 @@
     "icon": "./assets/17271979.jpeg"
   },
   {
-    "text": "internal link",
+    "text": "internal link bla bla",
     "url": "/blog",
     "external": false,
     "startDate": "20-10-2018",

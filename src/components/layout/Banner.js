@@ -66,66 +66,71 @@ class Banner extends React.Component {
   };
 
   render() {
-    return (
-      <Wrapper>
-        <InnerWrapper height={this.state.wrapperHeight}>
-          {this.multipleSlides() && (
-            <CircleWrapper>
-              {this.state.slides.map((_, index) => (
-                <Circle
-                  key={index}
-                  active={index === this.state.currentBanner}
-                  onClick={() => {
-                    this.setState({
-                      currentBanner: index,
-                    });
-                    this.resetTimerTick();
-                  }}
-                />
-              ))}
-            </CircleWrapper>
-          )}
-          {this.state.slides.map((elem, index) => {
-            let icon;
-            if (elem.icon) {
-              try {
-                icon = require(`${elem.icon}`);
-              } catch (err) {
-                console.error(err);
-              }
-            }
-            return (
-              <ContentWrapper
-                multipleSlides={this.multipleSlides()}
-                innerRef={divElement =>
-                  this.wrapper
-                    ? (this.wrapper[index] = divElement)
-                    : (this.wrapper = [divElement])
+    const { slides } = this.props;
+    if (!slides || slides.length === 0) {
+      return null;
+    } else {
+      return (
+        <Wrapper>
+          <InnerWrapper height={this.state.wrapperHeight}>
+            {this.multipleSlides() && (
+              <CircleWrapper>
+                {this.state.slides.map((_, index) => (
+                  <Circle
+                    key={index}
+                    active={index === this.state.currentBanner}
+                    onClick={() => {
+                      this.setState({
+                        currentBanner: index,
+                      });
+                      this.resetTimerTick();
+                    }}
+                  />
+                ))}
+              </CircleWrapper>
+            )}
+            {this.state.slides.map((elem, index) => {
+              let icon;
+              if (elem.icon) {
+                try {
+                  icon = require(`${elem.icon}`);
+                } catch (err) {
+                  console.error(err);
                 }
-                active={index === this.state.currentBanner}
-                key={index}
-              >
-                {elem.icon && icon && <Icon src={icon} alt="Banner Icon" />}
-                {elem.text ? (
-                  elem.url ? (
-                    <Link
-                      href={elem.url}
-                      target={elem.external ? "_blank" : "_self"}
-                    >
-                      {elem.text}
-                    </Link>
+              }
+              return (
+                <ContentWrapper
+                  multipleSlides={this.multipleSlides()}
+                  innerRef={divElement =>
+                    this.wrapper
+                      ? (this.wrapper[index] = divElement)
+                      : (this.wrapper = [divElement])
+                  }
+                  active={index === this.state.currentBanner}
+                  key={index}
+                >
+                  {elem.icon && icon && <Icon src={icon} alt="Banner Icon" />}
+                  {elem.text ? (
+                    elem.url ? (
+                      <Link
+                        href={elem.url}
+                        target={elem.external ? "_blank" : "_self"}
+                      >
+                        {elem.text}
+                      </Link>
+                    ) : (
+                      <Text>{elem.text}</Text>
+                    )
                   ) : (
-                    <Text>{elem.text}</Text>
-                  )
-                ) : (
-                  <Text>{"Provide valid text for banner"}</Text>
-                )}
-              </ContentWrapper>
-            );
-          })}
-        </InnerWrapper>
-      </Wrapper>
-    );
+                    <Text>{"Provide valid text for banner"}</Text>
+                  )}
+                </ContentWrapper>
+              );
+            })}
+          </InnerWrapper>
+        </Wrapper>
+      );
+    }
   }
 }
 
@@ -157,7 +162,7 @@ const ContentWrapper = styled.div`
   z-index: ${props => (props.active ? "10" : "1")};
   opacity: ${props => (props.active ? "1" : "0")};
   position: absolute;
-  left: ${props => (props.multipleSlides ? "40px" : "15px")};
+  left: ${props => (props.multipleSlides ? "45px" : "15px")};
   @media (max-width: 736px) {
     left: ${props => (props.multipleSlides ? "25px" : "0px")};
   }
