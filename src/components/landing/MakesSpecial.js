@@ -1,7 +1,7 @@
 import React from "react";
 import landingPage from "../../locales/en/LandingPage.json";
 
-import MakesSpecialSvg from "./assets/makesSpecial.svg";
+import MakesSpecialSvg from "./features/MakesSpecial";
 
 const MakesSpecial = () => {
   const documentation = {
@@ -17,11 +17,7 @@ const MakesSpecial = () => {
       <div className="container">
         <div className="row row--space-between row--sm-align-center">
           <div className="col-6 col-md-9 col-sm-12">
-            <object
-              type="image/svg+xml"
-              data={MakesSpecialSvg}
-              aria-label="Illustration of a pirate treasure"
-            />
+            <MakesSpecialSvg />
           </div>
           <div className="col-6 col-md-9 col-sm-12 content-inverse">
             <h2>{landingPage[sectionPrefix].headline}</h2>

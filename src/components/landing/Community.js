@@ -2,7 +2,7 @@ import React from "react";
 import landingPage from "../../locales/en/LandingPage.json";
 import ui from "../../locales/en/UI.json";
 
-import CommunitySvg from "./assets/community.svg";
+import CommunitySvg from "./features/Community";
 
 const Community = () => {
   const translateLink = socialMediaPortal => ui.socialMedia[socialMediaPortal];
@@ -29,11 +29,7 @@ const Community = () => {
       <div className="container">
         <div className="row row--space-between row--sm-align-center">
           <div className="col-6 col-md-9 col-sm-12">
-            <object
-              type="image/svg+xml"
-              data={CommunitySvg}
-              aria-label="Illustration of a planet and satelite"
-            />
+            <CommunitySvg />
           </div>
           <div className="col-6 col-md-9 col-sm-12">
             <h2 className="community-h2">{landingPage[sectionPrefix].headline}</h2>
