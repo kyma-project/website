@@ -75,7 +75,7 @@ class Banner extends PureComponent {
     if (this.multipleSlides()) {
       this.timer = this.timerFunc();
     }
-    if (!this.state.wrapperHeight) {
+    if (!this.state.wrapperHeight && this.wrapper) {
       const maxElemHeight = Math.max(
         ...this.wrapper.map(element => element.clientHeight),
       );
