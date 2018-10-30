@@ -1,16 +1,29 @@
-import React from "react";
-import styled from "styled-components";
-import colors from "./../../config/colors";
+import React, { PureComponent } from "react";
+import {
+  Wrapper,
+  InnerWrapper,
+  CircleWrapper,
+  Circle,
+  ContentWrapper,
+  Text,
+  Link,
+  Icon,
+} from "./styled";
 
-class Banner extends React.Component {
+class Banner extends PureComponent {
   filterEventsFromData = arg => {
     return arg.filter(element => {
       const endDate = this.parseDate(element.endDate);
       const startDate = this.parseDate(element.startDate);
-      const currentDate = Date.now();
+      const currentDate = new Date();
       if (endDate && startDate) {
+        if (this.isSameDate(startDate, currentDate)) {
+          return true;
+        }
+        const currentDateInMilis = currentDate.getTime();
         return (
-          startDate.getTime() < currentDate && currentDate < endDate.getTime()
+          startDate.getTime() < currentDateInMilis &&
+          currentDateInMilis < endDate.getTime()
         );
       }
       return false;
@@ -23,7 +36,16 @@ class Banner extends React.Component {
     }
     return null;
   };
-
+  isSameDate = (first, sec) => {
+    if (first && sec) {
+      return (
+        first.getFullYear() === sec.getFullYear() &&
+        first.getMonth() === sec.getMonth() &&
+        first.getDate() === sec.getDate()
+      );
+    }
+    return false;
+  };
   state = {
     slides: this.filterEventsFromData(this.props.slides),
     wrapperHeight: undefined,
@@ -93,11 +115,33 @@ class Banner extends React.Component {
               let icon;
               if (elem.icon) {
                 try {
-                  icon = require(`${elem.icon}`);
+                  icon = require(`../../../config/assets/${elem.icon}`);
                 } catch (err) {
                   console.error(err);
                 }
               }
+              let LinkAndText;
+              if (elem.text) {
+                if (elem.url) {
+                  LinkAndText = (
+                    <>
+                      <Text>{elem.text}</Text>
+                      <Link
+                        href={elem.url}
+                        target={elem.external ? "_blank" : "_self"}
+                      >
+                        {"Read more"}
+                      </Link>
+                    </>
+                  );
+                } else {
+                  LinkAndText = <Text>{elem.text}</Text>;
+                }
+              } else {
+                LinkAndText = <Text>"Provide valid text for banner!"</Text>;
+                console.warn("Provide valid text for banner!");
+              }
+
               return (
                 <ContentWrapper
                   multipleSlides={this.multipleSlides()}
@@ -110,7 +154,7 @@ class Banner extends React.Component {
                   key={index}
                 >
                   {elem.icon && icon && <Icon src={icon} alt="Banner Icon" />}
-                  {elem.text ? (
+                  {/* {elem.text ? (
                     elem.url ? (
                       <Link
                         href={elem.url}
@@ -123,7 +167,8 @@ class Banner extends React.Component {
                     )
                   ) : (
                     <Text>{"Provide valid text for banner"}</Text>
-                  )}
+                  )} */}
+                  {LinkAndText}
                 </ContentWrapper>
               );
             })}
@@ -135,95 +180,3 @@ class Banner extends React.Component {
 }
 
 export default Banner;
-
-const Wrapper = styled.section`
-  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2);
-  background-color: ${colors.blue};
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const InnerWrapper = styled.div`
-  padding: 0 30px;
-  @media (max-width: 736px) {
-    padding: 0 15px;
-  }
-  ${props => props.height && `min-height: ${props.height}px;`};
-  width: 1200px;
-  max-width: 1200px;
-  display: flex;
-  justify-content: left;
-  align-items: center;
-  position: relative;
-`;
-
-const ContentWrapper = styled.div`
-  z-index: ${props => (props.active ? "10" : "1")};
-  opacity: ${props => (props.active ? "1" : "0")};
-  position: absolute;
-  left: ${props => (props.multipleSlides ? "45px" : "15px")};
-  @media (max-width: 736px) {
-    left: ${props => (props.multipleSlides ? "25px" : "0px")};
-  }
-  display: flex;
-  justify-content: left;
-  align-content: center;
-  align-items: center;
-  text-align: center;
-  transition: opacity 0.2s ease-out;
-`;
-
-const Text = styled.p`
-  display: block;
-  padding-left: 10px;
-  && {
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
-  text-align: left;
-  padding-right: 10px;
-  font-family: Poppins;
-  font-size: 16px;
-  font-weight: 500;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.63;
-  letter-spacing: normal;
-  text-decoration: none;
-  color: #fff;
-`;
-const Link = Text.extend`
-  text-decoration: underline; /*todo - ask lukasz*/
-`.withComponent("a");
-
-const CircleWrapper = styled.section`
-  min-height: 45px;
-  min-width: 8px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-`;
-
-const Circle = styled.div`
-  height: 8px;
-  width: 8px;
-  margin-top: 4px;
-  margin-bottom: 4px;
-  border-radius: 50%;
-  background-color: ${colors.lightBlue};
-  ${props => props.active && `background-color: ${colors.green};`};
-  transition: opacity 0.2s ease-out;
-  &:hover {
-    cursor: pointer;
-  }
-`;
-
-const Icon = styled.img`
-  max-width: 30px;
-  width: 100%;
-  max-height: 45px;
-  object-fit: fill;
-  display: block;
-  margin: 10px 0 10px 5px;
-`;

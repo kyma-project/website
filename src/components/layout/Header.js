@@ -1,9 +1,9 @@
 import React from "react";
 import Link from "gatsby-link";
 import ui from "../../locales/en/UI.json";
-import bannerData from "./banner-data.json";
+import bannerData from "./../../config/banner-data.json";
 import NavigationContainer from "./Navigation.container";
-import Banner from "./Banner";
+import Banner from "./Banner/Banner";
 
 const Header = ({ headerClassName, logoClassName }) => {
   return (
