@@ -1,23 +1,23 @@
 [
   {
     "text": "A flexible and easy way to connect and extend enterprise",
-    "startDate": "30-10-2018",
-    "endDate": "30-10-2018"
+    "startDate": "04-11-2018",
+    "endDate": "05-11-2018"
   },
   {
     "text": "Join us for the  SAP TechEd, Bangalore, November 25-30 ",
     "url": "https://google.pl",
     "external": true,
     "startDate": "01-10-2018",
-    "endDate": " 31-10-2018",
+    "endDate": " 30-11-2018",
     "icon": "17271979.jpeg"
   },
   {
-    "text": "internal link bla bla",
+    "text": "internal link bla bla internal link bla bla internal link bla bla internal link bla bla internal link bla bla internal link bla bla internal link bla bla internal link bla bla internal link bla bla",
     "url": "/blog",
     "external": false,
     "startDate": "20-10-2018",
-    "endDate": " 5-12-2018",
+    "endDate": " 05-12-2018",
     "icon": "examples.png"
   }
 ]

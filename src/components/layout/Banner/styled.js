@@ -14,8 +14,8 @@ export const InnerWrapper = styled.div`
     padding: 0 15px;
   }
   ${props => props.height && `min-height: ${props.height}px;`};
-  width: 1200px;
-  max-width: 100%;
+  width: 100%;
+  max-width: 1200px;
   display: flex;
   justify-content: left;
   align-items: center;
@@ -39,7 +39,7 @@ export const ContentWrapper = styled.div`
 `;
 
 export const Text = styled.p`
-  display: block;
+  display: inline-block;
   padding-left: 10px;
   && {
     margin-top: 10px;
@@ -83,7 +83,7 @@ export const Circle = styled.div`
   }
 `;
 
-export const Icon = styled.img`
+export const StyledIcon = styled.img`
   max-width: 30px;
   width: 100%;
   max-height: 45px;
