@@ -20,7 +20,6 @@ class Banner extends PureComponent {
       const currentDate = new Date();
       if (endDate && startDate) {
         if (this.isSameDate(startDate, endDate, currentDate)) {
-          console.log("here");
           return true;
         }
         const currentDateInMilis = currentDate.getTime();
