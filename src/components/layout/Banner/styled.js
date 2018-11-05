@@ -23,6 +23,8 @@ export const InnerWrapper = styled.div`
 `;
 
 export const ContentWrapper = styled.div`
+  margin: 10px unset;
+  padding: 10px unset;
   z-index: ${props => (props.active ? "10" : "1")};
   opacity: ${props => (props.active ? "1" : "0")};
   position: absolute;
@@ -42,9 +44,14 @@ export const Text = styled.p`
   display: inline-block;
   padding-left: 10px;
   && {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    @media (min-width: 737px) {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
   }
+
   text-align: left;
   padding-right: 10px;
   font-family: Poppins;
@@ -58,7 +65,11 @@ export const Text = styled.p`
   color: #fff;
 `;
 export const Link = Text.extend`
-  text-decoration: underline; /*todo - ask lukasz*/
+  text-decoration: underline;
+  && {
+    padding: 0 10px;
+    margin: 0;
+  }
 `.withComponent("a");
 
 export const CircleWrapper = styled.section`

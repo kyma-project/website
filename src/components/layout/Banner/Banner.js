@@ -15,8 +15,9 @@ class Banner extends PureComponent {
 
   filterEventsFromData = arg => {
     return arg.filter(element => {
-      const startDate = this.parseDate(element.startDate, false);
-      const endDate = this.parseDate(element.endDate, true);
+      const endOfDay = true;
+      const startDate = this.parseDate(element.startDate, !endOfDay);
+      const endDate = this.parseDate(element.endDate, endOfDay);
       const currentDate = new Date();
       if (endDate && startDate) {
         if (this.isSameDate(startDate, endDate, currentDate)) {
@@ -44,10 +45,10 @@ class Banner extends PureComponent {
     }
     return false;
   };
-  parseDate = (arg, flag) => {
+  parseDate = (arg, endOfDay) => {
     const splitDate = arg.split("-");
     if (splitDate.length === 3) {
-      if (flag) {
+      if (endOfDay) {
         return new Date(
           `${splitDate[1]}-${splitDate[0]}-${splitDate[2]} 23:59:59`,
         );
@@ -81,9 +82,7 @@ class Banner extends PureComponent {
       this.timer = this.timerFunc();
     }
     if (!this.state.wrapperHeight && this.wrapper) {
-      const maxElemHeight = Math.max(
-        ...this.wrapper.map(element => element.clientHeight),
-      );
+      const maxElemHeight = Math.max(...this.wrapper);
       this.setState({ wrapperHeight: maxElemHeight });
     }
   };
@@ -96,6 +95,12 @@ class Banner extends PureComponent {
       currentBanner: index,
     });
     this.resetTimerTick();
+  };
+  refCallback = (element, index) => {
+    if (element) {
+      const height = element.getBoundingClientRect().height;
+      this.wrapper ? (this.wrapper[index] = height) : (this.wrapper = [height]);
+    }
   };
   render() {
     const { slides } = this.props;
@@ -117,11 +122,7 @@ class Banner extends PureComponent {
             return (
               <ContentWrapper
                 multipleSlides={this.multipleSlides()}
-                innerRef={divElement =>
-                  this.wrapper
-                    ? (this.wrapper[index] = divElement)
-                    : (this.wrapper = [divElement])
-                }
+                innerRef={el => this.refCallback(el, index)}
                 active={index === this.state.currentBanner}
                 key={index}
               >
