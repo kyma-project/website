@@ -6,7 +6,7 @@
 
 //allow gifs as icons?
 
-//
+//"limits for title length" -> still valid? we have dynamic sizing of banner to solve this issue
 
 To edit banner on the website you have to make changes in [banners.json](../src/banner/banners.json). This file has following structure:
 
