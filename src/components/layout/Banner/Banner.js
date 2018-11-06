@@ -130,7 +130,7 @@ class Banner extends PureComponent {
                 <LinkAndText
                   text={elem.text}
                   url={elem.url}
-                  external={elem.external}
+                  internal={elem.internal}
                 />
               </ContentWrapper>
             );

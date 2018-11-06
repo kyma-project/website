@@ -1,13 +1,13 @@
 import React from "react";
 import { Text, Link } from "./styled";
 
-const LinkAndText = ({ text, url, external }) => {
+const LinkAndText = ({ text, url, internal }) => {
   if (text) {
     if (url) {
       return (
         <Text>
           {text}
-          <Link href={url} target={external ? "_blank" : "_self"}>
+          <Link href={url} target={internal ? "_self" : "_blank"}>
             {"Read more"}
           </Link>
         </Text>

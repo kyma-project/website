@@ -23,14 +23,12 @@ export const InnerWrapper = styled.div`
 `;
 
 export const ContentWrapper = styled.div`
-  margin: 10px unset;
-  padding: 10px unset;
   z-index: ${props => (props.active ? "10" : "1")};
   opacity: ${props => (props.active ? "1" : "0")};
   position: absolute;
-  left: ${props => (props.multipleSlides ? "45px" : "15px")};
+  left: ${props => (props.multipleSlides ? "45px" : "20px")};
   @media (max-width: 736px) {
-    left: ${props => (props.multipleSlides ? "25px" : "0px")};
+    left: ${props => (props.multipleSlides ? "25px" : "10px")};
   }
   display: flex;
   justify-content: left;
@@ -51,7 +49,6 @@ export const Text = styled.p`
       margin-bottom: 10px;
     }
   }
-
   text-align: left;
   padding-right: 10px;
   font-family: Poppins;

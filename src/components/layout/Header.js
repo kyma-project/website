@@ -8,7 +8,7 @@ import Banner from "./Banner/Banner";
 const Header = ({ headerClassName, logoClassName }) => {
   return (
     <>
-      <Banner slides={bannerData} duration={4000} />
+      <Banner slides={bannerData} duration={5000} />
       <header className={`bg-h ${headerClassName ? headerClassName : ""}`}>
         <div className="container">
           <Link className="home-link" to="/">
