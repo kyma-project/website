@@ -5,17 +5,13 @@ const Icon = ({ iconPath }) => {
     return null;
   }
   let iconRef = null;
-  if (iconPath) {
-    try {
-      iconRef = require(`../../../banner/assets/${iconPath}`);
-    } catch (err) {
-      console.error(err);
-    }
+  try {
+    iconRef = require(`../../../banner/assets/${iconPath}`);
+  } catch (err) {
+    console.error(err);
+    return null;
   }
-  if (iconPath && iconRef) {
-    return <StyledIcon src={iconRef} alt="Banner Icon" />;
-  }
-  return null;
+  return <StyledIcon src={iconRef} alt="Banner Icon" />;
 };
 
 export default Icon;
