@@ -33,11 +33,12 @@ const Banner = () => {
   return (
     <Wrapper>
       <MainRow>
-        Join us for the &nbsp;<BannerLink
-          href="https://kyma-project.io/blog/blog-post-kyma-at-teched/"
+        Join us for the &nbsp;
+        <BannerLink
+          href="https://www.containerconf.de/veranstaltung-7556-extending-enterprise-systems-with-kubernetes%2C-istio-and-open-service-broker.html?id=7556"
           target="_blank"
         >
-          SAP TechEd, Bangalore, November 25-30
+          ContainerConf, Mannheim, Germany, November 13-16
         </BannerLink>
       </MainRow>
     </Wrapper>
