@@ -66,7 +66,7 @@ To show multiple slides that change periodically, like in a typical carousel, ad
     "url": "/blog",
     "external": false,
     "startDate": "05-11-2018",
-    "endDate": " 05-11-2018",
+    "endDate": "05-11-2018",
     "icon": "example3.png"
   }
 ]
