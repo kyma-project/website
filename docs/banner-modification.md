@@ -26,7 +26,7 @@ Replace these parameters with real values:
 - **{OPEN_IN_NEW_TAB}** indicates whether an optional link is pointing to an internal or external resource. Set it to `false` for external links like `https://www.google.com/`, and to `true` for internal links like `/blogs`. Remove this line if a link is not present. If this parameter is not provided it defaults to external link.
 - **{START_DATE}** is the date from which a particular banner slide starts to appear on the website, counting from midnight. Use the `DD-MM-YYYY` format.
 - **{END_DATE}** is the date up to which a particular banner slide appears, counting to 23:59. Use the `DD-MM-YYYY` format.
-- **{ICON}** is a filename of an icon used in the banner slide. Store icons in the [`assets`](../src/banner/assets) folder. It is an optional parameter.
+- **{ICON_FILE}** is a path of an icon used in the banner slide. Store icons in the [`assets`](../src/banner/assets) folder. It is an optional parameter.
 
 **{TEXT}**, **{START_DATE}**, and **{END_DATE}** are mandatory parameters.
 
@@ -52,20 +52,20 @@ To show multiple slides that change periodically, like in a typical carousel, ad
       "endDate": "30-11-2018"
     },
     {
-      "text": "Join us for the  SAP TechEd, Bangalore, November 25-30 ",
-      "url": "https://google.pl",
+      "text": "Join us for the  SAP TechEd, Bangalore, November 25-30",
+      "url": "https://google.com",
       "openInNewTab": true,
       "startDate": "01-10-2018",
-      "endDate": " 30-11-2018",
-      "icon": "small.gif"
+      "endDate": "30-11-2018",
+      "icon": "assets/small.gif"
     },
     {
       "text": "Some kind of internal link",
       "url": "/blog",
       "openInNewTab": false,
       "startDate": "20-10-2018",
-      "endDate": " 05-12-2018",
-      "icon": "community.svg"
+      "endDate": "05-12-2018",
+      "icon": "assets/community.svg"
     }
   ]
 }

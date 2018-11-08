@@ -6,7 +6,9 @@ const Icon = ({ iconPath }) => {
   }
   let iconRef = null;
   try {
-    iconRef = require(`../../../banner/assets/${iconPath}`);
+    iconRef = require(`../../../banner/${
+      iconPath.indexOf("./") === 0 ? iconPath.slice(2) : iconPath
+    }`);
   } catch (err) {
     console.error(err);
     return null;
