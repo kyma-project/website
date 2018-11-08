@@ -42,7 +42,7 @@ If you add an image to the banner, place it in the [`assets`](../src/banner/asse
 
 The acceptable image formats are JPEG, PNG, and GIFF. 
 
-## Multiple slides
+## Add multiple slides
 
 To show multiple slides that change periodically, like in a typical carousel, add more sections enclosed in curly brackets and separate them with a comma, as in this example:
 
