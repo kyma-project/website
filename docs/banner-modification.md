@@ -38,7 +38,7 @@ To show the banner for one full day, make sure **{START_DATE}** and **{END_DATE}
 
 ## Icon
 
-To use it put desired image file in [./src/banner/assets](../src/banner/assets) folder. This image will be scaled to fit into 30px wide, 45px high box, while preserving its original ascpect ratio.
+If you add an image to the banner, place it in the [`assets`](../src/banner/assets) folder. This image scales to fit into a box that is 30px wide and 45px high, while preserving its original aspect ratio.
 
 Image must be in `jpeg`, `png`, or `gif` format.
 
