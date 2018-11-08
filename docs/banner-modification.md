@@ -72,7 +72,7 @@ To show multiple slides that change periodically, like in a typical carousel, ad
 ]
 ```
 
-## No banner
+## Remove the banner
 
 If no banner should be shown change [banners.json](../src/banner/banners.json) into
 
