@@ -8,7 +8,7 @@
 
 //"limits for title length" -> still valid? we have dynamic sizing of banner to solve this issue
 
-To edit banner on the website you have to make changes in [banners.json](../src/banner/banners.json). This file has following structure:
+To edit the banner on the website, make changes in [`banners.json`](../src/banner/banners.json). This file has the following structure:
 
 ```json
 [
