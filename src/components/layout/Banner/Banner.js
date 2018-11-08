@@ -3,6 +3,9 @@ import { Wrapper, InnerWrapper, ContentWrapper } from "./styled";
 import CircleIndicator from "./CircleIndicator";
 import Icon from "./Icon";
 import SlideContent from "./SlideContent";
+
+const DEFAULT_BANNER_DURATION = 5000;
+
 class Banner extends PureComponent {
   constructor(props) {
     super(props);
@@ -67,7 +70,7 @@ class Banner extends PureComponent {
               ? 0
               : prevState.currentBanner + 1,
         })),
-      this.props.duration || 4000,
+      this.props.duration || DEFAULT_BANNER_DURATION,
     );
 
   resetTimerTick = () => {
@@ -77,7 +80,29 @@ class Banner extends PureComponent {
 
   multipleSlides = () => this.state.slides.length > 1;
 
+  debounced = (delay, fn) => {
+    let timerId;
+    return function(...args) {
+      if (timerId) {
+        clearTimeout(timerId);
+      }
+      timerId = setTimeout(() => {
+        fn(...args);
+        timerId = null;
+      }, delay);
+    };
+  };
+
+  resize = () => {
+    if (this.wrapper) {
+      const maxElemHeight = Math.max(...this.wrapper);
+      this.setState(() => ({ wrapperHeight: maxElemHeight }));
+    }
+  };
+
   componentDidMount = () => {
+    const debouncedResize = this.debounced(100, this.resize);
+    window.addEventListener("resize", debouncedResize);
     if (this.multipleSlides()) {
       this.timer = this.timerFunc();
     }
@@ -89,6 +114,7 @@ class Banner extends PureComponent {
 
   componentWillUnmount = () => {
     this.timer && clearInterval(this.timer);
+    window.removeEventListener("resize", this.resize);
   };
   onCircleClick = index => {
     this.setState({

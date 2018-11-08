@@ -6,7 +6,6 @@ const SlideContent = ({ text, url, openInNewTab }) => {
     console.error("Provide valid text for banner!");
     return null;
   }
-
   return (
     <Text>
       {text}
