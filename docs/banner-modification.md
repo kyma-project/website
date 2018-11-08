@@ -74,7 +74,7 @@ To show multiple slides that change periodically, like in a typical carousel, ad
 
 ## Remove the banner
 
-If no banner should be shown change [banners.json](../src/banner/banners.json) into
+If you want to remove the banner from the website, change [banners.json](../src/banner/banners.json) as follows:
 
 ```json
 []
