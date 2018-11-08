@@ -36,7 +36,7 @@ Replace these parameters with real values:
 
 To show the banner for one full day, make sure **{START_DATE}** and **{END_DATE}** are equal.
 
-## Icon
+## Add an icon
 
 If you add an image to the banner, place it in the [`assets`](../src/banner/assets) folder. This image scales to fit into a box that is 30px wide and 45px high, while preserving its original aspect ratio.
 
