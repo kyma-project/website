@@ -32,7 +32,7 @@ Replace these parameters with real values:
 - **{END_DATE}** is the date up to which a particular banner slide appears, counting to 23:59. Use the `DD-MM-YYYY` format.
 - **{ICON}** is a filename of an icon used in the banner slide. Store icons in the [`assets`](../src/banner/assets) folder. It is an optional parameter.
 
-`{TEXT}`, `{START_DATE}`, and `{END_DATE}` are mandatory parameters. `{INTERNAL}` is also mandatory if `{URL}` is provided.
+**{TEXT}**, **{START_DATE}**, and **{END_DATE}** are mandatory parameters. `{INTERNAL}` is also mandatory if you provide `{URL}`.
 
 To show banner for one full day make sure `{START_DATE}` and `{END_DATE}` are equal.
 
