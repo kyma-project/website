@@ -1,23 +1,26 @@
-[
-  {
-    "text": "A flexible and easy way to connect and extend enterprise",
-    "startDate": "01-11-2018",
-    "endDate": "30-11-2018"
-  },
-  {
-    "text": "Join us for the  SAP TechEd, Bangalore, November 25-30 ",
-    "url": "https://google.pl",
-    "internal": true,
-    "startDate": "01-10-2018",
-    "endDate": " 30-11-2018",
-    "icon": "17271979.jpeg"
-  },
-  {
-    "text": "internal link bla bla internal lin bla bla internal link bla bla asdasdasdasdasdas internal",
-    "url": "/blog",
-    "external": false,
-    "startDate": "20-10-2018",
-    "endDate": " 05-12-2018",
-    "icon": "small.gif"
-  }
-]
+{
+  "bannerDuration": 4000,
+  "slides": [
+    {
+      "text": "A flexible and easy way to connect and extend enterprise",
+      "startDate": "01-11-2018",
+      "endDate": "30-11-2018"
+    },
+    {
+      "text": "Join us for the  SAP TechEd, Bangalore, November 25-30 ",
+      "url": "https://google.pl",
+      "openInNewTab": true,
+      "startDate": "01-10-2018",
+      "endDate": " 30-11-2018",
+      "icon": "small.gif"
+    },
+    {
+      "text": "internal link bla bla internal lin bla bla internal link bla bla asdasdasdasdasdas internal",
+      "url": "/blog",
+      "openInNewTab": false,
+      "startDate": "20-10-2018",
+      "endDate": " 05-12-2018",
+      "icon": "community.svg"
+    }
+  ]
+}

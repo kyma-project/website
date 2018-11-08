@@ -2,7 +2,7 @@ import React, { PureComponent } from "react";
 import { Wrapper, InnerWrapper, ContentWrapper } from "./styled";
 import CircleIndicator from "./CircleIndicator";
 import Icon from "./Icon";
-import LinkAndText from "./LinkAndText";
+import SlideContent from "./SlideContent";
 class Banner extends PureComponent {
   constructor(props) {
     super(props);
@@ -107,11 +107,11 @@ class Banner extends PureComponent {
     if (!slides || slides.length === 0) {
       return null;
     }
-
+    const manySlides = this.multipleSlides();
     return (
       <Wrapper>
         <InnerWrapper height={this.state.wrapperHeight}>
-          {this.multipleSlides() && (
+          {manySlides && (
             <CircleIndicator
               slides={this.state.slides}
               currentBanner={this.state.currentBanner}
@@ -121,16 +121,16 @@ class Banner extends PureComponent {
           {this.state.slides.map((elem, index) => {
             return (
               <ContentWrapper
-                multipleSlides={this.multipleSlides()}
+                multipleSlides={manySlides}
                 innerRef={el => this.refCallback(el, index)}
                 active={index === this.state.currentBanner}
                 key={index}
               >
                 <Icon iconPath={elem.icon} />
-                <LinkAndText
+                <SlideContent
                   text={elem.text}
                   url={elem.url}
-                  internal={elem.internal}
+                  openInNewTab={elem.openInNewTab}
                 />
               </ContentWrapper>
             );

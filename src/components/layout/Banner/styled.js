@@ -65,6 +65,7 @@ export const Link = Text.extend`
   text-decoration: underline;
   && {
     padding: 0 10px;
+    padding: 0;
     margin: 0;
   }
 `.withComponent("a");
