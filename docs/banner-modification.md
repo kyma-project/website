@@ -26,7 +26,7 @@ To edit the banner on the website, make changes in [`banners.json`](../src/banne
 Replace these parameters with real values:
 
 - `{TEXT}` is the banner's text.
-- `{URL}` is optional address - if present, `READ MORE` link appears to the right of the banner's text.
+- **{URL}** is an optional address. If present, the `Read more` link appears to the right of the banner's text.
 - `{INTERNAL}` indicates whether optional link is pointing to some internal or external resource. Set it to `false` for external link like `https://www.google.com/`, and to `true` for internal links like `/blogs`. Remove this line if link is not present.
 - `{START_DATE}` is the starting day from which particular banner slide will be shown, counting from 00:00 at night. Use `DD-MM-YYYY` format.
 - `{END_DATE}` is the ending day up to which particular banner slide will be shown, counting to 23:59 at night. Use `DD-MM-YYYY` format.
