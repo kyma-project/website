@@ -58,7 +58,7 @@ To show multiple slides that change periodically, like in a typical carousel, ad
     "url": "https://google.com",
     "external": true,
     "startDate": "01-10-2018",
-    "endDate": " 30-11-2018",
+    "endDate": "30-11-2018",
     "icon": "icons_filename.jpeg"
   },
   {
