@@ -34,7 +34,7 @@ Replace these parameters with real values:
 
 **{TEXT}**, **{START_DATE}**, and **{END_DATE}** are mandatory parameters. `{INTERNAL}` is also mandatory if you provide `{URL}`.
 
-To show banner for one full day make sure `{START_DATE}` and `{END_DATE}` are equal.
+To show the banner for one full day, make sure **{START_DATE}** and **{END_DATE}** are equal.
 
 ## Icon
 
