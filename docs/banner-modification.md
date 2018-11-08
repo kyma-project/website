@@ -44,7 +44,7 @@ The acceptable image formats are JPEG, PNG, and GIFF.
 
 ## Multiple slides
 
-To show multiple slides that are perodically changing like in typical carousel add more sections enclosed by `{` and `}`, as in this example:
+To show multiple slides that change periodically, like in a typical carousel, add more sections enclosed in curly brackets and separate them with a comma, as in this example:
 
 ```json
 [
