@@ -29,7 +29,7 @@ Replace these parameters with real values:
 - **{URL}** is an optional address. If present, the `Read more` link appears to the right of the banner's text.
 - **{INTERNAL}** indicates whether an optional link is pointing to an internal or external resource. Set it to `false` for external links like `https://www.google.com/`, and to `true` for internal links like `/blogs`. Remove this line if a link is not present.
 - **{START_DATE}** is the date from which a particular banner slide starts to appear on the website, counting from midnight. Use the `DD-MM-YYYY` format.
-- `{END_DATE}` is the ending day up to which particular banner slide will be shown, counting to 23:59 at night. Use `DD-MM-YYYY` format.
+- **{END_DATE}** is the date up to which a particular banner slide appears, counting to 23:59. Use the `DD-MM-YYYY` format.
 - `{ICON}` is filename of icon used in the banner slide. Icons are stored in [./src/banner/assets](../src/banner/assets) folder. It is an optional parameter.
 
 `{TEXT}`, `{START_DATE}`, and `{END_DATE}` are mandatory parameters. `{INTERNAL}` is also mandatory if `{URL}` is provided.
