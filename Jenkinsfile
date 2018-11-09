@@ -2,6 +2,7 @@
 def label = "kyma-${UUID.randomUUID().toString()}"
 def application = 'website'
 def isMaster = params.GIT_BRANCH == "master"
+def appOrigin = 'https://kyma-project.io'
 
 echo """
 ********************************
@@ -52,7 +53,7 @@ podTemplate(label: label) {
                             }
                         } else {
                             stage("build $application") {
-                                execute("npm run build")
+                                execute("GATSBY_APP_ORIGIN='$appOrigin' npm run build")
                             }
                         }
                     }
