@@ -9,7 +9,7 @@ export const Wrapper = styled.section`
 `;
 
 export const InnerWrapper = styled.div`
-  padding: 0 30px;
+  padding: 15px 30px;
   @media (max-width: 736px) {
     padding: 0 15px;
   }

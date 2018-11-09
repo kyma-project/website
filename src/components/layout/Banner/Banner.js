@@ -80,36 +80,20 @@ class Banner extends PureComponent {
 
   multipleSlides = () => this.state.slides.length > 1;
 
-  debounced = (delay, fn) => {
-    let timerId;
-    return function(...args) {
-      if (timerId) {
-        clearTimeout(timerId);
-      }
-      timerId = setTimeout(() => {
-        fn(...args);
-        timerId = null;
-      }, delay);
-    };
-  };
-
   resize = () => {
-    if (this.wrapper) {
-      const maxElemHeight = Math.max(...this.wrapper);
+    if (this.slides) {
+      const slidesHeight = this.slides.map(elem => elem.clientHeight);
+      const maxElemHeight = Math.max(...slidesHeight);
       this.setState(() => ({ wrapperHeight: maxElemHeight }));
     }
   };
 
   componentDidMount = () => {
-    const debouncedResize = this.debounced(100, this.resize);
-    window.addEventListener("resize", debouncedResize);
+    window.addEventListener("resize", this.resize);
     if (this.multipleSlides()) {
       this.timer = this.timerFunc();
     }
-    if (!this.state.wrapperHeight && this.wrapper) {
-      const maxElemHeight = Math.max(...this.wrapper);
-      this.setState({ wrapperHeight: maxElemHeight });
-    }
+    this.resize();
   };
 
   componentWillUnmount = () => {
@@ -122,12 +106,15 @@ class Banner extends PureComponent {
     });
     this.resetTimerTick();
   };
+
   refCallback = (element, index) => {
-    if (element) {
-      const height = element.getBoundingClientRect().height;
-      this.wrapper ? (this.wrapper[index] = height) : (this.wrapper = [height]);
+    if (!this.slides) {
+      this.slides = [];
     }
+
+    this.slides[index] = element;
   };
+
   render() {
     const { slides } = this.props;
     if (!slides || slides.length === 0) {
