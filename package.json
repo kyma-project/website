@@ -49,6 +49,7 @@
     "gh-pages": "^1.2.0",
     "husky": "^1.0.0-rc.13",
     "lint-staged": "^7.2.0",
+    "prettier": "^1.14.3",
     "safe-buffer": "5.1.1"
   },
   "husky": {
@@ -58,7 +59,7 @@
   },
   "lint-staged": {
     "linters": {
-      "*.{js,json,css}": [
+      "*.{js,json,css,jsx}": [
         "prettier --write",
         "git add"
       ]
