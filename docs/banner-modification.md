@@ -1,6 +1,6 @@
 # Banner modification
 
-To edit banner on the website you have to make changes in [banners.json](../src/banner/banners.json). This file has following structure:
+To edit the banner on the website you have to make changes in [banners.json](../src/banner/banners.json). This file has the following structure:
 
 ```json
 {
