@@ -1,14 +1,14 @@
 import React from "react";
 import Link from "gatsby-link";
 import ui from "../../locales/en/UI.json";
-import bannerData from "../../banner/banners.json";
+
 import NavigationContainer from "./Navigation.container";
-import Banner from "./Banner/Banner";
+import Banner from "./Banner";
 
 const Header = ({ headerClassName, logoClassName }) => {
   return (
     <>
-      <Banner slides={bannerData.slides} duration={bannerData.bannerDuration} />
+      <Banner />
       <header className={`bg-h ${headerClassName ? headerClassName : ""}`}>
         <div className="container">
           <Link className="home-link" to="/">
