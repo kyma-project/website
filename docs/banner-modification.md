@@ -1,6 +1,6 @@
 # Banner modification
 
-To edit banner on the website you have to make changes in [banners.json](../src/banner/banners.json). This file has following structure:
+To edit the banner on the website you have to make changes in [banners.json](../src/banner/banners.json). This file has the following structure:
 
 ```json
 {
@@ -20,13 +20,13 @@ To edit banner on the website you have to make changes in [banners.json](../src/
 
 Replace these parameters with real values:
 
-- **{BANNER_DURATION}** is time duration in miliseconds after which banner slide changes to next one if there is more than one slide.
-- **{TEXT}** is the banner's text. One sentence of content is recommended.
+- **{BANNER_DURATION}** is the time (in milliseconds) after which a banner slide changes to the next one if there is more than one slide.
+- **{TEXT}** is the banner's text. The content you provide should be no longer than one sentence.
 - **{URL}** is an optional address. If present, the `Read more` link appears to the right of the banner's text.
-- **{OPEN_IN_NEW_TAB}** indicates whether an optional link is pointing to an internal or external resource. Set it to `false` for external links like `https://www.google.com/`, and to `true` for internal links like `/blogs`. Remove this line if a link is not present. If this parameter is not provided it defaults to external link.
+- **{OPEN_IN_NEW_TAB}** indicates whether an optional link is pointing to an internal or external resource. Set it to `false` for external links like `https://www.google.com/`, and to `true` for internal links like `/blogs`. Remove this line if a link is not present. If you do not provide this parameter, it points to the external link by default.
 - **{START_DATE}** is the date from which a particular banner slide starts to appear on the website, counting from midnight. Use the `DD-MM-YYYY` format.
 - **{END_DATE}** is the date up to which a particular banner slide appears, counting to 23:59. Use the `DD-MM-YYYY` format.
-- **{ICON_FILE}** is a path of an icon used in the banner slide. Store icons in the [`assets`](../src/banner/assets) folder. It is an optional parameter.
+- **{ICON_FILE}** is a path to an icon used in the banner slide. Store icons in the [`assets`](../src/banner/assets) folder. It is an optional parameter.
 
 **{TEXT}**, **{START_DATE}**, and **{END_DATE}** are mandatory parameters.
 
