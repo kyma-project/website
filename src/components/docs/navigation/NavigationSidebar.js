@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import NavigationList from "../external/components/Navigation/NavigationList.component";
+import NavigationList from "../external/Navigation/NavigationList.component";
 import DocsIcon from "./assets/docs-icon.svg";
 import ui from "../../../locales/en/UI.json";
 import { DOCS_RESPONSIVE_BREAKPOINT } from "../../../constants/docs";
@@ -53,6 +53,7 @@ class NavigationSidebar extends React.Component {
 
   componentDidMount() {
     window.addEventListener("resize", this.resize);
+    this.resize();
   }
 
   componentWillUnmount() {
@@ -80,6 +81,18 @@ class NavigationSidebar extends React.Component {
     const label = this.state.visible
       ? ui.docs.hideNavigation
       : ui.docs.showNavigation;
+
+    const {
+      currentVersion,
+      topNavComponent,
+      items,
+      topics,
+      activeNav,
+      currentContent,
+      setActiveNav,
+      onLinkClick,
+    } = this.props;
+
     return (
       <>
         <ToggleSidebarButton
@@ -90,15 +103,15 @@ class NavigationSidebar extends React.Component {
           {label}
         </ToggleSidebarButton>
         <SidebarWrapper visible={this.state.visible}>
-          {this.props.topNavComponent}
+          {topNavComponent}
           <NavigationList
-            items={this.props.items}
-            topics={this.props.topics}
-            active={this.props.active}
-            activeNav={this.props.activeNav}
-            callbackParent={this.props.callbackParent}
-            setActiveNav={this.props.setActiveNav}
-            history={this.props.history}
+            items={items}
+            topics={topics}
+            currentContent={currentContent}
+            activeNav={activeNav}
+            setActiveNav={setActiveNav}
+            currentVersion={currentVersion}
+            onLinkClick={onLinkClick}
           />
         </SidebarWrapper>
       </>

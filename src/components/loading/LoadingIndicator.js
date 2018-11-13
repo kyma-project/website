@@ -30,7 +30,7 @@ const DoubleBounce1 = styled.div`
   animation: ${skBounce} 2s infinite ease-in-out;
 `;
 
-const DoubleBounce2 = DoubleBounce1.extend`
+const DoubleBounce2 = styled(DoubleBounce1)`
   animation-delay: -1s;
 `;
 

@@ -135,7 +135,7 @@ class Banner extends PureComponent {
             return (
               <ContentWrapper
                 multipleSlides={manySlides}
-                innerRef={el => this.refCallback(el, index)}
+                ref={el => this.refCallback(el, index)}
                 active={index === this.state.currentBanner}
                 key={index}
               >

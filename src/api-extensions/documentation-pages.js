@@ -1,0 +1,181 @@
+const { resolve, join } = require("path");
+const { readdirSync, statSync } = require("fs");
+
+const compareVersions = require("compare-versions");
+const ui = require("../locales/en/UI.json");
+const DocsLoader = require("./DocsLoader");
+const { DOCS_PATH_NAME } = require("../constants/docs");
+
+function getDocsVersions(path) {
+  const subdirectories = readdirSync(resolve(path)).filter(file =>
+    statSync(join(path, file)).isDirectory(),
+  );
+  const versions = subdirectories.sort(compareVersions).reverse();
+  return versions;
+}
+
+function createDocsPages({ createPage }) {
+  const template = resolve(`src/templates/Documentation.js`);
+  const versions = getDocsVersions(`static/documentation`);
+  if (versions.length === 0) {
+    console.error("No docs versions found");
+    return;
+  }
+
+  const latestVersion = versions[0];
+  const loader = new DocsLoader(latestVersion);
+
+  try {
+    createMainDocsPage({
+      version: latestVersion,
+      versions,
+      displayName: ui.navigation.documentation,
+      path: `/${DOCS_PATH_NAME}`,
+      template,
+      createPage,
+      loader,
+    });
+  } catch (err) {
+    console.error(err);
+    return;
+  }
+
+  versions.forEach(version => {
+    const loader = new DocsLoader(version);
+
+    try {
+      createMainDocsPage({
+        path: `/${DOCS_PATH_NAME}/${version}`,
+        displayName: `${version} - ${ui.navigation.documentation}`,
+        version,
+        versions,
+        template,
+        createPage,
+        loader,
+      });
+    } catch (err) {
+      console.error(err);
+      return;
+    }
+
+    const manifest = loader.loadManifest();
+    const navigation = loader.loadNavigation();
+    createDocsSubpages({
+      version,
+      versions,
+      manifest,
+      createPage,
+      loader,
+      navigation,
+      template,
+    });
+  });
+}
+
+function populateDocsPages(obj) {
+  if (Array.isArray(obj)) {
+    return obj;
+  }
+
+  if (typeof obj === "object") {
+    return [obj];
+  }
+
+  return [];
+}
+
+function getFirstTopicId(typeObj) {
+  let id;
+  if (Array.isArray(typeObj) && typeObj.length > 0) {
+    id = typeObj[0].id;
+  } else if (typeof typeObj === "object") {
+    id = typeObj.id;
+  }
+
+  return id;
+}
+
+function getFirstDocType(manifest) {
+  const specKeys = Object.keys(manifest.spec);
+  if (specKeys.length === 0) {
+    return;
+  }
+
+  return specKeys[0];
+}
+
+function createMainDocsPage({
+  version,
+  versions,
+  path,
+  template,
+  displayName,
+  createPage,
+  loader,
+}) {
+  const navigation = loader.loadNavigation();
+  const manifest = loader.loadManifest();
+
+  if (!manifest.spec) {
+    throw new Error(`Incorrect manifest for version ${version}`);
+  }
+
+  const type = getFirstDocType(manifest);
+  if (!type) {
+    throw new Error(`No spec keys detected. Skipping version ${version}`);
+  }
+
+  const id = getFirstTopicId(manifest.spec[type]);
+  if (typeof id === "undefined") {
+    throw new Error(`Couldn't find id for type ${type}`);
+  }
+
+  const content = loader.loadContent(type, id);
+  createPage({
+    path,
+    component: template,
+    context: {
+      currentVersion: version,
+      versions,
+      content,
+      displayName,
+      navigation,
+      manifest,
+    },
+  });
+}
+
+function createDocsSubpages({
+  version,
+  versions,
+  manifest,
+  createPage,
+  loader,
+  template,
+}) {
+  const navigation = loader.loadNavigation();
+
+  Object.keys(manifest.spec).forEach(contentType => {
+    const obj = manifest.spec[contentType];
+    const pages = populateDocsPages(obj);
+
+    pages.forEach(page => {
+      content = loader.loadContent(contentType, page.id);
+
+      createPage({
+        path: `/${DOCS_PATH_NAME}/${version}/${contentType}/${page.id}`,
+        component: template,
+        context: {
+          displayName: `${page.displayName} - ${ui.navigation.documentation}`,
+          content,
+          navigation,
+          currentVersion: version,
+          versions,
+          manifest,
+        },
+      });
+    });
+  });
+}
+
+module.exports = createDocsPages;
