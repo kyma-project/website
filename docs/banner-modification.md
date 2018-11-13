@@ -47,20 +47,20 @@ To show multiple slides that change periodically, like in a typical carousel, ad
   "bannerDuration": 4000,
   "slides": [
     {
-      "text": "A flexible and easy way to connect and extend enterprise",
+      "text": "Example 1",
       "startDate": "01-11-2018",
       "endDate": "30-11-2018"
     },
     {
-      "text": "Join us for the  SAP TechEd, Bangalore, November 25-30",
-      "url": "https://google.com",
+      "text": "Example 2",
+      "url": "kyma-project.io",
       "openInNewTab": true,
       "startDate": "01-10-2018",
       "endDate": "30-11-2018",
       "icon": "assets/small.gif"
     },
     {
-      "text": "Some kind of internal link",
+      "text": "Example 3",
       "url": "/blog",
       "openInNewTab": false,
       "startDate": "20-10-2018",
