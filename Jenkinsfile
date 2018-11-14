@@ -52,7 +52,7 @@ podTemplate(label: label) {
                             }
                         } else {
                             stage("build $application") {
-                                execute("npm run build")
+                                execute("npm run build:prod")
                             }
                         }
                     }
