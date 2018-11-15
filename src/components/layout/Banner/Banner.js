@@ -49,14 +49,14 @@ class Banner extends PureComponent {
     return false;
   };
   parseDate = (arg, endOfDay) => {
-    const splitDate = arg.split("-");
+    const splitDate = arg.split("/");
     if (splitDate.length === 3) {
       if (endOfDay) {
         return new Date(
-          `${splitDate[1]}-${splitDate[0]}-${splitDate[2]} 23:59:59`,
+          `${splitDate[1]}/${splitDate[0]}/${splitDate[2]} 23:59:59`,
         );
       }
-      return new Date(`${splitDate[1]}-${splitDate[0]}-${splitDate[2]}`);
+      return new Date(`${splitDate[1]}/${splitDate[0]}/${splitDate[2]}`);
     }
     return null;
   };
