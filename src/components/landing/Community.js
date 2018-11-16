@@ -17,12 +17,24 @@ const Community = () => {
   const slack = translateLink("slack");
   const linkedin = translateLink("linkedin");
   const sigGroup = translateLink("sigGroup");
+  const stackOverflow = translateLink("stackOverflow");
 
   const sigLink = (
     <div>
-        <p>{sig.paragraph[0]} <a href={sigGroup.url} target="_blank" rel="noopener noreferrer" className="link-sig">{sig.link.name}</a> {sig.paragraph[1]}.</p>
+      <p>
+        {sig.paragraph[0]}{" "}
+        <a
+          href={sigGroup.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="link-sig"
+        >
+          {sig.link.name}
+        </a>{" "}
+        {sig.paragraph[1]}.
+      </p>
     </div>
-  )
+  );
 
   return (
     <section className="bg-b">
@@ -32,73 +44,113 @@ const Community = () => {
             <CommunitySvg />
           </div>
           <div className="col-6 col-md-9 col-sm-12">
-            <h2 className="community-h2">{landingPage[sectionPrefix].headline}</h2>
+            <h2 className="community-h2">
+              {landingPage[sectionPrefix].headline}
+            </h2>
             <div>
-              {paragraphs.map((paragraph, idx) => <p key={idx}>{paragraph}</p>)}
+              {paragraphs.map((paragraph, idx) => (
+                <p key={idx}>{paragraph}</p>
+              ))}
               {sigLink}
             </div>
             <div className="community--links">
               <p>{links.paragraph}</p>
               <ul>
                 <li>
-                    <a href={github.url} target="_blank" rel="noopener noreferrer">
-                        <div className="community-icon"> 
-                            <svg
-                                className="sprite-icon sprite-icon--25 sprite-icon--inverse"
-                                role="img"
-                                aria-labelledby="githublLink"
-                            >
-                                <title id="githublLink">{github.name}</title>
-                                <use xlinkHref="#github" />
-                            </svg>
-                        </div>
-                        <span>{github.name}</span>
-                    </a>
+                  <a
+                    href={github.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <div className="community-icon">
+                      <svg
+                        className="sprite-icon sprite-icon--25 sprite-icon--inverse"
+                        role="img"
+                        aria-labelledby="githublLink"
+                      >
+                        <title id="githublLink">{github.name}</title>
+                        <use xlinkHref="#github" />
+                      </svg>
+                    </div>
+                    <span>{github.name}</span>
+                  </a>
                 </li>
                 <li>
-                    <a href={twitter.url} target="_blank" rel="noopener noreferrer">
-                        <div className="community-icon"> 
-                            <svg
-                                className="sprite-icon sprite-icon--25 sprite-icon--inverse"
-                                role="img"
-                                aria-labelledby="twitterlLink"
-                            >
-                                <title id="twitterlLink">{twitter.name}</title>
-                                <use xlinkHref="#twitter" />
-                            </svg>
-                        </div>
-                        <span>{twitter.name}</span>
-                    </a>
+                  <a
+                    href={twitter.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <div className="community-icon">
+                      <svg
+                        className="sprite-icon sprite-icon--25 sprite-icon--inverse"
+                        role="img"
+                        aria-labelledby="twitterlLink"
+                      >
+                        <title id="twitterlLink">{twitter.name}</title>
+                        <use xlinkHref="#twitter" />
+                      </svg>
+                    </div>
+                    <span>{twitter.name}</span>
+                  </a>
                 </li>
                 <li>
-                    <a href={slack.url} target="_blank" rel="noopener noreferrer">
-                        <div className="community-icon slack"> 
-                            <svg
-                                className="sprite-icon sprite-icon--25 sprite-icon--inverse"
-                                role="img"
-                                aria-labelledby="slackLink"
-                            >
-                                <title id="slackLink">{slack.name}</title>
-                                <use xlinkHref="#slack" />
-                            </svg>
-                        </div>
-                        <span>{slack.name}</span>
-                    </a>
+                  <a href={slack.url} target="_blank" rel="noopener noreferrer">
+                    <div className="community-icon slack">
+                      <svg
+                        className="sprite-icon sprite-icon--25 sprite-icon--inverse"
+                        role="img"
+                        aria-labelledby="slackLink"
+                      >
+                        <title id="slackLink">{slack.name}</title>
+                        <use xlinkHref="#slack" />
+                      </svg>
+                    </div>
+                    <span>{slack.name}</span>
+                  </a>
                 </li>
-                <li>
-                    <a href={linkedin.url} target="_blank" rel="noopener noreferrer">
-                        <div className="community-icon"> 
-                            <svg
-                                className="sprite-icon sprite-icon--25 sprite-icon--inverse"
-                                role="img"
-                                aria-labelledby="linkedinLink"
-                            >
-                                <title id="linkedinLink">{linkedin.name}</title>
-                                <use xlinkHref="#linkedin" />
-                            </svg>
-                        </div>
-                        <span>{linkedin.name}</span>
-                    </a>
+                <li className="align-linkedin">
+                  <a
+                    href={linkedin.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <div className="community-icon">
+                      <svg
+                        className="sprite-icon sprite-icon--25 sprite-icon--inverse"
+                        role="img"
+                        aria-labelledby="linkedinLink"
+                      >
+                        <title id="linkedinLink">{linkedin.name}</title>
+                        <use xlinkHref="#linkedin" />
+                      </svg>
+                    </div>
+                    <span>{linkedin.name}</span>
+                  </a>
+                </li>
+
+                <li className="align-stack">
+                  <a
+                    href={stackOverflow.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <div className="community-icon stack">
+                      <svg
+                        className="sprite-icon sprite-icon--25 sprite-icon--inverse"
+                        role="img"
+                        aria-labelledby="stackoverflowLink"
+                      >
+                        <title id="stackoverflowLink">
+                          {stackOverflow.name}
+                        </title>
+                        <use xlinkHref="#stackOverflow" />
+                      </svg>
+                    </div>
+                    <span className="wrap-stack">
+                      {stackOverflow.communityName}
+                    </span>
+                  </a>
                 </li>
               </ul>
             </div>
