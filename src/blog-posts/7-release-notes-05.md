@@ -41,7 +41,7 @@ Authentication is enabled by default, and now users can change JWKs URI by selec
 We did a lot of great enhancements to the Kyma Service Catalog:
 
 - Support for &quot;namespaced&quot; service catalogs. This means a possibility to register brokers for specific Namespaces only. The Catalog has an additional Brokers view in the Environment context. The view lists Service Brokers registered only for a given Namespace.
-  - [link](https://github.com/kyma-project/kyma/blob/master/docs/service-catalog/docs/050-gs-broker-registration.md) to new getting started guide about brokers registration
+  - [Here](https://github.com/kyma-project/kyma/blob/master/docs/service-catalog/docs/050-gs-broker-registration.md) you can view a new getting started guide about brokers registration.
   - [link](https://github.com/kyma-project/kyma/blob/master/docs/service-catalog/docs/020-architecture-service-catalog.md) to architecture diagram about namespace catalog
 - We now officially published our documentation of the contract we applied between catalog UI and the open service broker API specification that is a core of Service Catalog:
   - [UI Overview](https://github.com/kyma-project/kyma/blob/master/docs/service-catalog/docs/060-ui-overview.md)
