@@ -82,17 +82,17 @@ As eventing is one of the core principles Kyma is built on, we enhanced the func
 - A bug, which caused that it was impossible to create two subscriptions with same name in different namespaces, has been fixed.
 - Kyma now enables a developer to better understand how to leverage tracing for understanding problems with event flow.
 
-## Known issues
+### Known issues
 
 There is a known intermittent Event trigger issue that causes the Events to not be delivered to lambdas or microservices.
 
 We are aware of this issue and we will provide a fix for it as part of the [issue](https://github.com/kyma-project/kyma/issues/1687).
 
-### Technical details
+#### Technical details
 
 The issue lies in the subscription validator application. The application sometimes does not react when Kubernetes notifies it about creating new EventActivation instances.
 
-### Workaround
+#### Workaround
 
 As a temporary fix for this issue, delete the sub-validator Pod by running the following command:
 
@@ -134,7 +134,7 @@ To keep track of your Kyma systems, we enhanced the following:
 
 The istio related dashboards are not showing any data. See the [issue] (https://github.com/kyma-project/kyma/issues/1724)
 
-### Workaround 
+#### Workaround 
 
 None
 
