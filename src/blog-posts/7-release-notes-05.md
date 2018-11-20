@@ -108,7 +108,7 @@ After deleting the sub-validator Pod, Kubernetes recreates it automatically, and
 
 We constantly work on improving the security of Kyma:
 
-- Documentation is now available on how to [update TLS certificates](https://github.com/kyma-project/kyma/blob/master/docs/security/docs/020-update-tls-certificates.md)
+- Documentation is now available on how to [update TLS certificates](https://github.com/kyma-project/kyma/blob/master/docs/security/docs/020-update-tls-certificates.md).
 - Static user password (for admins) is generated during installation and stored in the secret admin-user in kyma-system namespace. You can add another static users by providing own kubernetes secrets. Follow this [link](https://github.com/kyma-project/kyma/blob/master/docs/security/docs/006-details-manage-static-users.md) to learn more.
 
 ## Service Mesh
