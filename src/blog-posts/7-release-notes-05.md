@@ -79,7 +79,7 @@ As eventing is one of the core principles Kyma is built on, we enhanced the func
 
 - It is now possible for developers to change their subscriptions and fix any typos or wrong configurations. It allows avoiding a situation where, for example, specifying a wrong URL causes wrong Event type to be updated. Click [here](https://github.com/kyma-project/kyma/blob/master/docs/event-bus/docs/050-subscription-updates.md) to see how this can be done.
 
-- A bug, which caused that it was impossible to create two subscriptions with same name in different namespaces, has been fixed.
+- A bug, which caused that it was impossible to create two subscriptions with same name in different Namespaces, has been fixed.
 - Kyma now enables a developer to better understand how to leverage tracing for understanding problems with event flow.
 
 ### Known issues
