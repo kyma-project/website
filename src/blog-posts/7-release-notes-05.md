@@ -77,7 +77,7 @@ We did a lot of great enhancements to the Kyma Service Catalog:
 
 As eventing is one of the core principles Kyma is built on, we enhanced the functionality further:
 
-- It is now possible for developers to change their subscriptions and fix any typos or wrong configurations. E.g. a wrong URL specified, wrong event type can be updated. Click [here](https://github.com/kyma-project/kyma/blob/master/docs/event-bus/docs/050-subscription-updates.md) to see how this can be done.
+- It is now possible for developers to change their subscriptions and fix any typos or wrong configurations. It allows avoiding a situation where, for example, specifying a wrong URL causes wrong Event type to be updated. Click [here](https://github.com/kyma-project/kyma/blob/master/docs/event-bus/docs/050-subscription-updates.md) to see how this can be done.
 
 - A bug, which caused that it was impossible to create two subscriptions with same name in different namespaces, has been fixed.
 - Kyma now enables a developer to better understand how to leverage tracing for understanding problems with event flow.
