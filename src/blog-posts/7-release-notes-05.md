@@ -113,7 +113,7 @@ We constantly work on improving the security of Kyma:
 
 ## Service Mesh
 
-Istio is now installed from official istio charts. Istio customization is externalized into a separate component: [istio-patch](https://github.com/kyma-project/kyma/blob/master/docs/service-mesh/docs/010-istio-patch.md). As the result kyma can be installed on top of an existing [istio installation](https://github.com/kyma-project/kyma/blob/master/docs/kyma/docs/037-inst-custom-istio.md) (in the supported version).
+Istio is now installed from official Istio charts. Istio customization was externalized into a separate component: [istio-patch](https://github.com/kyma-project/kyma/blob/master/docs/service-mesh/docs/010-istio-patch.md). As a result, Kyma can be installed on top of an existing [Istio installation](https://github.com/kyma-project/kyma/blob/master/docs/kyma/docs/037-inst-custom-istio.md) (in the supported version).
 
 ## Installation
 
