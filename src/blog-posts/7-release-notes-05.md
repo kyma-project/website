@@ -123,7 +123,7 @@ The installation docs got reorganized and for reader convenience they all are no
 
 To keep track of your Kyma systems, we enhanced the following:
 
-- An Alert is defined if an Pod is not restarting in one of the System Namespaces. This enables basic monitoring of the Kyma System.
+- An Alert is defined if an Pod is not restarting in one of the system Namespaces. This enables basic monitoring of the `kyma-system`.
 
 ![](https://github.com/kyma-project/website/blob/7fedd5f06d48150af5305dd29c6836c00698eae4/src/blog-posts/assets/alerts_9.png)
 
