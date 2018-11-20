@@ -61,7 +61,7 @@ class MainPage extends React.Component {
     this.navSidebar = React.createRef();
   }
 
-  setActiveNav(activeNav) {
+  setActiveNav = activeNav => {
     if (
       JSON.stringify(activeNav) === JSON.stringify(this.state.activeNav) ||
       (activeNav.type === this.state.activeNav.type &&
@@ -72,15 +72,15 @@ class MainPage extends React.Component {
     } else {
       this.expandNav(activeNav);
     }
-  }
+  };
 
-  expandNav(activeNav) {
+  expandNav = activeNav => {
     this.setState({
       activeNav: activeNav,
     });
-  }
+  };
 
-  collapseNav(activeNav) {
+  collapseNav = activeNav => {
     const nav = activeNav.hash
       ? {
           id: activeNav.id,
@@ -96,14 +96,14 @@ class MainPage extends React.Component {
     this.setState({
       activeNav: nav,
     });
-  }
+  };
 
-  hideNavIfShouldOnMobile() {
+  hideNavIfShouldOnMobile = () => {
     // Hide navigation on Click on mobile
     if (window.innerWidth < DOCS_RESPONSIVE_BREAKPOINT) {
       this.navSidebar.current && this.navSidebar.current.hide();
     }
-  }
+  };
 
   render() {
     const { content, topics, currentVersion, manifest, location } = this.props;
@@ -125,9 +125,7 @@ class MainPage extends React.Component {
                     location={location}
                     currentVersion={currentVersion}
                     activeNav={this.state.activeNav}
-                    setActiveNav={newState => {
-                      this.setActiveNav(newState);
-                    }}
+                    setActiveNav={this.setActiveNav}
                     onLinkClick={this.hideNavIfShouldOnMobile}
                   />
                 </div>

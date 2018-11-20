@@ -200,6 +200,7 @@ function SecondarySubLink(props) {
                   parentId={item.anchor}
                   onLinkClick={onLinkClick}
                   activeNav={activeNav}
+                  setActiveNav={setActiveNav}
                   currentContent={currentContent}
                 />
               )}
