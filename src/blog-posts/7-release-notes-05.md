@@ -25,7 +25,7 @@ Making use of serverless concepts and technologies is what makes Kyma so great. 
 
 ![](https://github.com/kyma-project/website/blob/7fedd5f06d48150af5305dd29c6836c00698eae4/src/blog-posts/assets/jwks_authentication_1.png)
 
-Authentication is enabled by default, and now users can change JWKs URI by selecting from Load Present.
+Authentication is enabled by default, and you can change JWKs URI using the **Load Present** option.
 
 ![](https://github.com/kyma-project/website/blob/7fedd5f06d48150af5305dd29c6836c00698eae4/src/blog-posts/assets/jwks_authentication2_2.png)
 
