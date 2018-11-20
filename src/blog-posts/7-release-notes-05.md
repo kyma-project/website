@@ -55,7 +55,7 @@ We did a lot of great enhancements to the Kyma Service Catalog:
   
   ![](https://github.com/kyma-project/website/blob/7fedd5f06d48150af5305dd29c6836c00698eae4/src/blog-posts/assets/Screen%20Shot%202018-11-14%20at%2023.00.19_4.png)
   
-  - You can set a proxy for instance environment variables that are injected in your application
+  - You can set a proxy for instance environment variables that are injected to your application.
   
   ![](https://github.com/kyma-project/website/blob/7fedd5f06d48150af5305dd29c6836c00698eae4/src/blog-posts/assets/Screen%20Shot%202018-11-14%20at%2023.01.02_5.png)
   
