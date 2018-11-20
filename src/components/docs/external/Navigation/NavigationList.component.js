@@ -179,7 +179,14 @@ function SecondarySubLink(props) {
                     type: type,
                     hash: hash,
                   })}
-                  onClick={() => onLinkClick(hasSubElements)}
+                  onClick={() => {
+                    setActiveNav({
+                      id: rootId,
+                      type: type,
+                      hash: hash,
+                    });
+                    onLinkClick();
+                  }}
                 >
                   {item.name}
                 </StyledLink>

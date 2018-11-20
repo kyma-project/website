@@ -98,7 +98,7 @@ class MainPage extends React.Component {
     });
   }
 
-  hideNavIfShouldOnMobile(hasSubElements) {
+  hideNavIfShouldOnMobile() {
     // Hide navigation on Click on mobile
     if (window.innerWidth < DOCS_RESPONSIVE_BREAKPOINT) {
       this.navSidebar.current && this.navSidebar.current.hide();
@@ -128,9 +128,7 @@ class MainPage extends React.Component {
                     setActiveNav={newState => {
                       this.setActiveNav(newState);
                     }}
-                    onLinkClick={hasSubElements =>
-                      this.hideNavIfShouldOnMobile(hasSubElements)
-                    }
+                    onLinkClick={this.hideNavIfShouldOnMobile}
                   />
                 </div>
               )}
