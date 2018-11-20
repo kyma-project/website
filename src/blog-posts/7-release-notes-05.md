@@ -59,7 +59,7 @@ We did a lot of great enhancements to the Kyma Service Catalog:
   
   ![](https://github.com/kyma-project/website/blob/7fedd5f06d48150af5305dd29c6836c00698eae4/src/blog-posts/assets/Screen%20Shot%202018-11-14%20at%2023.01.02_5.png)
   
-  - Status of credentials (ServiceBinding) and apps binding (ServiceBindingUsage) is now visible. Even more, if you are viewing the bindings and in the meantime credentials creation failed, UI indicates the failure and puts a red marker on the tab so you know something wrong happened and you need to go to this tab
+  - The status of credentials (ServiceBinding) and application binding (ServiceBindingUsage) is now visible. Even more, if you are viewing the bindings and in the meantime the credentials creation fails, the UI indicates the failure and adds a red marker on the tab. This way, you know something wrong happened and you need to check the tab.
   
   ![](https://github.com/kyma-project/website/blob/7fedd5f06d48150af5305dd29c6836c00698eae4/src/blog-posts/assets/Screen%20Shot%202018-11-14%20at%2023.02.27_6.png)
   
