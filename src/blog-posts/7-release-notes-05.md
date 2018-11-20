@@ -6,7 +6,7 @@ tags:
   - release-notes
 title: "Release 0.5 is available!"
 ---
-We constantly work on making Kyma better and modularizing it further. Shortly after our last release, we now introduce the next update including many changes.
+We constantly work improving Kyma and modularizing it further. Shortly after our last release, we now introduce the next update including many changes.
 
 ## Application Connector
 
