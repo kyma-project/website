@@ -71,7 +71,7 @@ We did a lot of great enhancements to the Kyma Service Catalog:
 - New [**bundles**](https://github.com/kyma-project/bundles) repository enables Kyma to install add-ons such as brokers, showcases and local services.
 
   - It contains bundles which the Helm Broker uses. It allows you to choose a set of bundles and configure the Helm Broker. You can also define your own bundles.
-  - Have a look at the [getting started document](https://github.com/kyma-project/bundles/blob/master/docs/getting-started.md) which explains how to create your own bundles repository
+  - Have a look at the [getting started document](https://github.com/kyma-project/bundles/blob/master/docs/getting-started.md) which explains how to create your own bundles repository.
 
 ## Eventing
 
