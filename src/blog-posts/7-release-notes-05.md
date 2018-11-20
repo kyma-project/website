@@ -132,7 +132,7 @@ To keep track of your Kyma systems, we enhanced the following:
 
 ### Known Issues
 
-The Istio-related dashboards are not showing any data. For details, see [issue] (https://github.com/kyma-project/kyma/issues/1724).
+The Istio-related dashboards are not showing any data. For details, see [issue](https://github.com/kyma-project/kyma/issues/1724).
 
 #### Workaround 
 
