@@ -10,7 +10,7 @@ const Wrapper = styled.div`
   margin-top: 30px;
 `;
 
-const Documentation = ({ pageContext = {}, location, ...otherProps }) => {
+const Documentation = ({ pageContext = {}, location }) => {
   const { displayName } = pageContext;
 
   return (
