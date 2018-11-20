@@ -67,7 +67,7 @@ We did a lot of great enhancements to the Kyma Service Catalog:
   
   - The UI supports the ServiceBinding creation if the owner of the service class specified a custom schema for binding creation.
   - The cleanup of resources got improved. When you decide to delete some Credentials, the related application bindings are also deleted.
-- [Helm Broker](https://github.com/kyma-project/kyma/blob/master/docs/service-brokers/docs/011-configuration-helm-broker.md) supports many bundle repositories.
+- [Helm Broker]https://kyma-project.io/docs/components/service-brokers#configuration-configure-helm-broker) supports many bundle repositories.
 - New [**bundles**](https://github.com/kyma-project/bundles) repository enables Kyma to install add-ons such as brokers, showcases and local services.
 
   - It contains bundles which the Helm Broker uses. It allows you to choose a set of bundles and configure the Helm Broker. You can also define your own bundles.
@@ -77,7 +77,7 @@ We did a lot of great enhancements to the Kyma Service Catalog:
 
 As eventing is one of the core principles Kyma is built on, we enhanced the functionality further:
 
-- It is now possible for developers to change their subscriptions and fix any typos or wrong configurations. It allows avoiding a situation where, for example, specifying a wrong URL causes wrong Event type to be updated. Click [here](https://github.com/kyma-project/kyma/blob/master/docs/event-bus/docs/050-subscription-updates.md) to see how this can be done.
+- It is now possible for developers to change their subscriptions and fix any typos or wrong configurations. It allows avoiding a situation where, for example, specifying a wrong URL causes wrong Event type to be updated. Click [here](https://kyma-project.io/docs/components/event-bus#details-subscription-updates) to see how this can be done.
 
 - A bug, which caused that it was impossible to create two subscriptions with same name in different Namespaces, has been fixed.
 - Kyma now enables a developer to understand better how to leverage tracing for handling problems in the Event flow.
@@ -148,7 +148,7 @@ The Tracing UI is now linked from within the Kyma Console UI to make it easier t
 
 ## Console
 
-- Console can now be extended to add custom micro front-ends per environment as well as cluster-wide administration. More details can be found [here](https://github.com/kyma-project/kyma/blob/master/docs/console/docs/010-details-uiextensibility.md).
+- Console can now be extended to add custom micro front-ends per environment as well as cluster-wide administration. More details can be found [here](https://kyma-project.io/docs/components/console#details-ui-extensibility).
 
 ![](https://github.com/kyma-project/website/blob/anajankovic-patch-4/src/blog-posts/assets/console_1.png)
 
