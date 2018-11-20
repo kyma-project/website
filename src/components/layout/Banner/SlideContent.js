@@ -12,7 +12,7 @@ const SlideContent = ({ text, url, openInNewTab }) => {
       {url && (
         <>
           {" "}
-          <Link href={url} target={openInNewTab ? "_blank" : "_self"}>
+          <Link as="a" href={url} target={openInNewTab ? "_blank" : "_self"}>
             {"Read more"}
           </Link>
         </>

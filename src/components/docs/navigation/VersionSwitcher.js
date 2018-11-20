@@ -22,27 +22,21 @@ const VersionSelect = styled.select`
   font-size: 16px;
 `;
 
-const VersionSwitcher = ({
-  latestVersion,
-  versions,
-  currentVersion,
-  onChange,
-}) => {
-  return (
-    <Wrapper>
-      <Label>{ui.docs.version}</Label>
-      <VersionSelect onChange={onChange} defaultValue={currentVersion}>
-        <option key={latestVersion} value={latestVersion}>
-          {latestVersion} ({ui.docs.latest})
-        </option>
-        {versions.filter(version => version !== latestVersion).map(version => (
+const VersionSwitcher = ({ versions = [], currentVersion, onChange }) => (
+  <Wrapper>
+    <Label>{ui.docs.version}</Label>
+    <VersionSelect onChange={onChange} defaultValue={currentVersion}>
+      {versions.map((version, idx) => {
+        const isLatestVersion = idx === 0;
+
+        return (
           <option key={version} value={version}>
-            {version}
+            {version} {isLatestVersion && `(${ui.docs.latest})`}
           </option>
-        ))}
-      </VersionSelect>
-    </Wrapper>
-  );
-};
+        );
+      })}
+    </VersionSelect>
+  </Wrapper>
+);
 
 export default VersionSwitcher;

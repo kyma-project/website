@@ -63,12 +63,16 @@ const CookieMessageBanner = () => {
       disableStyle={true}
       dismissOnScroll={false}
       message={getTranslation("message")}
-      link={{
-        msg: getTranslation("readPrivacyStatement"),
-        url: getTranslation("link"),
-        rel: "noopener noreferrer",
-        target: "_blank",
-      }}
+      link={
+        <a
+          className="cookie-link"
+          href={getTranslation("link")}
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          {getTranslation("readPrivacyStatement")}
+        </a>
+      }
       buttonMessage={getTranslation("close")}
     />
   );
