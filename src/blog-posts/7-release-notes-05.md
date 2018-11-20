@@ -148,7 +148,7 @@ The Tracing UI is now linked from within the Kyma Console UI to make it easier t
 
 ## Console
 
-- Console can now be extended by custom microfrontends per environment as well as for cluster-wide administration. More details can be found [here](https://github.com/kyma-project/kyma/blob/master/docs/console/docs/010-details-uiextensibility.md).
+- Console can now be extended to add custom micro front-ends per environment as well as cluster-wide administration. More details can be found [here](https://github.com/kyma-project/kyma/blob/master/docs/console/docs/010-details-uiextensibility.md).
 
 ![](https://github.com/kyma-project/website/blob/anajankovic-patch-4/src/blog-posts/assets/console_1.png)
 
