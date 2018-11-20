@@ -82,7 +82,7 @@ As eventing is one of the core principles Kyma is built on, we enhanced the func
 - A bug, which caused that it was impossible to create two subscriptions with same name in different namespaces, has been fixed.
 - Kyma now enables a developer to better understand how to leverage tracing for understanding problems with event flow.
 
-## Known issues:
+## Known issues
 
 There is a known intermittent Event trigger issue that causes the Events to not be delivered to lambdas or microservices.
 
