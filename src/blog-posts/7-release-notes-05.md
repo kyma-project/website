@@ -12,7 +12,7 @@ We constantly work improving Kyma and modularizing it further. Shortly after our
 
 With the overall strategy to modularize Kyma as a whole, the Application Connector went through this change as well:
 
-- The modularization of Application Connector has been added. All components have been moved to a separate Helm chart and are no longer part of the Core. It also includes improvements of the naming of elements. The gateway service has been renamed to the Proxy service.
+- The Application Connector has been modularized. All components have been moved to a separate Helm chart and are no longer a part of the Core. This also includes changes in the naming of the elements. The Gateway service has been renamed to the Proxy service.
 - The Application Connector tests were extended with an additional flag for skipping SSL verification. It allows testing functionality against Kyma cluster with a self-signed certificate.
 - The Connector service returns now a client certificate as a full chain with a server-side certificate. The verification of a client certificate is now possible.
 
