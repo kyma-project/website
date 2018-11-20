@@ -51,6 +51,10 @@ podTemplate(label: label) {
                                 execute("./scripts/prepare-website.sh -s /website/ssh_key.pem --overwrite-git-config")
                             }
                         } else {
+                             stage("check dependencies") {
+                                execute("npm ls")
+                            }
+
                             stage("build $application") {
                                 execute("npm run build:prod")
                             }
