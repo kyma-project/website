@@ -59,8 +59,8 @@ podTemplate(label: label) {
 
                         if (isMaster) {
                             stage("IP scan $application (WhiteSource)") {
-                                withCredentials([string(credentialsId: 'whitesource_apikey', variable: 'apikey')]) {
-                                    execute("make scan", ["API_KEY=$apikey"])
+                                withCredentials([string(credentialsId: 'whitesource_apikey', variable: 'apikey'), string(credentialsId: 'whitesource_userkey', variable: 'userkey')]) {
+                                    execute("make scan", ["API_KEY=$apikey", "USER_KEY=$userkey"])
                                 }
                             }
 
@@ -93,7 +93,7 @@ podTemplate(label: label) {
 
 def execute(command, envs = []) {
     def repositoryName = 'documentation-generator'
-    def buildpack = 'node-buildpack:0.0.9'
+    def buildpack = 'node-buildpack:0.0.10'
     def envText = ''
     for (it in envs) {
         envText = "$envText --env $it"
