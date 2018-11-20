@@ -29,7 +29,7 @@ Authentication is enabled by default, and you can change JWKs URI using the **Lo
 
 ![](https://github.com/kyma-project/website/blob/7fedd5f06d48150af5305dd29c6836c00698eae4/src/blog-posts/assets/jwks_authentication2_2.png)
 
-- The Lambda UI is extended with an alert which is informing the user if he is about to leave the Lambda UI with unsaved changes.
+- The Lambda UI was extended with an alert informing you if you are about to leave the Lambda UI with unsaved changes.
 
 ![](https://github.com/kyma-project/website/blob/7fedd5f06d48150af5305dd29c6836c00698eae4/src/blog-posts/assets/unsaved_changes_3.png)
 
