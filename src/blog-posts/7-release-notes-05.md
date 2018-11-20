@@ -78,8 +78,31 @@ We did a lot of great enhancements to the Kyma Service Catalog:
 As eventing is one of the core principles Kyma is built on, we enhanced the functionality further:
 
 - It is now possible for developers to change their subscriptions and fix any typos or wrong configurations. E.g. a wrong URL specified, wrong event type can be updated. Click [here](https://github.com/kyma-project/kyma/blob/master/docs/event-bus/docs/050-subscription-updates.md) to see how this can be done.
+
 - A bug, which caused that it was impossible to create two subscriptions with same name in different namespaces, has been fixed.
 - Kyma now enables a developer to better understand how to leverage tracing for understanding problems with event flow.
+
+## Known issues:
+
+There is a known intermittent Event trigger issue that causes the Events to not be delivered to lambdas or microservices.
+
+We are aware of this issue and we will provide a fix for it as part of the [issue](https://github.com/kyma-project/kyma/issues/1687).
+
+### Technical details
+
+The issue lies in the subscription validator application. The application sometimes does not react when Kubernetes notifies it about creating new EventActivation instances.
+
+### Workaround
+
+As a temporary fix for this issue, delete the sub-validator Pod by running the following command:
+
+```bash
+
+$ kubectl delete pod $(kubectl get pods -l app=sub-validator -n kyma-system --output=jsonpath={.items..metadata.name}) -n kyma-system
+
+```
+
+After deleting the sub-validator Pod, Kubernetes recreates it automatically, and the issue should be fixed.
 
 ## Security
 
@@ -107,6 +130,14 @@ To keep track of your Kyma systems, we enhanced the following:
 - Promehteus alerting Webhooks are exposed in the configuration. This enables the integration of Prometheus Alerting in Custom Dashboards.
 - HTTP configuration now allows to define different ways of authentication in the face of the webhook. Basic auth, Tls and Baere token are some of them.
 
+### Known Issues
+
+The istio related dashboards are not showing any data. See the [issue] (https://github.com/kyma-project/kyma/issues/1724)
+
+### Workaround 
+
+None
+
 ## Logging
 
 Kyma is extended with a Persistence Layer for logging based on OKIog.
@@ -125,24 +156,3 @@ The Tracing UI is now linked from within the Kyma Console UI to make it easier t
 
 ![](https://github.com/kyma-project/website/blob/7fedd5f06d48150af5305dd29c6836c00698eae4/src/blog-posts/assets/Capture_10.PNG)
 
-## Known issues:
-
-There is a known intermittent Event trigger issue that causes the Events to not be delivered to lambdas or microservices.
-
-We are aware of this issue and we will provide a fix for it as part of the [issue](https://github.com/kyma-project/kyma/issues/1687).
-
-### Technical details
-
-The issue lies in the subscription validator application. The application sometimes does not react when Kubernetes notifies it about creating new EventActivation instances.
-
-### Workaround
-
-As a temporary fix for this issue, delete the sub-validator Pod by running the following command:
-
-```bash
-
-$ kubectl delete pod $(kubectl get pods -l app=sub-validator -n kyma-system --output=jsonpath={.items..metadata.name}) -n kyma-system
-
-```
-
-After deleting the sub-validator Pod, Kubernetes recreates it automatically, and the issue should be fixed.
