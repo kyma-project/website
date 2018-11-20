@@ -41,8 +41,8 @@ Authentication is enabled by default, and you can change JWKs URI using the **Lo
 We did a lot of great enhancements to the Kyma Service Catalog:
 
 - Support for &quot;namespaced&quot; service catalogs. This means a possibility to register brokers for specific Namespaces only. The Catalog has an additional Brokers view in the Environment context. The view lists Service Brokers registered only for a given Namespace.
-  - [Here](https://github.com/kyma-project/kyma/blob/master/docs/service-catalog/docs/050-gs-broker-registration.md) you can view a new getting started guide about brokers registration.
-  - [Here](https://github.com/kyma-project/kyma/blob/master/docs/service-catalog/docs/020-architecture-service-catalog.md) you can find an architecture diagram for the Namespace catalog.
+  - [Here](https://kyma-project.io/docs/components/service-catalog#getting-started-getting-started) you can view a new getting started guide about brokers registration.
+  - [Here](https://kyma-project.io/docs/components/service-catalog#architecture-architecture) you can find an architecture diagram for the Namespace catalog.
 - We have officially published our documentation of the contract we applied between the catalog UI and the open service broker API specification that is the core of the Service Catalog:
   - [UI Overview](https://github.com/kyma-project/kyma/blob/master/docs/service-catalog/docs/060-ui-overview.md)
   - [UI Catalog](https://github.com/kyma-project/kyma/blob/master/docs/service-catalog/docs/061-ui-catalog.md)
@@ -108,12 +108,12 @@ After deleting the sub-validator Pod, Kubernetes recreates it automatically, and
 
 We constantly work on improving the security of Kyma:
 
-- Documentation is now available on how to [update TLS certificates](https://github.com/kyma-project/kyma/blob/master/docs/security/docs/020-update-tls-certificates.md).
-- The static user password for administrators is generated during installation and stored in the secret admin-user in the `kyma-system` Namespace. You can add further static users by providing your own Kubernetes secrets. Use this [link](https://github.com/kyma-project/kyma/blob/master/docs/security/docs/006-details-manage-static-users.md) to learn more.
+- Documentation is now available on how to [update TLS certificates](https://kyma-project.io/docs/components/security#details-update-tls-certificate).
+- The static user password for administrators is generated during installation and stored in the secret admin-user in the `kyma-system` Namespace. You can add further static users by providing your own Kubernetes secrets. Use this [link](https://kyma-project.io/docs/components/security#details-manage-static-users-in-dex) to learn more.
 
 ## Service Mesh
 
-Istio is now installed from official Istio charts. Istio customization was externalized into a separate component: [istio-patch](https://github.com/kyma-project/kyma/blob/master/docs/service-mesh/docs/010-istio-patch.md). As a result, Kyma can be installed on top of an existing [Istio installation](https://github.com/kyma-project/kyma/blob/master/docs/kyma/docs/037-inst-custom-istio.md) (in the supported version).
+Istio is now installed from official Istio charts. Istio customization was externalized into a separate component: [istio-patch](https://kyma-project.io/docs/components/service-mesh#details-istio-patch). As a result, Kyma can be installed on top of an existing [Istio installation](https://github.com/kyma-project/kyma/blob/master/docs/kyma/docs/037-inst-custom-istio.md) (in the supported version).
 
 ## Installation
 
@@ -144,7 +144,7 @@ Kyma is extended with a Persistence Layer for logging based on OKIog.
 
 ## Tracing
 
-The Tracing UI is now linked from within the Kyma Console UI to make it easier to access the tracing information. Furthermore, it is now possible to compare two traces to understand what happened differently. You can get an answer to the question: &quot;Why did something unexpected happened?&quot; You can find more details [here](https://github.com/kyma-project/kyma/blob/master/docs/tracing/docs/030-trace-comparison.md).
+The Tracing UI is now linked from within the Kyma Console UI to make it easier to access the tracing information. Furthermore, it is now possible to compare two traces to understand what happened differently. You can get an answer to the question: &quot;Why did something unexpected happened?&quot; You can find more details [here](https://kyma-project.io/docs/components/tracing#details-trace-comparison).
 
 ## Console
 
