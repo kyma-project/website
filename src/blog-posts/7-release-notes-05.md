@@ -20,7 +20,7 @@ With the overall strategy to modularize Kyma as a whole, the Application Connect
 
 Making use of serverless concepts and technologies is what makes Kyma so great. Hence, we made a number of improvements in this area:
 
-- The Lambda UI is extended with the option to set Environment Variable Prefixes for Service Bindings. This will allow the binding of multiple services with the same set of environment variables.
+- The Lambda UI was extended with the option to set Environment Variable Prefixes for Service Bindings. This allows binding multiple services with the same set of environment variables.
 - The Lambda UI is extended with the option to set JWK Authentication Properties. This allows to define specific Token Issuers.
 
 ![](https://github.com/kyma-project/website/blob/7fedd5f06d48150af5305dd29c6836c00698eae4/src/blog-posts/assets/jwks_authentication_1.png)
