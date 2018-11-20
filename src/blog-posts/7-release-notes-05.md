@@ -117,7 +117,7 @@ Istio is now installed from official Istio charts. Istio customization was exter
 
 ## Installation
 
-The installation docs got reorganized and for reader convenience they all are now grouped under the same navigation called [Installation](https://kyma-project.io/docs/root/kyma#installation-installation).
+The installation documentation was reorganized and grouped under [Installation](https://kyma-project.io/docs/root/kyma#installation-installation).
 
 ## Monitoring
 
