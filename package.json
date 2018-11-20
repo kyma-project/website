@@ -20,11 +20,11 @@
     "axios": "^0.18.0",
     "babel-plugin-styled-components": "^1.8.0",
     "compare-versions": "^3.4.0",
-    "gatsby": "^2.0.50",
+    "gatsby": "^2.0.52",
     "gatsby-plugin-google-analytics": "^2.0.7",
     "gatsby-plugin-react-helmet": "^3.0.2",
     "gatsby-plugin-sharp": "^2.0.12",
-    "gatsby-plugin-styled-components": "^3.0.2",
+    "gatsby-plugin-styled-components": "^3.0.3",
     "gatsby-remark-copy-linked-files": "^2.0.6",
     "gatsby-remark-images": "^2.0.6",
     "gatsby-source-filesystem": "^2.0.8",
@@ -35,7 +35,7 @@
     "i18next-xhr-backend": "^1.5.1",
     "null-loader": "^0.1.1",
     "react": "^16.6.3",
-    "react-cookie-banner": "^4.0.0",
+    "react-cookie-banner": "^3.0.0",
     "react-dom": "^16.6.3",
     "react-helmet": "^5.2.0",
     "react-highlight": "^0.12.0",
@@ -46,7 +46,7 @@
   "devDependencies": {
     "gh-pages": "^1.2.0",
     "husky": "^1.1.4",
-    "lint-staged": "^8.0.4"
+    "lint-staged": "^8.0.5"
   },
   "husky": {
     "hooks": {
