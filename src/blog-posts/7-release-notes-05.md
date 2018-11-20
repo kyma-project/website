@@ -43,7 +43,7 @@ We did a lot of great enhancements to the Kyma Service Catalog:
 - Support for &quot;namespaced&quot; service catalogs. This means a possibility to register brokers for specific Namespaces only. The Catalog has an additional Brokers view in the Environment context. The view lists Service Brokers registered only for a given Namespace.
   - [Here](https://github.com/kyma-project/kyma/blob/master/docs/service-catalog/docs/050-gs-broker-registration.md) you can view a new getting started guide about brokers registration.
   - [Here](https://github.com/kyma-project/kyma/blob/master/docs/service-catalog/docs/020-architecture-service-catalog.md) you can find an architecture diagram for the Namespace catalog.
-- We now officially published our documentation of the contract we applied between catalog UI and the open service broker API specification that is a core of Service Catalog:
+- We have officially published our documentation of the contract we applied between the catalog UI and the open service broker API specification that is the core of the Service Catalog:
   - [UI Overview](https://github.com/kyma-project/kyma/blob/master/docs/service-catalog/docs/060-ui-overview.md)
   - [UI Catalog](https://github.com/kyma-project/kyma/blob/master/docs/service-catalog/docs/061-ui-catalog.md)
   - [UI Instances](https://github.com/kyma-project/kyma/blob/master/docs/service-catalog/docs/062-ui-instances.md)
