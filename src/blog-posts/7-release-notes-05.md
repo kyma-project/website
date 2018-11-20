@@ -68,7 +68,7 @@ We did a lot of great enhancements to the Kyma Service Catalog:
   - The UI supports the ServiceBinding creation if the owner of the service class specified a custom schema for binding creation.
   - The cleanup of resources got improved. When you decide to delete some Credentials, the related application bindings are also deleted.
 - [Helm Broker](https://github.com/kyma-project/kyma/blob/master/docs/service-brokers/docs/011-configuration-helm-broker.md) supports many bundle repositories.
-- New [_bundles_](https://github.com/kyma-project/bundles) repository is available which enables Kyma to install add-ons (e.g. brokers), showcases and local services
+- New [**bundles**](https://github.com/kyma-project/bundles) repository enables Kyma to install add-ons such as brokers, showcases and local services.
 
   - It contains bundles which the Helm Broker uses. It allows you to choose a set of bundles and configure the Helm Broker. You can also define your own bundles.
   - Have a look at the [getting started document](https://github.com/kyma-project/bundles/blob/master/docs/getting-started.md) which explains how to create your own bundles repository
