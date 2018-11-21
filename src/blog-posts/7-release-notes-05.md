@@ -58,7 +58,7 @@ We did a lot of great enhancements to the Kyma Service Catalog:
   
   - The status of credentials (ServiceBinding) and application binding (ServiceBindingUsage) is now visible. Even more, if you are viewing the bindings and in the meantime the credentials creation fails, the UI indicates the failure and adds a red marker on the tab. This way, you know something wrong happened and you need to check the tab.
   
-  ![](./assets/service_instances.png)
+  ![](./assets/service Instances.png)
   
   ![](./assets/bound_applications.png)
   
