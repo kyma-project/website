@@ -33,9 +33,6 @@ Authentication is enabled by default, and you can change JWKs URI using the **Lo
 
 ![](./assets/unsaved_changes_3.png)
 
-- The Lambda-UI was updated to Angular Version 6.
-- Bugfixes and minor enhancements were added.
-
 ## Service Catalog
 
 We did a lot of great enhancements to the Kyma Service Catalog:
