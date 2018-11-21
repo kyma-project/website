@@ -140,7 +140,7 @@ Kyma was extended with Persistence Layer for logging based on OK Log.
 
 ## Tracing
 
-The Tracing UI is now linked from within the Kyma Console UI to make it easier to access the tracing information. Furthermore, it is now possible to compare two traces to understand what happened differently. You can get an answer to the question: &quot;Why did something unexpected happened?&quot; You can find more details [here](https://kyma-project.io/docs/0.5/components/tracing#details-trace-comparison).
+The Tracing UI is now linked from within the Kyma Console UI to make it easier to access the tracing information. Furthermore, it is now possible to compare two traces to track the process. You can get an answer to the question: &quot;Why did something unexpected happened?&quot; You can find more details [here](https://kyma-project.io/docs/0.5/components/tracing#details-trace-comparison).
 
 ## Console
 
