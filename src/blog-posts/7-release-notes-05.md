@@ -150,5 +150,6 @@ The Tracing UI is now linked from within the Kyma Console UI to make it easier t
 
 - It is now possible to view and edit **ConfigMaps**:
 
-![](./assets/console_2.png) 
+![](./assets/console_2.PNG) 
+
 
