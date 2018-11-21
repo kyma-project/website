@@ -3,12 +3,14 @@ export class DocsProcessor {
     this.docs = [...docs];
   }
 
-  replaceImagePaths = ({ type, id, version }) => {
+  replaceImagePaths = ({ type, id, version, versions }) => {
+    const isVersionLatest = version === "latest";
+    const currentVersion = isVersionLatest ? versions[0] : version;
     this.docs = this.docs.map(doc => {
       if (doc.source.search(/.?\/?assets/g) !== -1) {
         doc.source = doc.source.replace(
           /src="\.?\/?assets/g,
-          `src="/documentation/${version}/${type}/${id}/assets`,
+          `src="/documentation/${currentVersion}/${type}/${id}/assets`,
         );
       }
 
