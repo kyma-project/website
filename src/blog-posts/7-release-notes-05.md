@@ -123,7 +123,7 @@ To keep track of your Kyma systems, we enhanced the following:
 
 ![](./assets/alerts_9.png) 
 
-- Promehteus-alerting Webhooks are exposed in the configuration. This enables the integration of Prometheus Alerting in Custom Dashboards.
+- Promehteus alerting webhooks are exposed in the configuration. This enables the integration of Prometheus alerting in custom dashboards.
 - HTTP configuration now allows to define different ways of authentication in the face of the webhook. Basic auth, Tls and Baere token are some of them.
 
 ### Known Issues
