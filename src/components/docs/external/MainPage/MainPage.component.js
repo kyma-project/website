@@ -110,6 +110,7 @@ class MainPage extends React.Component {
       content,
       topics,
       currentVersion,
+      versions,
       manifest,
       location,
       includeVersionInPath,
@@ -131,6 +132,7 @@ class MainPage extends React.Component {
                     currentContent={content}
                     includeVersionInPath={includeVersionInPath}
                     location={location}
+                    versions={versions}
                     currentVersion={currentVersion}
                     activeNav={this.state.activeNav}
                     setActiveNav={this.setActiveNav}
@@ -141,7 +143,11 @@ class MainPage extends React.Component {
             </Sticky>
           </SideWrapper>
           <CenterSideWrapper>
-            <DocsContent version={currentVersion} content={content} />
+            <DocsContent
+              version={currentVersion}
+              content={content}
+              versions={versions}
+            />
           </CenterSideWrapper>
         </ColumnsWrapper>
       </StickyContainer>

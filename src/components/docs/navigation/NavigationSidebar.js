@@ -87,6 +87,7 @@ class NavigationSidebar extends React.Component {
       topNavComponent,
       items,
       topics,
+      versions,
       activeNav,
       currentContent,
       setActiveNav,
@@ -114,6 +115,7 @@ class NavigationSidebar extends React.Component {
             setActiveNav={setActiveNav}
             currentVersion={currentVersion}
             onLinkClick={onLinkClick}
+            versions={versions}
           />
         </SidebarWrapper>
       </>

@@ -3,7 +3,7 @@ import DocsContent from "./DocsContent.component";
 import { DocsProcessor } from "./DocsProcessor";
 import { tokenize } from "../../../helpers/tokenize";
 
-const DocsContentContainer = ({ content, version }) => {
+const DocsContentContainer = ({ content, version, versions }) => {
   if (!content) {
     return null;
   }
@@ -14,7 +14,7 @@ const DocsContentContainer = ({ content, version }) => {
   newContent.docs = new DocsProcessor(docs)
     .filterExternal()
     .sortByOrder()
-    .replaceImagePaths({ type: tokenize(type), id, version })
+    .replaceImagePaths({ type: tokenize(type), id, version, versions })
     .result();
 
   return <DocsContent tokenize={tokenize} content={newContent} />;

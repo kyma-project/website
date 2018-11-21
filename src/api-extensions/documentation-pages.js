@@ -6,6 +6,8 @@ const ui = require("../locales/en/UI.json");
 const DocsLoader = require("./DocsLoader");
 const { DOCS_PATH_NAME } = require("../constants/docs");
 
+const LATEST_VERSION = "latest";
+
 function getDocsVersions(path) {
   const subdirectories = readdirSync(resolve(path)).filter(file =>
     statSync(join(path, file)).isDirectory(),
@@ -22,6 +24,8 @@ function createDocsPages({ createPage }) {
     return;
   }
 
+  const versionsWithoutLatest = [...versions];
+
   const latestVersion = versions[0];
   const loader = new DocsLoader(latestVersion);
 
@@ -29,7 +33,7 @@ function createDocsPages({ createPage }) {
     createMainDocsPage({
       version: latestVersion,
       includeVersionInPath: false,
-      versions,
+      versions: versionsWithoutLatest,
       displayName: ui.navigation.documentation,
       path: `/${DOCS_PATH_NAME}`,
       template,
@@ -43,7 +47,7 @@ function createDocsPages({ createPage }) {
     createDocsSubpages({
       version: latestVersion,
       includeVersionInPath: false,
-      versions,
+      versions: versionsWithoutLatest,
       manifest,
       createPage,
       loader,
@@ -55,15 +59,18 @@ function createDocsPages({ createPage }) {
     return;
   }
 
+  versions.push(LATEST_VERSION);
   versions.forEach(version => {
-    const loader = new DocsLoader(version);
+    const isLatestVersion = version === LATEST_VERSION;
+    const currentVersion = isLatestVersion ? versionsWithoutLatest[0] : version;
+    const loader = new DocsLoader(currentVersion);
 
     try {
       createMainDocsPage({
         path: `/${DOCS_PATH_NAME}/${version}`,
         displayName: `${version} - ${ui.navigation.documentation}`,
-        version,
-        versions,
+        version: version,
+        versions: versionsWithoutLatest,
         template,
         createPage,
         loader,
@@ -77,7 +84,7 @@ function createDocsPages({ createPage }) {
     const navigation = loader.loadNavigation();
     createDocsSubpages({
       version,
-      versions,
+      versions: versionsWithoutLatest,
       manifest,
       createPage,
       loader,
