@@ -895,7 +895,8 @@ h3 {
   .kyma-menu .btn {
     padding: 2px 0;
   }
-  .kyma-menu .link, .kyma-menu .btn {
+  .kyma-menu .link,
+  .kyma-menu .btn {
     display: block;
   }
   .kyma-menu .link-ordinary {
@@ -936,7 +937,9 @@ h3 {
     opacity: 1;
     transform: translateX(0);
   }
-  .kyma-menu .link-ordinary, .kyma-menu .btn-github, .kyma-menu .btn-slack {
+  .kyma-menu .link-ordinary,
+  .kyma-menu .btn-github,
+  .kyma-menu .btn-slack {
     margin: 0px;
   }
   .kyma-menu .link-blog {
@@ -1015,7 +1018,8 @@ h3 {
 .kyma-attr {
   margin-top: 10%;
 }
-.kyma-attr h2, .kyma-attr h3 {
+.kyma-attr h2,
+.kyma-attr h3 {
   text-align: center;
 }
 @media (min-width: 768px) {
@@ -1171,7 +1175,7 @@ h3 {
 }
 
 .community--links ul li {
-  display: inline-block;
+  display: inline-flex;
   margin-right: 24px;
   text-align: center;
 }
@@ -1204,6 +1208,18 @@ h3 {
   margin-top: 12px;
 }
 
+.community--links ul li.align-linkedin {
+  margin-left: -5px;
+}
+
+.community--links ul li.align-stack {
+  margin-left: -14px;
+}
+
+.community--links .wrap-stack {
+  max-width: 70px;
+}
+
 @media (max-width: 575px) {
   .community--links ul li {
     margin-right: 18px;
@@ -1213,6 +1229,16 @@ h3 {
   }
   .community--links .community-icon svg {
     padding: 2px;
+  }
+}
+
+@media (max-width: 800px) {
+  .community--links ul {
+    text-align: center;
+  }
+
+  .community--links ul li {
+    margin-bottom: 20px;
   }
 }
 
@@ -1280,6 +1306,12 @@ footer {
   margin-right: 2px;
 }
 
+.link-stack svg {
+  position: relative;
+  margin-right: 5px;
+  top: -2px;
+}
+
 .link-linkedin svg {
   position: relative;
   margin-right: 5px;
@@ -1330,13 +1362,18 @@ footer {
   margin-top: 10%;
 }
 
-.btn-github, .btn-slack, .btn-documentation {
+.btn-github,
+.btn-slack,
+.btn-documentation {
   padding: 10px 18px;
 }
 
-.btn:active, .kyma-menu .btn-github:active,
-.btn:focus, .kyma-menu .btn-github:focus,
-.btn:hover, .kyma-menu .btn-github:hover {
+.btn:active,
+.kyma-menu .btn-github:active,
+.btn:focus,
+.kyma-menu .btn-github:focus,
+.btn:hover,
+.kyma-menu .btn-github:hover {
   cursor: pointer;
   background-color: rgba(255, 255, 255, 0.1);
   outline: none;

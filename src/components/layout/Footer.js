@@ -9,6 +9,7 @@ const Footer = () => {
   const slack = translateLink("slack");
   const linkedin = translateLink("linkedin");
   const youtube = translateLink("youtube");
+  const stackOverflow = translateLink("stackOverflow");
 
   return (
     <footer>
@@ -22,7 +23,12 @@ const Footer = () => {
             <title id="title">{ui.metadata.title}</title>
             <use xlinkHref="#logo-single" />
           </svg>
-          <a href={github.url} className="link link-media link-github" target="_blank" rel="noopener noreferrer">
+          <a
+            href={github.url}
+            className="link link-media link-github"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <svg
               className="sprite-icon sprite-icon--14 sprite-icon--inverse"
               role="img"
@@ -33,7 +39,12 @@ const Footer = () => {
             </svg>
             {github.name}
           </a>
-          <a href={twitter.url} className="link link-media link-twitter" target="_blank" rel="noopener noreferrer">
+          <a
+            href={twitter.url}
+            className="link link-media link-twitter"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <svg
               className="sprite-icon sprite-icon--15 sprite-icon--inverse"
               role="img"
@@ -44,7 +55,12 @@ const Footer = () => {
             </svg>
             {twitter.name}
           </a>
-          <a href={slack.url} className="link link-media link-slack" target="_blank" rel="noopener noreferrer">
+          <a
+            href={slack.url}
+            className="link link-media link-slack"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <svg
               className="sprite-icon sprite-icon--15 sprite-icon--inverse"
               role="img"
@@ -55,7 +71,12 @@ const Footer = () => {
             </svg>
             {slack.name}
           </a>
-          <a href={linkedin.url} className="link link-media link-linkedin" target="_blank" rel="noopener noreferrer">
+          <a
+            href={linkedin.url}
+            className="link link-media link-linkedin"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <svg
               className="sprite-icon sprite-icon--14 sprite-icon--inverse"
               role="img"
@@ -66,7 +87,12 @@ const Footer = () => {
             </svg>
             {linkedin.name}
           </a>
-          <a href={youtube.url} className="link link-media link-youtube" target="_blank" rel="noopener noreferrer">
+          <a
+            href={youtube.url}
+            className="link link-media link-youtube"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <svg
               className="sprite-icon sprite-icon--15 sprite-icon--inverse"
               role="img"
@@ -76,6 +102,22 @@ const Footer = () => {
               <use xlinkHref="#youtube" />
             </svg>
             {youtube.name}
+          </a>
+          <a
+            href={stackOverflow.url}
+            className="link link-media link-stack"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg
+              className="sprite-icon sprite-icon--15 sprite-icon--inverse"
+              role="img"
+              aria-labelledby="stackOverflowLink"
+            >
+              <title id="stackOverflowLink">{stackOverflow.name}</title>
+              <use xlinkHref="#stackOverflow" />
+            </svg>
+            {stackOverflow.name}
           </a>
 
           <div className="copyright">
