@@ -136,7 +136,7 @@ None
 
 ## Logging
 
-Kyma is extended with a Persistence Layer for logging based on OKIog.
+Kyma was extended with Persistence Layer for logging based on OK Log.
 
 ## Tracing
 
