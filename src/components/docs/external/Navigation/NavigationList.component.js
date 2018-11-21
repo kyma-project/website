@@ -212,11 +212,11 @@ function SecondarySubLink(props) {
 }
 
 function NavigationList(props) {
-  const getPathLink = (version => {
+  const getPathLink = ((version, includeVersionInPath) => {
     return ({ id, type, hash }) => {
-      return getDocsPath(version, { type, id, hash });
+      return getDocsPath(version, { type, id, hash }, includeVersionInPath);
     };
-  })(props.currentVersion);
+  })(props.currentVersion, props.includeVersionInPath);
 
   const isLinkActive = (() => {
     return ({ id, type }) => {

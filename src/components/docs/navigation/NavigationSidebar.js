@@ -91,6 +91,7 @@ class NavigationSidebar extends React.Component {
       currentContent,
       setActiveNav,
       onLinkClick,
+      includeVersionInPath,
     } = this.props;
 
     return (
@@ -107,6 +108,7 @@ class NavigationSidebar extends React.Component {
           <NavigationList
             items={items}
             topics={topics}
+            includeVersionInPath={includeVersionInPath}
             currentContent={currentContent}
             activeNav={activeNav}
             setActiveNav={setActiveNav}

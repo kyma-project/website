@@ -28,12 +28,27 @@ function createDocsPages({ createPage }) {
   try {
     createMainDocsPage({
       version: latestVersion,
+      includeVersionInPath: false,
       versions,
       displayName: ui.navigation.documentation,
       path: `/${DOCS_PATH_NAME}`,
       template,
       createPage,
       loader,
+    });
+
+    const manifest = loader.loadManifest();
+    const navigation = loader.loadNavigation();
+
+    createDocsSubpages({
+      version: latestVersion,
+      includeVersionInPath: false,
+      versions,
+      manifest,
+      createPage,
+      loader,
+      navigation,
+      template,
     });
   } catch (err) {
     console.error(err);
@@ -106,6 +121,7 @@ function getFirstDocType(manifest) {
 
 function createMainDocsPage({
   version,
+  includeVersionInPath = true,
   versions,
   path,
   template,
@@ -135,6 +151,7 @@ function createMainDocsPage({
     path,
     component: template,
     context: {
+      includeVersionInPath,
       currentVersion: version,
       versions,
       content,
@@ -147,6 +164,7 @@ function createMainDocsPage({
 
 function createDocsSubpages({
   version,
+  includeVersionInPath = true,
   versions,
   manifest,
   createPage,
@@ -159,16 +177,19 @@ function createDocsSubpages({
     const obj = manifest.spec[contentType];
     const pages = populateDocsPages(obj);
 
+    const versionPathPart = includeVersionInPath ? `${version}/` : "";
+
     pages.forEach(page => {
       content = loader.loadContent(contentType, page.id);
 
       createPage({
-        path: `/${DOCS_PATH_NAME}/${version}/${contentType}/${page.id}`,
+        path: `/${DOCS_PATH_NAME}/${versionPathPart}${contentType}/${page.id}`,
         component: template,
         context: {
           displayName: `${page.displayName} - ${ui.navigation.documentation}`,
           content,
           navigation,
+          includeVersionInPath,
           currentVersion: version,
           versions,
           manifest,

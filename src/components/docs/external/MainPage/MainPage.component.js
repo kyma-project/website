@@ -106,7 +106,14 @@ class MainPage extends React.Component {
   };
 
   render() {
-    const { content, topics, currentVersion, manifest, location } = this.props;
+    const {
+      content,
+      topics,
+      currentVersion,
+      manifest,
+      location,
+      includeVersionInPath,
+    } = this.props;
     const topicItems = topics.topics;
 
     return (
@@ -122,6 +129,7 @@ class MainPage extends React.Component {
                     items={manifest}
                     topics={topicItems}
                     currentContent={content}
+                    includeVersionInPath={includeVersionInPath}
                     location={location}
                     currentVersion={currentVersion}
                     activeNav={this.state.activeNav}

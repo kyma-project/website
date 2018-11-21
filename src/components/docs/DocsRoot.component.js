@@ -9,12 +9,15 @@ const DocsRoot = ({
   manifest,
   content,
   currentVersion,
+  includeVersionInPath,
   versions,
   location,
 }) => {
   const changeVersion = async e => {
+    const optionIndex = e.target.selectedIndex;
     const newVersion = e.target.value;
-    const path = getDocsPath(newVersion);
+    const isLatestVersion = optionIndex === 0;
+    const path = getDocsPath(newVersion, {}, !isLatestVersion);
     window.location.replace(path);
   };
 
@@ -23,6 +26,7 @@ const DocsRoot = ({
       topics={navigation}
       manifest={manifest.spec}
       currentVersion={currentVersion}
+      includeVersionInPath={includeVersionInPath}
       location={location}
       versions={versions}
       content={content}
