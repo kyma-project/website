@@ -60,7 +60,7 @@ We did a lot of great enhancements to the Kyma Service Catalog:
   
   ![](./assets/service_instances.png)
   
-  ![](./assets/bound applications.png)
+  ![](./assets/bound_applications.png)
   
   - The UI supports the ServiceBinding creation if the owner of the service class specified a custom schema for binding creation.
   - The cleanup of resources got improved. When you decide to delete some Credentials, the related application bindings are also deleted.
