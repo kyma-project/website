@@ -98,8 +98,7 @@ As a temporary fix for this issue, delete the sub-validator Pod by running the f
 
 ```bash
 
-$ kubectl delete pod $(kubectl get pods -l app=sub-validator -n kyma-system --output=jsonpath={.items..metadata.name}) -n kyma-system
-
+$ kubectl delete pod $(kubectl get pods -l app=sub-validator -n kyma-system --output=jsonpath={.items..metadata.name}) -n kyma-systemC
 ```
 
 After deleting the sub-validator Pod, Kubernetes recreates it automatically, and the issue should be fixed.
@@ -152,7 +151,7 @@ The Tracing UI is now linked from within the Kyma Console UI to make it easier t
 
 ![](https://github.com/kyma-project/website/blob/anajankovic-patch-4/src/blog-posts/assets/console_1.png)
 
-- It is now possible to view and edit configmaps:
+- It is now possible to view and edit ConfigMaps:
 
 ![](https://github.com/kyma-project/website/blob/7fedd5f06d48150af5305dd29c6836c00698eae4/src/blog-posts/assets/Capture_10.PNG)
 
