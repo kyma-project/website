@@ -1,8 +1,6 @@
 white-list-external:
   - localhost
   - kyma.local
-  - https://kyma-project.io/blog/some-address
-  - https://kyma-project.io/docs/latest/root/kyma#overview-in-a-nutshell
 black-list:
   - node_modules
 timeout: 60
@@ -30,3 +28,7 @@ files:
     config:
       white-list-internal:
         - ../src/banner/assets
+  - path: ./website/docs/write-blog-posts.md
+    config:
+      white-list-external:
+        - https://kyma-project.io/blog/some-address
