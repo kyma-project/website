@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import colors from "../../../config/colors";
+
 export const Wrapper = styled.section`
   box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2);
   background-color: ${colors.blue};
@@ -9,13 +10,21 @@ export const Wrapper = styled.section`
 `;
 
 export const InnerWrapper = styled.div`
-  ${props => props.height && `min-height: ${props.height}px;`};
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -9999px;
+  ${props =>
+    props.height &&
+    `min-height: ${props.height}px;
+    position: relative; 
+    top:0;
+  `};
   width: 100%;
   max-width: 1200px;
   display: flex;
   justify-content: left;
   align-items: center;
-  position: relative;
   padding: 15px 30px;
 
   @media (max-width: 736px) {
@@ -60,7 +69,7 @@ export const Text = styled.p`
   }
 `;
 
-export const Link = styled(Text)`
+export const StyledLink = styled(Text)`
   text-decoration: underline;
   padding: 0;
   margin: 0;

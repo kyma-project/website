@@ -1,6 +1,6 @@
 import React from "react";
-import { Text, Link } from "./styled";
-
+import { Text, StyledLink } from "./styled";
+import { Link } from "gatsby";
 const SlideContent = ({ text, url, openInNewTab }) => {
   if (!text) {
     console.error("Provide valid text for banner!");
@@ -12,9 +12,15 @@ const SlideContent = ({ text, url, openInNewTab }) => {
       {url && (
         <>
           {" "}
-          <Link as="a" href={url} target={openInNewTab ? "_blank" : "_self"}>
-            {"Read more"}
-          </Link>
+          {openInNewTab ? (
+            <StyledLink as="a" href={url} target="_blank">
+              {"Read more"}
+            </StyledLink>
+          ) : (
+            <StyledLink as={Link} to={url}>
+              {"Read more"}
+            </StyledLink>
+          )}
         </>
       )}
     </Text>
