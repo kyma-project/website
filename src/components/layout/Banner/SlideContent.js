@@ -7,21 +7,28 @@ const SlideContent = ({ text, url, openInNewTab }) => {
     console.error("Provide valid text for banner!");
     return null;
   }
+
+  let linkProps;
+  if (openInNewTab) {
+    linkProps = {
+      as: "a",
+      href: url,
+      target: "_blank",
+    };
+  } else {
+    linkProps = {
+      as: Link,
+      to: url,
+    };
+  }
+
   return (
     <Text>
       {text}
       {url && (
         <>
           {" "}
-          {openInNewTab ? (
-            <StyledLink as="a" href={url} target="_blank">
-              {UI.navigation.readMore}
-            </StyledLink>
-          ) : (
-            <StyledLink as={Link} to={url}>
-              {UI.navigation.readMore}
-            </StyledLink>
-          )}
+          <StyledLink {...linkProps}>{UI.navigation.readMore}</StyledLink>
         </>
       )}
     </Text>
