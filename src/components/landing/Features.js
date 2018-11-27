@@ -12,7 +12,7 @@ const Features = () => {
         return <Connectivity />;
       case "serverless":
         return <TechIndependent />;
-      case "serviceCatalog":
+      case "serviceManagement":
         return <Extendable />;
       default:
         return null;
@@ -22,19 +22,19 @@ const Features = () => {
   const sections = landingPage.features || [];
   return (
     <div className="row kyma-attr row--sm-align-center">
-      <h2 className="col-12 col-md-12">Key features</h2>
+      <h2 className="col-12 col-md-12">
+         <a href="/docs/root/kyma#overview-key-components">Key features</a>
+      </h2>
       {sections.map(section => {
         return (
           <section className="col-4 col-md-12" key={section.id}>
-            <h3>{section.headline}</h3>
+            <h3><a href="{section.url}">{section.headline}</a></h3>
             <div className="img-wrap">
               {getIllustrationComponent(section.id)}
             </div>
-            <ul className="list-disc">
-              {section.bulletPoints.map((bulletPoint, idx) => (
-                <li key={idx}>{bulletPoint}</li>
-              ))}
-            </ul>
+            <p>
+              {section.paragraph}
+            </p>
           </section>
         );
       })}
