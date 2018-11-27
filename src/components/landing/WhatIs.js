@@ -9,10 +9,7 @@ const WhatIs = () => {
   const headline = landingPage[sectionPrefix].headline;
   const paragraphs = landingPage[sectionPrefix].paragraphs || [];
 
-  const github = {
-    name: ui.socialMedia.github.name,
-    url: ui.socialMedia.github.url,
-  };
+  const docs = "/docs/root/kyma#overview-how-to-start";
 
   return (
     <div className="row row--space-between row--sm-align-center">
@@ -20,17 +17,9 @@ const WhatIs = () => {
         <h2>{headline}</h2>
         <div>
           {paragraphs.map((paragraph, idx) => <p key={idx}>{paragraph}</p>)}
-          <a href={github.url} className="btn btn-github">
-            <svg
-              className="sprite-icon sprite-icon--25 sprite-icon--inverse"
-              role="img"
-              aria-labelledby="buttonGithub"
-            >
-              <title id="buttonGithub">{github.name}</title>
-              <use xlinkHref="#github" />
-            </svg>
+          <a href={docs} className="btn btn-github">
             <span>
-              {landingPage.whatIs.action.replace("{{site}}", github.name)}
+              {landingPage.whatIs.action}
             </span>
           </a>
         </div>
