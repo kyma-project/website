@@ -46,7 +46,8 @@
   "devDependencies": {
     "gh-pages": "^1.2.0",
     "husky": "^1.1.4",
-    "lint-staged": "^8.0.5"
+    "lint-staged": "^8.0.5",
+    "prettier": "^1.15.2"
   },
   "husky": {
     "hooks": {
