@@ -6,15 +6,22 @@ INVERTED='\033[7m'
 NC='\033[0m' # No Color
 
 # arguments
-SSH_FILE=
 OVERWRITE=
-
+SSH_FILE=
 # read arguments
 while test $# -gt 0; do
     case "$1" in
         --ssh-file | -s)
             shift
             SSH_FILE=$1
+            shift
+            ;;
+        --skip | -sk)
+            shift
+            if (${1} -eq 'true') then
+                echo 'Aborting the build to prevent a loop'
+                exit 0
+            fi
             shift
             ;;
         --overwrite-git-config)

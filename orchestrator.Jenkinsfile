@@ -19,8 +19,6 @@ appVersion = "0.1." + env.BUILD_NUMBER
     IMPORTANT NOTE: Projects trigger jobs and therefore are expected to have a job defined with the same name in the seed job.
 */
 projects = [
-    "prepare",
-    "tools/documentation-generator",
     "governance"
 ]
 
