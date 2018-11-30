@@ -58,7 +58,7 @@ Our Kyma would not be so great without the support for the asynchronous communic
 
 As you know, Kyma uses Jaeger as the tracing back-end. To improve its usage, we:
 - Secured the Jaeger UI so that you could access it easily without port-forwarding. Read more about [Jaeger](/docs/latest/components/tracing#overview-overview).
-- Created an example on how to enable tracing for an application. Read more [here](https://github.com/kyma-project/examples/tree/master/example-tracing).
+- Created an example on how to enable tracing for an application. Read more [here](https://github.com/kyma-project/examples/tree/master/tracing).
 
 ## Service Mesh
 
