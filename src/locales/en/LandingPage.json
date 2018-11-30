@@ -1,13 +1,13 @@
 {
-  "headline":
-    "A flexible and easy way to \nconnect and extend enterprise applications in a cloud-native world",
+  "headline": "A flexible and easy way to \nconnect and extend enterprise applications in a cloud-native world",
   "whatIs": {
     "headline": "What is Kyma?",
+    "url": "/docs/root/kyma#installation-installation",
     "paragraphs": [
       "Kyma is an open-source project designed natively on Kubernetes. It allows you to extend and customize cloud-based and on-premise enterprise applications in a quick and modern way, using serverless computing or microservice architecture.",
       "Kyma provides a set of cloud-native components and services required to build modern, end-to-end user experience scenarios that follow a best-practices approach to performance, scalability, efficiency, and security. Use the familiar, idiomatic language and standardized patterns that Kyma offers to extend a single enterprise application or combine existing systems to create new functionalities."
     ],
-    "action": "Get it on {{site}}"
+    "action": "Install"
   },
   "makesSpecial": {
     "headline": "What makes Kyma so special?",
@@ -16,51 +16,37 @@
     ],
     "action": "Read the Docs"
   },
-  "features": [
-    {
-      "id": "applicationConnector",
-      "headline": "Application Connector",
-      "bulletPoints": [
-        "Simplifies and secures the connection between external systems and Kyma",
-        "Registers external Events and APIs in the Service Catalog and simplifies the API usage",
-        "Provides asynchronous communication with services and lambdas deployed in Kyma through Events",
-        "Manages secure access to external systems",
-        "Provides monitoring and tracing capabilities to facilitate operational aspects"
-      ]
-    },
-    {
-      "id": "serverless",
-      "headline": "Serverless",
-      "bulletPoints": [
-        "Ensures quick deployments following a lambda function approach",
-        "Enables scaling independent of the core applications",
-        "Gives a possibility to revert changes without causing production system downtime",
-        "Supports the complete asynchronous programming model",
-        "Offers loose coupling of Event providers and consumers",
-        "Enables flexible application scalability and availability"
-      ]
-    },
-    {
-      "id": "serviceCatalog",
-      "headline": "Service Catalog",
-      "bulletPoints": [
-        "Connects services from external sources",
-        "Unifies the consumption of internal and external services thanks to compliance with the Open Service Broker standard",
-        "Provides a standardized approach to managing the API consumption and access",
-        "Eases the development effort by providing a catalog of API and Event documentation to support automatic client code generation"
-      ]
-    }
-  ],
+  "features": {
+    "headline": "Key features",
+    "url": "/docs/root/kyma#overview-key-components",
+    "paragraphs": [
+      {
+        "id": "applicationConnector",
+        "headline": "Application Connector",
+        "url": "/docs/components/application-connector",
+        "paragraph": "It connects external on-premise or cloud-native applications with Kyma and registers their APIs and Events that internal applications or functions can later consume."
+      },
+      {
+        "id": "serverless",
+        "headline": "Serverless",
+        "url": "/docs/components/serverless",
+        "paragraph": "It is based on Kubeless and allows you to write short code snippets, known as functions or lambdas, that consume the Events exposed by the Application Connector and use external services provided by the Service Catalog to trigger certain business logic."
+      },
+      {
+        "id": "serviceManagement",
+        "headline": "Service Management",
+        "url": "/docs/components/service-catalog",
+        "paragraph": "It offers third-party services in the form of ServiceClasses exposed by the Service Brokers that a given function can consume to perform certain actions."
+      }
+    ]
+  },
   "community": {
     "headline": "Connect with the Kyma community and get involved!",
     "paragraphs": [
       "Kyma has an active and vibrant community that supports its development and helps to drive it forward."
     ],
     "SIG": {
-      "paragraph": [
-        "Join the community and participate in our",
-        "meetings"
-      ],
+      "paragraph": ["Join the community and participate in our", "meetings"],
       "link": {
         "name": "Special Interest Group and Working Group"
       }
