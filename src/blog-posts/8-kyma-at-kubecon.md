@@ -17,7 +17,7 @@ This one-liner intro already clarifies why we, the Kyma people, want to be there
 These Kyma experts are comming:
 - Ralf Hofmann, our Product Lead
 - Krassimir Semerdzhiev, our Strategist 
-- Ahmed Abdalla, [the leader of the Kyma's Core SIG](https://github.com/kyma-project/community/tree/master/sig-and-wg/sig-core) and our Engineering Lead
+- Ahmed Abdalla, [the leader of the Kyma's Core SIG](https://github.com/kyma-project/community/tree/master/sig-and-wg/sig-core) and our Lead Product Engineer
 - Piotr Kopczynski, [the leader of the Kyma's Core SIG](https://github.com/kyma-project/community/tree/master/sig-and-wg/sig-core) and the owner of the Kyma's Service Catalog capability
 - Lukasz Gornicki, [the leader of the Kyma's Core SIG](https://github.com/kyma-project/community/tree/master/sig-and-wg/sig-core) and the owner of the Kyma's Core and Supporting capability
 
