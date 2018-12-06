@@ -40,23 +40,27 @@ step() {
 init() {
     PUBLISH='false'
     SSH_FILE=
-    TOKEN=
+
     while test $# -gt 0; do
         case "$1" in
+            --publish | -p)
+                PUBLISH='true'
+                shift
+                ;;
             --ssh-file | -s)
                 shift
                 SSH_FILE=$1
                 shift
                 ;;
-            --publish | -p)
-                PUBLISH='true'
+            --skip | -sk)
+                shift
+                if (${1} -eq 'true') then
+                    echo 'Aborting the build to prevent a loop'
+                    exit 0
+                fi
                 shift
                 ;;
-            --token | -t)
-                shift
-                TOKEN=${1}
-                shift
-                ;;
+
             --help | -h)
                 exit 0
                 ;;
@@ -68,14 +72,13 @@ init() {
     done
     readonly PUBLISH
     readonly SSH_FILE
-    readonly TOKEN
 }
 
 generate() {
     docker run --rm -v "${DOCUMENTATION_DIR}:/app/documentation" \
                -e APP_OUTPUT="/app/documentation" \
                -e APP_DOC_CONFIG_FILE="/app/documentation/config.json" \
-               -e APP_TOKEN="${TOKEN}" \
+               -e APP_TOKEN="${BOT_GITHUB_TOKEN}" \
                ${GENERATOR_IMAGE} || return
 }
 

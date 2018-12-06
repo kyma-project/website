@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 SSH_FILE=
+
 while test $# -gt 0; do
     case "$1" in
         --ssh-file | -s)
