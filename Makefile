@@ -14,13 +14,13 @@ resolve:
 
 validate:
 	eslint -c .eslinterrc ./src
-	
+
 build:
 	npm run build:prod
 
 generate-docs:
-	./scripts/generate-docs.sh --publish --ssh-file $(BOT_GITHUB_SSH_PATH) --skip=$(SKIP)
+	./scripts/generate-docs.sh --publish --ssh-file $(BOT_GITHUB_SSH_PATH) --skip $(SKIP)
 	
 prepare-website:
-	./scripts/prepare-website.sh --ssh-file $(BOT_GITHUB_SSH_PATH) --skip=$(SKIP) --overwrite-git-config
+	./scripts/prepare-website.sh --ssh-file $(BOT_GITHUB_SSH_PATH) --skip $(SKIP) --overwrite-git-config
 	
