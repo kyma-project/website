@@ -125,7 +125,7 @@ publish() {
     echo "Commit documentation"
     git add "${DOCUMENTATION_DIR}" || return
     touch ${TEST_FILE_DIR}
-    echo "Test file2" > ${TEST_FILE_DIR}
+    echo "Test file3" > ${TEST_FILE_DIR}
     git add "${TEST_FILE_DIR}" || return
 
     git remote add origin git@github.com:kyma-project/website.git
