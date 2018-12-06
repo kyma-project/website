@@ -5,9 +5,9 @@ else
 	SKIP = 'false'
 endif
 
-ci-pr: resolve build
-ci-master: resolve generate-docs prepare-website
-ci-release: resolve generate-docs prepare-website
+ci-pr: resolve build prepare-ssh generate-docs prepare-website
+ci-master: resolve prepare-ssh generate-docs prepare-website
+ci-release: resolve prepare-ssh generate-docs prepare-website
 
 resolve:
 	npm install
@@ -18,9 +18,12 @@ validate:
 build:
 	npm run build:prod
 
+prepare-ssh:
+	cp ${BOT_GITHUB_SSH_PATH} ssh_key.pem
+
 generate-docs:
-	./scripts/generate-docs.sh --publish --ssh-file $(BOT_GITHUB_SSH_PATH) --skip $(SKIP)
+	./scripts/generate-docs.sh --publish --ssh-file ./ssh_key.pem --skip $(SKIP) --overwrite-git-config
 	
 prepare-website:
-	./scripts/prepare-website.sh --ssh-file $(BOT_GITHUB_SSH_PATH) --skip $(SKIP) --overwrite-git-config
+	./scripts/prepare-website.sh --ssh-file ./ssh_key.pem --skip $(SKIP) --overwrite-git-config
 	
