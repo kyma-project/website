@@ -22,7 +22,7 @@ prepare-ssh:
 	cp ${BOT_GITHUB_SSH_PATH} ssh_key.pem
 
 generate-docs:
-	./scripts/generate-docs.sh --publish --ssh-file ./ssh_key.pem --skip $(SKIP) --overwrite-git-config
+	./scripts/generate-docs.sh --publish --ssh-file ./ssh_key.pem --skip $(SKIP)
 
 prepare-website:
 	./scripts/prepare-website.sh --ssh-file ./ssh_key.pem --skip $(SKIP) --overwrite-git-config
