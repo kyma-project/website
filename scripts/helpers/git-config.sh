@@ -20,4 +20,5 @@ readonly SSH_FILE
 # configure git
 git config --global user.email "kyma.bot@sap.com" || exit
 git config --global user.name "Kyma Bot" || exit
+
 git config --global core.sshCommand 'ssh -i '$SSH_FILE'' || exit
