@@ -39,21 +39,12 @@ done
 echo "Configure git to push new version of website..."
 
 if $OVERWRITE; then
-
-    # create a authentication agent
-    eval `ssh-agent -s`
-
-    # add ssh-key
-    ssh-add $SSH_FILE
-    ssh-add -l
-
     # configure git
     sh ./scripts/helpers/git-config.sh -s $SSH_FILE
 fi
 
 # prepare website
 echo "Prepare website..."
-git remote add origin git@github.com:kyma-project/website.git
 
 npm run publish:origin
 publish=$?

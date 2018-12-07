@@ -95,16 +95,10 @@ publish() {
         # key need to be only readable
         chmod 400 $SSH_FILE
 
-        # create a authentication agent
-        eval `ssh-agent -s`
-
-        # add ssh-key
-        ssh-add $SSH_FILE
-        ssh-add -l
-
         # configure git
         sh ./scripts/helpers/git-config.sh -s $SSH_FILE
     fi
+
 
     echo "Detecting changes"
     local changes

@@ -17,7 +17,16 @@ while test $# -gt 0; do
 done
 readonly SSH_FILE
 
+# create a authentication agent
+eval `ssh-agent -s`
+
+# add ssh-key
+ssh-add $SSH_FILE
+ssh-add -l
+
 # configure git
 git config --global user.email "kyma.bot@sap.com"
 git config --global user.name "Kyma Bot"
 git config --global core.sshCommand 'ssh -i '$SSH_FILE''
+
+git remote add origin git@github.com:kyma-project/website.git
