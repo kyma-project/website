@@ -46,6 +46,7 @@ fi
 # prepare website
 echo "Prepare website..."
 
+echo $(ls)
 npm run publish:origin
 publish=$?
 
