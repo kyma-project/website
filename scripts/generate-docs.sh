@@ -91,14 +91,20 @@ publish() {
 
         # add github to known_hosts
         ssh-keyscan -H github.com >> ~/.ssh/known_hosts
-echo ''
+
         # key need to be only readable
         chmod 400 $SSH_FILE
+
+        # create a authentication agent
+        eval `ssh-agent -s`
+
+        # add ssh-key
+        ssh-add $SSH_FILE
+        ssh-add -l
 
         # configure git
         sh ./scripts/helpers/git-config.sh -s $SSH_FILE
     fi
-
 
     echo "Detecting changes"
     local changes
@@ -110,7 +116,7 @@ echo ''
 
 
     echo "Commit documentation"
-    git add "${DOCUMENTATION_DIR}" || return
+
     git remote add origin git@github.com:kyma-project/website.git
     git commit -m "Publish documentation for Kyma" --no-verify --author="Kyma Bot <kyma.bot@sap.com>" || exit
     echo "Pushing documentation to master"

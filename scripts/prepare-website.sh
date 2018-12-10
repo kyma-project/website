@@ -38,7 +38,15 @@ done
 
 echo "Configure git to push new version of website..."
 
-if [[ -n ${SSH_FILE} ]]; then
+if $OVERWRITE; then
+
+    # create a authentication agent
+    eval `ssh-agent -s`
+
+    # add ssh-key
+    ssh-add $SSH_FILE
+    ssh-add -l
+
     # configure git
     sh ./scripts/helpers/git-config.sh -s $SSH_FILE
 fi
@@ -46,7 +54,6 @@ fi
 # prepare website
 echo "Prepare website..."
 
-echo $(ls)
 npm run publish:origin
 publish=$?
 
