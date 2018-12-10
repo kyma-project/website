@@ -8,8 +8,24 @@ const WhatIs = () => {
   const headline = landingPage[sectionPrefix].headline;
   const url = landingPage[sectionPrefix].url;
   const action = landingPage[sectionPrefix].action;
+  const blog = landingPage[sectionPrefix].BLOG || {};
   const paragraphs = landingPage[sectionPrefix].paragraphs || [];
 
+  const blogLink = (
+    <div>
+      <p>
+        <a
+          href={blog.link.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="link-sig"
+        >
+          {blog.link.name}
+        </a>{" "}
+        {blog.paragraph[0]}.
+      </p>
+    </div>
+  );
   return (
     <div className="row row--space-between row--sm-align-center">
       <div className="col-6 col-md-9 col-sm-12 align--center">
@@ -18,6 +34,7 @@ const WhatIs = () => {
           {paragraphs.map((paragraph, idx) => (
             <p key={idx}>{paragraph}</p>
           ))}
+          {blogLink}
           <Link className="btn btn-github" to={url}>
             <span>{action}</span>
           </Link>
