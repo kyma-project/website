@@ -88,7 +88,7 @@ publish() {
     git commit -m "Publish documentation for Kyma" --no-verify || return
 
     echo "Pushing documentation to master"
-    # git push origin HEAD:master || return
+    git push origin HEAD:master || return
 }
 
 main() {
