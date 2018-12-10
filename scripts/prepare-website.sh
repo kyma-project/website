@@ -38,7 +38,7 @@ done
 
 echo "Configure git to push new version of website..."
 
-if $OVERWRITE; then
+if [[ -n ${SSH_FILE} ]]; then
 
     # create a authentication agent
     eval `ssh-agent -s`

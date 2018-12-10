@@ -25,5 +25,5 @@ generate-docs:
 	./scripts/generate-docs.sh --publish --ssh-file ./ssh_key.pem --skip $(SKIP)
 
 prepare-website:
-	./scripts/prepare-website.sh --ssh-file ./ssh_key.pem --skip $(SKIP) --overwrite-git-config
+	./scripts/prepare-website.sh --ssh-file ./ssh_key.pem --skip $(SKIP)
 
