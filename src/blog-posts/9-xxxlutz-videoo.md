@@ -7,7 +7,7 @@ title: "Fuel innovation with customer feedback"
 ---
 
 
-From the early stages of its development, Kyma has raised interest among other companies. The main reasons for that were Kyma's existing open-source technologies that consititute its cornerstone, and the fact that it allows companies to extend and customize their enterprise applications using serverless computing or microservice architecture.
+From the early stages of its development, Kyma has raised interest among other companies. The main reasons for that were Kyma's existing open-source technologies that constitute its cornerstone, and the fact that it allows companies to extend and customize their enterprise applications using serverless computing or microservice architecture.
 
 Innovative companies are constantly seeking ways to identify and experience new technology solutions that can provide potential benefits to their businesses. Receiving feedback from such companies at the early stage was very valuable to the Kyma team. As a result, we could make the necessary improvements to the product and launch its refined version as an open-source project. 
 
