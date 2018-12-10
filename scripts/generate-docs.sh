@@ -39,7 +39,6 @@ step() {
 
 init() {
     PUBLISH='false'
-    SSH_FILE=
 
     while test $# -gt 0; do
         case "$1" in
@@ -47,14 +46,9 @@ init() {
                 PUBLISH='true'
                 shift
                 ;;
-            --ssh-file | -s)
-                shift
-                SSH_FILE=$1
-                shift
-                ;;
             --skip | -sk)
                 shift
-                if (${1} -eq 'true') then
+                if [[ ${1} == true ]]; then
                     echo 'Aborting the build to prevent a loop'
                     exit 0
                 fi
@@ -70,7 +64,6 @@ init() {
         esac
     done
     readonly PUBLISH
-    readonly SSH_FILE
 }
 
 generate() {
@@ -82,12 +75,6 @@ generate() {
 }
 
 publish() {
-    if [[ -n ${SSH_FILE} ]]; then
-        echo "Configuring git"
-        bash "${SCRIPTS_DIR}/helpers/git-config.sh" --ssh-file "${SSH_FILE}" || return
-    fi
-
-
     echo "Detecting changes"
     local changes
     changes=$(git status --porcelain "${DOCUMENTATION_DIR}" | wc -w)

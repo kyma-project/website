@@ -5,28 +5,15 @@ GREEN='\033[0;32m'
 INVERTED='\033[7m'
 NC='\033[0m' # No Color
 
-# arguments
-OVERWRITE=
-SSH_FILE=
 # read arguments
 while test $# -gt 0; do
     case "$1" in
-        --ssh-file | -s)
-            shift
-            SSH_FILE=$1
-            shift
-            ;;
         --skip | -sk)
             shift
-            if (${1} -eq 'true') then
+            if [[ ${1} == true ]]; then
                 echo 'Aborting the build to prevent a loop'
                 exit 0
             fi
-            shift
-            ;;
-        --overwrite-git-config)
-            shift
-            OVERWRITE=$1
             shift
             ;;
         *)
@@ -35,32 +22,6 @@ while test $# -gt 0; do
             ;;
     esac
 done
-
-echo "Configure git to push new version of website..."
-
-if $OVERWRITE; then
-    # make ssh dir
-    mkdir /root/.ssh/
-
-    # create known_hosts file
-    touch /root/.ssh/known_hosts
-
-    # add github to known_hosts
-    ssh-keyscan -H github.com >> ~/.ssh/known_hosts
-
-    # key need to be only readable
-    chmod 400 $SSH_FILE
-
-    # create a authentication agent
-    eval `ssh-agent -s`
-
-    # add ssh-key
-    ssh-add $SSH_FILE
-    ssh-add -l
-
-    # configure git
-    sh ./scripts/helpers/git-config.sh -s $SSH_FILE
-fi
 
 # prepare website
 echo "Prepare website..."
