@@ -38,12 +38,17 @@ done
 
 echo "Configure git to push new version of website..."
 
-if [[ -n ${SSH_FILE} ]]; then
+# if [[ -n ${SSH_FILE} ]]; then
+#     # create a authentication agent
+#     eval `ssh-agent -s`
 
+#     # add ssh-key
+#     ssh-add $SSH_FILE
+#     ssh-add -l
 
-    # configure git
-    sh ./scripts/helpers/git-config.sh -s $SSH_FILE
-fi
+#     # configure git
+#     sh ./scripts/helpers/git-config.sh -s $SSH_FILE
+# fi
 
 # prepare website
 echo "Prepare website..."

@@ -19,7 +19,7 @@ build:
 	npm run build:prod
 
 prepare-ssh:
-	cp ${BOT_GITHUB_SSH_PATH} ssh_key.pem
+	cp ${BOT_GITHUB_SSH_PATH} ssh_key.pem && ./scripts/helpers/git-config.sh -s ssh_key.pem
 
 generate-docs:
 	./scripts/generate-docs.sh --publish --ssh-file ./ssh_key.pem --skip $(SKIP)
