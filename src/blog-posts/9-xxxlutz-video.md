@@ -1,6 +1,6 @@
 ---
 path: "/blog/xxxlutz-video"
-date: "2018-10-12"
+date: "2018-12-10"
 author: "Annegret Stoye, Product Manager @Kyma"
 tags: ["kyma", "opensource", "innovation", "technology"]
 title: "Fuel innovation with customer feedback"
@@ -12,6 +12,8 @@ From the early stages of its development, Kyma has raised interest among other c
 Innovative companies are constantly seeking ways to identify and experience new technology solutions that can provide potential benefits to their businesses. Receiving feedback from such companies at the early stage was very valuable to the Kyma team. As a result, we could make the necessary improvements to the product and launch its refined version as an open-source project. 
 
 Before going open-source, Kyma was prelaunched to a selected group of companies. One of them was XXXLutz KG, the world’s top furniture retailer. The company representatives received privileged early access to Kyma and were encouraged to test it. If you are interested in the outcome, watch the video below where Christian Renner, the Chief Technology Officer of the XXXLutz Group, explains why they wanted to test Kyma and what their experience with the project was like.
+
+`youtube: https://youtu.be/rxeE05NopZI`
 
 Getting feedback and contributions from the open-source community remains our focus moving forward. Feel invited to start your very own Kyma journey:
 
