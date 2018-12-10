@@ -14,6 +14,7 @@ const WhatIs = () => {
   const blogLink = (
     <div>
       <p>
+        {blog.paragraph[0]}
         <a
           href={blog.link.url}
           target="_blank"
@@ -22,7 +23,7 @@ const WhatIs = () => {
         >
           {blog.link.name}
         </a>{" "}
-        {blog.paragraph[0]}.
+        {blog.paragraph[1]}.
       </p>
     </div>
   );
