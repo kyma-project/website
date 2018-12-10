@@ -13,6 +13,8 @@ Innovative companies are constantly seeking ways to identify and experience new 
 
 Before going open-source, Kyma was prelaunched to a selected group of companies. One of them was XXXLutz KG, the world’s top furniture retailer. The company representatives received privileged early access to Kyma and were encouraged to test it. If you are interested in the outcome, watch the video below where Christian Renner, the Chief Technology Officer of the XXXLutz Group, explains why they wanted to test Kyma and what their experience with the project was like.
 
+`youtube: https://youtu.be/rxeE05NopZI`
+
 Getting feedback and contributions from the open-source community remains our focus moving forward. Feel invited to start your very own Kyma journey:
 
 - [Install](https://kyma-project.io/docs/root/kyma#installation-installation) Kyma and test it.
