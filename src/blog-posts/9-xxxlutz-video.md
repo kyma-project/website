@@ -1,6 +1,6 @@
 ---
 path: "/blog/xxxlutz-video"
-date: "2018-10-12"
+date: "2018-12-10"
 author: "Annegret Stoye, Product Manager @Kyma"
 tags: ["kyma", "opensource", "innovation", "technology"]
 title: "Fuel innovation with customer feedback"
