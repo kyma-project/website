@@ -8,7 +8,7 @@ const WhatIs = () => {
   const headline = landingPage[sectionPrefix].headline;
   const url = landingPage[sectionPrefix].url;
   const action = landingPage[sectionPrefix].action;
-  const blog = landingPage[sectionPrefix].BLOG || {};
+  const blog = landingPage[sectionPrefix].blog || {};
   const paragraphs = landingPage[sectionPrefix].paragraphs || [];
 
   const blogLink = (

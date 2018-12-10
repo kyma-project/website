@@ -7,7 +7,7 @@
       "Kyma is an open-source project designed natively on Kubernetes. It allows you to extend and customize cloud-based and on-premise enterprise applications in a quick and modern way, using serverless computing or microservice architecture.",
       "Kyma provides a set of cloud-native components and services required to build modern, end-to-end user experience scenarios that follow a best-practices approach to performance, scalability, efficiency, and security. Use the familiar, idiomatic language and standardized patterns that Kyma offers to extend a single enterprise application or combine existing systems to create new functionalities."
     ],
-    "BLOG": {
+    "blog": {
       "paragraph": [
         "to learn about Kyma experience by one one of the leading companies using Kyma the XXXLutz KG"
       ],
