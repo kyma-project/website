@@ -32,6 +32,16 @@ class GitHub {
 
     return response.data;
   }
+
+  async getTags() {
+    const response = await this.octokit.repos.getTags({
+      owner: this.organization,
+      repo: this.repository,
+      per_page: 100,
+    });
+
+    return response.data;
+  }
 }
 
 module.exports = {

@@ -10,6 +10,7 @@ const {
   groupReleaseByName,
   getNewestReleases,
   getReleasesToUpdate,
+  validateExistanceOfTag,
 } = require("./helpers/release");
 var path = require("path");
 
@@ -33,7 +34,13 @@ async function run(config) {
     `Checking releases for ${config.organization}/${config.repository}`,
   );
   const releases = await gitHubApi.getReleases();
-  const groupedReleases = groupReleaseByName(releases);
+
+  const tags = await gitHubApi.getTags();
+  const tagsArray = tags.map(tag => tag.name);
+
+  const existingReleases = validateExistanceOfTag(releases, tagsArray);
+  const groupedReleases = groupReleaseByName(existingReleases);
+
   const newestReleases = getNewestReleases(groupedReleases);
   const outdatedReleases = getReleasesToUpdate(
     currentConfiguration,
@@ -49,10 +56,19 @@ async function run(config) {
 
     for (const key of outdatedReleases.keys()) {
       const release = outdatedReleases.get(key);
-      console.log(
-        `Generating documentation for release ${key} from tag ${release}`,
-      );
-      git.checkout(release);
+
+      if (key === "master") {
+        console.log(
+          `Generating documentation for release ${key} from branch ${release}`,
+        );
+        git.checkoutBranch(release);
+      } else {
+        console.log(
+          `Generating documentation for release ${key} from tag ${release}`,
+        );
+        git.checkout(release);
+      }
+
       const docsDir = `${tempPath}/docs`;
       const manifestFile = `${docsDir}/manifest.yaml`;
       const output = `${outputPath}/${key}`;

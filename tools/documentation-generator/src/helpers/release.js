@@ -1,11 +1,18 @@
 const compareVersions = require("compare-versions");
 
+function validateExistanceOfTag(releases, tags) {
+  return releases.filter(release => {
+    const fullName = release.name ? release.name : release.tag_name;
+    return tags.includes(fullName);
+  });
+}
+
 function groupReleaseByName(releases) {
   const releaseMap = new Map();
-
-  releases.filter(release => !release.prerelease).forEach(release => {
+  releases.forEach(release => {
     const name = getReleaseName(release);
     let rel = releaseMap.get(name);
+
     if (!rel) {
       rel = [];
       releaseMap.set(name, rel);
@@ -23,10 +30,11 @@ function getNewestReleases(groupedReleases) {
   groupedReleases.forEach((value, key) => {
     const sorted = value
       .sort((first, second) => {
-        return compareVersions(first.tag_name, second.tag_name);
+        versionFirst = first.tag_name.split("-")[0];
+        versionSecond = second.tag_name.split("-")[0];
+        return compareVersions(versionFirst, versionSecond);
       })
       .reverse();
-
     result.set(key, sorted[0]);
   });
 
@@ -47,12 +55,14 @@ function getReleasesToUpdate(documentationConfig, newestReleases) {
     }
   });
 
+  result.set("master", "master");
+
   return result;
 }
 
 function getReleaseName(release) {
   const fullName = release.name ? release.name : release.tag_name;
-  return fullName.match(/^v?[0-9]+.[0-9]+/)[0];
+  return release.prerelease ? fullName : fullName.match(/^v?[0-9]+.[0-9]+/)[0];
 }
 
 module.exports = {
@@ -60,4 +70,5 @@ module.exports = {
   groupReleaseByName,
   getNewestReleases,
   getReleasesToUpdate,
+  validateExistanceOfTag,
 };

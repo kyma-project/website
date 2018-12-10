@@ -18,6 +18,10 @@ class Git {
   checkout(tag) {
     execSync(`cd "${this.destination}" && git checkout "tags/${tag}"`);
   }
+
+  checkoutBranch(branch) {
+    execSync(`cd "${this.destination}" && git checkout "${branch}"`);
+  }
 }
 
 module.exports = {
