@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
+set -e
+set -o pipefail
 
 SSH_FILE=
-
 while test $# -gt 0; do
     case "$1" in
         --ssh-file | -s)
@@ -17,8 +18,18 @@ while test $# -gt 0; do
 done
 readonly SSH_FILE
 
-# configure git
-git config --global user.email "kyma.bot@sap.com" || exit
-git config --global user.name "Kyma Bot" || exit
+# configure ssh
+mkdir "${HOME}/.ssh/"
+touch "${HOME}/.ssh/known_hosts"
+ssh-keyscan -H github.com >> "${HOME}/.ssh/known_hosts"
+chmod 400 "${SSH_FILE}"
+eval "$(ssh-agent -s)"
+ssh-add "${SSH_FILE}"
+ssh-add -l
 
-git config --global core.sshCommand 'ssh -i '$SSH_FILE'' || exit
+# configure git
+git config --global user.email "${BOT_GITHUB_EMAIL}"
+git config --global user.name "${BOT_GITHUB_NAME}"
+git config --global core.sshCommand 'ssh -i '${SSH_FILE}''
+
+git remote add origin git@github.com:kyma-project/website.git

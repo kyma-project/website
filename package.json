@@ -12,7 +12,7 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "build:prod": "GATSBY_APP_ORIGIN='https://kyma-project.io' gatsby build",
-    "publish:origin": "npm run build:prod && gh-pages -d public -m 'Deploy new version of site' -o origin",
+    "publish:origin": "npm run build:prod && gh-pages -d ./public -m 'Deploy new version of site' -o origin",
     "publish:upstream": "npm run build:prod && gh-pages -d public -m 'Deploy new version of site' -o upstream",
     "publish:fork": "mv static/CNAME ./CNAME_bak && npm run build -- --prefix-paths && gh-pages -d public -m 'Deploy new version of site' -o origin && mv ./CNAME_bak static/CNAME"
   },
