@@ -24,6 +24,7 @@ eval `ssh-agent -s`
 ssh-add $SSH_FILE
 ssh-add -l
 
+echo $(ls)
 # configure git
 git config --global user.email "kyma.bot@sap.com"
 git config --global user.name "Kyma Bot"
