@@ -82,29 +82,29 @@ generate() {
 }
 
 publish() {
-    # if [[ -n ${SSH_FILE} ]]; then
-    #     # make ssh dir
-    #     mkdir /root/.ssh/
+    if [[ -n ${SSH_FILE} ]]; then
+        # make ssh dir
+        mkdir /root/.ssh/
 
-    #     # create known_hosts file
-    #     touch /root/.ssh/known_hosts
+        # create known_hosts file
+        touch /root/.ssh/known_hosts
 
-    #     # add github to known_hosts
-    #     ssh-keyscan -H github.com >> ~/.ssh/known_hosts
+        # add github to known_hosts
+        ssh-keyscan -H github.com >> ~/.ssh/known_hosts
 
-    #     # key need to be only readable
-    #     chmod 400 $SSH_FILE
+        # key need to be only readable
+        chmod 400 $SSH_FILE
 
-    #     # create a authentication agent
-    #     eval `ssh-agent -s`
+        # create a authentication agent
+        eval `ssh-agent -s`
 
-    #     # add ssh-key
-    #     ssh-add $SSH_FILE
-    #     ssh-add -l
+        # add ssh-key
+        ssh-add $SSH_FILE
+        ssh-add -l
 
-    #     # configure git
-    #     sh ./scripts/helpers/git-config.sh -s $SSH_FILE
-    # fi
+        # configure git
+        sh ./scripts/helpers/git-config.sh -s $SSH_FILE
+    fi
 
     echo "Detecting changes"
     local changes
