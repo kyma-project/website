@@ -91,7 +91,7 @@ publish() {
 
         # add github to known_hosts
         ssh-keyscan -H github.com >> ~/.ssh/known_hosts
-
+echo ''
         # key need to be only readable
         chmod 400 $SSH_FILE
 
@@ -110,7 +110,7 @@ publish() {
 
 
     echo "Commit documentation"
-
+    git add "${DOCUMENTATION_DIR}" || return
     git remote add origin git@github.com:kyma-project/website.git
     git commit -m "Publish documentation for Kyma" --no-verify --author="Kyma Bot <kyma.bot@sap.com>" || exit
     echo "Pushing documentation to master"
