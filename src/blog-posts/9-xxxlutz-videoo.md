@@ -15,7 +15,6 @@ Before going open source, Kyma was prelaunched to a selected group of companies.
 
 
 
-Christian Renner, Chief Technology Officer XXXLutz Gruppe, one of the world&#39;s largest furniture retailers, shared why they wanted to test Kyma and what their experience was like.
 
 Getting feedback and contributions from the Open Source community remains our focus moving forward. We invite you to start your very own Kyma journey!
 
