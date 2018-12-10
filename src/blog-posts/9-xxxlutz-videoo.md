@@ -11,7 +11,9 @@ From the early stages of its development, Kyma has raised interest among other c
 
 Innovative companies are constantly seeking ways to identify and experience new technology solutions that can provide potential benefits to their businesses. Receiving feedback from such companies at the early stage was very valuable. As a result, the Kyma team could make necessary improvements to the product and launch the refined product as an open-source project. 
 
-Before going Open Source with Project Kyma, it was pre-launched to a selected group of companies. The XXXLutz KG was one of the companies to get early access to Kyma and test it.
+Before going open source, Kyma was prelaunched to a selected group of companies. One of them was XXXLutz KG, one of the world’s largest furniture retailers. They received privileged early access to Kyma and were ecouraged to test it. If you are interested in the outcome, watch [this](https://youtu.be/rxeE05NopZI) video where Christian Renner, the Chief Technology Officer of the XXXLutz Group, explains why they wanted to test Kyma and what their experience with the project was like.
+
+
 
 Christian Renner, Chief Technology Officer XXXLutz Gruppe, one of the world&#39;s largest furniture retailers, shared why they wanted to test Kyma and what their experience was like.
 
