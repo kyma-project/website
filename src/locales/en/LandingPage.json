@@ -9,11 +9,10 @@
     ],
     "blog": {
       "paragraph": [
-        "Watch ",
-        "video to learn about Kyma experience by XXXLutz KG, one of the leading furniture retailers."
+        "Kyma experience by XXXLutz KG, one of the leading furniture retailers."
       ],
       "link": {
-        "name": "this",
+        "name": "Learn about",
         "url": "/blog/xxxlutz-video"
       }
     },

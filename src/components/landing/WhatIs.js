@@ -11,19 +11,13 @@ const WhatIs = () => {
   const blog = landingPage[sectionPrefix].blog || {};
   const paragraphs = landingPage[sectionPrefix].paragraphs || [];
 
-  const blogLink = (
+  const videoLinkParagraph = (
     <div>
       <p>
+        <Link className="link-blog" to={blog.link.url}>
+          <span>{blog.link.name}</span>
+        </Link>{" "}
         {blog.paragraph[0]}
-        <a
-          href={blog.link.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="link-sig"
-        >
-          {blog.link.name}
-        </a>{" "}
-        {blog.paragraph[1]}.
       </p>
     </div>
   );
@@ -35,7 +29,7 @@ const WhatIs = () => {
           {paragraphs.map((paragraph, idx) => (
             <p key={idx}>{paragraph}</p>
           ))}
-          {blogLink}
+          {videoLinkParagraph}
           <Link className="btn btn-github" to={url}>
             <span>{action}</span>
           </Link>

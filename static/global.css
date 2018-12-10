@@ -1324,7 +1324,8 @@ footer {
   top: -1px;
 }
 
-.link-sig {
+.link-sig,
+.link-blog {
   color: #0073e6;
   text-decoration: none;
 }
