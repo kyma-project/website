@@ -4,26 +4,30 @@ date: "2018-12-11"
 author: "Piotr Bochynski, Product Owner @Kyma"
 tags:
   - release
-title: "Release 0.6 is scheduled"
+title: "Kyma 0.6 Cairo scheduled for release on 14.01.2019"
 ---
 
-Kyma Release 0.6 is planned for 14.01.2018! 
+With winter holidays and 2019 around the corner, let's think about something hotter and more exotic. A city perhaps... Cairo? Sounds good, right? 
 
-Here you can check what to expect:
+If you're wondering what does Cairo have to do with Kyma, we're happy to explain. We decided that new releases need a cool common identification theme. After a long, coffee-fuelled 
+brainstorming session we decided to name our releases after major cities in the world. Cool, right? 
 
-Knative integration is one of the release priorities. The new Working Group (wg-knative on Slack) will make Knative components available in Kyma clusters. With Knative feature toggle enabled, Kyma components will use Knative eventing for messages, and Knative ingress gateway for API exposure. We will also explore other possibilities, e.g. how to use Knative for serverless (lambdas/functions), but for these results, you can expect in future releases of Kyma. 
+Soooo... What can you expect from Kyma 0.6 Cairo? 
 
-Working Group Prow is also accelerating in this release. Soon all contributors will be able to see the build status and logs for their pull requests. Moreover, release 0.6 will be built with new infrastructure. 
+Knative integration is our main focus for this release. The new Knative Working Group ([click here to visit its Slack channel](https://kyma-community.slack.com/messages/CEC6R4T6U)) works tirelessly to make Knative components available in Kyma clusters. 
+By enabling a special toggle you will be able to delegate the eventing and messaging duties to Knative and use its ingress gateway for API exposure. 
 
-Release 0.6 will bring also a more consistent naming for our components. Kyma users know Kubernetes and are comfortable with using namespaces, therefore we no longer hide them behind the term "environment". Kyma users will see Namespaces instead of Environments in the Console UI. 
-Another naming change will affect "Remote Environment", which will become the Application and you can expect changes in controllers, custom resources and UI in this area. It is just a step in the direction of [Application Connectivity vision](https://github.com/kyma-project/community/blob/master/capabilities/application-connectivity.md)
+The [Prow Working Group](https://kyma-community.slack.com/messages/CD7GJ41QE) is also firing on all cylinders. Soon all contributors will be able to see the build status and the logs for their pull requests. What's even more exciting, Cairo will be built using the new CI architecture!
 
-In parallel we are working continuously on the Kyma UI/UX - you can expect a better navigation structure and technical foundation for UI modularization and extensibility achieved by switching Console UI to Luigi framework. 
+We're also working on a more consistent naming scheme for all of our components. As Kyma users are well familiar with Kubernetes Namespaces, we decided to abandon our custom term "Environment" and use the Kubernetes standard instead.  
+The renaming will also affect the Application Connector, as we'll say goodbye to "Remote Environments" and start using the "Application" name instead. This is an important step that follows our [Application Connectivity vision](https://github.com/kyma-project/community/blob/master/capabilities/application-connectivity.md). You can read more about both renaming efforts in [this](https://kyma-community.slack.com/archives/CD0K2NSQZ/p1544519219008800) Slack post. 
 
-With the Kyma 0.6, we want also improve code quality by introducing common libraries and unification of acceptance tests code base. There is also a plan to deliver tooling for testing Service Catalog UI.
+In parallel, we are working continuously on the Kyma UI/UX - you can expect a better navigation structure and technical foundation for UI modularization and extensibility, achieved by switching Console UI to Luigi framework. 
 
-Kyma takes security seriously and in this release, we want to extend a security model for UI-API-layer (GraphQL) with authorization concept. 
+With the 0.6 release, we aim to improve code quality by introducing common libraries and unifying the acceptance tests code base. Additionally, the delivery of tools for testing the Service Catalog UI is planned.
 
-You can find all items planned for Kyma release 0.6 in [Zenhub](https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/reports?report=release&release=5c015e1eda763f3a7c15abef)
+Last, but definitely not the least, we're continuously improving the security of Kyma. In the 0.6 release we're extending the UI-API Layer (GraphQL) with an authorization concept. 
 
-Starting with this release, we will also identify every Kyma release by more remarkable name in addition to the numeric identifiers. Kyma release 0.6 is named Cairo.
+You can find all items planned for the 0.6 in [Zenhub](https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/reports?report=release&release=5c015e1eda763f3a7c15abef). Come back and check out Kyma 0.6 Cairo when it's released on 14.01.2019 and keep an eye out for more Kyma news and updates on our blog. 
+
+See you around!
