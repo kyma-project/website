@@ -60,8 +60,8 @@ const StyledSvg = styled.svg`
 const Connectivity = () => (
   <StyledSvg
     width="259px"
-    height="240px"
-    viewBox="0 0 260 250"
+    height="252px"
+    viewBox="-1 -5 255 258"
     version="1.1"
     xmlns="http://www.w3.org/2000/svg"
     aria-labelledby="connectivity-title"

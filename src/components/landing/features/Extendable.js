@@ -80,8 +80,8 @@ const Extendable = () => (
     id="Ebene_1"
     xmlns="http://www.w3.org/2000/svg"
     width="269px"
-    height="256px"
-    viewBox="0 0 269 256"
+    height="270px"
+    viewBox="0 0 275 256"
     xmlSpace="preserve"
     aria-labelledby="extendable-title"
   >
