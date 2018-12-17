@@ -19,9 +19,9 @@ const ColumnsWrapper = styled.div`
 const SideWrapper = styled.div`
   box-sizing: border-box;
   text-align: left;
-  flex: 0 0 280px;
+  flex: 0 0 220px;
   flex-shrink: 0;
-  margin-right: 20px;
+  margin-right: 41px;
   bottom: 0;
   z-index: 1;
   overflow: auto;

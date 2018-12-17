@@ -24,7 +24,7 @@ const StyledLink = styled(Link)`
 `;
 
 const PostTitle = styled.h1`
-  font-size: 40px;
+  font-size: 36px;
   font-weight: 600;
   line-height: 1.3em;
   margin: 0 0 20px;

@@ -11,6 +11,7 @@ const FooterWrapper = styled.footer`
 const TagsWrapper = styled.ul`
   list-style-type: none;
   display: block;
+  margin-top: 0;
 `;
 
 const TagsText = styled.p`
@@ -25,8 +26,9 @@ const TagPill = styled.li`
   background: ${colors.lightGray};
   color: ${colors.gray};
   border-radius: 25px;
-  padding: 10px 15px;
+  padding: 8px 10px;
   margin-bottom: 15px;
+  font-size: 14px;
 
   & + & {
     margin-left: 15px;
@@ -38,7 +40,9 @@ const PostFooter = ({ tags }) => {
     <FooterWrapper>
       <TagsText>{ui.blog.tags}</TagsText>
       <TagsWrapper>
-        {tags.map((tag, idx) => <TagPill key={idx}>{tag}</TagPill>)}
+        {tags.map((tag, idx) => (
+          <TagPill key={idx}>{tag}</TagPill>
+        ))}
       </TagsWrapper>
     </FooterWrapper>
   );

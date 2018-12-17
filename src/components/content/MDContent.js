@@ -10,7 +10,7 @@ const MarkdownContent = styled.div`
   color: ${colors.gray};
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  font-size: 20px;
+  font-size: 16px;
   line-height: 1.8;
   word-wrap: break-word;
 
@@ -501,28 +501,28 @@ const MarkdownContent = styled.div`
 
   h1 {
     padding-bottom: 0.3em;
-    font-size: 2em;
+    font-size: 1.5em;
   }
 
   h2 {
     padding-bottom: 0.3em;
-    font-size: 1.5em;
+    font-size: 1.2em;
   }
 
   h3 {
-    font-size: 1.25em;
-  }
-
-  h4 {
     font-size: 1em;
   }
 
-  h5 {
+  h4 {
     font-size: 0.875em;
   }
 
-  h6 {
+  h5 {
     font-size: 0.85em;
+  }
+
+  h6 {
+    font-size: 0.825em;
     color: #6a737d;
   }
 
