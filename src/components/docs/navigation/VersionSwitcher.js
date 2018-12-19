@@ -6,7 +6,7 @@ const Wrapper = styled.div`
   box-sizing: border-box;
   display: block;
   width: 100%;
-  padding: 10px 0;
+  padding: 20px 0;
   border-bottom: 1px solid #e5e5e5;
 `;
 
@@ -18,7 +18,7 @@ const SelectWrapper = styled.div`
   display: block;
   float: right;
   position: relative;
-  top: 1px;
+  top: 0;
   cursor: pointer;
 
   &::after {
@@ -42,9 +42,8 @@ const VersionSelect = styled.select`
   font-weight: 600;
   background: inherit;
   border: none;
-  padding: 3px 25px 3px 3px;
-  -webkit-appearance: none;
-  -moz-appearance: none;
+  padding: 3px 30px 3px 3px;
+  appearance: none;
   z-index: 100;
   cursor: pointer;
 
