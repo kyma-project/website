@@ -18,7 +18,6 @@ const SelectWrapper = styled.div`
   display: block;
   float: right;
   position: relative;
-  top: 0;
   cursor: pointer;
 
   &::after {
@@ -42,7 +41,7 @@ const VersionSelect = styled.select`
   font-weight: 600;
   background: inherit;
   border: none;
-  padding: 3px 30px 3px 3px;
+  padding: 0 30px 0 0;
   appearance: none;
   z-index: 100;
   cursor: pointer;
