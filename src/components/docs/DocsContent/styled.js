@@ -23,15 +23,21 @@ export const Header = styled.h1`
   color: #0b74de;
 `;
 
-export const ContentHeader = styled.h1`
+export const ContentHeader = styled.header`
   box-sizing: border-box;
   width: 100%;
+  border-bottom: 1px solid #e5e5e5;
+  margin: 0 0 24px;
+`;
+
+export const ContentH1 = styled.h1`
+  box-sizing: border-box;
+  width: auto;
   font-size: 40px;
   font-weight: 600;
   line-height: 1.3em;
   padding-bottom: 0.65em;
-  margin: 0 0 40px;
-  border-bottom: 1px solid #e5e5e5;
+  margin: 0;
   &:first-letter {
     text-transform: uppercase;
   }

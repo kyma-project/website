@@ -187,7 +187,7 @@ function createDocsSubpages({
     const versionPathPart = includeVersionInPath ? `${version}/` : "";
 
     pages.forEach(page => {
-      content = loader.loadContent(contentType, page.id);
+      let content = loader.loadContent(contentType, page.id);
 
       createPage({
         path: `/${DOCS_PATH_NAME}/${versionPathPart}${contentType}/${page.id}`,
