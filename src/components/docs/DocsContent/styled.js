@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { DOCS_RESPONSIVE_BREAKPOINT } from "../../../constants/docs";
 
 export const Wrapper = styled.div`
   box-sizing: border-box;
@@ -21,6 +22,11 @@ export const Header = styled.h1`
   line-height: 1.25;
   padding-bottom: 0.3em;
   color: #0b74de;
+
+  @media (max-width: ${DOCS_RESPONSIVE_BREAKPOINT}px) {
+    padding-top: 40px;
+    margin-top: 0;
+  }
 `;
 
 export const ContentHeader = styled.header`
@@ -28,6 +34,10 @@ export const ContentHeader = styled.header`
   width: 100%;
   border-bottom: 1px solid #e5e5e5;
   margin: 0 0 24px;
+
+  @media (max-width: ${DOCS_RESPONSIVE_BREAKPOINT}px) {
+    margin-bottom: 0;
+  }
 `;
 
 export const ContentH1 = styled.h1`
@@ -38,8 +48,13 @@ export const ContentH1 = styled.h1`
   line-height: 1.3em;
   padding-bottom: 0.65em;
   margin: 0;
+
   &:first-letter {
     text-transform: uppercase;
+  }
+
+  @media (max-width: ${DOCS_RESPONSIVE_BREAKPOINT}px) {
+    padding-top: 32px;
   }
 `;
 
@@ -51,6 +66,10 @@ export const ContentDescription = styled.div`
   > div {
     padding: 40px 0;
     border-bottom: 1px solid #e5e5e5;
+
+    @media (max-width: ${DOCS_RESPONSIVE_BREAKPOINT}px) {
+      padding: 0 0 40px 0;
+    }
 
     &:first-child {
       padding-top: 0;
