@@ -2,7 +2,14 @@ const headerRegexp = /<h(1|2|3|4|5|6)(.*?)id=(\"|')(.*?)(\"|')(.*?)>(.*?)<\/h(1|
 const headerIDRegexp = /id=(\"|')(.*?)(\"|')/g;
 const hrefAssetsRegexp = /href=\"(.*?)assets\/(.*?)\.(json|yaml|jpg|jpeg|png|svg)\"/g;
 
-function improveLinks(content, version, contentType, id, includeVersionInPath) {
+function improveLinks({
+  content,
+  contentType,
+  id,
+  version,
+  includeVersionInPath = true,
+  versionForAssets,
+}) {
   content.docs = content.docs.map(doc => {
     if (!doc.source) return doc;
 
@@ -15,9 +22,9 @@ function improveLinks(content, version, contentType, id, includeVersionInPath) {
     doc.source = replaceHeadersToHeadersWithChains(doc.source);
     doc.source = replaceRelativeHrefForAssetsToAbsolute(
       doc.source,
-      version,
       contentType,
       id,
+      versionForAssets,
     );
     return doc;
   });
@@ -48,11 +55,17 @@ function changeHeadersID(source, type, title) {
   if (!type) type = title;
 
   source = source.replace(headerIDRegexp, occurrence => {
+    headerIDRegexp.lastIndex = 0;
+    let id = headerIDRegexp.exec(occurrence);
+
+    if (!id || !id[2]) return occurrence;
+    id = id[2];
+
     const typeLowerCased = type.toLowerCase().replace(/ /g, "-");
     const titleLowerCased = title.toLowerCase().replace(/ /g, "-");
     const typeWithTitle = `${typeLowerCased}-${titleLowerCased}`;
 
-    return `id="${typeWithTitle}-${occurrence.replace(/(id=|\"|')/g, "")}"`;
+    return `id="${typeWithTitle}-${id}"`;
   });
   return source;
 }
@@ -89,9 +102,9 @@ function changeContentInHeaderForChain(content, id) {
 
 function replaceRelativeHrefForAssetsToAbsolute(
   source,
-  version,
   contentType,
   id,
+  version,
 ) {
   source = source.replace(
     hrefAssetsRegexp,

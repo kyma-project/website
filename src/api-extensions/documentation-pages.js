@@ -154,7 +154,12 @@ function createMainDocsPage({
   }
 
   let content = loader.loadContent(type, id);
+  // for copy object
   content = JSON.parse(JSON.stringify(content));
+
+  const versionForAssets =
+    version === LATEST_VERSION || !includeVersionInPath ? versions[0] : version;
+
   createPage({
     path,
     component: template,
@@ -162,7 +167,14 @@ function createMainDocsPage({
       includeVersionInPath,
       currentVersion: version,
       versions,
-      content: improveLinks(content, version, type, id, includeVersionInPath),
+      content: improveLinks({
+        content,
+        type,
+        id,
+        version,
+        includeVersionInPath,
+        versionForAssets,
+      }),
       displayName,
       navigation,
       manifest,
@@ -189,20 +201,27 @@ function createDocsSubpages({
 
     pages.forEach(page => {
       let content = loader.loadContent(contentType, page.id);
+      // for copy object
       content = JSON.parse(JSON.stringify(content));
+
+      const versionForAssets =
+        version === LATEST_VERSION || !includeVersionInPath
+          ? versions[0]
+          : version;
 
       createPage({
         path: `/${DOCS_PATH_NAME}/${versionPathPart}${contentType}/${page.id}`,
         component: template,
         context: {
           displayName: `${page.displayName} - ${ui.navigation.documentation}`,
-          content: improveLinks(
+          content: improveLinks({
             content,
-            version,
             contentType,
-            page.id,
+            id: page.id,
+            version,
             includeVersionInPath,
-          ),
+            versionForAssets,
+          }),
           navigation,
           includeVersionInPath,
           currentVersion: version,
