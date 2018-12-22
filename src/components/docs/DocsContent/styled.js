@@ -21,11 +21,11 @@ export const Header = styled.h1`
   margin-bottom: 16px;
   line-height: 1.25;
   padding-bottom: 0.3em;
+  margin-top: 0;
   color: #0b74de;
 
   @media (max-width: ${DOCS_RESPONSIVE_BREAKPOINT}px) {
     padding-top: 40px;
-    margin-top: 0;
   }
 `;
 
@@ -33,7 +33,7 @@ export const ContentHeader = styled.header`
   box-sizing: border-box;
   width: 100%;
   border-bottom: 1px solid #e5e5e5;
-  margin: 0 0 24px;
+  margin: 0 0 40px;
 
   @media (max-width: ${DOCS_RESPONSIVE_BREAKPOINT}px) {
     margin-bottom: 0;

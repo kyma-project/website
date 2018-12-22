@@ -5,8 +5,8 @@ const compareVersions = require("compare-versions");
 const ui = require("../locales/en/UI.json");
 const DocsLoader = require("./DocsLoader");
 const { DOCS_PATH_NAME } = require("../constants/docs");
-
-const LATEST_VERSION = "latest";
+const improveLinks = require("./link-parser");
+const { LATEST_VERSION } = require("./constants");
 
 function getDocsVersions(path) {
   const subdirectories = readdirSync(resolve(path)).filter(file =>
@@ -153,7 +153,8 @@ function createMainDocsPage({
     throw new Error(`Couldn't find id for type ${type}`);
   }
 
-  const content = loader.loadContent(type, id);
+  let content = loader.loadContent(type, id);
+  content = JSON.parse(JSON.stringify(content));
   createPage({
     path,
     component: template,
@@ -161,7 +162,7 @@ function createMainDocsPage({
       includeVersionInPath,
       currentVersion: version,
       versions,
-      content,
+      content: improveLinks(content, version, type, id, includeVersionInPath),
       displayName,
       navigation,
       manifest,
@@ -188,13 +189,20 @@ function createDocsSubpages({
 
     pages.forEach(page => {
       let content = loader.loadContent(contentType, page.id);
+      content = JSON.parse(JSON.stringify(content));
 
       createPage({
         path: `/${DOCS_PATH_NAME}/${versionPathPart}${contentType}/${page.id}`,
         component: template,
         context: {
           displayName: `${page.displayName} - ${ui.navigation.documentation}`,
-          content,
+          content: improveLinks(
+            content,
+            version,
+            contentType,
+            page.id,
+            includeVersionInPath,
+          ),
           navigation,
           includeVersionInPath,
           currentVersion: version,

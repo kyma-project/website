@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Highlight from "react-highlight";
 import colors from "../../config/colors";
+import { DOCS_RESPONSIVE_BREAKPOINT } from "../../constants/docs";
 
 const MarkdownContent = styled.div`
   -ms-text-size-adjust: 100%;
@@ -468,6 +469,28 @@ const MarkdownContent = styled.div`
     margin-bottom: 16px;
     font-weight: 600;
     line-height: 1.25;
+  }
+
+  @media (max-width: ${DOCS_RESPONSIVE_BREAKPOINT}px) {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin: 0;
+      padding-top: 40px;
+    }
+
+    p,
+    blockquote,
+    ul,
+    ol,
+    dl,
+    table,
+    pre {
+      margin: 16px 0 0 0;
+    }
   }
 
   h1 .octicon-link,
