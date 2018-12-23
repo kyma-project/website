@@ -5,7 +5,7 @@ const compareVersions = require("compare-versions");
 const ui = require("../locales/en/UI.json");
 const DocsLoader = require("./DocsLoader");
 const { DOCS_PATH_NAME } = require("../constants/docs");
-const improveLinks = require("./link-parser");
+const linksParser = require("./links-parser");
 const { LATEST_VERSION } = require("./constants");
 
 function getDocsVersions(path) {
@@ -167,7 +167,7 @@ function createMainDocsPage({
       includeVersionInPath,
       currentVersion: version,
       versions,
-      content: improveLinks({
+      content: linksParser({
         content,
         type,
         id,
@@ -214,7 +214,7 @@ function createDocsSubpages({
         component: template,
         context: {
           displayName: `${page.displayName} - ${ui.navigation.documentation}`,
-          content: improveLinks({
+          content: linksParser({
             content,
             contentType,
             id: page.id,

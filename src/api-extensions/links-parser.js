@@ -1,8 +1,10 @@
+const fixVersion = require("./fix-versions");
+
 const headerRegexp = /<h(1|2|3|4|5|6)(.*?)id=(\"|')(.*?)(\"|')(.*?)>(.*?)<\/h(1|2|3|4|5|6)>/g;
 const headerIDRegexp = /id=(\"|')(.*?)(\"|')/g;
-const hrefAssetsRegexp = /href=\"(.*?)assets\/(.*?)\.(json|yaml|jpg|jpeg|png|svg)\"/g;
+const hrefAssetsRegexp = /href=\"(?!(https?|ftp))(.*?)assets\/(.*?)\.(json|yaml|jpg|jpeg|png|svg)\"/g;
 
-function improveLinks({
+function linksParser({
   content,
   contentType,
   id,
@@ -20,6 +22,19 @@ function improveLinks({
     );
     doc.source = changeHeadersID(doc.source, doc.type, doc.title);
     doc.source = replaceHeadersToHeadersWithChains(doc.source);
+
+    const versionToFixing = ["0.4", "0.5"];
+    if (versionToFixing.find(el => el === version)) {
+      doc.source = fixVersion(
+        doc.source,
+        version,
+        contentType,
+        id,
+        doc.type,
+        doc.title,
+      );
+    }
+
     doc.source = replaceRelativeHrefForAssetsToAbsolute(
       doc.source,
       contentType,
@@ -51,8 +66,8 @@ function changeVersionInLinksHref(source, version, includeVersionInPath) {
   return source;
 }
 
-function changeHeadersID(source, type, title) {
-  if (!type) type = title;
+function changeHeadersID(source, docType, docTitle) {
+  if (!docType) docType = docTitle;
 
   source = source.replace(headerIDRegexp, occurrence => {
     headerIDRegexp.lastIndex = 0;
@@ -61,8 +76,8 @@ function changeHeadersID(source, type, title) {
     if (!id || !id[2]) return occurrence;
     id = id[2];
 
-    const typeLowerCased = type.toLowerCase().replace(/ /g, "-");
-    const titleLowerCased = title.toLowerCase().replace(/ /g, "-");
+    const typeLowerCased = docType.toLowerCase().replace(/ /g, "-");
+    const titleLowerCased = docTitle.toLowerCase().replace(/ /g, "-");
     const typeWithTitle = `${typeLowerCased}-${titleLowerCased}`;
 
     return `id="${typeWithTitle}-${id}"`;
@@ -117,8 +132,8 @@ function replaceRelativeHrefForAssetsToAbsolute(
 }
 
 function getFileNameOfAssets(occurrence) {
-  let fileName = occurrence.split("/");
+  const fileName = occurrence.split("/");
   return fileName[fileName.length - 1];
 }
 
-module.exports = improveLinks;
+module.exports = linksParser;
