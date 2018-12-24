@@ -33,6 +33,8 @@ Replace these parameters with real values:
 - `{AUTHOR}` is your name with an optional position name.
 - `{CONTENT}` is written in Markdown and/or HTML.
 
+>**NOTE:** In `{CONTENT}` must be included `<!-- overview -->` comment which indicates the part that will be shown on the blog's main page. The `Read More` button will appear shortly after that.
+
 Example:
 
 ```
@@ -49,7 +51,11 @@ tags:
 title: Latin's not dead
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer volutpat interdum eros a malesuada. Proin porttitor, leo eu dignissim posuere, ante nibh aliquam ipsum, pharetra pharetra nunc libero eu massa.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+
+<!-- overview -->
+
+Integer volutpat interdum eros a malesuada. Proin porttitor, leo eu dignissim posuere, ante nibh aliquam ipsum, pharetra pharetra nunc libero eu massa.
 ```
 
 ---
@@ -122,7 +128,7 @@ If you link to other Markdown documents, you can optionally link to a particular
 Use this pattern to add links to other documents:
 
 ```
-[Overview - In a nutshell](https://kyma-project.io/docs/latest/root/kyma#overview-in-a-nutshell)
+[Overview - In a nutshell](/docs/{VERSION}/root/kyma#overview-in-a-nutshell)
 ```
 
-[Overview - In a nutshell](https://kyma-project.io/docs/latest/root/kyma#overview-in-a-nutshell)
+[Overview - In a nutshell](/docs/{VERSION}/root/kyma#overview-in-a-nutshell)

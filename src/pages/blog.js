@@ -16,7 +16,6 @@ const BlogPage = ({ data }) => {
     .filter(edge => !!edge.node.frontmatter.date)
     .map(edge => {
       const post = edge.node;
-      console.log(post.excerpt);
       return (
         <li key={post.id}>
           <Post
