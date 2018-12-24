@@ -1339,6 +1339,10 @@ footer {
   text-decoration: none;
 }
 
+.link-sig {
+  text-align: center;
+}
+
 .btn {
   font-family: "Poppins", Arial, sans-serif;
   border: 2px solid #ffffff;

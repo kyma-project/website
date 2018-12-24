@@ -36,12 +36,14 @@ const DocsContent = ({ content, tokenize }) => {
     className: `anchor-chain`,
   };
 
+  const contentId = content.displayName.toLowerCase().replace(" ", "-");
+
   return (
     <Wrapper>
       <ContentHeader>
-        <ContentH1 id={content.displayName.toLowerCase()}>
+        <ContentH1 id={contentId}>
           <a
-            href={`#${content.displayName.toLowerCase()}`}
+            href={`#${contentId}`}
             aria-hidden="true"
             className={chainData.className}
           >

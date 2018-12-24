@@ -1,4 +1,4 @@
-const fixVersion = require("./fix-versions");
+const rewriteLinks = require("./rewrite-links");
 
 const headerRegexp = /<h(1|2|3|4|5|6)(.*?)id=(\"|')(.*?)(\"|')(.*?)>(.*?)<\/h(1|2|3|4|5|6)>/g;
 const headerIDRegexp = /id=(\"|')(.*?)(\"|')/g;
@@ -22,20 +22,15 @@ function linksParser({
     );
     doc.source = changeHeadersID(doc.source, doc.type, doc.title);
     doc.source = replaceHeadersToHeadersWithChains(doc.source);
-
-    const versionToFixing = ["0.4", "0.5"];
-    if (versionToFixing.find(el => el === version)) {
-      doc.source = fixVersion(
-        doc.source,
-        version,
-        contentType,
-        id,
-        doc.type,
-        doc.title,
-      );
-    }
-
-    doc.source = replaceRelativeHrefForAssetsToAbsolute(
+    doc.source = rewriteLinks(
+      doc.source,
+      version,
+      contentType,
+      id,
+      doc.type,
+      doc.title,
+    );
+    doc.source = makeAbsolutePathsForAssets(
       doc.source,
       contentType,
       id,
@@ -115,12 +110,7 @@ function changeContentInHeaderForChain(content, id) {
   return `${anchorTag}${content}`;
 }
 
-function replaceRelativeHrefForAssetsToAbsolute(
-  source,
-  contentType,
-  id,
-  version,
-) {
+function makeAbsolutePathsForAssets(source, contentType, id, version) {
   source = source.replace(
     hrefAssetsRegexp,
     occurrence =>

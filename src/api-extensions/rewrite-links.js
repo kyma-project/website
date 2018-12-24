@@ -1,4 +1,4 @@
-const linksToFixing = {
+const linksToRewrite = {
   "0.4": {
     components: {
       "service-catalog": {
@@ -186,13 +186,15 @@ const kymaProjectIoRegexp = /<a(.*?)href=\"https:\/\/kyma-project\.io(.*?)>/g;
 const hrefRegexp = /href=\"(.*?)\"/g;
 
 function fixVersion(source, version, contentType, id, docType, docTitle) {
+  if (!linksToRewrite[version]) return source;
   if (!docType) docType = docTitle;
 
   source = source.replace(kymaProjectIoRegexp, occurrence =>
     occurrence.replace('target="_blank"', ""),
   );
   source = source.replace(hrefRegexp, occurrence => {
-    if (!contentType) return occurrence;
+    // for the main docs page
+    if (!contentType) contentType = "root";
 
     hrefRegexp.lastIndex = 0;
     let href = hrefRegexp.exec(occurrence);
@@ -201,15 +203,15 @@ function fixVersion(source, version, contentType, id, docType, docTitle) {
     href = href[1];
 
     if (
-      linksToFixing[version][contentType] &&
-      linksToFixing[version][contentType][id] &&
-      linksToFixing[version][contentType][id][docType] &&
-      linksToFixing[version][contentType][id][docType][docTitle] &&
-      linksToFixing[version][contentType][id][docType][docTitle][href]
+      linksToRewrite[version][contentType] &&
+      linksToRewrite[version][contentType][id] &&
+      linksToRewrite[version][contentType][id][docType] &&
+      linksToRewrite[version][contentType][id][docType][docTitle] &&
+      linksToRewrite[version][contentType][id][docType][docTitle][href]
     ) {
       return occurrence.replace(
         href,
-        linksToFixing[version][contentType][id][docType][docTitle][href],
+        linksToRewrite[version][contentType][id][docType][docTitle][href],
       );
     }
     return occurrence;
