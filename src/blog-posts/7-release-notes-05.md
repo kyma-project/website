@@ -6,7 +6,10 @@ tags:
   - release-notes
 title: "Release 0.5 is available!"
 ---
+
 We constantly work improving Kyma and modularizing it further. Shortly after our last release, we now introduce the next update including many changes.
+
+<!-- overview -->
 
 ## Application Connector
 
@@ -148,5 +151,3 @@ The Tracing UI is now linked from within the Kyma Console UI to make it easier t
 - It is now possible to view and edit **ConfigMaps**:
 
 ![](./assets/console_2.PNG) 
-
-

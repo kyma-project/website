@@ -12,14 +12,21 @@ const PostList = styled.ul`
 
 const BlogPage = ({ data }) => {
   const edges = (data.allMarkdownRemark && data.allMarkdownRemark.edges) || [];
-  const posts = edges.filter(edge => !!edge.node.frontmatter.date).map(edge => {
-    const post = edge.node;
-    return (
-      <li key={post.id}>
-        <Post metadata={post.frontmatter} html={post.html} />
-      </li>
-    );
-  });
+  const posts = edges
+    .filter(edge => !!edge.node.frontmatter.date)
+    .map(edge => {
+      const post = edge.node;
+      console.log(post.excerpt);
+      return (
+        <li key={post.id}>
+          <Post
+            metadata={post.frontmatter}
+            html={post.excerpt}
+            readMoreButton
+          />
+        </li>
+      );
+    });
 
   return (
     <DefaultLayout pageId="blog">

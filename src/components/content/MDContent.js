@@ -813,12 +813,22 @@ const MarkdownContent = styled.div`
     color: #ffffff;
     border-color: #2852c7;
     background-color: #2852c7;
+<<<<<<< HEAD
     line-height: 46px;
     border-radius: 25px;
     padding: 0 18px;
     font-size: 18px;
     font-weight: 500;
     transition: background-color ease-out 0.2s;
+=======
+    line-height: 40px;
+    border-radius: 25px;
+    padding: 0 14px;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background-color ease-out 0.2s;
+    margin-top: 30px !important;
+>>>>>>> Add excerpt to blog posts
   }
 
   .btn-blog.btn-blog:active,

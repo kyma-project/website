@@ -8,6 +8,8 @@ title: "Get started guide for developers on Kyma"
 
 Now that Kyma is out there available to the world you are most probably keen on testing and implementing your own scenarios leveraging Kyma. Well, we are happy to introduce you to a getting started guide for developers which is [a sample application based on Spring Boot](https://github.com/kyma-incubator/examples/tree/master/personservice) showing the features on Kyma.
 
+<!-- overview -->
+
 This hands-on guide provides an end-to-end example application implementation in Java and Spring Boot running on Kyma. In the end state, you as a developer will understand all the features Kyma delivers. To summarize, this guide teaches you how to:
 
 - Deploy the application locally to Kyma (based on minikube) or to an actual Kyma cluster 

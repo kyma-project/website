@@ -8,6 +8,8 @@ title: "Kyma at SAP TechEd"
 
 [SAP TechEd](https://events.sap.com/teched/en/home) is the premier SAP technology conference, which takes place every year on 3 continents and is an excellent source of news on the technical and platform offerings of SAP. In 2018 the conference venues are located in Las Vegas, Barcelona, and Bangalore.
 
+<!-- overview -->
+
 ![Kyma at TechEd](./assets/kyma-at-sap-teched.jpg)
 
 As the centerpiece of a number of implementation projects, and the cornerstone of the upcoming SAP Cloud Platform Extension Factory Lab Preview, Kyma must be represented by the best ambassadors on each of the three events. These people will represent the product, answer all questions and be the first point of contact for all the attendees interested in Kyma.

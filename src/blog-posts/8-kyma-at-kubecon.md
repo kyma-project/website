@@ -14,6 +14,8 @@ This one-liner intro already clarifies why we, the Kyma people, want to be there
 - To meet you, show you what Kyma is, and answer all your questions
 - Meet with other communities. For now, we are planning to meet with the Kubernetes' Testing SIG and the Service Catalog SIG and talk about our future contributions.
 
+<!-- overview -->
+
 These Kyma experts are comming:
 - Ralf Hofmann, our Product Lead
 - Krassimir Semerdzhiev, our Strategist 

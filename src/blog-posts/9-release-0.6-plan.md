@@ -14,6 +14,8 @@ brainstorming session we decided to name our releases after major cities in the 
 
 Soooo... What can you expect from Kyma 0.6 Cairo? 
 
+<!-- overview -->
+
 Knative integration is our main focus for this release. The new Knative Working Group ([click here to visit its Slack channel](https://kyma-community.slack.com/messages/CEC6R4T6U)) works tirelessly to make Knative components available in Kyma clusters. 
 By enabling a special toggle you will be able to delegate the eventing and messaging duties to Knative and use its ingress gateway for API exposure. 
 
