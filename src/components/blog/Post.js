@@ -12,7 +12,8 @@ const PostWrapper = styled.div`
   border: 0;
   padding: 0;
   padding: 40px 0 40px;
-  border-bottom: 3px solid ${colors.blue};
+  ${props =>
+    props.borderBottom ? `border-bottom: 3px solid ${colors.lightGray}` : null}
 `;
 
 const ReadMoreButton = styled(Link)`
@@ -38,10 +39,15 @@ const ReadMoreButton = styled(Link)`
   }
 `;
 
-const Post = ({ metadata = {}, html, readMoreButton = false }) => {
+const Post = ({
+  metadata = {},
+  html,
+  readMoreButton = false,
+  borderBottom = false,
+}) => {
   const { title, author, tags = [], date, path } = metadata;
   return (
-    <PostWrapper>
+    <PostWrapper borderBottom={borderBottom}>
       <PostHeader title={title} author={author} date={date} path={path} />
       <PostContent html={html} />
       {readMoreButton && <ReadMoreButton to={path}>Read more</ReadMoreButton>}

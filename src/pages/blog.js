@@ -22,6 +22,7 @@ const BlogPage = ({ data }) => {
             metadata={post.frontmatter}
             html={post.excerpt}
             readMoreButton
+            borderBottom
           />
         </li>
       );
