@@ -31,9 +31,9 @@ Replace these parameters with real values:
 - `{ADDRESS}` is the last part of the site's address in the location bar. For example, if you want your blog post to appear under `https://kyma-project.io/blog/some-address`, the second line should look like this: `path: /blog/some-address`.
 - `{DATE}` is your blog post's publication date, in the `YYYY-MM-DD` format.
 - `{AUTHOR}` is your name with an optional position name.
-- `{CONTENT}` is written in Markdown and/or HTML.
+- `{CONTENT}` is written in Markdown and/or HTML. The content must include the `<!-- overview -->` comment which indicates the part of the blog post that will be displayed on the main page. The **Read more** button appears at the end of the paragraph.
 
->**NOTE:** In `{CONTENT}` must be included `<!-- overview -->` comment which indicates the part that will be shown on the blog's main page. The `Read More` button will appear shortly after that.
+>**NOTE:** The `<!-- overview -->` comment cannot be placed at the beginning of the blog post. In such a case, the **Read more** button appears straight after the title of the blog post and the content itself is not displayed.
 
 Example:
 
