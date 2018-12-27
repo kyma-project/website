@@ -20,3 +20,5 @@ files:
     config:
       white-list-external:
         - https://kyma-project.io/blog/some-address
+      white-list-internal:
+        - /docs/{VERSION}/root/kyma#overview-in-a-nutshell
