@@ -13,7 +13,7 @@ const PostWrapper = styled.div`
   padding: 0;
   padding: 40px 0 40px;
   ${props =>
-    props.borderBottom ? `border-bottom: 3px solid ${colors.lightGray}` : null}
+    props.borderBottom ? `border-bottom: 1px solid ${colors.lightGray}` : null}
 `;
 
 const ReadMoreButton = styled(Link)`
