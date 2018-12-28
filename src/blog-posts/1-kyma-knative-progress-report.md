@@ -8,6 +8,8 @@ title: "Kyma and Knative Integration - Progress Update"
 
 When Kyma was introduced to the public a few weeks ago at [Google Cloud Next ’18](https://cloud.withgoogle.com/next18/sf/), we talked about the strong partnership that we have with the Knative community. Kyma and Knative provide two complementary sets of building blocks, which together offer a powerful framework and a toolset to build cloud-native solutions on top of Kubernetes.
 
+<!-- overview -->
+
 ![Kyma and Knative](./assets/1-kyma-knative.png)
 
 If you look at the Kyma source code right now, you might wonder why you are not finding many references to Knative. The answer is quite simple. In the last month and a half, the entire Kyma team has been working on restructuring the repositories, making them ready to go open source and removing all internal references and tool dependencies. We've done all of that from a stable branch.  

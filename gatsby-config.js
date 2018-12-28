@@ -34,6 +34,7 @@ module.exports = {
     {
       resolve: `gatsby-transformer-remark`,
       options: {
+        excerpt_separator: `<!-- overview -->`,
         plugins: [
           {
             resolve: "gatsby-remark-embed-video",

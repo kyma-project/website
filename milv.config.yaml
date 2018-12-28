@@ -3,6 +3,8 @@ white-list-external:
   - kyma.local
 black-list:
   - node_modules
+black-list-internal: 
+  - ./website/src/blog-posts/
 timeout: 60
 request-repeats: 5
 files:
@@ -10,20 +12,6 @@ files:
     config:
       white-list-internal: ["{CVSS"]
       white-list-external: ["https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:L/A:N"]
-  - path: ./website/src/blog-posts/5-release-notes-041.md
-    config:
-      white-list-internal:
-        - /blog/introducing-project-kyma
-        - /docs/latest/components/api-gateway
-        - /docs/latest/components/api-gateway#architecture-architecture
-        - /docs/latest/components/application-connector#custom-resource-remoteenvironment
-        - /docs/latest/components/logging
-        - /docs/latest/components/event-bus#details-service-programming-model
-        - /docs/latest/components/tracing#overview-overview
-        - /docs/latest/root/kyma#custom-resource-installation
-        - /docs/latest/root/kyma#overview-overview
-        - /docs/latest/root/kyma#getting-started-helm-overrides-for-kyma-installation
-        - /docs/latest/root/kyma#getting-started-install-kyma-on-a-gke-cluster
   - path: ./website/docs/banner-modification.md
     config:
       white-list-internal:
@@ -32,3 +20,5 @@ files:
     config:
       white-list-external:
         - https://kyma-project.io/blog/some-address
+      white-list-internal:
+        - /docs/{VERSION}/root/kyma#overview-in-a-nutshell

@@ -8,6 +8,8 @@ title: "Replacing Kubeless with Knative"
 
 [Knative](https://github.com/Knative/) is an important new project in the cloud-native world that was announced as a "Kubernetes-based platform to build, deploy, and manage modern serverless workloads." It is an opinionated approach covering the best practices around three areas of developing cloud-native applications: building containers (and functions), serving (and dynamically scaling) workloads, and eventing. Knative is an open-source set of components and is being actively developed by Google in close partnership with Pivotal, IBM, Red Hat, and SAP.
 
+<!-- overview -->
+
 Similarly to Kubeless, Knative provides a set of building blocks to simplify the use of Kubernetes and Istio for managing and operating lambda functions. Kubeless takes some code, builds an image out of it, and starts it on Kubernetes. Knative is doing the same by following a more modular approach, allowing different components to be pluggable and adaptable to different deployment scenarios.
 
 Because of this more flexible approach, we are planning to replace the current Kubeless-based Lambda Functions in Kyma with a Knative-based implementation. To provide the same commodity to which users are used with Kubeless, we have to do some extra work.
