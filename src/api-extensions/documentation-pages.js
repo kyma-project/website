@@ -26,14 +26,11 @@ function getDocsVersions(path, registryMap) {
     .sort((first, second) => {
       const firstItem = registryMap.get(first);
       const secondItem = registryMap.get(second);
-      if (firstItem.name === "master") return 1;
+      if (firstItem.name === "master" || firstItem.type > secondItem.type) return 1;
+      if (firstItem.type < secondItem.type) return -1;
 
-      if (firstItem.type > secondItem.type) {
-        return 1;
-      } else if (firstItem.type < secondItem.type) return -1;
-
-      versionFirst = firstItem.tag.split("-")[0];
-      versionSecond = secondItem.tag.split("-")[0];
+      const versionFirst = firstItem.tag.split("-")[0];
+      const versionSecond = secondItem.tag.split("-")[0];
       return compareVersions(versionFirst, versionSecond);
     })
     .reverse();

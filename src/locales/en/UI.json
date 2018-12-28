@@ -58,9 +58,9 @@
     "showNavigation": "Show navigation",
     "hideNavigation": "Hide navigation",
     "latest": "latest",
-    "release": "release",
-    "prerelease": "prerelease",
-    "master": "master"
+    "release": "Releases",
+    "prerelease": "Prereleases",
+    "master": "Unstable"
   },
   "copyright": "Copyright © 2018 The Kyma project authors.",
   "privacyStatement": "Privacy Statement",

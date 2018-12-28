@@ -61,12 +61,12 @@ async function run(config) {
         console.log(
           `Generating documentation for release ${key} from branch ${release}`,
         );
-        git.checkoutBranch(release);
+        git.checkout(release);
       } else {
         console.log(
           `Generating documentation for release ${key} from tag ${release}`,
         );
-        git.checkout(release);
+        git.checkoutTag(release);
       }
 
       const docsDir = `${tempPath}/docs`;
