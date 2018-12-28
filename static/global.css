@@ -645,6 +645,15 @@
   font-weight: 700;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  display: inline-block !important;
+}
+
 h1 {
   font-size: 40px;
   font-weight: 600;
@@ -1330,6 +1339,10 @@ footer {
   text-decoration: none;
 }
 
+.link-sig {
+  text-align: center;
+}
+
 .btn {
   font-family: "Poppins", Arial, sans-serif;
   border: 2px solid #ffffff;
@@ -1514,5 +1527,29 @@ svg {
 @media (max-width: 480px) {
   .bg-m {
     margin-bottom: 10%;
+  }
+}
+
+.anchor-chain.anchor-chain {
+  float: right;
+  position: relative;
+  margin-left: 24px;
+  padding-right: 0;
+}
+
+.anchor-chain.anchor-chain svg {
+  position: relative;
+  right: 12px;
+  width: 20px;
+  height: 20px;
+}
+
+.anchor-chain.anchor-chain svg > path {
+  fill: #0d60e7;
+}
+
+@media (max-width: 760px) {
+  .anchor-chain.anchor-chain svg {
+    visibility: visible;
   }
 }

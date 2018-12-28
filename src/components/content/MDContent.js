@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Highlight from "react-highlight";
 import colors from "../../config/colors";
+import { DOCS_RESPONSIVE_BREAKPOINT } from "../../constants/docs";
 
 const MarkdownContent = styled.div`
   -ms-text-size-adjust: 100%;
@@ -470,6 +471,28 @@ const MarkdownContent = styled.div`
     line-height: 1.25;
   }
 
+  @media (max-width: ${DOCS_RESPONSIVE_BREAKPOINT}px) {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin: 0;
+      padding-top: 40px;
+    }
+
+    p,
+    blockquote,
+    ul,
+    ol,
+    dl,
+    table,
+    pre {
+      margin: 16px 0 0 0;
+    }
+  }
+
   h1 .octicon-link,
   h2 .octicon-link,
   h3 .octicon-link,
@@ -701,6 +724,7 @@ const MarkdownContent = styled.div`
   }
 
   hr {
+    height: 3px;
     border-bottom-color: #eee;
   }
 
@@ -781,6 +805,28 @@ const MarkdownContent = styled.div`
 
   .hljs-link {
     text-decoration: underline;
+  }
+
+  .btn-blog.btn-blog {
+    display: inline-block;
+    text-decoration: none;
+    color: #ffffff;
+    border-color: #2852c7;
+    background-color: #2852c7;
+    line-height: 46px;
+    border-radius: 25px;
+    padding: 0 18px;
+    font-size: 18px;
+    font-weight: 500;
+    transition: background-color ease-out 0.2s;
+  }
+
+  .btn-blog.btn-blog:active,
+  .btn-blog.btn-blog:focus,
+  .btn-blog.btn-blog:hover {
+    cursor: pointer;
+    background-color: rgba(40, 82, 199, 0.9);
+    outline: none;
   }
 `;
 

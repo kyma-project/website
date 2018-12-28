@@ -32,6 +32,7 @@ const SelectWrapper = styled.div`
     top: 50%;
     position: absolute;
     transform: translateY(-50%);
+    pointer-events: none;
   }
 `;
 
