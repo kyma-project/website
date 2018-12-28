@@ -6,7 +6,6 @@ import DefaultLayout from "../components/layout/DefaultLayout";
 
 const Wrapper = styled.div`
   width: 100%;
-  position: relative;
   margin-top: 30px;
 `;
 

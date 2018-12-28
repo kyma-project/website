@@ -25,6 +25,7 @@
     "gatsby-plugin-react-helmet": "^3.0.2",
     "gatsby-plugin-sharp": "^2.0.12",
     "gatsby-plugin-styled-components": "^3.0.3",
+    "gatsby-remark-autolink-headers": "^2.0.12",
     "gatsby-remark-copy-linked-files": "^2.0.6",
     "gatsby-remark-embed-video": "^1.4.0",
     "gatsby-remark-images": "^2.0.6",
