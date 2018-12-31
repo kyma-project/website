@@ -5,8 +5,8 @@ export class DocsProcessor {
 
   replaceImagePaths = ({ type, id, version, versions }) => {
     const isVersionLatest = version === "latest";
-    const currentVersion = isVersionLatest ? versions.release[0].name : version;
-    
+    const currentVersion = isVersionLatest ? versions.releases[0] : version;
+
     this.docs = this.docs.map(doc => {
       if (doc.source.search(/.?\/?assets/g) !== -1) {
         doc.source = doc.source.replace(

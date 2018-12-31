@@ -1,5 +1,4 @@
-const { resolve, join } = require("path");
-const { readdirSync, statSync } = require("fs");
+const { resolve } = require("path");
 
 const compareVersions = require("compare-versions");
 const ui = require("../locales/en/UI.json");
@@ -9,56 +8,39 @@ const registry = require("../../static/documentation/config.json");
 const linksParser = require("./links-parser");
 const { LATEST_VERSION } = require("./constants");
 
-function prepareRegistry() {
-  const releaseMap = new Map();
-  registry.releases.forEach(release => {
-    let rel = releaseMap.get(release.name);
-    releaseMap.set(release.name, release);
-  });
-  return releaseMap;
-}
-
-function getDocsVersions(path, registryMap) {
-  const subdirectories = readdirSync(resolve(path)).filter(file =>
-    statSync(join(path, file)).isDirectory(),
-  );
-
-  const versions = subdirectories
-    .sort((first, second) => {
-      const firstItem = registryMap.get(first);
-      const secondItem = registryMap.get(second);
-      if (firstItem.name === "master" || firstItem.type > secondItem.type) return 1;
-      if (firstItem.type < secondItem.type) return -1;
-
-      const versionFirst = firstItem.tag.split("-")[0];
-      const versionSecond = secondItem.tag.split("-")[0];
-      return compareVersions(versionFirst, versionSecond);
-    })
-    .reverse();
-    
+function getDocsVersions() {
   const versionsByType = {};
 
-  versions.forEach(directory => {
-    const item = registryMap.get(directory);
-    if (!versionsByType[item.type]) {
-      versionsByType[item.type] = [];
-    }
-    versionsByType[item.type].push(item);
-  });
+  appendType("releases", registry.releases, versionsByType);
+  appendType("prereleases", registry.pre_releases, versionsByType);
+  appendType("branches", registry.branches, versionsByType);
+
   return versionsByType;
+}
+
+function appendType(type, versions, versionsByType) {
+  if (!versions || versions.length === 0) {
+    return;
+  }
+
+  const sortedVersions = versions
+    .map(version => version.name)
+    .sort(compareVersions)
+    .reverse();
+
+  versionsByType[type] = sortedVersions;
 }
 
 function createDocsPages({ createPage }) {
   const template = resolve(`src/templates/Documentation.js`);
-  const registryMap = prepareRegistry();
-  const versions = getDocsVersions(`static/documentation`, registryMap);
+  const versions = getDocsVersions();
   if (Object.keys(versions).length === 0) {
     console.error("No docs versions found");
     return;
   }
 
   const versionsWithoutLatest = JSON.parse(JSON.stringify(versions));
-  const latestVersion = versions.release[0].name;
+  const latestVersion = versions.releases[0];
   const loader = new DocsLoader(latestVersion);
 
   try {
@@ -91,22 +73,20 @@ function createDocsPages({ createPage }) {
     return;
   }
 
-  versions.latest = [];
-  versions.latest = [{ name: "latest", tag: "latest"}];
-
+  versions.releases.push(LATEST_VERSION);
   for (let key in versions) {
     versions[key].forEach(version => {
-      const isLatestVersion = version.name === LATEST_VERSION;
+      const isLatestVersion = version === LATEST_VERSION;
       const currentVersion = isLatestVersion
-        ? versionsWithoutLatest.release[0].name
-        : version.name;
+        ? versionsWithoutLatest.releases[0]
+        : version;
       const loader = new DocsLoader(currentVersion);
 
       try {
         createMainDocsPage({
-          path: `/${DOCS_PATH_NAME}/${version.name}`,
-          displayName: `${version.name} - ${ui.navigation.documentation}`,
-          version: version.name,
+          path: `/${DOCS_PATH_NAME}/${version}`,
+          displayName: `${version} - ${ui.navigation.documentation}`,
+          version: version,
           versions: versionsWithoutLatest,
           template,
           createPage,
@@ -120,7 +100,7 @@ function createDocsPages({ createPage }) {
       const manifest = loader.loadManifest();
       const navigation = loader.loadNavigation();
       createDocsSubpages({
-        version: version.name,
+        version: version,
         versions: versionsWithoutLatest,
         manifest,
         createPage,

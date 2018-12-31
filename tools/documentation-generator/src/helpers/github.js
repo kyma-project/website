@@ -24,13 +24,19 @@ class GitHub {
     return response.data;
   }
 
-  async getLatestRelease() {
-    const response = await this.octokit.repos.getLatestRelease({
+  async getLatestCommit(branch) {
+    const response = await this.octokit.repos.getBranch({
       owner: this.organization,
       repo: this.repository,
+      branch: branch,
     });
 
-    return response.data;
+    const result = {
+      name: branch,
+      commit: response.data.commit.sha,
+    };
+
+    return result;
   }
 
   async getTags() {
