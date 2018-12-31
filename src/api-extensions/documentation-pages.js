@@ -5,28 +5,60 @@ const compareVersions = require("compare-versions");
 const ui = require("../locales/en/UI.json");
 const DocsLoader = require("./DocsLoader");
 const { DOCS_PATH_NAME } = require("../constants/docs");
+const registry = require("../../static/documentation/config.json");
 const linksParser = require("./links-parser");
 const { LATEST_VERSION } = require("./constants");
 
-function getDocsVersions(path) {
+function prepareRegistry() {
+  const releaseMap = new Map();
+  registry.releases.forEach(release => {
+    let rel = releaseMap.get(release.name);
+    releaseMap.set(release.name, release);
+  });
+  return releaseMap;
+}
+
+function getDocsVersions(path, registryMap) {
   const subdirectories = readdirSync(resolve(path)).filter(file =>
     statSync(join(path, file)).isDirectory(),
   );
-  const versions = subdirectories.sort(compareVersions).reverse();
-  return versions;
+
+  const versions = subdirectories
+    .sort((first, second) => {
+      const firstItem = registryMap.get(first);
+      const secondItem = registryMap.get(second);
+      if (firstItem.name === "master" || firstItem.type > secondItem.type) return 1;
+      if (firstItem.type < secondItem.type) return -1;
+
+      const versionFirst = firstItem.tag.split("-")[0];
+      const versionSecond = secondItem.tag.split("-")[0];
+      return compareVersions(versionFirst, versionSecond);
+    })
+    .reverse();
+    
+  const versionsByType = {};
+
+  versions.forEach(directory => {
+    const item = registryMap.get(directory);
+    if (!versionsByType[item.type]) {
+      versionsByType[item.type] = [];
+    }
+    versionsByType[item.type].push(item);
+  });
+  return versionsByType;
 }
 
 function createDocsPages({ createPage }) {
   const template = resolve(`src/templates/Documentation.js`);
-  const versions = getDocsVersions(`static/documentation`);
-  if (versions.length === 0) {
+  const registryMap = prepareRegistry();
+  const versions = getDocsVersions(`static/documentation`, registryMap);
+  if (Object.keys(versions).length === 0) {
     console.error("No docs versions found");
     return;
   }
 
-  const versionsWithoutLatest = [...versions];
-
-  const latestVersion = versions[0];
+  const versionsWithoutLatest = JSON.parse(JSON.stringify(versions));
+  const latestVersion = versions.release[0].name;
   const loader = new DocsLoader(latestVersion);
 
   try {
@@ -59,39 +91,45 @@ function createDocsPages({ createPage }) {
     return;
   }
 
-  versions.push(LATEST_VERSION);
-  versions.forEach(version => {
-    const isLatestVersion = version === LATEST_VERSION;
-    const currentVersion = isLatestVersion ? versionsWithoutLatest[0] : version;
-    const loader = new DocsLoader(currentVersion);
+  versions.latest = [];
+  versions.latest = [{ name: "latest", tag: "latest"}];
 
-    try {
-      createMainDocsPage({
-        path: `/${DOCS_PATH_NAME}/${version}`,
-        displayName: `${version} - ${ui.navigation.documentation}`,
-        version: version,
+  for (let key in versions) {
+    versions[key].forEach(version => {
+      const isLatestVersion = version.name === LATEST_VERSION;
+      const currentVersion = isLatestVersion
+        ? versionsWithoutLatest.release[0].name
+        : version.name;
+      const loader = new DocsLoader(currentVersion);
+
+      try {
+        createMainDocsPage({
+          path: `/${DOCS_PATH_NAME}/${version.name}`,
+          displayName: `${version.name} - ${ui.navigation.documentation}`,
+          version: version.name,
+          versions: versionsWithoutLatest,
+          template,
+          createPage,
+          loader,
+        });
+      } catch (err) {
+        console.error(err);
+        return;
+      }
+
+      const manifest = loader.loadManifest();
+      const navigation = loader.loadNavigation();
+      createDocsSubpages({
+        version: version.name,
         versions: versionsWithoutLatest,
-        template,
+        manifest,
         createPage,
         loader,
+        navigation,
+        template,
       });
-    } catch (err) {
-      console.error(err);
-      return;
-    }
-
-    const manifest = loader.loadManifest();
-    const navigation = loader.loadNavigation();
-    createDocsSubpages({
-      version,
-      versions: versionsWithoutLatest,
-      manifest,
-      createPage,
-      loader,
-      navigation,
-      template,
     });
-  });
+  }
 }
 
 function populateDocsPages(obj) {

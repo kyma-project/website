@@ -15,8 +15,12 @@ class Git {
     );
   }
 
-  checkout(tag) {
-    execSync(`cd "${this.destination}" && git checkout "tags/${tag}"`);
+  checkout(branch) {
+    execSync(`cd "${this.destination}" && git checkout "${branch}"`);
+  }
+
+  checkoutTag(tag) {
+    this.checkout(`tags/${tag}`);
   }
 }
 
