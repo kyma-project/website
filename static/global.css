@@ -651,7 +651,7 @@ h3,
 h4,
 h5,
 h6 {
-  display: inline-block !important;
+  display: table;
 }
 
 h1 {
