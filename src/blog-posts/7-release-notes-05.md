@@ -7,6 +7,8 @@ tags:
 title: "Release 0.5 is available!"
 ---
 
+<a class="btn-blog" href="https://github.com/kyma-project/kyma/releases/tag/0.5.0" alt="Download 0.5">Download 0.5</a>
+
 We constantly work improving Kyma and modularizing it further. Shortly after our last release, we now introduce the next update including many changes.
 
 <!-- overview -->
@@ -151,5 +153,3 @@ The Tracing UI is now linked from within the Kyma Console UI to make it easier t
 - It is now possible to view and edit **ConfigMaps**:
 
 ![](./assets/console_2.PNG) 
-
-<a class="btn-blog" href="https://github.com/kyma-project/kyma/releases/tag/0.5.0" alt="Download 0.5 version">Download 0.5</a>
