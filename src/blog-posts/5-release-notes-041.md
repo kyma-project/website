@@ -7,6 +7,8 @@ tags:
 title: "Release 0.4.1 is out!"
 ---
 
+<a class="btn-blog" href="https://github.com/kyma-project/kyma/releases/tag/0.4.1" alt="Download 0.4.1">Download 0.4.1</a>
+
 It has been a while since we introduced Kyma to the open-source community. Many things have changed in the project since its [announcement](/blog/introducing-project-kyma) in July.
 Now that we have our first official release, it is time to sum up what we have recently worked on.
 
@@ -79,5 +81,3 @@ A few weeks after the Kyma announcement, we published the official documentation
 - The [Kyma overview](/docs/0.4/root/kyma#overview-overview) documentation and many other sections, like consistency of the [Custom Resource reference](/docs/0.4/components/service-catalog#custom-resource-custom-resource) documents.
 - The general feel and look of the documentation, its navigation, consistency, and the readability of the content.
 ![](./assets/docs-ui.png)
-
-<a class="btn-blog" href="https://github.com/kyma-project/kyma/releases/tag/0.4.1" alt="Download 0.4.1 version">Download 0.4.1</a>
