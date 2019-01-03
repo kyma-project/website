@@ -810,31 +810,23 @@ const MarkdownContent = styled.div`
   .btn-blog.btn-blog {
     display: inline-block;
     text-decoration: none;
-    color: #ffffff;
-    border-color: #2852c7;
-    background-color: #2852c7;
-<<<<<<< HEAD
-    line-height: 46px;
-    border-radius: 25px;
-    padding: 0 18px;
-    font-size: 18px;
-    font-weight: 500;
-    transition: background-color ease-out 0.2s;
-=======
-    line-height: 40px;
+    color: #2852c7;
+    border: 3px solid #2852c7;
+    background-color: #fff;
+    line-height: 34px;
     border-radius: 25px;
     padding: 0 14px;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 700;
     transition: background-color ease-out 0.2s;
-    margin-top: 30px !important;
->>>>>>> Add excerpt to blog posts
+    margin-top: 30px;
   }
 
   .btn-blog.btn-blog:active,
   .btn-blog.btn-blog:focus,
   .btn-blog.btn-blog:hover {
     cursor: pointer;
+    color: #fff;
     background-color: rgba(40, 82, 199, 0.9);
     outline: none;
   }

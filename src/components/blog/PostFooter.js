@@ -10,38 +10,33 @@ const FooterWrapper = styled.footer`
 
 const TagsWrapper = styled.ul`
   list-style-type: none;
-  display: block;
+  display: inline-block;
   margin-top: 0;
 `;
 
-const TagsText = styled.p`
+const TagsText = styled.li`
   font-weight: bold;
-  display: block;
-  margin-bottom: 16px;
+  display: inline-block;
+  margin-bottom: 15px;
   color: ${colors.gray};
 `;
 
-const TagPill = styled.li`
+const Tag = styled.li`
   display: inline-block;
-  background: ${colors.lightGray};
   color: ${colors.gray};
   border-radius: 25px;
-  padding: 8px 10px;
   margin-bottom: 15px;
+  margin-left: 15px;
   font-size: 14px;
-
-  & + & {
-    margin-left: 15px;
-  }
 `;
 
 const PostFooter = ({ tags }) => {
   return (
     <FooterWrapper>
-      <TagsText>{ui.blog.tags}</TagsText>
       <TagsWrapper>
+        <TagsText>{ui.blog.tags}:</TagsText>
         {tags.map((tag, idx) => (
-          <TagPill key={idx}>{tag}</TagPill>
+          <Tag key={idx}>#{tag}</Tag>
         ))}
       </TagsWrapper>
     </FooterWrapper>
