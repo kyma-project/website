@@ -1,13 +1,6 @@
-LAST_COMMIT_EMAIL= $(shell git log -1 --pretty=format:'%ae')
-ifeq ($(LAST_COMMIT_EMAIL),$(BOT_GITHUB_EMAIL))
-	SKIP = 'true'
-else
-	SKIP = 'false'
-endif
-
 ci-pr: resolve build
-ci-master: resolve prepare-git generate-docs prepare-website
-ci-release: resolve prepare-git generate-docs prepare-website
+ci-master: resolve prepare-git prepare-website
+ci-release: resolve prepare-git prepare-website
 
 resolve:
 	npm install
@@ -19,12 +12,11 @@ build:
 	npm run build:prod
 
 prepare-git:
-	cp ${BOT_GITHUB_SSH_PATH} $(HOME)/ssh_key.pem
-	./scripts/helpers/git-config.sh --ssh-file $(HOME)/ssh_key.pem
+	git remote add origin git@github.com:kyma-project/website.git
 
-generate-docs:
-	./scripts/generate-docs.sh --publish --skip $(SKIP)
-	
+generate-docs: prepare-git
+	./scripts/generate-docs.sh --publish --branch $(PULL_BASE_REF) --commit $(PULL_BASE_SHA)
+
 prepare-website:
-	./scripts/prepare-website.sh --skip $(SKIP)
+	./scripts/prepare-website.sh
 	

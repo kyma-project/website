@@ -57,16 +57,15 @@ const VersionSwitcher = ({ versions = [], currentVersion, onChange }) => (
     <Label>{ui.docs.version}</Label>
     <SelectWrapper>
       <VersionSelect onChange={onChange} defaultValue={currentVersion}>
-        { Object.keys(versions).map((key, id) => {
-
+        {Object.keys(versions).map((key, id) => {
           return (
             <optgroup key={key} label={ui.docs[key]}>
               {versions[key].map((version, idx) => {
-                const isLatestVersion = (id === 0 && idx === 0);
+                const isLatestVersion = id === 0 && idx === 0;
 
                 return (
-                  <option key={version.name} value={version.name}>
-                    {version.name} {isLatestVersion && `(${ui.docs.latest})`}
+                  <option key={version} value={version}>
+                    {version} {isLatestVersion && `(${ui.docs.latest})`}
                   </option>
                 );
               })}

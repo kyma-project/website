@@ -1,27 +1,39 @@
 const compareVersions = require("compare-versions");
 
-function validateExistanceOfTag(releases, tags) {
+function filterInvalidReleases(releases, tags) {
+  const tagsArray = tags.map(tag => tag.name);
+
   return releases.filter(release => {
     const fullName = release.name ? release.name : release.tag_name;
-    return tags.includes(fullName);
+    return tagsArray.includes(fullName);
   });
 }
 
 function groupReleaseByName(releases) {
-  const releaseMap = new Map();
-  releases.forEach(release => {
-    const name = getReleaseName(release);
-    let rel = releaseMap.get(name);
+  return groupBy(releases, current => {
+    return getReleaseName(current);
+  });
+}
 
-    if (!rel) {
-      rel = [];
-      releaseMap.set(name, rel);
+function groupReleaseByType(releases) {
+  return groupBy(releases, current => {
+    return current.prerelease ? "prereleases" : "releases";
+  });
+}
+
+function groupBy(array, fn) {
+  return array.reduce((prv, curr) => {
+    const key = fn(curr);
+    let values = prv.get(key);
+
+    if (!values) {
+      values = [];
+      prv.set(key, values);
     }
 
-    rel.push(release);
-  });
-
-  return releaseMap;
+    values.push(curr);
+    return prv;
+  }, new Map());
 }
 
 function getNewestReleases(groupedReleases) {
@@ -30,9 +42,9 @@ function getNewestReleases(groupedReleases) {
   groupedReleases.forEach((value, key) => {
     const sorted = value
       .sort((first, second) => {
-        versionFirst = first.tag_name.split("-")[0];
-        versionSecond = second.tag_name.split("-")[0];
-        return compareVersions(versionFirst, versionSecond);
+        firstDate = new Date(first.published_at);
+        secondDate = new Date(second.published_at);
+        return firstDate - secondDate;
       })
       .reverse();
     result.set(key, sorted[0]);
@@ -41,11 +53,21 @@ function getNewestReleases(groupedReleases) {
   return result;
 }
 
-function getReleasesToUpdate(documentationConfig, newestReleases) {
+function filterReleased(prereleases, releases) {
   const result = new Map();
-  const currentReleases = documentationConfig.releases
-    ? documentationConfig.releases
-    : [];
+
+  prereleases.forEach((value, key) => {
+    if (!releases.has(key)) {
+      result.set(key, value);
+    }
+  });
+
+  return result;
+}
+
+function getOutdatedReleases(documentationConfig, newestReleases) {
+  const result = new Map();
+  const currentReleases = documentationConfig ? documentationConfig : [];
 
   newestReleases.forEach((release, key) => {
     const current = currentReleases.find(current => current.name === key);
@@ -55,20 +77,20 @@ function getReleasesToUpdate(documentationConfig, newestReleases) {
     }
   });
 
-  result.set("master", "master");
-
   return result;
 }
 
 function getReleaseName(release) {
   const fullName = release.name ? release.name : release.tag_name;
-  return release.prerelease ? fullName : fullName.match(/^v?[0-9]+.[0-9]+/)[0];
+  return fullName.match(/^v?[0-9]+.[0-9]+/)[0];
 }
 
 module.exports = {
   getReleaseName,
   groupReleaseByName,
+  groupReleaseByType,
   getNewestReleases,
-  getReleasesToUpdate,
-  validateExistanceOfTag,
+  getOutdatedReleases,
+  filterInvalidReleases,
+  filterReleased,
 };
