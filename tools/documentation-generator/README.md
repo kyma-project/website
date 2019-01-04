@@ -25,7 +25,7 @@ The configuration options are as follows:
 | APP_TOKEN           | `null`            | The GitHub API OAuth token.                           |
 | APP_ORGANIZATION    | `kyma-project`    | The GitHub organization that owns a given repository. |
 | APP_REPOSITORY      | `kyma`            | The repository with documentation.                    |
-| APP_COMMIT          | `null`            | The commit from master branch with new documentation. |
+| APP_COMMIT          | `null`            | The commit from the `master` branch with new documentation. |
 | APP_OUTPUT          | `out`             | The path for storing the results.                     |
 | APP_DOC_CONFIG_FILE | `out/config.json` | The path to the website documentation configuration.  |
 | APP_TEMP            | `temp`            | The path for storing temporary data.                  |
