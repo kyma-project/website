@@ -42,9 +42,21 @@ step() {
 
 init() {
     PUBLISH='false'
+    COMMIT=''
+    BRANCH=''
 
     while test $# -gt 0; do
         case "$1" in
+            --commit | -c)
+                shift
+                COMMIT=$1
+                shift
+                ;;
+            --branch | -b)
+                shift
+                BRANCH=$1
+                shift
+                ;;
             --publish | -p)
                 PUBLISH='true'
                 shift
@@ -59,12 +71,20 @@ init() {
         esac
     done
     readonly PUBLISH
+    readonly COMMIT
+    readonly BRANCH
 }
 
 generate() {
+    local commit="${COMMIT}"
+    if [[ "${BRANCH}" != 'master' ]]; then
+        commit=""
+    fi
     docker run --rm -v "${DOCUMENTATION_DIR}:/app/documentation" \
                -e APP_OUTPUT="/app/documentation" \
                -e APP_DOC_CONFIG_FILE="/app/documentation/config.json" \
+               -e APP_BRANCH="master" \
+               -e APP_COMMIT="${commit}" \
                -e APP_TOKEN="${BOT_GITHUB_TOKEN}" \
                ${GENERATOR_IMAGE}
 }

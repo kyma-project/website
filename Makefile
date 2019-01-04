@@ -15,7 +15,7 @@ prepare-git:
 	git remote add origin git@github.com:kyma-project/website.git
 
 generate-docs: prepare-git
-	./scripts/generate-docs.sh --publish
+	./scripts/generate-docs.sh --publish --branch $(PULL_BASE_REF) --commit $(PULL_BASE_SHA)
 
 prepare-website:
 	./scripts/prepare-website.sh
