@@ -83,7 +83,6 @@ generate() {
     docker run --rm -v "${DOCUMENTATION_DIR}:/app/documentation" \
                -e APP_OUTPUT="/app/documentation" \
                -e APP_DOC_CONFIG_FILE="/app/documentation/config.json" \
-               -e APP_BRANCH="master" \
                -e APP_COMMIT="${commit}" \
                -e APP_TOKEN="${BOT_GITHUB_TOKEN}" \
                ${GENERATOR_IMAGE}
