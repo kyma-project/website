@@ -13,6 +13,8 @@ build:
 
 prepare-git:
 	git remote add origin git@github.com:kyma-project/website.git
+	git config user.email "$(BOT_GITHUB_EMAIL)"
+	git config user.name "$(BOT_GITHUB_NAME)"
 
 generate-docs: prepare-git
 	./scripts/generate-docs.sh --publish --branch $(PULL_BASE_REF) --commit $(PULL_BASE_SHA)
