@@ -1221,10 +1221,6 @@ h3 {
   margin-left: -5px;
 }
 
-.community--links ul li.align-stack {
-  margin-left: -14px;
-}
-
 .community--links .wrap-stack {
   max-width: 70px;
 }
@@ -1339,8 +1335,11 @@ footer {
   text-decoration: none;
 }
 
-.link-sig {
+.key-features-link {
+  color: #0073e6;
+  text-decoration: none;
   text-align: center;
+  margin: 0 auto;
 }
 
 .btn {
