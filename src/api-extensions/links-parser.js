@@ -2,7 +2,7 @@ const rewriteLinks = require("./rewrite-links");
 
 const headerRegexp = /<h[1-6](.*?)id=(\"|')(.*?)(\"|')(.*?)>(.*?)<\/h[1-6]>/g;
 const headerIDRegexp = /id=(\"|')(.*?)(\"|')/g;
-const hrefAssetsRegexp = /href=\"(?!(https?|ftp))(.*?)assets\/(.*?)\.(.*?)\"/g;
+const hrefAssetsRegexp = /href=\"(?!(https?|ftp))(.*?)assets\/(.*?)\"/g;
 
 function linksParser({
   content,
