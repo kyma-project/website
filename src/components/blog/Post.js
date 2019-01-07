@@ -8,6 +8,8 @@ import PostHeader from "./PostHeader";
 import PostFooter from "./PostFooter";
 import PostContent from "./PostContent";
 
+import ui from "../../locales/en/UI.json";
+
 const PostWrapper = styled.div`
   border: 0;
   padding: 0;
@@ -50,7 +52,9 @@ const Post = ({
     <PostWrapper borderBottom={borderBottom}>
       <PostHeader title={title} author={author} date={date} path={path} />
       <PostContent html={html} />
-      {readMoreButton && <ReadMoreButton to={path}>Read more</ReadMoreButton>}
+      {readMoreButton && (
+        <ReadMoreButton to={path}>{ui.blog.readMore}</ReadMoreButton>
+      )}
       <PostFooter tags={tags} />
     </PostWrapper>
   );

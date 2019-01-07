@@ -1,52 +1,16 @@
-import React from "react";
-import styled from "styled-components";
-import NavigationList from "../external/Navigation/NavigationList.component";
-import DocsIcon from "./assets/docs-icon.svg";
-import ui from "../../../locales/en/UI.json";
-import { DOCS_RESPONSIVE_BREAKPOINT } from "../../../constants/docs";
+import React, { Component } from "react";
 
-const Icon = styled.img`
-  width: 24px;
-  height: 24px;
-  position: absolute;
-  left: 10px;
-`;
+import NavigationList from "./NavigationList/NavigationList";
+import VersionSwitcher from "./VersionSwitcher/VersionSwitcher";
+import BackToTop from "./BackToTop/BackToTop";
 
-const ToggleSidebarButton = styled.button`
-  position: relative;
-  background-color: #fff;
-  outline: none;
-  border-radius: 3px;
-  line-height: 24px;
-  cursor: pointer;
-  width: 100%;
-  border: 0;
-  border-top: 1px solid #e5e5e5;
-  border-bottom: 1px solid #e5e5e5;
-  padding: 10px;
-  padding-left: 50px;
-  appearance: none;
-  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.25);
-  display: none;
-  margin: 0;
-  font-size: 18px;
+import { SidebarWrapper, ToggleSidebarButton, Icon } from "./styled";
+import DocsIcon from "../assets/docs-icon.svg";
 
-  @media (max-width: ${DOCS_RESPONSIVE_BREAKPOINT}px) {
-    display: block;
-  }
-`;
+import ui from "../../../../locales/en/UI.json";
+import { DOCS_RESPONSIVE_BREAKPOINT } from "../../../../constants/docs";
 
-const SidebarWrapper = styled.div`
-  display: ${props => (props.visible ? "block" : "none")};
-  background: #fff;
-  @media (max-width: ${DOCS_RESPONSIVE_BREAKPOINT}px) {
-    height: calc(100vh - 46px);
-    box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.3);
-    padding: 0 20px;
-  }
-`;
-
-class NavigationSidebar extends React.Component {
+class LeftNavigation extends Component {
   state = {
     visible: true,
   };
@@ -84,15 +48,17 @@ class NavigationSidebar extends React.Component {
 
     const {
       currentVersion,
-      topNavComponent,
       items,
       topics,
       versions,
+      changeDocsVersion,
       activeNav,
+      activeNodes,
       currentContent,
       setActiveNav,
       onLinkClick,
       includeVersionInPath,
+      contentId,
     } = this.props;
 
     return (
@@ -105,13 +71,21 @@ class NavigationSidebar extends React.Component {
           {label}
         </ToggleSidebarButton>
         <SidebarWrapper visible={this.state.visible}>
-          {topNavComponent}
+          <>
+            <BackToTop contentId={contentId} />
+            <VersionSwitcher
+              versions={versions}
+              currentVersion={currentVersion}
+              onChange={changeDocsVersion}
+            />
+          </>
           <NavigationList
             items={items}
             topics={topics}
             includeVersionInPath={includeVersionInPath}
             currentContent={currentContent}
             activeNav={activeNav}
+            activeNodes={activeNodes}
             setActiveNav={setActiveNav}
             currentVersion={currentVersion}
             onLinkClick={onLinkClick}
@@ -123,4 +97,4 @@ class NavigationSidebar extends React.Component {
   }
 }
 
-export default NavigationSidebar;
+export default LeftNavigation;

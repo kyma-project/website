@@ -1,8 +1,8 @@
 const rewriteLinks = require("./rewrite-links");
 
-const headerRegexp = /<h(1|2|3|4|5|6)(.*?)id=(\"|')(.*?)(\"|')(.*?)>(.*?)<\/h(1|2|3|4|5|6)>/g;
+const headerRegexp = /<h[1-6](.*?)id=(\"|')(.*?)(\"|')(.*?)>(.*?)<\/h[1-6]>/g;
 const headerIDRegexp = /id=(\"|')(.*?)(\"|')/g;
-const hrefAssetsRegexp = /href=\"(?!(https?|ftp))(.*?)assets\/(.*?)\.(json|yaml|jpg|jpeg|png|svg)\"/g;
+const hrefAssetsRegexp = /href=\"(?!(https?|ftp))(.*?)assets\/(.*?)\.(.*?)\"/g;
 
 function linksParser({
   content,
@@ -20,7 +20,7 @@ function linksParser({
       version,
       includeVersionInPath,
     );
-    doc.source = changeHeadersID(doc.source, doc.type, doc.title);
+    doc.source = changeHeadersAtrs(doc.source, doc.type, doc.title);
     doc.source = replaceHeadersToHeadersWithChains(doc.source);
     doc.source = rewriteLinks(
       doc.source,
@@ -61,7 +61,7 @@ function changeVersionInLinksHref(source, version, includeVersionInPath) {
   return source;
 }
 
-function changeHeadersID(source, docType, docTitle) {
+function changeHeadersAtrs(source, docType, docTitle) {
   if (!docType) docType = docTitle;
 
   source = source.replace(headerIDRegexp, occurrence => {
@@ -75,7 +75,7 @@ function changeHeadersID(source, docType, docTitle) {
     const titleLowerCased = docTitle.toLowerCase().replace(/ /g, "-");
     const typeWithTitle = `${typeLowerCased}-${titleLowerCased}`;
 
-    return `id="${typeWithTitle}-${id}"`;
+    return `id="${typeWithTitle}-${id}" data-scrollspy-node-type="header"`;
   });
   return source;
 }

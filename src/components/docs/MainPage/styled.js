@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { DOCS_RESPONSIVE_BREAKPOINT } from "../../../../constants/docs";
+import { DOCS_RESPONSIVE_BREAKPOINT } from "../../../constants/docs";
 
 export const ColumnsWrapper = styled.div`
   box-sizing: border-box;
