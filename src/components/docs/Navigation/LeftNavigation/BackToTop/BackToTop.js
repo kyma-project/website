@@ -21,8 +21,8 @@ const Icon = styled.span`
   margin-right: 5px;
 `;
 
-const BackToTop = ({ contentId }) => (
-  <Link href={`#${contentId}`}>
+const BackToTop = ({ contentId, hideNavIfShouldOnMobile }) => (
+  <Link href={`#${contentId}`} onClick={hideNavIfShouldOnMobile}>
     <Icon>&uarr;</Icon> {ui.docs.backToTop}
   </Link>
 );

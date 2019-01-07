@@ -1237,6 +1237,12 @@ h3 {
   }
 }
 
+@media (max-width: 768px) {
+  .community--links p {
+    text-align: center;
+  }
+}
+
 @media (max-width: 800px) {
   .community--links ul {
     text-align: center;

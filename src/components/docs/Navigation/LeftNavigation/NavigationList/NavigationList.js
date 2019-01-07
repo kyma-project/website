@@ -33,7 +33,7 @@ class Navigation extends Component {
       items,
       topics,
       activeNav,
-      onLinkClick,
+      hideNavIfShouldOnMobile,
       setActiveNav,
       currentContent,
     } = this.props;
@@ -61,7 +61,7 @@ class Navigation extends Component {
             activeNav={activeNav}
             activeNodes={activeNodes}
             setActiveNav={setActiveNav}
-            onLinkClick={onLinkClick}
+            hideNavIfShouldOnMobile={hideNavIfShouldOnMobile}
             currentContent={currentContent}
           />
           <Separator />
@@ -75,7 +75,7 @@ class Navigation extends Component {
             activeNav={activeNav}
             activeNodes={activeNodes}
             setActiveNav={setActiveNav}
-            onLinkClick={onLinkClick}
+            hideNavIfShouldOnMobile={hideNavIfShouldOnMobile}
             currentContent={currentContent}
           />
         </Wrapper>

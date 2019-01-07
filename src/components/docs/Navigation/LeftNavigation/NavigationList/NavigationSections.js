@@ -18,7 +18,7 @@ function NavigationSections({
   getPathLink,
   activeNav,
   activeNodes,
-  onLinkClick,
+  hideNavIfShouldOnMobile,
   ...otherProps
 }) {
   const hashing = item => {
@@ -93,7 +93,7 @@ function NavigationSections({
               hash: hash,
             })}
             onClick={() => {
-              onLinkClick();
+              hideNavIfShouldOnMobile();
             }}
             parentId={parentId}
           >
@@ -110,7 +110,7 @@ function NavigationSections({
             activeNav={activeNav}
             activeNodes={activeNodes}
             getPathLink={getPathLink}
-            onLinkClick={onLinkClick}
+            hideNavIfShouldOnMobile={hideNavIfShouldOnMobile}
             setActiveNav={setActiveNav}
             currentContent={otherProps.currentContent}
           />

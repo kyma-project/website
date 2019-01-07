@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { StickyContainer, Sticky } from "react-sticky";
 
 import DocsContent from "../DocsContent/DocsContent.container";
-import LeftNavigation from "../Nav/LeftNavigation/LeftNavigation";
+import LeftNavigation from "../Navigation/LeftNavigation/LeftNavigation";
 import { ColumnsWrapper, SideWrapper, CenterSideWrapper } from "./styled";
 
 import { DOCS_RESPONSIVE_BREAKPOINT } from "../../../constants/docs";
@@ -107,7 +107,7 @@ class MainPage extends Component {
                     changeDocsVersion={changeDocsVersion}
                     activeNav={activeNav}
                     setActiveNav={this.setActiveNav}
-                    onLinkClick={this.hideNavIfShouldOnMobile}
+                    hideNavIfShouldOnMobile={this.hideNavIfShouldOnMobile}
                     contentId={contentId}
                   />
                 </div>

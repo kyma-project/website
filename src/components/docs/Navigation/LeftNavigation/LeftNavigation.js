@@ -56,7 +56,7 @@ class LeftNavigation extends Component {
       activeNodes,
       currentContent,
       setActiveNav,
-      onLinkClick,
+      hideNavIfShouldOnMobile,
       includeVersionInPath,
       contentId,
     } = this.props;
@@ -72,7 +72,10 @@ class LeftNavigation extends Component {
         </ToggleSidebarButton>
         <SidebarWrapper visible={this.state.visible}>
           <>
-            <BackToTop contentId={contentId} />
+            <BackToTop
+              contentId={contentId}
+              hideNavIfShouldOnMobile={hideNavIfShouldOnMobile}
+            />
             <VersionSwitcher
               versions={versions}
               currentVersion={currentVersion}
@@ -88,7 +91,7 @@ class LeftNavigation extends Component {
             activeNodes={activeNodes}
             setActiveNav={setActiveNav}
             currentVersion={currentVersion}
-            onLinkClick={onLinkClick}
+            hideNavIfShouldOnMobile={hideNavIfShouldOnMobile}
             versions={versions}
           />
         </SidebarWrapper>

@@ -20,7 +20,7 @@ function NavigationGroup({
   getPathLink,
   activeNav,
   activeNodes,
-  onLinkClick,
+  hideNavIfShouldOnMobile,
   ...otherProps
 }) {
   const renderArrow = item => (
@@ -60,7 +60,7 @@ function NavigationGroup({
               type: groupType,
               hash: "",
             })}
-            onClick={() => onLinkClick(topics && topics.length > 0)}
+            onClick={() => hideNavIfShouldOnMobile(topics && topics.length > 0)}
           >
             {item.displayName}
           </NavigationLink>
@@ -74,7 +74,7 @@ function NavigationGroup({
             activeNav={activeNav}
             activeNodes={activeNodes}
             getPathLink={getPathLink}
-            onLinkClick={onLinkClick}
+            hideNavIfShouldOnMobile={hideNavIfShouldOnMobile}
             setActiveNav={setActiveNav}
             currentContent={otherProps.currentContent}
           />
