@@ -49,7 +49,7 @@ As a step towards having a consistent naming scheme for all Kyma components, we 
 
 ### Luigi framework on board
 
-The Console UI was refactored and it now uses the Luigi framework. Luigi is a client-side micro front-end orchestration framework. With Luigi on board, the Console enables secure and technology agnostic UI extensibility in Kyma. 
+The Console UI was refactored and it now uses the Luigi framework which orchestrates client-side micro front-end. With Luigi on board, the Console enables secure and technology agnostic UI extensibility in Kyma. 
 
 ### New navigation structure
 
