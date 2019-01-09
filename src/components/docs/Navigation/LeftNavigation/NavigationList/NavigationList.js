@@ -6,6 +6,7 @@ import { Wrapper, Separator } from "./styled";
 
 import { getDocsPath } from "../../../../../helpers/docsPath";
 import { tokenize } from "../../../../../helpers/tokenize";
+import { SCROLL_SPY_ROOT_ELEMENT } from "../../../../../constants/docs";
 
 class Navigation extends Component {
   state = {
@@ -41,7 +42,7 @@ class Navigation extends Component {
 
     return (
       <ScrollSpy
-        rootElement="#docs-content"
+        rootElement={`#${SCROLL_SPY_ROOT_ELEMENT}`}
         nodeTypes={["groupOfDocuments", "document", "header"]}
         offset={{
           groupOfDocuments: 40,

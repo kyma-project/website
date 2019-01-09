@@ -21,6 +21,7 @@ function NavigationGroup({
   activeNav,
   activeNodes,
   hideNavIfShouldOnMobile,
+  currentContent,
   ...otherProps
 }) {
   const renderArrow = item => (
@@ -76,7 +77,7 @@ function NavigationGroup({
             getPathLink={getPathLink}
             hideNavIfShouldOnMobile={hideNavIfShouldOnMobile}
             setActiveNav={setActiveNav}
-            currentContent={otherProps.currentContent}
+            currentContent={currentContent}
           />
         )}
       </NavigationItem>

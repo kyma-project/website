@@ -12,24 +12,23 @@ function NavigationSections({
   rootId,
   parentId,
   groupType,
-  items,
+  items = [],
   setActiveNav,
   isLinkActive,
   getPathLink,
   activeNav,
   activeNodes,
   hideNavIfShouldOnMobile,
+  currentContent,
   ...otherProps
 }) {
   const hashing = item => {
-    if (parentId) {
-      return `${parentId}-${item.anchor}`;
-    } else {
-      const topicType = item.topicType
-        ? item.topicType.replace(/ /g, "-").toLowerCase()
-        : item.anchor;
-      return `${topicType}-${item.anchor}`;
-    }
+    if (parentId) return `${parentId}-${item.anchor}`;
+
+    const topicType = item.topicType
+      ? item.topicType.replace(/ /g, "-").toLowerCase()
+      : item.anchor;
+    return `${topicType}-${item.anchor}`;
   };
 
   const renderArrow = (hash, isActive, isActiveNavArrow) => (
@@ -50,14 +49,31 @@ function NavigationSections({
     const hash = hashing(item);
     const hasSubElements = item && item.titles && item.titles.length > 0;
 
+    let isActive = false;
     let isActiveNavArrow = false;
-    if (
-      activeNodes &&
-      activeNodes.groupOfDocuments &&
-      activeNodes.groupOfDocuments.id.startsWith(hash)
-    ) {
-      isActiveNavArrow = true;
-    } else {
+
+    if (currentContent.id === rootId) {
+      if (parentId) {
+        isActive =
+          activeNodes &&
+          (activeNodes.document && activeNodes.document.id === hash);
+      } else {
+        isActive =
+          activeNodes &&
+          (activeNodes.groupOfDocuments &&
+            activeNodes.groupOfDocuments.id === hash);
+      }
+
+      if (
+        activeNodes &&
+        activeNodes.groupOfDocuments &&
+        activeNodes.groupOfDocuments.id.startsWith(hash)
+      ) {
+        isActiveNavArrow = true;
+      }
+    }
+
+    if (!isActiveNavArrow) {
       isActiveNavArrow =
         hasSubElements &&
         activeNav.id === rootId &&
@@ -68,18 +84,6 @@ function NavigationSections({
     const key = parentId
       ? `${rootId}-${parentId}-${item.anchor}`
       : `${rootId}-${item.anchor}`;
-
-    let isActive = false;
-    if (parentId) {
-      isActive =
-        activeNodes &&
-        (activeNodes.document && activeNodes.document.id === hash);
-    } else {
-      isActive =
-        activeNodes &&
-        (activeNodes.groupOfDocuments &&
-          activeNodes.groupOfDocuments.id === hash);
-    }
 
     return (
       <NavigationItem key={key}>
@@ -112,7 +116,7 @@ function NavigationSections({
             getPathLink={getPathLink}
             hideNavIfShouldOnMobile={hideNavIfShouldOnMobile}
             setActiveNav={setActiveNav}
-            currentContent={otherProps.currentContent}
+            currentContent={currentContent}
           />
         )}
       </NavigationItem>
@@ -126,9 +130,9 @@ function NavigationSections({
     activeNodes.groupOfDocuments &&
     activeNodes.groupOfDocuments.id.startsWith(parentId)
   ) {
-    isActiveNav = true;
+    isActiveNav = currentContent.id === rootId;
   } else {
-    isActiveNav = !parentId ? activeNav.id === rootId : false;
+    isActiveNav = !parentId ? currentContent.id === rootId : false;
   }
 
   const isClickedNav = parentId
@@ -139,7 +143,7 @@ function NavigationSections({
 
   return (
     <NavigationItems secondary marginTop show={isActiveNav || isClickedNav}>
-      {items && items.map(item => renderNavigationItem(item))}
+      {items.map(item => renderNavigationItem(item))}
     </NavigationItems>
   );
 }

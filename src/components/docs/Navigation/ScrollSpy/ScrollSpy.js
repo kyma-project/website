@@ -67,12 +67,14 @@ class ScrollSpy extends React.Component {
       state: { activeNodes },
     } = this;
 
-    if (typeof onUpdate === "function") {
-      for (const type of nodeTypes) {
-        if (activeNodes[type] !== prevState.activeNodes[type]) {
-          onUpdate(activeNodes);
-          break;
-        }
+    if (typeof onUpdate !== "function") {
+      return;
+    }
+
+    for (const type of nodeTypes) {
+      if (activeNodes[type] !== prevState.activeNodes[type]) {
+        onUpdate(activeNodes);
+        break;
       }
     }
   }
@@ -101,17 +103,17 @@ class ScrollSpy extends React.Component {
     for (let node of nodesInRootNode) {
       const nodeType = node.dataset[dataScrollSpyNodeTypeAtr];
 
-      if (nodeType) {
-        const nodeWithInfo = {
-          id: node.id,
-          offsetTop: node.offsetTop,
-          offsetHeight: node.offsetHeight,
-        };
+      if (!nodeType) continue;
 
-        for (const type of nodeTypes) {
-          if (nodeType === type) {
-            nodes[type].push(nodeWithInfo);
-          }
+      const nodeWithInfo = {
+        id: node.id,
+        offsetTop: node.offsetTop,
+        offsetHeight: node.offsetHeight,
+      };
+
+      for (const type of nodeTypes) {
+        if (nodeType === type) {
+          nodes[type].push(nodeWithInfo);
         }
       }
     }
@@ -121,15 +123,10 @@ class ScrollSpy extends React.Component {
   updateActiveNode = (nodes, scrollTop) => {
     const [firstNode] = nodes;
 
-    let activeNode;
-    if (firstNode && scrollTop <= firstNode.offsetTop) {
-      activeNode = firstNode;
-    } else {
-      activeNode = nodes
-        .filter(node => node.offsetTop - scrollTop <= 0)
-        .sort((a, b) => b.offsetTop - a.offsetTop)[0];
-    }
-    return activeNode;
+    if (firstNode && scrollTop <= firstNode.offsetTop) return firstNode;
+    return nodes
+      .filter(node => node.offsetTop - scrollTop <= 0)
+      .sort((a, b) => b.offsetTop - a.offsetTop)[0];
   };
 
   handleScroll = event => {
@@ -162,19 +159,6 @@ class ScrollSpy extends React.Component {
         },
       });
     }
-  };
-
-  goToActiveNodes = () => {
-    // const { props: { offset }, state: { activeNodes } } = this;
-    // const nodes = Object.keys(activeNodes)
-    // const length = nodes.length - 2;
-    // for (let i = length; i > -1; i--) {
-    //     if (activeNodes[nodes[i]]) {
-    //         console.log(activeNodes[nodes[i]])
-    //         window.scrollTo(0, activeNodes[nodes[i]].offsetTop - 16);
-    //         break;
-    //     }
-    // }
   };
 
   render() {

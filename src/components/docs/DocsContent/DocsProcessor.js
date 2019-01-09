@@ -29,8 +29,9 @@ export class DocsProcessor {
   sortByType = () => {
     let docsTypes = [];
     this.docs.map(doc => {
-      if (!docsTypes.includes(doc.type || doc.title))
+      if (!docsTypes.includes(doc.type || doc.title)) {
         docsTypes.push(doc.type || doc.title);
+      }
       return doc;
     });
 
@@ -39,7 +40,6 @@ export class DocsProcessor {
       for (const doc of this.docs) {
         if (type === doc.type || (!doc.type && type === doc.title)) {
           sortedDocs.push(doc);
-          continue;
         }
       }
     }
