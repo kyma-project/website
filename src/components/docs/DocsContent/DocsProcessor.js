@@ -26,6 +26,28 @@ export class DocsProcessor {
     return this;
   };
 
+  sortByType = () => {
+    let docsTypes = [];
+    this.docs.map(doc => {
+      if (!docsTypes.includes(doc.type || doc.title)) {
+        docsTypes.push(doc.type || doc.title);
+      }
+      return doc;
+    });
+
+    let sortedDocs = [];
+    for (const type of docsTypes) {
+      for (const doc of this.docs) {
+        if (type === doc.type || (!doc.type && type === doc.title)) {
+          sortedDocs.push(doc);
+        }
+      }
+    }
+    this.docs = sortedDocs;
+
+    return this;
+  };
+
   sortFnByProperty = sortBy => {
     return (a, b) => {
       if (a[sortBy] && b[sortBy]) {

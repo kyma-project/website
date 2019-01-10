@@ -27,15 +27,19 @@ const Features = () => {
   const sections = paragraphs;
   return (
     <div className="row kyma-attr row--sm-align-center">
-      <Link className="col-12 col-md-12 link-sig" to={url}>
-        <h2>{headline}</h2>
-      </Link>
+      <h2 className="col-12 col-md-12">
+        <Link className="key-features-link" to={url}>
+          {headline}
+        </Link>
+      </h2>
       {sections.map(section => {
         return (
           <section className="col-4 col-md-12" key={section.id}>
-            <Link className="link-sig" to={section.url}>
-              <h3>{section.headline}</h3>
-            </Link>
+            <h3>
+              <Link className="key-features-link" to={section.url}>
+                {section.headline}
+              </Link>
+            </h3>
             <div className="img-wrap">
               {getIllustrationComponent(section.id)}
             </div>

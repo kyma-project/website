@@ -1,7 +1,7 @@
 import React from "react";
-import MainPage from "./external/MainPage/MainPage.component";
-import VersionSwitcher from "./navigation/VersionSwitcher";
-import BackToTop from "./navigation/BackToTop";
+
+import MainPage from "./MainPage/MainPage";
+
 import { getDocsPath } from "../../helpers/docsPath";
 
 const DocsRoot = ({
@@ -13,7 +13,7 @@ const DocsRoot = ({
   versions,
   location,
 }) => {
-  const changeVersion = async e => {
+  const changeDocsVersion = async e => {
     const optionIndex = e.target.selectedIndex;
     const newVersion = e.target.value;
     const isLatestVersion = optionIndex === 0;
@@ -30,16 +30,7 @@ const DocsRoot = ({
       location={location}
       versions={versions}
       content={content}
-      topNavComponent={
-        <>
-          <BackToTop />
-          <VersionSwitcher
-            versions={versions}
-            currentVersion={currentVersion}
-            onChange={changeVersion}
-          />
-        </>
-      }
+      changeDocsVersion={changeDocsVersion}
     />
   );
 };

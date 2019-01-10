@@ -176,7 +176,9 @@ function createMainDocsPage({
   content = JSON.parse(JSON.stringify(content));
 
   const versionForAssets =
-    version === LATEST_VERSION || !includeVersionInPath ? versions[0] : version;
+    version === LATEST_VERSION || !includeVersionInPath
+      ? versions.releases[0]
+      : version;
 
   createPage({
     path,
@@ -224,7 +226,7 @@ function createDocsSubpages({
 
       const versionForAssets =
         version === LATEST_VERSION || !includeVersionInPath
-          ? versions[0]
+          ? versions.releases[0]
           : version;
 
       createPage({

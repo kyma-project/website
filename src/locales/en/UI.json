@@ -27,7 +27,7 @@
     },
     "stackOverflow": {
       "name": "StackOverflow",
-      "communityName": "Stack Overflow",
+      "communityName": "Stack",
       "url": "https://stackoverflow.com/questions/tagged/kyma"
     },
     "linkedin": {
@@ -50,7 +50,8 @@
   },
   "blog": {
     "tags": "Tags",
-    "postMetadata": "{{author}} on {{date}}"
+    "postMetadata": "{{author}} on {{date}}",
+    "readMore": "Read more"
   },
   "docs": {
     "version": "Version:",

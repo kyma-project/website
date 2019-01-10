@@ -1,27 +1,31 @@
-// TODO: This component has been moved from console repository and it has to be rewritten
-
-import React from "react";
+import React, { Component } from "react";
 import { StickyContainer, Sticky } from "react-sticky";
-import DocsContent from "../../DocsContent/DocsContent.container";
-import NavigationSidebar from "../../navigation/NavigationSidebar";
-import { DOCS_RESPONSIVE_BREAKPOINT } from "../../../../constants/docs";
+
+import DocsContent from "../DocsContent/DocsContent.container";
+import LeftNavigation from "../Navigation/LeftNavigation/LeftNavigation";
 import { ColumnsWrapper, SideWrapper, CenterSideWrapper } from "./styled";
 
-class MainPage extends React.Component {
+import { DOCS_RESPONSIVE_BREAKPOINT } from "../../../constants/docs";
+
+class MainPage extends Component {
   constructor(props) {
     super(props);
-
-    const { content, location } = props;
-
     this.state = {
+      activeNav: {},
+    };
+    this.navSidebar = React.createRef();
+  }
+
+  componentDidMount() {
+    const { content } = this.props;
+
+    this.setState({
       activeNav: {
         id: content.id,
-        type: content.type,
-        hash: location.hash.replace(/#/g, ""),
+        type: "",
+        hash: "",
       },
-    };
-
-    this.navSidebar = React.createRef();
+    });
   }
 
   setActiveNav = activeNav => {
@@ -74,11 +78,15 @@ class MainPage extends React.Component {
       topics,
       currentVersion,
       versions,
+      changeDocsVersion,
       manifest,
       location,
       includeVersionInPath,
     } = this.props;
+    const { activeNav } = this.state;
     const topicItems = topics.topics;
+
+    const contentId = content.displayName.toLowerCase().replace(" ", "-");
 
     return (
       <StickyContainer>
@@ -87,9 +95,8 @@ class MainPage extends React.Component {
             <Sticky>
               {({ style }) => (
                 <div style={style}>
-                  <NavigationSidebar
+                  <LeftNavigation
                     ref={this.navSidebar}
-                    topNavComponent={this.props.topNavComponent}
                     items={manifest}
                     topics={topicItems}
                     currentContent={content}
@@ -97,9 +104,11 @@ class MainPage extends React.Component {
                     location={location}
                     versions={versions}
                     currentVersion={currentVersion}
-                    activeNav={this.state.activeNav}
+                    changeDocsVersion={changeDocsVersion}
+                    activeNav={activeNav}
                     setActiveNav={this.setActiveNav}
-                    onLinkClick={this.hideNavIfShouldOnMobile}
+                    hideNavIfShouldOnMobile={this.hideNavIfShouldOnMobile}
+                    contentId={contentId}
                   />
                 </div>
               )}
@@ -110,6 +119,7 @@ class MainPage extends React.Component {
               version={currentVersion}
               content={content}
               versions={versions}
+              contentId={contentId}
             />
           </CenterSideWrapper>
         </ColumnsWrapper>

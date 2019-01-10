@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import ui from "../../../locales/en/UI.json";
+import ui from "../../../../../locales/en/UI.json";
 
 const Link = styled.a`
   color: ${props => (props.active ? "#167ee6" : "#485766")};
@@ -21,8 +21,8 @@ const Icon = styled.span`
   margin-right: 5px;
 `;
 
-const BackToTop = () => (
-  <Link href="#">
+const BackToTop = ({ contentId, hideNavIfShouldOnMobile }) => (
+  <Link href={`#${contentId}`} onClick={hideNavIfShouldOnMobile}>
     <Icon>&uarr;</Icon> {ui.docs.backToTop}
   </Link>
 );

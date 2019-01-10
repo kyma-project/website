@@ -20,7 +20,7 @@ const Community = () => {
   const stackOverflow = translateLink("stackOverflow");
 
   const sigLink = (
-    <div>
+    <>
       <p>
         {sig.paragraph[0]}{" "}
         <a
@@ -33,7 +33,7 @@ const Community = () => {
         </a>{" "}
         {sig.paragraph[1]}.
       </p>
-    </div>
+    </>
   );
 
   return (
