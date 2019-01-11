@@ -178,7 +178,7 @@ As a follow-up to this new improvement, we also added:
 
 - [Guidelines](https://github.com/kyma-project/community/blob/master/guidelines/content-guidelines/links-in-docs.md) for all contributors on how to add links to documents under `kyma/docs`.
 
-- The **chain icon** on `kyma-project.io` that allows you to remember the link to a given document section easier. When you hover the cursor over any heading in the documentation, you can now see this icon. Once you click it, the address bar in the browser gets updated with the direct link to a given section.
+- The **chain link icon** on `kyma-project.io` that allows you to remember the link to a given document section easier. When you hover the cursor over any heading in the documentation, you can now see this icon. Once you click it, the address bar in the browser gets updated with the direct link to a given section.
 
 ![](./assets/linking.png)
 
