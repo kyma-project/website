@@ -139,7 +139,7 @@ Kyma now uses Kubeless v1, the first stable release of Kubeless. 
 
 ### Function autoscaling
 
-Lambda functions use the Kubernetes Horizontal Pod Autoscaler to scale the number of Pods based on the CPU usage. To prevent any unexpected scaling, autoscaling was limited to the Function type. We also created a frequently scheduled load test to validate the scaling behavior on Azure. 
+Lambda functions use the Kubernetes Horizontal Pod Autoscaler to scale the number of Pods based on the CPU usage. To prevent any unexpected scaling, autoscaling was limited to the function type. We also created a frequently scheduled load test to validate the scaling behavior on Azure. 
 
 The Horizontal Pod Autoscaler is not enabled in your local Kyma installation by default, so you need to activate it manually. Read [this](/docs/0.6/kyma#installation-install-kyma-locally-from-the-release-enable-horizontal-pod-autoscaler-hpa-) document to learn how to do that.
 
