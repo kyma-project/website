@@ -86,18 +86,19 @@ export const NavigationSectionArrow = styled.a`
   }
 `;
 
-export const NavigationLink = styled(({ active, parentId, ...otherProps }) => (
-  <Link {...otherProps} />
-))`
+export const NavigationLink = styled(
+  ({ active, borderLeft, ...otherProps }) => <Link {...otherProps} />,
+)`
   color: ${props => (props.active ? "#167ee6" : "#485766")};
   font-size: 14px;
   font-weight: ${props => (props.bold ? "bold" : "normal")};
   display: block;
-  padding-left: ${props => (props.parentId && props.active ? "13px" : "16px")};
+  padding-left: ${props =>
+    props.borderLeft && props.active ? "13px" : "16px"};
   position: relative;
   text-decoration: none;
   border-left: ${props =>
-    props.parentId && props.active ? "3px solid #167ee6" : "none"};
+    props.borderLeft && props.active ? "3px solid #167ee6" : "none"};
 
   :hover {
     color: #167ee6;
