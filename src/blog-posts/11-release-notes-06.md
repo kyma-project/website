@@ -22,7 +22,7 @@ The most important highlights of the Cairo release 0.6 include:
 - [Remote Environment renaming](#remote-environment-renaming) and [Environment Controller renaming](#environment-controller-renaming) - As part of the naming unification scheme, we renamed Remote Environments to Applications and the Environment Controller to the Namespace Controller.
 - [Console backend modularization](#backend-modularization) and [Service Catalog modularization](#modularization) - We modularized the Console backend and the Service Catalog.
 - [Google Cloud Platform Service Broker](#google-cloud-platform-service-broker) - We extended the Service Catalog with Google offerings.
-- [kyma-project.io navigation improvements](#kyma---project---io) - We improved navigation and reading of docs on `kyma-project.io`.
+- [kyma-project.io navigation improvements](#kyma-projectio) - We improved navigation and reading of docs on `kyma-project.io`.
 
 See the overview of all changes in the Cairo release 0.6:
 
@@ -33,7 +33,7 @@ See the overview of all changes in the Cairo release 0.6:
 - [Installation](#installation) - Environment Controller renaming, wildcard DNS `xip.io` integration, Knative installation
 - [Serverless](#serverless) - Upgrade to Kubeless v1, function autoscaling
 - [Service Catalog](#service-catalog) - Google Cloud Platform Service Broker, modularization, new tooling for the Service Catalog UI tests
-- [kyma-project.io](#kyma---project---io) - Linking enabled, `master` branch available in Docs, blog landing page excerpts, improved styling of Docs, scrollspy in Docs.
+- [kyma-project.io](#kyma-projectio) - Linking enabled, `master` branch available in Docs, blog landing page excerpts, improved styling of Docs, scrollspy in Docs.
 
 ---
 
