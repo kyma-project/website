@@ -99,7 +99,7 @@ function NavigationSections({
             onClick={() => {
               hideNavIfShouldOnMobile();
             }}
-            parentId={parentId}
+            borderLeft={parentId || !hasSubElements}
           >
             {item.name}
           </NavigationLink>
