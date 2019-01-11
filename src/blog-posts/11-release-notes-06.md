@@ -9,28 +9,28 @@ title: "Cairo release 0.6"
 
 <a class="btn-blog" href="https://github.com/kyma-project/kyma/releases/tag/0.6.0" alt="Download 0.6">Download 0.6</a>
 
-The Cairo release 0.6 brings a lot of significant changes to Kyma. The main focus of this release was to finalize the work on Prow and replace the existing CI pipeline with the new architecture. Thus, we are excited to announce that we finally have an open-source CI tool in Kyma and that the Cairo release 0.6 was already built using the Prow architecture. Apart from Prow, we made efforts to drive the Kyma-Knative integration forward, took further steps to modularize Kyma components and unify their naming, and significantly improved the website-related user experience.
+The Cairo release 0.6 brings a lot of significant changes to Kyma. The main focus of this release was to finalize the work on Prow and replace the existing CI pipeline with the new architecture. Thus, we are excited to announce that Kyma finally uses an open-source CI tool and that the Cairo release 0.6 was already built using the Prow architecture. Apart from Prow, we made efforts to drive the Kyma-Knative integration forward, took further steps to modularize Kyma components and unify their naming, and significantly improved the website-related user experience.
 
 Explore the changes, try out the release, and get back to us with feedback and contribution!
 
 <!-- overview -->
 
-The most important highlights of the Cairo release 0.6 include:
+The highlights of the Cairo release 0.6 include:
 
-- [Prow in Kyma](#prow-in-kyma) - The new open-source CI tool in Kyma.
-- [Knative installation](#knative-installation) and [Knative eventing integration](#knative-adoption-first-steps) - Install Knative with Kyma and see the current status of the Knative eventing integration.
-- [Remote Environment renaming](#remote-environment-renaming) and [Environment Controller renaming](#environment-controller-renaming) - As part of the naming unification scheme, we renamed Remote Environments to Applications and the Environment Controller to the Namespace Controller.
-- [Console backend modularization](#backend-modularization) and [Service Catalog modularization](#modularization) - We modularized the Console backend and the Service Catalog.
+- [Prow in Kyma](#prow-in-kyma) - We implemented the new open-source CI tool in Kyma.
+- [Knative installation](#knative-installation) and [Knative eventing integration](#knative-adoption-first-steps) - We enabled Knative nstallation with Kyma and made first step towards Knative eventing integration.
+- [Remote Environment](#remote-environment-renaming) and [Environment Controller renaming](#environment-controller-renaming) - As part of the naming unification scheme, we renamed Remote Environments to Applications and the Environment Controller to Namespace Controller.
+- [Console backend](#backend-modularization) and [Service Catalog modularization](#modularization) - We modularized the Console backend and the Service Catalog.
 - [Google Cloud Platform Service Broker](#google-cloud-platform-service-broker) - We extended the Service Catalog with Google offerings.
 - [kyma-project.io navigation improvements](#kyma-projectio) - We improved navigation and reading of docs on `kyma-project.io`.
 
-See the overview of all changes in the Cairo release 0.6:
+See the overview of all changes in this release:
 
-- [Application Connector](#application-connector) - Environment Controller renaming
+- [Application Connector](#application-connector) - Remote Environment renaming
 - [Console](#console) - Luigi framework on board, new navigation structure, backend modularization, AsyncApi rendering
 - [Continuous Integration](#continuous-integration) - Prow in Kyma
 - [Eventing](#eventing) - Knative adoption first steps
-- [Installation](#installation) - Environment Controller renaming, wildcard DNS `xip.io` integration, Knative installation
+- [Installation](#installation) - Environment Controller renaming, wildcard DNS `xip.io` integration, installation with Knative
 - [Serverless](#serverless) - Upgrade to Kubeless v1, function autoscaling
 - [Service Catalog](#service-catalog) - Google Cloud Platform Service Broker, modularization, new tooling for the Service Catalog UI tests
 - [kyma-project.io](#kyma-projectio) - Linking enabled, `master` branch available in Docs, blog landing page excerpts, improved styling of Docs, scrollspy in Docs.
@@ -49,7 +49,7 @@ As a step towards having a consistent naming scheme for all Kyma components, we 
 
 ### Luigi framework on board
 
-The Console UI was refactored and it now uses the [Luigi](https://github.com/kyma-project/luigi/blob/master/README.md) framework to orchestrate client-side micro front-ends. With Luigi on board, the Console enables secure and technology-agnostic UI extensibility in Kyma. 
+The Console UI was refactored and it now uses the [Luigi](https://github.com/kyma-project/luigi/blob/master/README.md) framework to orchestrate client-side micro frontends. With Luigi on board, the Console allows for secure and technology-agnostic UI extensibility in Kyma. 
 
 ### New navigation structure
 
@@ -59,7 +59,7 @@ The new navigation in the Console provides a more structured content. Immediat
 
 ### Backend modularization
 
-As you know, we want Kyma to be highly modular and allow you to plug out any component you don't need during the installation. For example, if you have your own Istio, you should be able to decide if you want to install the one Kyma provides. This requires some refactoring of the Console backend to ensure proper resiliency in the Console UI. In this release, we completed the modularization of the backend and hid it under the feature flag. The reason why it is not enabled by default was that the Console UI still requires resiliency improvements to ensure no errors occur when a certain Kyma component is not installed. The backend modularization was done based on [this](https://github.com/kyma-project/community/issues/165) decision and the referenced proposal.
+As you know, we want Kyma to be highly modular and allow you to skip the installation of components you don't need. For example, if you have your own Istio, you should be able to decide if you want to install the one Kyma provides. This requires some refactoring of the Console backend to ensure proper resiliency in the Console UI. In this release, we completed the modularization of the backend and hid it under the feature flag. The reason why it is not enabled by default was that the Console UI still requires resiliency improvements to ensure no errors occur when a certain Kyma component is not installed. The backend modularization was done based on [this](https://github.com/kyma-project/community/issues/165) decision and the referenced proposal.
 
 To quickly switch the Console backend to work in the modular mode, run the following command in the terminal:
 
@@ -71,11 +71,11 @@ For more details about the introduced changes, read the related [documentation](
 
 ### AsyncApi rendering  
 
-We created a new component for rendering the [AsyncApi specification](https://www.asyncapi.com/). It now fully supports the specification and improves its look and feel, compared to the very minimalistic table we had before.
+We created a new component for rendering the [AsyncApi specification](https://www.asyncapi.com/). It now fully supports the specification and improves its look and feel when compared to the very minimalistic table we had before.
 
 ![](./assets/asyncapi-rendering.png)
 
-The other great thing we did in this area was creating the component in a very generic way in a separate repository, and donating it to the [AsyncApi organization](https://github.com/asyncapi/asyncapi-react). This means we maintain it directly from the AsyncApi organization and you can use this component not only in the Kyma context.
+The other great thing we did in this area was creating the component in a very generic way in a separate repository, and donating it to the [AsyncApi organization](https://github.com/asyncapi/asyncapi-react). This means we maintain it directly from the AsyncApi organization and you can use this component not only in Kyma.
 
 Feel free to play with it and give us your feedback:
 
@@ -83,7 +83,7 @@ Feel free to play with it and give us your feedback:
 
 - Test the component [playground](https://www.asyncapi.com/asyncapi-react/).
 
-- Customize the component quickly on the [sandbox project](https://codesandbox.io/s/5vz8l9zlmn).  
+- Customize the component quickly in the [sandbox project](https://codesandbox.io/s/5vz8l9zlmn).  
 
 
 ## Continuous Integration
@@ -114,17 +114,17 @@ Visit our [`test-infra`](https://github.com/kyma-project/test-infra) repository 
 
 ### Environment Controller renaming
 
-The Environment Controller that injects limit ranges, resource quotas, and default roles into each Namespace you create, was renamed to the **Namespace Controller**. Its logic, however, is still the same and the `env=true` label remains untouched. It is also worth mentioning that the Environment-to-Namespace renaming process is ongoing. As part of it, we have already renamed Environments to **Namespaces** in the Console UI.
+The Environment Controller that injects limit ranges, resource quotas, and default roles into each Namespace you create, was renamed to **Namespace Controller**. Its logic, however, is still the same and the `env=true` label remains untouched. It is also worth mentioning that the Environment-to-Namespace renaming process is ongoing. As part of it, we have already renamed Environments to **Namespaces** in the Console UI.
 
 ### Wildcard DNS xip.io integration
 
-Now you can test Kyma on a cluster running under the `xip.io` wildcard DNS server. 
+You can now test Kyma on a cluster with a wildcard DNS provided by `xip.io`. 
 
 We introduced a new `xip-patch` job to Kyma as an optionally installed patch component. This patch issues a self-signed TLS certificate for the Kyma instance and configures the domain to `{LOADBALANCER_IP}.xip.io`, where `{LOADBALANCER_IP}` is the IP address of the assigned load balancer in the Kyma cluster. 
 
-This feature allows you to install and use Kyma easier, without the need to issue the TLS certificate on your own. This solution is not suitable for a production environment. It is only a playground you can use to get to know the product better. Read more about this optional feature [here](/docs/0.6/kyma#installation-install-kyma-on-a-gke-cluster-with-wildcard-dns).
+This feature allows you to install and use Kyma easier, without owing a domain or issuing the TLS certificate on your own. This solution is not suitable for a production environment. It is only a playground you can use to get to know the product better. Read more about this optional feature [here](/docs/0.6/kyma#installation-install-kyma-on-a-gke-cluster-with-wildcard-dns).
 
-### Knative installation
+### Installation with Knative
 
 You can now install Kyma together with Knative and expose APIs using the `knative-ingressgateway` service. Knative installation also enables future work on integrating Kyma eventing with Knative eventing.
 
@@ -141,14 +141,14 @@ Kyma now uses Kubeless v1, the first stable release of Kubeless. 
 
 Lambda functions use the Kubernetes Horizontal Pod Autoscaler to scale the number of Pods based on the CPU usage. To prevent any unexpected scaling, autoscaling was limited to the Function type. We also created a frequently scheduled load test to validate the scaling behavior on Azure. 
 
-The Horizontal Pod Autoscaler is not enabled in your local Kyma installation by default, so you need to activate it manually. Read [here](/docs/0.6/kyma#installation-install-kyma-locally-from-the-release-enable-horizontal-pod-autoscaler-hpa-) how to do that.
+The Horizontal Pod Autoscaler is not enabled in your local Kyma installation by default, so you need to activate it manually. Read [this](/docs/0.6/kyma#installation-install-kyma-locally-from-the-release-enable-horizontal-pod-autoscaler-hpa-) document to learn how to do that.
 
 
 ## Service Catalog
 
 ### Google Cloud Platform Service Broker
 
-Kyma provides the Namespace-scoped Google Cloud Platform (GCP) Service Broker. You can configure the GCP Broker against different Google Cloud Platforms in every Namespace. Install the GCP Service Broker by provisioning the **Google Cloud Platform Service Broker Provider** class exposed by the Helm Broker. Read more about this new feature [here](/docs/0.6/components/service-brokers#overview-google-cloud-platform-broker).
+Kyma provides the Google Cloud Platform (GCP) Service Broker. Apart from the GCP standard integration offering, you can configure the GCP Broker for a specific GCP project in a given Kyma Namespace. Install the GCP Service Broker by provisioning the **Google Cloud Platform Service Broker Provider** class exposed by the Helm Broker. Read more about this new feature [here](/docs/0.6/components/service-brokers#overview-google-cloud-platform-broker).
 
 ![](./assets/gcp-provider-class.png)
 
@@ -156,7 +156,7 @@ Kyma provides the Namespace-scoped Google Cloud Platform (GCP) Service Broker. Y
 
 We split the Kyma Service Catalog module into `service-catalog` and `service-catalog-addons`. The `service-catalog` module contains the core functionality and can be excluded from the Kyma installation if the Service Catalog is already installed on the cluster. The `service-catalog-addons` module contains all features build around the core, such as automatic bindings and the UI.
 
-Follow [these](/docs/master/0.6/kyma#installation-installation-with-custom-service-catalog-deployment) steps to install Kyma with the custom Service Catalog deployment.
+Follow [these](/docs/master/0.6/kyma#installation-installation-with-custom-service-catalog-deployment) steps to install Kyma with a custom Service Catalog deployment.
 
 ### New tooling for the Service Catalog UI tests
 
@@ -172,13 +172,13 @@ In the past, we kept postponing the implementation of linking between documents 
 
 ![](./assets/document-references.png)
 
-In short, there was a simple but not very useful text reference to other documents. This was due to the fact that we couldn't support linking of documents on GitHub and `kyma-project.io` at the same time. We decided, however, to give the website documentation a priority and treat Markdown files on GitHub only as document sources. As for the documentation in the Console, linking between the documents allows you to stay on the Console without being redirected to the website's Docs.
+In short, there was a simple but not very useful text reference to other documents. This was due to the fact that we couldn't support linking of documents on GitHub and `kyma-project.io` at the same time. We decided, however, to give the website documentation a priority and treat Markdown files on GitHub only as document sources. As for the documentation in the Console, linking between the documents allows you to stay in the Console without being redirected to the website's Docs.
 
 As a follow-up to this new improvement, we also added:
 
 - [Guidelines](https://github.com/kyma-project/community/blob/master/guidelines/content-guidelines/links-in-docs.md) for all contributors on how to add links to documents under `kyma/docs`.
 
-- The **chain icon** on `kyma-project.io` that allows you to remember the link to a given document section easier. Now, when you hover the cursor over any heading in the documentation, you can see this icon. Once you click it, the address bar in the browser gets updated with the direct link to a given section.
+- The **chain icon** on `kyma-project.io` that allows you to remember the link to a given document section easier. When you hover the cursor over any heading in the documentation, you can now see this icon. Once you click it, the address bar in the browser gets updated with the direct link to a given section.
 
 ![](./assets/linking.png)
 
