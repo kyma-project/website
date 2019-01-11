@@ -18,7 +18,7 @@ Explore the changes, try out the release, and get back to us with feedback and c
 The highlights of the Cairo release 0.6 include:
 
 - [Prow in Kyma](#prow-in-kyma) - We implemented the new open-source CI tool in Kyma.
-- [Knative installation](#knative-installation) and [Knative eventing integration](#knative-adoption-first-steps) - We enabled Knative nstallation with Kyma and made first step towards Knative eventing integration.
+- [Knative installation](#knative-installation) and [Knative eventing integration](#knative-adoption-first-steps) - We enabled Knative installation with Kyma and made first step towards Knative eventing integration.
 - [Remote Environment](#remote-environment-renaming) and [Environment Controller renaming](#environment-controller-renaming) - As part of the naming unification scheme, we renamed Remote Environments to Applications and the Environment Controller to Namespace Controller.
 - [Console backend](#backend-modularization) and [Service Catalog modularization](#modularization) - We modularized the Console backend and the Service Catalog.
 - [Google Cloud Platform Service Broker](#google-cloud-platform-service-broker) - We extended the Service Catalog with Google offerings.
