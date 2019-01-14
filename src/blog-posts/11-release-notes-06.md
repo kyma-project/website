@@ -192,7 +192,7 @@ The good news is that we also render the documentation for pre-releases on `kyma
 
 ### Blog landing page excerpts 
 
-We started to render only condensed excerpt of the blog posts on the landing page. Thanks to this feature, the page isn't so overloaded with information and it's easier to scroll through the list of available posts.
+We started to render only condensed excerpts of the blog posts on the landing page. Thanks to this feature, the page isn't so overloaded with information and it's easier to scroll through the list of available posts.
 
 ![](./assets/excerpts.png)
 
