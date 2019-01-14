@@ -168,7 +168,7 @@ Read more about the release details [here](https://github.com/kyma-project/bundl
 
 ### Linking enabled
 
-In the past, we kept postponing the implementation of linking between documents inside the `kyma-project.io` website. As a result, you could see such a temporary solution in place:
+In the past, we kept postponing the implementation of linking between documents on the `kyma-project.io` website. As a result, you could see such a temporary solution in place:
 
 ![](./assets/document-references.png)
 
