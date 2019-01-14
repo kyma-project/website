@@ -122,13 +122,13 @@ You can now test Kyma on a cluster with a wildcard DNS provided by `xip.io`. 
 
 We introduced a new `xip-patch` job to Kyma as an optionally installed patch component. This patch issues a self-signed TLS certificate for the Kyma instance and configures the domain to `{LOADBALANCER_IP}.xip.io`, where `{LOADBALANCER_IP}` is the IP address of the assigned load balancer in the Kyma cluster. 
 
-This feature allows you to install and use Kyma easier, without owing a domain or issuing the TLS certificate on your own. This solution is not suitable for a production environment. It is only a playground you can use to get to know the product better. Read more about this optional feature [here](/docs/0.6/kyma#installation-install-kyma-on-a-gke-cluster-with-wildcard-dns).
+This feature allows you to install and use Kyma easier, without owing a domain or issuing the TLS certificate on your own. This solution is not suitable for a production environment. It is only a playground you can use to get to know the product better. Read more about this optional feature [here](/docs/0.6/root/kyma#installation-install-kyma-on-a-gke-cluster-with-wildcard-dns).
 
 ### Installation with Knative
 
 You can now install Kyma together with Knative and expose APIs using the `knative-ingressgateway` service. Knative installation also enables future work on integrating Kyma eventing with Knative eventing.
 
-Find out how to [install](/docs/0.6/kyma#installation-installtion-with-knative) Kyma with Knative.
+Find out how to [install](/docs/0.6/root/kyma#installation-installtion-with-knative) Kyma with Knative.
 
 
 ## Serverless
@@ -141,7 +141,7 @@ Kyma now uses Kubeless v1, the first stable release of Kubeless. 
 
 Lambda functions use the Kubernetes Horizontal Pod Autoscaler to scale the number of Pods based on the CPU usage. To prevent any unexpected scaling, autoscaling was limited to the function type. We also created a frequently scheduled load test to validate the scaling behavior on Azure. 
 
-The Horizontal Pod Autoscaler is not enabled in your local Kyma installation by default, so you need to activate it manually. Read [this](/docs/0.6/kyma#installation-install-kyma-locally-from-the-release-enable-horizontal-pod-autoscaler-hpa-) document to learn how to do that.
+The Horizontal Pod Autoscaler is not enabled in your local Kyma installation by default, so you need to activate it manually. Read [this](/docs/0.6/root/kyma#installation-install-kyma-locally-from-the-release-enable-horizontal-pod-autoscaler-hpa-) document to learn how to do that.
 
 
 ## Service Catalog
@@ -156,7 +156,7 @@ Kyma provides the Google Cloud Platform (GCP) Service Broker. Apart from the GCP
 
 We split the Kyma Service Catalog module into `service-catalog` and `service-catalog-addons`. The `service-catalog` module contains the core functionality and can be excluded from the Kyma installation if the Service Catalog is already installed on the cluster. The `service-catalog-addons` module contains all features build around the core, such as automatic bindings and the UI.
 
-Follow [these](/docs/master/0.6/kyma#installation-installation-with-custom-service-catalog-deployment) steps to install Kyma with a custom Service Catalog deployment.
+Follow [these](/docs/master/0.6/root/kyma#installation-installation-with-custom-service-catalog-deployment) steps to install Kyma with a custom Service Catalog deployment.
 
 ### New tooling for the Service Catalog UI tests
 
