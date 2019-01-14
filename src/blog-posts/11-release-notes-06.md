@@ -156,7 +156,7 @@ Kyma provides the Google Cloud Platform (GCP) Service Broker. Apart from the GCP
 
 We split the Kyma Service Catalog module into `service-catalog` and `service-catalog-addons`. The `service-catalog` module contains the core functionality and can be excluded from the Kyma installation if the Service Catalog is already installed on the cluster. The `service-catalog-addons` module contains all features build around the core, such as automatic bindings and the UI.
 
-Follow [these](/docs/master/0.6/root/kyma#installation-installation-with-custom-service-catalog-deployment) steps to install Kyma with a custom Service Catalog deployment.
+Follow [these](/docs/0.6/root/kyma#installation-installation-with-custom-service-catalog-deployment) steps to install Kyma with a custom Service Catalog deployment.
 
 ### New tooling for the Service Catalog UI tests
 
