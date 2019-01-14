@@ -59,7 +59,7 @@ The new navigation in the Console provides a more structured content. Immediat
 
 ### Backend modularization
 
-As you know, we want Kyma to be highly modular and allow you to skip the installation of components you don't need. For example, if you have your own Istio, you should be able to decide if you want to install the one Kyma provides. This requires some refactoring of the Console backend to ensure proper resiliency in the Console UI. In this release, we completed the modularization of the backend and hid it under the feature flag. The reason why it is not enabled by default was that the Console UI still requires resiliency improvements to ensure no errors occur when a certain Kyma component is not installed. The backend modularization was done based on [this](https://github.com/kyma-project/community/issues/165) decision and the referenced proposal.
+As you know, we want Kyma to be highly modular and allow you to skip the installation of components you don't need. For example, if you have your own Istio, you should be able to decide if you want to install the one Kyma provides. This requires some refactoring of the Console backend to ensure proper resiliency in the Console UI. In this release, we completed the modularization of the backend and hid it under the feature flag. The reason why it is not enabled by default is that the Console UI still requires resiliency improvements to ensure no errors occur when a certain Kyma component is not installed. The backend modularization was done based on [this](https://github.com/kyma-project/community/issues/165) decision and the referenced proposal.
 
 To quickly switch the Console backend to work in the modular mode, run the following command in the terminal:
 
