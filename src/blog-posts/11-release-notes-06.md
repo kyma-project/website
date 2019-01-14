@@ -1,6 +1,6 @@
 ---
 path: "/blog/release-notes-06"
-date: "{2019-01-14}"
+date: "2019-01-14"
 author: "Karolina Zydek, Technical Writer @Kyma"
 tags:
   - release-notes
