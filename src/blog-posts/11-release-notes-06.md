@@ -128,7 +128,7 @@ This feature allows you to install and use Kyma easier, without owing a domain o
 
 You can now install Kyma together with Knative and expose APIs using the `knative-ingressgateway` service. Knative installation also enables future work on integrating Kyma eventing with Knative eventing.
 
-Find out how to [install](/docs/0.6/root/kyma#installation-installtion-with-knative) Kyma with Knative.
+Find out how to [install](/docs/0.6/root/kyma#installation-installation-with-knative) Kyma with Knative.
 
 
 ## Serverless
