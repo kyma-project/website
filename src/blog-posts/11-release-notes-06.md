@@ -208,7 +208,7 @@ Another important change is the width of the content container. It is now consis
 
 ### Scrollspy
 
-As you have probably noticed from reading our documentation section on `kyma-project.io/docs`, we adhere to the rule of rendering the whole documentation for a given topic on one site. The downside of such an approach is that you get a lot of content on a single page and it is easy to get lost if you scroll too fast. This can be easily solved by the **Scrollspy** feature that we introduce in this release. This solution spies your location on the screen while scrolling. Thanks to this approach, the navigation panel is updated with the information on the document you are currently reading. When scrolling, we highlight the name of the document that you are reading at the moment.
+As you have probably noticed from reading our documentation section on `kyma-project.io/docs`, we adhere to the rule of rendering the whole documentation for a given topic on one site. The downside of such an approach is that you get a lot of content on a single page and it is easy to get lost if you scroll too fast. This can be easily solved by the **Scrollspy** feature that we introduce in this release. This solution spies your location on the screen while scrolling. Thanks to this approach, the navigation panel is updated with the information on the document you are currently reading. When you scroll, we highlight the name of the document that you are reading at the moment.
 
 Scrollspy is available on `kyma-project.io/docs`  and in the Console documentation.
 
