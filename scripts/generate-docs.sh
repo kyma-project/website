@@ -99,7 +99,7 @@ publish() {
 
     echo "Commit documentation"
     git add "${DOCUMENTATION_DIR}"
-    git commit -m "Publish documentation for Kyma" --no-verify
+    git commit -m "Publish Kyma documentation on the website" --no-verify
 
     echo "Pushing documentation to master"
     git push origin HEAD:master

@@ -92,7 +92,7 @@ Feel free to play with it and give us your feedback:
 
 After a few weeks of hard work, the Prow Working Group finalized our plan of having an open-source CI tool for Kyma. All Kyma repositories and components are now handled by Prow. We defined the release pipeline and already tested it when preparing this release.
 
-The important change that Prow introduces is that external contributors are now able to see build statuses on their pull requests. They can also check logs from jobs execution. However, to (re)run the jobs on the pull requests, external contributors need to contact a Kyma organization member as, for security reasons, this functionality is available only to internal contributors.
+The important change that Prow introduces is that external contributors are now able to see build statuses on their pull requests. They can also check logs of all executed jobs. However, to (re)run the jobs on the pull requests, external contributors need to contact a Kyma organization member as, for security reasons, this functionality is available only to internal contributors.
 
 Visit our [`test-infra`](https://github.com/kyma-project/test-infra) repository and read more about Prow and its setup in Kyma.
 
@@ -107,7 +107,7 @@ Visit our [`test-infra`](https://github.com/kyma-project/test-infra) repository 
 
 - Kyma-Knative eventing installation design
 
-  As an initial step towards adopting Knative eventing, we need to have a design that allows us to install Kyma eventing on top of Knative eventing. This way, it will be possible to use the Knative eventing as the underlying layer in Kyma, and achieve pluggability. Read more about our plan in [this](https://github.com/kyma-project/community/issues/166) proposal.
+  As an initial step towards adopting Knative eventing, we need to have a design that allows us to install Kyma eventing on top of Knative eventing. This way, it will be possible to use Knative eventing as the underlying layer in Kyma, and achieve pluggability. Read more about our plan in [this](https://github.com/kyma-project/community/issues/166) proposal.
 
 
 ## Installation
@@ -202,13 +202,13 @@ We realize there are still some things to improve in this topic. We have already
 
 With a few new tweaks in the style of the Docs section, we improved its readability. The font size change, better spacing, and sections separation make the reading more pleasurable.
 
-Another important change is the width of the content container. It is now consistent with the GitHub UI, which significantly improves the contributor experience. All images and diagrams that you see in the pull request are the same in terms of the width and size with what we render on `kyma-project.io` or in the documentation in the Console.
+Another important change is the width of the content container. It is now consistent with the GitHub UI, which significantly improves the contributor experience. All images and diagrams that you see in the pull request are the same in terms of width and size with what we render on `kyma-project.io` or in the documentation in the Console.
 
 ![](./assets/styling.png)
 
 ### Scrollspy
 
-As you have probably noticed, while reading our documentation section on `kyma-project.io/docs`, we adhere to the rule of rendering the whole documentation for a given topic on one site. The downside of such an approach is that you get a lot of content on a single page and it is easy to get lost if you scroll too fast. This can be easily solved by the **Scrollspy** feature that we introduce in this release. This solution spies your location on the screen while scrolling. Thanks to this approach, the navigation panel is updated with the information on the document you are currently reading. When scrolling, we highlight the name of the document that you are reading at the moment.
+As you have probably noticed from reading our documentation section on `kyma-project.io/docs`, we adhere to the rule of rendering the whole documentation for a given topic on one site. The downside of such an approach is that you get a lot of content on a single page and it is easy to get lost if you scroll too fast. This can be easily solved by the **Scrollspy** feature that we introduce in this release. This solution spies your location on the screen while scrolling. Thanks to this approach, the navigation panel is updated with the information on the document you are currently reading. When scrolling, we highlight the name of the document that you are reading at the moment.
 
 Scrollspy is available on `kyma-project.io/docs`  and in the Console documentation.
 
