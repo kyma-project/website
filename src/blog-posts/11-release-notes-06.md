@@ -18,11 +18,11 @@ Explore the changes, try out the release, and get back to us with feedback and c
 The highlights of the Cairo release 0.6 include:
 
 - [Prow in Kyma](#prow-in-kyma) - We implemented the new open-source CI tool in Kyma.
-- [Installation with Knative](#installation-with-knative) and [Knative eventing integration](#knative-adoption-first-steps) - We enabled Knative installation with Kyma and made first step towards Knative eventing integration.
+- [Installation with Knative](#installation-with-knative) and [Knative eventing integration](#knative-adoption-first-steps) - We enabled Knative installation with Kyma and made first steps towards Knative eventing integration.
 - [Remote Environment](#remote-environment-renaming) and [Environment Controller renaming](#environment-controller-renaming) - As part of the naming unification scheme, we renamed Remote Environments to Applications and the Environment Controller to Namespace Controller.
 - [Console backend](#backend-modularization) and [Service Catalog modularization](#modularization) - We modularized the Console backend and the Service Catalog.
 - [Google Cloud Platform Service Broker](#google-cloud-platform-service-broker) - We extended the Service Catalog with Google offerings.
-- [kyma-project.io navigation improvements](#kyma-projectio) - We improved navigation and reading of Docs on `kyma-project.io`.
+- [kyma-project.io navigation improvements](#kyma-projectio) - We improved navigation and readability of Docs on `kyma-project.io`.
 
 See the overview of all changes in this release:
 
@@ -92,7 +92,7 @@ Feel free to play with it and give us your feedback:
 
 After a few weeks of hard work, the Prow Working Group finalized our plan of having an open-source CI tool for Kyma. All Kyma repositories and components are now handled by Prow. We defined the release pipeline and already tested it when preparing this release.
 
-The important change that Prow introduces is that external contributors are now able to see build statuses on their pull requests. They can also check logs from jobs execution. However, to (re)run the jobs on the pull requests, external contributors need to contact a Kyma organization member as, for security reasons, this functionality is available only to internal contributors.
+The important change that Prow introduces is that external contributors are now able to see build statuses on their pull requests. They can also check logs of all executed jobs. However, to (re)run the jobs on the pull requests, external contributors need to contact a Kyma organization member as, for security reasons, this functionality is available only to internal contributors.
 
 Visit our [`test-infra`](https://github.com/kyma-project/test-infra) repository and read more about Prow and its setup in Kyma.
 
@@ -107,7 +107,7 @@ Visit our [`test-infra`](https://github.com/kyma-project/test-infra) repository 
 
 - Kyma-Knative eventing installation design
 
-  As an initial step towards adopting Knative eventing, we need to have a design that allows us to install Kyma eventing on top of Knative eventing. This way, it will be possible to use the Knative eventing as the underlying layer in Kyma, and achieve pluggability. Read more about our plan in [this](https://github.com/kyma-project/community/issues/166) proposal.
+  As an initial step towards adopting Knative eventing, we need to have a design that allows us to install Kyma eventing on top of Knative eventing. This way, it will be possible to use Knative eventing as the underlying layer in Kyma, and achieve pluggability. Read more about our plan in [this](https://github.com/kyma-project/community/issues/166) proposal.
 
 
 ## Installation
@@ -122,7 +122,7 @@ You can now test Kyma on a cluster with a wildcard DNS provided by `xip.io`. 
 
 We introduced a new `xip-patch` job to Kyma as an optionally installed patch component. This patch issues a self-signed TLS certificate for the Kyma instance and configures the domain to `{LOADBALANCER_IP}.xip.io`, where `{LOADBALANCER_IP}` is the IP address of the assigned load balancer in the Kyma cluster. 
 
-This feature allows you to install and use Kyma easier, without owing a domain or issuing the TLS certificate on your own. This solution is not suitable for a production environment. It is only a playground you can use to get to know the product better. Read more about this optional feature [here](/docs/0.6/root/kyma#installation-install-kyma-on-a-gke-cluster-with-wildcard-dns).
+This feature allows you to install and use Kyma easier, without owning a domain or issuing the TLS certificate on your own. This solution is not suitable for a production environment. It is only a playground you can use to get to know the product better. Read more about this optional feature [here](/docs/0.6/root/kyma#installation-install-kyma-on-a-gke-cluster-with-wildcard-dns).
 
 ### Installation with Knative
 
@@ -139,7 +139,7 @@ Kyma now uses Kubeless v1, the first stable release of Kubeless. 
 
 ### Function autoscaling
 
-Lambda functions use the Kubernetes Horizontal Pod Autoscaler to scale the number of Pods based on the CPU usage. To prevent any unexpected scaling, autoscaling was limited to the function type. We also created a frequently scheduled load test to validate the scaling behavior on Azure. 
+Lambda functions use the Kubernetes Horizontal Pod Autoscaler to scale the number of Pods based on CPU usage. To prevent any unexpected scaling, autoscaling was limited to the function type. We also created a frequently scheduled load test to validate the scaling behavior on Azure. 
 
 The Horizontal Pod Autoscaler is not enabled in your local Kyma installation by default, so you need to activate it manually. Read [this](/docs/0.6/root/kyma#installation-install-kyma-locally-from-the-release-enable-horizontal-pod-autoscaler-hpa-) document to learn how to do that.
 
@@ -154,7 +154,7 @@ Kyma provides the Google Cloud Platform (GCP) Service Broker. Apart from the GCP
 
 ### Modularization
 
-We split the Kyma Service Catalog module into `service-catalog` and `service-catalog-addons`. The `service-catalog` module contains the core functionality and can be excluded from the Kyma installation if the Service Catalog is already installed on the cluster. The `service-catalog-addons` module contains all features build around the core, such as automatic bindings and the UI.
+We split the Kyma Service Catalog module into `service-catalog` and `service-catalog-addons`. The `service-catalog` module contains the core functionality and can be excluded from the Kyma installation if the Service Catalog is already installed on the cluster. The `service-catalog-addons` module contains all features built around the core, such as automatic bindings and the UI.
 
 Follow [these](/docs/0.6/root/kyma#installation-installation-with-custom-service-catalog-deployment) steps to install Kyma with a custom Service Catalog deployment.
 
@@ -202,13 +202,13 @@ We realize there are still some things to improve in this topic. We have already
 
 With a few new tweaks in the style of the Docs section, we improved its readability. The font size change, better spacing, and sections separation make the reading more pleasurable.
 
-Another important change is the width of the content container. It is now consistent with the GitHub UI, which significantly improves the contributor experience. All images and diagrams that you see in the pull request are the same in terms of the width and size with what we render on `kyma-project.io` or in the documentation in the Console.
+Another important change is the width of the content container. It is now consistent with the GitHub UI, which significantly improves the contributor experience. All images and diagrams that you see in the pull request are the same in terms of width and size with what we render on `kyma-project.io` or in the documentation in the Console.
 
 ![](./assets/styling.png)
 
 ### Scrollspy
 
-As you have probably noticed, while reading our documentation section on `kyma-project.io/docs`, we adhere to the rule of rendering the whole documentation for a given topic on one site. The downside of such an approach is that you get a lot of content on a single page and it is easy to get lost if you scroll too fast. This can be easily solved by the **Scrollspy** feature that we introduce in this release. This solution spies your location on the screen while scrolling. Thanks to this approach, the navigation panel is updated with the information on the document you are currently reading. When scrolling, we highlight the name of the document that you are reading at the moment.
+As you have probably noticed from reading our documentation section on `kyma-project.io/docs`, we adhere to the rule of rendering the whole documentation for a given topic on one site. The downside of such an approach is that you get a lot of content on a single page and it is easy to get lost if you scroll too fast. This can be easily solved by the **Scrollspy** feature that we introduce in this release. This solution spies your location on the screen while scrolling. Thanks to this approach, the navigation panel is updated with the information on the document you are currently reading. When you scroll, we highlight the name of the document that you are reading at the moment.
 
 Scrollspy is available on `kyma-project.io/docs`  and in the Console documentation.
 
