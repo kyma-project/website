@@ -4,18 +4,18 @@ date: "2019-01-14"
 author: "Karolina Zydek, Technical Writer @Kyma"
 tags:
   - release-notes
-title: "Cairo release 0.6"
+title: "Kyma 0.6 Cairo"
 ---
 
 <a class="btn-blog" href="https://github.com/kyma-project/kyma/releases/tag/0.6.0" alt="Download 0.6">Download 0.6</a>
 
-The Cairo release 0.6 brings a lot of significant changes to Kyma. The main focus of this release was to finalize the work on Prow and replace the existing CI pipeline with the new architecture. Thus, we are excited to announce that Kyma finally uses an open-source CI tool and that the Cairo release 0.6 was already built using the Prow architecture. Apart from Prow, we made efforts to drive the Kyma-Knative integration forward, took further steps to modularize Kyma components and unify their naming, and significantly improved the website-related user experience.
+The 0.6 release brings a lot of significant changes to Kyma. The main focus of this release was to finalize the work on Prow and replace the existing CI pipeline with the new architecture. Thus, we are excited to announce that Kyma finally uses an open-source CI tool and that Kyma 0.6 Cairo was already built using the Prow architecture. Apart from Prow, we made efforts to drive the Kyma-Knative integration forward, took further steps to modularize Kyma components and unify their naming, and significantly improved the website-related user experience.
 
 Explore the changes, try out the release, and get back to us with feedback and contribution!
 
 <!-- overview -->
 
-The highlights of the Cairo release 0.6 include:
+The highlights of Kyma 0.6 Cairo include:
 
 - [Prow in Kyma](#prow-in-kyma) - We implemented the new open-source CI tool in Kyma.
 - [Installation with Knative](#installation-with-knative) and [Knative eventing integration](#knative-adoption-first-steps) - We enabled Knative installation with Kyma and made first steps towards Knative eventing integration.
@@ -43,7 +43,6 @@ See the overview of all changes in this release:
 ### Remote Environment renaming
 
 As a step towards having a consistent naming scheme for all Kyma components, we renamed Remote Environments to **Applications**. This way, the Application Connector finally connects Applications instead of Remote Environments. This change was introduced consistently across the whole Kyma, including Application Connector components and the Console UI.
-
 
 ## Console
 
@@ -184,7 +183,7 @@ As a follow-up to this new improvement, we also added:
 
 ### Master branch available in Docs
 
-Since we introduced a website-centric approach to linking in the documentation, we wanted to make sure you don't fail at reading it on GitHub as a contributor, by being constantly redirected to the website's Docs. Before the Cairo release 0.6, we only rendered the release-related documentation on `kyma-project.io/docs`. Now, as one of few open-source projects, we also render documentation for the [`master`](https://kyma-project.io/docs/master) branch. This documentation is updated on the website automatically, approx. 10 minutes after every merge of changes to the `master` branch.
+Since we introduced a website-centric approach to linking in the documentation, we wanted to make sure you don't fail at reading it on GitHub as a contributor, by being constantly redirected to the website's Docs. Before Kyma 0.6 Cairo, we only rendered the release-related documentation on `kyma-project.io/docs`. Now, as one of few open-source projects, we also render documentation for the [`master`](https://kyma-project.io/docs/master) branch. This documentation is updated on the website automatically, approx. 10 minutes after every merge of changes to the `master` branch.
 
 The good news is that we also render the documentation for pre-releases on `kyma-project.io/docs`, whenever they are available.
 
