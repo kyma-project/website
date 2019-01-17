@@ -23,4 +23,4 @@ In 0.7 release, we also introduce the first version of Asset Store - generic Kub
 
 As in the previous release, we will work on improvements in security. The first version of authorization in UI-API Layer (GraphQL) will be done, based on the proof of concept we did recently.
 
-There will be also a couple of smaller improvements related to UI/UX, better UI tests, refactoring for better modularization, etc. You can find all the items planned for the 0.7 in [Zenhub](https://github.com/kyma-project/kyma/issues/1502#workspaces/kyma---all-repositories-5b6d5985084045741e744dea/reports?report=release&release=5c0790ea1a6a4c6bf4b314c3).
+There will be also a couple of smaller improvements related to UI/UX, better UI tests, refactoring for better modularization, etc. You can find all the items planned for the 0.7 in [Zenhub](https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/reports?report=release&release=5c0790ea1a6a4c6bf4b314c3).
