@@ -7,7 +7,7 @@
     {
       "order": "01-01-event-bus",
       "title": "Overview",
-      "source": "<p>Kyma Event Bus enables the integration of various external solutions with Kyma. The integration is achieved using the <code>publish-subscribe</code> messaging pattern that allows Kyma to receive business Events from different solutions, enrich them, and trigger business flows using lambdas or services defined in Kyma.</p>\n<p>To learn how to write an HTTP service or lambda in Kyma, and handle the Event Bus published Events, check the <strong>Services Programming Model</strong> document.</p>\n<blockquote>\n<p><strong>NOTE:</strong> The Event Bus is based on the <a href=\"https://github.com/nats-io/nats-streaming-server/releases\" target=\"_blank\">NATS Streaming</a> open source log-based streaming system for cloud-native applications, which is a brokered messaging middleware. The Event Bus provides <strong>at-least-once</strong> delivery guarantees.</p>\n</blockquote>\n"
+      "source": "<p>Kyma Event Bus enables the integration of various external solutions with Kyma. The integration is achieved using the <code>publish-subscribe</code> messaging pattern that allows Kyma to receive business Events from different solutions, enrich them, and trigger business flows using lambdas or services defined in Kyma.</p>\n<p>To learn how to write an HTTP service or lambda in Kyma, and handle the Event Bus published Events, check <a href=\"#details-service-programming-model\">this</a> document.</p>\n<blockquote>\n<p><strong>NOTE:</strong> The Event Bus is based on the <a href=\"https://github.com/nats-io/nats-streaming-server/releases\" target=\"_blank\">NATS Streaming</a> open source log-based streaming system for cloud-native applications, which is a brokered messaging middleware. The Event Bus provides <strong>at-least-once</strong> delivery guarantees.</p>\n</blockquote>\n"
     },
     {
       "order": "02-01-event-bus",
@@ -42,7 +42,7 @@
       "order": "03-05-subscription-updates",
       "title": "Subscription updates",
       "type": "Details",
-      "source": "<p>To update the subscription CRD, run this command:</p>\n<p><code>kubectl edit crd subscriptions.eventing.kyma-project.io</code></p>\n<p>The Event Bus reacts to the changes in subscription CRD, and updates the corresponding NATS-Streaming subscription accordingly.</p>\n<blockquote>\n<p><strong>Note</strong>: The current subscription update mechanism recreates a subscription with new specifications. This may result in the loss of messages delivered during the recreation process.</p>\n</blockquote>\n"
+      "source": "<p>To update the subscription CRD, run this command:</p>\n<p><code>kubectl edit crd subscriptions.eventing.kyma-project.io</code></p>\n<p>The Event Bus reacts to the changes in subscription CRD, and updates the corresponding NATS-Streaming subscription accordingly.</p>\n<blockquote>\n<p><strong>NOTE:</strong> The current subscription update mechanism recreates a subscription with new specifications. This may result in the loss of messages delivered during the recreation process.</p>\n</blockquote>\n"
     },
     {
       "order": "06-01-subscription",
