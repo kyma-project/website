@@ -1,7 +1,7 @@
 {
-  "id": "service-brokers",
-  "displayName": "Service Brokers",
-  "description": "Overal documentation for Service Brokers",
+  "id": "helm-broker",
+  "displayName": "Helm brokers",
+  "description": "Overal documentation for the Helm Broker",
   "type": "Components",
   "docs": [
     {
