@@ -7,7 +7,7 @@ tags:
 title: "Kyma 0.7 Dublin"
 ---
 
-<a class="btn-blog" href="https://github.com/kyma-project/kyma/releases/tag/0.7.0" alt="Download 0.7">Download 0.7</a>
+<a class="btn-blog" href=<><>Download 0.7</a>
 
 The 0.7 release introduces new features accompanied by the improvements made to the already existing functionality. We are excited to present the Asset Store, our new component allowing you to store assets ranging from documentation to customer applications. The ongoing Prow development brings you nightly and weekly pipelines, implemented to intercept issues and thus improve the overall stability of the system.
 
@@ -46,11 +46,11 @@ See the overview of all changes in this release:
 
 ### Application Registry payload limit increased
 
-We have increased the default memory limit for Application Registry payload to 5 MB. This way, you can register APIs with extensive specification. 
+We have increased the default memory limit for Application Registry payload to 5 MB. This way, you can register APIs with extensive specification. <!-- Add a link to docs -->
 
 ### Client certificates in proxy service
 
-We have enriched the proxy service with support for APIs protected with a client certificate. Registering an API with a client certificate results in generating a default client certificate for you to use. You can also provide your own client certificate.
+We have enriched the proxy service with support for APIs protected with a client certificate. Registering an API with a client certificate results in generating a default client certificate for you to use. You can also provide your own client certificate.<!-- Add a link to docs -->
 
 ### Known issues 
 
@@ -60,7 +60,7 @@ If you run Kyma on Minikube, you must expose the Nginx Ingress Controller on the
 
 ### Asset Store introdution
 
-We have introduced a first version of a new solution, which the multi-cloud storage for assets such as documentation, images, or even client-side applications.
+We have introduced a first version of a new solution, which the multi-cloud storage for assets such as documentation, images, or even client-side applications. <!-- Add a link to docs -->
 
 This version of Asset Store brings you the following features addressed by the [Asset Store proposal](https://github.com/kyma-project/community/blob/master/sig-and-wg/sig-core/proposals/asset-store-proposal.md):
 
@@ -145,7 +145,7 @@ Kyma allows you to integrate with the Azure Service Broker in an easy way and to
 
 ### Single-time provisioning in Helm Broker
 
-The Helm Broker supports the `provisionOnlyOnce` flag in a context of given Namespace. The Azure Service Broker and GCP Service Broker bundles have been enhanced with that flag. For details, see [this](https://github.com/kyma-project/kyma/blob/master/docs/service-brokers/docs/05-02-helm-broker-bundles.md#the-bundle-metayaml-file) document.
+The Helm Broker supports the `provisionOnlyOnce` flag in a context of given Namespace. The Azure Service Broker and GCP Service Broker bundles have been enhanced with that flag.  <!-- Add a link to docs -->  
 
 ## Service Mesh
 
