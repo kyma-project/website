@@ -26,7 +26,7 @@ The highlights of Kyma 0.7 Dublin include:
 See the overview of all changes in this release:
 
 
-- [Application Connector](#application-connector) - Increased Application Registry memory limit, Client certificates in proxy service
+- [Application Connector](#application-connector) - Increased Application Registry memory limit, API secured with client certificates
 - [Asset Store](#asset-store) - Asset Store introduction
 - [Console](#console) - UI views migrated to SAP Fiori Fundamentals, view modularization, node visibility restrictions
 - [Continuous Integration](#continuous-integration) - New CI pipelines
@@ -45,11 +45,11 @@ See the overview of all changes in this release:
 
 ### Increased Application Registry memory limit
 
-We have increased the default memory limit for Application Registry payload to 5 MB to enable registration of extensive API specifications. <!-- Add a link to docs -->
+We have increased the default memory limit for Application Registry payload to 5 MB to enable registration of extensive API specifications.
 
-### Client certificates support in Application Proxy
+### API secured with client certificates
 
-Application Proxy now supports APIs protected with a client certificate. Register an API with a client certificate to generate a default client certificate, or provide your own client certificate.<!-- Add a link to docs -->
+Application Proxy allows you to secure APIs with generated client certificates. When you register an API with a client certificate, the Application Registry generates a certificate-key pair for this API to secure it. For details, see [this](docs/components/application-connector#tutorials-register-a-secured-api) document.
 
 ### Known issues
 
