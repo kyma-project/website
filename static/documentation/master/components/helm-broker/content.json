@@ -1,6 +1,6 @@
 {
   "id": "helm-broker",
-  "displayName": "Helm brokers",
+  "displayName": "Helm Broker",
   "description": "Overal documentation for the Helm Broker",
   "type": "Components",
   "docs": [
