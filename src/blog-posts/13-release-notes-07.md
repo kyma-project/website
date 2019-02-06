@@ -1,7 +1,7 @@
 ---
 path: "/blog/release-notes-07"
 date: "2019-02-08"
-author: "Barbara Szwarc Technical Writer @Kyma"
+author: "Barbara Szwarc, Technical Writer @Kyma"
 tags:
   - release-notes
 title: "Kyma 0.7 Dublin"
@@ -15,7 +15,7 @@ The 0.7 release brings you features and improvements to further enhance your Kym
 The highlights of Kyma 0.7 Dublin include:
 
 - [Asset Store](#asset-store) - We introduced a brand new component for storing assets.
-- [Publishing Events with Knative](#event-publishing-intergrated-with-knative-eventing) - We enabled Event publishing using Knative Eventing.
+- [Publishing Events with Knative](#event-publishing-with-knative-eventing) - We enabled Event publishing using Knative Eventing.
 - [New CI pipelines](#new-ci-pipelines) - We set up new CI pipelines to run Kyma installation on GKE and identify potential issues. 
 - [Kyma on Azure Kubernetes Service](#kyma-on-azure-kubernetes-service) - We enabled Kyma installation on Azure Kubernetes Service.
 - [API Server Proxy autoscaling](#api-server-proxy-autoscaling) along with the [removed the kyma-default ResourceQuota](#kyma-default-resourceQuota-removed), and [tweaked startup scripts](#startup-scripts-enhancement) simplify the Kyma deployment process.
@@ -97,7 +97,7 @@ We have introduced nightly and weekly CI pipelines to perform tests and identify
 
 ## Eventing 
 
-### Event Publishing  Knative Eventing
+### Event Publishing with Knative Eventing
 
 As a result of continous Kyma-Knative integration, you now can deploy Kyma with a `--knative` feature flag. It allows you to use the Publish API provided by Knative Eventing.
 
