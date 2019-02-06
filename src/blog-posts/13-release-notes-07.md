@@ -57,7 +57,7 @@ If you run Kyma on Minikube, you must expose the Nginx Ingress Controller on the
 
 ## Asset Store
 
-### Asset Store introdution
+### Asset Store introduction
 
 We have introduced the first version of a new, multi-cloud solution for storing assets such as documentation, images, or even client-side applications. <!-- Add a link to docs -->
 
