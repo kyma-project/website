@@ -49,7 +49,7 @@ We have increased the default memory limit for the Application Registry payload 
 
 ### API secured with client certificates
 
-Application Proxy allows you to secure APIs with generated client certificates. When you register an API with a client certificate, the Application Registry generates a readu to ise certificate and key pair for this API to secure it. You can use the generated pair or replace it with your own certificate and key. For details, see [this](docs/0.7/components/application-connector#tutorials-register-a-secured-api) document.
+Application Proxy allows you to secure APIs with generated client certificates. When you register an API with a client certificate, the Application Registry generates a ready-to-use certificate and key pair for this API to secure it. You can use the generated pair or replace it with your own certificate and key. For details, see [this](docs/0.7/components/application-connector#tutorials-register-a-secured-api) document.
 
 ### Known issues
 
@@ -148,7 +148,7 @@ The Helm Broker now supports the `provisionOnlyOnce` flag which defines that t
 
 ## Service Catalog standalone installation
 
-We took futher steps to modularize the Service Catalog by moving `service-catalog-addons` and `helm-broker` charts out of the `core` chart directory. This way, it's up to you to decide which components to install. When other Kyma components will be moved out of the `core` chart, you will be able to install Kyma with the Service Catalog only.
+We took further steps to modularize the Service Catalog by moving `service-catalog-addons` and `helm-broker` charts out of the `core` chart directory. This way, it's up to you to decide which components to install. When other Kyma components will be moved out of the `core` chart, you will be able to install Kyma with the Service Catalog only.
 
 ## Service Mesh
 
