@@ -9,7 +9,7 @@ title: "Kyma 0.7 Dublin"
 
 <a class="btn-blog" href="https://github.com/kyma-project/kyma/releases/tag/0.7.0" alt="Download 0.7">Download 0.7</a>
 
-The 0.7 release brings you features and improvements to further enhance your Kyma experience. The Asset Store, our new component, allows you to store assets ranging from documentation to customer applications. The ongoing CI development resulted in new pipelines which you can use to run Kyma installation and intercept any installation-related issues. The Kyma-Knative integration continues, making it possible to publish Events using Knative Eventing. Other significant improvements allow you to install Kyma on AKS, keep your resources secure with the new security model, and benefit from smoother and simplified Kyma deployment process.
+The 0.7 release brings you features and improvements to further enhance your Kyma experience. The alpha version of the Asset Store component brings you a solution for storing assets, such as documents, files, images, or API specifications. The ongoing CI development resulted in new pipelines which you can use to run Kyma installation and intercept any installation-related issues. The Kyma-Knative integration continues, making it possible to publish Events using Knative Eventing. Other significant improvements allow you to install Kyma on AKS, keep your resources secure with the new security model, and benefit from smoother and simplified Kyma deployment process.
 <!-- overview -->
 
 The highlights of Kyma 0.7 Dublin include:
@@ -59,7 +59,7 @@ If you run Kyma on Minikube, you must expose the Nginx Ingress Controller on the
 
 ### Asset Store introduction
 
-We have introduced the first version of a new, multi-cloud solution for storing assets, such as documents, files, API specifications, or even client-side applications.
+We have introduced the alpha version of a new, Kubernetes-native solution for storing assets, such as documents, files, images, or API specifications.
 
 This version of the Asset Store brings you the following features included in the [Asset Store proposal](https://github.com/kyma-project/community/blob/master/sig-and-wg/sig-core/proposals/asset-store-proposal.md):
 
@@ -69,13 +69,13 @@ This version of the Asset Store brings you the following features included in th
 * Providing custom mutation services for assets to modify them before uploading them to the storage. 
 
 
-In the coming releases, we plan to address the remaining features from the proposal. If you are interested in contributing, feel free to contact us. Meanwhile, read [this document](/docs/0.7/components/asset-store#overview-overview) to find out more about the Asset Store component.
+In the coming releases, we plan to address the remaining features from the proposal. If you are interested in contributing, feel free to contact us on [Slack](http://slack.kyma-project.io). Meanwhile, read [this document](/docs/0.7/components/asset-store#overview-overview) to find out more about the Asset Store component.
 
 ## Console
 
 ### UI views migrated to SAP Fiori Fundamentals
 
-We have migrated Console UI views to SAP Fiori Fundamentals which uses [this](https://github.com/SAP/fundamental-ngx) library. In addition to the migration, we added the missing UI tests and improved the existing ones. This way, we covered all end-to-end scenarios for the Service Catalog views and based them on the [testing bundle](https://github.com/kyma-project/bundles/tree/master/bundles/testing-0.0.1).
+We have migrated Console UI views to SAP Fiori Fundamentals. For the core Console UI we used the [Fundamental NGX](https://github.com/SAP/fundamental-ngx) library, and the UI views were built on [Fundamental React](https://github.com/SAP/fundamental-react). In addition to the migration, we added the missing UI tests and improved the existing ones. This way, we covered all end-to-end scenarios for the Service Catalog views and based them on the [testing bundle](https://github.com/kyma-project/bundles/tree/master/bundles/testing-0.0.1).
 
 ### View modularization
 
