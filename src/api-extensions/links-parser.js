@@ -4,8 +4,6 @@ const headerRegexp = /<h[1-6](.*?)id=(\"|')(.*?)(\"|')(.*?)>(.*?)<\/h[1-6]>/g;
 const headerIDRegexp = /id=(\"|')(.*?)(\"|')/g;
 const hrefAssetsRegexp = /href=\"(?!(https?|ftp))(.*?)assets\/(.*?)\"/g;
 
-const oldVersions = ["0.4", "0.5", "0.6"];
-
 function linksParser({
   content,
   contentType,
@@ -44,14 +42,16 @@ function linksParser({
 }
 
 function changeVersionInLinksHref(source, version, includeVersionInPath) {
-  const hrefLinksRegexp = /href=\"\/docs\/(.*?)\"/g;
+  const hrefLinksRegexp = /href=\"\/(docs|components|root)\/(.*?)\"/g;
 
   source = source.replace(hrefLinksRegexp, occurrence => {
     hrefLinksRegexp.lastIndex = 0;
     let href = hrefLinksRegexp.exec(occurrence);
 
-    if (!href || !href[1]) return occurrence;
-    href = href[1];
+    console.log(href);
+
+    if (!href || !href[2]) return occurrence;
+    href = href[1] === "docs" ? href[2] : `${href[1]}/${href[2]}`;
 
     if (includeVersionInPath) {
       href = `href="/docs/${version}/${href}"`;
