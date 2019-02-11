@@ -69,11 +69,11 @@ This version of the Asset Store brings you the following features included in th
 * Providing custom mutation services for assets to modify them before uploading them to the storage. 
 
 
-In the coming releases, we plan to address the remaining features from the proposal. If you are interested in contributing, feel free to contact us on [Slack](http://slack.kyma-project.io). Meanwhile, read [this document](/docs/0.7/components/asset-store#overview-overview) to find out more about the Asset Store component.
+In the coming releases, we plan to address the remaining features from the proposal. If you are interested in contributing, feel free to contact us on [Slack](http://slack.kyma-project.io). Meanwhile, read [this](/docs/0.7/components/asset-store#overview-overview) document to find out more about the Asset Store component.
 
 ### Known issues
 
-Switching Asset Store to recommended production mode, with Minio Gateway under the hood and Google Cloud Storage support, requires additional manual configuration. This is because for this release the Minio setup must support our legacy solution and default **content** bucket setup. The problem is caused by the limitation of Google Cloud Storage which requires the bucket name to be globally unique. 
+Switching Asset Store to recommended production mode, with Minio Gateway under the hood and Google Cloud Storage support, requires additional manual configuration. This is because for this release the Minio setup must support our legacy solution and default **content** bucket setup. The problem is caused by the limitation of Google Cloud Storage which requires the bucket name to be globally unique. For details and configuration steps read [this](https://github.com/kyma-project/kyma/blob/master/resources/assetstore/README.md) document.
 
 ## Console
 
