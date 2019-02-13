@@ -1,1 +1,1 @@
-{"releases":[{"name":"0.6","tag":"0.6.1"},{"name":"0.5","tag":"0.5.0"},{"name":"0.4","tag":"0.4.3"}],"pre_releases":[{"name":"0.7","tag":"0.7.0-rc1"}],"branches":[{"name":"master","commit":"6516f398158ae9b35fc8793c4e8290823f6a8188"}]}
+{"releases":[{"name":"0.6","tag":"0.6.1"},{"name":"0.5","tag":"0.5.0"},{"name":"0.4","tag":"0.4.3"}],"pre_releases":[{"name":"0.7","tag":"0.7.0-rc1"}],"branches":[{"name":"master","commit":"2a321562fef8bcf0acb0f613915f93fe409c2591"}]}
