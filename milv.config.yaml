@@ -3,8 +3,14 @@ white-list-external:
   - kyma.local
 black-list:
   - node_modules
+black-list-internal: 
+  - ./website/src/blog-posts/
 timeout: 60
 request-repeats: 5
+basePath:
+  - filePath: "./website/src/blog-posts/"
+    prefix: "https://kyma-project.io"
+    suffix: ""
 files:
   - path: "./website/.github/ISSUE_TEMPLATE/security-vulnerability.md"
     config:
@@ -20,6 +26,3 @@ files:
         - https://kyma-project.io/blog/some-address
       white-list-internal:
         - /docs/{VERSION}/root/kyma#overview-in-a-nutshell
-  - path: ./website/src/blog-posts/13-release-notes-07.md
-    config:
-      white-list-internal: ["#kyma-on-AKS", "#ui-api-layer-security-model", "#eventing", "#tracing"]
