@@ -5,10 +5,6 @@ black-list:
   - node_modules
 timeout: 60
 request-repeats: 5
-basePath:
-  - filePath: "./website/src/blog-posts/"
-    prefix: "https://kyma-project.io"
-    suffix: ""
 files:
   - path: "./website/.github/ISSUE_TEMPLATE/security-vulnerability.md"
     config:
