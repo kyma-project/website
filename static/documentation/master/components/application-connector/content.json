@@ -64,6 +64,12 @@
       "source": "<p>The Application Connector supports passing the access token directly in the request.</p>\n<h2 id=\"passing-the-access-token\">Passing the access token</h2>\n<p>If the user is already authenticated to the service deployed on Kyma, the access token can be passed in a custom <code>Access-token</code> header. If the Application Connector detects that the custom header is present, instead of obtaining a new token, it passes the received one as a <code>Bearer</code> token in the <code>Authorization</code> header.</p>\n<h2 id=\"example\">Example</h2>\n<p>Find the example of passing the EC access token to the Application Connector using lambda in the <a href=\"https://github.com/kyma-project/examples/tree/master/call-ec\" target=\"_blank\"><code>examples</code></a> repository.</p>\n"
     },
     {
+      "order": "03-06-payload-limits-for-apis",
+      "title": "Payload size limits for registering APIs",
+      "type": "Details",
+      "source": "<p>The Application Connector allows you to adjust the payload size limit for registering API definitions. You can tune the limit individually for every Application in your Kyma cluster.</p>\n<p>The <code>nginx.ingress.kubernetes.io/proxy-body-size</code> annotation defines the maximum payload size. By default, every Application you create comes with the payload size limit set to 5 MB. You can adjust it to fit the needs of your implementation.</p>\n<p>To change the maximum payload size for an API definition, edit the configuration of the Ingress of the Application for which you want to tune the limit. Run this command to edit the Ingress configuration:</p>\n<pre><code>kubectl -n kyma-integration edit ingress {APPLICATION_NAME}-application\n</code></pre>"
+    },
+    {
       "order": "06-01-application",
       "title": "Application",
       "type": "Custom Resource",
