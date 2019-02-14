@@ -37,7 +37,7 @@ const Community = () => {
   );
 
   return (
-    <section className="bg-b">
+    <section className="no-bg">
       <div className="container">
         <div className="row row--space-between row--sm-align-center">
           <div className="col-6 col-md-9 col-sm-12">
