@@ -1,6 +1,6 @@
 ---
 path: "/blog/release-notes-07"
-date: "2019-02-08"
+date: "2019-02-14"
 author: "Barbara Szwarc, Technical Writer @Kyma"
 tags:
   - release-notes
@@ -9,7 +9,7 @@ title: "Kyma 0.7 Dublin"
 
 <a class="btn-blog" href="https://github.com/kyma-project/kyma/releases/tag/0.7.0" alt="Download 0.7">Download 0.7</a>
 
-The 0.7 release brings you features and improvements to further enhance your Kyma experience. The alpha version of the Asset Store component brings you a solution for storing assets, such as documents, files, images, or API specifications. The ongoing CI development resulted in new pipelines which you can use to run Kyma installation and intercept any installation-related issues. The Kyma-Knative integration continues, making it possible to publish Events using Knative Eventing. Other significant improvements allow you to install Kyma on AKS, keep your resources secure with the new security model, and benefit from smoother and simplified Kyma deployment process.
+The 0.7 release brings you features and improvements to further enhance your Kyma experience. The alpha version of the Asset Store component gives you a solution for storing assets, such as documents, files, images, or API specifications. The ongoing CI development resulted in new pipelines which you can use to run Kyma installation and intercept any installation-related issues. The Kyma-Knative integration continues, making it possible to publish Events using Knative Eventing. Other significant improvements allow you to install Kyma on AKS, keep your resources secure with the new security model, and benefit from smoother and simplified Kyma deployment process.
 <!-- overview -->
 
 The highlights of Kyma 0.7 Dublin include:
