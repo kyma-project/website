@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="1440px" height="647px" viewBox="0 0 1440 647" enable-background="new 0 0 1440 647" xml:space="preserve">
+<linearGradient id="path-2_1_" gradientUnits="userSpaceOnUse" x1="3345.335" y1="119.791" x2="3344.8435" y2="119.6455" gradientTransform="matrix(2578.3782 0 0 636.4749 -8625094 -75946.7656)">
+	<stop  offset="0" style="stop-color:#87B5EE"/>
+	<stop  offset="1" style="stop-color:#CCCCCC"/>
+</linearGradient>
+<path id="path-2" fill="url(#path-2_1_)" fill-opacity="0.25" d="M580.702,16.545c517.121-23.089,1101.582,8.235,1397.027,174.569
+	c299.776,166.14-15.956,413.885-796.806,448.75C400.072,674.728-395.637,564.721-488.872,389.359
+	C-463.399,208.697,63.582,39.634,580.702,16.545z"/>
+<linearGradient id="path-6_1_" gradientUnits="userSpaceOnUse" x1="1314.2314" y1="0.1768" x2="1313.7424" y2="0.1986" gradientTransform="matrix(-3061.8333 0 0 -632.6794 4023222 439.0938)">
+	<stop  offset="0" style="stop-color:#87B5EE"/>
+	<stop  offset="1" style="stop-color:#EDEDED"/>
+</linearGradient>
+<path id="path-6" fill="url(#path-6_1_)" fill-opacity="0.5" d="M196.9,19.194c586.618-69.29,1415.425,59.236,1841.655,233.971
+	c419.91,139.544-69.85,280.181-1087.658,348.924C-66.33,674.079-882.617,615.261-872.744,468.419
+	C-862.745,322.291-385.504,111.945,196.9,19.194z"/>
+</svg>
