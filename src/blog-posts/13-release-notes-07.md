@@ -17,8 +17,8 @@ The highlights of Kyma 0.7 Dublin include:
 - [Asset Store](#asset-store) - We introduced a brand new component for storing assets.
 - [Publishing Events with Knative](#event-publishing-with-knative-eventing) - We enabled Event publishing using Knative Eventing.
 - [New CI pipelines](#new-ci-pipelines) - We set up new CI pipelines to run Kyma installation on GKE and identify potential issues.
-- [Kyma on AKS](#kyma-on-AKS) - We enabled Kyma installation on Azure Kubernetes Service (AKS).
-- [API Server Proxy autoscaling](#api-server-proxy-autoscaling), [removed kyma-default ResourceQuota](#kyma-default-resourceQuota-removed), and [tweaked startup scripts](#startup-scripts-improvements) that simplify the Kyma deployment process.
+- [Kyma on AKS](#kyma-on-aks) - We enabled Kyma installation on Azure Kubernetes Service (AKS).
+- [API Server Proxy autoscaling](#api-server-proxy-autoscaling), [removed kyma-default ResourceQuota](#kyma-default-resourcequota-removed), and [tweaked startup scripts](#startup-scripts-improvements) that simplify the Kyma deployment process.
 - [UI API Layer security model (GraphQL)](#ui-api-layer-security-model) - We switched from a custom Istio RBAC implementation to Kubernetes RBAC to bring you a lightweight and flexible solution for securing your resources.
 
 
