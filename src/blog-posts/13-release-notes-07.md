@@ -16,7 +16,7 @@ The highlights of Kyma 0.7 Dublin include:
 
 - [Asset Store](#asset-store) - We introduced a brand new component for storing assets.
 - [Publishing Events with Knative](#event-publishing-with-knative-eventing) - We enabled Event publishing using Knative Eventing.
-- [New CI pipelines](#new-ci-pipelines) - We set up new CI pipelines to run Kyma installation on GKE and identify potential issues. 
+- [New CI pipelines](#new-ci-pipelines) - We set up new CI pipelines to run Kyma installation on GKE and identify potential issues.
 - [Kyma on AKS](#kyma-on-AKS) - We enabled Kyma installation on Azure Kubernetes Service (AKS).
 - [API Server Proxy autoscaling](#api-server-proxy-autoscaling), [removed kyma-default ResourceQuota](#kyma-default-resourceQuota-removed), and [tweaked startup scripts](#startup-scripts-improvements) that simplify the Kyma deployment process.
 - [UI API Layer security model (GraphQL)](#ui-api-layer-security-model) - We switched from a custom Istio RBAC implementation to Kubernetes RBAC to bring you a lightweight and flexible solution for securing your resources.
@@ -31,12 +31,12 @@ See the overview of all changes in this release:
 - [Console](#console) - UI views migrated to SAP Fiori Fundamentals, view modularization, node visibility restrictions
 - [Continuous Integration](#continuous-integration) - New CI pipelines
 - [Eventing](#eventing) - Publishing integrated with Knative Eventing
-- [Installation](#installation) - Upgrade to Minikube v0.33.0, upgrade to Kubernetes v1.11.5, Kyma on Azure Kubernetes Service, resource quota removed from system Namespaces 
-- [Monitoring](#monitoring) - New alert rule for Persistent Volumes, optional Prometheus Operator 
-- [Security](#security) - UI API Layer security model 
+- [Installation](#installation) - Upgrade to Minikube v0.33.0, upgrade to Kubernetes v1.11.5, Kyma on Azure Kubernetes Service, resource quota removed from system Namespaces
+- [Monitoring](#monitoring) - New alert rule for Persistent Volumes, optional Prometheus Operator
+- [Security](#security) - UI API Layer security model
 - [Service Catalog](#service-catalog) - Azure Service Broker runtime bundling and installation, one-time provisioning for Helm Broker, Service Catalog standalone installation
 - [Service Mesh](#service-mesh) - Default Istio sidecar injection, API Server Proxy autoscaling, startup scripts improvements
-- [Tracing](#tracing) - Tracing UI elements renaming 
+- [Tracing](#tracing) - Tracing UI elements renaming
 
 
 ---
@@ -49,11 +49,11 @@ We have increased the default memory limit for the Application Registry payload 
 
 ### API secured with client certificates
 
-Application Proxy allows you to secure APIs with generated client certificates. When you register an API with a client certificate, the Application Registry generates a ready-to-use certificate and key pair for this API to secure it. You can use the generated pair or replace it with your own certificate and key. For details, see [this](docs/0.7/components/application-connector#tutorials-register-a-secured-api) document.
+Application Proxy allows you to secure APIs with generated client certificates. When you register an API with a client certificate, the Application Registry generates a ready-to-use certificate and key pair for this API to secure it. You can use the generated pair or replace it with your own certificate and key. For details, see [this](/docs/0.7/components/application-connector#tutorials-register-a-secured-api) document.
 
 ### Known issues
 
-If you run Kyma on Minikube, you must expose the Nginx Ingress Controller on the dedicated NodePort. However, URLs returned from the Connector Service do not include the value for this port. To fix it, update URLs manually using the information in [this](docs/0.7/components/application-connector#api-application-registry) guide.
+If you run Kyma on Minikube, you must expose the Nginx Ingress Controller on the dedicated NodePort. However, URLs returned from the Connector Service do not include the value for this port. To fix it, update URLs manually using the information in [this](/docs/0.7/components/application-connector#api-application-registry) guide.
 
 ## Asset Store
 
@@ -66,7 +66,7 @@ This version of the Asset Store brings you the following features included in th
 * Fetching single files and packages (zip and tar files are supported for unpacking).
 * Starting Minio in the Minio Gateway mode to push resources to cloud providers, such as Azure or Google Cloud.
 * Providing custom validation services for assets to validate them before uploading them to the storage.
-* Providing custom mutation services for assets to modify them before uploading them to the storage. 
+* Providing custom mutation services for assets to modify them before uploading them to the storage.
 
 
 In the coming releases, we plan to address the remaining features from the proposal. If you are interested in contributing, feel free to contact us on [Slack](http://slack.kyma-project.io). Meanwhile, read [this](/docs/0.7/components/asset-store#overview-overview) document to find out more about the Asset Store component.
@@ -83,11 +83,11 @@ We have migrated Console UI views to SAP Fiori Fundamentals. For the core Consol
 
 ### View modularization
 
-We have extracted the optional views configuration from the core Console UI to create separate micro frontends. The micro frontends embedded in the Console receive information about installed Kyma modules to resiliently show the UI components relevant for these modules. 
+We have extracted the optional views configuration from the core Console UI to create separate micro frontends. The micro frontends embedded in the Console receive information about installed Kyma modules to resiliently show the UI components relevant for these modules.
 
 ### Node visibility restrictions
 
-The visibility of navigation nodes in the Console UI now depends on user access rights. For example, only `kyma-admins` can see Kyma cluster settings. 
+The visibility of navigation nodes in the Console UI now depends on user access rights. For example, only `kyma-admins` can see Kyma cluster settings.
 
 ### Known issues
 
@@ -99,7 +99,7 @@ Browsers use cached file versions from previous Kyma releases instead of fetchin
 
 We have introduced nightly and weekly CI pipelines to perform tests and identify any potential issues, such as incorrect settings or memory leaks. The pipelines run Kyma on Google Kubernetes Engine using the master branch. If you are interested in details, go to `https://status.build.kyma-project.io/?type=periodic` and search for **kyma-gke-nightly** and **kyma-gke-weekly** jobs. We are also planning to add Slack notification for test results.
 
-## Eventing 
+## Eventing
 
 ### Event Publishing with Knative Eventing
 
@@ -107,7 +107,7 @@ As a result of continuous Kyma-Knative integration, you can now deploy Kyma with
 
 ## Installation
 
-### Upgrade to Minikube v0.33.0 
+### Upgrade to Minikube v0.33.0
 
 We have upgraded Minikube to version [0.33.0](https://github.com/kubernetes/minikube/blob/master/CHANGELOG.md#version-0330---2019-01-17). This means we can now use the stable `kubeadm` bootstrapper instead of the deprecated `localkube`. This helps us to leverage new features and improves the stability of local installations.
 
@@ -118,7 +118,7 @@ You can now deploy Kyma using Kubernetes v1.11.5, to enjoy improved stability an
 ### Kyma on AKS
 
 You can now smoothly deploy Kyma on an AKS cluster, using a chosen release version or even a particular commit. [Install](/docs/0.7/root/kyma#installation-install-kyma-on-an-aks-cluster) Kyma on a cluster using a proprietary installer based on a Kubernetes operator. If you want to try out Kyma on a cluster without assigning the cluster to a domain you own, you can use `xip.io` which provides a wildcard DNS for any IP address. For details, see [this guide](/docs/0.7/root/kyma#installation-install-kyma-on-an-aks-cluster-with-wildcard-dns).
- 
+
 
 ### kyma-default ResourceQuota removed  
 
@@ -126,19 +126,19 @@ You can install Kyma on Kubernetes clusters such as AKS or GKE, which allow Node
 
 ## Monitoring
 
-### New alert rule for Persistent Volumes 
+### New alert rule for Persistent Volumes
 
 We are constantly increasing the number of default alert rules, so you can receive alerts for affected components. The newest addition to the set is the alert rule for Persistent Volumes, activated when the volume used in the `kyma-system` Namespace exceeds 90%.
 
 ### Optional Prometheus Operator
 
-The Prometheus Operator module used to be required in any Kyma setup. To increase flexibility, we moved the ServiceManager CRD from the Prometheus Operator to the CRD set provided by Kyma. This way, you can define Service Management resources for your components without the need to install the Prometheus Operator. 
+The Prometheus Operator module used to be required in any Kyma setup. To increase flexibility, we moved the ServiceManager CRD from the Prometheus Operator to the CRD set provided by Kyma. This way, you can define Service Management resources for your components without the need to install the Prometheus Operator.
 
 ## Security
 
-###  UI API Layer security model 
+###  UI API Layer security model
 
-We have switched from a custom Istio RBAC implementation based on Envoy to Kubernetes RBAC. The reason was to avoid difficulties of developing and maintaining the LUA filters for Envoy. Additionally, the current implementation uses Go, which makes it more lightweight and flexible. Read the [documentation](docs/0.7/components/security#details-graphql) to learn the details on securing resources in GraphQL using queries, mutations, and subscriptions.
+We have switched from a custom Istio RBAC implementation based on Envoy to Kubernetes RBAC. The reason was to avoid difficulties of developing and maintaining the LUA filters for Envoy. Additionally, the current implementation uses Go, which makes it more lightweight and flexible. Read the [documentation](/docs/0.7/components/security#details-graphql) to learn the details on securing resources in GraphQL using queries, mutations, and subscriptions.
 
 ## Service Catalog
 
@@ -148,7 +148,7 @@ Kyma allows you to integrate with the Azure Service Broker in an easy way, and t
 
 ### One-time provisioning for Helm Broker
 
-The Helm Broker now supports the `provisionOnlyOnce` flag which defines that the bundle should be provisioned only once for a given Namespace. We have also added this flag to the Azure Service Broker and the GCP Service Broker bundle configurations. For details, read [this](docs/0.7/components/helm-broker#configuration-binding-bundles) document.
+The Helm Broker now supports the `provisionOnlyOnce` flag which defines that the bundle should be provisioned only once for a given Namespace. We have also added this flag to the Azure Service Broker and the GCP Service Broker bundle configurations. For details, read [this](/docs/0.7/components/helm-broker#configuration-binding-bundles) document.
 
 ## Service Catalog standalone installation
 
@@ -156,7 +156,7 @@ We took further steps to modularize the Service Catalog by moving `service-catal
 
 ## Service Mesh
 
-### Default Istio sidecar injection 
+### Default Istio sidecar injection
 
 By default, the Istio sidecar injector watches all Pod creation operations on all Namespaces and injects the newly created Pods with a sidecar proxy. To disable proxy injection for a Namespace, add the `istio-injection=disabled` label. To disable proxy injection on a Pod level, add the `sidecar.istio.io/inject:false` label to a Pod.
 
@@ -169,9 +169,8 @@ To increase the availability of components, we have enabled the autoscaling of t
 To simplify the local deployments, the startup scripts now accept the `--password` argument. Running the scripts with this argument allows you to install Kyma locally and set a password for the admin user. This way, you don't need to fetch and decode the password generated for every deployment.  
 
 
-## Tracing 
+## Tracing
 
 ### Tracing UI elements renaming             
 
 We renamed the services and operations displayed in the Tracing UI to provide clarity and better user experience.
-
