@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 1440 1888" width="1440" height="1888" xmlns="http://www.w3.org/2000/svg">
+  <linearGradient id="path-2_1_" gradientUnits="userSpaceOnUse" x1="-9.1946" y1="1008.7197" x2="-9.7465" y2="1008.1021" gradientTransform="matrix(-2001.547 34.9371 -36.1066 -2068.5452 17283.5508 2087009.25)">
+    <stop offset="0" style="stop-color:#86B6EE"/>
+    <stop offset="1" style="stop-color:#CCCCCC"/>
+  </linearGradient>
+  <linearGradient id="path-6_1_" gradientUnits="userSpaceOnUse" x1="-9.1849" y1="1008.7188" x2="-9.7655" y2="1008.1016" gradientTransform="matrix(-2091.0735 36.4998 -36.7593 -2105.9365 17157.6602 2124724.75)">
+    <stop offset="0" style="stop-color:#87B5EE"/>
+    <stop offset="1" style="stop-color:#CCCCCC"/>
+  </linearGradient>
+  <path id="path-2" fill="url(#path-2_1_)" fill-opacity="0.12" d="M 642.018 64.601 C 948.783 -8.016 1230.978 -5.028 1440 58.515 L 1440 1888 L 0 1888 L 0 399.676 C 141.278 252.12 363.233 130.595 642.018 64.601 Z"/>
+  <path id="path-6" fill="url(#path-6_1_)" fill-opacity="0.13" d="M 787.18 54.601 C 1027.699 -2.335 1253.115 -12.793 1440 15.972 L 1440 1888 L 0 1888 L 0 617.232 C 86.188 371.784 374.384 152.318 787.18 54.601 Z"/>
+</svg>
