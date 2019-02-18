@@ -21,7 +21,7 @@ The new release will be also easier to install. In the local installation, we wi
 We listen to feedback from developers using Kyma, and in this release, we will add websocket support to  Authorization proxy to enable kubectl commands: exec, port-forward and tailing logs. This way kubeconfig generated for logged in user will offer full functionality, but with the access limited to user roles and user id token expiration. 
 
 With every release, we deliver a bunch of smaller improvements in different areas, and this time we will:
-- render OData specification in Console UI (Service Catalog)
+- render OData specification in Console, the Service Catalog views
 - make all namespaces visible in Console UI
 - improve Lambda UI responsiveness
 - make console fully switched to Fiori 3 (based on SAP Fiori Fundamentals)
