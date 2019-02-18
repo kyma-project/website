@@ -1,0 +1,14 @@
+{
+  "navigation": {
+    "blog": "blog",
+    "docs": "docs"
+  },
+  "language": {
+    "en": "English",
+    "pt": "Português"
+  },
+  "footer": {
+    "copyright": "Copyright © 2018-{actualYear} The Kyma project authors. {copyrightLink} Privacy Statement.",
+    "madeWithLove": "Made with {heartIcon} & {coffeeIcon} by Kyma maintainers."
+  }
+}

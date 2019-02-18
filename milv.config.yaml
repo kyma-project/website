@@ -3,8 +3,10 @@ white-list-external:
   - kyma.local
 black-list:
   - node_modules
+  - content/docs
 black-list-internal:
  - ./website/src/blog-posts/
+ - ./website/content/blog-posts/
 timeout: 60
 request-repeats: 5
 files:

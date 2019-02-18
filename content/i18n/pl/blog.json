@@ -1,0 +1,8 @@
+{
+  "siteMetadata": {},
+  "tags": "Tags",
+  "postMetadata": "{{author}} on {{date}}",
+  "downloadButton": "Download {{version}}",
+  "changesInButton": "Changes in {{version}}",
+  "readMoreButton": "Read more"
+}
