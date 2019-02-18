@@ -27,6 +27,7 @@ With every release, we deliver a bunch of smaller improvements in different area
 - make console fully switched to Fiori 3 (based on SAP Fiori Fundamentals)
 - introduce new test runner as a replacement for helm test
 - enable instant update of helm broker repository URL (without restart)
+- add ClusterBucket and ClusterAsset resources to Asset Store and enable filtering in the Asset package fetching
 
 You can find all the items planned for the 0.8 release in our [Zenhub](https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/reports?report=release&release=5c0791391a6a4c6bf4b314c6).
 
