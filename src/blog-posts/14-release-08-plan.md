@@ -14,9 +14,9 @@ In previous releases, we did the groundwork to make KNative part of Kyma messagi
 
 We know that observability is an important quality for our users. We will add more metrics to our default dashboards. We are going also to replace OK Log (which was archived recently) with  Grafana Loki - advertised as Prometheus for logs. The big advantage of that change is that you can use Grafana UI to display logs, and we will also render logs in Console UI.
 
-As in every release, security is a priority. We will fix most already know issues like access to Tiller without authentication, too high privileges of service accounts in Prow,  long id token expiration time, and more. To promote better security practices we will introduce a default developer role that is sufficient to deploy workload in Kyma cluster, but doesn't include admin permissions to manage system namespaces and cluster-wide resources. It will be also possible to bind roles directly to users not only to groups. 
+As in every release, security is a priority. We will fix most already know issues like access to Tiller without authentication, too high privileges of service accounts in Prow,  long ID Token expiration time, and more. To promote better security practices we will introduce a default developer role that is sufficient to deploy workload in Kyma cluster, but doesn't include admin permissions to manage system namespaces and cluster-wide resources. It will be also possible in Console UI to bind roles directly to users, not only to groups. 
 
-The new release will be also easier to install. In the local installation, we will support multiple Minikube versions (not only one as today). In the cluster installation, you can use built-in dynamic DNS support and certificate generation so you don't have to configure DNS and issue TLS certificates if you want to spin up quickly test cluster. 
+The new release will be also easier to install. In the local installation, we will support multiple Minikube versions. In the cluster installation, you can use built-in dynamic DNS support and certificate generation so you don't have to configure DNS and issue TLS certificates if you want to spin up quickly test cluster. 
 
 We listen to feedback from developers using Kyma, and in this release, we will add websocket support to  Authorization proxy to enable kubectl commands: exec, port-forward and tailing logs. This way kubeconfig generated for logged in user will offer full functionality, but with the access limited to user roles and user id token expiration.
 
@@ -26,6 +26,7 @@ With every release, we deliver a bunch of smaller improvements in different area
 - make console fully switched to Fiori 3 (based on SAP Fiori Fundamentals)
 - introduce new test runner as a replacement for helm test
 - enable instant update of helm broker repository URL (without restart)
+
 You can find all the items planned for the 0.8 release in our [Zenhub](https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/reports?report=release&release=5c0791391a6a4c6bf4b314c6).
 
 Come back and check out Kyma 0.8 Edmonton when it's released on 11.03.2019 and keep an eye out for more Kyma news and updates on our blog.
