@@ -18,9 +18,10 @@ As in every release, security is a priority. We will fix most already know issue
 
 The new release will be also easier to install. In the local installation, we will support multiple Minikube versions. In the cluster installation, you can use built-in dynamic DNS support and certificate generation so you don't have to configure DNS and issue TLS certificates if you want to spin up quickly test cluster. 
 
-We listen to feedback from developers using Kyma, and in this release, we will add websocket support to  Authorization proxy to enable kubectl commands: exec, port-forward and tailing logs. This way kubeconfig generated for logged in user will offer full functionality, but with the access limited to user roles and user id token expiration.
+We listen to feedback from developers using Kyma, and in this release, we will add websocket support to  Authorization proxy to enable kubectl commands: exec, port-forward and tailing logs. This way kubeconfig generated for logged in user will offer full functionality, but with the access limited to user roles and user id token expiration. 
 
 With every release, we deliver a bunch of smaller improvements in different areas, and this time we will:
+- render OData specification in Console UI (Service Catalog)
 - make all namespaces visible in Console UI
 - improve Lambda UI responsiveness
 - make console fully switched to Fiori 3 (based on SAP Fiori Fundamentals)
