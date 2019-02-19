@@ -56,16 +56,14 @@ class Copy {
   async copyResources(docsDir, output) {
     await this.removeDir(output);
 
-    const files = await this.getFilesPaths(docsDir);
+    let files = await this.getFilesPaths(docsDir);
     const allowedFilesRegex = /docs\/(manifest\.(yaml|yml)|[A-z0-9-_]*\/(docs\.config\.json|docs\/assets\/[A-z0-9-_]*\.(png|jpg|gif|jpeg|svg|yaml|yml|json)|docs\/[A-z0-9-_]*\.md))/;
 
-    const copyingFiles = files.map(file => {
-      const match = allowedFilesRegex.exec(file);
-      if (match) {
-        const newPath = join(output, file.replace(docsDir, ""));
+    files = files.filter(file => Boolean(allowedFilesRegex.exec(file)));
 
-        return fs.copy(file, newPath);
-      }
+    const copyingFiles = files.map(file => {
+      const newPath = join(output, file.replace(docsDir, ""));
+      return fs.copy(file, newPath);
     });
 
     return await Promise.all(copyingFiles);
