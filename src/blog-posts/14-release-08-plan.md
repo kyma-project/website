@@ -6,7 +6,9 @@ tags:
   - release
 title: "Kyma 0.8 Edmonton scheduled for release on 11.03.2019"
 ---
-We keep our promises here at Kyma. With the 4-week release cycle in full swing, it's time to shed some light on the next release named after the capital of the Canadian province of Alberta, located on the North Saskatchewan River. What can you expect from Kyma 0.8 Edmonton?   
+We keep our promises here at Kyma. With the 4-week release cycle in full swing, it's time to shed some light on the next release named after the capital of the Canadian province of Alberta, located on the North Saskatchewan River. What can you expect from Kyma 0.8 Edmonton?
+
+<!-- overview -->
 
 As life on the Canadian Prairies isn't easy, the Edmonton release focuses more on vital maintenance operations, such as upgrade, backup, and restore. The upgradeability check we added to our CI in the previous release will be activated as a mandatory test for every pull request. The same pattern will be introduced for backup and restore. We will test the Kyma components and user workloads regularly to ensure that they can be easily restored on a new cluster.
 
