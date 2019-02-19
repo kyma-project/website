@@ -2,8 +2,6 @@ const { join } = require("path");
 const fs = require("fs-extra");
 
 class Copy {
-  constructor() {}
-
   async releases({ releases, source, output, gitClient }) {
     for (const key of releases.keys()) {
       const tag = releases.get(key);

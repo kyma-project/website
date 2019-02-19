@@ -1,8 +1,6 @@
 const fs = require("fs-extra");
 
 class Checking {
-  constructor() {}
-
   currentDocsVersions(outputDocsVersion) {
     console.log(`Reading current configuration from ${outputDocsVersion}`);
 

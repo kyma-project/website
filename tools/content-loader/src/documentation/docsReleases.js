@@ -1,6 +1,4 @@
 class DocsReleases {
-  constructor() {}
-
   filterInvalidReleases(releases, tags) {
     const tagsArray = tags.map(tag => tag.name);
 

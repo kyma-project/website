@@ -1,6 +1,4 @@
 class DocsBranches {
-  constructor() {}
-
   getBranches(commit, configBranches) {
     const currentBranches = configBranches ? configBranches : [];
     const master = currentBranches.find(current => current.name === "master");
