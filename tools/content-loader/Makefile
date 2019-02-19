@@ -8,9 +8,6 @@ ci-release: resolve build-image push-image
 
 resolve:
 	npm install --no-optional
-	
-validate:
-	eslint -c .eslinterrc ./src
 
 build-image:
 	docker build -t $(IMG_NAME) .
