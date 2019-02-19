@@ -46,50 +46,51 @@ module.exports = async coreConfig => {
   });
 
   if (
-    outdatedReleases.size > 0 ||
-    outdatedPrereleases.size > 0 ||
-    outdatedBranches.size > 0
+    !(
+      outdatedReleases.size > 0 ||
+      outdatedPrereleases.size > 0 ||
+      outdatedBranches.size > 0
+    )
   ) {
-    fs.mkdirsSync(outputPath);
-    fs.mkdirsSync(tempPath);
-
-    const gitClient = new GitClient(
-      coreConfig.organization,
-      coreConfig.repository,
-      tempPath,
-    );
-    console.log(`Cloning ${coreConfig.organization}/${coreConfig.repository}`);
-    gitClient.clone();
-
-    await copy.releases({
-      releases: outdatedReleases,
-      source: tempPath,
-      output: outputPath,
-      gitClient,
-    });
-    await copy.releases({
-      releases: outdatedPrereleases,
-      source: tempPath,
-      output: outputPath,
-      gitClient,
-    });
-    await copy.branches({
-      branches: outdatedBranches,
-      source: tempPath,
-      output: outputPath,
-      gitClient,
-    });
-
-    console.log(
-      `Generating documentation versions file to ${outputDocsVersion}`,
-    );
-    generateDocsVersions({
-      releases: newestReleases,
-      prereleases: filteredPrereleases,
-      branches,
-      output: outputDocsVersion,
-    });
-  } else {
     console.log("Documentation is up-to-date");
+    return;
   }
+
+  fs.mkdirsSync(outputPath);
+  fs.mkdirsSync(tempPath);
+
+  const gitClient = new GitClient(
+    coreConfig.organization,
+    coreConfig.repository,
+    tempPath,
+  );
+  console.log(`Cloning ${coreConfig.organization}/${coreConfig.repository}`);
+  gitClient.clone();
+
+  await copy.releases({
+    releases: outdatedReleases,
+    source: tempPath,
+    output: outputPath,
+    gitClient,
+  });
+  await copy.releases({
+    releases: outdatedPrereleases,
+    source: tempPath,
+    output: outputPath,
+    gitClient,
+  });
+  await copy.branches({
+    branches: outdatedBranches,
+    source: tempPath,
+    output: outputPath,
+    gitClient,
+  });
+
+  console.log(`Generating documentation versions file to ${outputDocsVersion}`);
+  generateDocsVersions({
+    releases: newestReleases,
+    prereleases: filteredPrereleases,
+    branches,
+    output: outputDocsVersion,
+  });
 };
