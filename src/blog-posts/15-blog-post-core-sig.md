@@ -14,7 +14,7 @@ Yes, there is one main SIG called CORE as the entry point. The CORE SIG consists
 
 **Who are the CORE SIG leaders?**
 
-The CORE SIG leaders are Piotr Kopczynski [(@PK85](https://github.com/PK85)), Mateusz Szostok [(@mszostok](https://github.com/mszostok)), Ahmed Abdalla ([@Abd4llA](https://github.com/Abd4llA)) and Lukasz Gornicki ([@derberg](https://github.com/derberg)).
+The CORE SIG leaders are Piotr Kopczynski [(@PK85](https://twitter.com/PiotrasPk)), Mateusz Szostok [(@mszostok](https://twitter.com/m_szostok)), Ahmed Abdalla ([@Abd4llA](https://twitter.com/Abd4llA)) and Lukasz Gornicki ([@derberg](https://twitter.com/derberq)).
 
 **What is the purpose of the CORE SIG?**
 
