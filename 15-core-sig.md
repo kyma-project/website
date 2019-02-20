@@ -1,0 +1,37 @@
+---
+path: "/blog/core-sig"
+date: "2019-02-20"
+author: "Lukasz Gornicki, Product Owner @Kyma"
+tags:
+  - kyma, community, sig, core
+title: "The CORE Special Interest Group"
+---
+Behind the Kyma open source project there is a Kyma community who collaborates through Special Interest Groups (SIGs) and Working Groups (WGs), just like Kubernetes. In these groups, you can meet community leaders and members, exchange information on Kyma, provide feedback, raise interest, ask questions, and learn about Kyma news and updates. Additionally, both SIGs and WGs facilitate technical discussions, proposals, and contributions, and ensure Kyma is a welcoming community for all contributors. The WGs facilitate discussions and work on short-lived, concrete topics that either result from the work of SIG groups or which the community members initiate directly.
+
+**Is there a public SIG I can join?**
+
+Yes, there is one main public SIG called CORE as the entry point. The CORE SIG consists of SIG leaders and members. To learn more about the leaders and members role, click [here](https://github.com/kyma-project/community/blob/master/sig-and-wg/README.md#roles).
+
+**Who are the CORE SIG leaders?**
+
+The CORE SIG leaders are Piotr Kopczynski [(@PK85](https://github.com/PK85)), Mateusz Szostok [(@mszostok](https://github.com/mszostok)), Ahmed Abdalla ([@Abd4llA](https://github.com/Abd4llA)) and Lukasz Gornicki ([@derberg](https://github.com/derberg)).
+
+**What is the purpose of the CORE SIG?**
+
+The purpose of the CORE SIG is to:
+
+- Publicly represent Kyma
+- Facilitate the collaboration with external contributors
+- Communicate the Kyma project vision and roadmap to the community
+- Represent the Kyma contributors
+- Be the main contribution contact for Kyma
+- Gauge interest, request the community feedback, and ensures it is addressed
+- Own all code repositories in the Kyma organization except for the community repository
+- Showcase proposals to the community and collects the feedback to those proposals to assist the decision-making process
+- Represent its members and the Kyma community in the Council meetings
+
+**I am interested! How can I join the CORE SIG?**
+
+You can join the CORE SIG biweekly meeting that takes place on Wednesdays at 15:00 CET on [Zoom](https://zoom.us/j/4794339038). You can also read the meeting agenda and notes [here](https://docs.google.com/document/d/1vWleTon7sJIk0teee4SoVezS4mR3K8TlkvXkgLJwRD8). You can also watch the past SIG CORE meetings on the [Kyma YouTube channel](https://www.youtube.com/watch?v=1DD5aCBnywQ&amp;list=PL7PGl--iaIH9jnbT8yG_KOV3unv1iUILR).
+
+We're happy to have you at the CORE SIG!
