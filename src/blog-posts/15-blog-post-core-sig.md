@@ -1,7 +1,7 @@
 ---
 path: "/blog/core-sig"
 date: "2019-02-20"
-author: "Lukasz Gornicki, Product Owner @Kyma"
+author: "Ana Yankovich, Knowledge Consultant @Kyma"
 tags:
   - kyma, community, sig, core
 title: "The CORE Special Interest Group"
