@@ -1,5 +1,5 @@
 ---
-path: "/blog/core-sig"
+path: "/blog/core-sig
 date: "2019-02-20"
 author: "Ana Yankovich, Knowledge Consultant @Kyma"
 tags:
@@ -33,5 +33,8 @@ The purpose of the CORE SIG is to:
 **I am interested! How can I join the CORE SIG?**
 
 You can join the CORE SIG biweekly meeting that takes place on Wednesdays at 15:00 CET on [Zoom](https://zoom.us/j/4794339038). You can also read the meeting agenda and notes [here](https://docs.google.com/document/d/1vWleTon7sJIk0teee4SoVezS4mR3K8TlkvXkgLJwRD8). You can also watch the past SIG CORE meetings on the [Kyma YouTube channel](https://www.youtube.com/watch?v=1DD5aCBnywQ&amp;list=PL7PGl--iaIH9jnbT8yG_KOV3unv1iUILR).
+
+We're on [Slack](https://join.slack.com/t/kyma-community/shared_invite/enQtNDAwNzE4Mjk2NDE3LTJhOTlmZjM5YzkwNmEzNmY3ZjE2MTU2OTMxOGE4ZDM0MmU4ZWRkZGJiODgzNmRmMTYxMDYwNjZiMDAwMTA2OWM) too!
+Join the [#sig-core Slack channel](https://kyma-community.slack.com/messages/CBP7LKRPS/) to ask questions, keep up to date with the latest SIG CORE news or simply to meet CORE SIG leaders and members. 
 
 We're happy to have you at the CORE SIG!
