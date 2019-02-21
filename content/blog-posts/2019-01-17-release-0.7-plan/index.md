@@ -5,7 +5,7 @@ author:
 tags:
   - release
 redirectFrom:
-  - "/blog/release-0.7-plan"
+  - "/blog/release-07-plan"
 ---
 
 We might have just reached Cairo, but it's not time to celebrate yet. We embark on our ships and ride the wave straight to our next destination - Dublin! The capital of Ireland was chosen to be the codename for the upcoming Kyma 0.7 release which is scheduled to launch on 11th February 2019. Only 4 weeks after the 0.6 release! We're pretty excited and proud about how we improved our tooling and release process, which allows us to release more frequently. Thanks to these improvements, starting with the Dublin release, we will release a new version of Kyma every 4 weeks.

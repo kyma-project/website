@@ -1,0 +1,12 @@
+{
+  "siteMetadata": {
+    "twitterUsername": "kymaproject"
+  },
+  "i18n": {
+    "en": {
+      "path": "en",
+      "locale": "English",
+      "default": true
+    }
+  }
+}

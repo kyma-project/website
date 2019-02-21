@@ -1,55 +1,84 @@
 {
-  "name": "kyma-website",
+  "name": "@kyma-project/website",
   "description": "Kyma Project Website",
   "license": "Apache-2.0",
+  "private": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/kyma-project/website"
   },
+  "author": {
+    "name": "Kyma Website maintainers",
+    "email": "kyma"
+  },
+  "keywords": [
+    "gatsby",
+    "kyma",
+    "kyma-project"
+  ],
   "scripts": {
     "start": "npm run develop",
     "develop": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "build:prod": "GATSBY_APP_ORIGIN='https://kyma-project.io' gatsby build",
+    "lint": "tslint './src/**/*.ts?(x)'",
+    "build:prod": "GATSBY_SITE_URL='https://kyma-project.io' gatsby build",
     "publish:origin": "npm run build:prod && gh-pages -d public -m 'Deploy new version of site' -o origin",
     "publish:upstream": "npm run build:prod && gh-pages -d public -m 'Deploy new version of site' -o upstream",
     "publish:fork": "mv static/CNAME ./CNAME_bak && npm run build -- --prefix-paths && gh-pages -d public -m 'Deploy new version of site' -o origin && mv ./CNAME_bak static/CNAME"
   },
   "dependencies": {
-    "axios": "^0.18.0",
-    "babel-plugin-styled-components": "^1.8.0",
-    "compare-versions": "^3.4.0",
-    "gatsby": "^2.0.81",
-    "gatsby-plugin-google-analytics": "^2.0.7",
+    "@fortawesome/fontawesome-svg-core": "^1.2.14",
+    "@fortawesome/free-brands-svg-icons": "^5.7.1",
+    "@fortawesome/free-regular-svg-icons": "^5.7.1",
+    "@fortawesome/free-solid-svg-icons": "^5.7.1",
+    "@fortawesome/react-fontawesome": "^0.1.4",
+    "babel-plugin-styled-components": "^1.10.0",
+    "gatsby": "^2.0.91",
+    "gatsby-plugin-google-analytics": "^2.0.14",
+    "gatsby-plugin-manifest": "^2.0.13",
     "gatsby-plugin-react-helmet": "^3.0.2",
-    "gatsby-plugin-sharp": "^2.0.12",
-    "gatsby-plugin-styled-components": "^3.0.3",
-    "gatsby-remark-autolink-headers": "^2.0.12",
-    "gatsby-remark-copy-linked-files": "^2.0.6",
-    "gatsby-remark-embed-video": "^1.4.0",
-    "gatsby-remark-images": "^2.0.6",
-    "gatsby-source-filesystem": "^2.0.8",
-    "gatsby-transformer-json": "^2.1.5",
-    "gatsby-transformer-remark": "^2.1.19",
-    "i18next": "^12.0.0",
-    "i18next-browser-languagedetector": "^2.2.4",
-    "i18next-xhr-backend": "^1.5.1",
-    "null-loader": "^0.1.1",
+    "gatsby-plugin-styled-components": "^3.0.4",
+    "gatsby-plugin-typescript": "^2.0.3",
+    "gatsby-plugin-typography": "^2.2.5",
+    "gatsby-remark-embed-video": "^1.7.0",
+    "gatsby-source-filesystem": "^2.0.16",
+    "gatsby-transformer-remark": "^2.2.5",
+    "prism-react-renderer": "^0.1.5",
     "react": "^16.6.3",
-    "react-cookie-banner": "^3.0.0",
+    "react-cookie-banner": "^4.0.0",
     "react-dom": "^16.6.3",
     "react-helmet": "^5.2.0",
-    "react-highlight": "^0.12.0",
-    "react-i18next": "^8.3.8",
+    "react-intl": "^2.8.0",
+    "react-markdown": "^4.0.6",
     "react-sticky": "^6.0.3",
-    "styled-components": "^4.1.1"
+    "react-typography": "^0.16.18",
+    "styled-components": "^4.1.3",
+    "styled-reset": "^1.6.6",
+    "typography": "^0.16.18"
   },
   "devDependencies": {
-    "gh-pages": "^1.2.0",
+    "@types/react-helmet": "^5.0.8",
+    "@types/react-intl": "^2.3.15",
+    "@types/styled-components": "^4.1.6",
+    "@types/typography": "^0.16.2",
+    "babel-preset-gatsby": "^0.1.6",
+    "compare-versions": "^3.4.0",
+    "fs-extra": "^7.0.1",
+    "gh-pages": "^2.0.1",
+    "glob": "^7.1.3",
     "husky": "^1.1.4",
+    "js-yaml": "^3.12.1",
     "lint-staged": "^8.0.5",
-    "prettier": "^1.15.2"
+    "prettier": "^1.15.2",
+    "ts-node": "^7.0.1",
+    "tslint": "^5.10.0",
+    "tslint-config-prettier": "^1.17.0",
+    "tslint-react": "^3.6.0",
+    "typescript": "^3.2.4"
+  },
+  "bugs": {
+    "url": "https://github.com/kyma-project/website/issues"
   },
   "husky": {
     "hooks": {
@@ -58,7 +87,7 @@
   },
   "lint-staged": {
     "linters": {
-      "*.{js,json,css,jsx}": [
+      "**/*.{js,jsx,json,css,ts,tsx}": [
         "prettier --write",
         "git add"
       ]

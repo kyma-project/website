@@ -1,6 +1,6 @@
 ci-pr: resolve build
-ci-master: resolve prepare-git prepare-website
-ci-release: resolve prepare-git prepare-website
+ci-master: resolve prepare-git publish-website
+ci-release: resolve prepare-git publish-website
 
 resolve:
 	npm install
@@ -16,9 +16,9 @@ prepare-git:
 	git config user.email "$(BOT_GITHUB_EMAIL)"
 	git config user.name "$(BOT_GITHUB_NAME)"
 
-generate-docs: prepare-git
-	./scripts/generate-docs.sh --publish --branch $(PULL_BASE_REF) --commit $(PULL_BASE_SHA)
+prepare-content: prepare-git
+	./scripts/prepare-content.sh --publish --branch $(PULL_BASE_REF) --commit $(PULL_BASE_SHA)
 
-prepare-website:
-	./scripts/prepare-website.sh
+publish-website:
+	./scripts/publish-website.sh
 	
