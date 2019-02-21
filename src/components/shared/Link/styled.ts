@@ -1,4 +1,4 @@
-import styled from "@styled";
+import styled, { media } from "@styled";
 import { Link } from "gatsby";
 
 interface LinkProps {
@@ -56,6 +56,12 @@ export const HashLinkWithIcon = styled.div`
     top: -2px;
     margin-left: 4px;
   }
+
+  ${media.tablet`
+    > a {
+      visibility: visible;
+    }
+  `};
 `;
 
 export const HashLink = styled.a`
