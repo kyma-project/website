@@ -1,5 +1,5 @@
 ---
-path: "/blog/core-sig
+path: "/blog/core-sig"
 date: "2019-02-20"
 author: "Ana Yankovich, Knowledge Consultant @Kyma"
 tags:
