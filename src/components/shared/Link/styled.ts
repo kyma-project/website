@@ -19,7 +19,7 @@ export const ExternalLink = styled.a`
   svg[data-icon="external-link-alt"] {
     position: relative;
     z-index: 101;
-    top: -2px;
+    top: -1px;
     margin-left: 4px;
     font-size: 0.6rem;
   }
