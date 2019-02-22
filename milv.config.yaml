@@ -23,4 +23,5 @@ files:
       white-list-external:
         - https://kyma-project.io/blog/some-address
       white-list-internal:
+        - "../{some_file}#development"
         - /docs/{VERSION}/root/kyma#overview-in-a-nutshell
