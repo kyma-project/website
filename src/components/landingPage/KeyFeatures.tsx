@@ -94,7 +94,7 @@ const KeyFeatures: React.FunctionComponent = () => {
           </Grid.Unit>
           {sections.map(section => createSection(section))}
           <div style={{ margin: "30px auto 0 auto" }}>
-            <Link.Internal to="/docs/root/kyma#overview-key-components">
+            <Link.Internal to="/docs/root/kyma/#overview-key-components">
               <Button.Emphasized>
                 <FormattedMessage id={gt("seeButton")} />
               </Button.Emphasized>
