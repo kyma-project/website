@@ -73,7 +73,6 @@ export const HeaderWrapper = styled.header`
   @media (max-width: 376px) {
     &:before {
       min-height: 43vw;
-      background-size: 100% 43vw;
     }
   }
   @media (min-width: 1400px) {
