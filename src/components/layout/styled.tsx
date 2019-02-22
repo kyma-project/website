@@ -72,8 +72,8 @@ export const HeaderWrapper = styled.header`
   }
   @media (max-width: 376px) {
     &:before {
-      min-height: ${(props: HeaderWrapperProps) =>
-        props.horizontalBg ? "43vw" : "35vw"};
+      min-height: 43vw;
+      background-size: 100% 43vw;
     }
   }
   @media (min-width: 1400px) {
@@ -129,12 +129,15 @@ export const HeaderLogo = styled.h1`
   display: inline-block;
 
   > svg {
-    width: 79px;
     max-height: 101px;
     width: 173px;
     max-height: 61px;
     fill: ${(props: HeaderLogoProps) =>
       props.horizontalBg ? "#fff" : "#0b74de"};
+
+    ${media.phone`
+      width: 140px;
+    `};
   }
 `;
 
