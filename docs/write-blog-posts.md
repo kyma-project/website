@@ -118,10 +118,10 @@ In your Markdown documents, use the following snippet:
 If you link to other Markdown documents, you can optionally link to a particular paragraph, as in this example:
 
 ```Markdown
-[README](../README.md#development)
+[README](../{some_file}#development)
 ```
 
-[README](../README.md#development)
+[README](../{some_file}#development)
 
 ### Link to documentation
 
