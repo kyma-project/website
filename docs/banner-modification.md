@@ -1,6 +1,6 @@
 # Banner modification
 
-To edit the banner on the website you have to make changes in [banners.json](../src/banner/banners.json). This file has the following structure:
+To edit the banner on the website you have to make changes in [banners.json](../content/banner/slides.yml). This file has the following structure:
 
 ```json
 {
@@ -34,7 +34,7 @@ To show the banner for one full day, make sure **{START_DATE}** and **{END_DATE}
 
 ## Add an icon
 
-If you add an image to the banner, place it in the [`assets`](../src/banner/assets) folder. This image scales to fit into a box that is 30px wide and 45px high, while preserving its original aspect ratio.
+If you add an image to the banner, place it in the [`assets`]() folder. This image scales to fit into a box that is 30px wide and 45px high, while preserving its original aspect ratio.
 
 The acceptable image formats are JPEG, PNG, SVG, and GIFF.
 
@@ -73,7 +73,7 @@ To show multiple slides that change periodically, like in a typical carousel, ad
 
 ## Remove the banner
 
-If you want to remove the banner from the website, change [banners.json](../src/banner/banners.json) as follows:
+If you want to remove the banner from the website, change [banners.json](../content/banner/slides.yml) as follows:
 
 ```json
 []
