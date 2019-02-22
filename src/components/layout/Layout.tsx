@@ -53,7 +53,7 @@ const Layout: React.FunctionComponent<LayoutProps> = ({
               <LayoutWrapper>
                 <SlidesBanner {...slidesProps} />
                 <CookiesBanner />
-                {backToTopButton && <BackToTop />}
+                {/* {backToTopButton && <BackToTop />} */}
                 <Header horizontalBg={horizontalHeaderBg} />
                 <Content>{children}</Content>
                 <Footer />

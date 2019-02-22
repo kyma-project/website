@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { media } from "@styled";
+import styled, { media, css } from "@styled";
 
 import CookiesBanner from "react-cookie-banner/lib";
 
@@ -51,10 +51,11 @@ export const HeaderWrapper = styled.header`
 
   @media (max-width: 1000px) {
     &:before {
-      top: ${(props: HeaderWrapperProps) =>
-        props.horizontalBg ? "-12vw" : "0"};
-      background-size: cover;
-      background-position: center center;
+      top: ${(props: HeaderWrapperProps) => css`
+        ${props.horizontalBg ? "-12vw" : "0"};
+        background-size: cover;
+        background-position: center center;
+      `};
     }
   }
   @media (max-width: 750px) {
@@ -71,14 +72,49 @@ export const HeaderWrapper = styled.header`
   }
   @media (max-width: 376px) {
     &:before {
-      top: ${(props: HeaderWrapperProps) => (props.horizontalBg ? "5vw" : "0")};
+      min-height: ${(props: HeaderWrapperProps) =>
+        props.horizontalBg ? "43vw" : "35vw"};
     }
   }
   @media (min-width: 1400px) {
-    &:before {
-      top: -5vw;
-      min-height: 35vw;
-    }
+    ${(props: HeaderWrapperProps) =>
+      !props.horizontalBg
+        ? `
+      &:before {
+        background-size: 100% 500px;
+        min-height: 500px;
+      }
+    `
+        : `
+      &:before {
+        top: -5vw;
+        min-height: 35vw;
+      }
+    `}
+  }
+
+  @media (min-width: 2000px) {
+    ${(props: HeaderWrapperProps) =>
+      props.horizontalBg
+        ? `
+      &:before {
+        top: -7vw;
+        min-height: 35vw;
+      }
+    `
+        : ""}
+  }
+
+  @media (min-width: 2700px) {
+    ${(props: HeaderWrapperProps) =>
+      props.horizontalBg
+        ? `
+      &:before {
+        top: -9vw;
+        min-height: 35vw;
+      }
+    `
+        : ""}
   }
 `;
 
@@ -130,7 +166,7 @@ export const NavigationList = styled.ul`
     width: 100vw;
     height: 100vh;
     background: #235dbe;
-    z-index: 201;
+    z-index: 9999;
   `};
 `;
 
@@ -259,7 +295,7 @@ export const FooterWrapper = styled.footer`
   flex-direction: column;
   justify-content: center;
   position: relative;
-  z-index: 1;
+  z-index: 100;
   background: url(${Footer}) no-repeat;
   background-size: 100% 100%;
   min-height: 340px;
@@ -327,7 +363,7 @@ export const StyledCookieBanner = styled(CookiesBanner)`
   background: #1ea393;
   width: 100%;
   height: auto;
-  z-index: 10000;
+  z-index: 9999;
   bottom: 0px;
   padding: 20px 15px;
 
@@ -384,7 +420,7 @@ export const BackToTopIcon = styled.div`
   bottom: 32px;
   right: 32px;
   color: #fff;
-  z-index: 200;
+  z-index: 8888;
 
   width: 45px;
   height: 45px;

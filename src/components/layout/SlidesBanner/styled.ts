@@ -8,6 +8,8 @@ export const Wrapper = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  z-index: 150;
 `;
 
 interface InnerWrapperProps {

@@ -1,6 +1,16 @@
 let offset = 0;
 let options = null;
 
+const cumulativeOffset = element => {
+  let top = 0;
+  do {
+    top += element.offsetTop || 0;
+    element = element.offsetParent;
+  } while (element);
+
+  return top;
+};
+
 const evaluateOffset = pathname => {
   const windowWidth = window.innerWidth;
 
@@ -21,7 +31,7 @@ const getTargetOffset = (hash, pathname) => {
     const element = document.getElementById(id);
     if (element) {
       evaluateOffset(pathname);
-      return element.offsetTop - offset;
+      return cumulativeOffset(element) - offset;
     }
   }
   return null;

@@ -9,7 +9,7 @@ import {
   IntlInterface,
   getTranslation,
 } from "@common/i18n";
-import { LINKS } from "@common/constants";
+import config from "@config";
 
 import { StyledCookieBanner, ReadPrivacyStatementLink } from "./styled";
 
@@ -26,7 +26,10 @@ const CookiesMessageBanner: React.FunctionComponent<IntlInterface> = ({
       <>
         <FormattedMessage id={gt("readPrivacyStatement")}>
           {readPrivacyStatement => (
-            <ReadPrivacyStatementLink to={LINKS.SAP_PRIVACY_LINK} externalIcon>
+            <ReadPrivacyStatementLink
+              to={config.links.SAP_PRIVACY_LINK}
+              externalIcon
+            >
               {readPrivacyStatement}
             </ReadPrivacyStatementLink>
           )}

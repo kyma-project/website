@@ -49,7 +49,9 @@ const Post: React.FunctionComponent<PostProps> = ({
         </Link.Internal>
       )}
       <PostFooter tags={tags} />
-      {!readMore && <PrevNextSection next={next} previous={previous} />}
+      {/* {!readMore && (
+        <PrevNextSection next={next} previous={previous} />
+      )} */}
     </PostWrapper>
   );
 };

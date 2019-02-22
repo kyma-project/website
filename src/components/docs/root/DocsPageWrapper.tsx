@@ -23,7 +23,9 @@ const DocsPageWrapper: React.FunctionComponent<DocsPageWrapperProps> = ({
         <Grid.Row>
           <Grid.Unit df={3} md={12}>
             <Sticky>
-              {({ style }: any) => <div style={style}>{leftNavigation}</div>}
+              {({ style }: any) => (
+                <div style={{ ...style, zIndex: 110 }}>{leftNavigation}</div>
+              )}
             </Sticky>
           </Grid.Unit>
           <Grid.Unit df={9} md={12}>

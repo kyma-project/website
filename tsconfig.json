@@ -13,16 +13,12 @@
     "skipLibCheck": true,
     "baseUrl": "./",
     "paths": {
-      "@assets/*": ["./src/common/assets/*"],
       "@common/*": ["./src/common/*"],
       "@components/*": ["./src/components/*"],
-      "@config/*": ["./src/core/config/*"],
-      "@locale/*": ["./locale/*"],
+      "@config": ["./config.json"],
       "@static": ["./static/*"],
       "@styled": ["./src/common/styled"],
-      "@styled/*": ["./src/common/styled/*"],
-      "@types": ["./src/common/types"],
-      "@utils/*": ["./src/common/utils/*"]
+      "@styled/*": ["./src/common/styled/*"]
     }
   }
 }

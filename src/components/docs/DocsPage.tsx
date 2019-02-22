@@ -4,7 +4,7 @@ import RootDocs from "./root/RootDocs";
 
 import { DocsPageContext } from "./types";
 
-import { getDocsPath } from "@common/utils";
+import { getDocsPath } from "@components/docs/helpers";
 
 interface DocsPageProps {
   pageContext: DocsPageContext;

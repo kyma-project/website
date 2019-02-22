@@ -1,6 +1,7 @@
 import styled, { media } from "@styled";
 
 import Link from "@components/shared/Link";
+import Grid from "@styled/Grid";
 
 import { linkEffect } from "@styled/mixins";
 
@@ -61,6 +62,12 @@ export const MakesSpecialSvgWrapper = styled.div`
 /* Key Features */
 export const KeyFeaturesWrapper = styled.section`
   margin: 50px 0;
+`;
+
+export const KeyFeaturesSection = styled(Grid.Unit)`
+  ${media.tablet`
+    margin: 0 0 50px 0;
+  `};
 `;
 
 export const SvgWrap = styled.div`

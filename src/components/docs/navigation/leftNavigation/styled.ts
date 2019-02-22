@@ -17,7 +17,7 @@ export const MobileDocsToggleWrapper = styled.div`
   cursor: pointer;
   border-bottom: 1px solid #e5e5e5;
   display: none;
-  z-index: 9999;
+  z-index: 6666;
 
   svg {
     margin-right: 16px;

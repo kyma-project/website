@@ -14,7 +14,7 @@ import {
 const i18nConfig = require("../../../../config").i18n;
 
 interface LinkProps extends GatsbyLinkProps<{}> {
-  withUnderline?: boolean;
+  underline?: boolean;
 }
 
 const External: React.FunctionComponent<
@@ -24,7 +24,7 @@ const External: React.FunctionComponent<
   className,
   children,
   externalIcon = false,
-  withUnderline = false,
+  underline = false,
   onClick,
 }) => {
   return (
@@ -33,7 +33,7 @@ const External: React.FunctionComponent<
       target="_blank"
       rel="noopener noreferrer"
       className={className}
-      withUnderline={withUnderline}
+      underline={underline ? "true" : "false"}
       onClick={onClick}
     >
       {children}
@@ -47,16 +47,17 @@ const Internal: React.FunctionComponent<LinkProps & InjectedIntlProps> = ({
   intl: { locale },
   className,
   children,
-  withUnderline = false,
+  underline = false,
   onClick,
 }) => {
-  const path = i18nConfig[locale].default ? to : `/${locale}${to}`;
+  let path = i18nConfig[locale].default ? to : `/${locale}${to}`;
+  path = path.endsWith("/") || path.includes("#") ? path : `${path}/`;
 
   return (
     <InternalLink
       to={path}
       className={className}
-      withUnderline={withUnderline}
+      underline={underline ? "true" : "false"}
       onClick={onClick}
     >
       {children}
@@ -69,7 +70,7 @@ const Hash: React.FunctionComponent<LinkProps & { chainIcon?: boolean }> = ({
   className,
   children,
   chainIcon = false,
-  withUnderline = false,
+  underline = false,
   onClick,
 }) => {
   const preparedTo = to.startsWith("#") ? to : `#${to}`;
@@ -77,15 +78,17 @@ const Hash: React.FunctionComponent<LinkProps & { chainIcon?: boolean }> = ({
   if (chainIcon) {
     return (
       <HashLinkWithIcon>
-        {children}
-        <HashLink
-          href={preparedTo}
-          className={className}
-          withUnderline={withUnderline}
-          onClick={onClick}
-        >
-          <Icon iconName="link" iconPrefix="fas" />
-        </HashLink>
+        <div>
+          {children}
+          <HashLink
+            href={preparedTo}
+            className={className}
+            underline={underline ? "true" : "false"}
+            onClick={onClick}
+          >
+            <Icon iconName="link" iconPrefix="fas" />
+          </HashLink>
+        </div>
       </HashLinkWithIcon>
     );
   }
@@ -94,7 +97,7 @@ const Hash: React.FunctionComponent<LinkProps & { chainIcon?: boolean }> = ({
     <HashLink
       href={preparedTo}
       className={className}
-      withUnderline={withUnderline}
+      underline={underline ? "true" : "false"}
       onClick={onClick}
     >
       {children}

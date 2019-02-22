@@ -32,6 +32,7 @@ export const PostHeaderWrapper = styled.header`
   margin: 0 0 50px 0;
 
   h2 {
+    font-size: 36px;
     margin-bottom: 16px;
     color: rgb(72, 87, 102);
     transition: color 0.2s ease-in-out;

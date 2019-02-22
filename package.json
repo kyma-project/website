@@ -8,13 +8,17 @@
     "url": "https://github.com/kyma-project/website"
   },
   "author": {
-    "name": "Kyma Website maintainers",
-    "email": "kyma"
+    "name": "Kyma Website maintainers"
   },
   "keywords": [
     "gatsby",
     "kyma",
-    "kyma-project"
+    "kyma-project",
+    "kyma-project-io",
+    "kubernetes",
+    "cloud-native",
+    "knative",
+    "k8s"
   ],
   "scripts": {
     "start": "npm run develop",

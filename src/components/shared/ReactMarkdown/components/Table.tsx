@@ -3,7 +3,11 @@ import { AlignType } from "react-markdown";
 
 import styled from "@styled";
 
-const StyledTable = styled.table``;
+const StyledTable = styled.table`
+  display: block;
+  width: 100%;
+  overflow: auto;
+`;
 
 interface TableProps {
   columnAlignment: AlignType;

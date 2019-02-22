@@ -14,8 +14,9 @@ const HighlightWrapper = styled.div`
   border: 1px solid rgb(229, 229, 229);
   border-radius: 5px;
   margin: 0 0 16px 0;
-  overflow: auto;
   padding-bottom: 16px;
+  white-space: nowrap;
+  overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
 
   ${customScrollBar({
@@ -26,6 +27,12 @@ const HighlightWrapper = styled.div`
   > pre {
     padding: 16px 16px 0 16px;
     margin-bottom: 0 !important;
+
+    > code {
+      word-break: normal;
+      white-space: pre;
+      overflow-wrap: normal;
+    }
   }
 `;
 
@@ -49,13 +56,15 @@ export const Code: React.FunctionComponent<CodeProps> = ({
       >
         {({ className, style, tokens, getLineProps, getTokenProps }: any) => (
           <pre className={className} style={style}>
-            {tokens.map((line: any, i: number) => (
-              <div {...getLineProps({ line, key: i })}>
-                {line.map((token: any, key: number) => (
-                  <span {...getTokenProps({ token, key })} />
-                ))}
-              </div>
-            ))}
+            <code>
+              {tokens.map((line: any, i: number) => (
+                <div {...getLineProps({ line, key: i })}>
+                  {line.map((token: any, key: number) => (
+                    <span {...getTokenProps({ token, key })} />
+                  ))}
+                </div>
+              ))}
+            </code>
           </pre>
         )}
       </Highlight>

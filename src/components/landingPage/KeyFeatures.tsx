@@ -12,7 +12,12 @@ import TechIndependent from "./assets/landing-page/TechIndependent";
 
 import { FormattedMessage, getTranslation } from "@common/i18n";
 
-import { KeyFeaturesWrapper, SvgWrap, KeyFeaturesLink } from "./styled";
+import {
+  KeyFeaturesWrapper,
+  KeyFeaturesSection,
+  SvgWrap,
+  KeyFeaturesLink,
+} from "./styled";
 
 const gt = getTranslation("landingPage.keyFeatures");
 
@@ -56,7 +61,7 @@ const KeyFeatures: React.FunctionComponent = () => {
   );
 
   const createSection = (sectionId: string) => (
-    <Grid.Unit as="section" df={4} lg={4} md={12} key={sectionId}>
+    <KeyFeaturesSection df={4} lg={4} md={12} key={sectionId}>
       <FormattedMessage id={gt(`${sectionId}.headline`)}>
         {headline => (
           <H as="h3" center style={{ minHeight: "66px" }}>
@@ -71,7 +76,7 @@ const KeyFeatures: React.FunctionComponent = () => {
         {paragraph => <Paragraph>{paragraph}</Paragraph>}
       </FormattedMessage>
       <div style={{ margin: "0 auto" }}>{readMoreButton(sectionId)}</div>
-    </Grid.Unit>
+    </KeyFeaturesSection>
   );
 
   return (

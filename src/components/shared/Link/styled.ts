@@ -2,7 +2,7 @@ import styled, { media } from "@styled";
 import { Link } from "gatsby";
 
 interface LinkProps {
-  withUnderline?: boolean;
+  underline?: string;
 }
 
 export const ExternalLink = styled.a`
@@ -13,10 +13,12 @@ export const ExternalLink = styled.a`
   &:focus,
   &:hover {
     ${(props: LinkProps) =>
-      props.withUnderline ? "text-decoration: underline #0073e6" : "none"};
+      props.underline === "true" ? "border-bottom: 1px solid #0073e6" : ""}
   }
 
   svg[data-icon="external-link-alt"] {
+    position: relative;
+    z-index: 101;
     top: -2px;
     margin-left: 4px;
     font-size: 0.6rem;
@@ -30,7 +32,9 @@ export const InternalLink = styled(Link)`
   &:focus,
   &:hover {
     ${(props: LinkProps) =>
-      props.withUnderline ? "text-decoration: underline #0073e6" : "none"};
+      props.underline === "true"
+        ? "text-decoration: underline #0073e6"
+        : "none"};
   }
 `;
 
@@ -39,26 +43,43 @@ export const HashLinkWithIcon = styled.div`
     display: inline-block;
   }
 
-  > a {
-    margin-left: 12px;
+  > div {
+    padding-right: 25px;
+    margin-bottom: 1.6rem !important;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin-bottom: 0;
+      display: inline;
+    }
+  }
+
+  a {
     font-size: 1rem;
     visibility: hidden;
     color: #0073e6;
+    top: 50%;
+    right: 0;
+    margin-left: 0;
+    transform: translateY(-50%);
   }
 
-  &:hover {
-    > a {
+  > div:hover {
+    a {
       visibility: visible;
     }
   }
 
-  svg[data-icon="anchor"] {
-    top: -2px;
-    margin-left: 4px;
+  svg[data-icon="link"] {
+    margin-left: 12px;
   }
 
   ${media.tablet`
-    > a {
+    a {
       visibility: visible;
     }
   `};
@@ -71,6 +92,8 @@ export const HashLink = styled.a`
   &:focus,
   &:hover {
     ${(props: LinkProps) =>
-      props.withUnderline ? "text-decoration: underline #0073e6" : "none"};
+      props.underline === "true"
+        ? "text-decoration: underline #0073e6"
+        : "none"};
   }
 `;

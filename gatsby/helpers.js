@@ -11,9 +11,9 @@ const createIntlPage = ({ actions }) => {
         ? path
         : `${i18nConfig[lang].path}${path}`;
 
-      localizedPath = localizedPath.endsWith("/")
-        ? localizedPath.slice(0, -1)
-        : localizedPath;
+      // localizedPath = localizedPath.endsWith("/")
+      //   ? localizedPath.slice(0, -1)
+      //   : localizedPath;
       localizedPath = localizedPath.startsWith("/")
         ? localizedPath
         : `/${localizedPath}`;
@@ -73,11 +73,11 @@ const createRedirects = ({
     return;
   }
 
-  createRedirect({
-    fromPath: `${localizedPath}/`,
-    redirectInBrowser: true,
-    toPath: localizedPath,
-  });
+  // createRedirect({
+  //   fromPath: `${localizedPath}/`,
+  //   redirectInBrowser: true,
+  //   toPath: localizedPath,
+  // });
 
   createRedirect({
     fromPath: `${localizedPath}.html`,
@@ -92,11 +92,11 @@ const createRedirects = ({
       toPath: localizedPath,
     });
 
-    createRedirect({
-      fromPath: `/${i18nConfig[lang].path}${localizedPath}/`,
-      redirectInBrowser: true,
-      toPath: localizedPath,
-    });
+    // createRedirect({
+    //   fromPath: `/${i18nConfig[lang].path}${localizedPath}/`,
+    //   redirectInBrowser: true,
+    //   toPath: localizedPath,
+    // });
 
     createRedirect({
       fromPath: `/${i18nConfig[lang].path}${localizedPath}.html`,

@@ -7,7 +7,7 @@ import Logo from "./assets/LogoFooter";
 import Icon from "@components/shared/Icon";
 
 import { FormattedMessage, getTranslation } from "@common/i18n";
-import { LINKS } from "@common/constants";
+import config from "@config";
 import { getActualYear, resolveSocialMedia } from "@common/utils";
 
 import {
@@ -52,7 +52,7 @@ const Footer: React.FunctionComponent = () => {
           values={{
             actualYear: getActualYear(),
             copyrightLink: (
-              <Link.External to={LINKS.SAP_PRIVACY_LINK} externalIcon>
+              <Link.External to={config.links.SAP_PRIVACY_LINK} externalIcon>
                 <FormattedMessage id={gt("privacyStatement")} />
               </Link.External>
             ),

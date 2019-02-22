@@ -13,7 +13,8 @@ import {
   ScrollSpyActiveNodes,
 } from "@components/docs/navigation/types";
 
-import { getDocsPath, getDocsPathLink, tokenize } from "@common/utils";
+import { getDocsPath, getDocsPathLink } from "@components/docs/helpers";
+import { tokenize } from "@common/utils";
 import { DOCS_SCROLL_SPY_ROOT } from "@common/constants";
 
 import { Separator, NavigationContainer } from "./styled";

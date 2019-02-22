@@ -10,8 +10,8 @@ import Icon from "@components/shared/Icon";
 import CommunitySvg from "./assets/landing-page/Community";
 
 import { FormattedMessage, getTranslation } from "@common/i18n";
-import { LINKS } from "@common/constants";
 import { resolveSocialMedia } from "@common/utils";
+import config from "@config";
 
 import {
   CommunityWrapper,
@@ -56,7 +56,11 @@ const Community: React.FunctionComponent = () => {
               id={gt("paragraphs.1")}
               values={{
                 sigLink: (
-                  <Link.External to={LINKS.SIG_LINK} withUnderline externalIcon>
+                  <Link.External
+                    to={config.links.SIG_LINK}
+                    underline
+                    externalIcon
+                  >
                     <FormattedMessage id={gt("sigLink")} />
                   </Link.External>
                 ),

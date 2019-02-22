@@ -36,7 +36,7 @@ const WhatIs: React.FunctionComponent = () => {
                 id={gt("XXXLutzBlogPost.paragraph")}
                 values={{
                   link: (
-                    <Link.Internal to="/blog/xxxlutz-video" withUnderline>
+                    <Link.Internal to="/blog/xxxlutz-video" underline>
                       <FormattedMessage id={gt("XXXLutzBlogPost.link")} />
                     </Link.Internal>
                   ),

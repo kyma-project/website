@@ -6,7 +6,7 @@ import ReactMarkdown from "@components/shared/ReactMarkdown";
 import Button from "@components/shared/Button";
 import Link from "@components/shared/Link";
 
-import { LINKS } from "@common/constants";
+import config from "@config";
 
 import { ReleaseButtonsWrapper } from "../styled";
 
@@ -23,7 +23,7 @@ const ReleaseTemplatePost: React.FunctionComponent<
     {releaseTag && (
       <ReleaseButtonsWrapper>
         <Link.External
-          to={`${LINKS.KYMA_REPOSITORY_LINK}/releases/${releaseTag}`}
+          to={`${config.links.KYMA_REPOSITORY_LINK}/releases/${releaseTag}`}
         >
           <Button.Normal iconName="cloud-download-alt" iconPrefix="fas">
             <FormattedMessage

@@ -20,11 +20,11 @@ import {
 
 const navigation = [
   {
-    path: "/docs",
+    path: "/docs/",
     title: "Docs",
   },
   {
-    path: "/blog",
+    path: "/blog/",
     title: "Blog",
   },
 ];
@@ -32,17 +32,20 @@ const navigation = [
 interface NavigationState {
   mobileMenuVisible?: boolean;
   isOnMobile?: boolean;
+  initial?: boolean;
 }
 
 class Navigation extends Component<{}, NavigationState> {
   state: NavigationState = {
     mobileMenuVisible: false,
     isOnMobile: false,
+    initial: false,
   };
 
   componentDidMount() {
     window.addEventListener("resize", this.resize);
     this.resize();
+    this.setState({ initial: true });
   }
 
   componentWillUnmount() {
@@ -64,19 +67,25 @@ class Navigation extends Component<{}, NavigationState> {
   };
 
   render() {
-    const { mobileMenuVisible, isOnMobile } = this.state;
+    const { mobileMenuVisible, isOnMobile, initial } = this.state;
 
     const socialMedia = [
       resolveSocialMedia("slack"),
       resolveSocialMedia("github"),
     ];
 
+    const menuVisible = !initial
+      ? false
+      : isOnMobile
+      ? mobileMenuVisible
+      : true;
+
     return (
       <NavigationWrapper>
         <NavigationMobileButton onClick={this.toggleVisibility}>
           <Button.Light iconName="bars" iconPrefix="fas" />
         </NavigationMobileButton>
-        <NavigationList visible={isOnMobile ? mobileMenuVisible : true}>
+        <NavigationList visible={menuVisible}>
           <NavigationItem
             key="mobile-button"
             visible={isOnMobile}

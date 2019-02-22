@@ -25,14 +25,14 @@ export const Link: React.FunctionComponent<LinkProps> = ({
 
   if (href.startsWith("http")) {
     return (
-      <L.External to={href} externalIcon withUnderline>
+      <L.External to={href} externalIcon underline>
         {children}
       </L.External>
     );
   }
   if (href.startsWith("#")) {
     return (
-      <L.Hash to={href} withUnderline>
+      <L.Hash to={href} underline>
         {children}
       </L.Hash>
     );
@@ -43,7 +43,7 @@ export const Link: React.FunctionComponent<LinkProps> = ({
     return <a href={`${assetsPath}${assetName}`}>{children}</a>;
   }
   return (
-    <L.Internal to={href} withUnderline>
+    <L.Internal to={href} underline>
       {children}
     </L.Internal>
   );
