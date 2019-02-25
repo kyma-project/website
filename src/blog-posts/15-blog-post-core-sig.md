@@ -37,4 +37,4 @@ You can join the Core SIG biweekly meetings that take place on Wednesdays at 15:
 We're on [Slack](https://join.slack.com/t/kyma-community/shared_invite/enQtNDAwNzE4Mjk2NDE3LTJhOTlmZjM5YzkwNmEzNmY3ZjE2MTU2OTMxOGE4ZDM0MmU4ZWRkZGJiODgzNmRmMTYxMDYwNjZiMDAwMTA2OWM) too!
 Join the [#sig-core Slack channel](https://kyma-community.slack.com/messages/CBP7LKRPS/) to ask questions, keep up to date with the latest Core SIG news, or simply to meet the Core SIG leaders and members. 
 
-We're happy to have you at the CORE SIG!
+We'd be happy to have you at the Core SIG!
