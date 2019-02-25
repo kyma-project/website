@@ -10,7 +10,7 @@ As you know, a vibrant community of individuals stands behind the Kyma open-sour
 
 **Is there a SIG I can join?**
 
-Yes, there is one main SIG called CORE as the entry point. The CORE SIG consists of SIG leaders and members. To learn more about the leaders and members role, click [here](https://github.com/kyma-project/community/blob/master/sig-and-wg/README.md#roles).
+Yes, there is one main SIG called **Core** that is the entry point. The Core SIG consists of SIG leaders and members. To learn more about their roles, click [here](https://github.com/kyma-project/community/blob/master/sig-and-wg/README.md#roles).
 
 **Who are the CORE SIG leaders?**
 
