@@ -28,7 +28,7 @@ The purpose of the CORE SIG is to:
 - Gauge interest, request the community feedback, and ensure it is addressed.
 - Own all code repositories in the Kyma organization except for the community repository
 - Showcase proposals to the community and collects the feedback to those proposals to assist the decision-making process
-- Represent its members and the Kyma community in the Council meetings
+- Represent its members and the Kyma community in the Council meetings.
 
 **I am interested! How can I join the CORE SIG?**
 
