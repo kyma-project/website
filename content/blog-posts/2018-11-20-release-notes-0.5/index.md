@@ -4,10 +4,8 @@ author:
   name: "Marco Dorn, Product Manager @Kyma"
 tags:
   - release-notes
-postType:
-  name: release
-  release:
-    version: "0.5.0"
+type: release
+releaseTag: "0.5.0"
 redirectFrom:
   - "/blog/release-notes-05"
 ---

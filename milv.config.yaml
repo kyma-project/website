@@ -23,7 +23,5 @@ files:
       white-list-external:
         - https://kyma-project.io/blog/some-address
       white-list-internal:
+        - "../{some_file}#development"
         - /docs/{VERSION}/root/kyma#overview-in-a-nutshell
-  - path: ./website/src/blog-posts/13-release-notes-07.md
-    config:
-      white-list-internal: ["#kyma-on-AKS", "#ui-api-layer-security-model", "#eventing", "#tracing"]

@@ -4,10 +4,8 @@ author:
   name: "Karolina Zydek, Technical Writer @Kyma"
 tags:
   - release-notes
-postType:
-  name: release
-  release:
-    version: "0.6.0"
+type: release
+releaseTag: "0.6.0"
 redirectFrom:
   - "/blog/release-notes-06"
 ---

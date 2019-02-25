@@ -1,0 +1,56 @@
+{
+  "siteMetadata": {
+    "twitterUsername": "kymaproject"
+  },
+  "socialMedia": {
+    "twitter": {
+      "name": "Twitter",
+      "shortName": "Twitter",
+      "url": "https://twitter.com/kymaproject",
+      "icon": "twitter"
+    },
+    "github": {
+      "name": "GitHub",
+      "shortName": "GitHub",
+      "url": "https://github.com/kyma-project",
+      "icon": "github"
+    },
+    "slack": {
+      "name": "Slack",
+      "shortName": "Slack",
+      "url": "https://join.slack.com/t/kyma-community/shared_invite/enQtNDAwNzE4Mjk2NDE3LTJhOTlmZjM5YzkwNmEzNmY3ZjE2MTU2OTMxOGE4ZDM0MmU4ZWRkZGJiODgzNmRmMTYxMDYwNjZiMDAwMTA2OWM",
+      "icon": "slack"
+    },
+    "linkedIn": {
+      "name": "LinkedIn",
+      "shortName": "LinkedIn",
+      "url": "https://www.linkedin.com/company/kyma-project/",
+      "icon": "linkedin-in"
+    },
+    "youTube": {
+      "name": "YouTube",
+      "shortName": "YouTube",
+      "url": "https://www.youtube.com/channel/UC8Q8bBtYe9gQN-dQ-_L8JvQ",
+      "icon": "youtube"
+    },
+    "stackOverflow": {
+      "name": "StackOverflow",
+      "shortName": "Stack",
+      "url": "https://stackoverflow.com/questions/tagged/kyma",
+      "icon": "stack-overflow"
+    }
+  },
+  "links": {
+    "KYMA_REPOSITORY_LINK": "https://github.com/kyma-project/kyma",
+    "SAP_PRIVACY_LINK": "https://www.sap.com/corporate/en/legal/privacy.html",
+    "SIG_LINK": "https://github.com/kyma-project/community/blob/master/sig-and-wg/README.md",
+    "GOOGLE_SITE_VERIFICATION": "qHt6OkQ1MXU5a4ZLlkLLPRB35ZOu_upyScm2O9Jf8PY"
+  },
+  "i18n": {
+    "en": {
+      "path": "en",
+      "locale": "English",
+      "default": true
+    }
+  }
+}

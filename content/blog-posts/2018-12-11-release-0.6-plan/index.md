@@ -5,7 +5,7 @@ author:
 tags:
   - release
 redirectFrom:
-  - "/blog/release-0.6-plan"
+  - "/blog/release-06-plan"
 ---
 
 With winter holidays and 2019 around the corner, let's think about something hotter and more exotic. A city perhaps... Cairo? Sounds good, right? 

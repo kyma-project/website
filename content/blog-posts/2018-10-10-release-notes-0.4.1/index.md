@@ -4,10 +4,8 @@ author:
   name: "Lukasz Gornicki, Product Owner @Kyma"
 tags:
   - release-notes
-postType:
-  name: release
-  release:
-    version: "0.4.1"
+type: release
+releaseTag: "0.4.1"
 redirectFrom:
   - "/blog/release-notes-041"
 ---

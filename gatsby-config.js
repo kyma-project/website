@@ -1,70 +1,72 @@
+const siteMetadata = require("./config").siteMetadata;
+
 module.exports = {
-  // Data exported with GraphQL API
-  siteMetadata: {
-    navigation: [
-      {
-        path: "/docs",
-        id: "documentation",
-      },
-      {
-        path: "/blog",
-        id: "blog",
-      },
-    ],
-    languages: [{ code: "en", label: "English" }],
-  },
-  // Gatsby Config
+  siteMetadata,
   plugins: [
-    `gatsby-plugin-react-helmet`,
+    "gatsby-plugin-react-helmet",
+    "gatsby-plugin-styled-components",
+    "gatsby-plugin-typescript",
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: "gatsby-source-filesystem",
       options: {
-        path: `${__dirname}/src/blog-posts`,
-        name: "blog",
+        name: "content",
+        path: `${__dirname}/content/`,
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: "gatsby-plugin-copy-files",
       options: {
-        path: `${__dirname}/static/documentation`,
-        name: "docs",
-      },
-    },
-    `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        excerpt_separator: `<!-- overview -->`,
-        plugins: [
-          {
-            resolve: "gatsby-remark-embed-video",
-            options: {
-              width: 850,
-              ratio: 1.77,
-              related: false,
-              noIframeBorder: true,
-            },
-          },
-          {
-            resolve: `gatsby-remark-images`,
-            options: {
-              maxWidth: 1200,
-              linkImagesToOriginal: false,
-            },
-          },
-          {
-            resolve: `gatsby-remark-autolink-headers`,
-            options: {
-              offsetY: `12`,
-              icon: `<svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg>`,
-              className: `anchor-chain`,
-            },
-          },
-          `gatsby-remark-copy-linked-files`,
+        source: `${__dirname}/content`,
+        destination: "/assets",
+        extensions: ["jpeg", "jpg", "gif", "png", "svg", "json", "yaml", "yml"],
+        // add regex possibility
+        excludeDirs: ["i18n"],
+        excludeFiles: [
+          "docs/versions.json",
+          "docs.config.json",
+          "manifest.yaml",
+          "events.yaml",
         ],
       },
     },
-    `gatsby-plugin-styled-components`,
+    {
+      resolve: "gatsby-plugin-anchor-behavior",
+      options: {
+        defaultOffset: 16,
+        mobileOffset: 74,
+        mobileOffsetInclude: ["/docs"],
+      },
+    },
+    "gatsby-plugin-banner-slides-yml",
+    {
+      resolve: "gatsby-transformer-remark",
+      options: {
+        excerpt_separator: `<!-- overview -->`,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-manifest",
+      options: {
+        name: "Kyma",
+        short_name: "Kyma",
+        start_url: "/",
+        background_color: "#fff",
+        theme_color: "#0073e6",
+        display: "standalone",
+        icons: [
+          {
+            src: "static/android-chrome-192x192.png",
+            sizes: "192x192",
+            type: "image/png",
+          },
+          {
+            src: "static/android-chrome-512x512.png",
+            sizes: "512x512",
+            type: "image/png",
+          },
+        ],
+      },
+    },
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {

@@ -3,5 +3,7 @@
   "latest": "latest",
   "releases": "Releases",
   "prereleases": "Pre-releases",
-  "branches": "Branches"
+  "branches": "Branches",
+  "hideNavigationLabel": "Hide navigation",
+  "showNavigationLabel": "Show navigation"
 }
