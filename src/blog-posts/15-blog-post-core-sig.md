@@ -23,7 +23,7 @@ The purpose of the CORE SIG is to:
 - Publicly represent Kyma
 - Facilitate the collaboration with external contributors
 - Communicate the Kyma project vision and roadmap to the community.
-- Represent the Kyma contributors
+- Represent the Kyma contributors.
 - Be the main contribution contact for Kyma
 - Gauge interest, request the community feedback, and ensures it is addressed
 - Own all code repositories in the Kyma organization except for the community repository
