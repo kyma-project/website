@@ -30,7 +30,7 @@ The purpose of the Core SIG is to:
 - Showcase proposals to the community and collects the feedback to those proposals to assist the decision-making process
 - Represent its members and the Kyma community in the Council meetings.
 
-**I am interested! How can I join the CORE SIG?**
+**I am interested! How can I join the Core SIG?**
 
 You can join the CORE SIG biweekly meeting that takes place on Wednesdays at 15:00 CET on [Zoom](https://zoom.us/j/4794339038). You can also read the meeting agenda and notes [here](https://docs.google.com/document/d/1vWleTon7sJIk0teee4SoVezS4mR3K8TlkvXkgLJwRD8). You can also watch the past SIG CORE meetings on the [Kyma YouTube channel](https://www.youtube.com/watch?v=1DD5aCBnywQ&amp;list=PL7PGl--iaIH9jnbT8yG_KOV3unv1iUILR).
 
