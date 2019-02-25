@@ -35,6 +35,6 @@ The purpose of the Core SIG is to:
 You can join the Core SIG biweekly meetings that take place on Wednesdays at 15:00 CET on [Zoom](https://zoom.us/j/4794339038). If you can't join them, read the meeting agenda and notes [here](https://docs.google.com/document/d/1vWleTon7sJIk0teee4SoVezS4mR3K8TlkvXkgLJwRD8), or watch the meeting recordings on the [Kyma YouTube channel](https://www.youtube.com/watch?v=1DD5aCBnywQ&amp;list=PL7PGl--iaIH9jnbT8yG_KOV3unv1iUILR).
 
 We're on [Slack](https://join.slack.com/t/kyma-community/shared_invite/enQtNDAwNzE4Mjk2NDE3LTJhOTlmZjM5YzkwNmEzNmY3ZjE2MTU2OTMxOGE4ZDM0MmU4ZWRkZGJiODgzNmRmMTYxMDYwNjZiMDAwMTA2OWM) too!
-Join the [#sig-core Slack channel](https://kyma-community.slack.com/messages/CBP7LKRPS/) to ask questions, keep up to date with the latest SIG CORE news or simply to meet CORE SIG leaders and members. 
+Join the [#sig-core Slack channel](https://kyma-community.slack.com/messages/CBP7LKRPS/) to ask questions, keep up to date with the latest Core SIG news, or simply to meet the Core SIG leaders and members. 
 
 We're happy to have you at the CORE SIG!
