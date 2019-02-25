@@ -4,7 +4,7 @@ date: "2019-02-20"
 author: "Ana Yankovich, Knowledge Consultant @Kyma"
 tags:
   - kyma, community, sig, core
-title: "The CORE Special Interest Group"
+title: "The Core Special Interest Group"
 ---
 Behind the Kyma open source project there is a Kyma community who collaborates through Special Interest Groups (SIGs) and Working Groups (WGs), just like Kubernetes. In these groups, you can meet community leaders and members, exchange information on Kyma, provide feedback, raise interest, ask questions, and learn about Kyma news and updates. Additionally, both SIGs and WGs facilitate technical discussions, proposals, and contributions, and ensure Kyma is a welcoming community for all contributors. The WGs facilitate discussions and work on short-lived, concrete topics that either result from the work of SIG groups or which the community members initiate directly.
 
