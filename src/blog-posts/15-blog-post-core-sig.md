@@ -20,7 +20,7 @@ The Core SIG leaders are Piotr Kopczynski ([@PK85](https://twitter.com/PiotrasPk
 
 The purpose of the Core SIG is to:
 
-- Publicly represent Kyma
+- Publicly represent Kyma.
 - Facilitate the collaboration with external contributors
 - Communicate the Kyma project vision and roadmap to the community.
 - Represent the Kyma contributors.
