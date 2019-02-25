@@ -18,7 +18,7 @@ The Core SIG leaders are Piotr Kopczynski ([@PK85](https://twitter.com/PiotrasPk
 
 **What is the purpose of the Core SIG?**
 
-The purpose of the CORE SIG is to:
+The purpose of the Core SIG is to:
 
 - Publicly represent Kyma
 - Facilitate the collaboration with external contributors
