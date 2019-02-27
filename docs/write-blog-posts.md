@@ -2,25 +2,25 @@
 
 Follow these steps to add a new post on the website:
 
-1. Create a new file in the `src/blog-posts` folder with a filename following the `{NUMBER}-{NAME}.md` format.
-2. Prepare the content.
-3. Make a pull request.
-4. Wait for the review.
-5. After the merge, the site rebuilds automatically and the blog post appears.
+1. Create a new folder in the `content/blog-posts` folder with a name following the `{DATE}-{ADDRESS}` format.
+2. Create a file named `index.md` in the newly created directory.
+3. Prepare the content in a Markdown file.
+4. Make a pull request.
+5. Wait for the review.
+6. After the merge, the site rebuilds automatically and the blog post appears.
 
 The blog post should have the following format:
 
-```
+``` yaml
 ---
-path: /blog/{ADDRESS}
-date: {DATE}
-author: {AUTHOR}
-tags:
-   - {TAG_1}
-   - {TAG_2}
-   - {TAG_3}
-   ...
 title: {TITLE}
+author: 
+  name: {AUTHOR}
+tags:
+  - {TAG_1}
+  - {TAG_2}
+  - {TAG_3}
+  ...
 ---
 
 {CONTENT}
@@ -28,8 +28,8 @@ title: {TITLE}
 
 Replace these parameters with real values:
 
-- `{ADDRESS}` is the last part of the site's address in the location bar. For example, if you want your blog post to appear under `https://kyma-project.io/blog/some-address`, the second line should look like this: `path: /blog/some-address`.
 - `{DATE}` is your blog post's publication date, in the `YYYY-MM-DD` format.
+- `{ADDRESS}` is the last part of the site's address in the location bar. For example, if you want your blog post to appear under `https://kyma-project.io/blog/{DATE}/{ADDRESS}`, the name of your blog post folder should end with `{ADDRESS}`. For example, name the folder **2019-02-14-release-notes-07** to point to the `https://kyma-project.io/blog/2019/02/14/release-notes-07` link on the website.
 - `{AUTHOR}` is your name with an optional position name.
 - `{CONTENT}` is written in Markdown and/or HTML. The content must include the `<!-- overview -->` comment which indicates the part of the blog post that will be displayed on the main page. The **Read more** button appears at the end of the paragraph.
 
@@ -37,18 +37,65 @@ Replace these parameters with real values:
 
 Example:
 
-```
+``` yaml
 ---
-path: /blog/pseudo-latin
-date: 2018-10-02
-author: Cicero, Roman Philosopher
+title: "Latin's not dead"
+author: 
+  name: "Cicero, Roman Philosopher"
 tags:
-   - Lorem
-   - Ipsum
-   - Dolor
-   - Sit
-   - Amet
-title: Latin's not dead
+  - Lorem
+  - Ipsum
+  - Dolor
+  - Sit
+  - Amet
+---
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+
+<!-- overview -->
+
+Integer volutpat interdum eros a malesuada. Proin porttitor, leo eu dignissim posuere, ante nibh aliquam ipsum, pharetra pharetra nunc libero eu massa.
+```
+
+---
+
+## Determine the blog post type
+
+When writing a post you can determine what type it should be. By specifying the type, the content of the post is automatically adapted to the template of the given type. Specifying the type is optional. If you don't provide this information, the post renders in the default way.
+
+To specify a type, you must provide it as metadata in the blog post:
+``` yaml
+---
+...
+type: {POST_TYPE}
+{ADDITIONAL_FIELDS}
+...
+---
+```
+
+Currently, the [release](#release-type) type is the only blog post type.
+
+### Release type
+
+To create a release blog post, write `release` in place of `{POST_TYPE}` and replace `{ADDITIONAL_FIELDS}` with these details:
+
+``` yaml
+releaseTag: {VERSION}
+```
+where:
+- `{VERSION}` is the release Kyma version.
+
+See an example that contains other metadata and the blog post content:
+
+``` yaml
+---
+title: "Kyma 0.7 Dublin"
+author: 
+  name: "Barbara Szwarc, Technical Writer @Kyma"
+tags:
+  - release-notes
+type: release
+releaseTag: "0.7.0"
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
@@ -62,10 +109,10 @@ Integer volutpat interdum eros a malesuada. Proin porttitor, leo eu dignissim po
 
 ## Add an image to content
 
-To add the image to your blog post, copy the desired image to the `src/blog-posts/assets` folder and write:
+To add the image to your blog post, copy the desired image to the folder with the `index.md` file and write:
 
 ```
-![{ALT_TITLE}](./assets/{IMAGE_FILENAME} "{TEXT_WHILE_HOVERING}")
+![{ALT_TITLE}](./{IMAGE_FILENAME} "{TEXT_WHILE_HOVERING}")
 ```
 
 Replace these parameters with real values:
@@ -83,52 +130,62 @@ Example:
 
 ![Kyma logo](https://raw.githubusercontent.com/kyma-project/website/master/static/android-chrome-192x192.png "Hover over me!")
 
-However, it is advised to download the image, put it into the `assets` folder, and refer to its relative path instead of an absolute link from the Internet.
+However, it is advised to download the image, put it into the folder where the `index.md` file is located, and refer to its relative path instead of an absolute link from the Internet.
 
 You can also use HTML tags to show and position images:
 
-```HTML
+``` HTML
 <img src="{RELATIVE_PATH_OR_LINK}" >
 ```
 
 See the example usage with mixed elements:
 
-```HTML
+``` HTML
 <p align="center">
-    <img src="assets/logo.png" width="235">
+    <img src="./logo.png" width="235">
 </p>
 ```
 
 <p align="center">
-    <img src="assets/logo.png" width="235">
+    <img src="./assets/logo.png" width="235">
 </p>
 
 ---
 
 ## Link between files
 
-### Link to blog posts and other files
+### Link to blog posts
 
-In your Markdown documents, use the following snippet:
+Use this pattern to add links to other blog posts:
 
-```Markdown
-[{TEXT}]({RELATIVE_PATH_TO_FILE})
+``` Markdown
+[Another blog post](/blog/{DATE}/{ADDRESS})
 ```
+where: 
+- `{DATE}` is the blog post's publication date, in the `YYYY/MM/DD` format.
+- `{ADDRESS}` is the last part of the site's address in the location bar.
 
-If you link to other Markdown documents, you can optionally link to a particular paragraph, as in this example:
+Example:
 
-```Markdown
-[README](../{some_file}#development)
 ```
-
-[README](../{some_file}#development)
+[Introduction](/blog/2018/07-24/introduction-project-kyma)
+```
 
 ### Link to documentation
 
 Use this pattern to add links to other documents:
 
+``` Markdown
+[Overview - In a nutshell](/docs/{VERSION}/{DOCS_TYPE}/{DOC_TOPIC}#{HASH})
 ```
-[Overview - In a nutshell](/docs/{VERSION}/root/kyma#overview-in-a-nutshell)
-```
+where: 
+- `{VERSION}` is the version of the referenced documentation.
+- `{DOCS_TYPE}` is the type of documentation. The available types are `root` and `components`.
+- `{DOC_TOPIC}` is the topic type of the referenced documentation.
+- `{HASH}` is an optional anchor link to the referenced documentation.
 
-[Overview - In a nutshell](/docs/{VERSION}/root/kyma#overview-in-a-nutshell)
+Example:
+
+```
+[Overview - In a nutshell](/docs/master/root/kyma#overview-in-a-nutshell)
+```
