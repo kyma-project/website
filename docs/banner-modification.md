@@ -1,6 +1,6 @@
 # Banner modification
 
-To edit the banner on the website you have to make changes in [`slides.yml`](../../content/banner/slides.yml). This file has the following structure:
+To edit the banner on the website you have to make changes in [`slides.yml`](../content/banner/slides.yml). This file has the following structure:
 
 ``` yaml
 bannerDuration: {BANNER_DURATION}
@@ -50,7 +50,7 @@ slides:
 
 ## Remove the banner
 
-If you want to remove the banner from the website, change [`slides.yml`](../../content/banner/slides.yml) as follows:
+If you want to remove the banner from the website, change [`slides.yml`](../content/banner/slides.yml) as follows:
 
 ``` yaml
 bannerDuration: {BANNER_DURATION}
