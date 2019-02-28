@@ -99,14 +99,15 @@ export const ButtonNormal = styled(ButtonDefault)`
 `;
 
 export const ButtonEmphasized = styled(ButtonDefault)`
-  border: 2px solid #2852c7;
-  background-color: #2852c7;
+  border: 2px solid #0077e1;
+  background-color: #0077e1;
   color: #fff;
 
   &:active,
   &:focus,
   &:hover {
-    background-color: rgba(40, 82, 199, 0.9);
+    border: 2px solid #005fb3;
+    background-color: #005fb3;
   }
 `;
 

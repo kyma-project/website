@@ -1,6 +1,7 @@
 import styled, { media } from "@styled";
 
 import Link from "@components/shared/Link";
+import Paragraph from "@components/shared/Paragraph";
 import Grid from "@styled/Grid";
 
 import { linkEffect } from "@styled/mixins";
@@ -68,6 +69,10 @@ export const KeyFeaturesSection = styled(Grid.Unit)`
   ${media.tablet`
     margin: 0 0 50px 0;
   `};
+`;
+
+export const KeyFeaturesParagraph = styled(Paragraph)`
+  text-align: center;
 `;
 
 export const SvgWrap = styled.div`

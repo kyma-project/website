@@ -3,7 +3,6 @@ import React from "react";
 import Grid from "@styled/Grid";
 import Button from "@components/shared/Button";
 import Link from "@components/shared/Link";
-import Paragraph from "@components/shared/Paragraph";
 import H from "@components/shared/H";
 
 import Connectivity from "./assets/landing-page/Connectivity";
@@ -15,6 +14,7 @@ import { FormattedMessage, getTranslation } from "@common/i18n";
 import {
   KeyFeaturesWrapper,
   KeyFeaturesSection,
+  KeyFeaturesParagraph,
   SvgWrap,
   KeyFeaturesLink,
 } from "./styled";
@@ -62,6 +62,9 @@ const KeyFeatures: React.FunctionComponent = () => {
 
   const createSection = (sectionId: string) => (
     <KeyFeaturesSection df={4} lg={4} md={12} key={sectionId}>
+      <FormattedMessage id={gt(`${sectionId}.id`)}>
+        {id => <SvgWrap>{getIllustrationComponent(id as string)}</SvgWrap>}
+      </FormattedMessage>
       <FormattedMessage id={gt(`${sectionId}.headline`)}>
         {headline => (
           <H as="h3" center style={{ minHeight: "66px" }}>
@@ -69,11 +72,8 @@ const KeyFeatures: React.FunctionComponent = () => {
           </H>
         )}
       </FormattedMessage>
-      <FormattedMessage id={gt(`${sectionId}.id`)}>
-        {id => <SvgWrap>{getIllustrationComponent(id as string)}</SvgWrap>}
-      </FormattedMessage>
       <FormattedMessage id={gt(`${sectionId}.paragraph`)}>
-        {paragraph => <Paragraph>{paragraph}</Paragraph>}
+        {paragraph => <KeyFeaturesParagraph>{paragraph}</KeyFeaturesParagraph>}
       </FormattedMessage>
       <div style={{ margin: "0 auto" }}>{readMoreButton(sectionId)}</div>
     </KeyFeaturesSection>
