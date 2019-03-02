@@ -31,6 +31,10 @@ const HighlightWrapper = styled.div`
       word-break: normal;
       white-space: pre;
       overflow-wrap: normal;
+
+      > div span:last-child {
+        padding-right: 16px;
+      }
     }
   }
 `;
