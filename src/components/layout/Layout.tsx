@@ -5,10 +5,13 @@ import { ThemeProvider } from "@styled";
 import { lightTheme } from "@styled/theme";
 import GlobalStyles from "@styled/GlobalStyles";
 
+import { GlobalState } from "@common/state";
+
 import IntlProvider from "@common/i18n/Provider";
 
 import SlidesBanner from "@components/layout/SlidesBanner/SlidesBanner";
 import CookiesBanner from "@components/layout/CookiesBanner";
+import Popup from "@components/layout/Popup";
 import BackToTop from "@components/layout/BackToTop";
 import Header from "@components/layout/Header";
 import Footer from "@components/layout/Footer";
@@ -43,7 +46,7 @@ const Layout: React.FunctionComponent<LayoutProps> = ({
       return (
         <IntlProvider locale={locale}>
           <ThemeProvider theme={lightTheme}>
-            <>
+            <GlobalState>
               <GlobalStyles />
               <SiteMetadata
                 pageTitle={pageTitle}
@@ -52,13 +55,14 @@ const Layout: React.FunctionComponent<LayoutProps> = ({
               />
               <LayoutWrapper>
                 <SlidesBanner {...slidesProps} />
+                <Popup />
                 <CookiesBanner />
                 {/* {backToTopButton && <BackToTop />} */}
                 <Header horizontalBg={horizontalHeaderBg} />
                 <Content>{children}</Content>
                 <Footer />
               </LayoutWrapper>
-            </>
+            </GlobalState>
           </ThemeProvider>
         </IntlProvider>
       );

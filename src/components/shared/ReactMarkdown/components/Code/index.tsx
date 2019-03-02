@@ -2,10 +2,15 @@ import React from "react";
 import styled from "@styled";
 import { customScrollBar } from "@styled/mixins";
 
-// @ts-ignore
 import Highlight, { defaultProps } from "prism-react-renderer";
-// @ts-ignore
+
+import CopyButton from "./CopyButton";
 import theme from "./theme";
+
+const CodeWrapper = styled.div`
+  position: relative;
+  margin: 0 0 16px 0;
+`;
 
 const HighlightWrapper = styled.div`
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier,
@@ -13,7 +18,6 @@ const HighlightWrapper = styled.div`
   background: rgb(250, 250, 250);
   border: 1px solid rgb(229, 229, 229);
   border-radius: 5px;
-  margin: 0 0 16px 0;
   padding-bottom: 16px;
   white-space: nowrap;
   overflow-y: hidden;
@@ -40,6 +44,12 @@ const HighlightWrapper = styled.div`
   }
 `;
 
+const StyledCopyButton = styled(CopyButton)`
+  position: absolute;
+  top: -10px;
+  right: -10px;
+`;
+
 interface CodeProps {
   language: string;
   value: string;
@@ -50,28 +60,33 @@ export const Code: React.FunctionComponent<CodeProps> = ({
   value,
   children,
 }) => {
+  const code = children ? children : value;
+
   return (
-    <HighlightWrapper>
-      <Highlight
-        {...defaultProps}
-        code={children ? children : value}
-        theme={theme}
-        language={language ? language : "yaml"}
-      >
-        {({ className, style, tokens, getLineProps, getTokenProps }: any) => (
-          <pre className={className} style={style}>
-            <code>
-              {tokens.map((line: any, i: number) => (
-                <div {...getLineProps({ line, key: i })}>
-                  {line.map((token: any, key: number) => (
-                    <span {...getTokenProps({ token, key })} />
-                  ))}
-                </div>
-              ))}
-            </code>
-          </pre>
-        )}
-      </Highlight>
-    </HighlightWrapper>
+    <CodeWrapper>
+      <StyledCopyButton code={value} />
+      <HighlightWrapper>
+        <Highlight
+          {...defaultProps}
+          code={code}
+          theme={theme}
+          language={language ? language : "yaml"}
+        >
+          {({ className, style, tokens, getLineProps, getTokenProps }: any) => (
+            <pre className={className} style={style}>
+              <code>
+                {tokens.map((line: any, i: number) => (
+                  <div {...getLineProps({ line, key: i })}>
+                    {line.map((token: any, key: number) => (
+                      <span {...getTokenProps({ token, key })} />
+                    ))}
+                  </div>
+                ))}
+              </code>
+            </pre>
+          )}
+        </Highlight>
+      </HighlightWrapper>
+    </CodeWrapper>
   );
 };
