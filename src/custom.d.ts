@@ -14,4 +14,5 @@ declare module "*.js" {
 }
 
 declare module "prism-react-renderer";
-// declare module 'react-copy-to-clipboard';
+declare module "react-simple-tooltip";
+declare module "react-copy-to-clipboard";

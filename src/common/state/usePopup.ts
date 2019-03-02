@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useTimeout } from "rooks";
 
-const popupTimeout = 3500;
+const popupTimeout = 1500;
 
 export const usePopup = () => {
   const [popup, setP] = useState(null as any);
