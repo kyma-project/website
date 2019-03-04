@@ -13,6 +13,8 @@ redirectFrom:
 
 As you know, a vibrant community of individuals stands behind the Kyma open-source project. They collaborate through Special Interest Groups (SIGs) and Working Groups (WGs), just like it is done in Kubernetes. Additionally, both SIGs and WGs facilitate technical discussions, proposals, and contributions. They also ensure Kyma is a welcoming community for all contributors. The WGs facilitate discussions and work on short-lived, specific topics that either result from the work of SIG groups or that the community members initiate directly.
 
+<!-- overview -->
+
 **Is there a SIG I can join?**
 
 Yes, there is one main SIG called **Core** that is the entry point. The Core SIG consists of SIG leaders and members. To learn more about their roles, click [here](https://github.com/kyma-project/community/blob/master/sig-and-wg/README.md#roles).
