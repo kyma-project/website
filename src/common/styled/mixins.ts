@@ -44,24 +44,35 @@ export const transitionEffect = (
     ${props => props.theme.animation.delay} ${timingFunction};
 `;
 
+interface customScrollBarProps {
+  scrollbarWidth?: string;
+  scrollbarHeight?: string;
+  thumbColor?: string;
+  thumbBorderRadius?: string;
+  trackColor?: string;
+  trackBorderRadius?: string;
+}
+
 export const customScrollBar = ({
-  thumbColor,
-  trackColor,
-}: {
-  thumbColor: string;
-  trackColor: string;
-}) => css`
+  scrollbarWidth = "6px",
+  scrollbarHeight = "6px",
+  thumbColor = "#d4d4d4",
+  thumbBorderRadius = "0",
+  trackColor = "#f1f1f1",
+  trackBorderRadius = "0",
+}: customScrollBarProps) => css`
   &::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
+    width: ${scrollbarWidth};
+    height: ${scrollbarHeight};
   }
 
   &::-webkit-scrollbar-thumb {
     background: ${thumbColor};
+    border-radius: ${thumbBorderRadius};
   }
 
   &::-webkit-scrollbar-track {
     background: ${trackColor};
-    border-radius: 0 0 5px 5px;
+    border-radius: ${trackBorderRadius};
   }
 `;

@@ -4,15 +4,6 @@ import { customScrollBar } from "@styled/mixins";
 
 import Link from "@components/shared/Link";
 
-// export const Wrapper = styled.div`
-//   overflow-y: auto;
-//   max-height: calc(100vh - 94px);
-
-//   @media (max-width: ${DOCS_RESPONSIVE_BREAKPOINT}px) {
-//     max-height: calc(100vh - 140px);
-//   }
-// `;
-
 export const NavigationContainer = styled.div`
   overflow-y: auto;
   max-height: calc(100vh - 58px);
@@ -22,8 +13,8 @@ export const NavigationContainer = styled.div`
   `};
 
   ${customScrollBar({
-    thumbColor: "#d4d4d4",
-    trackColor: "#f1f1f1",
+    thumbBorderRadius: "6px",
+    trackBorderRadius: "6px",
   })}
 `;
 
