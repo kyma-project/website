@@ -8,8 +8,8 @@ export const usePopup = () => {
   const [popupVisible, setPopupVisible] = useState(false);
 
   const { start, clear } = useTimeout(() => {
-    setPopupVisible(false);
-    clear();
+    setPopupVisible && setPopupVisible(false);
+    clear && clear();
   }, popupTimeout);
 
   const setPopup = (content: any) => {

@@ -22,13 +22,7 @@ const PopupWrapper = styled.div`
   z-index: 300;
 
   ${(props: PopupWrapperProps) =>
-    props.visible
-      ? css`
-          bottom: 16px;
-        `
-      : css`
-          bottom: -100px;
-        `}
+    props.visible ? `bottom: 16px;` : `bottom: -100px`}
 
   &:hover {
     background-color: #005fb3;

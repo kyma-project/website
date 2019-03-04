@@ -28,7 +28,7 @@ const Tooltip: React.FunctionComponent<TooltipProps> = ({
     setVisible(false);
 
     if (!showFullTime) {
-      setTimeout(() => setShow(false), timeout);
+      setTimeout(() => setShow && setShow(false), timeout);
     }
   };
 
