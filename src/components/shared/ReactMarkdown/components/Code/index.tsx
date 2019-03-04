@@ -20,8 +20,8 @@ const HighlightWrapper = styled.div`
   -webkit-overflow-scrolling: touch;
 
   ${customScrollBar({
-    thumbBorderRadius: "0 0 3px 3px",
-    trackBorderRadius: "0 0 3px 3px",
+    thumbBorderRadius: "0 0 4px 4px",
+    trackBorderRadius: "0 0 4px 4px",
   })}
 
   > pre {
