@@ -45,3 +45,45 @@ We're on [Slack](https://join.slack.com/t/kyma-community/shared_invite/enQtNDAwN
 Join the [#sig-core Slack channel](https://kyma-community.slack.com/messages/CBP7LKRPS/) to ask questions, keep up to date with the latest Core SIG news, or simply to meet the Core SIG leaders and members. 
 
 We'd be happy to have you at the Core SIG!
+
+1. lololol
+2. lololo
+    <div tabs>
+      <details>
+      <summary>
+      From release
+      </summary>
+
+      When you install Kyma locally from a release, follow [this](#installation-install-kyma-locally-from-the-release-install-kyma-on-minikube) guide. 
+      Ensure that you created the local Kubernetes cluster with `10240Mb` memory and `30Gb` disk size.
+      ```
+      ./scripts/minikube.sh --domain "kyma.local" --vm-driver "hyperkit" --memory 10240Mb --disk-size 30g
+      ```
+
+      Run the following command before triggering the Kyma installation process:
+      ```
+      kubectl -n kyma-installer patch configmap installation-config-overrides -p '{"data": {"global.knative": "true", "global.kymaEventBus": "false", "global.natsStreaming.clusterID": "knative-nats-streaming"}}'
+      ```
+      </details>
+      <details>
+      <summary>
+      From sources
+      </summary>
+
+      When you install Kyma locally from sources, add the `--knative` argument to the `run.sh` script. Run this command:
+
+      ```
+      ./run.sh --knative
+      ```
+      </details>
+      <details>
+      <summary>
+      Cluster deployment
+      </summary>
+
+      Run the following command before triggering the Kyma installation process:
+      ```
+      kubectl -n kyma-installer patch configmap installation-config-overrides -p '{"data": {"global.knative": "true", "global.kymaEventBus": "false", "global.natsStreaming.clusterID": "knative-nats-streaming"}}'
+      ```
+      </details>
+    </div>

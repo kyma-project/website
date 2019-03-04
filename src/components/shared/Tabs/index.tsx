@@ -24,6 +24,7 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
     return React.Children.map(children, (child, index) => {
       const c = child as React.ReactElement<TabProps>;
       return React.cloneElement(c, {
+        key: index,
         label: c.props.label,
         parentCallback: handleTabClick,
         tabIndex: index,

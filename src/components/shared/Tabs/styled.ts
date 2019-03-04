@@ -4,28 +4,30 @@ export const TabsWrapper = styled.div`
   box-sizing: border-box;
   width: 100%;
   height: 100%;
-  margin: 0;
-  font-family: "72";
-  font-weight: normal;
+  margin: 16px 0 16px 0;
+  border: 1px solid rgb(229, 229, 229);
+  background: #fff;
+  border-radius: 4px;
 `;
 
 export const TabsHeader = styled.ul`
   list-style: none;
   padding: 0;
-  margin: 0 5px;
+  margin: 0;
   display: flex;
-  justify-items: flex-start;
+  border-bottom: 1px solid rgb(229, 229, 229);
   flex-flow: row nowrap;
 `;
 
 export const TabsContent = styled.div`
-  margin: 20px;
-  font-size: 14px;
-  color: #515559;
-  line-height: 1.57;
+  && {
+    margin: 16px;
+  }
 `;
 
-export const TabWrapper = styled.li``;
+export const TabWrapper = styled.li`
+  margin-bottom: 0;
+`;
 
 interface TabLinkProps {
   active?: boolean;
@@ -34,15 +36,13 @@ interface TabLinkProps {
 export const TabLink = styled.div`
   display: flex;
   align-items: center;
-  margin: 0 15px;
-  padding: 19px 0 15px;
+  margin: 0 0 0 16px;
+  padding: 16px 0 10px 0;
   border: none;
   position: relative;
-  color: ${(props: TabLinkProps) => (props.active ? "#c3e88d" : "#f77669")};
-  font-size: 14px;
+  color: ${(props: TabLinkProps) => (props.active ? "#0B74DE" : "#485766")};
   outline: none;
-  transition: 0.2s color linear;
-  text-transform: uppercase;
+  transition: 0.2s all ease-in-out;
   cursor: pointer;
   &:first-letter {
     text-transform: uppercase;
@@ -54,11 +54,10 @@ export const TabLink = styled.div`
     position: absolute;
     height: ${props => (props.active ? "3px" : "0px")};
     width: 100%;
-    border-radius: 2px;
-    background-color: #c3e88d;
+    background-color: #0b74de;
   }
   &:hover {
-    color: #c3e88d;
+    color: #0b74de;
     &:after {
       content: "";
       bottom: 0;
@@ -66,8 +65,7 @@ export const TabLink = styled.div`
       position: absolute;
       height: 3px;
       width: 100%;
-      border-radius: 2px;
-      background-color: #c3e88d;
+      background-color: #0b74de;
     }
   }
 `;
