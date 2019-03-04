@@ -4,7 +4,7 @@ export const TabsWrapper = styled.div`
   box-sizing: border-box;
   width: 100%;
   height: 100%;
-  margin: 16px 0 16px 0;
+  margin: 16px 0;
   border: 1px solid rgb(229, 229, 229);
   background: #fff;
   border-radius: 4px;
@@ -36,7 +36,7 @@ interface TabLinkProps {
 export const TabLink = styled.div`
   display: flex;
   align-items: center;
-  margin: 0 0 0 16px;
+  margin: 0 16px;
   padding: 16px 0 10px 0;
   border: none;
   position: relative;
