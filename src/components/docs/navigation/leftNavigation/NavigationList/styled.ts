@@ -14,6 +14,7 @@ export const NavigationContainer = styled.div`
 
   ${customScrollBar({
     thumbBorderRadius: "6px",
+    trackBorderRadius: "6px",
   })}
 `;
 
