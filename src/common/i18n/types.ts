@@ -23,5 +23,6 @@ export type Internationalization = {
     docs: any;
     blog: any;
     siteMetadata: any;
+    utils: any;
   };
 };
