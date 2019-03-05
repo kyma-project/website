@@ -1,4 +1,5 @@
 import styled from "@styled";
+import { customScrollBar } from "@styled/mixins";
 
 export const TabsWrapper = styled.div`
   box-sizing: border-box;
@@ -17,6 +18,11 @@ export const TabsHeader = styled.ul`
   display: flex;
   border-bottom: 1px solid rgb(229, 229, 229);
   flex-flow: row nowrap;
+  white-space: nowrap;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+
+  ${customScrollBar({})}
 `;
 
 export const TabsContent = styled.div`
