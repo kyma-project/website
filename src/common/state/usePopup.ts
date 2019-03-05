@@ -4,7 +4,7 @@ import { useTimeout } from "rooks";
 const popupTimeout = 1500;
 
 export const usePopup = () => {
-  const [popup, setP] = useState(null as any);
+  const [popup, setPopupText] = useState(null as any);
   const [popupVisible, setPopupVisible] = useState(false);
 
   const { start, clear } = useTimeout(() => {
@@ -14,7 +14,7 @@ export const usePopup = () => {
 
   const setPopup = (content: any) => {
     clear();
-    setP(content);
+    setPopupText(content);
     setPopupVisible(true);
     start();
   };

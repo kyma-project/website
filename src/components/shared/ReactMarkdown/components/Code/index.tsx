@@ -77,9 +77,16 @@ export const Code: React.FunctionComponent<CodeProps> = ({
               <code>
                 {tokens.map((line: any, i: number) => (
                   <div {...getLineProps({ line, key: i })}>
-                    {line.map((token: any, key: number) => (
-                      <span {...getTokenProps({ token, key })} />
-                    ))}
+                    {line.map((token: any, key: number) => {
+                      const tokenProps = getTokenProps({ token, key });
+
+                      return !(
+                        tokenProps.className.includes("plain") &&
+                        !tokenProps.children
+                      ) ? (
+                        <span {...getTokenProps({ token, key })} />
+                      ) : null;
+                    })}
                   </div>
                 ))}
               </code>

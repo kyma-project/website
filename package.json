@@ -25,6 +25,7 @@
     "develop": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
+    "serve:out": "gatsby serve -H 0.0.0.0",
     "lint": "tslint './src/**/*.ts?(x)'",
     "build:prod": "GATSBY_SITE_URL='https://kyma-project.io' gatsby build",
     "publish:origin": "npm run build:prod && gh-pages -d public -m 'Deploy new version of site' -o origin",

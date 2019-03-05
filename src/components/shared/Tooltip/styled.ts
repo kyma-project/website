@@ -19,10 +19,10 @@ export const TooltipContainer = styled.div`
   background-color: #0077e1;
   box-shadow: 0 0 6px 0 rgba(137, 165, 199, 0.42);
   border-radius: 3px;
-  font-size: 8px;
+  font-size: 10px;
   font-family: Poppins;
   line-height: 10px;
-  min-width: 70px;
+  min-width: 80px;
   max-width: 260px;
   width: auto;
   text-align: center;
