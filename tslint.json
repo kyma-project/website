@@ -2,7 +2,6 @@
   "defaultSeverity": "error",
   "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
   "rules": {
-    "arrow-parens": [true, "ban-single-arg-parens"],
     "interface-name": [true, "never-prefix"],
     "member-access": [true, "no-public"],
     "no-console": [true, "log", "info"],
