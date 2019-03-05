@@ -16,19 +16,17 @@ interface HeaderProps {
 
 const Header: React.FunctionComponent<HeaderProps> = ({
   horizontalBg = false,
-}) => {
-  return (
-    <HeaderWrapper horizontalBg={horizontalBg}>
-      <Grid.Container>
-        <Link.Internal to="/">
-          <HeaderLogo horizontalBg={horizontalBg}>
-            <Logo />
-          </HeaderLogo>
-        </Link.Internal>
-        <Navigation />
-      </Grid.Container>
-    </HeaderWrapper>
-  );
-};
+}) => (
+  <HeaderWrapper horizontalBg={horizontalBg}>
+    <Grid.Container>
+      <Link.Internal to="/">
+        <HeaderLogo horizontalBg={horizontalBg}>
+          <Logo />
+        </HeaderLogo>
+      </Link.Internal>
+      <Navigation />
+    </Grid.Container>
+  </HeaderWrapper>
+);
 
 export default Header;

@@ -13,6 +13,4 @@ export const ListItem: React.FunctionComponent<ListItemProps> = ({
   ordered,
   index,
   children,
-}) => {
-  return <li key={index}>{children}</li>;
-};
+}) => <li key={index}>{children}</li>;

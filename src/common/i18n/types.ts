@@ -14,7 +14,7 @@ export type FunctionComponentIntl<P = {}> = React.FunctionComponent<
   P & InjectedIntlProps & IntlInterface
 >;
 
-export type Internationalization = {
+export interface Internationalization {
   [key: string]: {
     layout: any;
     "404": any;
@@ -25,4 +25,4 @@ export type Internationalization = {
     siteMetadata: any;
     utils: any;
   };
-};
+}

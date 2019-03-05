@@ -8,7 +8,9 @@ export const getActualYear = () => {
 };
 
 export const tokenize = (str?: string) => {
-  if (!str) return "";
+  if (!str) {
+    return "";
+  }
 
   return str
     .trim()

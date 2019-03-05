@@ -18,19 +18,17 @@ const Button: React.FunctionComponent<ButtonProps> = ({
   size = "md",
   iconAlign = "left",
   children,
-}) => {
-  return (
-    <button className={className}>
-      {iconAlign === "left" && iconName ? (
-        <Icon iconName={iconName} iconPrefix={iconPrefix} />
-      ) : null}
-      {children}
-      {iconAlign === "right" && iconName ? (
-        <Icon iconName={iconName} iconPrefix={iconPrefix} />
-      ) : null}
-    </button>
-  );
-};
+}) => (
+  <button className={className}>
+    {iconAlign === "left" && iconName ? (
+      <Icon iconName={iconName} iconPrefix={iconPrefix} />
+    ) : null}
+    {children}
+    {iconAlign === "right" && iconName ? (
+      <Icon iconName={iconName} iconPrefix={iconPrefix} />
+    ) : null}
+  </button>
+);
 
 const buttonSizes = {
   borderRadius: {

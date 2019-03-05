@@ -12,14 +12,14 @@ export interface ScrollSpyNode {
   offsetTop: number;
 }
 
-export type ScrollSpyOffset = {
+export interface ScrollSpyOffset {
   [key: string]: number;
-};
+}
 
-export type ScrollSpyNodes = {
+export interface ScrollSpyNodes {
   [key: string]: ScrollSpyNode[];
-};
+}
 
-export type ScrollSpyActiveNodes = {
+export interface ScrollSpyActiveNodes {
   [key: string]: ScrollSpyNode;
-};
+}

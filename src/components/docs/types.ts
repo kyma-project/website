@@ -1,7 +1,7 @@
 import { PageContext } from "@common/types";
 
 /* Docs */
-export interface Docs {}
+// export interface Docs {}
 
 export type DocsType = "root" | "component";
 
@@ -43,7 +43,9 @@ export interface DocsContentDocs {
   source: string;
 }
 
-export type DocsTypesLength = { [key: string]: number };
+export interface DocsTypesLength {
+  [key: string]: number;
+}
 
 /* Docs Navigation */
 export interface DocsNavigation {

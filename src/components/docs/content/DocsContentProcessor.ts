@@ -14,7 +14,7 @@ class DocsContentProcessor {
   };
 
   sortByType = () => {
-    let docsTypes: string[] = [];
+    const docsTypes: string[] = [];
     this.docs.map(doc => {
       if (!docsTypes.includes(doc.type || doc.title)) {
         docsTypes.push(doc.type || doc.title);
@@ -22,7 +22,7 @@ class DocsContentProcessor {
       return doc;
     });
 
-    let sortedDocs = [];
+    const sortedDocs = [];
     for (const type of docsTypes) {
       for (const doc of this.docs) {
         if (type === doc.type || (!doc.type && type === doc.title)) {
@@ -35,32 +35,32 @@ class DocsContentProcessor {
     return this;
   };
 
-  sortFnByProperty = (sortBy: string) => {
-    return (a: any, b: any) => {
-      if (a[sortBy] && b[sortBy]) {
-        const nameA = a[sortBy].toString().toLowerCase();
-        const nameB = b[sortBy].toString().toLowerCase();
+  sortFnByProperty = (sortBy: string) => (a: any, b: any) => {
+    if (a[sortBy] && b[sortBy]) {
+      const nameA = a[sortBy].toString().toLowerCase();
+      const nameB = b[sortBy].toString().toLowerCase();
 
-        if (nameA < nameB) {
-          return -1;
-        }
-        if (nameA > nameB) {
-          return 1;
-        }
+      if (nameA < nameB) {
+        return -1;
       }
-      return 0;
-    };
+      if (nameA > nameB) {
+        return 1;
+      }
+    }
+    return 0;
   };
 
   performDocsTypesLength = () => {
-    let docsTypesLength: DocsTypesLength = {};
+    const docsTypesLength: DocsTypesLength = {};
 
     this.docs.map(doc => {
       const type = doc.type || doc.title;
       if (!(type in docsTypesLength)) {
         docsTypesLength[type] = 0;
       }
-      if (doc.title) docsTypesLength[type]++;
+      if (doc.title) {
+        docsTypesLength[type]++;
+      }
 
       return doc;
     });

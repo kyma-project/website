@@ -52,7 +52,7 @@ const DocsContent: React.FunctionComponent<DocsContentProps> = ({
               data-scrollspy-node-type="groupOfDocuments"
             />
           )}
-          <Link.Hash to={hash} chainIcon>
+          <Link.Hash to={hash} chainIcon={true}>
             <H
               as="h3"
               id={hash}

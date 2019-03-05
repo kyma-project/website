@@ -14,35 +14,33 @@ import { MakeSpecialWrapper, MakesSpecialSvgWrapper } from "./styled";
 
 const gt = getTranslation("landingPage.makeSpecial");
 
-const MakeSpecial: React.FunctionComponent = () => {
-  return (
-    <MakeSpecialWrapper>
-      <Grid.Container as="section">
-        <Grid.Row space alignCenter>
-          <Grid.Unit df={6} lg={6} md={12}>
-            <MakesSpecialSvgWrapper>
-              <MakesSpecialSvg />
-            </MakesSpecialSvgWrapper>
-          </Grid.Unit>
-          <Grid.Unit df={6} lg={6} md={12}>
-            <FormattedMessage id={gt("headline")}>
-              {headline => <H as="h2">{headline}</H>}
+const MakeSpecial: React.FunctionComponent = () => (
+  <MakeSpecialWrapper>
+    <Grid.Container as="section">
+      <Grid.Row space={true} alignCenter={true}>
+        <Grid.Unit df={6} lg={6} md={12}>
+          <MakesSpecialSvgWrapper>
+            <MakesSpecialSvg />
+          </MakesSpecialSvgWrapper>
+        </Grid.Unit>
+        <Grid.Unit df={6} lg={6} md={12}>
+          <FormattedMessage id={gt("headline")}>
+            {headline => <H as="h2">{headline}</H>}
+          </FormattedMessage>
+          <>
+            <FormattedMessage id={gt("paragraph")}>
+              {paragraph => <Paragraph>{paragraph}</Paragraph>}
             </FormattedMessage>
-            <>
-              <FormattedMessage id={gt("paragraph")}>
-                {paragraph => <Paragraph>{paragraph}</Paragraph>}
-              </FormattedMessage>
-              <Link.Internal to="/docs">
-                <Button.Light>
-                  <FormattedMessage id={gt("readDocsButton")} />
-                </Button.Light>
-              </Link.Internal>
-            </>
-          </Grid.Unit>
-        </Grid.Row>
-      </Grid.Container>
-    </MakeSpecialWrapper>
-  );
-};
+            <Link.Internal to="/docs">
+              <Button.Light>
+                <FormattedMessage id={gt("readDocsButton")} />
+              </Button.Light>
+            </Link.Internal>
+          </>
+        </Grid.Unit>
+      </Grid.Row>
+    </Grid.Container>
+  </MakeSpecialWrapper>
+);
 
 export default MakeSpecial;

@@ -26,11 +26,13 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "serve:out": "gatsby serve -H 0.0.0.0",
-    "lint": "tslint './src/**/*.ts?(x)'",
     "build:prod": "GATSBY_SITE_URL='https://kyma-project.io' gatsby build",
     "publish:origin": "npm run build:prod && gh-pages -d public -m 'Deploy new version of site' -o origin",
     "publish:upstream": "npm run build:prod && gh-pages -d public -m 'Deploy new version of site' -o upstream",
-    "publish:fork": "mv static/CNAME ./CNAME_bak && npm run build -- --prefix-paths && gh-pages -d public -m 'Deploy new version of site' -o origin && mv ./CNAME_bak static/CNAME"
+    "publish:fork": "mv static/CNAME ./CNAME_bak && npm run build -- --prefix-paths && gh-pages -d public -m 'Deploy new version of site' -o origin && mv ./CNAME_bak static/CNAME",
+    "lint-check": "tslint -c tslint.json 'src/**/*.{ts,tsx}' --format verbose && prettier --check 'src/**/*.{ts,tsx,js,jsx,json,html,css,yaml}'",
+    "lint-fix": "tslint -c tslint.json 'src/**/*.{ts,tsx}' --format verbose --fix && prettier --write 'src/**/*.{ts,tsx,js,jsx,json,html,css,yaml}'",
+    "conflict-check": "tslint-config-prettier-check ./tslint.json"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.14",
@@ -95,9 +97,13 @@
   },
   "lint-staged": {
     "linters": {
-      "**/*.{js,jsx,json,css,ts,tsx}": [
+      "**/*.{js,jsx,json,css,html,yaml}": [
         "prettier --write",
         "git add"
+      ],
+      "**/*.{ts,tsx}": [
+        "tslint -c tslint.json --format verbose --fix",
+        "prettier --config .prettierrc --write"
       ]
     },
     "ignore": [

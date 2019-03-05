@@ -9,7 +9,7 @@ import { Wrapper, Label, SelectWrapper, VersionSelect } from "./styled";
 interface VersionSwitcherProps {
   versions: DocsVersions;
   version: string;
-  onChange: Function;
+  onChange: () => void;
 }
 
 const VersionSwitcher: FunctionComponentIntl<VersionSwitcherProps> = ({
@@ -22,22 +22,20 @@ const VersionSwitcher: FunctionComponentIntl<VersionSwitcherProps> = ({
     <Label>{formatMessage({ id: "version" })}:</Label>
     <SelectWrapper>
       <VersionSelect onChange={onChange} defaultValue={version}>
-        {Object.keys(versions).map((key: string, id: number) => {
-          return (
-            <optgroup key={key} label={formatMessage({ id: key })}>
-              {versions[key].map((version: string, index: number) => {
-                const isLatestVersion = id === 0 && index === 0;
+        {Object.keys(versions).map((key: string, id: number) => (
+          <optgroup key={key} label={formatMessage({ id: key })}>
+            {(versions as any)[key].map((element: string, index: number) => {
+              const isLatestVersion = id === 0 && index === 0;
 
-                return (
-                  <option key={version} value={version}>
-                    {version}{" "}
-                    {isLatestVersion && `(${formatMessage({ id: "latest" })})`}
-                  </option>
-                );
-              })}
-            </optgroup>
-          );
-        })}
+              return (
+                <option key={element} value={element}>
+                  {element}{" "}
+                  {isLatestVersion && `(${formatMessage({ id: "latest" })})`}
+                </option>
+              );
+            })}
+          </optgroup>
+        ))}
       </VersionSelect>
     </SelectWrapper>
   </Wrapper>

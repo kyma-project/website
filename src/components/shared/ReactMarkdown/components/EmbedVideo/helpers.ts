@@ -20,7 +20,7 @@ export function embedVideoHTML(
 
     const videoService = getVideoService(videoId.service);
     const url = createUrl(videoId.id, videoService, options);
-    let iframe = createIframe(url, videoService, options);
+    const iframe = createIframe(url, videoService, options);
     return iframe;
   } catch (e) {
     return `<p style="color: red">Error: ${e.message}</p>`;
@@ -29,7 +29,7 @@ export function embedVideoHTML(
 
 function readVideoId(type: string, id: string): IVideoId {
   let videoId;
-  for (let processor of videoIdProcessors) {
+  for (const processor of videoIdProcessors) {
     try {
       videoId = processor(id);
     } catch (e) {
@@ -46,7 +46,7 @@ function readVideoId(type: string, id: string): IVideoId {
   }
 
   return {
-    id: id,
+    id,
     service: type.toLowerCase(),
   };
 }

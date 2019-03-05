@@ -44,7 +44,7 @@ export const transitionEffect = (
     ${props => props.theme.animation.delay} ${timingFunction};
 `;
 
-interface customScrollBarProps {
+interface CustomScrollBarProps {
   scrollbarWidth?: string;
   scrollbarHeight?: string;
   thumbColor?: string;
@@ -60,7 +60,7 @@ export const customScrollBar = ({
   thumbBorderRadius = "0",
   trackColor = "#f1f1f1",
   trackBorderRadius = "0",
-}: customScrollBarProps) => css`
+}: CustomScrollBarProps) => css`
   &::-webkit-scrollbar {
     width: ${scrollbarWidth};
     height: ${scrollbarHeight};

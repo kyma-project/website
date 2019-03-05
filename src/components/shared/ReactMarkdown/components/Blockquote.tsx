@@ -7,10 +7,6 @@ const StyledBlockQuote = styled.blockquote`
   border-left: 3px solid rgba(27, 31, 35, 0.2);
 `;
 
-interface BlockQuoteProps {}
-
-export const BlockQuote: React.FunctionComponent<BlockQuoteProps> = ({
-  children,
-}) => {
-  return <StyledBlockQuote>{children}</StyledBlockQuote>;
-};
+export const BlockQuote: React.FunctionComponent = ({ children }) => (
+  <StyledBlockQuote>{children}</StyledBlockQuote>
+);

@@ -21,7 +21,7 @@ interface RootDocsProps {
   version: string;
   versions: DocsVersions;
   manifest: DocsManifest;
-  changeDocsVersion: Function;
+  changeDocsVersion: () => void;
   assetsPath: string;
 }
 
@@ -52,7 +52,7 @@ class RootDocs extends Component<RootDocsProps, RootDocsState> {
 
     this.setState({
       activeNav: {
-        id: id,
+        id,
         type: "",
         hash: "",
       },

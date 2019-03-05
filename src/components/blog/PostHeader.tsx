@@ -29,7 +29,7 @@ const PostHeader: React.FunctionComponent<PostHeaderProps> = ({
       id={gt("postMetadata")}
       values={{
         author: name,
-        date: date,
+        date,
       }}
     />
   );

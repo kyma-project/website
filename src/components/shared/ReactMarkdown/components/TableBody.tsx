@@ -12,6 +12,4 @@ interface TableBodyProps {
 export const TableBody: React.FunctionComponent<TableBodyProps> = ({
   columnAlignment,
   children,
-}) => {
-  return <StyledTableBody>{children}</StyledTableBody>;
-};
+}) => <StyledTableBody>{children}</StyledTableBody>;
