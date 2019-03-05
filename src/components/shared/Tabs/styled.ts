@@ -22,6 +22,7 @@ export const TabsHeader = styled.ul`
 export const TabsContent = styled.div`
   && {
     margin: 16px;
+    margin-bottom: 16px !important;
   }
 `;
 
