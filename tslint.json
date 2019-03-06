@@ -9,6 +9,7 @@
     "object-literal-sort-keys": false,
     "ordered-imports": false,
     "unified-signatures": false,
+    "curly": [true, "ignore-same-line"],
     "jsx-no-lambda": false,
     "prefer-const": true,
     "arrow-return-shorthand": [true, "multiline"],
