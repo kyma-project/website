@@ -103,7 +103,8 @@
       ],
       "**/*.{ts,tsx}": [
         "tslint -c tslint.json --format verbose --fix",
-        "prettier --config .prettierrc --write"
+        "prettier --config .prettierrc --write",
+        "git add"
       ]
     },
     "ignore": [
