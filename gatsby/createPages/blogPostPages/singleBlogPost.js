@@ -15,8 +15,14 @@ module.exports = ({ createPage, createRedirect, posts }) => {
 
     if (redirectFrom && Array.isArray(redirectFrom)) {
       redirectFrom.map(redirect => {
+        const data = redirect.endsWith("/") ? redirect.slice(0, -1) : redirect;
         createRedirect({
-          fromPath: redirect.startsWith("/") ? redirect : `/${redirect}`,
+          fromPath: data.startsWith("/") ? `${data}` : `/${data}`,
+          redirectInBrowser: true,
+          toPath: slug,
+        });
+        createRedirect({
+          fromPath: data.startsWith("/") ? `${data}/` : `/${data}/`,
           redirectInBrowser: true,
           toPath: slug,
         });
