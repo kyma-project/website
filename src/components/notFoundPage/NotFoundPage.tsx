@@ -7,7 +7,7 @@ import Link from "@components/shared/Link";
 
 import { FormattedMessage } from "@common/i18n";
 
-import { NotFoundPageWrapper } from "./styled";
+import { NotFoundPageWrapper } from './styled';
 
 const NotFoundPage: React.FunctionComponent = () => (
   <NotFoundPageWrapper>

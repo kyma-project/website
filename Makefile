@@ -1,13 +1,13 @@
-ci-pr: resolve build
-ci-master: resolve prepare-git publish-website
-ci-release: resolve prepare-git publish-website
+ci-pr: resolve validate build
+ci-master: resolve validate prepare-git publish-website
+ci-release: resolve validate prepare-git publish-website
 
 resolve:
 	npm install
 
 validate:
 	npm run lint-check
-
+	
 build:
 	npm run build:prod
 
