@@ -6,7 +6,7 @@ resolve:
 	npm install
 
 validate:
-	eslint -c .eslinterrc ./src
+	npm run lint-check
 
 build:
 	npm run build:prod

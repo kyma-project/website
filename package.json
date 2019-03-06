@@ -30,8 +30,8 @@
     "publish:origin": "npm run build:prod && gh-pages -d public -m 'Deploy new version of site' -o origin",
     "publish:upstream": "npm run build:prod && gh-pages -d public -m 'Deploy new version of site' -o upstream",
     "publish:fork": "mv static/CNAME ./CNAME_bak && npm run build -- --prefix-paths && gh-pages -d public -m 'Deploy new version of site' -o origin && mv ./CNAME_bak static/CNAME",
-    "lint-check": "tslint -c tslint.json 'src/**/*.{ts,tsx}' --format verbose && prettier --check 'src/**/*.{ts,tsx,js,jsx,json,html,css,yaml}'",
-    "lint-fix": "tslint -c tslint.json 'src/**/*.{ts,tsx}' --format verbose --fix && prettier --write 'src/**/*.{ts,tsx,js,jsx,json,html,css,yaml}'",
+    "lint-check": "tslint -c tslint.json 'src/**/*.{ts,tsx}' --format verbose && prettier --check '**/*.{ts,tsx,js,jsx,json,html,css,yaml}'",
+    "lint-fix": "tslint -c tslint.json 'src/**/*.{ts,tsx}' --format verbose --fix && prettier --write '**/*.{ts,tsx,js,jsx,json,html,css,yaml}'",
     "conflict-check": "tslint-config-prettier-check ./tslint.json"
   },
   "dependencies": {

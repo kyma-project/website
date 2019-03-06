@@ -1,8 +1,8 @@
 {
-  "spec":{
-    "id":"service-brokers",
-    "displayName":"Service Brokers",
-    "description":"Overal documentation for Service Brokers",
-    "type":"Components"
+  "spec": {
+    "id": "service-brokers",
+    "displayName": "Service Brokers",
+    "description": "Overal documentation for Service Brokers",
+    "type": "Components"
   }
 }

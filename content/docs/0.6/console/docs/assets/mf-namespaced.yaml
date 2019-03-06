@@ -4,7 +4,7 @@ metadata:
   name: tractorsmicrofrontend
   namespace: production
   labels:
-    app:  tractorsmicrofrontend
+    app: tractorsmicrofrontend
 spec:
   appName: tractors
   displayName: Tractors
