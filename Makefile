@@ -6,8 +6,8 @@ resolve:
 	npm install
 
 validate:
+	npm run conflict-check
 	npm run lint-check
-	
 build:
 	npm run build:prod
 
