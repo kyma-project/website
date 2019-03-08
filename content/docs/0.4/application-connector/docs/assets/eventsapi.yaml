@@ -1,64 +1,64 @@
-openapi: "3.0.0"
+openapi: '3.0.0'
 info:
-  version: "1.0.0"
-  title: "Kyma Events API"
+  version: '1.0.0'
+  title: 'Kyma Events API'
 tags:
-  - name: "Kyma events"
-    description: "API for publishing events to Kyma."
+- name: 'Kyma events'
+  description: 'API for publishing events to Kyma.'
 paths:
   /v1/health:
     get:
-      summary: "Returns health of a service"
-      operationId: "getHealth"
+      summary: 'Returns health of a service'
+      operationId: 'getHealth'
       tags:
-        - "health"
+        - 'health'
       responses:
-        "200":
-          description: "The service is in a good health"
+        '200':
+          description: 'The service is in a good health'
   /v1/events:
     post:
-      summary: "Publish an event"
-      operationId: "publishEvent"
+      summary: 'Publish an event'
+      operationId: 'publishEvent'
       tags:
-        - "publish"
+        - 'publish'
       requestBody:
-        description: "The event to be published"
+        description: 'The event to be published'
         required: true
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/PublishRequest"
+              $ref: '#/components/schemas/PublishRequest'
       responses:
-        "200":
-          description: "The event was successfully published"
+        '200':
+          description: 'The event was successfully published'
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/PublishResponse"
-        "400":
-          description: "Bad Request"
+                $ref: '#/components/schemas/PublishResponse'
+        '400':
+          description: 'Bad Request'
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/APIError"
-        "401":
-          description: "Authentication failure"
+                $ref: '#/components/schemas/APIError'
+        '401':
+          description: 'Authentication failure'
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/APIError"
-        "403":
-          description: "Not authorized"
+                $ref: '#/components/schemas/APIError'
+        '403':
+          description: 'Not authorized'
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/APIError"
-        "500":
-          description: "Server error"
+                $ref: '#/components/schemas/APIError'
+        '500':
+          description: 'Server error'
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/APIError"
+                $ref: '#/components/schemas/APIError'
 components:
   schemas:
     PublishRequest:
@@ -70,24 +70,24 @@ components:
           type: string
           format: hostname
           pattern: '^[a-zA-Z]+([_\-\.]?[a-zA-Z0-9]+)*$'
-          example: "order.created"
+          example: 'order.created'
         event-type-version:
           description: The version of the event-type. This is applicable to the data payload alone.
           type: string
-          pattern: "^[a-zA-Z0-9]+$"
-          example: "v1"
+          pattern: '^[a-zA-Z0-9]+$'
+          example: 'v1'
         event-id:
           description: Optional publisher provided ID (UUID v4) of the to-be-published event. When omitted, one will be automatically generated.
           type: string
-          pattern: "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$"
-          example: "31109198-4d69-4ae0-972d-76117f3748c8"
+          pattern: '^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$'
+          example: '31109198-4d69-4ae0-972d-76117f3748c8'
         event-time:
           description: RFC 3339 timestamp of when the event happened.
           type: string
           format: date-time
-          example: "2012-11-01T22:08:41+00:00"
+          example: '2012-11-01T22:08:41+00:00'
         data:
-          $ref: "#/components/schemas/AnyValue"
+          $ref: '#/components/schemas/AnyValue'
       required:
         - event-type
         - event-type-version
@@ -100,8 +100,8 @@ components:
         event-id:
           type: string
           description: ID of the published event
-          pattern: "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$"
-          example: "31109198-4d69-4ae0-972d-76117f3748c8"
+          pattern: '^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$'
+          example: '31109198-4d69-4ae0-972d-76117f3748c8'
       required:
         - event-id
     AnyValue:
@@ -122,7 +122,7 @@ components:
           description: >-
             classification of the error type, lower case with underscore eg
             validation_failure
-          pattern: "[a-z]+[a-z_]*[a-z]+"
+          pattern: '[a-z]+[a-z_]*[a-z]+'
         message:
           type: string
           description: descriptive error message for debugging
@@ -134,7 +134,7 @@ components:
           type: array
           description: list of error causes
           items:
-            $ref: "#/components/schemas/APIErrorDetail"
+            $ref: '#/components/schemas/APIErrorDetail'
       required:
         - status
         - type
@@ -154,7 +154,7 @@ components:
             classification of the error detail type, lower case with
             underscore eg missing_value, this value must be always
             interpreted in context of the general error type.
-          pattern: "[a-z]+[a-z_]*[a-z]+"
+          pattern: '[a-z]+[a-z_]*[a-z]+'
         message:
           type: string
           description: descriptive error detail message for debugging
