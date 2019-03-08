@@ -3,7 +3,7 @@ kind: ClusterMicroFrontend
 metadata:
   name: tractorsclustermicrofrontend
   labels:
-    app: tractorsclustermicrofrontend
+    app:  tractorsclustermicrofrontend
 spec:
   appName: tractors-overview
   displayName: Tractors Overview

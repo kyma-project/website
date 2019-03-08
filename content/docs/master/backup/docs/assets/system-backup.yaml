@@ -1,16 +1,16 @@
 includedNamespaces:
-  - istio-system
-  - kyma-system
-  - kyma-integration
-  - kyma-installer
-  - default
-  - natss
+- istio-system
+- kyma-system
+- kyma-integration
+- kyma-installer
+- default
+- natss
 excludedNamespaces:
-  - heptio-ark
+- heptio-ark
 includedResources:
-  - "*"
+- '*'
 excludedResources:
-  - heptio-ark
+- heptio-ark
 includeClusterResources: null
 labelSelector: null
 storageLocation: default

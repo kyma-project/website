@@ -7,10 +7,10 @@ metadata:
   name: http-db-service
 spec:
   authentication:
-    - type: JWT
-      jwt:
-        jwksUri: http://dex-service.kyma-system.svc.cluster.local:5556/keys
-        issuer: https://dex.kyma.local
+  - type: JWT
+    jwt:
+      jwksUri: http://dex-service.kyma-system.svc.cluster.local:5556/keys
+      issuer: https://dex.kyma.local
   hostname: http-db-service.kyma.local
   service:
     name: http-db-service
