@@ -10,7 +10,7 @@ redirectFrom:
   - "/blog/release-notes-08"
 ---
 
-The 0.8 release is packed with new features and improvements that bring your experience to a new level. The Kyma-Knative integration continues, now making it possible to both publish and consume Events using Knative Eventing. You can now back up a Kyma cluster manually or schedule periodic backups. Deploying Kyma on clusters became much easier with the integration of the xip.io wildcard DNS. The Minikube version constraint is removed, allowing you to use any compatible Minikube version. The Application Connector got even more powerful with certificate signing, renewal, and revocation, and a brand new information endpoint. Other significant improvements include replacing OK Log with Grafana Loki, switching all Console views to SAP Fiori Fundamentals and the introduction of the `kyma-developer` role.  
+The 0.8 release is packed with new features and improvements that bring your experience to a new level. The Kyma-Knative integration continues, making it now possible to both publish and consume Events using Knative Eventing. You can now back up a Kyma cluster manually or schedule periodic backups. Deploying Kyma on clusters became much easier with the integration of the xip.io wildcard DNS. The Minikube version constraint is removed, allowing you to use any compatible Minikube version. The Application Connector got even more powerful with certificate signing, renewal, and revocation, as well as a brand new information endpoint. Other significant improvements include replacing OK Log with Grafana Loki, switching all Console views to SAP Fiori Fundamentals, and the introduction of the **kyma-developer** role.  
 <!-- overview -->
 
 The highlights of Kyma 0.8 Edmonton include:
@@ -21,7 +21,7 @@ The highlights of Kyma 0.8 Edmonton include:
 - [Removing Minikube constraint](#removed-minikube-constraint) - We removed the Minikube version constraint that forced users to use the same version as Kyma sources.
 - [Information endpoint](#information-endpoint) and [certificate management](#certificate-management) make the Application Connector even more powerful.
 - [Replacing OK Log with Loki](#ok-log-replaced-with-loki) - We switched our old logging solution to Loki, which is lightweight, actively maintained, and integrated with Grafana.
-- [Adding a new kyma-developer role](#kyma-developer-role) - We added a new `kyma-developer` role which is suited for developers working with Kyma clusters.
+- [Adding a new kyma-developer role](#kyma-developer-role) - We added a new **kyma-developer** role which is suited for developers working with Kyma clusters.
 - [All Console views using SAP Fiori](#sap-fiori-fundamentals) - All views in the Console now use SAP Fiori Fundamentals or one of its component libraries, `fundamental-ngx` or `fundamental-react`.
 
 See the overview of all changes in this release:
