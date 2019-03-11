@@ -26,14 +26,14 @@ The highlights of Kyma 0.8 Edmonton include:
 
 See the overview of all changes in this release:
 
-- [Application Connector](#application-connector) - information endpoint, certificate signing, certificate renewal, certificate revocation, Proxy Service renaming
-- [Asset Store](#asset-store) - New cluster-wide resources added, package filtering, monitoring of Minio
+- [Application Connector](#application-connector) - Information endpoint, certificate signing, certificate renewal, certificate revocation, Proxy Service renaming
+- [Asset Store](#asset-store) - New cluster-wide resources added, package filtering, Minio monitoring
 - [Backup and Restore](#backup-and-restore) - Backup and restore feature added, E2E tests for backup and restore
 - [Console](#console) - All views use SAP Fiori Fundamentals, support for system Namespaces, creating bindings for users, Catalog view improvements
-- [Eventing](#eventing) - Consuming events served by Knative Eventing
+- [Eventing](#eventing) - Consuming Events served by Knative Eventing
 - [Installation](#installation) - xip.io as the default DNS solution, removed Minikube constraint, Kubernetes upgraded to 1.12
 - [Logging](#logging) - Replaced OK Log with Loki
-- [Security](#security) - New `kyma-developer role`, shorter ID token TTL, support for kubectl `exec` command
+- [Security](#security) - New `kyma-developer` role, shorter ID token TTL, support for the kubectl `exec` command
 - [Serverless](#serverless) - Logging of function's source code before execution
 - [Service Catalog](#service-catalog) - Setting bundle repository URLs in Helm Broker
 - [kyma-project.io](#kyma-project-io) - Backend refactoring, bugfixes, infomation panels, new tab layout, new external link icon
@@ -63,15 +63,15 @@ We added 2 new cluster-wide resources: ClusterAsset and ClusterBucket. These res
 
 ### Package filtering
 
-Assets now allow you to specify which folders should be processed by the Asset Store using a regex expression. This feature adds a lot of flexibility and allows you to have packages that contain multiple files and directories and use only the items that are relevant in a given scenario, without the need to create more packages.
+Assets now allow you to specify which folders should the Asset Store process using a regex expression. This feature adds a lot of flexibility and allows you to have packages that contain multiple files and directories, and use only the items that are relevant in a given scenario, without the need to create more packages.
 
 ### Upload service
 
-The newly introduced upload service enables easy integration for components that dynamically create and publish packages. By default, the service is configured to be accessible only from within the cluster. You can use the Upload service to temporarily publish files that need to be referenced in Assets. For details, read [this](https://kyma-project.io/docs/master/components/asset-store#details-asset-upload-service ) document.
+The newly introduced upload service enables easy integration for components that dynamically create and publish packages. By default, the service is configured to be accessible only from within the cluster. You can use the Upload Service to temporarily publish files that need to be referenced in assets. For details, read [this](https://kyma-project.io/docs/master/components/asset-store#details-asset-upload-service ) document.
 
 ### Monitoring of Minio
 
-Asset Store uses Minio as its backed, with a standalone setup on local deployment and gateway mode as the recommended production setup. We enabled Minio monitoring and added a custom Grafana dashboard for this important component.
+The Asset Store uses Minio as its backend, with a standalone setup on local deployment and a gateway mode as the recommended production setup. We enabled Minio monitoring and added a custom Grafana dashboard for this important component.
 
 
 ## Backup and restore
@@ -82,7 +82,7 @@ We implemented an [Ark](https://github.com/heptio/velero/)-based backup function
 
 ### E2E tests for backup and restore
 
-We added a new pipeline which tests the backup and restore feature to Prow. The test pipeline runs daily. It creates a Kyma cluster and installs resources in the cluster. After it completes the setup phase, it creates backup and removes all resources. Next, the resources are restored using the created backup and the pipeline verifies if all recreated resources are working as expected.
+We added a new pipeline to Prow which allows testing the backup and restore feature. The test pipeline runs daily. It creates a Kyma cluster and installs resources in the cluster. After it completes the setup phase, it creates a backup and removes all resources. Next, the resources are restored using the created backup and the pipeline verifies if all recreated resources are working as expected.
 
 ### Known issues
 
@@ -93,11 +93,11 @@ Currently, the backup and restore feature doesn't cover all components. As a wor
 
 ### SAP Fiori Fundamentals
 
-Now all views of the Console use Fiori Fundamentals or one of its component libraries: fundamental-ngx or fundamental-react.
+All views of the Console now use Fiori Fundamentals or one of its component libraries, `fundamental-ngx` or `fundamental-react`.
 
 ### Support for system Namespaces
 
-Now the system Namespaces of your Kyma cluster are displayed in the Console alongside the user created ones. The system Namespaces have reduced functionality and don't allow the users to perform certain actions, such as creating lambdas.
+The system Namespaces of your Kyma cluster are now displayed in the Console alongside the user-created ones. The system Namespaces have reduced functionality and don't allow the users to perform certain actions, such as creating lambdas.
 
 ### Create RoleBindings for users
 
@@ -111,16 +111,16 @@ Some Service Classes can be provisioned only once in a given Namespace. They are
 
 - OData rendering
 
-Kyma allows you to register not only REST APIs but also OData APIs. Now the Console supports not only OpenAPI spec rendering but also OData spec rendering. We developed a new component and integrated it in the Service Catalog views to support this use case. Currently, we support OData v2, v3, and v4. We support only XML as the input data format and we transform older OData versions to v4.
+Kyma allows you to register not only REST APIs but also OData APIs. The Console now supports both OpenAPI and OData spec rendering. We developed a new component and integrated it in the Service Catalog views to support this use case. Currently, we support OData v2, v3, and v4. We support only XML as the input data format and we transform older OData versions to v4.
 
 ### Known issues
 
-After you upgrade Kyma to the 0.8 version, you might be unable to log in to the console. To counter this issue, clear your browser cache manually and try logging in again.
+After you upgrade Kyma to the 0.8 version, you might be unable to log in to the Console. To counter this issue, clear your browser cache manually and try logging in again.
 
 
 ## Eventing
 
-### Consuming events served by Knative Eventing
+### Consuming Events served by Knative Eventing
 
 Running Kyma with the `--knative` flag now allows you to consume Events served by Knative.
 
@@ -135,9 +135,9 @@ Only Event Bus applications can connect to NATS Streaming using client authentic
 
 The wildcard DNS provided by xip.io is integrated as the default DNS solution, which means you can now install Kyma on GKE and AKS clusters and create a playground environment even easier. Simply start the installation on your cluster and don't worry about owning a domain or configuring your cluster in a specific way. If you want to spin up a production-ready cluster, the process doesn't change. When you provide your own domain and TLS certificates, the Installer uses them instead of these provided by xip.io. Additionally, all scenarios support Application Connectivity.
 
-### Removed Minikube constraint
+### Removed the Minikube version constraint
 
-We removed Minikube version constraint which allows you to use any compatible version, not necessarily the exact one found in Kyma sources.
+We removed the Minikube version constraint. You can now use any compatible version, not necessarily the exact one found in Kyma sources.
 
 ### Kubernetes version upgrade
 
