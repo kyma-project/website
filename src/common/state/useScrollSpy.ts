@@ -7,17 +7,17 @@ interface ScrollSpyNode {
   offsetTop: number;
 }
 
-type ScrollSpyOffset = {
+interface ScrollSpyOffset {
   [key: string]: number;
-};
+}
 
-type ScrollSpyNodes = {
+interface ScrollSpyNodes {
   [key: string]: ScrollSpyNode[];
-};
+}
 
-type ScrollSpyActiveNodes = {
+interface ScrollSpyActiveNodes {
   [key: string]: ScrollSpyNode;
-};
+}
 
 interface ScrollSpyProps {
   rootElement: string;
@@ -31,22 +31,22 @@ interface ScrollSpyState {
 }
 
 const useScrollSpy = ({ rootElement, nodeTypes, offset }: ScrollSpyProps) => {
-  const [nodes, setNodes] = useState({} as ScrollSpyNodes);
-  const [activeNodes, setActiveNodes] = useState({} as ScrollSpyActiveNodes);
+  const [nodes, setNodes] = useState<ScrollSpyNodes>({});
+  const [activeNodes, setActiveNodes] = useState<ScrollSpyActiveNodes>({});
 
-  const updateActiveNode = (nodes: ScrollSpyNode[], scrollTop: number) => {
-    const [firstNode] = nodes;
+  const updateActiveNode = (n: ScrollSpyNode[], scrollTop: number) => {
+    const [firstNode] = n;
 
     if (firstNode && scrollTop <= firstNode.offsetTop) return firstNode;
-    return nodes
+    return n
       .filter(node => node.offsetTop - scrollTop <= 0)
       .sort((a, b) => b.offsetTop - a.offsetTop)[0];
   };
 
   const handleResize = () => {
-    let nodes: ScrollSpyNodes = {};
+    const newNodes: ScrollSpyNodes = {};
     for (const type of nodeTypes) {
-      nodes[type] = [];
+      newNodes[type] = [];
     }
 
     const rootNode = document.querySelector(rootElement);
@@ -55,6 +55,7 @@ const useScrollSpy = ({ rootElement, nodeTypes, offset }: ScrollSpyProps) => {
     const nodesInRootNode = rootNode.querySelectorAll("*[id]");
     const dataScrollSpyNodeTypeAtr = "scrollspyNodeType";
 
+    // tslint:disable-next-line
     for (let i = 0; i < nodesInRootNode.length; i++) {
       const node = nodesInRootNode[i] as any;
       const nodeType = node.dataset[dataScrollSpyNodeTypeAtr];
@@ -69,20 +70,19 @@ const useScrollSpy = ({ rootElement, nodeTypes, offset }: ScrollSpyProps) => {
 
       for (const type of nodeTypes) {
         if (nodeType === type) {
-          nodes[type].push(nodeWithInfo);
+          newNodes[type].push(nodeWithInfo);
         }
       }
     }
 
-    setNodes(nodes);
+    setNodes(newNodes);
   };
 
-  const handleChangeHeight = (elm: any, callback: Function) => {
-    var lastHeight = elm.clientHeight,
-      newHeight;
+  const handleChangeHeight = (elm: any, callback: () => any) => {
+    let lastHeight = elm.clientHeight;
     (function changeHeight() {
-      newHeight = elm.clientHeight;
-      if (lastHeight != newHeight) {
+      const newHeight = elm.clientHeight;
+      if (lastHeight !== newHeight) {
         callback();
       }
       lastHeight = newHeight;
@@ -100,7 +100,7 @@ const useScrollSpy = ({ rootElement, nodeTypes, offset }: ScrollSpyProps) => {
 
     if (!nodes || !Object.keys(nodes).length) return;
 
-    let newActiveNodes: ScrollSpyActiveNodes = {};
+    const newActiveNodes: ScrollSpyActiveNodes = {};
     for (const type of nodeTypes) {
       const scrollTop =
         (doc.documentElement.scrollTop ||
@@ -136,7 +136,7 @@ const useScrollSpy = ({ rootElement, nodeTypes, offset }: ScrollSpyProps) => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [nodes]);
+  }, [nodes, activeNodes]);
 
   return { activeNodes, handleResize, handleScroll };
 };

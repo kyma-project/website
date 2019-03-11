@@ -8,14 +8,11 @@ let tabsCounter = 0;
 
 export const tabs = {
   replaceChildren: true,
-  shouldProcessNode: (node: any) => {
-    return (
-      node.type === "tag" &&
-      node.name === "div" &&
-      node.attribs &&
-      node.attribs.hasOwnProperty("tabs")
-    );
-  },
+  shouldProcessNode: (node: any) =>
+    node.type === "tag" &&
+    node.name === "div" &&
+    node.attribs &&
+    node.attribs.hasOwnProperty("tabs"),
   processNode: (node: any) => {
     const children = node.children.map((child: any) => {
       if (child.type === "tag" && child.name === "details" && child.children) {

@@ -38,12 +38,9 @@ const NavigationList: React.FunctionComponent<NavigationListProps> = ({
   version,
   hideNavIfShouldOnMobile,
 }) => {
-  const isLinkActive = (arg: { id: string; type: string }) => {
-    return (
-      tokenize(arg.id) === tokenize(content.id) &&
-      tokenize(arg.type) === tokenize(content.type)
-    );
-  };
+  const isLinkActive = (arg: { id: string; type: string }) =>
+    tokenize(arg.id) === tokenize(content.id) &&
+    tokenize(arg.type) === tokenize(content.type);
 
   const { activeNodes } = useContext(ScrollSpy.Context);
   const getPathLink = getDocsPathLink(version);

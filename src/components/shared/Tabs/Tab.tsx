@@ -15,20 +15,18 @@ const Tab: React.FunctionComponent<TabProps> = ({
   tabIndex,
   isActive = false,
   parentCallback,
-}) => {
-  return (
-    <TabWrapper key={tabIndex}>
-      <TabLink
-        onClick={(event: any) => {
-          event.preventDefault();
-          parentCallback!(tabIndex!);
-        }}
-        active={isActive}
-      >
-        {label}
-      </TabLink>
-    </TabWrapper>
-  );
-};
+}) => (
+  <TabWrapper key={tabIndex}>
+    <TabLink
+      onClick={(event: any) => {
+        event.preventDefault();
+        parentCallback!(tabIndex!);
+      }}
+      active={isActive}
+    >
+      {label}
+    </TabLink>
+  </TabWrapper>
+);
 
 export default Tab;

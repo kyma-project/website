@@ -8,7 +8,7 @@ export const removeBlankLines = (source: string) =>
 export const removeBlankLinesFromTabsBlock = (source?: string) =>
   source &&
   source.replace(tabsBlockRegex, occurrence => {
-    let result = removeBlankLines(occurrence);
+    const result = removeBlankLines(occurrence);
 
     return result;
   });

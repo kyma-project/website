@@ -20,8 +20,8 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
     setActiveTab(index);
   };
 
-  const renderHeader = (children: React.ReactElement<TabProps>[]) => {
-    return React.Children.map(children, (child, index) => {
+  const renderHeader = (ch: Array<React.ReactElement<TabProps>>) =>
+    React.Children.map(ch, (child, index) => {
       const c = child as React.ReactElement<TabProps>;
       return React.cloneElement(c, {
         key: index,
@@ -31,11 +31,9 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
         isActive: index === activeTab,
       });
     });
-  };
 
-  const renderActiveTab = (children: React.ReactElement<TabProps>[]) => {
-    return children[activeTab] ? children[activeTab].props.children : null;
-  };
+  const renderActiveTab = (ch: Array<React.ReactElement<TabProps>>) =>
+    ch[activeTab] ? ch[activeTab].props.children : null;
 
   const content = []
     .concat(...(children as any))
