@@ -20,7 +20,7 @@ The highlights of Kyma 0.8 Edmonton include:
 - [Deploying Kyma with xip.io wildcard DNS](#xip-io-as-default-dns-solution) - We made wildcard DNS provided by xip.io the default DNS solution for cluster deployments.
 - [Removing Minikube constraint](#removed-minikube-constraint) - We removed the Minikube version constraint that forced users to use the same version as Kyma sources.
 - [Information endpoint](#information-endpoint) and [certificate management](#certificate-management) make the Application Connector even more powerful.
-- [Replacing OK Log with Loki](#ok-log-replaced-with-loki) - We switched our old logging solution to Loki, which is lightweight, actively maintained and integrated with Grafana.
+- [Replacing OK Log with Loki](#ok-log-replaced-with-loki) - We switched our old logging solution to Loki, which is lightweight, actively maintained, and integrated with Grafana.
 - [Adding a new kyma-developer role](#kyma-developer-role) - We added a new `kyma-developer` role which is suited for developers working with Kyma clusters.
 - [All Console views using SAP Fiori](#sap-fiori-fundamentals) - All views in the Console now use SAP Fiori Fundamentals or one of its component libraries: `fundamental-ngx` or `fundamental-react`.
 
