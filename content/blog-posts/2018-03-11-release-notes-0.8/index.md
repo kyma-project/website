@@ -22,7 +22,7 @@ The highlights of Kyma 0.8 Edmonton include:
 - [Information endpoint](#information-endpoint) and [certificate management](#certificate-management) make the Application Connector even more powerful.
 - [Replacing OK Log with Loki](#ok-log-replaced-with-loki) - We switched our old logging solution to Loki, which is lightweight, actively maintained, and integrated with Grafana.
 - [Adding a new kyma-developer role](#kyma-developer-role) - We added a new `kyma-developer` role which is suited for developers working with Kyma clusters.
-- [All Console views using SAP Fiori](#sap-fiori-fundamentals) - All views in the Console now use SAP Fiori Fundamentals or one of its component libraries: `fundamental-ngx` or `fundamental-react`.
+- [All Console views using SAP Fiori](#sap-fiori-fundamentals) - All views in the Console now use SAP Fiori Fundamentals or one of its component libraries, `fundamental-ngx` or `fundamental-react`.
 
 See the overview of all changes in this release:
 
