@@ -48,7 +48,7 @@ The new `GetInfo` endpoint returns information about the cluster. Use it to get 
 
 ### Certificate management
 
-We added new functionality centered around certificate management, such as signing certificates for Applications and Kyma clusters, [renewing certificates](/docs/0.8/components/application-connector/#tutorials-renew-the-client-certificate), and [certificate revocation](/docs/0.8/components/application-connector/#tutorials-revoke-the-client-certificate).
+We added new functionalities centered around certificate management, such as signing certificates for Applications and Kyma clusters, [renewing certificates](/docs/0.8/components/application-connector/#tutorials-renew-the-client-certificate), and [certificate revocation](/docs/0.8/components/application-connector/#tutorials-revoke-the-client-certificate).
 
 ### Proxy Service renaming
 
@@ -59,7 +59,7 @@ We renamed the Proxy Service to Application Gateway.
 
 ### New cluster-wide resources added
 
-We added 2 new cluster-wide resources: ClusterAsset and ClusterBucket. These resources allow to fully use the Asset Store and build solutions using it. Read [this document](link) for more information.
+We added 2 new cluster-wide resources, ClusterAsset and ClusterBucket. These resources allow you to fully use the Asset Store and build solutions using it. Read [this document](link) for more information.
 
 ### Package filtering
 
@@ -69,7 +69,7 @@ Assets now allow you to specify which folders should the Asset Store process usi
 
 The newly introduced upload service enables easy integration for components that dynamically create and publish packages. By default, the service is configured to be accessible only from within the cluster. You can use the Upload Service to temporarily publish files that need to be referenced in assets. For details, read [this](https://kyma-project.io/docs/master/components/asset-store#details-asset-upload-service ) document.
 
-### Monitoring of Minio
+### Minio monitoring
 
 The Asset Store uses Minio as its backend, with a standalone setup on local deployment and a gateway mode as the recommended production setup. We enabled Minio monitoring and added a custom Grafana dashboard for this important component.
 
@@ -78,7 +78,7 @@ The Asset Store uses Minio as its backend, with a standalone setup on local depl
 
 ### Backup and restore feature added
 
-We implemented an [Ark](https://github.com/heptio/velero/)-based backup functionality in Kyma, allowing you to create manual scheduled backups. Read our [documentation](/docs/0.8/components/backup/) to learn how to configure backups, restore your cluster from backup and set backup retention period.
+We implemented an [Ark](https://github.com/heptio/velero/)-based backup functionality in Kyma, allowing you to create manual and scheduled backups. Read our [documentation](/docs/0.8/components/backup/) to learn how to configure backups, restore your cluster from backup, and set backup retention period.
 
 ### E2E tests for backup and restore
 
@@ -131,7 +131,7 @@ Only Event Bus applications can connect to NATS Streaming using client authentic
 
 ## Installation
 
-### Xip.io wildcard as default DNS solution
+### Xip.io wildcard as the default DNS solution
 
 The wildcard DNS provided by xip.io is integrated as the default DNS solution, which means you can now install Kyma on GKE and AKS clusters and create a playground environment even easier. Simply start the installation on your cluster and don't worry about owning a domain or configuring your cluster in a specific way. If you want to spin up a production-ready cluster, the process doesn't change. When you provide your own domain and TLS certificates, the Installer uses them instead of these provided by xip.io. Additionally, all scenarios support Application Connectivity.
 
@@ -148,7 +148,7 @@ Cluster deployments now use Kubernetes version 1.12.
 
 ### OK Log replaced with Loki
 
-In this release, we replaced OK Log with a new logging solution - Loki. Dubbed the "Prometheus for logs", Loki fits Kyma very well. It's lightweight, actively maintained, and is very well integrated with Grafana, which lets you see metrics and logs for your Pods all in one place. For now, we replaced the main logging functionality, which means that the logs are collected by Loki but can be accessed only through an internal API. We will expose the API and activate Grafana integration in the upcoming release. Please remember that our logging solution is in alpha state. Your feedback is welcome!
+In this release, we replaced OK Log with a new logging solution - Loki. Dubbed the "Prometheus for logs", Loki fits Kyma very well. It's lightweight, actively maintained, and integrated with Grafana, which lets you see metrics and logs for your Pods all in one place. For now, we replaced the main logging functionality, which means that the logs are collected by Loki but can be accessed only through an internal API. We will expose the API and activate Grafana integration in the upcoming release. Please remember that our logging solution is in alpha state. Your feedback is welcome!
 
 
 
@@ -156,7 +156,7 @@ In this release, we replaced OK Log with a new logging solution - Loki. Dubbed t
 
 ### Kyma-developer role
 
-We introduced a new cluster-wide role suited for developers working with Kyma. The kyma-developer role has fewer privileges than the existing kyma-admin role but allows for more access than the existing, Namespace-specific kyma-reader-role. Assign the new role to any developers that develop solutions in your cluster. Read [this](LINK) document for more information.
+We introduced a new cluster-wide role suited for developers working with Kyma. The **kyma-developer** role has fewer privileges than the existing **kyma-admin** role but allows for more access than the existing, Namespace-specific **kyma-reader** role. Assign the new role to any developer that develop solutions in your cluster. Read [this](LINK) document for more information.
 
 ### Shorter ID token TTL
 
@@ -164,14 +164,14 @@ Starting with the 0.8 release, all ID tokens fetched from Dex have a TTL of 8 ho
 
 ### Support for kubectl exec command
 
-The API Server Proxy now supports the [SPDY](https://www.chromium.org/spdy/spdy-whitepaper) protocol, which s used for handling kubectl commands such as `exec`. Now developers can use all kubectl commands when they connect to a cluster with a generated `kubeconfig` file.
+The API Server Proxy now supports the [SPDY](https://www.chromium.org/spdy/spdy-whitepaper) protocol, which is used for handling kubectl commands such as `exec`. Developers can now use all kubectl commands when they connect to a cluster with a generated `kubeconfig` file.
 
 
 ## Serverless
 
 ### Logging of function's source code before execution
 
-Functions are logging their source code and `package.json` content before they are executed. This allows track what code is executed inside function Pods.
+Functions are logging their source code and `package.json` content before they are executed. This allows you to track what code is executed inside function Pods.
 
 
 ## Service Catalog
