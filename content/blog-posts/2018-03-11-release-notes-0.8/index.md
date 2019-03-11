@@ -67,7 +67,7 @@ Assets now allow you to specify which folders should the Asset Store process usi
 
 ### Upload service
 
-The newly introduced upload service enables easy integration for components that dynamically create and publish packages. By default, the service is configured to be accessible only from within the cluster. You can use the Upload Service to temporarily publish files that need to be referenced in assets. For details, read [this](https://kyma-project.io/docs/master/components/asset-store#details-asset-upload-service ) document.
+The newly introduced upload service enables easy integration for components that dynamically create and publish packages. By default, the service is configured to be accessible only from within the cluster. You can use the Upload Service to temporarily publish files that need to be referenced in assets. For details, read [this](/docs/0.8/components/asset-store#details-asset-upload-service ) document.
 
 ### Minio monitoring
 
@@ -160,7 +160,7 @@ In this release, we replaced OK Log with a new logging solution - Loki. Dubbed t
 
 ### Kyma-developer role
 
-We introduced a new cluster-wide role suited for developers working with Kyma. The **kyma-developer** role has fewer privileges than the existing **kyma-admin** role but allows for more access than the existing, Namespace-specific **kyma-reader** role. Assign the new role to any developer that develop solutions in your cluster. Read [this](LINK) document for more information.
+We introduced a new cluster-wide role suited for developers working with Kyma. The **kyma-developer** role has fewer privileges than the existing **kyma-admin** role but allows for more access than the existing, Namespace-specific **kyma-reader** role. Assign the new role to any developer that develop solutions in your cluster. Read [this](/docs/0.8/components/security/#tutorials-manage-static-users-in-dex-bind-a-user-to-a-role-or-a-clusterrole) document for more information.
 
 ### Shorter ID token TTL
 
