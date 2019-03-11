@@ -22,7 +22,7 @@ The highlights of Kyma 0.8 Edmonton include:
 - [Information endpoint](#information-endpoint) and [certificate management](#certificate-management) make the Application Connector even more powerful.
 - [Replacing OK Log with Loki](#ok-log-replaced-with-loki) - We switched our old logging solution to Loki, which is lightweight, actively maintained, and integrated with Grafana.
 - [Adding a new kyma-developer role](#kyma-developer-role) - We added a new **kyma-developer** role which is suited for developers working with Kyma clusters.
-- [All Console views using SAP Fiori](#sap-fiori-fundamentals) - All views in the Console now use SAP Fiori Fundamentals or one of its component libraries, `fundamental-ngx` or `fundamental-react`.
+- [All Console views using SAP Fiori](#sap-fiori-fundamentals) - All views in the Console now use SAP Fiori Fundamentals or one of its component libraries, [`fundamental-ngx`](https://github.com/SAP/fundamental-ngx) or [`fundamental-react`](https://github.com/SAP/fundamental-react).
 
 See the overview of all changes in this release:
 
@@ -33,9 +33,9 @@ See the overview of all changes in this release:
 - [Eventing](#eventing) - Consuming Events served by Knative Eventing
 - [Installation](#installation) - xip.io as the default DNS solution, removed Minikube constraint, Kubernetes upgraded to 1.12
 - [Logging](#logging) - Replaced OK Log with Loki
-- [Security](#security) - New `kyma-developer` role, shorter ID token TTL, support for the kubectl `exec` command
+- [Security](#security) - New **kyma-developer** role, shorter ID token TTL, support for the kubectl `exec` command
 - [Serverless](#serverless) - Logging of function's source code before execution
-- [Service Catalog](#service-catalog) - Setting bundle repository URLs in Helm Broker
+- [Service Catalog](#service-catalog) - Defining the URLs of the repositories that hold your bundles in the Helm Broker
 - [kyma-project.io](#kyma-project-io) - Backend refactoring, bugfixes, infomation panels, new tab layout, new external link icon
 
 ---
@@ -59,7 +59,7 @@ We renamed the Proxy Service to Application Gateway.
 
 ### New cluster-wide resources added
 
-We added 2 new cluster-wide resources, ClusterAsset and ClusterBucket. These resources allow you to fully use the Asset Store and build solutions using it. Read [this document](link) for more information.
+We added 2 new cluster-wide resources, ClusterAsset and ClusterBucket. These resources allow you to fully use the Asset Store and build solutions using it. Read [this document](/docs/0.8/components/asset-store/#custom-resource-clusterasset) for more information.
 
 ### Package filtering
 
@@ -93,7 +93,7 @@ Currently, the backup and restore feature doesn't cover all components. As a wor
 
 ### SAP Fiori Fundamentals
 
-All views of the Console now use Fiori Fundamentals or one of its component libraries, `fundamental-ngx` or `fundamental-react`.
+All views of the Console now use Fiori Fundamentals or one of its component libraries, [`fundamental-ngx`](https://github.com/SAP/fundamental-ngx) or [`fundamental-react`](https://github.com/SAP/fundamental-react).
 
 ### Support for system Namespaces
 
@@ -109,9 +109,13 @@ We added the ability to create RoleBindings and ClusterRoleBindings for specific
 
 Some Service Classes can be provisioned only once in a given Namespace. They are mostly brokers from different cloud providers. We made it clear in the UI that certain classes can be used only once or cannot be provisioned again if they are already in use. We also indicated how many instances of Service Classes that can be provisioned multiple times already exist in the cluster.
 
+![Provision only once classes](./provision_once.png)
+
 - OData rendering
 
 Kyma allows you to register not only REST APIs but also OData APIs. The Console now supports both OpenAPI and OData spec rendering. We developed a new component and integrated it in the Service Catalog views to support this use case. Currently, we support OData v2, v3, and v4. We support only XML as the input data format and we transform older OData versions to v4.
+
+![OData spec](./odata.png)
 
 ### Known issues
 
@@ -176,7 +180,7 @@ Functions are logging their source code and `package.json` content before they a
 
 ## Service Catalog
 
-### Set bundle repository URLs in Helm Broker seamlessly
+### Definie the URLs of the repositories that hold your bundles in the Helm Broker
 
 You can now instantly update the URLs of bundles' repositories in the Helm Broker, no need to restart. For more information, read [this](/docs/0.8/components/helm-broker#configuration-configure-helm-broker-add-a-new-bundle-repository) document.
 
@@ -190,20 +194,25 @@ We refactored the backend of the website to improve the speed of future implemen
 ### Bugfixes
 
 We fixed multiple smaller bugs, including a particularly annoying one that caused the horizontal scroll bar to overlap the code in code snippet fields.
+
 ![Scroll bar](./scroll_bar_bug.png)
 
 ### New features
 
 - Copy button for code snippets
+
 ![Copy button](./copy_button.png)
 
 - New tabs layout suitable for displaying instructions in different versions
+
 ![Tabs layout](./tabs_layout.png)
 
 - New panel types help differentiate between notes, caution indicators, and tips
+
 ![Panels](./panels.png)
 
 - A special icon indicates that clicking a link takes you outside of the website and opens a new tab
+
 ![External link icon](./link_icon.png)
 
 - The new section on the main page introduces Kyma early adopters that agreed to be mentioned on the website
