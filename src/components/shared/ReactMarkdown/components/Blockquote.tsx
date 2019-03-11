@@ -15,8 +15,8 @@ export const BlockQuote: React.FunctionComponent = ({ children }) => {
     return type && type.replace(":", "").toLowerCase();
   };
 
-  const createPanels = (elem: any) => {
-    return elem.map((child: any, index: number) => {
+  const createPanels = (elem: any) =>
+    elem.map((child: any, index: number) => {
       const typeOfPanel = getPanelType(child);
       return (
         <NotePanel type={typeOfPanel} key={index}>
@@ -24,7 +24,6 @@ export const BlockQuote: React.FunctionComponent = ({ children }) => {
         </NotePanel>
       );
     });
-  };
 
   return children ? <>{createPanels(children)}</> : null;
 };
