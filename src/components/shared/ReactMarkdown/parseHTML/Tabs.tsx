@@ -4,16 +4,13 @@ import ReactMarkdown from "@components/shared/ReactMarkdown";
 
 const tabs = {
   replaceChildren: true,
-  shouldProcessNode: (node: any) => {
-    return (
-      node.type === "tag" &&
-      node.name === "div" &&
-      node.attribs &&
-      node.attribs.hasOwnProperty("tabs")
-    );
-  },
-  processNode: (node: any) => {
-    return node.children.map((child: any) => {
+  shouldProcessNode: (node: any) =>
+    node.type === "tag" &&
+    node.name === "div" &&
+    node.attribs &&
+    node.attribs.hasOwnProperty("tabs"),
+  processNode: (node: any) =>
+    node.children.map((child: any) => {
       if (child.type === "tag" && child.name === "details" && child.children) {
         return child.children.map((childDetails: any, index: number) => {
           if (
@@ -37,8 +34,7 @@ const tabs = {
           }
         });
       }
-    });
-  },
+    }),
 };
 
 export default tabs;

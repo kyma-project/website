@@ -9,18 +9,16 @@ import { HeadlineWrapper } from "./styled";
 
 const gt = getTranslation("landingPage");
 
-const Headline: React.FunctionComponent = () => {
-  return (
-    <Grid.Container as="header">
-      <Grid.Row>
-        <Grid.Unit df={6} lg={7} md={8} sm={10} xs={12}>
-          <HeadlineWrapper>
-            <FormattedMessage id={gt("headline")} />
-          </HeadlineWrapper>
-        </Grid.Unit>
-      </Grid.Row>
-    </Grid.Container>
-  );
-};
+const Headline: React.FunctionComponent = () => (
+  <Grid.Container as="header">
+    <Grid.Row>
+      <Grid.Unit df={6} lg={7} md={8} sm={10} xs={12}>
+        <HeadlineWrapper>
+          <FormattedMessage id={gt("headline")} />
+        </HeadlineWrapper>
+      </Grid.Unit>
+    </Grid.Row>
+  </Grid.Container>
+);
 
 export default Headline;

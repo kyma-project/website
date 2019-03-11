@@ -23,12 +23,11 @@ interface NavigationSectionsProps {
   rootId?: string;
   parentId?: string;
   content: DocsContentItem;
-  setActiveNav: Function;
-  isLinkActive: Function;
-  getPathLink: Function;
+  setActiveNav: (props: ActiveNav) => void;
+  getPathLink: (props: ActiveNav) => string;
   activeNav: ActiveNav;
   activeNodes: ScrollSpyActiveNodes;
-  hideNavIfShouldOnMobile: Function;
+  hideNavIfShouldOnMobile: (value: boolean) => void;
 }
 
 const NavigationSections: React.FunctionComponent<NavigationSectionsProps> = ({
@@ -38,14 +37,15 @@ const NavigationSections: React.FunctionComponent<NavigationSectionsProps> = ({
   groupType,
   content,
   setActiveNav,
-  isLinkActive,
   getPathLink,
   activeNav,
   activeNodes,
   hideNavIfShouldOnMobile,
 }) => {
   const hashing = (item: DocsNavigationTopicSection) => {
-    if (parentId) return `${parentId}-${item.anchor}`;
+    if (parentId) {
+      return `${parentId}-${item.anchor}`;
+    }
 
     const topicType = item.topicType
       ? item.topicType.replace(/ /g, "-").toLowerCase()
@@ -63,7 +63,7 @@ const NavigationSections: React.FunctionComponent<NavigationSectionsProps> = ({
         setActiveNav({
           id: rootId,
           type: groupType,
-          hash: hash,
+          hash,
         });
       }}
       activeArrow={isActiveNavArrow}
@@ -123,7 +123,7 @@ const NavigationSections: React.FunctionComponent<NavigationSectionsProps> = ({
             to={getPathLink({
               id: rootId,
               type: groupType,
-              hash: hash,
+              hash,
             })}
             onClick={() => hideNavIfShouldOnMobile(true)}
             borderLeft={parentId || !hasSubElements}
@@ -138,7 +138,6 @@ const NavigationSections: React.FunctionComponent<NavigationSectionsProps> = ({
             rootId={rootId}
             parentId={item.anchor}
             content={content}
-            isLinkActive={isLinkActive}
             activeNav={activeNav}
             activeNodes={activeNodes}
             getPathLink={getPathLink}
@@ -169,7 +168,11 @@ const NavigationSections: React.FunctionComponent<NavigationSectionsProps> = ({
     : activeNav.id === rootId;
 
   return (
-    <NavigationItems secondary marginTop show={isActiveNav || isClickedNav}>
+    <NavigationItems
+      secondary={true}
+      marginTop={true}
+      show={isActiveNav || isClickedNav}
+    >
       {items.map(item => renderNavigationItem(item))}
     </NavigationItems>
   );

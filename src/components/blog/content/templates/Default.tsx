@@ -9,14 +9,8 @@ interface DefaultTemplatePostProps {
 
 const DefaultTemplatePost: React.FunctionComponent<
   DefaultTemplatePostProps
-> = ({ markdown, assetsPath }) => {
-  return (
-    <ReactMarkdown
-      source={markdown}
-      escapeHtml={false}
-      assetsPath={assetsPath}
-    />
-  );
-};
+> = ({ markdown, assetsPath }) => (
+  <ReactMarkdown source={markdown} escapeHtml={false} assetsPath={assetsPath} />
+);
 
 export default DefaultTemplatePost;

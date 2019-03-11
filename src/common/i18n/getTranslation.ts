@@ -1,3 +1,2 @@
-export default (prefix?: string) => (id: string) => {
-  return prefix ? `${prefix}.${id}` : id;
-};
+export default (prefix?: string) => (id: string) =>
+  prefix ? `${prefix}.${id}` : id;

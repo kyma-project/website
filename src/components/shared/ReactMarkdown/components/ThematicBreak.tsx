@@ -1,9 +1,5 @@
 import React from "react";
 
-interface ThematicBreakProps {}
-
-export const ThematicBreak: React.FunctionComponent<ThematicBreakProps> = ({
-  children,
-}) => {
-  return <>{children}</>;
-};
+export const ThematicBreak: React.FunctionComponent<{
+  children: ReactNode;
+}> = ({ children }) => <>{children}</>;

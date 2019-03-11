@@ -25,8 +25,8 @@ interface NavigationListProps {
   version: string;
   items: DocsManifest;
   activeNav: ActiveNav;
-  setActiveNav: Function;
-  hideNavIfShouldOnMobile: Function;
+  setActiveNav: (arg: ActiveNav) => string;
+  hideNavIfShouldOnMobile: (value: boolean) => void;
 }
 
 interface NavigationListState {
@@ -75,8 +75,8 @@ class NavigationList extends Component<
             document: 40,
             header: 40,
           }}
-          onUpdate={(activeNodes: ScrollSpyActiveNodes) =>
-            this.setState({ activeNodes })
+          onUpdate={(activeNodesObject: ScrollSpyActiveNodes) =>
+            this.setState({ activeNodes: activeNodesObject })
           }
         />
         <>

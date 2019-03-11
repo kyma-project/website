@@ -16,6 +16,4 @@ interface TableProps {
 export const Table: React.FunctionComponent<TableProps> = ({
   columnAlignment,
   children,
-}) => {
-  return <StyledTable>{children}</StyledTable>;
-};
+}) => <StyledTable>{children}</StyledTable>;

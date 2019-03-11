@@ -29,7 +29,7 @@ To show the banner for one full day, make sure **{START_DATE}** and **{END_DATE}
 
 ## Add multiple slides
 
-To show multiple slides that change periodically, like in a typical carousel, add more sections enclosed in curly brackets and separate them with a comma, as in this example:
+To show multiple slides that change periodically, like in a typical carousel, add more sections indicated by a dash, as in this example:
 
 ```yaml
 bannerDuration: 4000

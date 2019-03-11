@@ -6,6 +6,6 @@ const StyledRoot = styled.div`
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 `;
 
-export const Root: React.FunctionComponent = ({ children }) => {
-  return <StyledRoot>{children}</StyledRoot>;
-};
+export const Root: React.FunctionComponent = ({ children }) => (
+  <StyledRoot>{children}</StyledRoot>
+);

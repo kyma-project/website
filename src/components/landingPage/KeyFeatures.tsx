@@ -67,7 +67,7 @@ const KeyFeatures: React.FunctionComponent = () => {
       </FormattedMessage>
       <FormattedMessage id={gt(`${sectionId}.headline`)}>
         {headline => (
-          <H as="h3" center style={{ minHeight: "66px" }}>
+          <H as="h3" center={true} style={{ minHeight: "66px" }}>
             {headline}
           </H>
         )}
@@ -82,11 +82,11 @@ const KeyFeatures: React.FunctionComponent = () => {
   return (
     <KeyFeaturesWrapper>
       <Grid.Container>
-        <Grid.Row space>
+        <Grid.Row space={true}>
           <Grid.Unit df={12}>
             <FormattedMessage id={gt("headline")}>
               {headline => (
-                <H as="h2" center>
+                <H as="h2" center={true}>
                   {headline}
                 </H>
               )}

@@ -5,15 +5,18 @@ black-list:
   - node_modules
   - content/docs
 black-list-internal:
- - ./website/src/blog-posts/
- - ./website/content/blog-posts/
+  - ./website/src/blog-posts/
+  - ./website/content/blog-posts/
 timeout: 60
 request-repeats: 5
 files:
   - path: "./website/.github/ISSUE_TEMPLATE/security-vulnerability.md"
     config:
       white-list-internal: ["{CVSS"]
-      white-list-external: ["https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:L/A:N"]
+      white-list-external:
+        [
+          "https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:L/A:N",
+        ]
   - path: ./website/docs/banner-modification.md
     config:
       white-list-internal:

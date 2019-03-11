@@ -47,8 +47,8 @@ class SlidesBanner extends PureComponent<SlidesBannerProps, SlidesBannerState> {
     window.removeEventListener("resize", this.resize);
   }
 
-  filterEventsFromData = (events: Slide[]) => {
-    return events.filter(element => {
+  filterEventsFromData = (events: Slide[]) =>
+    events.filter(element => {
       const startDate = this.parseDate(false, element.startDate);
       const endDate = this.parseDate(true, element.endDate);
       const currentDate = new Date();
@@ -67,7 +67,6 @@ class SlidesBanner extends PureComponent<SlidesBannerProps, SlidesBannerState> {
 
       return false;
     });
-  };
 
   isSameDate = (first: Date, sec: Date, third: Date) => {
     if (first && sec && third) {
@@ -85,7 +84,9 @@ class SlidesBanner extends PureComponent<SlidesBannerProps, SlidesBannerState> {
   };
 
   parseDate = (endOfDay: boolean, arg?: string) => {
-    if (!arg) return null;
+    if (!arg) {
+      return null;
+    }
 
     const splitDate = arg.split("/");
     if (splitDate.length === 3) {
@@ -125,7 +126,7 @@ class SlidesBanner extends PureComponent<SlidesBannerProps, SlidesBannerState> {
     }
   };
 
-  onCircleClick = (index: number) => {
+  onCircleClick = (index: number): void => {
     this.setState({
       currentSlide: index,
     });
@@ -158,23 +159,21 @@ class SlidesBanner extends PureComponent<SlidesBannerProps, SlidesBannerState> {
               onCircleClick={this.onCircleClick}
             />
           )}
-          {this.state.slides.map((elem: Slide, index: number) => {
-            return (
-              <ContentWrapper
-                multipleSlides={manySlides}
-                ref={(el: any) => this.refCallback(el, index)}
-                active={index === this.state.currentSlide}
-                key={index}
-              >
-                {elem.icon && <SlideIcon iconPath={elem.icon} />}
-                <SlideContent
-                  text={elem.text}
-                  url={elem.url}
-                  openInNewTab={elem.openInNewTab}
-                />
-              </ContentWrapper>
-            );
-          })}
+          {this.state.slides.map((elem: Slide, index: number) => (
+            <ContentWrapper
+              multipleSlides={manySlides}
+              ref={(el: any) => this.refCallback(el, index)}
+              active={index === this.state.currentSlide}
+              key={index}
+            >
+              {elem.icon && <SlideIcon iconPath={elem.icon} />}
+              <SlideContent
+                text={elem.text}
+                url={elem.url}
+                openInNewTab={elem.openInNewTab}
+              />
+            </ContentWrapper>
+          ))}
         </InnerWrapper>
       </Wrapper>
     );

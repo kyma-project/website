@@ -12,7 +12,7 @@ interface ScrollSpyProps {
   rootElement: string;
   offset: ScrollSpyOffset;
   endOffset?: string;
-  onUpdate: Function;
+  onUpdate: (arg: any) => any;
 }
 
 interface ScrollSpyState {
@@ -36,7 +36,9 @@ class ScrollSpy extends React.Component<ScrollSpyProps, ScrollSpyState> {
       componentTag: "ul",
       offset: 0,
       endOffset: 0,
-      onUpdate() {},
+      onUpdate() {
+        return undefined;
+      },
     };
   }
 
@@ -46,7 +48,7 @@ class ScrollSpy extends React.Component<ScrollSpyProps, ScrollSpyState> {
     documentNodes: [],
     headerNodes: [],
     activeNodes: (() => {
-      let activeNodes: ScrollSpyActiveNodes = {
+      const activeNodes: ScrollSpyNode & { groupOfDocuments: any } = {
         groupOfDocuments: null,
         document: null,
         header: null,
@@ -105,22 +107,26 @@ class ScrollSpy extends React.Component<ScrollSpyProps, ScrollSpyState> {
   collectNodes = () => {
     const { rootElement } = this.props;
 
-    let nodes: ScrollSpyNodes = {};
+    const nodes: ScrollSpyNodes = {};
     for (const type of this.nodeTypes) {
       nodes[type] = [];
     }
 
     const rootNode = document.querySelector(rootElement);
-    if (!rootNode) return;
+    if (!rootNode) {
+      return;
+    }
 
     const nodesInRootNode = rootNode.querySelectorAll("*[id]");
     const dataScrollSpyNodeTypeAtr = "scrollspyNodeType";
-
+    // tslint:disable-next-line
     for (let i = 0; i < nodesInRootNode.length; i++) {
       const node = nodesInRootNode[i] as any;
       const nodeType = node.dataset[dataScrollSpyNodeTypeAtr];
 
-      if (!nodeType) continue;
+      if (!nodeType) {
+        continue;
+      }
 
       const nodeWithInfo = {
         id: node.id,
@@ -140,7 +146,9 @@ class ScrollSpy extends React.Component<ScrollSpyProps, ScrollSpyState> {
   updateActiveNode = (nodes: ScrollSpyNode[], scrollTop: number) => {
     const [firstNode] = nodes;
 
-    if (firstNode && scrollTop <= firstNode.offsetTop) return firstNode;
+    if (firstNode && scrollTop <= firstNode.offsetTop) {
+      return firstNode;
+    }
     return nodes
       .filter(node => node.offsetTop - scrollTop <= 0)
       .sort((a, b) => b.offsetTop - a.offsetTop)[0];
@@ -154,9 +162,11 @@ class ScrollSpy extends React.Component<ScrollSpyProps, ScrollSpyState> {
 
     const doc = document;
 
-    if (!nodes || !Object.keys(nodes).length) return;
+    if (!nodes || !Object.keys(nodes).length) {
+      return;
+    }
 
-    let newActiveNodes: ScrollSpyActiveNodes = {};
+    const newActiveNodes: ScrollSpyActiveNodes = {};
     for (const type of this.nodeTypes) {
       const scrollTop =
         (doc.documentElement.scrollTop ||

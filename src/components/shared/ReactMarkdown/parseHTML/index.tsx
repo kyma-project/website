@@ -6,7 +6,7 @@ import tabs from "./Tabs";
 const isValidNode = (node: any) => node.type !== "script";
 
 export default htmlParser({
-  isValidNode: isValidNode,
+  isValidNode,
   processingInstructions: [
     // Tabs processing
     // tabs,

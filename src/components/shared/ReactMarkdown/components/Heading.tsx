@@ -25,7 +25,7 @@ export const Heading: React.FunctionComponent<HeadingProps> = ({
   ).replace(/[^a-zA-Z0-9]/g, "-");
 
   return (
-    <Link.Hash to={id} chainIcon>
+    <Link.Hash to={id} chainIcon={true}>
       <H as={`h${newLevel}`} id={id} data-scrollspy-node-type="header">
         {children}
       </H>

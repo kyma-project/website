@@ -28,7 +28,7 @@ const CookiesMessageBanner: React.FunctionComponent<IntlInterface> = ({
           {readPrivacyStatement => (
             <ReadPrivacyStatementLink
               to={config.links.SAP_PRIVACY_LINK}
-              externalIcon
+              externalIcon={true}
             >
               {readPrivacyStatement}
             </ReadPrivacyStatementLink>

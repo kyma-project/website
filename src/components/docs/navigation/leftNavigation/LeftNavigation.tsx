@@ -22,9 +22,9 @@ interface LeftNavigationProps {
   version: string;
   versions: DocsVersions;
   items: DocsManifest;
-  changeDocsVersion: Function;
+  changeDocsVersion: () => void;
   activeNav: ActiveNav;
-  setActiveNav: Function;
+  setActiveNav: (arg: ActiveNav) => void;
 }
 
 interface LeftNavigationState {
@@ -52,7 +52,7 @@ class LeftNavigation extends Component<
     this.setState({ visible: !this.state.visible });
   };
 
-  hide = () => {
+  hide = (): void => {
     this.setState({ visible: false });
   };
 

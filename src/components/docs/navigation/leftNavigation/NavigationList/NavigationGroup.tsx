@@ -28,12 +28,12 @@ interface NavigationGroupProps {
   topics: DocsNavigationTopic[];
   items: DocsManifestItem[];
   content: DocsContentItem;
-  setActiveNav: Function;
-  isLinkActive: Function;
-  getPathLink: Function;
+  setActiveNav: (arg: ActiveNav) => void;
+  isLinkActive: ({ id, type }: { id: string; type: string }) => boolean;
+  getPathLink: (props: ActiveNav) => string;
   activeNav: ActiveNav;
   activeNodes: ScrollSpyActiveNodes;
-  hideNavIfShouldOnMobile: Function;
+  hideNavIfShouldOnMobile: (value: boolean) => void;
 }
 
 const NavigationGroup: React.FunctionComponent<NavigationGroupProps> = ({
@@ -48,7 +48,6 @@ const NavigationGroup: React.FunctionComponent<NavigationGroupProps> = ({
   activeNav,
   activeNodes,
   hideNavIfShouldOnMobile,
-  ...otherProps
 }) => {
   const renderArrow = (item: DocsManifestItem) => (
     <NavigationSectionArrow
@@ -111,7 +110,7 @@ const NavigationGroup: React.FunctionComponent<NavigationGroupProps> = ({
   return (
     <NavigationGroupContainer>
       {title && <NavigationHeader>{title}</NavigationHeader>}
-      <NavigationItems showAll>
+      <NavigationItems showAll={true}>
         {items && items.map(item => renderNavigationItem(item))}
       </NavigationItems>
     </NavigationGroupContainer>
