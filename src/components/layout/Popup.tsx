@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import styled, { css } from "@styled";
 
-import { PopupState } from "@common/state";
+import PopupState from "@common/state/usePopup";
 
 interface PopupWrapperProps {
   visible?: boolean;

@@ -12,4 +12,4 @@ The following diagram illustrates the authorization and authentication flow in K
 4. The Proxy sends the attributes record to the Kubernetes Authorization API. If the authorization fails, the flow ends with a `403` code response.
 5. If the authorization succeeds, the request is forwarded to the Kubernetes API Server.  
 
->**NOTE:** The Authorization Proxy can verify JWT tokens issued by Dex because Dex is registered as a trusted issuer through OIDC parameters during the Kyma installation.  
+>**NOTE:** The Authorization Proxy can verify JWT tokens issued by Dex because Dex is registered as a trusted issuer through OIDC parameters during the Kyma installation.

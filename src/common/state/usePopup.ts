@@ -1,11 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import createContainer from "constate";
 import { useTimeout } from "rooks";
 
 const popupTimeout = 1500;
 
-export const usePopup = () => {
+const usePopup = () => {
   const [popup, setPopupText] = useState<any>(null);
-  const [popupVisible, setPopupVisible] = useState(false);
+  const [popupVisible, setPopupVisible] = useState<boolean>(false);
 
   const { start, clear } = useTimeout(() => {
     setPopupVisible && setPopupVisible(false);
@@ -26,3 +27,5 @@ export const usePopup = () => {
 
   return { popup, setPopup, popupVisible, onDismissPopup };
 };
+
+export default createContainer(usePopup);
