@@ -26,12 +26,12 @@ The highlights of Kyma 0.8 Edmonton include:
 
 See the overview of all changes in this release:
 
-- [Application Connector](#application-connector) - information endpoint, certificate signing, certificate renewal, certificate revocation
+- [Application Connector](#application-connector) - information endpoint, certificate signing, certificate renewal, certificate revocation, Proxy Service renaming
 - [Asset Store](#asset-store) - New cluster-wide resources added, package filtering, monitoring of Minio
 - [Backup and Restore](#backup-and-restore) - Backup and restore feature added, E2E tests for backup and restore
 - [Console](#console) - All views use SAP Fiori Fundamentals, support for system Namespaces, creating bindings for users, Catalog view improvements
 - [Eventing](#eventing) - Consuming events served by Knative Eventing
-- [Installation](#installation) - xip.io as the default DNS solution, removed Minikube constraint, Kubernetes upgared to 1.12
+- [Installation](#installation) - xip.io as the default DNS solution, removed Minikube constraint, Kubernetes upgraded to 1.12
 - [Logging](#logging) - Replaced OK Log with Loki
 - [Security](#security) - New `kyma-developer role`, shorter ID token TTL, support for kubectl `exec` command
 - [Serverless](#serverless) - Logging of function's source code before execution
@@ -48,7 +48,11 @@ The new `GetInfo` endpoint returns information about the cluster. Use it to get 
 
 ### Certificate management
 
-We added new functionality centered around certificate management, such as signing certificates for Applications and Kyma clusters, renewing certificates, and certificate revocation.
+We added new functionality centered around certificate management, such as signing certificates for Applications and Kyma clusters, [renewing certificates](/docs/0.8/components/application-connector/#tutorials-renew-the-client-certificate), and [certificate revocation](/docs/0.8/components/application-connector/#tutorials-revoke-the-client-certificate).
+
+### Proxy Service renaming
+
+We renamed the Proxy Service to Application Gateway.
 
 
 ## Asset Store
@@ -186,15 +190,21 @@ We refactored the backend of the website to improve the speed of future implemen
 ### Bugfixes
 
 We fixed multiple smaller bugs, including a particularly annoying one that caused the horizontal scroll bar to overlap the code in code snippet fields.
+![Scroll bar](./scroll_bar_bug.png)
 
 ### New features
 
 - Copy button for code snippets
+![Copy button](./copy_button.png)
 
 - New tabs layout suitable for displaying instructions in different versions
+![Tabs layout](./tabs_layout.png)
 
 - New panel types help differentiate between notes, caution indicators, and tips
+![Panels](./panels.png)
 
 - A special icon indicates that clicking a link takes you outside of the website and opens a new tab
+![External link icon](./link_icon.png)
 
 - The new section on the main page introduces Kyma early adopters that agreed to be mentioned on the website
+![Early adopters section](./early_adopters.png)
