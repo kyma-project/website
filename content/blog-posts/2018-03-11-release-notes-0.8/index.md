@@ -10,14 +10,14 @@ redirectFrom:
   - "/blog/release-notes-08"
 ---
 
-The 0.8 release is packed with new features and improvements that bring your experience to a new level. The Kyma-Knative integration continues, making it now possible to both publish and consume Events using Knative Eventing. You can now back up a Kyma cluster manually or schedule periodic backups. Deploying Kyma on clusters became much easier with the integration of the xip.io wildcard DNS. The Minikube version constraint is removed, allowing you to use any compatible Minikube version. The Application Connector got even more powerful with certificate signing, renewal, and revocation, as well as a brand new information endpoint. Other significant improvements include replacing OK Log with Grafana Loki, switching all Console views to SAP Fiori Fundamentals, and the introduction of the **kyma-developer** role.  
+The 0.8 release is packed with new features and improvements that bring your experience to a new level. The Kyma-Knative integration continues, making it now possible to both publish and consume Events using Knative Eventing. You can now back up a Kyma cluster manually or schedule periodic backups. Deploying Kyma on clusters became much easier with the integration of the `xip.io` wildcard DNS. The Minikube version constraint is removed, allowing you to use any compatible Minikube version. The Application Connector got even more powerful with certificate signing, renewal, and revocation, as well as a brand new information endpoint. Other significant improvements include replacing OK Log with Grafana Loki, switching all Console views to SAP Fiori Fundamentals, and the introduction of the **kyma-developer** role.  
 <!-- overview -->
 
 The highlights of Kyma 0.8 Edmonton include:
 
 - [Consuming Events with Knative](#consuming-events-served-by-knative-eventing) - We enabled Event consumption using Knative Eventing.
 - [Backup](#backup) - We introduced a backup and restore feature to Kyma.
-- [Deploying Kyma with xip.io wildcard DNS](#xip-io-as-default-dns-solution) - We made wildcard DNS provided by xip.io the default DNS solution for cluster deployments.
+- [Deploying Kyma with the `xip.io` wildcard DNS](#xip-io-as-default-dns-solution) - We made the wildcard DNS provided by `xip.io` the default DNS solution for cluster deployments.
 - [Removing Minikube constraint](#removed-minikube-constraint) - We removed the Minikube version constraint that forced users to use the same version as Kyma sources.
 - [Information endpoint](#information-endpoint) and [certificate management](#certificate-management) make the Application Connector even more powerful.
 - [Replacing OK Log with Loki](#ok-log-replaced-with-loki) - We switched our old logging solution to Loki, which is lightweight, actively maintained, and integrated with Grafana.
@@ -31,11 +31,11 @@ See the overview of all changes in this release:
 - [Backup and Restore](#backup-and-restore) - Backup and restore feature added, E2E tests for backup and restore
 - [Console](#console) - All views use SAP Fiori Fundamentals, support for system Namespaces, creating bindings for users, Catalog view improvements
 - [Eventing](#eventing) - Consuming Events served by Knative Eventing
-- [Installation](#installation) - xip.io as the default DNS solution, removed Minikube constraint, Kubernetes upgraded to 1.12
+- [Installation](#installation) - `xip.io` as the default DNS solution, removed the Minikube constraint, Kubernetes upgraded to 1.12
 - [Logging](#logging) - Replaced OK Log with Loki
 - [Security](#security) - New **kyma-developer** role, shorter ID token TTL, support for the kubectl `exec` command
 - [Serverless](#serverless) - Logging of function's source code before execution
-- [Service Catalog](#service-catalog) - Defining the URLs of the repositories that hold your bundles in the Helm Broker
+- [Service Catalog](#service-catalog) - Defining the URLs of the repositories that hold your bundles in the Helm Broker at runtime
 - [kyma-project.io](#kyma-project-io) - Backend refactoring, bugfixes, infomation panels, new tab layout, new external link icon
 
 ---
@@ -59,7 +59,7 @@ We renamed the Proxy Service to Application Gateway.
 
 ### New cluster-wide resources added
 
-We added 2 new cluster-wide resources, ClusterAsset and ClusterBucket. These resources allow you to fully use the Asset Store and build solutions using it. Read [this document](/docs/0.8/components/asset-store/#custom-resource-clusterasset) for more information.
+We added two new cluster-wide resources, ClusterAsset and ClusterBucket. These resources allow you to fully use the Asset Store and build solutions using it. Read [this document](/docs/0.8/components/asset-store/#custom-resource-clusterasset) for more information.
 
 ### Package filtering
 
@@ -113,7 +113,7 @@ Some Service Classes can be provisioned only once in a given Namespace. They are
 
 - OData rendering
 
-Kyma allows you to register not only REST APIs but also OData APIs. The Console now supports both OpenAPI and OData spec rendering. We developed a new component and integrated it in the Service Catalog views to support this use case. Currently, we support OData v2, v3, and v4. We support only XML as the input data format and we transform older OData versions to v4.
+Kyma allows you to register not only REST APIs but also OData APIs. The Console now supports both OpenAPI and OData spec rendering. We developed a new component and integrated it in the Service Catalog views to support this use case. Currently, we support OData v2, v3, and v4. We support only `XML` as the input data format and we transform older OData versions to v4.
 
 ![OData spec](./odata.png)
 
@@ -137,7 +137,7 @@ Only Event Bus applications can connect to NATS Streaming using client authentic
 
 ### Xip.io wildcard as the default DNS solution
 
-The wildcard DNS provided by xip.io is integrated as the default DNS solution, which means you can now install Kyma on GKE and AKS clusters and create a playground environment even easier. Simply start the installation on your cluster and don't worry about owning a domain or configuring your cluster in a specific way. If you want to spin up a production-ready cluster, the process doesn't change. When you provide your own domain and TLS certificates, the Installer uses them instead of these provided by xip.io. Additionally, all scenarios support Application Connectivity.
+The wildcard DNS provided by `xip.io` is integrated as the default DNS solution, which means you can now install Kyma on GKE and AKS clusters and create a playground environment even easier. Simply start the installation on your cluster and don't worry about owning a domain or configuring your cluster in a specific way. If you want to spin up a production-ready cluster, the process doesn't change. When you provide your own domain and TLS certificates, the Installer uses them instead of these provided by `xip.io`. Additionally, all scenarios support Application Connectivity.
 
 ### Removed the Minikube version constraint
 
@@ -182,7 +182,7 @@ Functions are logging their source code and `package.json` content before they a
 
 ### Definie the URLs of the repositories that hold your bundles in the Helm Broker
 
-You can now instantly update the URLs of bundles' repositories in the Helm Broker, no need to restart. For more information, read [this](/docs/0.8/components/helm-broker#configuration-configure-helm-broker-add-a-new-bundle-repository) document.
+You can now instantly update the URLs of your bundles repositories in the Helm Broker, with no need to restart. For more information, read [this](/docs/0.8/components/helm-broker#configuration-configure-helm-broker-add-a-new-bundle-repository) document.
 
 
 ## kyma-project.io
