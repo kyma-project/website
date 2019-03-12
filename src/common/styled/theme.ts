@@ -18,6 +18,8 @@ interface Colors {
   border: {
     primary: string;
     secondary: string;
+    tertiary: string;
+    quaternary: string;
   };
 }
 
@@ -119,6 +121,8 @@ const lightTheme: Theme = {
     border: {
       primary: "#0073e6",
       secondary: "#fff",
+      tertiary: "#49C7A0",
+      quaternary: "#DD0000",
     },
   },
 };
