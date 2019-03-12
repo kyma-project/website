@@ -111,9 +111,9 @@ Some Service Classes can be provisioned only once in a given Namespace. They are
 
 ![Provision only once classes](./provision_once.png)
 
-- OData rendering
+- OData specification rendering
 
-Kyma allows you to register not only REST APIs but also OData APIs. The Console now supports both OpenAPI and OData spec rendering. We developed a new component and integrated it in the Service Catalog views to support this use case. Currently, we support OData v2, v3, and v4. We support only `XML` as the input data format and we transform older OData versions to v4.
+Kyma allows you to register REST APIs as well as OData APIs. The Console now supports not only OpenAPI but also OData spec rendering. We developed a new component and integrated it in the Service Catalog views to support this use case. Currently, we support OData v2, v3, and v4. We support only `XML` as the input data format and we transform older OData versions to v4.
 
 ![OData spec](./odata.png)
 
@@ -200,19 +200,15 @@ We fixed multiple smaller bugs, including a particularly annoying one that cause
 ### New features
 
 - Copy button for code snippets
-
 ![Copy button](./copy_button.png)
 
 - New tabs layout suitable for displaying instructions in different versions
-
 ![Tabs layout](./tabs_layout.png)
 
 - New panel types help differentiate between notes, caution indicators, and tips
-
 ![Panels](./panels.png)
 
 - A special icon indicates that clicking a link takes you outside of the website and opens a new tab
-
 ![External link icon](./link_icon.png)
 
 - The new section on the main page introduces Kyma early adopters that agreed to be mentioned on the website
