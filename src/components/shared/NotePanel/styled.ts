@@ -24,9 +24,6 @@ export const NotePanelWrapper = styled.blockquote`
   margin-left: 0;
   margin-right: 0;
   padding: 16px;
-  & > div > p > strong:first-child {
-    color: ${(props: NotePanelProps) => getColorFromType(props)};
-  }
   border-left: 3px solid ${(props: NotePanelProps) => getColorFromType(props)};
 `;
 
