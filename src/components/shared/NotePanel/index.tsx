@@ -1,16 +1,19 @@
 import React from "react";
 
-import { PanelWrapper, PanelContent } from "./styled";
+import { NotePanelWrapper, NotePanelContent } from "./styled";
 
-export type PanelPropsType = "note" | "tip" | "caution" | undefined;
-export interface PanelProps {
-  type: PanelPropsType;
+export type NotePanelPropsType = "note" | "tip" | "caution" | undefined;
+export interface NotePanelProps {
+  type: NotePanelPropsType;
 }
 
-const NotePanel: React.FunctionComponent<PanelProps> = ({ type, children }) => (
-  <PanelWrapper type={type}>
-    <PanelContent>{children}</PanelContent>
-  </PanelWrapper>
+const NotePanel: React.FunctionComponent<NotePanelProps> = ({
+  type,
+  children,
+}) => (
+  <NotePanelWrapper type={type}>
+    <NotePanelContent>{children}</NotePanelContent>
+  </NotePanelWrapper>
 );
 
 export default NotePanel;

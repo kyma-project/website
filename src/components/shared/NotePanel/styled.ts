@@ -1,7 +1,7 @@
 import styled, { css } from "@styled";
-import { PanelProps } from "./index";
+import { NotePanelProps } from "./index";
 
-const getColorFromType = (props: PanelProps) => {
+const getColorFromType = (props: NotePanelProps) => {
   switch (props.type) {
     case "note":
       return css`
@@ -20,16 +20,16 @@ const getColorFromType = (props: PanelProps) => {
   }
 };
 
-export const PanelWrapper = styled.blockquote`
+export const NotePanelWrapper = styled.blockquote`
   margin-left: 0;
   margin-right: 0;
   padding: 16px;
   & > div > p > strong:first-child {
-    color: ${(props: PanelProps) => getColorFromType(props)};
+    color: ${(props: NotePanelProps) => getColorFromType(props)};
   }
-  border-left: 3px solid ${(props: PanelProps) => getColorFromType(props)};
+  border-left: 3px solid ${(props: NotePanelProps) => getColorFromType(props)};
 `;
 
-export const PanelContent = styled.div`
+export const NotePanelContent = styled.div`
   display: inline-block;
 `;

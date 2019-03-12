@@ -1,8 +1,8 @@
 import React from "react";
-import NotePanel, { PanelPropsType } from "@components/shared/NotePanel";
+import NotePanel, { NotePanelPropsType } from "@components/shared/NotePanel";
 
 export const BlockQuote: React.FunctionComponent = ({ children }) => {
-  const getPanelType = (child: any): PanelPropsType => {
+  const getPanelType = (child: any): NotePanelPropsType => {
     const type =
       child &&
       child.props &&
