@@ -16,9 +16,9 @@ The 0.8 release is packed with new features and improvements that bring your exp
 The highlights of Kyma 0.8 Edmonton include:
 
 - [Consuming Events with Knative](#consuming-events-served-by-knative-eventing) - We enabled Event consumption using Knative Eventing.
-- [Backup](#backup) - We introduced a backup and restore feature to Kyma.
-- [Deploying Kyma with the `xip.io` wildcard DNS](#xip-io-as-default-dns-solution) - We made the wildcard DNS provided by `xip.io` the default DNS solution for cluster deployments.
-- [Removing Minikube constraint](#removed-minikube-constraint) - We removed the Minikube version constraint that forced users to use the same version as Kyma sources.
+- [Backup](#backup-and-restore-feature-added) - We introduced a backup and restore feature to Kyma.
+- [Deploying Kyma with the `xip.io` wildcard DNS](#xipio-wildcard-as-the-default-dns-solution) - We made the wildcard DNS provided by `xip.io` the default DNS solution for cluster deployments.
+- [Removing Minikube constraint](#removed-the-minikube-version-constraint) - We removed the Minikube version constraint that forced users to use the same version as Kyma sources.
 - [Information endpoint](#information-endpoint) and [certificate management](#certificate-management) make the Application Connector even more powerful.
 - [Replacing OK Log with Loki](#ok-log-replaced-with-loki) - We switched our old logging solution to Loki, which is lightweight, actively maintained, and integrated with Grafana.
 - [Adding a new kyma-developer role](#kyma-developer-role) - We added a new **kyma-developer** role which is suited for developers working with Kyma clusters.
@@ -36,7 +36,7 @@ See the overview of all changes in this release:
 - [Security](#security) - New **kyma-developer** role, shorter ID token TTL, support for the kubectl `exec` command
 - [Serverless](#serverless) - Logging of function's source code before execution
 - [Service Catalog](#service-catalog) - Defining the URLs of the repositories that hold your bundles in the Helm Broker at runtime
-- [kyma-project.io](#kyma-project-io) - Backend refactoring, bugfixes, infomation panels, new tab layout, new external link icon
+- [kyma-project.io](#kyma-project-io) - Backend refactoring, bugfixes, information panels, new tab layout, new external link icon
 
 ---
 
@@ -180,7 +180,7 @@ Functions are logging their source code and `package.json` content before they a
 
 ## Service Catalog
 
-### Definie the URLs of the repositories that hold your bundles in the Helm Broker
+### Define the URLs of the repositories that hold your bundles in the Helm Broker
 
 You can now instantly update the URLs of your bundles repositories in the Helm Broker, with no need to restart. For more information, read [this](/docs/0.8/components/helm-broker#configuration-configure-helm-broker-add-a-new-bundle-repository) document.
 
