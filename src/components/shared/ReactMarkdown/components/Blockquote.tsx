@@ -16,14 +16,11 @@ export const BlockQuote: React.FunctionComponent = ({ children }) => {
   };
 
   const createPanels = (elem: any) =>
-    elem.map((child: any, index: number) => {
-      const typeOfPanel = getPanelType(child);
-      return (
-        <NotePanel type={typeOfPanel} key={index}>
-          {child}
-        </NotePanel>
-      );
-    });
+    elem.map((child: any, index: number) => (
+      <NotePanel type={getPanelType(child)} key={index}>
+        {child}
+      </NotePanel>
+    ));
 
   return children ? <>{createPanels(children)}</> : null;
 };
