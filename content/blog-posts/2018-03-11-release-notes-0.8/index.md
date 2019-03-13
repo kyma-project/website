@@ -29,7 +29,7 @@ See the overview of all changes in this release:
 - [Application Connector](#application-connector) - Information endpoint, certificate signing, certificate renewal, certificate revocation, Proxy Service renaming
 - [Asset Store](#asset-store) - New cluster-wide resources added, package filtering, Minio monitoring
 - [Backup and Restore](#backup-and-restore) - Backup and restore feature added, E2E tests for backup and restore
-- [Console](#console) - All views use SAP Fiori Fundamentals, support for system Namespaces, creating bindings for users, Catalog view improvements
+- [Console](#console) - All views use SAP Fiori Fundamentals, support for system Namespaces, creating bindings for users, OData spec rendering and "provision only once" classes in the Catalog view
 - [Eventing](#eventing) - Consuming Events served by Knative Eventing
 - [Installation](#installation) - `xip.io` as the default DNS solution, removed the Minikube constraint, Kubernetes upgraded to 1.12
 - [Logging](#logging) - Replaced OK Log with Loki
