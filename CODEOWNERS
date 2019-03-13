@@ -1,8 +1,8 @@
-* @akucharska @michal-hudy @pkosiec @mjasinski5 @aerfio @derberg @tgorgol @magicmatatjahu 
+* @akucharska @michal-hudy @pkosiec @mjasinski5 @aerfio @derberg @tgorgol @magicmatatjahu
 
-/content/docs/fix-links.json @kazydek @klaudiagrz @tomekpapiernik @bszwarc
-/content/blog-posts @kazydek @klaudiagrz @tomekpapiernik @bszwarc
-/content/i18n/en @kazydek @klaudiagrz @tomekpapiernik @bszwarc
-/content/banner/events.yml @kazydek @klaudiagrz @tomekpapiernik @bszwarc
+/content/docs/fix-links.json @kazydek @klaudiagrz @tomekpapiernik @bszwarc @mmitoraj
+/content/blog-posts @kazydek @klaudiagrz @tomekpapiernik @bszwarc @mmitoraj
+/content/i18n/en @kazydek @klaudiagrz @tomekpapiernik @bszwarc @mmitoraj
+/content/banner/events.yml @kazydek @klaudiagrz @tomekpapiernik @bszwarc @mmitoraj
 
-*.md @kazydek @klaudiagrz @tomekpapiernik @bszwarc
+*.md @kazydek @klaudiagrz @tomekpapiernik @bszwarc @mmitoraj
