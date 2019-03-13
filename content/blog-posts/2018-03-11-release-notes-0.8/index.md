@@ -36,7 +36,7 @@ See the overview of all changes in this release:
 - [Security](#security) - New **kyma-developer** role, shorter ID token TTL, support for the kubectl `exec` command
 - [Serverless](#serverless) - Logging of function's source code before execution
 - [Service Catalog](#service-catalog) - Defining the URLs of the repositories that hold your bundles in the Helm Broker at runtime
-- [kyma-project.io](#kyma-project-io) - Backend refactoring, bugfixes, new tab layout, new external link icon
+- [kyma-project.io](#kyma-project-io) - Backend refactoring, bugfixes, new tab layout, information panels, new external link icon
 
 ---
 
@@ -204,6 +204,9 @@ We fixed multiple smaller bugs, including a particularly annoying one that cause
 
 - New tabs layout suitable for displaying instructions in different versions
 ![Tabs layout](./tabs_layout.png)
+
+- New panel types help differentiate between notes, caution indicators, and tips
+![Panels](./panels.png)
 
 - A special icon indicates that clicking a link takes you outside of the website and opens a new tab
 ![External link icon](./link_icon.png)
