@@ -17,7 +17,6 @@ The highlights of Kyma 0.8 Edmonton include:
 
 - [Consuming Events with Knative](#consuming-events-served-by-knative-eventing) - We enabled Event consumption using Knative Eventing.
 - [Backup](#backup-and-restore-feature-added) - We introduced a backup and restore feature to Kyma.
-- [Deploying Kyma with the `xip.io` wildcard DNS](#xipio-wildcard-as-the-default-dns-solution) - We made the wildcard DNS provided by `xip.io` the default DNS solution for cluster deployments.
 - [Removing Minikube constraint](#removed-the-minikube-version-constraint) - We removed the Minikube version constraint that forced users to use the same version as Kyma sources.
 - [Information endpoint](#information-endpoint) and [certificate management](#certificate-management) make the Application Connector even more powerful.
 - [Replacing OK Log with Loki](#ok-log-replaced-with-loki) - We switched our old logging solution to Loki, which is lightweight, actively maintained, and integrated with Grafana.
