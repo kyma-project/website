@@ -10,7 +10,7 @@ redirectFrom:
   - "/blog/release-notes-08"
 ---
 
-The 0.8 release is packed with new features and improvements that bring your experience to a new level. The Kyma-Knative integration continues, making it now possible to both publish and consume Events using Knative Eventing. You can now back up a Kyma cluster manually or schedule periodic backups. Deploying Kyma on clusters became much easier with the integration of the `xip.io` wildcard DNS. The Minikube version constraint is removed, allowing you to use any compatible Minikube version. The Application Connector got even more powerful with certificate signing, renewal, and revocation, as well as a brand new information endpoint. Other significant improvements include replacing OK Log with Grafana Loki, switching all Console views to SAP Fiori Fundamentals, and the introduction of the **kyma-developer** role.  
+The 0.8 release is packed with new features and improvements that bring your experience to a new level. The Kyma-Knative integration continues, making it now possible to both publish and consume Events using Knative Eventing. You can now back up a Kyma cluster manually or schedule periodic backups. The Minikube version constraint is removed, allowing you to use any compatible Minikube version. The Application Connector got even more powerful with certificate signing, renewal, and revocation, as well as a brand new information endpoint. Other significant improvements include replacing OK Log with Grafana Loki, switching all Console views to SAP Fiori Fundamentals, and the introduction of the **kyma-developer** role.  
 <!-- overview -->
 
 The highlights of Kyma 0.8 Edmonton include:
@@ -31,7 +31,7 @@ See the overview of all changes in this release:
 - [Backup and Restore](#backup-and-restore) - Backup and restore feature added, E2E tests for backup and restore
 - [Console](#console) - All views use SAP Fiori Fundamentals, support for system Namespaces, creating bindings for users, OData spec rendering and "provision only once" classes in the Catalog view
 - [Eventing](#eventing) - Consuming Events served by Knative Eventing
-- [Installation](#installation) - `xip.io` as the default DNS solution, removed the Minikube constraint, Kubernetes upgraded to 1.12
+- [Installation](#installation) - Removed the Minikube version constraint, Kubernetes upgraded to 1.12
 - [Logging](#logging) - Replaced OK Log with Loki
 - [Security](#security) - New **kyma-developer** role, shorter ID token TTL, support for the kubectl `exec` command
 - [Serverless](#serverless) - Logging of function's source code before execution
@@ -134,10 +134,6 @@ Only Event Bus applications can connect to NATS Streaming using client authentic
 
 
 ## Installation
-
-### Xip.io wildcard as the default DNS solution
-
-The wildcard DNS provided by `xip.io` is integrated as the default DNS solution, which means you can now install Kyma on GKE and AKS clusters and create a playground environment even easier. Simply start the installation on your cluster and don't worry about owning a domain or configuring your cluster in a specific way. If you want to spin up a production-ready cluster, the process doesn't change. When you provide your own domain and TLS certificates, the Installer uses them instead of these provided by `xip.io`. Additionally, all scenarios support Application Connectivity.
 
 ### Removed the Minikube version constraint
 
