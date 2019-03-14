@@ -20,6 +20,14 @@ export interface PostPageContext {
 export interface PostFields {
   slug: string;
   date: string;
+  postInfo: PostFieldsInfo;
+}
+
+export interface PostFieldsInfo {
+  year: string;
+  month: string;
+  day: string;
+  fileName: string;
 }
 
 /* Post Metadata */

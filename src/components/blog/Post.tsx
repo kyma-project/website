@@ -24,7 +24,7 @@ interface PostProps extends PostPageContext {
 const Post: React.FunctionComponent<PostProps> = ({
   metadata: { title, author, tags = [] },
   metadata,
-  fields: { slug, date },
+  fields: { slug, postInfo },
   markdown,
   assetsPath = "",
   previous,
@@ -32,7 +32,7 @@ const Post: React.FunctionComponent<PostProps> = ({
   readMore = false,
 }) => (
   <PostWrapper>
-    <PostHeader title={title} author={author} date={date} path={slug} />
+    <PostHeader title={title} author={author} path={slug} postInfo={postInfo} />
     <PostContentWrapper>
       <PostContent
         markdown={markdown}

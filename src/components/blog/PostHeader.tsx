@@ -3,27 +3,37 @@ import React from "react";
 import Link from "@components/shared/Link";
 import H from "@components/shared/H";
 
-import { FormattedMessage, getTranslation } from "@common/i18n";
+import {
+  FormattedMessage,
+  getTranslation,
+  injectIntl,
+  IntlInterface,
+} from "@common/i18n";
 
-import { PostMetaDataAuthor } from "./types";
+import { PostMetaDataAuthor, PostFieldsInfo } from "./types";
 
 import { PostHeaderWrapper, PostMetadata } from "./styled";
 
 interface PostHeaderProps {
   title: string;
   author: PostMetaDataAuthor;
-  date: string;
+  postInfo: PostFieldsInfo;
   path: string;
 }
 
 const gt = getTranslation("blog");
 
-const PostHeader: React.FunctionComponent<PostHeaderProps> = ({
+const PostHeader: React.FunctionComponent<PostHeaderProps & IntlInterface> = ({
   title,
   author: { name },
-  date,
+  postInfo: { year, month, day },
   path,
+  formatMessage,
 }) => {
+  const date = `${formatMessage({
+    id: `months.${month}.name`,
+  })} ${day}, ${year}`;
+
   const metadata = (
     <FormattedMessage
       id={gt("postMetadata")}
@@ -44,4 +54,4 @@ const PostHeader: React.FunctionComponent<PostHeaderProps> = ({
   );
 };
 
-export default PostHeader;
+export default injectIntl("utils")(PostHeader);
