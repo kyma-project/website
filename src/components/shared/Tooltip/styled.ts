@@ -39,7 +39,7 @@ export const TooltipContainer = styled.div`
         case "bottom":
           return `transparent transparent #0077e1`;
         default:
-          `transparent transparent #0077e1`;
+          return `transparent transparent #0077e1`;
       }
     }};
     right: 50%;

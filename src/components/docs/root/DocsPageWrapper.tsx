@@ -1,5 +1,4 @@
 import React from "react";
-// @ts-ignore
 import { StickyContainer, Sticky } from "react-sticky";
 
 import Grid from "@styled/Grid";

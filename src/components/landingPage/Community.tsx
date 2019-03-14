@@ -39,7 +39,7 @@ const Community: React.FunctionComponent = () => {
   return (
     <CommunityWrapper>
       <Grid.Container as="section">
-        <Grid.Row space>
+        <Grid.Row space={true}>
           <Grid.Unit df={6} lg={6} md={12}>
             <CommunitySvgWrapper>
               <CommunitySvg />
@@ -58,8 +58,8 @@ const Community: React.FunctionComponent = () => {
                 sigLink: (
                   <Link.External
                     to={config.links.SIG_LINK}
-                    underline
-                    externalIcon
+                    underline={true}
+                    externalIcon={true}
                   >
                     <FormattedMessage id={gt("sigLink")} />
                   </Link.External>

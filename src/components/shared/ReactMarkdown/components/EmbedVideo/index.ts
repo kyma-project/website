@@ -38,7 +38,9 @@ export default (value: string) => {
 
     const video = embedVideoHTML(type, id, options);
 
-    if (video.includes("Error")) return null;
+    if (video.includes("Error")) {
+      return null;
+    }
     return video;
   }
   return null;

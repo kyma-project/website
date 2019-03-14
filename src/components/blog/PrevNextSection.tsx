@@ -24,39 +24,37 @@ interface PrevNextSectionProps {
 const PrevNextSection: React.FunctionComponent<PrevNextSectionProps> = ({
   previous,
   next,
-}) => {
-  return (
-    <PrevNextSectionWrapper>
-      <Grid.Row>
-        {previous && (
-          <Grid.Unit df={next ? 6 : 12} sm={12}>
-            <PrevWrapper>
-              <Link.Internal to={previous.fields.slug}>
-                <Icon iconName="arrow-left" iconPrefix="fas" />
-                <FormattedMessage id="blog.previousPostButton" />
-                <PrevNextSectionPostTitle>
-                  {previous.frontmatter.title}
-                </PrevNextSectionPostTitle>
-              </Link.Internal>
-            </PrevWrapper>
-          </Grid.Unit>
-        )}
-        {next && (
-          <Grid.Unit df={previous ? 6 : 12} sm={12}>
-            <NextWrapper>
-              <Link.Internal to={next.fields.slug}>
-                <FormattedMessage id="blog.nextPostButton" />
-                <Icon iconName="arrow-right" iconPrefix="fas" />
-                <PrevNextSectionPostTitle>
-                  {next.frontmatter.title}
-                </PrevNextSectionPostTitle>
-              </Link.Internal>
-            </NextWrapper>
-          </Grid.Unit>
-        )}
-      </Grid.Row>
-    </PrevNextSectionWrapper>
-  );
-};
+}) => (
+  <PrevNextSectionWrapper>
+    <Grid.Row>
+      {previous && (
+        <Grid.Unit df={next ? 6 : 12} sm={12}>
+          <PrevWrapper>
+            <Link.Internal to={previous.fields.slug}>
+              <Icon iconName="arrow-left" iconPrefix="fas" />
+              <FormattedMessage id="blog.previousPostButton" />
+              <PrevNextSectionPostTitle>
+                {previous.frontmatter.title}
+              </PrevNextSectionPostTitle>
+            </Link.Internal>
+          </PrevWrapper>
+        </Grid.Unit>
+      )}
+      {next && (
+        <Grid.Unit df={previous ? 6 : 12} sm={12}>
+          <NextWrapper>
+            <Link.Internal to={next.fields.slug}>
+              <FormattedMessage id="blog.nextPostButton" />
+              <Icon iconName="arrow-right" iconPrefix="fas" />
+              <PrevNextSectionPostTitle>
+                {next.frontmatter.title}
+              </PrevNextSectionPostTitle>
+            </Link.Internal>
+          </NextWrapper>
+        </Grid.Unit>
+      )}
+    </Grid.Row>
+  </PrevNextSectionWrapper>
+);
 
 export default PrevNextSection;

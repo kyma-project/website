@@ -1,6 +1,6 @@
 import React from "react";
-import { Link, GatsbyLinkProps } from "gatsby";
-import { injectIntl, intlShape, InjectedIntlProps } from "react-intl";
+import { GatsbyLinkProps } from "gatsby";
+import { injectIntl, InjectedIntlProps } from "react-intl";
 
 import Icon from "@components/shared/Icon";
 
@@ -11,7 +11,9 @@ import {
   HashLink,
 } from "./styled";
 
-const i18nConfig = require("../../../../config").i18n;
+import config from "../../../../config.json";
+
+const i18nConfig = config.i18n;
 
 interface LinkProps extends GatsbyLinkProps<{}> {
   underline?: boolean;
@@ -26,21 +28,19 @@ const External: React.FunctionComponent<
   externalIcon = false,
   underline = false,
   onClick,
-}) => {
-  return (
-    <ExternalLink
-      href={to}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={className}
-      underline={underline ? "true" : "false"}
-      onClick={onClick}
-    >
-      {children}
-      {externalIcon && <Icon iconName="external-link-alt" iconPrefix="fas" />}
-    </ExternalLink>
-  );
-};
+}) => (
+  <ExternalLink
+    href={to}
+    target="_blank"
+    rel="noopener noreferrer"
+    className={className}
+    underline={underline ? "true" : "false"}
+    onClick={onClick}
+  >
+    {children}
+    {externalIcon && <Icon iconName="external-link-alt" iconPrefix="fas" />}
+  </ExternalLink>
+);
 
 const Internal: React.FunctionComponent<LinkProps & InjectedIntlProps> = ({
   to = "",
@@ -106,7 +106,7 @@ const Hash: React.FunctionComponent<LinkProps & { chainIcon?: boolean }> = ({
 };
 
 export default {
-  External: External,
+  External,
   Internal: injectIntl(Internal),
-  Hash: Hash,
+  Hash,
 };

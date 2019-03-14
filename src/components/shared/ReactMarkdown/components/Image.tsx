@@ -30,10 +30,14 @@ export const Image: React.FunctionComponent<ImageProps> = ({
     return "";
   };
 
-  if (!assetsPath) return null;
+  if (!assetsPath) {
+    return null;
+  }
 
   const assetName = getAssetName(src);
-  if (!assetName) return null;
+  if (!assetName) {
+    return null;
+  }
 
   return <StyledImage src={`${assetsPath}${assetName}`} alt={alt} />;
 };

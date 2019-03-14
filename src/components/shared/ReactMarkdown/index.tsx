@@ -4,6 +4,7 @@ import RM, { ReactMarkdownProps, NodeType } from "react-markdown";
 import parseHtml from "./parseHTML";
 
 import * as Components from "./components";
+import { removeBlankLinesFromTabsBlock } from "./helpers";
 
 type Renderers = { [key in NodeType | "parsedHtml"]: ReactType };
 
@@ -22,6 +23,8 @@ const ReactMarkdown: React.FunctionComponent<
   assetsPath = "",
   renderedFileName = "",
 }) => {
+  const processedSource = removeBlankLinesFromTabsBlock(source);
+
   const renderers: Renderers = {
     root: Components.Root,
     text: Components.Text,
@@ -64,7 +67,7 @@ const ReactMarkdown: React.FunctionComponent<
 
   return (
     <RM
-      source={source}
+      source={processedSource}
       escapeHtml={escapeHtml}
       renderers={renderers}
       astPlugins={[parseHtml]}

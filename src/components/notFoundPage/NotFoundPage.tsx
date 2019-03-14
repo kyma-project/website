@@ -9,29 +9,27 @@ import { FormattedMessage } from "@common/i18n";
 
 import { NotFoundPageWrapper } from "./styled";
 
-const NotFoundPage: React.FunctionComponent = () => {
-  return (
-    <NotFoundPageWrapper>
-      <Grid.Container>
-        <Grid.Row>
-          <Grid.Unit df={6} lg={6} md={12}>
-            <H as="h2">
-              <FormattedMessage id="404.headline" />
-            </H>
-            <div>
-              <Link.Internal to="/">
-                <FormattedMessage id="404.button">
-                  {headline => (
-                    <Button.Emphasized size="sm">{headline}</Button.Emphasized>
-                  )}
-                </FormattedMessage>
-              </Link.Internal>
-            </div>
-          </Grid.Unit>
-        </Grid.Row>
-      </Grid.Container>
-    </NotFoundPageWrapper>
-  );
-};
+const NotFoundPage: React.FunctionComponent = () => (
+  <NotFoundPageWrapper>
+    <Grid.Container>
+      <Grid.Row>
+        <Grid.Unit df={6} lg={6} md={12}>
+          <H as="h2">
+            <FormattedMessage id="404.headline" />
+          </H>
+          <div>
+            <Link.Internal to="/">
+              <FormattedMessage id="404.button">
+                {headline => (
+                  <Button.Emphasized size="sm">{headline}</Button.Emphasized>
+                )}
+              </FormattedMessage>
+            </Link.Internal>
+          </div>
+        </Grid.Unit>
+      </Grid.Row>
+    </Grid.Container>
+  </NotFoundPageWrapper>
+);
 
 export default NotFoundPage;

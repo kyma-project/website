@@ -24,7 +24,9 @@ export const InlineCode: React.FunctionComponent<InlineCodeProps> = ({
   children,
 }) => {
   let video = null;
-  if (value) video = embedVideo(value);
+  if (value) {
+    video = embedVideo(value);
+  }
 
   return video ? (
     <div dangerouslySetInnerHTML={{ __html: video }} />

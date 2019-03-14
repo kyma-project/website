@@ -52,7 +52,10 @@ const Footer: React.FunctionComponent = () => {
           values={{
             actualYear: getActualYear(),
             copyrightLink: (
-              <Link.External to={config.links.SAP_PRIVACY_LINK} externalIcon>
+              <Link.External
+                to={config.links.SAP_PRIVACY_LINK}
+                externalIcon={true}
+              >
                 <FormattedMessage id={gt("privacyStatement")} />
               </Link.External>
             ),

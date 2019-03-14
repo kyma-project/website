@@ -6,6 +6,4 @@ interface ParsedHTMLProps {
 
 export const ParsedHTML: React.FunctionComponent<ParsedHTMLProps> = ({
   element,
-}) => {
-  return <>{element}</>;
-};
+}) => <>{element}</>;

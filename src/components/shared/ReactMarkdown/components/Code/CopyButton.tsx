@@ -3,7 +3,7 @@ import styled from "@styled";
 
 import { CopyToClipboard } from "react-copy-to-clipboard";
 
-import { PopupState } from "@common/state";
+import PopupState from "@common/state/usePopup";
 import { injectIntl, IntlInterface } from "@common/i18n";
 
 import Icon from "@components/shared/Icon";

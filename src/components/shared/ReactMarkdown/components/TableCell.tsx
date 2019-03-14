@@ -48,10 +48,9 @@ export const TableCell: React.FunctionComponent<TableCellProps> = ({
   isHeader = false,
   align = "left",
   children,
-}) => {
-  return isHeader ? (
+}) =>
+  isHeader ? (
     <StyledTableHeaderCell align={align}>{children}</StyledTableHeaderCell>
   ) : (
     <StyledTableCell align={align}>{children}</StyledTableCell>
   );
-};

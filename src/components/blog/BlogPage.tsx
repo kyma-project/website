@@ -17,37 +17,33 @@ interface BlogPageProps {
   nodes: AllMarkdownRemarkNodePost[];
 }
 
-export const BlogPageWrapper: React.FunctionComponent = ({ children }) => {
-  return (
-    <Grid.Container>
-      <Grid.Row>
-        <Grid.Unit df={1} md={0} />
-        <Grid.Unit df={10} md={12}>
-          <Wrapper>{children}</Wrapper>
-        </Grid.Unit>
-        <Grid.Unit df={1} md={0} />
-      </Grid.Row>
-    </Grid.Container>
-  );
-};
+export const BlogPageWrapper: React.FunctionComponent = ({ children }) => (
+  <Grid.Container>
+    <Grid.Row>
+      <Grid.Unit df={1} md={0} />
+      <Grid.Unit df={10} md={12}>
+        <Wrapper>{children}</Wrapper>
+      </Grid.Unit>
+      <Grid.Unit df={1} md={0} />
+    </Grid.Row>
+  </Grid.Container>
+);
 
-const BlogPage: React.FunctionComponent<BlogPageProps> = ({ nodes }) => {
-  return (
-    <BlogPageWrapper>
-      {nodes.map((edge: AllMarkdownRemarkNodePost, index: number) => {
-        const post = edge.node;
-        return (
-          <PostPage
-            key={post.id}
-            metadata={post.frontmatter}
-            fields={post.fields}
-            markdown={post.excerpt || post.rawMarkdownBody}
-            readMore
-          />
-        );
-      })}
-    </BlogPageWrapper>
-  );
-};
+const BlogPage: React.FunctionComponent<BlogPageProps> = ({ nodes }) => (
+  <BlogPageWrapper>
+    {nodes.map((edge: AllMarkdownRemarkNodePost, index: number) => {
+      const post = edge.node;
+      return (
+        <PostPage
+          key={post.id}
+          metadata={post.frontmatter}
+          fields={post.fields}
+          markdown={post.excerpt || post.rawMarkdownBody}
+          readMore={true}
+        />
+      );
+    })}
+  </BlogPageWrapper>
+);
 
 export default BlogPage;

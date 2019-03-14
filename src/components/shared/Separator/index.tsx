@@ -1,7 +1,5 @@
 import styled from "@styled";
 
-interface HrProps {}
-
 export default styled.hr`
   height: 2px;
   object-fit: contain;

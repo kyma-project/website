@@ -23,7 +23,7 @@ const PostContent: React.FunctionComponent<PostContentProps> = ({
   metadata,
 }) => {
   if (metadata.type) {
-    if (metadata.type === PostTypeRelease)
+    if (metadata.type === PostTypeRelease) {
       return (
         <ReleaseTemplate
           markdown={markdown}
@@ -31,6 +31,7 @@ const PostContent: React.FunctionComponent<PostContentProps> = ({
           assetsPath={assetsPath}
         />
       );
+    }
   }
 
   return <DefaultTemplate markdown={markdown} assetsPath={assetsPath} />;

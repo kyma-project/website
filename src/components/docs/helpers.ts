@@ -11,7 +11,9 @@ export const getDocsPath = (
 ) => {
   const versionPathPart = version ? `${version}/` : "";
 
-  if (!content) return `/${DOCS_PATH_NAME}/${versionPathPart}`;
+  if (!content) {
+    return `/${DOCS_PATH_NAME}/${versionPathPart}`;
+  }
 
   const { id, type, hash } = content;
 
@@ -28,6 +30,4 @@ export const getDocsPathLink = (version: string) => (content: {
   id: string;
   type: string;
   hash: string;
-}) => {
-  return getDocsPath(version, content);
-};
+}) => getDocsPath(version, content);

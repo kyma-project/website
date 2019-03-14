@@ -1,9 +1,3 @@
 import React from "react";
 
-interface ImageReferenceProps {}
-
-export const ImageReference: React.FunctionComponent<
-  ImageReferenceProps
-> = () => {
-  return null;
-};
+export const ImageReference: React.FunctionComponent = () => null;

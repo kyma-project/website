@@ -1,8 +1,4 @@
 import * as styledComponents from "styled-components";
-import {
-  ThemedStyledComponentsModule,
-  ThemedStyledProps,
-} from "styled-components";
 
 import { Theme } from "./theme";
 import media from "./media";
@@ -14,9 +10,11 @@ const {
   keyframes,
   ThemeProvider,
   withTheme,
-} = (styledComponents as any) as ThemedStyledComponentsModule<Theme>;
+} = (styledComponents as any) as styledComponents.ThemedStyledComponentsModule<
+  Theme
+>;
 
-type ThemeProps<P> = ThemedStyledProps<P, Theme>;
+type ThemeProps<P> = styledComponents.ThemedStyledProps<P, Theme>;
 
 export {
   css,

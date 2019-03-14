@@ -5,6 +5,8 @@ import DocsPageWrapper from "./DocsPageWrapper";
 import DocsLeftNavigation from "@components/docs/navigation/leftNavigation/LeftNavigation";
 import DocsContent from "@components/docs/content/DocsContent.container";
 
+import ScrollSpy from "@common/state/useScrollSpy";
+
 import {
   DocsContentItem,
   DocsNavigationTopic,
@@ -13,7 +15,10 @@ import {
 } from "../types";
 import { ActiveNav } from "../navigation/types";
 
-import { MOBILE_DEVICES_BREAKPOINT } from "@common/constants";
+import {
+  DOCS_SCROLL_SPY_ROOT,
+  MOBILE_DEVICES_BREAKPOINT,
+} from "@common/constants";
 
 interface RootDocsProps {
   content: DocsContentItem;
@@ -21,7 +26,7 @@ interface RootDocsProps {
   version: string;
   versions: DocsVersions;
   manifest: DocsManifest;
-  changeDocsVersion: Function;
+  changeDocsVersion: () => void;
   assetsPath: string;
 }
 
@@ -52,7 +57,7 @@ class RootDocs extends Component<RootDocsProps, RootDocsState> {
 
     this.setState({
       activeNav: {
-        id: id,
+        id,
         type: "",
         hash: "",
       },
@@ -106,6 +111,16 @@ class RootDocs extends Component<RootDocsProps, RootDocsState> {
     } = this.props;
     const { activeNav } = this.state;
 
+    const scrollSpyProps = {
+      nodeTypes: ["groupOfDocuments", "document", "header"],
+      rootElement: `#${DOCS_SCROLL_SPY_ROOT}`,
+      offset: {
+        groupOfDocuments: 40,
+        document: 40,
+        header: 40,
+      },
+    };
+
     const leftNavigationComponent = (
       <DocsLeftNavigation
         ref={this.navSidebar}
@@ -130,10 +145,12 @@ class RootDocs extends Component<RootDocsProps, RootDocsState> {
     );
 
     return (
-      <DocsPageWrapper
-        content={contentComponent}
-        leftNavigation={leftNavigationComponent}
-      />
+      <ScrollSpy.Provider {...scrollSpyProps}>
+        <DocsPageWrapper
+          content={contentComponent}
+          leftNavigation={leftNavigationComponent}
+        />
+      </ScrollSpy.Provider>
     );
   }
 }

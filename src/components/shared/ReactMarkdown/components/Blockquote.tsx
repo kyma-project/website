@@ -1,16 +1,26 @@
 import React from "react";
-import styled from "@styled";
+import NotePanel, { NotePanelPropsType } from "@components/shared/NotePanel";
 
-const StyledBlockQuote = styled.blockquote`
-  margin-left: 0;
-  padding-left: 1.6rem;
-  border-left: 3px solid rgba(27, 31, 35, 0.2);
-`;
+export const BlockQuote: React.FunctionComponent = ({ children }) => {
+  const getPanelType = (child: any): NotePanelPropsType => {
+    const type =
+      child &&
+      child.props &&
+      child.props.children &&
+      child.props.children[0] &&
+      child.props.children[0].props.children[0] &&
+      child.props.children[0].props.children[0].props &&
+      child.props.children[0].props.children[0].props.value;
 
-interface BlockQuoteProps {}
+    return type && type.replace(":", "").toLowerCase();
+  };
 
-export const BlockQuote: React.FunctionComponent<BlockQuoteProps> = ({
-  children,
-}) => {
-  return <StyledBlockQuote>{children}</StyledBlockQuote>;
+  const createPanels = (elem: any) =>
+    elem.map((child: any, index: number) => (
+      <NotePanel type={getPanelType(child)} key={index}>
+        {child}
+      </NotePanel>
+    ));
+
+  return children ? <>{createPanels(children)}</> : null;
 };

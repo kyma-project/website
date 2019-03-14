@@ -18,6 +18,4 @@ export const TableRow: React.FunctionComponent<TableRowProps> = ({
   isHeader = false,
   columnAlignment,
   children,
-}) => {
-  return <StyledTableRow>{children}</StyledTableRow>;
-};
+}) => <StyledTableRow>{children}</StyledTableRow>;

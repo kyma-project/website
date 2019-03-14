@@ -2,7 +2,7 @@
 export interface AllMarkdownRemark<T> {
   data: {
     allMarkdownRemark: {
-      edges: AllMarkdownRemarkNode<T>[];
+      edges: Array<AllMarkdownRemarkNode<T>>;
     };
   };
 }
@@ -22,7 +22,7 @@ export interface MarkdownRemark<T> {
 export interface AllFile<T> {
   data: {
     allFile: {
-      edges: AllFileNode<T>[];
+      edges: Array<AllFileNode<T>>;
     };
   };
 }
@@ -32,7 +32,7 @@ export interface AllFileNode<T> {
 }
 
 /* AllFile Images */
-export type AllFileImages = AllFileNode<AllFileImage>[];
+export type AllFileImages = Array<AllFileNode<AllFileImage>>;
 
 export interface AllFileImage {
   dir: string;

@@ -12,6 +12,4 @@ interface TableHeadProps {
 export const TableHead: React.FunctionComponent<TableHeadProps> = ({
   columnAlignment,
   children,
-}) => {
-  return <StyledTableHead>{children}</StyledTableHead>;
-};
+}) => <StyledTableHead>{children}</StyledTableHead>;

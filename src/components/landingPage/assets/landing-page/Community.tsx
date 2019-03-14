@@ -1,3 +1,4 @@
+/* tslint:disable: jsx-self-close */
 import React from "react";
 import styled from "@styled";
 

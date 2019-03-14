@@ -30,30 +30,28 @@ const Post: React.FunctionComponent<PostProps> = ({
   previous,
   next,
   readMore = false,
-}) => {
-  return (
-    <PostWrapper>
-      <PostHeader title={title} author={author} date={date} path={slug} />
-      <PostContentWrapper>
-        <PostContent
-          markdown={markdown}
-          metadata={metadata}
-          assetsPath={assetsPath}
-        />
-      </PostContentWrapper>
-      {readMore && (
-        <Link.Internal to={slug}>
-          <Button.Emphasized size="sm">
-            <FormattedMessage id="blog.readMoreButton" />
-          </Button.Emphasized>
-        </Link.Internal>
-      )}
-      <PostFooter tags={tags} />
-      {/* {!readMore && (
+}) => (
+  <PostWrapper>
+    <PostHeader title={title} author={author} date={date} path={slug} />
+    <PostContentWrapper>
+      <PostContent
+        markdown={markdown}
+        metadata={metadata}
+        assetsPath={assetsPath}
+      />
+    </PostContentWrapper>
+    {readMore && (
+      <Link.Internal to={slug}>
+        <Button.Emphasized size="sm">
+          <FormattedMessage id="blog.readMoreButton" />
+        </Button.Emphasized>
+      </Link.Internal>
+    )}
+    <PostFooter tags={tags} />
+    {/* {!readMore && (
         <PrevNextSection next={next} previous={previous} />
       )} */}
-    </PostWrapper>
-  );
-};
+  </PostWrapper>
+);
 
 export default Post;

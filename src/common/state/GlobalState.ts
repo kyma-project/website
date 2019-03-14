@@ -2,8 +2,6 @@ import createContainer from "constate";
 
 import { nest } from "./nest";
 
-import { usePopup } from "./usePopup";
-
-export const PopupState = createContainer(usePopup);
+import PopupState from "./usePopup";
 
 export const GlobalState = nest(PopupState.Provider);
