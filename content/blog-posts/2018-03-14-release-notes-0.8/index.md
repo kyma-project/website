@@ -54,6 +54,10 @@ We added new functionalities centered around certificate management, such as sig
 
 We renamed the Proxy Service to Application Gateway.
 
+### Known issues
+
+If you upgrade Kyma 0.7 to version 0.8, you must manually update the IP address of the Application Connector Ingress Controller, as well as selectors on all services that exist in your cluster. If you experience any issues or you need help upgrading to Kyma 0.8, reach out to the ["application-connector" Slack channel](https://kyma-community.slack.com/messages/CD0K2NSQZ) to get direct support from the community.
+
 
 ## Asset Store
 
