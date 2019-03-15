@@ -6,7 +6,7 @@ import Separator from "@components/shared/Separator";
 
 import PostPage from "@components/blog/Post";
 
-import { AllMarkdownRemarkNode } from "@types";
+import { AllMarkdownRemarkNode } from "@common/types";
 import { Post } from "./types";
 
 import { BlogPageWrapper as Wrapper } from "./styled";

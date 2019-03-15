@@ -3,8 +3,8 @@ import React from "react";
 import Layout from "@components/layout/Layout";
 import DocsPage from "@components/docs/DocsPage";
 
-import { PageContext, IntlPageContext } from "@types";
-import { Docs, DocsPageContext } from "@components/docs/types";
+import { PageContext, IntlPageContext } from "@common/types";
+import { DocsPageContext } from "@components/docs/types";
 
 const DocsPageTemplate: React.FunctionComponent<
   PageContext<IntlPageContext & DocsPageContext>

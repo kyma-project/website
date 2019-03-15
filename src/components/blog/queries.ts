@@ -10,6 +10,11 @@ export const PostFragment = graphql`
     fields {
       slug
       date(formatString: "MMMM DD, YYYY")
+      postInfo {
+        year
+        month
+        day
+      }
     }
     frontmatter {
       title

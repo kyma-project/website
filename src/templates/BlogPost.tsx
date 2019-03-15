@@ -12,7 +12,7 @@ import {
   MarkdownRemark,
   PageContext,
   IntlPageContext,
-} from "@types";
+} from "@common/types";
 import { Post, PostPageContext } from "@components/blog/types";
 
 const BlogPostTemplate: React.FunctionComponent<
