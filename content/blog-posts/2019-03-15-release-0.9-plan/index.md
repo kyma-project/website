@@ -20,7 +20,7 @@ Istio 1.1 release candidate is now available which allows us to start implementi
 Italy is known for its love for art and beauty. The 0.9 release doesn't ignore that and improves on the current UI, Michelangelo style: 
   - All UI views will be optimized for mobile devices. 
   - Modal micro-frontends will enable better component reusability. 
-  - The Console UI will start using the AssetStore - a proprietary, Kubernetes-native solution for content storage, serving markdown documentation and API specifications like AsyncAPI, OpenAPI, and OData. 
+  - For rendering documentation, the Console UI will start using the Headless CMS component that is based on Asset Store - a proprietary, Kubernetes-native solution for content storage, serving markdown documentation and API specifications like AsyncAPI, OpenAPI, and OData. 
 
 Similarly to previous releases, we're working hard on increasing the overall security of Kyma. Under the Italian sun we will focus on these topics:
   - Enabling Mutual TLS by default 
