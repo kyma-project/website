@@ -7,32 +7,32 @@ tags:
 redirectFrom:
   - "/blog/release-09-plan"
 ---
-We have just published release notes for 0.8 and it is time to reveal some news what you can expect in our spring release named Florence. 
 
+Next destination? Florence! Time to pack our bags and prepare to leave Edmonton and fly all the way to Tuscany for the next Kyma release - **0.9 Florence**. What's in store for this Italian-themed release? 
  <!-- overview -->
 
-First of all the default eventing in Kyma will be based on KNative. We still will ship Kyma with NATS, but it will open the possibility to support other messaging systems like Google PubSub in the future.
+First of all - Knative. We know, it doesn't really sound Italian, but it's really important for Kyma. Starting with this release, the eventing mechanism is going to be based on Knative by default. Kyma will still ship with NATS, but switching to Knative opens a world of new possibilities and will allow us to support other messaging systems, such as Google PubSub, in the future. 
 
-You can expect also several improvements in the monitoring area. We will work on a configurable monitoring and alerting support for Kyma components. Additionally, you will get the latest versions of Grafana and  Prometheus. And our new logging solution - Loki will be exposed nicely in the Console UI and Grafana dashboards.
+We're constantly improving monitoring in Kyma, and this release we focus on adding support for configurable monitoring and alerting for all Kyma components. We're updating Grafana and Prometheus to their latest versions and our new logging solution, Loki, will be exposed in Grafana and easily accessible through the Console UI. 
 
-We were waiting for the new features coming with Istio 1.1 and now when the release candidate is already available we can start the integration process. New Istio version will allow us to get rid of Nginx Ingress Controller serving application connectivity endpoints and simplify our network setup. We can have only one external IP and LoadBalancer for all Kyma components, and much simpler configuration with dynamic DNS (xip.io) - you can provision Kyma cluster without providing any additional parameters (like domain name, certificates, IPs, etc).
+Istio 1.1 release candidate is now available which allows us to start implementing several crucial improvements and simplify our network setup. First of all, we will be able to retire the Nginx Ingress Controller from serving our Application Connectivity endpoints. The new version of Istio will also allow to have a single LoadBalancer IP for all components, and most importantly a much simpler configuration for deployments that use our dynamic DNS solution (xip.io) - you will be able to provision a cluster without providing any additional parameters such as domain names, certificates, IP addresses, and other. 
 
-There are planned also improvements and refactoring in our UI. 
-- Views will be optimized for mobile devices. 
-- Modal micro-frontends will enable better component reusability. 
-- We will switch to the AssetStore, our own Kubernetes-native solution for content storage, for serving markdown documentation and API specifications like AsyncAPI, OpenAPI, and OData. 
+Italy is known for its love for art and beauty. The 0.9 release doesn't ignore that and improves on the current UI, Michelangelo style: 
+  - All UI views will be optimized for mobile devices. 
+  - Modal micro-frontends will enable better component reusability. 
+  - The Console UI will start using the AssetStore - a proprietary, Kubernetes-native solution for content storage, serving markdown documentation and API specifications like AsyncAPI, OpenAPI, and OData. 
 
-As in previous releases, we will invest in the security area:
-- Mutual TLS will be enabled by default 
-- Tiller will be accessible only with the client certificate from selected components (installer, brokers).
-- Helm Broker will enforce TLS for external Bundles Repositories
-- Client authentication will be enabled between NATS Streaming and Knative NATS CCP. 
-- Client certificate rotation and revocation for will be enabled in Application Connector.
+Similarly to previous releases, we're working hard on increasing the overall security of Kyma. Under the Italian sun we will focus on these topics:
+  - Enabling Mutual TLS by default 
+  - Making Tiller accessible only with the client certificate from certain components, such as the Installer or brokers
+  - Making Helm Broker enforce TLS for external Bundles Repositories
+  - Enabling client authentication for communication between NATS Streaming and Knative NATS CCP
+  - Enabling client certificate rotation and revocation in the Application Connector
 
-We will also document Kyma default roles and how to use them to secure access to kubernetes resources for administrators and developers.
+With the introduction of the **kyma-developer** role in the last release, we started working on new documentation describing default roles in Kyma and how to use them to secure access to Kubernetes resources for administrators and developers. Don't worry - even though we're visiting Italy this time around, we're going to write our documentation in English. 
 
-Last, but not least we plan to invest more in quality and stability of backup, recovery and upgrade processes. We developed a test framework that automates checking the state of Kyma components after an upgrade or disaster recovery. In this release, we want to add more use cases that will be verified in such tests.
+Last, but not least, we plan to work more on the quality and stability of backup, recovery and upgrade processes. We developed a test framework that automates checking the state of Kyma components after an upgrade or disaster recovery. In this release, we want to add more use cases that will be verified by such tests.
 
 You can find all the items planned for the 0.9 release in our [Zenhub](https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/reports/release?release=5c5aae9ddcf5235c1876a4f2).
 
-Come back and check out Kyma 0.9 Florence when it's released on 08.04.2019 and keep an eye out for more Kyma cool news and updates on our blog.
+Kyma 0.9 Florence is scheduled for release on 08.04.2019. Keep an eye out for more Kyma news and updates on our blog. See you around! Ciao tutti!
