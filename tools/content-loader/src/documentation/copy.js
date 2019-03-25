@@ -57,7 +57,7 @@ class Copy {
     await this.removeDir(output);
 
     let files = await this.getFilesPaths(docsDir);
-    const allowedFilesRegex = /docs\/(manifest\.(yaml|yml)|[A-z0-9-_]*\/(docs\.config\.json|docs\/assets\/[A-z0-9-_]*\.(png|jpg|gif|jpeg|svg|yaml|yml|json)|docs\/[A-z0-9-_]*\.md))/;
+    const allowedFilesRegex = /docs\/(manifest\.(yaml|yml)|[A-z0-9-_]*\/(docs\.config\.json|docs\/assets\/[A-z0-9-_.]*\.(png|jpg|gif|jpeg|svg|yaml|yml|json)|docs\/[A-z0-9-_.]*\.md))/;
 
     files = files.filter(file => Boolean(allowedFilesRegex.exec(file)));
 
