@@ -27,7 +27,7 @@ Aside from this adjustment, the WG met the expectations and delivered the rest o
 implementation Kyma Event Bus can now run on the NATS Streaming Provisioner which, by the way, is a Kyma contribution to 
 Knative.
 
-Was this an easy ride? Not at all. We had to make both frameworks work on one cluster with a single Istio instance. Both Kyma nad Knative make extensive use of Istio and provide their own customizations. After we made them both running, we still had a long way to go. 
+Was this an easy ride? Not at all. We had to make both frameworks work on one cluster with a single Istio instance. Both Kyma and Knative make extensive use of Istio and provide their own customizations. After we made them both running, we still had a long way to go. 
 The WG had to reimplement almost all of the Event Bus without any other Kyma component noticing that change. 
 
 Despite the challenges, working in the WG was a time of learning for all of the members. We had to understand what's going on under the hood of Knative, which turned some of us into active members of the Knative community. We learned that even the most carefully planned scope may change and that we need to cope with that. Finally, we felt the pain of integration of two rapidly evolving products on our own skin.
