@@ -103,7 +103,7 @@ Visit our [`test-infra`](https://github.com/kyma-project/test-infra) repository 
 
 - Kyma eventing use cases
 
-  To better align with the Knative eventing community, we created basic use cases of Kyma eventing. These use cases are meant to help us and the community to drive the Knative eventing evolution forward. Read more about the use cases [here](https://github.com/kyma-project/community/blob/master/sig-and-wg/wg-knative/kyma-eventing-use-case.md).
+  To better align with the Knative eventing community, we created basic use cases of Kyma eventing. These use cases are meant to help us and the community to drive the Knative eventing evolution forward. Read more about the use cases [here](https://github.com/kyma-project/community/blob/master/sig-and-wg/archive/wg-knative/kyma-eventing-use-case.md).
 
 - Kyma-Knative eventing installation design
 
