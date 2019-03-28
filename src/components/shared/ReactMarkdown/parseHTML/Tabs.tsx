@@ -5,6 +5,8 @@ import Tab from "@components/shared/Tabs/Tab";
 import ReactMarkdown from "@components/shared/ReactMarkdown";
 
 let tabsCounter = 0;
+const blockquoteRegex = /(^( *>).*?\n)/gm;
+const orderedListRegex = /^( *[0-9])+.(.*)/gm;
 
 export const tabs = {
   replaceChildren: true,
@@ -25,7 +27,15 @@ export const tabs = {
             childDetails.next.data
           ) {
             const summary = childDetails.children[0].data;
-            const tabData = childDetails.next.data;
+            const tabData = childDetails.next.data
+              .replace(
+                blockquoteRegex,
+                (blockquote: string) => `${blockquote}\n`,
+              )
+              .replace(
+                orderedListRegex,
+                (listElement: string) => `\n${listElement}\n`,
+              );
 
             return (
               <Tab
