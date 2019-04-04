@@ -10,23 +10,25 @@ redirectFrom:
   - "/blog/release-notes-09"
 ---
 
-> Write an introductory paragraph and present the most important release highlights from all components. List the highlights as bullet points and provide relative links to their corresponding sections.
+The 0.9 release comes with many updates and improvements, as well as some brand new features that greatly improve your Kyma experience. The Kyma-Knative integration has reached its peak and from this release Knative Eventing is the default eventing mechanism. You can now install Kyma on GKE and AKS clusters using the default DNS solution provided by `xip.io`. We also focused on increasing security by enabling mutual TLS by default. Among many updates and improvements, we introduced a new testing framework and updated the whole Monitoring Stack. Last but not least, we introduced a brand new component for storing and managing content - the Headless CMS.
 
 <!-- overview -->
 
 The highlights of Kyma 0.9 Florence include:
 
-- [{Feature or fix name}](#relative-link-to-subsection) - {One-sentence description}
-- [{Feature or fix name}](#relative-link-to-subsection) - {One-sentence description}
-- [{Feature or fix name}](#relative-link-to-subsection) - {One-sentence description}
+- [Knative-based eventing by default](#kyma-with-knative-eventing) - The eventing mechanism is now based on Knative by default.
+- [Xip.io wildcard as the default DNS solution](#installation) - We integrated the `xip.io` wildcard DNS as the default DNS solution.
+- [Increased security](#security) - We enabled mutual TLS by default.
+- [Headless CMS component introduced for the Console UI](#headless-cms) - We introduced the Headless CMS component that allows you to store and manage content, and expose it through an API.
+- [Updated Monitoring Stack version](#monitoring) - We updated the entire Monitoring Stack.
+- [Improved upgrade process](#test-runner-for-the-kyma-upgrade) - We developed a test framework that automates checking the state of Kyma components after upgrade.
 
 
 See the overview of all changes in this release:
 
 - [Application Connector](#application-connector) - Connector Service enhancements and extensions, possibility to configure the expiration time of certificates separately
-- [Asset Store](#asset-store) -
-- [Console](#console) - Console views that display documentation read content using new Headless CMS  aka add your own documentation to Console UI , New Log UI available in Console UI
-- [Core and Supporting](#core-and-supporting) - Kyma Headless CMS as default solution for handling documentation
+- [Console](#console) - Console views that display documentation use the new Headless CMS, new Log UI available in the Console UI
+- [Core and Supporting](#core-and-supporting) - Kyma Headless CMS as the default solution for handling documentation
 - [Eventing](#eventing) - Knative eventing by default, improved security, alerting and monitoring added
 - [Installation](#installation) - Xip.io wildcard as the default DNS solution, test runner for the Kyma upgrade
 - [Logging](#logging) - Loki enabled for all clients
@@ -45,13 +47,11 @@ For more information, read [this](https://github.com/kyma-project/kyma/tree/mast
 
 ### Application Registry API can fetch generated client certificates
 
-We extended the Application Registry API with the possibility to fetch generated client certificates. As soon as you register API with client certificate as a security, then a user can read the API with the certificate being encoded into response payload.  
-Read [this](https://kyma-project.io/docs/master/components/application-connector/#tutorials-register-a-secured-api) document for more information.
+We extended the Application Registry API with the possibility to fetch generated client certificates. As soon as you register API with a client certificate as a security mechanism selector, you can read the API with the certificate encoded into the response payload. Read [this](https://kyma-project.io/docs/master/components/application-connector/#tutorials-register-a-secured-api) document for more information.
 
 ### Apply details for the tenant and group name
 
-We extended the Token Request functionality with the possibility to apply details for the tenant name and group name.
-It allows easy usage of the token generation process for pairing application in the scope of the central Connector Service: https://kyma-project.io/docs/master/components/application-connector/#custom-resource-tokenrequest
+We extended the TokenRequest functionality and now you can apply details for the tenant name and group name. It allows you to easily manage the token generation process for pairing applications in the central Connector Service. For more details, read [this](https://kyma-project.io/docs/master/components/application-connector/#custom-resource-tokenrequest) document.
 
 ### Read about the Root CA rotation procedure
 
@@ -70,7 +70,7 @@ We changed the Application Gateway proxy functionality and now the unnecessary h
 
 ### Documentation UI integrated with Headless CMS
 
-Documentation UI, which you can access in the Console UI, is now integrated with Headless CMS. This means you can extend the Documentation view, the one you see after clicking the **?** icon, with your custom documentation topics, as long as you have your docs written in Markdown and extended with additional metadata. See the example ClusterDocsTopic custom resource that will extend the Documentation UI navigation with a new element called **Workloads** that will be grouped under a new heading called **Kubernetes**. After clicking **Workloads**, you will see the official Kubernetes documentation.  
+Documentation UI, which you can access in the Console UI, is now integrated with Headless CMS. This means you can extend the Documentation view, the one you see after clicking the **?** icon, with your custom documentation topics as long as you have your docs written in Markdown and extended with additional metadata. The code snippet below is the example ClusterDocsTopic custom resource that will extend the Documentation UI navigation with a new element called **Workloads** which will be grouped under a new **Kubernetes** heading. After clicking **Workloads**, you will see the official Kubernetes documentation.  
 
 ```
 apiVersion: cms.kyma-project.io/v1alpha1
@@ -99,7 +99,7 @@ spec:
 
 ### Service Catalog related views integrated with Headless CMS
 
-The Service Catalog related views now read documentation provided with the new Headless CMS. This means that you can easily provide documentation and specifications for any service that you want to share through the Service Catalog. See the example ClusterDocsTopic custom resource that extends the Text Analytics service from Azure with additional documentation, Markdown docs, and the Swagger console based on the official Azure OpenAPI specification for the service:
+The Service Catalog related views now read documentation provided with the new Headless CMS. This means that you can easily provide documentation and specifications for any service that you want to share through the Service Catalog. See the example DocsTopic custom resource that extends the Text Analytics service from Azure with additional documentation, Markdown docs, and the Swagger console based on the official Azure OpenAPI specification for the service:
 
 ```
 apiVersion: cms.kyma-project.io/v1alpha1
@@ -139,22 +139,38 @@ In Kyma, we value the content-as-code principle. It means that documentation is 
 
 The Headless CMS itself does not yet deliver any customizable UI interface that could be used to publish a standalone documentation portal. Nevertheless, we already use it in our Console UI. For more details, read the Headless CMS [documentation](https://kyma-project.io/docs/components/headless-cms/).
 
+### Asset Store supports a webhook service that can enhance the status of the CR with additional metadata for each file
 
-### Asset Store support for a webhook service that can enhance the status of the CR with additional metadata for each file
-
-Now AssetStore status sub-resource can be extended with additional metadata information for each file that is created by the controller. It works this way that you create a separate service that implement REST API and accepts multipart/form-data. One of the use cases for such service is the extraction of the front matter metadata provided in any file with YAML format.
-
+You can now extend the Asset Store status sub-resource with additional metadata information for each file created by the controller. To do so, create a separate service that implements REST API and accepts `multipart/form-data`. One of the use cases for such a service is to extract the front matter metadata provided in any file of the `yaml` format.
 See the example AssetStore resource that contains information about the status modification webhook:
 
-_TBD_
+```
+apiVersion: assetstore.kyma-project.io/v1alpha2
+kind: Asset
+metadata:
+  labels:
+    controller-tools.k8s.io: "1.0"
+  name: asset-sample
+  namespace: default
+spec:
+  bucketRef:
+    name: test-sample
+  source:
+    url: https://github.com/kyma-project/kyma/archive/0.8.1.zip
+    filter: /docs/service-catalog/docs/
+    mode: package
+    metadataWebhookService:
+    - name: assetstore-asset-metadata-service
+      namespace: kyma-system
+      endpoint: /v1/extract
+      filter: \.md$
+```
 
-Read [this](https://kyma-project.io/docs/master/components/asset-store/#custom-resource-asset-validation-and-mutation-webhook-services) document to get more details.
+To learn more about webhook services, read [this](https://kyma-project.io/docs/master/components/asset-store/#custom-resource-asset-validation-and-mutation-webhook-services) document.
 
-### Asset Store stack enhanced with generic service that can be used for extracting metadata from any file
+### Asset Store stack enhanced with generic service that can extract metadata from any file
 
-With the support of the new metadata webhook we added to AssetStore domain a default service that you can use for any use case that requires extraction of the front matter metadata provided in any file with YAML format. We use this service already in the component that we created on top of AssetStore, called Headless CMS.  
-
-For more details, read [this](https://kyma-project.io/docs/master/components/asset-store/#details-asset-metadata-service) document.
+With the support of the new metadata webhook, we added a default service to the Asset Store domain. You can use it to extract the front matter metadata provided in any file of the `yaml` format. We already use this service in the Headless CMS component that we created on top of the Asset Store. For more details, read [this](https://kyma-project.io/docs/master/components/asset-store/#details-asset-metadata-service) document.
 
 
 ## Eventing
@@ -180,7 +196,7 @@ The wildcard DNS provided by `xip.io` is integrated as the default DNS solution,
 
 ### Test runner for the Kyma upgrade
 
-We created a test runner and a place for end-to-end upgrade tests. [Kyma upgrade plan on CI](https://status.build.kyma-project.io/?job=post-master-kyma-gke-upgrade) executes these tests. The framework allows you to prepare the data and run tests against the prepared data. For more information, read [this](https://github.com/kyma-project/kyma/tree/master/tests/end-to-end/upgrade) document.
+We created a test runner and a place for end-to-end upgrade tests executed by [Kyma upgrade plan on CI](https://status.build.kyma-project.io/?job=post-master-kyma-gke-upgrade). The framework allows you to prepare the data and run tests against the prepared data. For more information on end-to-end upgrade tests, read [this](https://github.com/kyma-project/kyma/tree/master/tests/end-to-end/upgrade) document.
 
 
 ## Logging
