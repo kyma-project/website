@@ -20,7 +20,7 @@ The highlights of Kyma 0.9 Florence include:
 - [Xip.io wildcard as the default DNS solution](#installation) - We integrated the `xip.io` wildcard DNS as the default DNS solution.
 - [Increased security](#security) - We enabled mutual TLS by default.
 - [Headless CMS component introduced for the Console UI](#headless-cms) - We introduced the Headless CMS component that allows you to store and manage content, and expose it through an API.
-- [Updated Monitoring Stack version](#monitoring) - We updated the entire Monitoring Stack.
+- [Updated Monitoring Stack version](#monitoring-stack-version-update) - We updated the entire Monitoring Stack.
 - [Improved upgrade process](#test-runner-for-the-kyma-upgrade) - We developed a test framework that automates checking the state of Kyma components after upgrade.
 
 
