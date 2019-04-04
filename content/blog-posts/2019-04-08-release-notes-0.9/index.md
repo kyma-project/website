@@ -47,7 +47,7 @@ For more information, read [this](https://github.com/kyma-project/kyma/tree/mast
 
 ### Application Registry API can fetch generated client certificates
 
-We extended the Application Registry API with the possibility to fetch generated client certificates. As soon as you register API with a client certificate as a security mechanism selector, you can read the API with the certificate encoded into the response payload. Read [this](https://kyma-project.io/docs/master/components/application-connector/#tutorials-register-a-secured-api) document for more information.
+We extended the Application Registry API with the possibility to fetch generated client certificates. As soon as you register API with a client certificate as a security mechanism, you can read this certificate with our API. Read [this](https://kyma-project.io/docs/master/components/application-connector/#tutorials-register-a-secured-api) document for more information.
 
 ### Apply details for the tenant and group name
 
