@@ -10,7 +10,7 @@ redirectFrom:
   - "/blog/release-notes-09"
 ---
 
-The 0.9 release comes with many updates and improvements, as well as some brand new features that make the Kyma experience even smoother. The Kyma-Knative integration has reached its peak and from this release, Knative Eventing is the default eventing mechanism. You can now install Kyma on GKE and AKS clusters using the default DNS solution provided by `xip.io`. Among many updates and improvements, we introduced a new testing framework and updated the entire Monitoring stack. Last but not least, we introduced a brand new component for storing and managing content - the Headless CMS.
+The 0.9 release comes with many updates and improvements, as well as some brand new features that make the Kyma experience even smoother. The Kyma-Knative integration has reached its peak and from this release, Knative Eventing is the default eventing mechanism. You can now install Kyma on GKE and AKS clusters using the default DNS solution provided by `xip.io`. Among many updates and improvements, we developed a new testing framework and updated the entire Monitoring stack. Last but not least, we introduced a brand new component for storing and managing content - the Headless CMS.
 
 <!-- overview -->
 
@@ -20,15 +20,15 @@ The highlights of Kyma 0.9 Florence include:
 - [Xip.io wildcard as the default DNS solution](#installation) - We integrated the `xip.io` wildcard DNS as the default DNS solution.
 - [Headless CMS component introduced for the Console UI](#headless-cms) - We introduced the Headless CMS component that allows you to store and manage content, and expose it through an API.
 - [Updated Monitoring stack version](#monitoring-stack-version-update) - We updated the entire Monitoring stack.
-- [Improved upgrade process](#test-runner-for-the-kyma-upgrade) - We developed a test framework that automates checking the state of Kyma components after the upgrade.
+- [Improved upgrade process](#test-runner-for-the-kyma-upgrade) - We developed a testing framework that automates checking the state of Kyma components after the upgrade.
 
 
 See the overview of all changes in this release:
 
-- [Application Connector](#application-connector) - Connector Service enhancements and extensions, possibility to configure the expiration time of certificates separately
+- [Application Connector](#application-connector) - Connector Service enhancements and extensions
 - [Console](#console) - Console views that display documentation use the new Headless CMS, new Log UI available in the Console UI
 - [Core and Supporting](#core-and-supporting) - Kyma Headless CMS as the default solution for handling documentation
-- [Eventing](#eventing) - Knative eventing enabled by default, improved security, alerting and monitoring added
+- [Eventing](#eventing) - Knative Eventing enabled by default, improved security, alerting and monitoring added
 - [Installation](#installation) - `Xip.io` wildcard as the default DNS solution, test runner for the Kyma upgrade
 - [Logging](#logging) - Loki enabled for all clients
 - [Monitoring](#monitoring) - Monitoring stack upgraded to the latest version
@@ -69,7 +69,7 @@ We changed the Application Gateway proxy functionality and now the unnecessary h
 
 ### Documentation UI integrated with Headless CMS
 
-The Documentation UI, which you can access in the Console UI, is now integrated with Headless CMS. This means you can extend the Documentation view, the one you see after clicking the **?** icon, with your custom documentation topics as long as you have your docs written in Markdown and extended with additional metadata. The code snippet below is an example of a ClusterDocsTopic custom resource that will extend the Documentation UI navigation with a new element called **Workloads** which will be grouped under a new **Kubernetes** heading. After clicking **Workloads**, you will see the official Kubernetes documentation.  
+The Documentation UI, which you can access in the Console UI, is now integrated with the Headless CMS. This means you can extend the Documentation view, the one you see after clicking the **?** icon, with your custom documentation topics as long as you have your docs written in Markdown and extended with additional metadata. The code snippet below is an example of a ClusterDocsTopic custom resource that will extend the Documentation UI navigation with a new element called **Workloads** which will be grouped under a new **Kubernetes** heading. After clicking **Workloads**, you will see the official Kubernetes documentation.  
 
 ```
 apiVersion: cms.kyma-project.io/v1alpha1
@@ -134,7 +134,7 @@ The Console UI now comes with an integrated Log UI micro frontend. It allows you
 
 ### Headless CMS
 
-In Kyma, we value the content-as-code principle. It means that documentation is treated the same as code, as in the end, it is not much different. We decided to go one step further. If content is like code, why not deploy it into the Kubernetes cluster as code as well? If you can easily deploy a service using the Deployment resource, you can do the same with documentation. This is what we implemented - a Headless CMS, based on Kubernetes Custom Resource Definitions, that uses our other component, the [Asset Store](https://kyma-project.io/docs/components/asset-store), for storage.
+In Kyma, we value the content-as-code principle. It means that documentation is treated the same as code, as in the end, it is not much different. We decided to go one step further. If content is like code, why not deploy it into the Kubernetes cluster as code as well? If you can easily deploy a service using the Deployment resource, you can do the same with documentation. This is what we implemented - the Headless CMS, based on Kubernetes Custom Resource Definitions, that uses our other component, the [Asset Store](https://kyma-project.io/docs/components/asset-store), for storage.
 
 The Headless CMS itself does not yet deliver any customizable UI interface that could be used to publish a standalone documentation portal. Nevertheless, we already use it in the Console UI. For more details, read the Headless CMS [documentation](https://kyma-project.io/docs/components/headless-cms/).
 
@@ -174,9 +174,9 @@ With the support of the new metadata webhook, we added a default service to the 
 
 ## Eventing
 
-### Kyma with Knative eventing
+### Kyma with Knative Eventing
 
-Kyma now uses Knative eventing backed by NATS Streaming by default. This is a big first step towards leveraging Knative eventing capabilities in the upcoming releases.
+Kyma now uses Knative Eventing backed by NATS Streaming by default. This is a big first step towards leveraging Knative Eventing capabilities in the upcoming releases.
 
 ### Improved security
 
