@@ -61,6 +61,7 @@ export const Code: React.FunctionComponent<CodeProps> = ({
   children,
 }) => {
   const code = children ? children : value;
+  const processedCode = (code as string).replace(/&#60;/gm, "<");
 
   return (
     <CodeWrapper>
@@ -68,7 +69,7 @@ export const Code: React.FunctionComponent<CodeProps> = ({
       <HighlightWrapper>
         <Highlight
           {...defaultProps}
-          code={code}
+          code={processedCode}
           theme={theme}
           language={language ? language : "yaml"}
         >

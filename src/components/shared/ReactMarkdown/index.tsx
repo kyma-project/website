@@ -4,7 +4,10 @@ import RM, { ReactMarkdownProps, NodeType } from "react-markdown";
 import parseHtml from "./parseHTML";
 
 import * as Components from "./components";
-import { removeBlankLinesFromTabsBlock } from "./helpers";
+import {
+  removeBlankLinesFromTabsBlock,
+  replaceAllLessThanChars,
+} from "./helpers";
 
 type Renderers = { [key in NodeType | "parsedHtml"]: ReactType };
 
@@ -23,7 +26,8 @@ const ReactMarkdown: React.FunctionComponent<
   assetsPath = "",
   renderedFileName = "",
 }) => {
-  const processedSource = removeBlankLinesFromTabsBlock(source);
+  let processedSource = removeBlankLinesFromTabsBlock(source);
+  processedSource = replaceAllLessThanChars(processedSource);
 
   const renderers: Renderers = {
     root: Components.Root,
