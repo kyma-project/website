@@ -83,26 +83,8 @@ copy() {
     docker run --rm -v "${DOCUMENTATION_DIR}:/app/documentation" \
                -e APP_DOCS_OUTPUT="/app/documentation" \
                -e APP_DOCS_VERSIONS_CONFIG_FILE="/app/documentation/versions.json" \
-               -e APP_DOCS_COMMIT="${commit}" \
                -e APP_TOKEN="${BOT_GITHUB_TOKEN}" \
                ${LOADER_IMAGE}
-}
-
-publish() {
-    echo "Detecting changes"
-    local changes
-    changes=$(git status --porcelain "${DOCUMENTATION_DIR}" | wc -w)
-    if [[ "${changes}" -eq 0 ]]; then
-        echo "Nothing to publish"
-        return
-    fi
-
-    echo "Commit documentation"
-    git add "${DOCUMENTATION_DIR}"
-    git commit -m "Publish Kyma documentation on the website" --no-verify
-
-    echo "Pushing documentation to master"
-    git push origin HEAD:master
 }
 
 main() {
@@ -111,13 +93,5 @@ main() {
     step "Copying"
     copy
     pass "Copied"
-
-    step "Publishing"
-    if [[ ${PUBLISH} == true ]]; then
-        publish
-    else
-        echo "Skipped"
-    fi
-    pass "Published"
 }
 main
