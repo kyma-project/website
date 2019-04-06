@@ -41,24 +41,13 @@ step() {
 }
 
 init() {
-    PUBLISH='false'
-    COMMIT=''
-    BRANCH=''
+    BRANCHES=''
 
     while test $# -gt 0; do
         case "$1" in
-            --commit | -c)
+            --branches | -b)
                 shift
-                COMMIT=$1
-                shift
-                ;;
-            --branch | -b)
-                shift
-                BRANCH=$1
-                shift
-                ;;
-            --publish | -p)
-                PUBLISH='true'
+                BRANCHES=$1
                 shift
                 ;;
             --help | -h)
@@ -70,17 +59,12 @@ init() {
                 ;;
         esac
     done
-    readonly PUBLISH
-    readonly COMMIT
-    readonly BRANCH
+    readonly BRANCHES
 }
 
 copy() {
-    local commit="${COMMIT}"
-    if [[ "${BRANCH}" != 'master' ]]; then
-        commit=""
-    fi
     docker run --rm -v "${DOCUMENTATION_DIR}:/app/documentation" \
+               -e APP_DOCS_BRANCHES="${BRANCHES}"
                -e APP_DOCS_OUTPUT="/app/documentation" \
                -e APP_DOCS_VERSIONS_CONFIG_FILE="/app/documentation/versions.json" \
                -e APP_TOKEN="${BOT_GITHUB_TOKEN}" \

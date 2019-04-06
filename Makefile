@@ -8,6 +8,7 @@ resolve:
 validate:
 	npm run conflict-check
 	npm run lint-check
+	
 build:
 	npm run build:prod
 
@@ -17,7 +18,7 @@ prepare-git:
 	git config user.name "$(BOT_GITHUB_NAME)"
 
 prepare-content: prepare-git
-	./scripts/prepare-content.sh --publish --branch $(PULL_BASE_REF) --commit $(PULL_BASE_SHA)
+	./scripts/prepare-content.sh --branches $(PULL_BASE_REF)
 
 publish-website:
 	./scripts/publish-website.sh
