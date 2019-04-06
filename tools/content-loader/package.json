@@ -20,6 +20,7 @@
     "husky": "^1.1.2",
     "js-yaml": "^3.12.0",
     "lint-staged": "^7.2.0",
+    "prettier": "^1.15.2",
     "safe-buffer": "5.1.1",
     "ts-node": "^8.0.3",
     "typescript": "^3.4.1",
