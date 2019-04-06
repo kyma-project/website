@@ -1,5 +1,5 @@
-import to from 'await-to-js';
-import { 
+import to from "await-to-js";
+import {
   ReposGetReleaseResponse,
   ReposListTagsResponseItem,
 } from "@octokit/rest";
@@ -10,12 +10,15 @@ import { DocsReleasesVersion } from "./docs-versions";
 class Releases {
   async get() {
     const [err, releases] = await to(GitHubClient.getReleases());
-    if(err) throw err
+    if (err) throw err;
 
     return releases;
   }
 
-  filterInvalidReleases(releases: ReposGetReleaseResponse[], tags: ReposListTagsResponseItem[]) {
+  filterInvalidReleases(
+    releases: ReposGetReleaseResponse[],
+    tags: ReposListTagsResponseItem[],
+  ) {
     const tagsArray = tags.map(tag => tag.name);
 
     return releases.filter(release => {

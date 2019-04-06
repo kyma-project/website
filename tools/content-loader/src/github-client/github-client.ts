@@ -1,8 +1,8 @@
-import to from 'await-to-js';
-import { VError } from 'verror';
+import to from "await-to-js";
+import { VError } from "verror";
 import Octokit = require("@octokit/rest");
-import { 
-  Response, 
+import {
+  Response,
   ReposGetReleaseResponse,
   ReposGetBranchResponse,
   ReposListTagsResponseItem,
@@ -21,7 +21,7 @@ class GitHubClient {
 
   withConfig = (config: CoreConfig) => {
     this.config = config;
-    this.octokit = new Octokit()
+    this.octokit = new Octokit();
 
     if (config.token) {
       this.octokit.authenticate({
@@ -29,39 +29,45 @@ class GitHubClient {
         token: config.token,
       });
     }
-  }
+  };
 
   getReleases = async () => {
-    const [err, response] = await to<Response<ReposGetReleaseResponse[]>>(this.octokit.repos.listReleases({
-      owner: this.config.organization,
-      repo: this.config.repository,
-    }));
-    if(err) throw new VError(err, `while getting list of releases`);
+    const [err, response] = await to<Response<ReposGetReleaseResponse[]>>(
+      this.octokit.repos.listReleases({
+        owner: this.config.organization,
+        repo: this.config.repository,
+      }),
+    );
+    if (err) throw new VError(err, `while getting list of releases`);
 
     return response ? response.data : null;
-  }
+  };
 
   getLatestCommitFromBranch = async (branch: string) => {
-    const [err, response] = await to<Response<ReposGetBranchResponse>>(this.octokit.repos.getBranch({
-      owner: this.config.organization,
-      repo: this.config.repository,
-      branch: branch,
-    }));
-    if(err) throw new VError(err, `while getting data from branch: ${branch}`);
+    const [err, response] = await to<Response<ReposGetBranchResponse>>(
+      this.octokit.repos.getBranch({
+        owner: this.config.organization,
+        repo: this.config.repository,
+        branch: branch,
+      }),
+    );
+    if (err) throw new VError(err, `while getting data from branch: ${branch}`);
 
     return response ? response.data.commit.sha : null;
-  }
+  };
 
   getTags = async () => {
-    const [err, response] = await to<Response<ReposListTagsResponseItem[]>>(this.octokit.repos.listTags({
-      owner: this.config.organization,
-      repo: this.config.repository,
-      per_page: 100,
-    }));
-    if(err) throw new VError(err, `while getting list of tags`);
+    const [err, response] = await to<Response<ReposListTagsResponseItem[]>>(
+      this.octokit.repos.listTags({
+        owner: this.config.organization,
+        repo: this.config.repository,
+        per_page: 100,
+      }),
+    );
+    if (err) throw new VError(err, `while getting list of tags`);
 
     return response ? response.data : null;
-  }
+  };
 }
 
 export default new GitHubClient();

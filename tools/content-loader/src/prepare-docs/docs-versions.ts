@@ -1,7 +1,7 @@
-import { writeJSON } from 'fs-extra';
-import to from 'await-to-js';
-import { VError } from 'verror';
-import { 
+import { writeJSON } from "fs-extra";
+import to from "await-to-js";
+import { VError } from "verror";
+import {
   ReposListReleasesResponse,
   ReposGetReleaseResponse,
   ReposGetBranchResponse,
@@ -9,68 +9,74 @@ import {
 } from "@octokit/rest";
 
 export type DocsVersionsInterface = {
-  releases?: Map<string, string>,
-  pre_releases?: Map<string, string>,
-  branches?: Map<string, string>,
-}
+  releases?: Map<string, string>;
+  pre_releases?: Map<string, string>;
+  branches?: Map<string, string>;
+};
 
 export type DocsGeneratedVersions = {
-  releases: DocsReleasesVersion[],
-  pre_releases: DocsReleasesVersion[],
-  branches: DocsBranchesVersion[],
-}
+  releases: DocsReleasesVersion[];
+  pre_releases: DocsReleasesVersion[];
+  branches: DocsBranchesVersion[];
+};
 
 export type DocsReleasesVersion = {
-  name: string,
-  tag: string,
-}
+  name: string;
+  tag: string;
+};
 
 export type DocsBranchesVersion = {
-  name: string,
-  commit: string,
-}
+  name: string;
+  commit: string;
+};
 
 class DocsVersions {
   async generate(v: DocsVersionsInterface, outputPath: string) {
     const releasesVersions = this.forReleases(v.releases);
     const prereleasesVersions = this.forReleases(v.pre_releases);
-    const branchesVersions = this.forBranches(v.branches);  
+    const branchesVersions = this.forBranches(v.branches);
 
     const versions: DocsGeneratedVersions = {
       releases: releasesVersions,
       pre_releases: prereleasesVersions,
       branches: branchesVersions,
-    }
-    
-    const [err] = await to(writeJSON(outputPath, versions, { encoding: "utf8" }));
-    if(err) throw new VError(err, `while writing versions ${JSON.stringify(versions)} to ${outputPath}`);
+    };
+
+    const [err] = await to(
+      writeJSON(outputPath, versions, { encoding: "utf8" }),
+    );
+    if (err)
+      throw new VError(
+        err,
+        `while writing versions ${JSON.stringify(versions)} to ${outputPath}`,
+      );
   }
 
   private forReleases(releases?: Map<string, string>) {
     const versions = [];
-    if(!releases) return versions;
-      
+    if (!releases) return versions;
+
     releases.forEach((tag, name) => {
       versions.push({
         name: name,
         tag: tag,
       });
     });
-      
+
     return versions;
   }
 
   private forBranches(branches?: Map<string, string>) {
     const versions = [];
-    if(!branches) return versions;
-  
+    if (!branches) return versions;
+
     branches.forEach((commit, branch) => {
       versions.push({
         name: branch,
         commit: commit,
       });
     });
-  
+
     return versions;
   }
 }
