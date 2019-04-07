@@ -3,7 +3,7 @@ import React from "react";
 import Layout from "@components/layout/Layout";
 import NotFound from "@components/notFoundPage/NotFoundPage";
 
-import { PageContext, IntlPageContext } from "@types";
+import { PageContext, IntlPageContext } from "@common/types";
 
 const NotFoundPage: React.FunctionComponent<PageContext<IntlPageContext>> = ({
   pageContext: { locale },
