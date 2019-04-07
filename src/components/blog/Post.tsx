@@ -4,7 +4,6 @@ import { FormattedMessage } from "@common/i18n";
 
 import Link from "@components/shared/Link";
 import Button from "@components/shared/Button";
-import Modal from "@components/roadmap/Modal/Modal";
 
 import PostHeader from "@components/blog/PostHeader";
 import PostContent from "@components/blog/content/PostContent";
@@ -49,8 +48,6 @@ const Post: React.FunctionComponent<PostProps> = ({
       </Link.Internal>
     )}
     <PostFooter tags={tags} />
-    <Modal openComponent={<div>dupa</div>}>
-    </Modal>
     {/* {!readMore && (
         <PrevNextSection next={next} previous={previous} />
       )} */}

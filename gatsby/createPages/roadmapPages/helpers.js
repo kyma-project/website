@@ -37,6 +37,20 @@ const sortCapabilities = capabilities => {
   });
 }
 
+const generateCapabilitiesNavigation = capabilities => {
+  const navigation = [];
+
+  capabilities.map(capability => {
+    navigation.push({
+      displayName: capability.node.frontmatter.displayName,
+      path: capability.node.fields.slug,
+    });
+  });
+
+  return navigation;
+}
+
 module.exports = {
   getCapabilities,
+  generateCapabilitiesNavigation,
 };

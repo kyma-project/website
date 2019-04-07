@@ -1,6 +1,12 @@
 /* Roadmap Page Context */
 export interface RoadmapPageContext {
-  capability: string;
+  slug: string;
+  capabilitiesNavigation: NavigationItem[];
+}
+
+export interface NavigationItem {
+  displayName: string;
+  path: string;
 }
 
 export interface Capability {

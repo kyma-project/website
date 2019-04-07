@@ -14,16 +14,14 @@ const RoadmapPageTemplate: React.FunctionComponent<
     markdownRemark: { rawMarkdownBody, frontmatter, fields },
   },
   pageContext 
-}) => {
-    console.log(rawMarkdownBody)
-    return(
+}) => (
   <Layout
     locale={pageContext.locale}
     pageTitle={`${frontmatter.displayName} - Roadmap`}
   >
     <RoadmapPage pageContext={pageContext} />
   </Layout>
-)};
+);
 
 export const pageQuery = graphql`
   query($slug: String!) {
