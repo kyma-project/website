@@ -12,7 +12,7 @@ import {
   faTimes,
   faLink,
 } from "@fortawesome/free-solid-svg-icons";
-import { faEdit, faCopy } from "@fortawesome/free-regular-svg-icons";
+import { faEdit, faCopy, faCalendarAlt } from "@fortawesome/free-regular-svg-icons";
 import {
   faTwitter,
   faLinkedinIn,
@@ -28,6 +28,7 @@ config.autoAddCss = false;
 library.add(
   faExternalLinkAlt,
   faCloudDownloadAlt,
+  faCalendarAlt,
   faAnchor,
   faLink,
   faTags,

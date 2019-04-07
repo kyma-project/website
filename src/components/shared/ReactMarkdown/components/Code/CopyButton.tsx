@@ -14,7 +14,7 @@ const CopyButtonWrapper = styled.div`
 `;
 
 const StyledIcon = styled(Icon)`
-  cursor: pointer;
+  cursor: copy;
   width: 28px;
   min-width: 28px;
   height: 28px;
