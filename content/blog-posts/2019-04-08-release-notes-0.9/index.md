@@ -30,7 +30,6 @@ See the overview of all changes in this release:
 - [Core and Supporting](#core-and-supporting) - Kyma Headless CMS as the default solution for handling documentation
 - [Eventing](#eventing) - Knative Eventing enabled by default, improved security, alerting and monitoring added
 - [Installation](#installation) - `Xip.io` wildcard as the default DNS solution, test runner for the Kyma upgrade
-- [Logging](#logging) - Loki enabled for all clients
 - [Monitoring](#monitoring) - Monitoring stack upgraded to the latest version
 - [Security](#security) - TLS in Tiller, external bundles repositories with TLS in the Helm Broker, Istio with mutual TLS for the Service Catalog and all Service Brokers
 - [Service Mesh](#service-mesh) - Upgrade to Istio 1.1
@@ -186,13 +185,6 @@ The wildcard DNS provided by `xip.io` is integrated as the default DNS solution,
 ### Test runner for the Kyma upgrade
 
 We created a test runner and a place for end-to-end upgrade tests executed by [Kyma upgrade plan on CI](https://status.build.kyma-project.io/?job=post-master-kyma-gke-upgrade). The framework allows you to prepare the data and run tests against the prepared data. For more information on end-to-end upgrade tests, read [this](https://github.com/kyma-project/kyma/tree/master/tests/end-to-end/upgrade) document.
-
-
-## Logging
-
-### Loki enabled for all clients
-
-We switched our logging solution to Loki in the 0.8.0 release. With the Florence release, the Loki API is reachable from outside of a cluster. With that, we added integration to Grafana UI, as well as a completely new view in the Console UI.
 
 
 ## Monitoring
