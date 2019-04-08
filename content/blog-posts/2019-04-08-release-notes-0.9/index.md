@@ -38,6 +38,8 @@ See the overview of all changes in this release:
 
 ## Application Connector
 
+> **CAUTION:** To ensure the persistence of API services specifications, run the migration script to move successfully from v0.8 to v0.9. Read the [Migration Guide](https://github.com/kyma-project/kyma/blob/release-0.9/docs/migration-guides/0.8-0.9.md) for details.
+
 ### Application Registry API can fetch generated client certificates
 
 We extended the Application Registry API with the possibility to fetch the generated client certificates. As soon as you register an API secured with the client certificate verification as a security mechanism, you can read this certificate with our API. Read [this](https://kyma-project.io/docs/components/application-connector/#tutorials-register-a-secured-api) document for more information.
