@@ -66,28 +66,25 @@ We changed the Application Gateway proxy functionality and now the unnecessary h
 The Documentation UI, which you can access in the Console UI, is now integrated with the Headless CMS. This means you can extend the Documentation view, the one you see after clicking the **?** icon, with your custom documentation topics as long as you have your docs written in Markdown and extended with additional metadata. The code snippet below is an example of a ClusterDocsTopic custom resource that will extend the Documentation UI navigation with a new element called **Prometheus** under a **Components** heading. After clicking **Prometheus**, you will see the official Prometheus documentation.
 
 ```yaml
+cat <<EOF | kubectl apply -f -
 apiVersion: cms.kyma-project.io/v1alpha1
 kind: ClusterDocsTopic
 metadata:
-  name: kubernetes-workloads
   labels:
     cms.kyma-project.io/view-context: docs-ui
-    cms.kyma-project.io/order: "1"
-    cms.kyma-project.io/group-name: Kubernetes
+    cms.kyma-project.io/group-name: components
+    cms.kyma-project.io/order: "2"
+  name: prometheus
 spec:
-  displayName: "Workloads"
-  description: "These are official Kubernetes docs about workloads"
+  displayName: "Prometheus"
+  description: "Some docs about Prometheus concepts"
   sources:
-   - type: markdown
-     name: markdown-files
-     mode: package
-     url: https://github.com/kubernetes/website/archive/master.zip
-     filter: /content/en/docs/concepts/workloads/controllers
-   - type: markdown
-     name: markdown-files
-     mode: package
-     url: https://github.com/kubernetes/website/archive/master.zip
-     filter: /content/en/docs/concepts/workloads/pods
+    - type: markdown
+      name: docs
+      mode: package
+      url: https://github.com/prometheus/docs/archive/master.zip
+      filter: content/docs/concepts
+EOF
 ```
 
 ### Service Catalog related views integrated with Headless CMS
