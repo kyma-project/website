@@ -41,15 +41,15 @@ See the overview of all changes in this release:
 
 ### Application Registry API can fetch generated client certificates
 
-We extended the Application Registry API with the possibility to fetch the generated client certificates. As soon as you register an API secured with the client certificate verification as a security mechanism, you can read this certificate with our API. Read [this](https://kyma-project.io/docs/master/components/application-connector/#tutorials-register-a-secured-api) document for more information.
+We extended the Application Registry API with the possibility to fetch the generated client certificates. As soon as you register an API secured with the client certificate verification as a security mechanism, you can read this certificate with our API. Read [this](https://kyma-project.io/docs/components/application-connector/#tutorials-register-a-secured-api) document for more information.
 
 ### Apply details for the tenant and group name
 
-We extended the TokenRequest functionality and now you can apply details for the tenant name and group name. It allows you to easily manage the token generation process for pairing applications in the central Connector Service. For more details, read [this](https://kyma-project.io/docs/master/components/application-connector/#custom-resource-tokenrequest) document.
+We extended the TokenRequest functionality and now you can apply details for the tenant name and group name. It allows you to easily manage the token generation process for pairing applications in the central Connector Service. For more details, read [this](https://kyma-project.io/docs/components/application-connector/#custom-resource-tokenrequest) document.
 
 ### Read about the Root CA rotation procedure
 
-We updated our documentation with the description of the [Root CA rotation procedure](https://kyma-project.io/docs/master/components/application-connector/#custom-resource-tokenrequest).
+We updated our documentation with the description of the [Root CA rotation procedure](https://kyma-project.io/docs/master/components/application-connector/#tutorials-rotate-the-root-ca-certificate-and-key).
 
 ### Acceptance tests for the Gateway Service
 
@@ -126,7 +126,7 @@ spec:
 
 In Kyma, we value the content-as-code principle. It means that documentation is treated the same as code, as in the end, it is not much different. We decided to go one step further. If content is like code, why not deploy it into the Kubernetes cluster as code as well? If you can easily deploy a service using the Deployment resource, you can do the same with documentation. This is what we implemented - the Headless CMS, based on Kubernetes Custom Resource Definitions, that uses our other component, the [Asset Store](https://kyma-project.io/docs/components/asset-store), for storage.
 
-The Headless CMS itself does not yet deliver any customizable UI interface that could be used to publish a standalone documentation portal. Nevertheless, we already use it in the Console UI. For more details, read the Headless CMS [documentation](https://kyma-project.io/docs/components/headless-cms/).
+The Headless CMS itself does not yet deliver any customizable UI interface that could be used to publish a standalone documentation portal. Nevertheless, we already use it in the Console UI. For more details, read the Headless CMS [documentation](https://kyma-project.io/docs/master/components/headless-cms).
 
 ### Asset Store supports a webhook service that can enhance the status of the CR with additional metadata for each file
 
@@ -155,11 +155,11 @@ spec:
       filter: \.md$
 ```
 
-To learn more about webhook services, read [this](https://kyma-project.io/docs/master/components/asset-store/#custom-resource-asset-validation-and-mutation-webhook-services) document.
+To learn more about webhook services, read [this](https://kyma-project.io/docs/components/asset-store/#custom-resource-asset-validation-and-mutation-webhook-services) document.
 
 ### Asset Store stack enhanced with a default service that can extract metadata from any file
 
-With the support of the new metadata webhook, we added a default service to the Asset Store domain. You can use it to extract the front matter metadata provided in any file of the `yaml` format. We already use this service in the Headless CMS component. For more details, read [this](https://kyma-project.io/docs/master/components/asset-store/#details-asset-metadata-service) document.
+With the support of the new metadata webhook, we added a default service to the Asset Store domain. You can use it to extract the front matter metadata provided in any file of the `yaml` format. We already use this service in the Headless CMS component. For more details, read [this](https://kyma-project.io/docs/components/asset-store/#details-asset-metadata-service) document.
 
 
 ## Eventing
