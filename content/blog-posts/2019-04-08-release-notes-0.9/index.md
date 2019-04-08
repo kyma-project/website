@@ -93,7 +93,7 @@ spec:
 
 ### Service Catalog related views integrated with Headless CMS
 
-The Service Catalog-related views now read documentation provided with the new Headless CMS. This means that you can easily provide documentation and specifications for any service that you want to share through the Service Catalog. See the example DocsTopic custom resource for artificial Service Calls that would expose Slack APIs:
+The Service Catalog-related views now read documentation provided with the new Headless CMS. This means that you can easily provide documentation and specifications for any service that you want to share through the Service Catalog. See the example DocsTopic custom resource for artificial Service Class that exposes Slack APIs:
 
 ```yaml
 apiVersion: cms.kyma-project.io/v1alpha1
