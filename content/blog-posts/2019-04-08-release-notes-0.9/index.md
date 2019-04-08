@@ -155,7 +155,7 @@ To learn more about webhook services, read [this](https://kyma-project.io/docs/c
 
 ### Asset Store stack enhanced with a default service that can extract metadata from any file
 
-With the support of the new metadata webhook, we added a default service to the Asset Store domain. You can use it to extract the front matter metadata provided in any file of the `yaml` format. We already use this service in the Headless CMS component. For more details, read [this](https://kyma-project.io/docs/components/asset-store/#details-asset-metadata-service) document.
+With the support of the new metadata webhook, we added a default service to the Asset Store domain. You can use it to extract the front matter metadata provided in any file of the `yaml` format. We already use this service in the Headless CMS component. For more details, read [this](https://kyma-project.io/docs/master/components/asset-store/#details-asset-metadata-service) document.
 
 
 ## Eventing
