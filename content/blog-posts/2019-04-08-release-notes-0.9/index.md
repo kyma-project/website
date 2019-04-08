@@ -26,7 +26,7 @@ The highlights of Kyma 0.9 Florence include:
 See the overview of all changes in this release:
 
 - [Application Connector](#application-connector) - Connector Service enhancements and extensions
-- [Console](#console) - Console views that display documentation use the new Headless CMS, new Log UI available in the Console UI
+- [Console](#console) - Console views that display documentation use the new Headless CMS
 - [Core and Supporting](#core-and-supporting) - Kyma Headless CMS as the default solution for handling documentation
 - [Eventing](#eventing) - Knative Eventing enabled by default, improved security, alerting and monitoring added
 - [Installation](#installation) - `Xip.io` wildcard as the default DNS solution, test runner for the Kyma upgrade
@@ -38,11 +38,6 @@ See the overview of all changes in this release:
 ---
 
 ## Application Connector
-
-### Configure the expiration time of certificates separately
-
-You can now configure the expiration time of certificates for Kyma clusters and connected Applications separately.
-For more information, read [this](https://github.com/kyma-project/kyma/tree/master/components/connector-service#connector-service) document.
 
 ### Application Registry API can fetch generated client certificates
 
@@ -69,9 +64,9 @@ We changed the Application Gateway proxy functionality and now the unnecessary h
 
 ### Documentation UI integrated with Headless CMS
 
-The Documentation UI, which you can access in the Console UI, is now integrated with the Headless CMS. This means you can extend the Documentation view, the one you see after clicking the **?** icon, with your custom documentation topics as long as you have your docs written in Markdown and extended with additional metadata. The code snippet below is an example of a ClusterDocsTopic custom resource that will extend the Documentation UI navigation with a new element called **Workloads** which will be grouped under a new **Kubernetes** heading. After clicking **Workloads**, you will see the official Kubernetes documentation.  
+The Documentation UI, which you can access in the Console UI, is now integrated with the Headless CMS. This means you can extend the Documentation view, the one you see after clicking the **?** icon, with your custom documentation topics as long as you have your docs written in Markdown and extended with additional metadata. The code snippet below is an example of a ClusterDocsTopic custom resource that will extend the Documentation UI navigation with a new element called **Prometheus** under a **Components** heading. After clicking **Prometheus**, you will see the official Prometheus documentation.
 
-```
+```yaml
 apiVersion: cms.kyma-project.io/v1alpha1
 kind: ClusterDocsTopic
 metadata:
@@ -98,13 +93,13 @@ spec:
 
 ### Service Catalog related views integrated with Headless CMS
 
-The Service Catalog-related views now read documentation provided with the new Headless CMS. This means that you can easily provide documentation and specifications for any service that you want to share through the Service Catalog. See the example DocsTopic custom resource that extends the Text Analytics service from Azure with additional documentation, Markdown docs, and the Swagger console based on the official Azure OpenAPI specification for the service:
+The Service Catalog-related views now read documentation provided with the new Headless CMS. This means that you can easily provide documentation and specifications for any service that you want to share through the Service Catalog. See the example DocsTopic custom resource for artificial Service Calls that would expose Slack APIs:
 
-```
+```yaml
 apiVersion: cms.kyma-project.io/v1alpha1
 kind: DocsTopic
 metadata:
-  name: slack
+  name: {$SERVICE_CLASS_ID}
   labels:
     cms.kyma-project.io/view-context: service-catalog
 spec:
@@ -125,11 +120,6 @@ spec:
       url: https://raw.githubusercontent.com/slackapi/slack-api-specs/master/web-api/slack_web_openapi_v2.json
 ```
 
-### View Pods' logs directly from the Console UI
-
-The Console UI now comes with an integrated Log UI micro frontend. It allows you to filter logs by labels and time so that you can see logs from relevant Pods and timeframe. You can also jump into logs from particular Pods or lambdas. To do so, select the **Show Logs** tab from the context menu on the Pods or lambdas list.
-
-
 ## Core and Supporting
 
 ### Headless CMS
@@ -143,7 +133,7 @@ The Headless CMS itself does not yet deliver any customizable UI interface that 
 You can now extend the Asset Store status sub-resource with additional metadata information for each file created by the controller. To do so, create a separate service that implements REST API and accepts `multipart/form-data`. One of the use cases for such a service is to extract the front matter metadata provided in any file of the `yaml` format.
 See the example AssetStore resource that contains information about the status modification webhook:
 
-```
+```yaml
 apiVersion: assetstore.kyma-project.io/v1alpha2
 kind: Asset
 metadata:
