@@ -42,15 +42,15 @@ See the overview of all changes in this release:
 
 ### Application Registry API can fetch generated client certificates
 
-We extended the Application Registry API with the possibility to fetch the generated client certificates. As soon as you register an API secured with the client certificate verification as a security mechanism, you can read this certificate with our API. Read [this](https://kyma-project.io/docs/components/application-connector/#tutorials-register-a-secured-api) document for more information.
+We extended the Application Registry API with the possibility to fetch the generated client certificates. As soon as you register an API secured with the client certificate verification as a security mechanism, you can read this certificate with our API. Read [this](https://kyma-project.io/docs/0.9/components/application-connector/#tutorials-register-a-secured-api) document for more information.
 
 ### Apply details for the tenant and group name
 
-We extended the TokenRequest functionality and now you can apply details for the tenant name and group name. It allows you to easily manage the token generation process for pairing applications in the central Connector Service. For more details, read [this](https://kyma-project.io/docs/components/application-connector/#custom-resource-tokenrequest) document.
+We extended the TokenRequest functionality and now you can apply details for the tenant name and group name. It allows you to easily manage the token generation process for pairing applications in the central Connector Service. For more details, read [this](https://kyma-project.io/docs/0.9/components/application-connector/#custom-resource-tokenrequest) document.
 
 ### Read about the Root CA rotation procedure
 
-We updated our documentation with the description of the [Root CA rotation procedure](https://kyma-project.io/docs/master/components/application-connector/#tutorials-rotate-the-root-ca-certificate-and-key).
+We updated our documentation with the description of the [Root CA rotation procedure](https://kyma-project.io/docs/0.9/components/application-connector/#tutorials-rotate-the-root-ca-certificate-and-key).
 
 ### Acceptance tests for the Gateway Service
 
@@ -58,7 +58,7 @@ We enhanced the Gateway Service with the extended set of acceptance tests, which
 
 ### Headers management
 
-We changed the Application Gateway proxy functionality and now the unnecessary headers, such as `X-Forwarded-For`, are removed while making calls to external solutions. For the full list of removed headers, read [this](https://kyma-project.io/docs/master/components/application-connector/#architecture-application-gateway-handling-of-headers) document.
+We changed the Application Gateway proxy functionality and now the unnecessary headers, such as `X-Forwarded-For`, are removed while making calls to external solutions. For the full list of removed headers, read [this](https://kyma-project.io/docs/0.9/components/application-connector/#architecture-application-gateway-handling-of-headers) document.
 
 
 ## Console
@@ -122,9 +122,9 @@ spec:
 
 ### Headless CMS
 
-In Kyma, we value the content-as-code principle. It means that documentation is treated the same as code, as in the end, it is not much different. We decided to go one step further. If content is like code, why not deploy it into the Kubernetes cluster as code as well? If you can easily deploy a service using the Deployment resource, you can do the same with documentation. This is what we implemented - the Headless CMS, based on Kubernetes Custom Resource Definitions, that uses our other component, the [Asset Store](https://kyma-project.io/docs/components/asset-store), for storage.
+In Kyma, we value the content-as-code principle. It means that documentation is treated the same as code, as in the end, it is not much different. We decided to go one step further. If content is like code, why not deploy it into the Kubernetes cluster as code as well? If you can easily deploy a service using the Deployment resource, you can do the same with documentation. This is what we implemented - the Headless CMS, based on Kubernetes Custom Resource Definitions, that uses our other component, the [Asset Store](https://kyma-project.io/docs/0.9/components/asset-store), for storage.
 
-The Headless CMS itself does not yet deliver any customizable UI interface that could be used to publish a standalone documentation portal. Nevertheless, we already use it in the Console UI. For more details, read the Headless CMS [documentation](https://kyma-project.io/docs/master/components/headless-cms).
+The Headless CMS itself does not yet deliver any customizable UI interface that could be used to publish a standalone documentation portal. Nevertheless, we already use it in the Console UI. For more details, read the Headless CMS [documentation](https://kyma-project.io/docs/0.9/components/headless-cms).
 
 ### Asset Store supports a webhook service that can enhance the status of the CR with additional metadata for each file
 
@@ -153,11 +153,11 @@ spec:
       filter: \.md$
 ```
 
-To learn more about webhook services, read [this](https://kyma-project.io/docs/components/asset-store/#custom-resource-asset-validation-and-mutation-webhook-services) document.
+To learn more about webhook services, read [this](https://kyma-project.io/docs/0.9/components/asset-store/#custom-resource-asset-validation-and-mutation-webhook-services) document.
 
 ### Asset Store stack enhanced with a default service that can extract metadata from any file
 
-With the support of the new metadata webhook, we added a default service to the Asset Store domain. You can use it to extract the front matter metadata provided in any file of the `yaml` format. We already use this service in the Headless CMS component. For more details, read [this](https://kyma-project.io/docs/master/components/asset-store/#details-asset-metadata-service) document.
+With the support of the new metadata webhook, we added a default service to the Asset Store domain. You can use it to extract the front matter metadata provided in any file of the `yaml` format. We already use this service in the Headless CMS component. For more details, read [this](https://kyma-project.io/docs/0.9/components/asset-store/#details-asset-metadata-service) document.
 
 
 ## Eventing
@@ -183,7 +183,7 @@ The wildcard DNS provided by `xip.io` is integrated as the default DNS solution,
 
 ### Test runner for the Kyma upgrade
 
-We created a test runner and a place for end-to-end upgrade tests executed by [Kyma upgrade plan on CI](https://status.build.kyma-project.io/?job=post-master-kyma-gke-upgrade). The framework allows you to prepare the data and run tests against the prepared data. For more information on end-to-end upgrade tests, read [this](https://github.com/kyma-project/kyma/tree/master/tests/end-to-end/upgrade) document.
+We created a test runner and a place for end-to-end upgrade tests executed by [Kyma upgrade plan on CI](https://status.build.kyma-project.io/?job=post-master-kyma-gke-upgrade). The framework allows you to prepare the data and run tests against the prepared data. For more information on end-to-end upgrade tests, read [this](https://github.com/kyma-project/kyma/tree/release-0.9/tests/end-to-end/upgrade) document.
 
 
 ## Monitoring
@@ -201,7 +201,7 @@ From this release, communication with Tiller requires a TLS certificate. For dev
 
 ### Helm Broker enforces TLS for external bundles repositories
 
-From now on, on your non-local clusters, you can use only servers with TLS enabled. All incorrect or unsecured URLs will be omitted. You can use unsecured URLs only on your local cluster. For more information, read [this](https://kyma-project.io/docs/master/components/helm-broker/#configuration-configuration-configuration-rules) document.
+From now on, on your non-local clusters, you can use only servers with TLS enabled. All incorrect or unsecured URLs will be omitted. You can use unsecured URLs only on your local cluster. For more information, read [this](https://kyma-project.io/docs/0.9/components/helm-broker/#configuration-configuration-configuration-rules) document.
 
 ### Istio with mutual TLS for the Service Catalog and Service Brokers
 
