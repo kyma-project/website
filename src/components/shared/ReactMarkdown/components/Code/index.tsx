@@ -65,7 +65,7 @@ export const Code: React.FunctionComponent<CodeProps> = ({
 
   return (
     <CodeWrapper>
-      <StyledCopyButton code={value} />
+      <StyledCopyButton code={processedCode} />
       <HighlightWrapper>
         <Highlight
           {...defaultProps}
