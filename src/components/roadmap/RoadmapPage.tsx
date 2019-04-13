@@ -2,40 +2,25 @@ import React from "react";
 
 import Grid from "@styled/Grid";
 
-import Modal from "@components/roadmap/Modal/Modal";
-
-import Navigation from "@components/roadmap/Navigation";
+import Overview from "@components/roadmap/Overview";
+import Capabilities from "@components/roadmap/Capabilities/Capabilities";
 
 import { RoadmapPageContext, NavigationItem } from "./types";
 
-interface RoadmapPageWrapperProps {
-  navigationItems: NavigationItem[];
-}
-
-export const RoadmapPageWrapper: React.FunctionComponent<RoadmapPageWrapperProps> = ({ navigationItems, children }) => (
-  <Grid.Container>
-    <Grid.Row>
-      <Grid.Unit df={3} md={0}>
-        <Navigation items={navigationItems} />
-      </Grid.Unit>
-      <Grid.Unit df={9} md={12}>
-        {children}
-      </Grid.Unit>
-    </Grid.Row>
-  </Grid.Container>
-);
-
 interface RoadmapPageProps {
   pageContext: RoadmapPageContext;
+  description: string;
 }
 
 const RoadmapPage: React.FunctionComponent<RoadmapPageProps> = ({
   pageContext: { capabilitiesNavigation },
+  description,
 }) => {
   return (
-    <RoadmapPageWrapper navigationItems={capabilitiesNavigation}>
-        
-    </RoadmapPageWrapper>
+    <>
+      <Overview />
+      <Capabilities navigationItems={capabilitiesNavigation} description={description} />
+    </>
   );
 };
 

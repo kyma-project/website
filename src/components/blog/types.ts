@@ -1,5 +1,3 @@
-import { PageContext } from "@common/types";
-
 /* Post */
 export interface Post {
   id: string;

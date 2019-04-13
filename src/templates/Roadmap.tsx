@@ -19,7 +19,7 @@ const RoadmapPageTemplate: React.FunctionComponent<
     locale={pageContext.locale}
     pageTitle={`${frontmatter.displayName} - Roadmap`}
   >
-    <RoadmapPage pageContext={pageContext} />
+    <RoadmapPage pageContext={pageContext} description={rawMarkdownBody} />
   </Layout>
 );
 
