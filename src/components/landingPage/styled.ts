@@ -277,7 +277,7 @@ export const EarlyAdoptersWrapper = styled.div`
   }
   .sprite-icon--arithnea {
     width: 250px;
-    max-height: 31px;
+    max-height: 28px;
     margin-top: -5px;
   }
 `;
