@@ -7,7 +7,7 @@ import {
   EarlyAdoptersWrapper,
   EarlyAdoptersContent,
   EarlyAdoptersList,
-  EarlyAdoptersListItem,
+  StyledEarlyAdoptersListItem,
 } from "./styled";
 
 import Sprites, { getSapGradientDef, getTwiggleGradientDef } from "./Sprites";
@@ -15,6 +15,26 @@ import Sprites, { getSapGradientDef, getTwiggleGradientDef } from "./Sprites";
 import { FormattedMessage, getTranslation } from "@common/i18n";
 
 const gt = getTranslation("landingPage.earlyAdopters");
+
+interface ListItemProps {
+  company: string;
+}
+const EarlyAdoptersListItem: React.FunctionComponent<ListItemProps> = ({
+  company,
+  children,
+}) => (
+  <StyledEarlyAdoptersListItem>
+    <svg
+      className={`sprite-icon sprite-icon--${company}`}
+      role="img"
+      aria-labelledby={company}
+    >
+      {children}
+      <title id={company}>{company}</title>
+      <use xlinkHref={`#${company}`} />
+    </svg>
+  </StyledEarlyAdoptersListItem>
+);
 
 const EarlyAdopters: React.FunctionComponent = () => (
   <EarlyAdoptersWrapper>
@@ -33,60 +53,16 @@ const EarlyAdopters: React.FunctionComponent = () => (
         <Grid.Unit df={12}>
           <EarlyAdoptersContent className="adopters">
             <EarlyAdoptersList>
-              <EarlyAdoptersListItem>
-                <svg
-                  className="sprite-icon sprite-icon--twiggle"
-                  role="img"
-                  aria-labelledby="twiggle"
-                >
-                  {getTwiggleGradientDef()}
-                  <title id="twiggle">twiggle</title>
-                  <use xlinkHref="#twiggle" />
-                </svg>
+              <EarlyAdoptersListItem company="twiggle">
+                {getTwiggleGradientDef()}
               </EarlyAdoptersListItem>
-              <EarlyAdoptersListItem>
-                <svg
-                  className="sprite-icon sprite-icon--netconomy"
-                  role="img"
-                  aria-labelledby="netconomy"
-                >
-                  <title id="netconomy">netconomy</title>
-                  <use xlinkHref="#netconomy" />
-                </svg>
+              <EarlyAdoptersListItem company="netconomy" />
+              <EarlyAdoptersListItem company="sap">
+                {getSapGradientDef()}
               </EarlyAdoptersListItem>
-              <EarlyAdoptersListItem>
-                <svg
-                  className="sprite-icon sprite-icon--sap"
-                  role="img"
-                  aria-labelledby="sap"
-                >
-                  {getSapGradientDef()}
-                  <title id="sap">sap</title>
-                  <use xlinkHref="#sap" />
-                </svg>
-              </EarlyAdoptersListItem>
-              <EarlyAdoptersListItem>
-                <svg
-                  className="sprite-icon sprite-icon--mgm"
-                  role="img"
-                  aria-labelledby="mgm"
-                >
-                  <title id="mgm">mgm</title>
-                  <use xlinkHref="#mgm" />
-                </svg>
-              </EarlyAdoptersListItem>
-              <EarlyAdoptersListItem>
-                <svg
-                  className="sprite-icon sprite-icon--accenture-interactive"
-                  role="img"
-                  aria-labelledby="accenture-interactive"
-                >
-                  <title id="accenture-interactive">
-                    accenture-interactive
-                  </title>
-                  <use xlinkHref="#accenture-interactive" />
-                </svg>
-              </EarlyAdoptersListItem>
+              <EarlyAdoptersListItem company="mgm" />
+              <EarlyAdoptersListItem company="accenture-interactive" />
+              <EarlyAdoptersListItem company="arithnea" />
             </EarlyAdoptersList>
           </EarlyAdoptersContent>
         </Grid.Unit>
