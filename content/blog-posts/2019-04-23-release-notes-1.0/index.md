@@ -10,8 +10,7 @@ redirectFrom:
   - "/blog/release-notes-10"
 ---
 
-
-Althouh the 1.0 release may not be abundant in new features, they surely add value to your everyday Kyma experience.  
+The 1.0 release may not be abundant in new features, but it surely adds value to your everyday Kyma experience.  
 
 <!-- overview -->
 
