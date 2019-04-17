@@ -7,34 +7,15 @@ import {
   EarlyAdoptersWrapper,
   EarlyAdoptersContent,
   EarlyAdoptersList,
-  StyledEarlyAdoptersListItem,
-} from "./styled";
+} from "../styled";
 
-import Sprites, { getSapGradientDef, getTwiggleGradientDef } from "./Sprites";
+import { EarlyAdoptersListItem } from "./EarlyAdoptersListItem";
+
+import Sprites, { getSapGradientDef, getTwiggleGradientDef } from "../Sprites";
 
 import { FormattedMessage, getTranslation } from "@common/i18n";
 
 const gt = getTranslation("landingPage.earlyAdopters");
-
-interface ListItemProps {
-  company: string;
-}
-const EarlyAdoptersListItem: React.FunctionComponent<ListItemProps> = ({
-  company,
-  children,
-}) => (
-  <StyledEarlyAdoptersListItem>
-    <svg
-      className={`sprite-icon sprite-icon--${company}`}
-      role="img"
-      aria-labelledby={company}
-    >
-      {children}
-      <title id={company}>{company}</title>
-      <use xlinkHref={`#${company}`} />
-    </svg>
-  </StyledEarlyAdoptersListItem>
-);
 
 const EarlyAdopters: React.FunctionComponent = () => (
   <EarlyAdoptersWrapper>

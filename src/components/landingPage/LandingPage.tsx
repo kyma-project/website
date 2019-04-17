@@ -5,7 +5,7 @@ import WhatIs from "@components/landingPage/WhatIs";
 import MakeSpecial from "@components/landingPage/MakeSpecial";
 import KeyFeatures from "@components/landingPage/KeyFeatures";
 import Community from "@components/landingPage/Community";
-import EarlyAdopters from "@components/landingPage/EarlyAdopters";
+import EarlyAdopters from "@components/landingPage/EarlyAdopters/EarlyAdopters";
 
 import { CommunityAndEarlyAdoptersWrapper } from "./styled";
 
