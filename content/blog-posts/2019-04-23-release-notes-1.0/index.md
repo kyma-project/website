@@ -10,7 +10,7 @@ redirectFrom:
   - "/blog/release-notes-10"
 ---
 
-The 1.0 release may not be abundant in new features, but it surely adds value to your everyday Kyma experience. We have put a lot of effort in securing all the communication inside the Kyma cluster to make Kyma even more stable and secure. Introduced bug fixes will make you enjoy smooth development even more.
+The 1.0 release may not be abundant in new features, but it surely adds value to your everyday Kyma experience. We have put a lot of effort in securing all the communication inside the Kyma cluster to make Kyma even more stable and secure. These improvements, along with the resolved issues, will make the development even smoother and more enjoyable.
 
 <!-- overview -->
 
