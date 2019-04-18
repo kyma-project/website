@@ -10,7 +10,7 @@ redirectFrom:
   - "/blog/release-notes-10"
 ---
 
-The 1.0 release may not be abundant in new features, but it surely adds value to your everyday Kyma experience.  
+The 1.0 release may not be abundant in new features, but it surely adds value to your everyday Kyma experience.   
 
 <!-- overview -->
 
@@ -31,4 +31,4 @@ See the overview of all changes in this release:
 
 ### Mutual TLS enabled by default
 
-Starting from this release, all communication between services is handled by Istio using mutual TLS, which greatly increases the security of implementations built on Kyma. As this feature is connected to the automatic sidecar injection, developers do not need to apply any additional configuration to enable mTLS. Note that mTLS can be easily disabled on the Namespace or Service level. 
+Starting from this release, all communication between services is handled by Istio using mutual TLS which greatly increases the security of implementations built on Kyma. As this feature is connected to the automatic sidecar injection, developers do not need to apply any additional configuration to enable mTLS. Note that you can easily disable mTLS on the Namespace or Service level. 
