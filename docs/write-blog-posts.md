@@ -128,7 +128,7 @@ Example:
 ![Kyma logo](https://raw.githubusercontent.com/kyma-project/kyma/master/logo.png "Hover over me!")
 ```
 
-![Kyma logo](https://raw.githubusercontent.com/kyma-project/website/master/static/android-chrome-192x192.png "Hover over me!")
+![Kyma logo](https://github.com/kyma-project/website/blob/master/static/android-chrome-512x512.png "Hover over me!")
 
 However, it is advised to download the image, put it into the folder where the `index.md` file is located, and refer to its relative path instead of an absolute link from the Internet.
 
