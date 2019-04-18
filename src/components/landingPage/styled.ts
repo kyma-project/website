@@ -275,6 +275,11 @@ export const EarlyAdoptersWrapper = styled.div`
     max-height: 24px;
     margin-top: -5px;
   }
+  .sprite-icon--arithnea {
+    width: 250px;
+    max-height: 30px;
+    margin-top: -2px;
+  }
 `;
 
 export const EarlyAdoptersContent = styled.div``;
@@ -291,7 +296,7 @@ export const EarlyAdoptersList = styled.ul`
   `};
 `;
 
-export const EarlyAdoptersListItem = styled.li`
+export const StyledEarlyAdoptersListItem = styled.li`
   margin: 10px 15px;
   text-align: center;
 `;
