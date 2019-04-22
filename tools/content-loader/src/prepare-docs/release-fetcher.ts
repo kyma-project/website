@@ -7,7 +7,7 @@ import {
 import GitHubClient from "../github-client/github-client";
 import { DocsReleasesVersion } from "./docs-versions";
 
-class Releases {
+class ReleaseFetcher {
   async get() {
     const [err, releases] = await to(GitHubClient.getReleases());
     if (err) throw err;
@@ -101,4 +101,4 @@ class Releases {
   }
 }
 
-export default new Releases();
+export default new ReleaseFetcher();

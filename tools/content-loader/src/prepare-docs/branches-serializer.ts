@@ -3,7 +3,7 @@ import { VError } from "verror";
 
 import GitHubClient from "../github-client/github-client";
 
-class Branches {
+class BranchesSerializer {
   async get(configBranches: string[]) {
     const currentBranches = configBranches ? configBranches : [];
     const branches = new Map<string, string>();
@@ -25,4 +25,4 @@ class Branches {
   }
 }
 
-export default new Branches();
+export default new BranchesSerializer();

@@ -19,7 +19,5 @@ prepare-git:
 
 prepare-content: prepare-git
 	./scripts/prepare-content.sh --branches $(PULL_BASE_REF)
-
-publish-website:
 	./scripts/publish-website.sh
 	

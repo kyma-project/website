@@ -6,11 +6,11 @@ import { VError } from "verror";
 import { CoreConfig } from "../config";
 import docsConfig, { DocsConfig } from "./config";
 import GitClient from "../github-client/git-client";
-import CheckingDocs from "./checking";
+import CheckingDocs from "./branches-checking";
 import CopyDocs from "./copy-docs";
 import DocsVersions from "./docs-versions";
 
-export default async (coreConfig: CoreConfig) => {
+const prepareDocs = async (coreConfig: CoreConfig) => {
   const configBranches = docsConfig.branches;
   const outputPath = resolve(docsConfig.outputPath);
   const outputDocsVersion = resolve(docsConfig.outputDocsVersion);
@@ -85,3 +85,5 @@ export default async (coreConfig: CoreConfig) => {
   );
   if (err) throw err;
 };
+
+export default prepareDocs;
