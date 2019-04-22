@@ -9,7 +9,8 @@ export const OverviewHeader = styled.header`
   text-align: center;
   padding-bottom: 72px;
 
-  h2 {
+  h2,
+  h4 {
     text-align: center;
   }
 

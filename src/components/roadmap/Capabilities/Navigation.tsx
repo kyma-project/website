@@ -4,8 +4,7 @@ import Link from "@components/shared/Link";
 
 import CapabilitySvg from "@components/roadmap/Svg";
 
-import { extractCapabilityByDisplayName } from "../helpers";
-import { NavigationItem, CapabilityEnum } from "../types";
+import { RoadmapPageContext, NavigationItem, CapabilityEnum } from "../types";
 
 import {
   NavigationList,
@@ -14,24 +13,24 @@ import {
 } from "./styled";
 
 interface NavigationProps {
-  items: NavigationItem[];
+  pageContext: RoadmapPageContext;
   pathName: string;
+  id: string;
 }
 
 const Navigation: React.FunctionComponent<NavigationProps> = ({
-  items,
+  pageContext,
   pathName,
+  id,
 }) => {
   const isActive = (path: string): boolean => pathName.includes(path);
 
   return (
     <NavigationList>
-      {items.map(item => (
+      {pageContext.capabilitiesNavigation.map(item => (
         <NavigationListItem key={item.displayName} active={isActive(item.path)}>
           <Link.Internal to={item.path}>
-            <CapabilitySvg
-              capability={extractCapabilityByDisplayName(item.displayName)}
-            />
+            <CapabilitySvg capability={pageContext.ids[item.displayName]} />
             <NavigationListItemName>
               <span>{item.displayName}</span>
             </NavigationListItemName>

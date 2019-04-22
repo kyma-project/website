@@ -13,21 +13,24 @@ interface RoadmapPageProps {
   location: any;
   displayName: string;
   description: string;
+  id: string;
 }
 
 const RoadmapPage: React.FunctionComponent<RoadmapPageProps> = ({
-  pageContext: { capabilitiesNavigation },
+  pageContext,
   location,
   displayName,
   description,
+  id,
 }) => (
   <>
     <Overview />
     <Capabilities
-      navigationItems={capabilitiesNavigation}
+      pageContext={pageContext}
       description={description}
       pathName={location.pathname}
       displayName={displayName}
+      id={id}
     />
     <Tickets />
   </>

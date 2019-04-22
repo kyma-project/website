@@ -18,7 +18,7 @@ const RoadmapPageTemplate: React.FunctionComponent<
     Location
 > = ({
   data: {
-    markdownRemark: { rawMarkdownBody, frontmatter, fields },
+    markdownRemark: { rawMarkdownBody, frontmatter },
   },
   pageContext,
   location,
@@ -31,14 +31,15 @@ const RoadmapPageTemplate: React.FunctionComponent<
       pageContext={pageContext}
       description={rawMarkdownBody}
       displayName={frontmatter.displayName}
+      id={frontmatter.id}
       location={location}
     />
   </Layout>
 );
 
 export const pageQuery = graphql`
-  query($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+  query($id: String!) {
+    markdownRemark(frontmatter: { id: { eq: $id } }) {
       ...Capability
     }
   }

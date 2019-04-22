@@ -1,3 +1,5 @@
+const { ROADMAP_CAPABILITY_PATH_PREFIX } = require("../../constants");
+
 const getCapabilities = async graphql => {
   const result = await graphql(`
     {
@@ -7,10 +9,6 @@ const getCapabilities = async graphql => {
       ) {
         edges {
           node {
-            fields {
-              slug
-              type
-            }
             frontmatter {
               displayName
               epicsLabels
@@ -46,16 +44,31 @@ const generateCapabilitiesNavigation = capabilities => {
   const navigation = [];
 
   capabilities.map(capability => {
+    const path = `/${ROADMAP_CAPABILITY_PATH_PREFIX}/${
+      capability.node.frontmatter.id
+    }`;
     navigation.push({
       displayName: capability.node.frontmatter.displayName,
-      path: capability.node.fields.slug,
+      path,
     });
   });
 
   return navigation;
 };
 
+const generateMapOfDisplayNameToId = capabilities => {
+  const map = {};
+
+  capabilities.map(capability => {
+    map[capability.node.frontmatter.displayName] =
+      capability.node.frontmatter.id;
+  });
+
+  return map;
+};
+
 module.exports = {
   getCapabilities,
   generateCapabilitiesNavigation,
+  generateMapOfDisplayNameToId,
 };

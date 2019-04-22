@@ -33,7 +33,8 @@
     "lint-check": "tslint -c tslint.json 'src/**/*.{ts,tsx}' --format verbose && prettier --check '**/*.{ts,tsx,js,jsx,json,html,css,yaml}'",
     "lint-fix": "tslint -c tslint.json 'src/**/*.{ts,tsx}' --format verbose --fix && prettier --write '**/*.{ts,tsx,js,jsx,json,html,css,yaml}'",
     "conflict-check": "tslint-config-prettier-check ./tslint.json",
-    "markdownlint": "markdownlint **/*.md"
+    "markdownlint": "markdownlint **/*.md",
+    "clear-cache": "rm -fr ./.cache ./public"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.14",

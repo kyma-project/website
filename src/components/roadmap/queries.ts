@@ -10,6 +10,7 @@ export const CapabilityFragment = graphql`
     frontmatter {
       displayName
       epicsLabels
+      id
     }
   }
 `;

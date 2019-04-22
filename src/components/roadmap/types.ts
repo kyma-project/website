@@ -2,6 +2,7 @@
 export interface RoadmapPageContext {
   slug: string;
   capabilitiesNavigation: NavigationItem[];
+  ids: { [key: string]: CapabilityEnum };
 }
 
 export interface NavigationItem {
@@ -26,10 +27,11 @@ export interface CapabilityFields {
 export interface CapabilityMetadata {
   displayName: string;
   epicsLabels: string[];
+  id: string;
 }
 
 export enum CapabilityEnum {
-  API = "api",
+  API = "api-gateway",
   APPLICATION_CONNECTIVITY = "application-connectivity",
   CORE_AND_SUPPORTING = "core-and-supporting",
   EVENTING = "eventing",
@@ -38,4 +40,14 @@ export enum CapabilityEnum {
   MONITORING = "monitoring",
   PROVISIONING = "provisioning",
   SERVICE_MANAGEMENT = "service-management",
+}
+
+/* Tickets */
+export interface Ticket {
+  capability: CapabilityEnum;
+  ticketNumber: number;
+  title: string;
+  dueDate: string;
+  gitHubLink: string;
+  zenHubLink: string;
 }

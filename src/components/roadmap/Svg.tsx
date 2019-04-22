@@ -17,7 +17,6 @@ interface CapabilitySvgProps {
 const CapabilitySvg: React.FunctionComponent<CapabilitySvgProps> = ({
   capability,
 }) => {
-  // console.log(capability)
   const svg = (c: string) => {
     switch (c) {
       case "api":

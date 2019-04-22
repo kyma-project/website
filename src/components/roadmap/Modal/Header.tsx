@@ -1,5 +1,7 @@
 import React from "react";
 
+import Svg from "@components/roadmap/Svg";
+
 import Link from "@components/shared/Link";
 import Icon from "@components/shared/Icon";
 
@@ -36,7 +38,9 @@ const ModalHeader: React.FunctionComponent<ModalHeaderProps> = ({
 }) => (
   <ModalHeaderWrapper>
     <div>
-      <ModalHeaderIcon />
+      <ModalHeaderIcon>
+        <Svg capability={"application-connectivity"} />
+      </ModalHeaderIcon>
       <ModalHeaderMeta>
         <ModalHeaderMetaCapability>{capability}</ModalHeaderMetaCapability>
         <ModalHeaderMetaTicketNumber>

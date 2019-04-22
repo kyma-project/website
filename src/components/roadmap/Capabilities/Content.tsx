@@ -7,26 +7,24 @@ import H from "@components/shared/H";
 import Button from "@components/shared/Button";
 import ReactMarkdown from "@components/shared/ReactMarkdown";
 
-import { extractCapabilityByDisplayName } from "../helpers";
-
 import { ContentWrapper, Header, StyledReactMarkdown } from "./styled";
 
 interface ContentProps {
   displayName: string;
   description: string;
+  id: string;
 }
 
 const Content: React.FunctionComponent<ContentProps> = ({
   displayName,
   description,
+  id,
 }) => {
   const header = (
     <Grid.Container padding="0 30px">
       <Grid.Row>
         <Grid.Unit df={3} withoutPadding={true}>
-          <CapabilitySvg
-            capability={extractCapabilityByDisplayName(displayName)}
-          />
+          <CapabilitySvg capability={id} />
         </Grid.Unit>
         <Grid.Unit df={9} withoutPadding={true}>
           <H as="h2">{displayName}</H>

@@ -38,6 +38,7 @@ export const ModalHeaderIcon = styled.div`
   width: 80px;
   height: 80px;
   border-radius: 100%;
+  padding: 12px;
   transform: translate(0, -50%);
 `;
 

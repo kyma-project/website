@@ -6,18 +6,19 @@ import Grid from "@styled/Grid";
 import Navigation from "@components/roadmap/Capabilities/Navigation";
 import Content from "@components/roadmap/Capabilities/Content";
 
-import { NavigationItem } from "../types";
+import { RoadmapPageContext, NavigationItem } from "../types";
 
 import { Wrapper } from "./styled";
 
 interface CapabilitiesWrapperProps {
-  navigationItems: NavigationItem[];
+  pageContext: RoadmapPageContext;
   pathName: string;
+  id: string;
 }
 
 export const CapabilitiesWrapper: React.FunctionComponent<
   CapabilitiesWrapperProps
-> = ({ navigationItems, children, pathName }) => (
+> = ({ pageContext, children, pathName, id }) => (
   <Wrapper>
     <Grid.Container>
       <StickyContainer>
@@ -26,7 +27,11 @@ export const CapabilitiesWrapper: React.FunctionComponent<
             <Sticky>
               {({ style }: any) => (
                 <div style={{ ...style, zIndex: 110 }}>
-                  <Navigation items={navigationItems} pathName={pathName} />
+                  <Navigation
+                    pageContext={pageContext}
+                    pathName={pathName}
+                    id={id}
+                  />
                 </div>
               )}
             </Sticky>
@@ -41,20 +46,22 @@ export const CapabilitiesWrapper: React.FunctionComponent<
 );
 
 interface CapabilitiesProps {
-  navigationItems: NavigationItem[];
+  pageContext: RoadmapPageContext;
   pathName: string;
   displayName: string;
   description: string;
+  id: string;
 }
 
 const Capabilities: React.FunctionComponent<CapabilitiesProps> = ({
-  navigationItems,
+  pageContext,
   pathName,
   displayName,
   description,
+  id,
 }) => (
-  <CapabilitiesWrapper navigationItems={navigationItems} pathName={pathName}>
-    <Content description={description} displayName={displayName} />
+  <CapabilitiesWrapper pageContext={pageContext} pathName={pathName} id={id}>
+    <Content description={description} displayName={displayName} id={id} />
   </CapabilitiesWrapper>
 );
 

@@ -2,9 +2,14 @@ import React from "react";
 
 import Grid from "@styled/Grid";
 
+import { FormattedMessage, getTranslation } from "@common/i18n";
+
 import H from "@components/shared/H";
+import Paragraph from "@components/shared/Paragraph";
 
 import { OverviewWrapper, OverviewHeader } from "./styled";
+
+const gt = getTranslation("roadmap.overview");
 
 const Overview: React.FunctionComponent = () => (
   <Grid.Container>
@@ -14,15 +19,15 @@ const Overview: React.FunctionComponent = () => (
           <Grid.Unit df={2} />
           <Grid.Unit df={8}>
             <OverviewHeader>
-              <H as="h2">Capabilities</H>
-              <p>
-                Give Kyma organization minimal Kyma usage statistics. We should
-                know how ofter Kyma is  privisioned daily on local and cluster
-                and with what configration to understand which components are
-                used less Have proper components in place to enable analytics.
-                They should be preconfigured in the way the basic analytics are
-                available out of the box
-              </p>
+              <FormattedMessage id={gt("header")}>
+                {data => <H as="h2">{data}</H>}
+              </FormattedMessage>
+              <FormattedMessage id={gt("subHeader")}>
+                {data => <H as="h4">{data}</H>}
+              </FormattedMessage>
+              <FormattedMessage id={gt("description")}>
+                {data => <Paragraph>{data}</Paragraph>}
+              </FormattedMessage>
             </OverviewHeader>
           </Grid.Unit>
           <Grid.Unit df={2} />
