@@ -19,7 +19,10 @@ class BranchesChecking {
 
     if (!allReleases || !tags) return;
 
-    const validReleases = ReleaseFetcher.filterInvalidReleases(allReleases, tags);
+    const validReleases = ReleaseFetcher.filterInvalidReleases(
+      allReleases,
+      tags,
+    );
     const releasesByType = ReleaseFetcher.groupReleaseByType(validReleases);
 
     const releases = ReleaseFetcher.groupReleaseByName(
