@@ -3,6 +3,7 @@ displayName: "Core and Supporting"
 epicsLabels:
   - area/core-and-supporting
   - area/community
+id: "core-and-supporting"
 ---
 
 ## Scope

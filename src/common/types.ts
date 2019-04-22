@@ -51,7 +51,6 @@ export interface IntlPageContext {
 }
 
 /* Location */
-
 export interface Location {
   location: any;
 }

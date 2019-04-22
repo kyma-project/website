@@ -14,6 +14,7 @@ const getCapabilities = async graphql => {
             frontmatter {
               displayName
               epicsLabels
+              id
             }
           }
         }
