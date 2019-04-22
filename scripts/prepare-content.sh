@@ -64,7 +64,7 @@ init() {
 
 copy() {
     docker run --rm -v "${DOCUMENTATION_DIR}:/app/documentation" \
-               -e APP_DOCS_BRANCHES="${BRANCHES}"
+               -e APP_DOCS_BRANCHES="${BRANCHES}" \
                -e APP_DOCS_OUTPUT="/app/documentation" \
                -e APP_DOCS_VERSIONS_CONFIG_FILE="/app/documentation/versions.json" \
                -e APP_TOKEN="${BOT_GITHUB_TOKEN}" \

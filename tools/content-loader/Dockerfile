@@ -11,5 +11,6 @@ COPY package.json package-lock.json /app/
 RUN npm install
 
 COPY src/ /app/src/
+COPY bin/ /app/bin/
 
 CMD ["npm", "start"]
