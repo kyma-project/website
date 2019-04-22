@@ -1,4 +1,9 @@
-const { BLOG_POST_DIR, DOCS_DIR, ROADMAP_CAPABILITIES_DIR, ROADMAP_TICKETS_DIR } = require("../constants");
+const {
+  BLOG_POST_DIR,
+  DOCS_DIR,
+  ROADMAP_CAPABILITIES_DIR,
+  ROADMAP_TICKETS_DIR,
+} = require("../constants");
 
 const onCreateNodeBlogPost = require("./blogPost");
 const onCreateNodeDocs = require("./docs");

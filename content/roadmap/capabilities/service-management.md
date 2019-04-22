@@ -2,7 +2,6 @@
 displayName: "Service Management"
 epicsLabels:
   - area/service-catalog
-order: 2
 ---
 
 ## Scope

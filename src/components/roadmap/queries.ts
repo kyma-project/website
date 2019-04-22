@@ -5,6 +5,7 @@ export const CapabilityFragment = graphql`
     rawMarkdownBody
     fields {
       slug
+      type
     }
     frontmatter {
       displayName

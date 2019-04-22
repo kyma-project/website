@@ -4,22 +4,35 @@ import { graphql } from "gatsby";
 import Layout from "@components/layout/Layout";
 import RoadmapPage from "@components/roadmap/RoadmapPage";
 
-import { MarkdownRemark, PageContext, IntlPageContext } from "@common/types";
+import {
+  MarkdownRemark,
+  PageContext,
+  IntlPageContext,
+  Location,
+} from "@common/types";
 import { RoadmapPageContext, Capability } from "@components/roadmap/types";
 
 const RoadmapPageTemplate: React.FunctionComponent<
-  MarkdownRemark<Capability> & PageContext<IntlPageContext & RoadmapPageContext>
-> = ({ 
+  MarkdownRemark<Capability> &
+    PageContext<IntlPageContext & RoadmapPageContext> &
+    Location
+> = ({
   data: {
     markdownRemark: { rawMarkdownBody, frontmatter, fields },
   },
-  pageContext 
+  pageContext,
+  location,
 }) => (
   <Layout
     locale={pageContext.locale}
     pageTitle={`${frontmatter.displayName} - Roadmap`}
   >
-    <RoadmapPage pageContext={pageContext} description={rawMarkdownBody} />
+    <RoadmapPage
+      pageContext={pageContext}
+      description={rawMarkdownBody}
+      displayName={frontmatter.displayName}
+      location={location}
+    />
   </Layout>
 );
 

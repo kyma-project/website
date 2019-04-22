@@ -2,7 +2,7 @@ import styled from "@styled";
 import ReactModal from "react-modal";
 
 export const StyledModal = styled(ReactModal)`
-  position: absolute; 
+  position: absolute;
   z-index: 300;
   top: 50%;
   left: 50%;

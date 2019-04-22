@@ -3,7 +3,6 @@ displayName: "API Gateway"
 epicsLabels:
   - area/service-mesh
   - quality/security  
-order: 6
 ---
 
 ## Scope

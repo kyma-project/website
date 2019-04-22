@@ -1,25 +1,24 @@
-
 const getCapabilities = async graphql => {
   const result = await graphql(`
-  {
-    allMarkdownRemark(
-      sort: { order: DESC, fields: [fields___slug] }
-      filter: { fileAbsolutePath: { regex: "/roadmap\/capabilities/" } }
-    ) {
-      edges {
-        node {
-          fields {
-            slug
-          }
-          frontmatter {
-            order
-            displayName
-            epicsLabels
+    {
+      allMarkdownRemark(
+        sort: { order: DESC, fields: [fields___slug] }
+        filter: { fileAbsolutePath: { regex: "/roadmap/capabilities/" } }
+      ) {
+        edges {
+          node {
+            fields {
+              slug
+              type
+            }
+            frontmatter {
+              displayName
+              epicsLabels
+            }
           }
         }
       }
     }
-  }
   `);
   if (result.errors) {
     throw new Error(result.errors);
@@ -30,12 +29,17 @@ const getCapabilities = async graphql => {
 
 const sortCapabilities = capabilities => {
   return capabilities.sort((a, b) => {
-    const orderA = a.node.frontmatter.order;
-    const orderB = b.node.frontmatter.order;
+    const orderA = a.node.frontmatter.displayName.toLowerCase();
+    const orderB = b.node.frontmatter.displayName.toLowerCase();
 
-    return orderA - orderB;
+    if (orderA > orderB) {
+      return 1;
+    } else if (orderA < orderB) {
+      return -1;
+    }
+    return 0;
   });
-}
+};
 
 const generateCapabilitiesNavigation = capabilities => {
   const navigation = [];
@@ -48,7 +52,7 @@ const generateCapabilitiesNavigation = capabilities => {
   });
 
   return navigation;
-}
+};
 
 module.exports = {
   getCapabilities,

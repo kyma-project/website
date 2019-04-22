@@ -1,6 +1,7 @@
 import styled from "@styled";
 
 export const OverviewWrapper = styled.div`
+  margin-top: 72px;
   border-bottom: solid 1px #d5dce3;
 `;
 
@@ -9,7 +10,7 @@ export const OverviewHeader = styled.header`
   padding-bottom: 72px;
 
   h2 {
-    
+    text-align: center;
   }
 
   p {

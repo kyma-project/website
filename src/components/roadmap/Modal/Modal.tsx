@@ -3,9 +3,7 @@ import React from "react";
 import ModalHeader from "@components/roadmap/Modal/Header";
 import ModalContent from "@components/roadmap/Modal/Content";
 
-import {
-  StyledModal,
-} from "./styled";
+import { StyledModal } from "./styled";
 
 export interface ModalProps {
   openComponent: React.ReactNode;
@@ -16,17 +14,17 @@ const Modal: React.FunctionComponent<ModalProps> = ({
   children,
 }) => {
   const overlay: any = {
-    position: 'fixed',
+    position: "fixed",
     top: 0,
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: 'rgba(0, 0, 0, 0.48)',
+    backgroundColor: "rgba(0, 0, 0, 0.48)",
     zIndex: 305,
-  }
+  };
 
   return (
-    <StyledModal style={{ overlay }} openComponent={<div>lol</div>}>
+    <StyledModal style={{ overlay }} openComponent={openComponent}>
       <ModalHeader
         capability="Micro-Frontends / Console / CLI"
         ticketNumber="69"
@@ -34,14 +32,10 @@ const Modal: React.FunctionComponent<ModalProps> = ({
         dueDate="December 13, 2019"
         githubLink="dupa"
         zenhubLink="dupa"
-      >
-        
-      </ModalHeader>
-      <ModalContent>
-        {children}
-      </ModalContent>
+      />
+      <ModalContent>{children}</ModalContent>
     </StyledModal>
-  )
+  );
 };
 
 export default Modal;

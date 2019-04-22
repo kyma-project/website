@@ -22,7 +22,11 @@ export const ModalHeaderWrapper = styled.header`
     padding: 72px 68px 32px;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
-    background-image: linear-gradient(244deg, rgba(0, 232, 51, 0.5), rgba(60, 144, 228, 0));
+    background-image: linear-gradient(
+      244deg,
+      rgba(0, 232, 51, 0.5),
+      rgba(60, 144, 228, 0)
+    );
   }
 `;
 
@@ -51,8 +55,7 @@ export const ModalHeaderMeta = styled.ul`
   }
 `;
 
-export const ModalHeaderMetaCapability = styled.li`
-`;
+export const ModalHeaderMetaCapability = styled.li``;
 
 export const ModalHeaderMetaTicketNumber = styled.li`
   margin-left: auto;

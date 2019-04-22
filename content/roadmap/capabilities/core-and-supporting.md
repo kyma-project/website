@@ -1,9 +1,8 @@
 ---
-displayName: "Core & Supporting"
+displayName: "Core and Supporting"
 epicsLabels:
   - area/core-and-supporting
   - area/community
-order: 9
 ---
 
 ## Scope

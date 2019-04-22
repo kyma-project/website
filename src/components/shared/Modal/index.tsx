@@ -3,10 +3,7 @@ import { useModal } from "react-modal-hook";
 
 import Icon from "@components/shared/Icon";
 
-import {
-  StyledModal,
-  CloseButton,
-} from "./styled";
+import { StyledModal, CloseButton } from "./styled";
 
 export interface ModalProps {
   openComponent: React.ReactNode;
@@ -22,9 +19,14 @@ const Modal: React.FunctionComponent<ModalProps> = ({
 }) => {
   const [showModal, hideModal] = useModal(() => (
     <>
-      <StyledModal className={className} style={style} isOpen onRequestClose={() => {
-        hideModal()
-      }}>
+      <StyledModal
+        className={className}
+        style={style}
+        isOpen={true}
+        onRequestClose={() => {
+          hideModal();
+        }}
+      >
         {children}
       </StyledModal>
       <CloseButton onClick={hideModal}>

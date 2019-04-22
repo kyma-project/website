@@ -12,7 +12,11 @@ import {
   faTimes,
   faLink,
 } from "@fortawesome/free-solid-svg-icons";
-import { faEdit, faCopy, faCalendarAlt } from "@fortawesome/free-regular-svg-icons";
+import {
+  faEdit,
+  faCopy,
+  faCalendarAlt,
+} from "@fortawesome/free-regular-svg-icons";
 import {
   faTwitter,
   faLinkedinIn,

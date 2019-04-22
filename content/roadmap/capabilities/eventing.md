@@ -2,7 +2,6 @@
 displayName: "Eventing"
 epicsLabels:
   - area/eventing
-order: 4
 ---
 
 ## Scope

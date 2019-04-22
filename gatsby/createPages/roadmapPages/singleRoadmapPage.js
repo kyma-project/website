@@ -21,5 +21,5 @@ module.exports = ({ createPage, capabilities }) => {
         capabilitiesNavigation,
       },
     });
-  })
+  });
 };
