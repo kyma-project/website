@@ -41,24 +41,13 @@ step() {
 }
 
 init() {
-    PUBLISH='false'
-    COMMIT=''
-    BRANCH=''
+    BRANCHES=''
 
     while test $# -gt 0; do
         case "$1" in
-            --commit | -c)
+            --branches | -b)
                 shift
-                COMMIT=$1
-                shift
-                ;;
-            --branch | -b)
-                shift
-                BRANCH=$1
-                shift
-                ;;
-            --publish | -p)
-                PUBLISH='true'
+                BRANCHES=$1
                 shift
                 ;;
             --help | -h)
@@ -70,39 +59,16 @@ init() {
                 ;;
         esac
     done
-    readonly PUBLISH
-    readonly COMMIT
-    readonly BRANCH
+    readonly BRANCHES
 }
 
 copy() {
-    local commit="${COMMIT}"
-    if [[ "${BRANCH}" != 'master' ]]; then
-        commit=""
-    fi
     docker run --rm -v "${DOCUMENTATION_DIR}:/app/documentation" \
+               -e APP_DOCS_BRANCHES="${BRANCHES}" \
                -e APP_DOCS_OUTPUT="/app/documentation" \
                -e APP_DOCS_VERSIONS_CONFIG_FILE="/app/documentation/versions.json" \
-               -e APP_DOCS_COMMIT="${commit}" \
                -e APP_TOKEN="${BOT_GITHUB_TOKEN}" \
                ${LOADER_IMAGE}
-}
-
-publish() {
-    echo "Detecting changes"
-    local changes
-    changes=$(git status --porcelain "${DOCUMENTATION_DIR}" | wc -w)
-    if [[ "${changes}" -eq 0 ]]; then
-        echo "Nothing to publish"
-        return
-    fi
-
-    echo "Commit documentation"
-    git add "${DOCUMENTATION_DIR}"
-    git commit -m "Publish Kyma documentation on the website" --no-verify
-
-    echo "Pushing documentation to master"
-    git push origin HEAD:master
 }
 
 main() {
@@ -111,13 +77,5 @@ main() {
     step "Copying"
     copy
     pass "Copied"
-
-    step "Publishing"
-    if [[ ${PUBLISH} == true ]]; then
-        publish
-    else
-        echo "Skipped"
-    fi
-    pass "Published"
 }
 main

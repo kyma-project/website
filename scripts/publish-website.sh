@@ -11,7 +11,7 @@ npm run publish:origin
 publish=$?
 
 if [ ${publish} != 0 ]; then
-    echo -e "${RED}✗ publish website fail${NC}\n$gitResult${NC}\n"
+    echo -e "${RED}✗ publish website fail${NC}\n"
     exit 1
 else echo -e "${GREEN}√ publish website${NC}\n"
 fi
