@@ -31,7 +31,7 @@ The configuration options are as follows:
 | **APP_TOKEN**                     | **YES**  | `null`            | The GitHub API OAuth token                                  |
 | **APP_ORGANIZATION**              | **YES**  | `kyma-project`    | The GitHub organization that owns a given repository        |
 | **APP_REPOSITORY**                | **YES**  | `kyma`            | The repository with documentation                           |
-| **APP_DOCS_BRANCHES**             | **YES**  | `["master"]`      | The branch names with the documentation                     |
+| **APP_DOCS_BRANCHES**             | **YES**  | `["master"]`      | The branches with documentation                             |
 | **APP_DOCS_OUTPUT**               | **YES**  | `out`             | The path for storing the documentation results              |
 | **APP_DOCS_VERSIONS_CONFIG_FILE** | **YES**  | `versions.json`   | The path to the website documentation configuration         |
 | **APP_DOCS_TEMP_DIR**             | **YES**  | `tempDir`         | The path for storing temporary data                         |
