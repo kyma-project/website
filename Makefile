@@ -1,6 +1,6 @@
 ci-pr: resolve validate build
-ci-master: resolve validate prepare-git publish-website
-ci-release: resolve validate prepare-git publish-website
+ci-master: resolve validate prepare-git prepare-content
+ci-release: resolve validate prepare-git prepare-content
 
 resolve:
 	npm install

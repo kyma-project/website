@@ -21,7 +21,7 @@ trap on_exit EXIT
 readonly SCRIPTS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 readonly KYMA_REPOSITORY="https://github.com/kyma-project/kyma.git"
 readonly DOCUMENTATION_DIR="${SCRIPTS_DIR}/../content/docs"
-readonly LOADER_IMAGE="eu.gcr.io/kyma-project/develop/website-content-loader:e3981101"
+readonly LOADER_IMAGE="eu.gcr.io/kyma-project/develop/website-content-loader:a0aff067"
 
 # Colors
 readonly ARGS=("$@")
