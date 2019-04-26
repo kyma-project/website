@@ -10,7 +10,7 @@ import {
 
 import { CoreConfig } from "../config";
 
-class GitHubClient {
+export class GitHubClient {
   private config: CoreConfig;
   private octokit: any;
 

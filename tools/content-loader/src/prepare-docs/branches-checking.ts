@@ -5,7 +5,7 @@ import BranchesSerializer from "./branches-serializer";
 import ReleaseFetcher from "./release-fetcher";
 import TagsFetcher from "./tag-fetcher";
 
-class BranchesChecking {
+export class BranchesChecking {
   releases = async () => {
     let err: Error | null;
 

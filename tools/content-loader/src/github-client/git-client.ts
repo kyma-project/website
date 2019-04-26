@@ -4,7 +4,7 @@ import { exec } from "child_process";
 
 import { CoreConfig } from "../config";
 
-class GitClient {
+export class GitClient {
   private config: CoreConfig;
   private destination: string;
 

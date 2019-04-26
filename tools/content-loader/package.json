@@ -11,6 +11,10 @@
   "dependencies": {},
   "devDependencies": {
     "@octokit/rest": "^15.13.1",
+    "@octokit/graphql": "^2.1.1",
+    "axios": "^0.18.0",
+    "front-matter": "^3.0.2",
+    "install": "^0.12.2",
     "@types/fs-extra": "^5.0.5",
     "@types/verror": "^1.10.3",
     "await-to-js": "^2.1.1",

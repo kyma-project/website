@@ -30,7 +30,7 @@ export type DocsBranchesVersion = {
   commit: string;
 };
 
-class DocsVersions {
+export class DocsVersions {
   async generate(v: DocsVersionsInterface, outputPath: string) {
     const releasesVersions = this.forReleases(v.releases);
     const prereleasesVersions = this.forReleases(v.pre_releases);

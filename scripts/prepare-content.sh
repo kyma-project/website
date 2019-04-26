@@ -20,7 +20,7 @@ trap on_exit EXIT
 
 readonly SCRIPTS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 readonly KYMA_REPOSITORY="https://github.com/kyma-project/kyma.git"
-readonly DOCUMENTATION_DIR="${SCRIPTS_DIR}/../content/docs"
+readonly CONTENT_DIR="${SCRIPTS_DIR}/../content"
 readonly LOADER_IMAGE="eu.gcr.io/kyma-project/develop/website-content-loader:a0aff067"
 
 # Colors
@@ -42,6 +42,8 @@ step() {
 
 init() {
     BRANCHES=''
+    PREPARE_DOCS=''
+    PREPARE_ROADMAP=''
 
     while test $# -gt 0; do
         case "$1" in
@@ -63,11 +65,17 @@ init() {
 }
 
 copy() {
-    docker run --rm -v "${DOCUMENTATION_DIR}:/app/documentation" \
+    docker run --rm -v "${CONTENT_DIR}:/app/content" \
+               -e APP_DOCS_REPOSITORY="kyma" \ 
                -e APP_DOCS_BRANCHES="${BRANCHES}" \
-               -e APP_DOCS_OUTPUT="/app/documentation" \
-               -e APP_DOCS_VERSIONS_CONFIG_FILE="/app/documentation/versions.json" \
+               -e APP_DOCS_OUTPUT="/app/content/docs" \
+               -e APP_DOCS_VERSIONS_CONFIG_FILE="/app/content/docs/versions.json" \
+               -e APP_ROADMAP_REPOSITORY="community" \
+               -e APP_ROADMAP_OUTPUT="/app/content/roadmap" \
+               -e APP_ROADMAP_CAPABILITIES_OUTPUT="/app/content/roadmap/capabilities" \
+               -e APP_ROADMAP_TICKETS_OUTPUT="/app/content/roadmap/tickets" \
                -e APP_TOKEN="${BOT_GITHUB_TOKEN}" \
+               -e APP_ZEN_HUB_TOKEN="${BOT_ZENHUB_TOKEN}" \
                ${LOADER_IMAGE}
 }
 
