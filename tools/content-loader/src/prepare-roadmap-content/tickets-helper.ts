@@ -7,7 +7,7 @@ import roadmapConfig from "./config";
 
 import GitHubGraphQLClient from "../github-client/github-graphql-client";
 
-import { getUnique } from "../helpers";
+import { getUnique, writeToJson } from "../helpers";
 import { Tickets, Repository, Release, ReleasesData, Attributes, ReleaseIssues } from "./types";
 
 export class TicketsHelper {
@@ -24,6 +24,11 @@ export class TicketsHelper {
     const tickets: Tickets = this.createTickets(repositoriesWithEpics, filteredReleaseDate, releases, attributes);
 
     return tickets;
+  }
+
+  writeTickets = async (outputPath, tickets) => {
+    const [err] = await to(writeToJson(outputPath, tickets));
+    if (err) throw err;
   }
 
   private filterIssuesByEpics = (repositoriesWithEpics: Repository[], releaseData: ReleasesData): ReleasesData => {
@@ -47,16 +52,11 @@ export class TicketsHelper {
       })
     }
 
-    const nonCategorizedIssues = this.filterNonCategorizedIssues(repositoriesWithEpics, releaseData);
-    newReleaseData[roadmapConfig.releaseForNonCategorizedEpics] = [
-      ...newReleaseData[roadmapConfig.releaseForNonCategorizedEpics],
-      ...nonCategorizedIssues,
-    ];
-
+    newReleaseData[roadmapConfig.releaseForNonCategorizedIssues] = this.filterIssuesForFutureRelease(repositoriesWithEpics, releaseData);
     return newReleaseData;
   }
 
-  private filterNonCategorizedIssues = (repositoriesWithEpics: Repository[], releaseData: ReleasesData): ReleaseIssues[] => {
+  private filterIssuesForFutureRelease = (repositoriesWithEpics: Repository[], releaseData: ReleasesData): ReleaseIssues[] => {
     const nonCategorizedIssues: ReleaseIssues[] = [];
     for (const repository of repositoriesWithEpics) {
       for (const repositoryIssue of repository.issues) {
@@ -64,8 +64,13 @@ export class TicketsHelper {
 
         for (const release in releaseData) {
           for (const releaseIssue of releaseData[release]) {
-            if (
+            if (release === roadmapConfig.releaseForNonCategorizedIssues) {
+              break;
+            }
 
+            if (
+              releaseIssue.issue_number === repositoryIssue.number &&
+              releaseIssue.repo_id === Number(repository.id)
             ) {
               add = false;
               break;

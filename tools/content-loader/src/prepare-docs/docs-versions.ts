@@ -8,6 +8,8 @@ import {
   ReposListTagsResponse,
 } from "@octokit/rest";
 
+import { writeToJson } from "../helpers";
+
 export type DocsVersionsInterface = {
   releases?: Map<string, string>;
   pre_releases?: Map<string, string>;
@@ -42,14 +44,8 @@ export class DocsVersions {
       branches: branchesVersions,
     };
 
-    const [err] = await to(
-      writeJSON(outputPath, versions, { encoding: "utf8" }),
-    );
-    if (err)
-      throw new VError(
-        err,
-        `while writing versions ${JSON.stringify(versions)} to ${outputPath}`,
-      );
+    const [err] = await to(writeToJson(outputPath, versions));
+    if (err) throw err;
   }
 
   private forReleases(releases?: Map<string, string>) {

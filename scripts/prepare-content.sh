@@ -64,16 +64,16 @@ init() {
     readonly BRANCHES
 }
 
-copy() {
+preparing() {
     docker run --rm -v "${CONTENT_DIR}:/app/content" \
-               -e APP_DOCS_REPOSITORY="kyma" \ 
+               -e APP_DOCS_REPOSITORY="kyma" \
                -e APP_DOCS_BRANCHES="${BRANCHES}" \
                -e APP_DOCS_OUTPUT="/app/content/docs" \
                -e APP_DOCS_VERSIONS_CONFIG_FILE="/app/content/docs/versions.json" \
                -e APP_ROADMAP_REPOSITORY="community" \
                -e APP_ROADMAP_OUTPUT="/app/content/roadmap" \
                -e APP_ROADMAP_CAPABILITIES_OUTPUT="/app/content/roadmap/capabilities" \
-               -e APP_ROADMAP_TICKETS_OUTPUT="/app/content/roadmap/tickets" \
+               -e APP_ROADMAP_TICKETS_OUTPUT="/app/content/roadmap/tickets.json" \
                -e APP_TOKEN="${BOT_GITHUB_TOKEN}" \
                -e APP_ZEN_HUB_TOKEN="${BOT_ZENHUB_TOKEN}" \
                ${LOADER_IMAGE}
@@ -82,8 +82,8 @@ copy() {
 main() {
     init "${ARGS[@]}"
 
-    step "Copying"
-    copy
-    pass "Copied"
+    step "Preparing content"
+    preparing
+    pass "Content prepared"
 }
 main
