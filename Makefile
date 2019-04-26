@@ -1,6 +1,6 @@
 ci-pr: resolve validate build
-ci-master: resolve validate prepare-git prepare-content
-ci-release: resolve validate prepare-git prepare-content
+ci-master: resolve validate prepare-git publish-website
+ci-release: resolve validate prepare-git publish-website
 
 resolve:
 	npm install
@@ -17,7 +17,10 @@ prepare-git:
 	git config user.email "$(BOT_GITHUB_EMAIL)"
 	git config user.name "$(BOT_GITHUB_NAME)"
 
-prepare-content: prepare-git
+prepare-content:
+	echo "Co się nauczyliśmy to nasze"
+
+publish-website: prepare-git
 	./scripts/prepare-content.sh --branches $(PULL_BASE_REF)
 	./scripts/publish-website.sh
 	
