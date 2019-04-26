@@ -17,8 +17,7 @@ export const getFilesPaths = async (path: string) => {
   const filesPromises = paths.map(async p => {
     const newPath = `${path}/${p}`;
     const [err, result] = await to(this.getFilesPaths(`${path}/${p}`));
-    if (err)
-      throw new VError(err, `while getting paths for path: ${newPath}`);
+    if (err) throw new VError(err, `while getting paths for path: ${newPath}`);
     return result;
   });
 

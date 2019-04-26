@@ -10,7 +10,13 @@ import ZenHubClient from "../github-client/zenhub-client";
 
 import TicketsHelper from "./tickets-helper";
 
-import { Repository, Release, Issue, ReleasesData, ReleaseIssues } from "./types";
+import {
+  Repository,
+  Release,
+  Issue,
+  ReleasesData,
+  ReleaseIssues,
+} from "./types";
 
 export class TicketsFetcher {
   queryRepositories = async (): Promise<Repository[]> => {
@@ -32,13 +38,17 @@ export class TicketsFetcher {
     const options = {
       organization: coreConfig.organization,
       firstRepositories: 100,
-    }
+    };
 
-    const [err, data] = await to<any>(GitHubGraphQLClient.query(query, options));
+    const [err, data] = await to<any>(
+      GitHubGraphQLClient.query(query, options),
+    );
     if (err) throw new VError(err, `while query repositories`);
-  
-    return data.organization.repositories.edges.map(repo => ({ ...repo.node, id: repo.node.databaseId }) as Repository) as Repository[];
-  }
+
+    return data.organization.repositories.edges.map(
+      repo => ({ ...repo.node, id: repo.node.databaseId } as Repository),
+    ) as Repository[];
+  };
 
   queryEpics = async (repositories: Repository[]): Promise<Repository[]> => {
     const query = `
@@ -84,55 +94,71 @@ export class TicketsFetcher {
       firstIssues,
       firstLabels,
       issuesStates: ["OPEN"],
-    }
+    };
 
     let result: Repository[] = [];
     for (const repository of repositories) {
-      const [err, data] = await to<any>(GitHubGraphQLClient.query(query, {
-        ...options,
-        repositoryName: repository.name,
-      }));
-      if (err) throw new VError(err, `while query epics for repository: ${repository.name}`);
+      const [err, data] = await to<any>(
+        GitHubGraphQLClient.query(query, {
+          ...options,
+          repositoryName: repository.name,
+        }),
+      );
+      if (err)
+        throw new VError(
+          err,
+          `while query epics for repository: ${repository.name}`,
+        );
 
-      const issues: Issue[] = data.organization.repository.issues.edges.map(issue => {
-        const node = issue.node;
-        const labels: string[] = node.labels.edges.map(label => label.node.name).filter((label: string) => !roadmapConfig.labels.includes(label));
+      const issues: Issue[] = data.organization.repository.issues.edges.map(
+        issue => {
+          const node = issue.node;
+          const labels: string[] = node.labels.edges
+            .map(label => label.node.name)
+            .filter((label: string) => !roadmapConfig.labels.includes(label));
 
-        return { ...node, labels };
-      });
+          return { ...node, labels };
+        },
+      );
 
-      result.push({ 
+      result.push({
         ...repository,
         issues,
       });
     }
-  
+
     return result;
   };
 
-  queryRepositoriesReleases = async (repositories: Repository[]): Promise<Release[]> => {
+  queryRepositoriesReleases = async (
+    repositories: Repository[],
+  ): Promise<Release[]> => {
     let releases: Release[] = [];
     for (const repository of repositories) {
-      const [err, data] = await to<Release[]>(ZenHubClient.reportForReleases(String(repository.id)));
+      const [err, data] = await to<Release[]>(
+        ZenHubClient.reportForReleases(String(repository.id)),
+      );
       if (err) throw err;
 
       releases = [...releases, ...data];
     }
     releases = TicketsHelper.removeDuplicateOfReleases(releases);
     return TicketsHelper.removeClosedReleases(releases);
-  }
+  };
 
   queryIssuesReleases = async (releases: Release[]): Promise<ReleasesData> => {
     let releaseIssues: ReleasesData = {};
 
     for (const release of releases) {
-      const [err, data] = await to<ReleaseIssues[]>(ZenHubClient.issuesForRelease(String(release.release_id)));
+      const [err, data] = await to<ReleaseIssues[]>(
+        ZenHubClient.issuesForRelease(String(release.release_id)),
+      );
       if (err) throw err;
 
       releaseIssues[release.title] = data;
     }
     return releaseIssues;
-  }
+  };
 }
 
 export default new TicketsFetcher();

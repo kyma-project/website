@@ -1,20 +1,20 @@
 export interface Tickets {
   [release: string]: {
     [capability: string]: Issue[];
-  }
+  };
 }
 
 export interface Attributes {
   displayName: string;
   epicsLabels: string[];
   id: string;
-};
+}
 
 export interface Repository {
   name: string;
   id: string | number;
   issues: Issue[];
-};
+}
 
 export interface Issue {
   title: string;
@@ -25,7 +25,7 @@ export interface Issue {
   release: string;
   zenHubUrl: string;
   dueDate: string;
-};
+}
 
 export interface Release {
   release_id: string;
@@ -36,7 +36,7 @@ export interface Release {
 }
 
 export interface ReleasesData {
-  [release: string]: ReleaseIssues[]
+  [release: string]: ReleaseIssues[];
 }
 
 export interface ReleaseIssues {

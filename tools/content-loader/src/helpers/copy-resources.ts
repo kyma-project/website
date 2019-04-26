@@ -6,7 +6,11 @@ import { VError } from "verror";
 import { getFilesPaths } from "./get-files-paths";
 import { removeDir } from "./remove-dir";
 
-export const copyResources = async (dir: string, output: string, regex: RegExp) => {
+export const copyResources = async (
+  dir: string,
+  output: string,
+  regex: RegExp,
+) => {
   let err: Error | null;
   [err] = await to(removeDir(output));
   if (err) throw err;
@@ -23,10 +27,7 @@ export const copyResources = async (dir: string, output: string, regex: RegExp) 
     const newPath = join(output, file.replace(dir, ""));
     const [err, result] = await to(copy(file, newPath));
     if (err)
-      throw new VError(
-        err,
-        `while copying file "${file}" to path: ${newPath}`,
-      );
+      throw new VError(err, `while copying file "${file}" to path: ${newPath}`);
     return result;
   });
 

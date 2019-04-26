@@ -58,7 +58,7 @@ const main = async () => {
   if (errors.length) {
     errors.forEach(e => {
       console.error(e.message);
-    })
+    });
     throw new VError("while preparing content for website");
   }
 };

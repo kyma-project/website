@@ -10,10 +10,18 @@ import CapabilitiesFetcher from "./capabilities-fetcher";
 import TicketsFetcher from "./tickets-fetcher";
 import TicketsHelper from "./tickets-helper";
 
-import { Attributes, Repository, Release, ReleasesData, Tickets } from "./types";
+import {
+  Attributes,
+  Repository,
+  Release,
+  ReleasesData,
+  Tickets,
+} from "./types";
 
 const prepareRoadmapContent = async (coreConfig: CoreConfig) => {
-  const capabilitiesDir = resolve(`${roadmapConfig.tempPath}/${roadmapConfig.capabilitiesDir}`);
+  const capabilitiesDir = resolve(
+    `${roadmapConfig.tempPath}/${roadmapConfig.capabilitiesDir}`,
+  );
   const capabilitiesOutput = resolve(roadmapConfig.capabilitiesOutput);
   const ticketsOutput = resolve(roadmapConfig.ticketsOutput);
 
@@ -24,12 +32,16 @@ const prepareRoadmapContent = async (coreConfig: CoreConfig) => {
   if (err) throw err;
 
   console.log(`Copying capabilities`);
-  [err] = await to(CapabilitiesFetcher.copyCapabilities(capabilitiesDir, capabilitiesOutput));
+  [err] = await to(
+    CapabilitiesFetcher.copyCapabilities(capabilitiesDir, capabilitiesOutput),
+  );
   if (err) throw err;
 
   console.log(`Extracting metadata of capabilities`);
   let attributes: Attributes[] = [];
-  [err, attributes] = await to(CapabilitiesFetcher.extractCapabilitiesMetadata(capabilitiesDir));
+  [err, attributes] = await to(
+    CapabilitiesFetcher.extractCapabilitiesMetadata(capabilitiesDir),
+  );
   if (err) throw err;
 
   console.log(`Querying or repositories of ${coreConfig.organization}`);
@@ -39,24 +51,33 @@ const prepareRoadmapContent = async (coreConfig: CoreConfig) => {
 
   console.log(`Querying for issues with Epic label`);
   let repositoriesWithEpics: Repository[];
-  [err, repositoriesWithEpics] = await to(TicketsFetcher.queryEpics(repositories));
+  [err, repositoriesWithEpics] = await to(
+    TicketsFetcher.queryEpics(repositories),
+  );
   if (err) throw err;
 
   console.log(`Querying for releases`);
   let releases: Release[];
-  [err, releases] = await to(TicketsFetcher.queryRepositoriesReleases(repositories));
+  [err, releases] = await to(
+    TicketsFetcher.queryRepositoriesReleases(repositories),
+  );
   if (err) throw err;
 
   console.log(`Querying for issues in releases`);
-  let releasesData: ReleasesData; 
+  let releasesData: ReleasesData;
   [err, releasesData] = await to(TicketsFetcher.queryIssuesReleases(releases));
   if (err) throw err;
 
   console.log(`Generating tickets`);
-  const tickets: Tickets = TicketsHelper.prepareTickets(repositoriesWithEpics, releasesData, releases, attributes);
+  const tickets: Tickets = TicketsHelper.prepareTickets(
+    repositoriesWithEpics,
+    releasesData,
+    releases,
+    attributes,
+  );
 
   console.log(`Writing tickets to ${ticketsOutput}`);
-  [err] = await to (TicketsHelper.writeTickets(ticketsOutput, tickets));
+  [err] = await to(TicketsHelper.writeTickets(ticketsOutput, tickets));
   if (err) throw err;
 };
 

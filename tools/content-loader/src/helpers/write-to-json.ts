@@ -11,4 +11,4 @@ export const writeToJson = async (outputPath: string, data: any) => {
       err,
       `while writing versions ${JSON.stringify(data)} to ${outputPath}`,
     );
-}
+};
