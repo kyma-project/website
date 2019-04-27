@@ -5,7 +5,7 @@ import Layout from "@components/layout/Layout";
 import RoadmapPage from "@components/roadmap/RoadmapPage";
 
 import {
-  MarkdownRemark,
+  AllMarkdownRemark,
   PageContext,
   IntlPageContext,
   Location,
@@ -13,34 +13,35 @@ import {
 import { RoadmapPageContext, Capability } from "@components/roadmap/types";
 
 const RoadmapPageTemplate: React.FunctionComponent<
-  MarkdownRemark<Capability> &
+  AllMarkdownRemark<Capability> &
     PageContext<IntlPageContext & RoadmapPageContext> &
     Location
 > = ({
   data: {
-    markdownRemark: { rawMarkdownBody, frontmatter },
+    allMarkdownRemark: { edges = [] },
   },
   pageContext,
   location,
 }) => (
-  <Layout
-    locale={pageContext.locale}
-    pageTitle={`${frontmatter.displayName} - Roadmap`}
-  >
+  <Layout locale={pageContext.locale} pageTitle={"Roadmap"}>
     <RoadmapPage
       pageContext={pageContext}
-      description={rawMarkdownBody}
-      displayName={frontmatter.displayName}
-      id={frontmatter.id}
+      capabilities={edges.map(cap => cap.node)}
       location={location}
     />
   </Layout>
 );
 
 export const pageQuery = graphql`
-  query($id: String!) {
-    markdownRemark(frontmatter: { id: { eq: $id } }) {
-      ...Capability
+  query {
+    allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/roadmap/capabilities/" } }
+    ) {
+      edges {
+        node {
+          ...Capability
+        }
+      }
     }
   }
 `;

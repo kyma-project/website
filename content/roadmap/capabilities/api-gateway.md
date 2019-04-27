@@ -2,8 +2,8 @@
 displayName: "API Gateway"
 epicsLabels:
   - area/service-mesh
-  - quality/security  
-id: "api-gateway"
+  - quality/security 
+id: api-gateway 
 ---
 
 ## Scope

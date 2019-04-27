@@ -14,16 +14,12 @@ import {
 
 interface NavigationProps {
   pageContext: RoadmapPageContext;
-  pathName: string;
-  id: string;
 }
 
 const Navigation: React.FunctionComponent<NavigationProps> = ({
   pageContext,
-  pathName,
-  id,
 }) => {
-  const isActive = (path: string): boolean => pathName.includes(path);
+  const isActive = (path: string): boolean => true;
 
   return (
     <NavigationList>

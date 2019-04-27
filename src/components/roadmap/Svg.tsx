@@ -30,9 +30,9 @@ const CapabilitySvg: React.FunctionComponent<CapabilitySvgProps> = ({
         return <Eventing />;
       case "functions":
         return <Functions />;
-      case "micro-frontend":
+      case "console-microfrontends":
         return <MicroFrontend />;
-      case "monitoring":
+      case "logging-tracing-monitoring":
         return <Monitoring />;
       case "provisioning":
         return <Provisioning />;

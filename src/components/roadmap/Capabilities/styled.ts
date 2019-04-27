@@ -102,6 +102,8 @@ export const Header = styled.header`
 
 export const StyledReactMarkdown = styled.div`
   &&& {
+    margin-bottom: 96px;
+
     h2,
     h3,
     h4,

@@ -1,5 +1,5 @@
 ---
-displayName: "Core and Supporting"
+displayName: "Core & Supporting"
 epicsLabels:
   - area/core-and-supporting
   - area/community
@@ -23,5 +23,6 @@ In other words, if some content must be displayed in a given UI, the capability 
 - To support the out-of-the-box rendering of content in the Console UI and also make it easy for the Kyma users to generate a standalone documentation portal for their services.
 - To support easy content development, enable templates integration, and allow for previewing the content before publishing.
 - To support automated content validation, like links, grammar, consistency, and specification compliance.
+
 
 

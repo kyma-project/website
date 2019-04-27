@@ -2,7 +2,7 @@
 displayName: "Service Management"
 epicsLabels:
   - area/service-catalog
-id: "service-management"
+id: service-management
 ---
 
 ## Scope
@@ -24,4 +24,5 @@ The goal of the Service Management capability is to:
 * Allow users to choose a set of Namespaces where a given Service Broker will be automatically registered and available. 
 * Allow users to reduce a number of Service Classes that will be exposed by a given Broker.
 * Assure that the Service Catalog UI component for bindings is used in Deployment, Function, and other types of applications UI views.
+
 

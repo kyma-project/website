@@ -1,8 +1,8 @@
 ---
-displayName: "Eventing"
+displayName: Eventing
 epicsLabels:
   - area/eventing
-id: "eventing"
+id: eventing
 ---
 
 ## Scope

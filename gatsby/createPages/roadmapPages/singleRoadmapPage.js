@@ -4,10 +4,10 @@ const {
   generateCapabilitiesNavigation,
   generateMapOfDisplayNameToId,
 } = require("./helpers");
-const { ROADMAP_CAPABILITY_PATH_PREFIX } = require("../../constants");
+const { ROADMAP_PATH_PREFIX } = require("../../constants");
 
 module.exports = ({ createPage, capabilities }) => {
-  const singleRoadmapTemplate = resolve(
+  const roadmapTemplate = resolve(
     __dirname,
     "../../../src/templates/Roadmap.tsx",
   );
@@ -16,14 +16,12 @@ module.exports = ({ createPage, capabilities }) => {
   const ids = generateMapOfDisplayNameToId(capabilities);
 
   capabilities.map(capability => {
-    const id = capability.node.frontmatter.id;
-    const path = `/${ROADMAP_CAPABILITY_PATH_PREFIX}/${id}`;
+    const path = `/${ROADMAP_PATH_PREFIX}`;
 
     createPage({
       path: path,
-      component: singleRoadmapTemplate,
+      component: roadmapTemplate,
       context: {
-        id,
         capabilitiesNavigation,
         ids,
       },

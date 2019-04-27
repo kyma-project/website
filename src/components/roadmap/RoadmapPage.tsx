@@ -6,31 +6,26 @@ import Overview from "@components/roadmap/Overview";
 import Capabilities from "@components/roadmap/Capabilities/Capabilities";
 import Tickets from "@components/roadmap/Tickets/Tickets";
 
-import { RoadmapPageContext, NavigationItem } from "./types";
+import { Location } from "@common/types";
+import { RoadmapPageContext, Capability, NavigationItem } from "./types";
 
 interface RoadmapPageProps {
   pageContext: RoadmapPageContext;
-  location: any;
-  displayName: string;
-  description: string;
-  id: string;
+  capabilities: Capability[];
+  location: Location;
 }
 
 const RoadmapPage: React.FunctionComponent<RoadmapPageProps> = ({
   pageContext,
+  capabilities,
   location,
-  displayName,
-  description,
-  id,
 }) => (
   <>
     <Overview />
     <Capabilities
       pageContext={pageContext}
-      description={description}
-      pathName={location.pathname}
-      displayName={displayName}
-      id={id}
+      capabilities={capabilities}
+      // location={location}
     />
     <Tickets />
   </>
