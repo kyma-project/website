@@ -25,6 +25,7 @@ export interface Issue {
   release: string;
   zenHubUrl: string;
   dueDate: string;
+  repository: string;
 }
 
 export interface Release {

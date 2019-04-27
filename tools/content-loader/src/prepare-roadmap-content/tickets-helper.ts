@@ -7,7 +7,7 @@ import roadmapConfig from "./config";
 
 import GitHubGraphQLClient from "../github-client/github-graphql-client";
 
-import { getUnique, writeToJson } from "../helpers";
+import { getUnique, writeToJson, removeHTMLComments } from "../helpers";
 import {
   Tickets,
   Repository,
@@ -15,6 +15,7 @@ import {
   ReleasesData,
   Attributes,
   ReleaseIssues,
+  Issue,
 } from "./types";
 
 export class TicketsHelper {
@@ -141,9 +142,13 @@ export class TicketsHelper {
                   ) {
                     return {
                       ...repositoryIssue,
+                      body: removeHTMLComments(repositoryIssue.body),
                       release,
-                      dueDate: releases.find(r => r.title === release)
+                      dueDate: releases
+                        .find(r => r.title === release)
                         .desired_end_date,
+                      repository: repository.name,
+                      zenHubUrl: this.createZenHubUrl(repository.name, repositoryIssue.number),
                     };
                   }
                 }
@@ -155,6 +160,11 @@ export class TicketsHelper {
     }
     return tickets;
   };
+
+  private createZenHubUrl = (repository: string, issueNumber: number): string => {
+    const prefix: string = roadmapConfig.zenHubUrlPrefix.endsWith("/") ? roadmapConfig.zenHubUrlPrefix : `${roadmapConfig.zenHubUrlPrefix}/`;
+    return `${prefix}${coreConfig.organization}/${repository}/${issueNumber}`;
+  }
 }
 
 export default new TicketsHelper();

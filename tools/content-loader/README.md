@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project prepares content for the Docs on the `kyma-project.io` website. It uses GitHub API to detect new releases in the `kyma` repository and documentation changes under [`kyma/docs`](https://github.com/kyma-project/kyma/tree/master/docs) merged to the `master` branch. It later prepares the modified `.md` files to the `content` folder in the `website` repository and publishes the documents on the website under a given version.
+This project prepares content for the Docs on the `kyma-project.io` website. It uses GitHub API to detect new releases in the `kyma` repository and documentation changes under [`kyma/docs`](https://github.com/kyma-project/kyma/tree/master/docs) merged to the `master` branch. It later prepares the content for documentation and roadmap sections and publishes it on the website.
 
 ## Prerequisites
 
@@ -44,6 +44,7 @@ The configuration options are as follows:
 | **APP_ROADMAP_TICKETS_OUTPUT**          | **YES**  | `roadmap/tickets.json`   | The path for storing the tickets results                    |
 | **APP_ROADMAP_LABELS**                  | **YES**  | `["Epic"]`               | The labels for tickets                                      |
 | **APP_ROADMAP_NON_CATEGORIZED_ISSUES**  | **YES**  | `Future`                 | The release name for non categorized issues                 |
+| **APP_ZENHUB_URL_PREFIX**               | **YES**  | `https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues` | The prefix for ZenHub issue url |
 
 ### Docker
 

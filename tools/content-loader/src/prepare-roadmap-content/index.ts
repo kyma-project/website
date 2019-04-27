@@ -27,11 +27,9 @@ const prepareRoadmapContent = async (coreConfig: CoreConfig) => {
 
   let err: Error | null;
 
-  console.log(`Cloning ${coreConfig.organization}/${roadmapConfig.repository}`);
   [err] = await to(CapabilitiesFetcher.copyCommunityRepository(coreConfig));
   if (err) throw err;
 
-  console.log(`Copying capabilities`);
   [err] = await to(
     CapabilitiesFetcher.copyCapabilities(capabilitiesDir, capabilitiesOutput),
   );
