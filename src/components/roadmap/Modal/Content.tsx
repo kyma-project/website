@@ -1,9 +1,17 @@
 import React from "react";
 
+import ReactMarkdown from "@components/shared/ReactMarkdown";
+
 import { ModalContentWrapper } from "./styled";
 
-const ModalContent: React.FunctionComponent = ({ children }) => (
-  <ModalContentWrapper>lol ddsd sdsd</ModalContentWrapper>
+interface Props {
+  body: string;
+}
+
+const ModalContent: React.FunctionComponent<Props> = ({ body }) => (
+  <ModalContentWrapper>
+    <ReactMarkdown source={body} />
+  </ModalContentWrapper>
 );
 
 export default ModalContent;

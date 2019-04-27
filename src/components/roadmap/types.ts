@@ -59,10 +59,14 @@ export interface Tickets {
 }
 
 export interface Ticket {
-  capability: CapabilityEnum;
-  ticketNumber: number;
   title: string;
+  body: string;
+  url: string;
+  number: number;
+  labels: string[];
+  release: string;
+  zenHubUrl: string;
   dueDate: string;
-  gitHubLink: string;
-  zenHubLink: string;
+  repository: string;
+  capabilityId: string;
 }

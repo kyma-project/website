@@ -1,5 +1,7 @@
 import styled, { media } from "@styled";
 
+import Grid from "@styled/Grid";
+
 import Roadmap from "@static/img/roadmap.svg";
 
 export const Wrapper = styled.div`
@@ -17,10 +19,116 @@ export const HeaderWrapper = styled.header`
   }
 `;
 
+/* Release */
+export const ReleaseWrapper = styled.div`
+  position: relative;
+`;
+
+interface ReleaseHeaderProps {
+  futurePlanned: boolean;
+}
+
+export const ReleaseHeader = styled.header`
+  background: #fff;
+  color: ${(props: ReleaseHeaderProps) =>
+    !props.futurePlanned ? `#0b74de` : `#485766`};
+
+  > h3 {
+    text-align: center;
+    margin: 0;
+  }
+`;
+
+export const ReleaseTicketsWrapper = styled.div``;
+
+interface ReleaseTicketsIconProps {
+  order: number;
+}
+
+/* Ticket */
+interface TicketsWrapperProps {
+  rightBorder?: boolean;
+  futurePlanned: boolean;
+}
+
+export const TicketsWrapper = styled(Grid.Unit)`
+  padding: 40px 0;
+  margin: 0;
+
+  ${(props: TicketsWrapperProps) =>
+    props.rightBorder
+      ? `
+    border-right: ${
+      !props.futurePlanned ? `1px solid #3298fe` : `1px dashed #7e98b1`
+    }
+  `
+      : `
+    border-left: ${
+      !props.futurePlanned ? `1px solid #3298fe` : `1px dashed #7e98b1`
+    }
+  `};
+`;
+
+interface TicketsRowProps {
+  order: number;
+}
+
+export const TicketsRow = styled(Grid.Row)`
+  position: relative;
+
+  ${(props: TicketsRowProps) =>
+    props.order % 2
+      ? `
+    margin-right: 32px;
+  `
+      : `
+    margin-left: 32px;
+  `}
+`;
+
+interface TicketsIconProps {
+  order: number;
+}
+
+export const TicketsIcon = styled.div`
+  position: absolute;
+  top: 0;
+
+  ${(props: TicketsIconProps) =>
+    props.order % 2
+      ? `
+    right: -33px;
+  `
+      : `
+    left: -33px;
+  `}
+
+  background: #fff;
+  width: 47px;
+  height: 47px;
+  border-radius: 100%;
+  padding: 7px;
+  box-shadow: 0 1px 26px 0 rgba(137, 165, 199, 0.42);
+  transform: ${props =>
+    props.order % 2 === 0 ? `translateX(-50%)` : `translateX(50%)`};
+`;
+
+export const TicketModalWrapper = styled.div`
+  display: flex;
+  flex: 1;
+  margin-bottom: 15px;
+
+  > div {
+    display: flex;
+    flex: 1;
+  }
+`;
+
 export const TicketWrapper = styled.div`
+  width: 100%;
   border-radius: 8px;
   background: #fff;
-  box-shadow: 0 2px 2px 0 rgba(11, 116, 222, 0.06);
+  box-shadow: 0 2px 26px 0 rgba(11, 116, 222, 0.1);
   transition: all 0.3s ease-in-out;
   cursor: pointer;
 
@@ -63,10 +171,13 @@ export const TicketContent = styled.div`
   padding: 16px 16px 24px;
 
   > span {
+    display: block;
+    text-align: left;
     font-size: 14px;
     font-weight: 500;
     line-height: 1.86;
     color: #0b74de;
+    margin-bottom: 8px;
   }
 
   > h4 {

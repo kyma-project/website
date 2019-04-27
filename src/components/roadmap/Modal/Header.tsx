@@ -5,6 +5,8 @@ import Svg from "@components/roadmap/Svg";
 import Link from "@components/shared/Link";
 import Icon from "@components/shared/Icon";
 
+import { Ticket } from "../types";
+
 import {
   ModalHeaderWrapper,
   ModalHeaderIcon,
@@ -18,33 +20,30 @@ import {
   ModalHeaderLinkButton,
 } from "./styled";
 
-export interface ModalHeaderProps {
-  capability: string;
-  ticketNumber: string;
-  title: string;
-  dueDate: string;
-  githubLink: string;
-  zenhubLink: string;
+export interface ModalHeaderProps extends Ticket {
+  capabilityDisplayName: string;
 }
 
 const ModalHeader: React.FunctionComponent<ModalHeaderProps> = ({
-  capability,
-  ticketNumber,
+  capabilityId,
+  capabilityDisplayName,
   title,
+  number: n,
   dueDate,
-  githubLink,
-  zenhubLink,
-  children,
+  url,
+  zenHubUrl,
 }) => (
   <ModalHeaderWrapper>
     <div>
       <ModalHeaderIcon>
-        <Svg capability={"application-connectivity"} />
+        <Svg capability={capabilityId} />
       </ModalHeaderIcon>
       <ModalHeaderMeta>
-        <ModalHeaderMetaCapability>{capability}</ModalHeaderMetaCapability>
+        <ModalHeaderMetaCapability>
+          {capabilityDisplayName}
+        </ModalHeaderMetaCapability>
         <ModalHeaderMetaTicketNumber>
-          Ticket N<sup>o</sup> {ticketNumber}
+          Ticket N<sup>o</sup> {n}
         </ModalHeaderMetaTicketNumber>
       </ModalHeaderMeta>
       <ModalHeaderDueDate>
@@ -54,12 +53,12 @@ const ModalHeader: React.FunctionComponent<ModalHeaderProps> = ({
       <ModalHeaderTitle>{title}</ModalHeaderTitle>
       <ModalHeaderLinks>
         <ModalHeaderLink>
-          <Link.External to={githubLink}>
+          <Link.External to={zenHubUrl}>
             <ModalHeaderLinkButton>View in ZenHub</ModalHeaderLinkButton>
           </Link.External>
         </ModalHeaderLink>
         <ModalHeaderLink>
-          <Link.External to={githubLink}>
+          <Link.External to={url}>
             <ModalHeaderLinkButton>View in GitHub</ModalHeaderLinkButton>
           </Link.External>
         </ModalHeaderLink>

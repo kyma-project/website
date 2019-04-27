@@ -1,16 +1,7 @@
 import styled from "@styled";
 import ReactModal from "react-modal";
 
-export const StyledModal = styled(ReactModal)`
-  position: absolute;
-  z-index: 300;
-  top: 50%;
-  left: 50%;
-  right: auto;
-  bottom: 0;
-  transform: translate(-50%, -50%);
-  outline: none;
-`;
+export const StyledModal = styled(ReactModal)``;
 
 export const CloseButton = styled.button`
   border: none;

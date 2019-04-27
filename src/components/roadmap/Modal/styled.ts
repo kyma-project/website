@@ -4,11 +4,9 @@ import Modal from "@components/shared/Modal";
 import Button from "@components/shared/Button";
 
 export const StyledModal = styled(Modal)`
-  max-width: 900px;
-  width: 900px;
-  max-height: 80%;
-  border-radius: 8px;
-  background: #fff;
+  > div {
+    padding: 96px 0;
+  }
 `;
 
 export const ModalHeaderWrapper = styled.header`
@@ -105,5 +103,8 @@ export const ModalHeaderLinkButton = styled(Button.Default)`
 `;
 
 export const ModalContentWrapper = styled.div`
-  padding: 32px 68px 72px;
+  padding: 32px 68px 46px;
+  background: #fff;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 `;

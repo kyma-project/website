@@ -1,5 +1,6 @@
 import styled from "@styled";
 import media from "@styled/media";
+import { PrevNextSectionPostTitle } from "@components/blog/styled";
 
 interface GridContainerProps {
   padding?: string;
@@ -16,6 +17,7 @@ const GridContainer = styled.div`
 interface GridRowProps {
   space?: boolean;
   alignCenter?: boolean;
+  direction?: string;
 }
 
 const GridRow = styled.div`
@@ -28,6 +30,12 @@ const GridRow = styled.div`
     `
     justify-content: space-between;
   `}
+
+  ${props =>
+    props.direction &&
+    `
+    direction: ${props.direction}
+    `}
 
   ${props =>
     props.alignCenter &&
