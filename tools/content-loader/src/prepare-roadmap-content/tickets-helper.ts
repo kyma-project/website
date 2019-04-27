@@ -149,6 +149,7 @@ export class TicketsHelper {
                         .desired_end_date,
                       repository: repository.name,
                       zenHubUrl: this.createZenHubUrl(repository.name, repositoryIssue.number),
+                      capabilityId: attr.id,
                     };
                   }
                 }
