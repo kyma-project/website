@@ -6,9 +6,16 @@ import Grid from "@styled/Grid";
 import Navigation from "@components/roadmap/Capabilities/Navigation";
 import Content from "@components/roadmap/Capabilities/Content";
 
+import ScrollSpy from "@common/state/useScrollSpy";
+
 import { RoadmapPageContext, NavigationItem, Capability } from "../types";
 
 import { Wrapper } from "./styled";
+
+import {
+  CAPABILITIES_SCROLL_SPY_ROOT,
+  CAPABILITY_SCROLL_SPY_NODE,
+} from "@components/roadmap/constants";
 
 interface CapabilitiesWrapperProps {
   pageContext: RoadmapPageContext;
@@ -47,10 +54,22 @@ interface CapabilitiesProps {
 const Capabilities: React.FunctionComponent<CapabilitiesProps> = ({
   pageContext,
   capabilities,
-}) => (
-  <CapabilitiesWrapper pageContext={pageContext}>
-    <Content capabilities={capabilities} />
-  </CapabilitiesWrapper>
-);
+}) => {
+  const scrollSpyProps = {
+    nodeTypes: [CAPABILITY_SCROLL_SPY_NODE],
+    rootElement: `#${CAPABILITIES_SCROLL_SPY_ROOT}`,
+    offset: {
+      capability: 0,
+    },
+  };
+
+  return (
+    <ScrollSpy.Provider {...scrollSpyProps}>
+      <CapabilitiesWrapper pageContext={pageContext}>
+        <Content capabilities={capabilities} />
+      </CapabilitiesWrapper>
+    </ScrollSpy.Provider>
+  );
+};
 
 export default Capabilities;

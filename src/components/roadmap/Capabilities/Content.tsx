@@ -9,13 +9,27 @@ import ReactMarkdown from "@components/shared/ReactMarkdown";
 
 import { Capability } from "../types";
 
-import { ContentWrapper, Header, StyledReactMarkdown } from "./styled";
+import {
+  ContentWrapper,
+  CapabilityWrapper,
+  Header,
+  StyledReactMarkdown,
+} from "./styled";
+
+import { sortCapabilities } from "../helpers";
+
+import {
+  CAPABILITIES_SCROLL_SPY_ROOT,
+  CAPABILITY_SCROLL_SPY_NODE,
+} from "@components/roadmap/constants";
 
 interface ContentProps {
   capabilities: Capability[];
 }
 
 const Content: React.FunctionComponent<ContentProps> = ({ capabilities }) => {
+  const sortedCapabilities = sortCapabilities(capabilities);
+
   const header = (capability: Capability) => (
     <Grid.Container padding="0 30px">
       <Grid.Row>
@@ -37,12 +51,16 @@ const Content: React.FunctionComponent<ContentProps> = ({ capabilities }) => {
   );
 
   return (
-    <ContentWrapper>
-      {capabilities.map(capability => (
-        <>
+    <ContentWrapper id={CAPABILITIES_SCROLL_SPY_ROOT}>
+      {sortedCapabilities.map(capability => (
+        <CapabilityWrapper
+          id={capability.frontmatter.id}
+          data-scrollspy-node-type={CAPABILITY_SCROLL_SPY_NODE}
+          key={capability.frontmatter.id}
+        >
           <Header>{header(capability)}</Header>
           <StyledReactMarkdown>{content(capability)}</StyledReactMarkdown>
-        </>
+        </CapabilityWrapper>
       ))}
     </ContentWrapper>
   );

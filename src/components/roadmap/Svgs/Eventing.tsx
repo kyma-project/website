@@ -1,7 +1,7 @@
 import React from "react";
 
 const SvgComponent: React.FunctionComponent = () => (
-  <svg id="eventing" data-name="Eventing" viewBox="0 0 185 167">
+  <svg id="eventing-svg" data-name="Eventing" viewBox="0 0 185 167">
     <defs>
       <style>
         {

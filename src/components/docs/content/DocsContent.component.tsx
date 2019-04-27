@@ -7,7 +7,8 @@ import Separator from "@components/shared/Separator";
 
 import { DocsContentItem, DocsContentDocs, DocsTypesLength } from "../types";
 import { tokenize } from "@common/utils";
-import { DOCS_SCROLL_SPY_ROOT } from "@common/constants";
+
+import { DOCS_SCROLL_SPY_ROOT } from "@components/docs/constants";
 
 import {
   DocsContentWrapper,

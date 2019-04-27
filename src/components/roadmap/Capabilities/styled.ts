@@ -79,8 +79,22 @@ export const NavigationListItemName = styled.div`
 `;
 
 /* Content */
-export const ContentWrapper = styled.article`
+export const ContentWrapper = styled.section`
   padding-left: 52px;
+`;
+
+export const CapabilityWrapper = styled.article`
+  border-bottom: solid 1px #d5dce3;
+  padding: 72px 0;
+
+  &:first-child {
+    padding-top: 0;
+  }
+
+  &:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+  }
 `;
 
 export const Header = styled.header`
@@ -102,8 +116,6 @@ export const Header = styled.header`
 
 export const StyledReactMarkdown = styled.div`
   &&& {
-    margin-bottom: 96px;
-
     h2,
     h3,
     h4,

@@ -15,10 +15,9 @@ import {
 } from "../types";
 import { ActiveNav } from "../navigation/types";
 
-import {
-  DOCS_SCROLL_SPY_ROOT,
-  MOBILE_DEVICES_BREAKPOINT,
-} from "@common/constants";
+import { DOCS_SCROLL_SPY_ROOT } from "@components/docs/constants";
+
+import { MOBILE_DEVICES_BREAKPOINT } from "@common/constants";
 
 interface RootDocsProps {
   content: DocsContentItem;

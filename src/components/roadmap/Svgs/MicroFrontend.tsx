@@ -1,7 +1,7 @@
 import React from "react";
 
 const SvgComponent: React.FunctionComponent = () => (
-  <svg id="micro-frontend" data-name="Micro Frontend" viewBox="0 0 185 167">
+  <svg id="micro-frontend-svg" data-name="Micro Frontend" viewBox="0 0 185 167">
     <defs>
       <style>
         {

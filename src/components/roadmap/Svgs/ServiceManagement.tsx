@@ -2,7 +2,7 @@ import React from "react";
 
 const SvgComponent: React.FunctionComponent = () => (
   <svg
-    id="service-management"
+    id="service-management-svg"
     data-name="Service Management"
     viewBox="0 0 185 167"
   >

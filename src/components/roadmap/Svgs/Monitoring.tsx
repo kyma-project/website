@@ -1,7 +1,7 @@
 import React from "react";
 
 const SvgComponent: React.FunctionComponent = () => (
-  <svg id="monitoring" data-name="Monitoring" viewBox="0 0 185 167">
+  <svg id="monitoring-svg" data-name="Monitoring" viewBox="0 0 185 167">
     <defs>
       <style>{".capability-monitoring-2{fill:#fff}"}</style>
       <linearGradient

@@ -7,7 +7,7 @@ export interface RoadmapPageContext {
 
 export interface NavigationItem {
   displayName: string;
-  path: string;
+  id: string;
 }
 
 export interface Capability {
@@ -42,7 +42,22 @@ export enum CapabilityEnum {
   SERVICE_MANAGEMENT = "service-management",
 }
 
+/* Release */
+
+export interface Release {
+  displayName: string;
+  capabilities: {
+    [capability: string]: Ticket[];
+  };
+}
+
 /* Tickets */
+export interface Tickets {
+  [release: string]: {
+    [capability: string]: Ticket[];
+  };
+}
+
 export interface Ticket {
   capability: CapabilityEnum;
   ticketNumber: number;

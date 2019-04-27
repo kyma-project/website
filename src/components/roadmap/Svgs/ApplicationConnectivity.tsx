@@ -2,7 +2,7 @@ import React from "react";
 
 const SvgComponent: React.FunctionComponent = () => (
   <svg
-    id="application-connectivity"
+    id="application-connectivity-svg"
     data-name="Application connectivity"
     viewBox="0 0 185 167"
   >

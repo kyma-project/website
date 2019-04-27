@@ -44,12 +44,9 @@ const generateCapabilitiesNavigation = capabilities => {
   const navigation = [];
 
   capabilities.map(capability => {
-    const path = `/${ROADMAP_CAPABILITY_PATH_PREFIX}/${
-      capability.node.frontmatter.id
-    }`;
     navigation.push({
       displayName: capability.node.frontmatter.displayName,
-      path,
+      id: capability.node.frontmatter.id,
     });
   });
 
