@@ -23,7 +23,7 @@ const RoadmapPageTemplate: React.FunctionComponent<
   pageContext,
   location,
 }) => (
-  <Layout locale={pageContext.locale} pageTitle={"Roadmap"}>
+  <Layout locale={pageContext.locale} pageTitle="Roadmap">
     <RoadmapPage
       pageContext={pageContext}
       capabilities={edges.map(cap => cap.node)}

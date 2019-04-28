@@ -6,13 +6,16 @@ import { FormattedMessage } from "@common/i18n";
 
 import H from "@components/shared/H";
 
+import Dropdown from "@components/roadmap/Dropdown/Dropdown";
+
 import { HeaderWrapper } from "./styled";
 
 const Header: React.FunctionComponent = () => (
   <HeaderWrapper>
     <FormattedMessage id="roadmap.timeline.header">
-      {data => <H as="h2">{data}</H>}
+      {header => <H as="h2">{header}</H>}
     </FormattedMessage>
+    <Dropdown />
   </HeaderWrapper>
 );
 
