@@ -7,9 +7,7 @@ import Roadmap from "@static/img/roadmap.svg";
 export const Wrapper = styled.div`
   position: relative;
   margin-bottom: 0;
-  background: url(${Roadmap}) no-repeat;
-  background-size: 100%;
-  background-position: center;
+  background: #e5eff6;
   margin-bottom: -132px;
   padding-bottom: 72px;
 

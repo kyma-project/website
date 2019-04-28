@@ -14,9 +14,15 @@ import {
 
 interface Props {
   capabilities: Capability[];
+  checkedCapabilities: string[];
+  setCapability: (capability: string) => void;
 }
 
-const DropElement: React.FunctionComponent<Props> = ({ capabilities }) => (
+const DropElement: React.FunctionComponent<Props> = ({
+  capabilities,
+  checkedCapabilities,
+  setCapability,
+}) => (
   <DropdownListWrapper>
     <DropdownList>
       {capabilities.map((capability, idx) => (
@@ -25,7 +31,13 @@ const DropElement: React.FunctionComponent<Props> = ({ capabilities }) => (
             <DropdownListItemName>
               {capability.frontmatter.displayName}
             </DropdownListItemName>
-            <Checkbox checked={false} />
+            <Checkbox
+              checked={checkedCapabilities.includes(capability.frontmatter.id)}
+              onChange={() => null}
+              onClick={() => {
+                setCapability(capability.frontmatter.id);
+              }}
+            />
           </label>
         </DropdownListItem>
       ))}

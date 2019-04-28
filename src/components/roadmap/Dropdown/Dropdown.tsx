@@ -15,9 +15,15 @@ import {
 
 interface Props {
   capabilities: Capability[];
+  checkedCapabilities: string[];
+  setCapability: (capability: string) => void;
 }
 
-const Dropdown: React.FunctionComponent<Props> = ({ capabilities }) => {
+const Dropdown: React.FunctionComponent<Props> = ({
+  capabilities,
+  checkedCapabilities,
+  setCapability,
+}) => {
   const iconEl = useRef(null);
   const capabilitiesDropEl = useRef(null);
   const [capabilitiesDropOpen, toggleCapabilitiesDrop] = useDropdown(
@@ -37,7 +43,11 @@ const Dropdown: React.FunctionComponent<Props> = ({ capabilities }) => {
         ref={capabilitiesDropEl}
         hidden={!capabilitiesDropOpen}
       >
-        <DropElement capabilities={capabilities} />
+        <DropElement
+          capabilities={capabilities}
+          checkedCapabilities={checkedCapabilities}
+          setCapability={setCapability}
+        />
       </DropdownDropElementWrapper>
     </DropDownWrapper>
   );

@@ -12,7 +12,7 @@ import { RoadmapPageContext, Capability, NavigationItem } from "./types";
 interface RoadmapPageProps {
   pageContext: RoadmapPageContext;
   capabilities: Capability[];
-  location: Location;
+  location: any;
 }
 
 const RoadmapPage: React.FunctionComponent<RoadmapPageProps> = ({
@@ -22,12 +22,8 @@ const RoadmapPage: React.FunctionComponent<RoadmapPageProps> = ({
 }) => (
   <>
     <Overview />
-    <Capabilities
-      pageContext={pageContext}
-      capabilities={capabilities}
-      // location={location}
-    />
-    <Tickets capabilities={capabilities} />
+    <Capabilities pageContext={pageContext} capabilities={capabilities} />
+    <Tickets capabilities={capabilities} location={location} />
   </>
 );
 

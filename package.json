@@ -55,6 +55,7 @@
     "gatsby-source-filesystem": "^2.0.16",
     "gatsby-transformer-remark": "^2.2.5",
     "prism-react-renderer": "^0.1.5",
+    "qs": "^6.7.0",
     "react": "^16.6.3",
     "react-cookie-banner": "^4.0.0",
     "react-copy-to-clipboard": "^5.0.1",
