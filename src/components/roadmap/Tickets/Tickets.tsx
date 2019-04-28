@@ -5,18 +5,25 @@ import Grid from "@styled/Grid";
 import Header from "@components/roadmap/Tickets/Header";
 import ReleaseComponent from "@components/roadmap/Tickets/Release";
 
-import { Release, Tickets as TicketsType } from "../types";
+import { Release, Capability, Tickets as TicketsType } from "../types";
 
 import { Wrapper } from "./styled";
 
 import tickets from "../../../../content/roadmap/tickets.json";
 
-export const TicketsWrapper: React.FunctionComponent = ({ children }) => (
+interface TicketsWrapperProps {
+  capabilities: Capability[];
+}
+
+export const TicketsWrapper: React.FunctionComponent<TicketsWrapperProps> = ({
+  capabilities,
+  children,
+}) => (
   <Wrapper>
     <Grid.Container>
       <Grid.Row>
         <Grid.Unit df={12} md={0}>
-          <Header />
+          <Header capabilities={capabilities} />
         </Grid.Unit>
         <Grid.Unit df={12} md={12}>
           {children}
@@ -27,10 +34,10 @@ export const TicketsWrapper: React.FunctionComponent = ({ children }) => (
 );
 
 interface TicketsProps {
-  tickets: TicketsType;
+  capabilities: Capability[];
 }
 
-const Tickets: React.FunctionComponent = () => {
+const Tickets: React.FunctionComponent<TicketsProps> = ({ capabilities }) => {
   interface ReleaseWithNumber {
     release: Release;
     orderNumber: number;
@@ -88,7 +95,7 @@ const Tickets: React.FunctionComponent = () => {
   };
 
   return (
-    <TicketsWrapper>
+    <TicketsWrapper capabilities={capabilities}>
       {prepareReleases().map((release, idx) => (
         <ReleaseComponent
           key={idx}

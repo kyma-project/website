@@ -5,13 +5,19 @@ import useDropdown from "@components/shared/DropDown/useDropdown";
 import ActionElement from "@components/roadmap/Dropdown/ActionElement";
 import DropElement from "@components/roadmap/Dropdown/DropElement";
 
+import { Capability } from "../types";
+
 import {
   DropDownWrapper,
   DropdownDropElementWrapper,
   DropdownActionElementWrapper,
 } from "./styled";
 
-const Dropdown: React.FunctionComponent = () => {
+interface Props {
+  capabilities: Capability[];
+}
+
+const Dropdown: React.FunctionComponent<Props> = ({ capabilities }) => {
   const iconEl = useRef(null);
   const capabilitiesDropEl = useRef(null);
   const [capabilitiesDropOpen, toggleCapabilitiesDrop] = useDropdown(
@@ -27,8 +33,11 @@ const Dropdown: React.FunctionComponent = () => {
       >
         <ActionElement />
       </DropdownActionElementWrapper>
-      <DropdownDropElementWrapper>
-        <DropElement />
+      <DropdownDropElementWrapper
+        ref={capabilitiesDropEl}
+        hidden={!capabilitiesDropOpen}
+      >
+        <DropElement capabilities={capabilities} />
       </DropdownDropElementWrapper>
     </DropDownWrapper>
   );

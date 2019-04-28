@@ -1,12 +1,35 @@
 import React, { useRef } from "react";
 
 import Icon from "@components/shared/Icon";
+import Checkbox from "@components/shared/Checkbox";
 
-import { DropdownListWrapper, DropdownList } from "./styled";
+import { Capability } from "../types";
 
-const DropElement: React.FunctionComponent = () => (
+import {
+  DropdownListWrapper,
+  DropdownList,
+  DropdownListItem,
+  DropdownListItemName,
+} from "./styled";
+
+interface Props {
+  capabilities: Capability[];
+}
+
+const DropElement: React.FunctionComponent<Props> = ({ capabilities }) => (
   <DropdownListWrapper>
-    <DropdownList>d</DropdownList>
+    <DropdownList>
+      {capabilities.map((capability, idx) => (
+        <DropdownListItem key={idx}>
+          <label>
+            <DropdownListItemName>
+              {capability.frontmatter.displayName}
+            </DropdownListItemName>
+            <Checkbox checked={false} />
+          </label>
+        </DropdownListItem>
+      ))}
+    </DropdownList>
   </DropdownListWrapper>
 );
 

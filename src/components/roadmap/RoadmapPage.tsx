@@ -27,7 +27,7 @@ const RoadmapPage: React.FunctionComponent<RoadmapPageProps> = ({
       capabilities={capabilities}
       // location={location}
     />
-    <Tickets />
+    <Tickets capabilities={capabilities} />
   </>
 );
 
