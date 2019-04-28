@@ -18,7 +18,8 @@
         "release": "0.8",
         "dueDate": "2019-03-07T23:00:00.000Z",
         "repository": "kyma",
-        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/1879"
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/1879",
+        "capabilityId": "logging-tracing-monitoring"
       }
     ],
     "Service Management": []
@@ -38,7 +39,8 @@
         "release": "Future",
         "dueDate": "2020-12-31T11:00:00.000Z",
         "repository": "kyma",
-        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/3397"
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/3397",
+        "capabilityId": "api-gateway"
       }
     ],
     "Application Connectivity": [
@@ -54,7 +56,8 @@
         "release": "Future",
         "dueDate": "2020-12-31T11:00:00.000Z",
         "repository": "kyma",
-        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/2716"
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/2716",
+        "capabilityId": "application-connectivity"
       },
       {
         "title": "Application Connector test coverage improvements.",
@@ -69,7 +72,8 @@
         "release": "Future",
         "dueDate": "2020-12-31T11:00:00.000Z",
         "repository": "kyma",
-        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/3519"
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/3519",
+        "capabilityId": "application-connectivity"
       },
       {
         "title": "Provide essential data and e2e test to *-kyma-gke-upgrade plan ",
@@ -88,7 +92,8 @@
         "release": "Future",
         "dueDate": "2020-12-31T11:00:00.000Z",
         "repository": "test-infra",
-        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/test-infra/582"
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/test-infra/582",
+        "capabilityId": "application-connectivity"
       }
     ],
     "Console / Microfrontends": [
@@ -103,7 +108,8 @@
         "release": "Future",
         "dueDate": "2020-12-31T11:00:00.000Z",
         "repository": "luigi",
-        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/luigi/473"
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/luigi/473",
+        "capabilityId": "console-microfrontends"
       }
     ],
     "Core & Supporting": [
@@ -119,7 +125,8 @@
         "release": "Future",
         "dueDate": "2020-12-31T11:00:00.000Z",
         "repository": "website",
-        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/website/100"
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/website/100",
+        "capabilityId": "core-and-supporting"
       },
       {
         "title": "Enable community to easier act as social media advocate",
@@ -133,7 +140,8 @@
         "release": "Future",
         "dueDate": "2020-12-31T11:00:00.000Z",
         "repository": "website",
-        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/website/104"
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/website/104",
+        "capabilityId": "core-and-supporting"
       },
       {
         "title": "Expose product content more and enable easy contributions",
@@ -147,7 +155,8 @@
         "release": "Future",
         "dueDate": "2020-12-31T11:00:00.000Z",
         "repository": "website",
-        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/website/105"
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/website/105",
+        "capabilityId": "core-and-supporting"
       },
       {
         "title": "Enable basic search and set up a chat bot ",
@@ -161,7 +170,8 @@
         "release": "Future",
         "dueDate": "2020-12-31T11:00:00.000Z",
         "repository": "website",
-        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/website/106"
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/website/106",
+        "capabilityId": "core-and-supporting"
       },
       {
         "title": "Improve experience and usability of blog section",
@@ -175,7 +185,8 @@
         "release": "Future",
         "dueDate": "2020-12-31T11:00:00.000Z",
         "repository": "website",
-        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/website/142"
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/website/142",
+        "capabilityId": "core-and-supporting"
       }
     ],
     "Eventing": [
@@ -191,7 +202,8 @@
         "release": "Future",
         "dueDate": "2020-12-31T11:00:00.000Z",
         "repository": "kyma",
-        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/3847"
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/3847",
+        "capabilityId": "eventing"
       },
       {
         "title": "Align with Open standards for Kyma eventing interfaces",
@@ -205,7 +217,8 @@
         "release": "Future",
         "dueDate": "2020-12-31T11:00:00.000Z",
         "repository": "kyma",
-        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/3849"
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/3849",
+        "capabilityId": "eventing"
       },
       {
         "title": "Provide support for data events in Kyma eventing",
@@ -219,7 +232,8 @@
         "release": "Future",
         "dueDate": "2020-12-31T11:00:00.000Z",
         "repository": "kyma",
-        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/3854"
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/3854",
+        "capabilityId": "eventing"
       },
       {
         "title": "Provide support for in-cluster events",
@@ -233,7 +247,8 @@
         "release": "Future",
         "dueDate": "2020-12-31T11:00:00.000Z",
         "repository": "kyma",
-        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/3855"
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/3855",
+        "capabilityId": "eventing"
       },
       {
         "title": "Improve UX for Kyma eventing",
@@ -246,7 +261,8 @@
         "release": "Future",
         "dueDate": "2020-12-31T11:00:00.000Z",
         "repository": "kyma",
-        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/3857"
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/3857",
+        "capabilityId": "eventing"
       },
       {
         "title": "Provide essential data and e2e test to *-kyma-gke-upgrade plan ",
@@ -265,7 +281,8 @@
         "release": "Future",
         "dueDate": "2020-12-31T11:00:00.000Z",
         "repository": "test-infra",
-        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/test-infra/582"
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/test-infra/582",
+        "capabilityId": "eventing"
       }
     ],
     "Logging / Tracing / Monitoring": [
@@ -281,7 +298,8 @@
         "release": "Future",
         "dueDate": "2020-12-31T11:00:00.000Z",
         "repository": "kyma",
-        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/376"
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/376",
+        "capabilityId": "logging-tracing-monitoring"
       },
       {
         "title": "Monitor Knative Function Controller",
@@ -297,7 +315,8 @@
         "release": "Future",
         "dueDate": "2020-12-31T11:00:00.000Z",
         "repository": "kyma",
-        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/2251"
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/2251",
+        "capabilityId": "logging-tracing-monitoring"
       }
     ],
     "Service Management": [
@@ -318,7 +337,8 @@
         "release": "Future",
         "dueDate": "2020-12-31T11:00:00.000Z",
         "repository": "test-infra",
-        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/test-infra/582"
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/test-infra/582",
+        "capabilityId": "service-management"
       }
     ]
   },
@@ -356,7 +376,8 @@
         "release": "1.1",
         "dueDate": "2019-05-10T10:00:00.000Z",
         "repository": "kyma",
-        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/3449"
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/3449",
+        "capabilityId": "application-connectivity"
       }
     ],
     "Console / Microfrontends": [
@@ -372,7 +393,8 @@
         "release": "1.1",
         "dueDate": "2019-05-10T10:00:00.000Z",
         "repository": "console",
-        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/console/202"
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/console/202",
+        "capabilityId": "console-microfrontends"
       },
       {
         "title": "I18N Support",
@@ -385,7 +407,8 @@
         "release": "1.1",
         "dueDate": "2019-05-10T10:00:00.000Z",
         "repository": "luigi",
-        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/luigi/396"
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/luigi/396",
+        "capabilityId": "console-microfrontends"
       }
     ],
     "Core & Supporting": [
@@ -401,7 +424,8 @@
         "release": "1.1",
         "dueDate": "2019-05-10T10:00:00.000Z",
         "repository": "website",
-        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/website/258"
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/website/258",
+        "capabilityId": "core-and-supporting"
       }
     ],
     "Eventing": [],
@@ -420,7 +444,8 @@
         "release": "1.1",
         "dueDate": "2019-05-10T10:00:00.000Z",
         "repository": "kyma",
-        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/3068"
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/3068",
+        "capabilityId": "service-management"
       },
       {
         "title": "Helm Broker creates Service Class documentation from add-ons",
@@ -435,7 +460,8 @@
         "release": "1.1",
         "dueDate": "2019-05-10T10:00:00.000Z",
         "repository": "kyma",
-        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/3358"
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/3358",
+        "capabilityId": "service-management"
       },
       {
         "title": "Finalize PR with Service Catalog CRD solution",
@@ -449,7 +475,8 @@
         "release": "1.1",
         "dueDate": "2019-05-10T10:00:00.000Z",
         "repository": "kyma",
-        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/3594"
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/3594",
+        "capabilityId": "service-management"
       },
       {
         "title": "Provide AWS Service Broker bundle",
@@ -462,7 +489,8 @@
         "release": "1.1",
         "dueDate": "2019-05-10T10:00:00.000Z",
         "repository": "bundles",
-        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/bundles/57"
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/bundles/57",
+        "capabilityId": "service-management"
       }
     ]
   },
@@ -482,7 +510,8 @@
         "release": "1.2",
         "dueDate": "2019-06-07T10:00:00.000Z",
         "repository": "console",
-        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/console/638"
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/console/638",
+        "capabilityId": "console-microfrontends"
       },
       {
         "title": "APIs view improvements",
@@ -495,7 +524,8 @@
         "release": "1.2",
         "dueDate": "2019-06-07T10:00:00.000Z",
         "repository": "kyma",
-        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/3822"
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/3822",
+        "capabilityId": "console-microfrontends"
       }
     ],
     "Core & Supporting": [],

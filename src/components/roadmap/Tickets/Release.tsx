@@ -64,9 +64,11 @@ const ReleaseComponent: React.FunctionComponent<ReleaseProps> = ({
           </TicketModalWrapper>
         </Grid.Unit>
       ))}
-      <TicketsIcon order={order}>
-        <Svg capability={capabilityDisplayName} />
-      </TicketsIcon>
+      {tickets && tickets.length ? (
+        <TicketsIcon order={order}>
+          <Svg capability={tickets[0].capabilityId} />
+        </TicketsIcon>
+      ) : null}
     </TicketsRow>
   );
 
@@ -90,7 +92,6 @@ const ReleaseComponent: React.FunctionComponent<ReleaseProps> = ({
             tickets,
             capability,
           );
-          // setOrder((o: number) => o + 1);
 
           return tickets.length
             ? ticketsWrapper(

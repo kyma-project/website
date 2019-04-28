@@ -39,11 +39,19 @@ export const ReleaseHeader = styled.header`
   }
 `;
 
-export const ReleaseTicketsWrapper = styled.div``;
+export const ReleaseTicketsWrapper = styled.div`
+  ${Grid.Container} > ${Grid.Row} > ${Grid.Unit} {
+    padding: 0;
+  }
 
-interface ReleaseTicketsIconProps {
-  order: number;
-}
+  ${Grid.Container}:first-child > ${Grid.Row} > ${Grid.Unit} {
+    padding-top: 40px;
+  }
+
+  ${Grid.Container}:last-child > ${Grid.Row} > ${Grid.Unit} {
+    padding-bottom: 70px;
+  }
+`;
 
 /* Ticket */
 interface TicketsWrapperProps {
@@ -80,9 +88,17 @@ export const TicketsRow = styled(Grid.Row)`
     props.order % 2
       ? `
     margin-right: 32px;
+
+    > ${Grid.Unit} {
+      padding-left: 0;
+    }
   `
       : `
     margin-left: 32px;
+
+    > ${Grid.Unit} {
+      padding-right: 0;
+    }
   `}
 `;
 
@@ -116,7 +132,6 @@ export const TicketsIcon = styled.div`
 export const TicketModalWrapper = styled.div`
   display: flex;
   flex: 1;
-  margin-bottom: 15px;
 
   > div {
     display: flex;
