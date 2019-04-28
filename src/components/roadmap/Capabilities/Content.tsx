@@ -7,6 +7,8 @@ import H from "@components/shared/H";
 import Button from "@components/shared/Button";
 import ReactMarkdown from "@components/shared/ReactMarkdown";
 
+import { scrollToAnchor } from "@common/utils/index";
+
 import { Capability } from "../types";
 
 import {
@@ -24,10 +26,14 @@ import {
 } from "@components/roadmap/constants";
 
 interface ContentProps {
+  ticketsReference: React.MutableRefObject<any>;
   capabilities: Capability[];
 }
 
-const Content: React.FunctionComponent<ContentProps> = ({ capabilities }) => {
+const Content: React.FunctionComponent<ContentProps> = ({
+  capabilities,
+  ticketsReference,
+}) => {
   const sortedCapabilities = sortCapabilities(capabilities);
 
   const header = (capability: Capability) => (
@@ -38,7 +44,11 @@ const Content: React.FunctionComponent<ContentProps> = ({ capabilities }) => {
         </Grid.Unit>
         <Grid.Unit df={9} withoutPadding={true}>
           <H as="h2">{capability.frontmatter.displayName}</H>
-          <div>
+          <div
+            onClick={() => {
+              scrollToAnchor(ticketsReference.current)();
+            }}
+          >
             <Button.Emphasized>View Roadmap</Button.Emphasized>
           </div>
         </Grid.Unit>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 
 import Grid from "@styled/Grid";
 
@@ -19,12 +19,26 @@ const RoadmapPage: React.FunctionComponent<RoadmapPageProps> = ({
   pageContext,
   capabilities,
   location,
-}) => (
-  <>
-    <Overview />
-    <Capabilities pageContext={pageContext} capabilities={capabilities} />
-    <Tickets capabilities={capabilities} location={location} />
-  </>
-);
+}) => {
+  const ticketsReference = useRef(null);
+
+  return (
+    <>
+      <Overview />
+      <Capabilities
+        pageContext={pageContext}
+        capabilities={capabilities}
+        ticketsReference={ticketsReference}
+      />
+      <div ref={ticketsReference}>
+        <Tickets
+          capabilities={capabilities}
+          location={location}
+          ticketsReference={ticketsReference}
+        />
+      </div>
+    </>
+  );
+};
 
 export default RoadmapPage;

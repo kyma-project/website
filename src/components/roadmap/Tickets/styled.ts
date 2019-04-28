@@ -17,7 +17,6 @@ export const Wrapper = styled.div`
 `;
 
 export const HeaderWrapper = styled.header`
-  margin: 0 auto;
   > h2 {
     text-align: center;
   }

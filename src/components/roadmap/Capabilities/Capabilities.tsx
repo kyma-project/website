@@ -48,11 +48,13 @@ export const CapabilitiesWrapper: React.FunctionComponent<
 
 interface CapabilitiesProps {
   pageContext: RoadmapPageContext;
+  ticketsReference: React.MutableRefObject<any>;
   capabilities: Capability[];
 }
 
 const Capabilities: React.FunctionComponent<CapabilitiesProps> = ({
   pageContext,
+  ticketsReference,
   capabilities,
 }) => {
   const scrollSpyProps = {
@@ -66,7 +68,10 @@ const Capabilities: React.FunctionComponent<CapabilitiesProps> = ({
   return (
     <ScrollSpy.Provider {...scrollSpyProps}>
       <CapabilitiesWrapper pageContext={pageContext}>
-        <Content capabilities={capabilities} />
+        <Content
+          capabilities={capabilities}
+          ticketsReference={ticketsReference}
+        />
       </CapabilitiesWrapper>
     </ScrollSpy.Provider>
   );

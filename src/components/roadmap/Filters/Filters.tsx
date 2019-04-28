@@ -19,27 +19,29 @@ const Filters: React.FunctionComponent<Props> = ({
   setCapability,
   clearFilters,
 }) => (
-  <FiltersList>
-    {checkedCapabilities.map(capability => {
-      const displayName = capabilities.find(
-        cap => cap.frontmatter.id === capability,
-      )!.frontmatter.displayName;
-
-      return (
-        <Filter key={displayName} onClick={() => setCapability(capability)}>
-          <FilterButton>
-            {displayName}
-            <Icon iconName="times" iconPrefix="fas" />
-          </FilterButton>
-        </Filter>
-      );
-    })}
+  <>
     {checkedCapabilities.length ? (
-      <Filter key={"clear-all"} onClick={clearFilters}>
-        <FilterButton>Clear all</FilterButton>
-      </Filter>
+      <FiltersList>
+        {checkedCapabilities.map(capability => {
+          const displayName = capabilities.find(
+            cap => cap.frontmatter.id === capability,
+          )!.frontmatter.displayName;
+
+          return (
+            <Filter key={displayName} onClick={() => setCapability(capability)}>
+              <FilterButton>
+                {displayName}
+                <Icon iconName="times" iconPrefix="fas" />
+              </FilterButton>
+            </Filter>
+          );
+        })}
+        <Filter key={"clear-all"} onClick={clearFilters}>
+          <FilterButton>Clear all</FilterButton>
+        </Filter>
+      </FiltersList>
     ) : null}
-  </FiltersList>
+  </>
 );
 
 export default Filters;

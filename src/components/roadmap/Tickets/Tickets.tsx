@@ -51,11 +51,13 @@ export const TicketsWrapper: React.FunctionComponent<TicketsWrapperProps> = ({
 
 interface TicketsProps {
   capabilities: Capability[];
+  ticketsReference: React.MutableRefObject<any>;
   location: any;
 }
 
 const Tickets: React.FunctionComponent<TicketsProps> = ({
   capabilities,
+  ticketsReference,
   location,
 }) => {
   interface ReleaseWithNumber {
@@ -63,7 +65,6 @@ const Tickets: React.FunctionComponent<TicketsProps> = ({
     orderNumber: number;
   }
 
-  const roadmap = useRef(null);
   const [state, setState] = useState<{
     capabilities: string[];
     initial: boolean;
@@ -154,7 +155,7 @@ const Tickets: React.FunctionComponent<TicketsProps> = ({
         initial: false,
       });
 
-      scrollToAnchor(roadmap.current)();
+      scrollToAnchor(ticketsReference.current)();
     }
   }, []);
 
@@ -182,7 +183,7 @@ const Tickets: React.FunctionComponent<TicketsProps> = ({
       initial: false,
     });
 
-    scrollToAnchor(roadmap.current)();
+    scrollToAnchor(ticketsReference.current)();
   };
 
   const clearFilters = () => {
@@ -193,7 +194,7 @@ const Tickets: React.FunctionComponent<TicketsProps> = ({
   };
 
   return (
-    <div ref={roadmap}>
+    <>
       <TicketsWrapper
         capabilities={capabilities}
         checkedCapabilities={state.capabilities}
@@ -208,7 +209,7 @@ const Tickets: React.FunctionComponent<TicketsProps> = ({
           />
         ))}
       </TicketsWrapper>
-    </div>
+    </>
   );
 };
 

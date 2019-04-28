@@ -9,8 +9,8 @@ export const FiltersList = styled.ul`
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  padding: 16px 0 32px 0;
   border-bottom: solid 1px #d5dce3;
-  padding: 32px 0;
   margin-bottom: 32px;
 `;
 
