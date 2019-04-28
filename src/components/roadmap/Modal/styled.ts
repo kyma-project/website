@@ -68,6 +68,10 @@ export const ModalHeaderDueDate = styled.div`
   > svg {
     margin-right: 8px;
   }
+
+  a {
+    color: #fff;
+  }
 `;
 
 export const ModalHeaderTitle = styled.h3`

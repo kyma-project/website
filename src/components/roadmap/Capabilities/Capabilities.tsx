@@ -28,7 +28,7 @@ export const CapabilitiesWrapper: React.FunctionComponent<
     <Grid.Container>
       <StickyContainer>
         <Grid.Row>
-          <Grid.Unit df={3} md={0} withoutPadding={true}>
+          <Grid.Unit df={3} md={1} withoutPadding={true}>
             <Sticky>
               {({ style }: any) => (
                 <div style={{ ...style, zIndex: 110 }}>
@@ -37,7 +37,7 @@ export const CapabilitiesWrapper: React.FunctionComponent<
               )}
             </Sticky>
           </Grid.Unit>
-          <Grid.Unit df={9} md={12}>
+          <Grid.Unit df={9} md={11}>
             {children}
           </Grid.Unit>
         </Grid.Row>

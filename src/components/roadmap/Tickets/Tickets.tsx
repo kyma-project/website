@@ -31,7 +31,12 @@ interface TicketsProps {
 }
 
 const Tickets: React.FunctionComponent = () => {
-  const prepareReleases = (): Release[] => {
+  interface ReleaseWithNumber {
+    release: Release;
+    orderNumber: number;
+  }
+
+  const prepareReleases = (): ReleaseWithNumber[] => {
     const releases: Release[] = [];
 
     Object.keys(tickets).map(release => {
@@ -41,7 +46,7 @@ const Tickets: React.FunctionComponent = () => {
       });
     });
 
-    return releases
+    const filteredReleases = releases
       .sort((a, b) =>
         a.displayName > b.displayName
           ? 1
@@ -49,17 +54,47 @@ const Tickets: React.FunctionComponent = () => {
           ? -1
           : 0,
       )
+      // filter capabilities without tickets
+      .map(release => ({
+        displayName: release.displayName,
+        capabilities: Object.keys(release.capabilities)
+          .filter(key => release.capabilities[key].length)
+          .reduce(
+            (res: any, key) => ((res[key] = release.capabilities[key]), res),
+            {},
+          ),
+      }))
+      // filter release without capabilities
       .filter(release =>
         Object.keys(release.capabilities).some(
           capability => release.capabilities[capability].length > 0,
         ),
       );
+
+    let order = 0;
+    const releasesWithOrder: ReleaseWithNumber[] = filteredReleases.map(
+      release => {
+        const r = {
+          release,
+          orderNumber: order,
+        };
+        order += Object.keys(release.capabilities).length;
+
+        return r;
+      },
+    );
+
+    return releasesWithOrder;
   };
 
   return (
     <TicketsWrapper>
       {prepareReleases().map((release, idx) => (
-        <ReleaseComponent key={idx} release={release} />
+        <ReleaseComponent
+          key={idx}
+          release={release.release}
+          orderNumber={release.orderNumber}
+        />
       ))}
     </TicketsWrapper>
   );

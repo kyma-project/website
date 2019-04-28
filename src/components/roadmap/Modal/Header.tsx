@@ -37,6 +37,7 @@ const ModalHeader: React.FunctionComponent<ModalHeaderProps> = ({
   dueDate,
   url,
   zenHubUrl,
+  release,
 }) => (
   <ModalHeaderWrapper>
     <div>
@@ -53,7 +54,7 @@ const ModalHeader: React.FunctionComponent<ModalHeaderProps> = ({
       </ModalHeaderMeta>
       <ModalHeaderDueDate>
         <Icon iconName="calendar-alt" iconPrefix="far" />
-        <DueDate date={dueDate} />
+        <DueDate date={dueDate} futurePlanned={release === "Future"} />
       </ModalHeaderDueDate>
       <ModalHeaderTitle>{title}</ModalHeaderTitle>
       <ModalHeaderLinks>

@@ -11,11 +11,14 @@
   "dropdown": {
     
   },
-  "tickets": {
-    "header": "Roadmap"
+  "timeline": {
+    "header": "Roadmap",
+    "release": "Release {number}",
+    "futurePlanned": "Future planned"
   },
   "common" : {
     "ticket": "Ticket {numberSign} {number}",
-    "dueDate": "Due by {date}"
+    "dueDate": "Due by: {date}",
+    "rickAstley": "Click to find out"
   }
 }

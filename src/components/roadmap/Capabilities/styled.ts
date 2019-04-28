@@ -1,4 +1,4 @@
-import styled, { css } from "@styled";
+import styled, { css, media } from "@styled";
 import Link from "@components/shared/Link";
 
 export const Wrapper = styled.div`
@@ -76,6 +76,12 @@ export const NavigationListItemName = styled.div`
     letter-spacing: normal;
     vertical-align: middle;
   }
+
+  ${media.tablet`
+    > span {
+      display: none;
+    }
+  `};
 `;
 
 /* Content */

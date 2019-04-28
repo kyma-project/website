@@ -2,6 +2,8 @@ import React from "react";
 
 import Grid from "@styled/Grid";
 
+import { FormattedMessage } from "@common/i18n";
+
 import H from "@components/shared/H";
 import Svg from "@components/roadmap/Svg";
 import TicketComponent from "@components/roadmap/Tickets/Ticket";
@@ -20,10 +22,12 @@ import {
 
 interface ReleaseProps {
   release: Release;
+  orderNumber: number;
 }
 
 const ReleaseComponent: React.FunctionComponent<ReleaseProps> = ({
   release,
+  orderNumber,
 }) => {
   const ticketsWrapper = (
     order: number,
@@ -73,11 +77,18 @@ const ReleaseComponent: React.FunctionComponent<ReleaseProps> = ({
   );
 
   const headerText =
-    release.displayName === "Future"
-      ? "Future planned"
-      : `${/[0-9]\.[0-9]/.test(release.displayName) ? "Release " : ""}${
-          release.displayName
-        }`;
+    release.displayName === "Future" ? (
+      <FormattedMessage id="roadmap.timeline.futurePlanned" />
+    ) : /[0-9]\.[0-9]/.test(release.displayName) ? (
+      <FormattedMessage
+        id="roadmap.timeline.release"
+        values={{
+          number: release.displayName,
+        }}
+      />
+    ) : (
+      release.displayName
+    );
 
   return (
     <ReleaseWrapper>
@@ -88,14 +99,14 @@ const ReleaseComponent: React.FunctionComponent<ReleaseProps> = ({
         {Object.keys(release.capabilities).map((capability, idx) => {
           const tickets = release.capabilities[capability];
           const ticketsComponents = createTicketsComponents(
-            idx,
+            orderNumber + idx,
             tickets,
             capability,
           );
 
           return tickets.length
             ? ticketsWrapper(
-                idx,
+                orderNumber + idx,
                 ticketsComponents,
                 release.displayName === "Future",
               )
