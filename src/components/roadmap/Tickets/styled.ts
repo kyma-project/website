@@ -7,6 +7,11 @@ import Roadmap from "@static/img/roadmap.svg";
 export const Wrapper = styled.div`
   position: relative;
   margin-bottom: 0;
+  background: url(${Roadmap}) no-repeat;
+  background-size: 100%;
+  background-position: center;
+  margin-bottom: -132px;
+  padding-bottom: 72px;
 
   ${media.tablet`
     padding: 50px 0 150px 0;
@@ -29,7 +34,7 @@ interface ReleaseHeaderProps {
 }
 
 export const ReleaseHeader = styled.header`
-  background: #fff;
+  background: inherit;
   color: ${(props: ReleaseHeaderProps) =>
     !props.futurePlanned ? `#0b74de` : `#485766`};
 
@@ -88,6 +93,7 @@ export const TicketsRow = styled(Grid.Row)`
     props.order % 2
       ? `
     margin-right: 32px;
+    padding-left: 16px;
 
     > ${Grid.Unit} {
       padding-left: 0;
@@ -95,6 +101,7 @@ export const TicketsRow = styled(Grid.Row)`
   `
       : `
     margin-left: 32px;
+    padding-right: 16px;
 
     > ${Grid.Unit} {
       padding-right: 0;
@@ -143,7 +150,7 @@ export const TicketWrapper = styled.div`
   width: 100%;
   border-radius: 8px;
   background: #fff;
-  box-shadow: 0 2px 26px 0 rgba(11, 116, 222, 0.1);
+  box-shadow: 0 2px 26px 0 rgba(11, 116, 222, 0.2);
   transition: all 0.3s ease-in-out;
   cursor: pointer;
 
@@ -196,7 +203,7 @@ export const TicketContent = styled.div`
   }
 
   > h4 {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 500;
     font-style: normal;
     font-stretch: normal;

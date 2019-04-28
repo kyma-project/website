@@ -5,6 +5,8 @@ import Grid from "@styled/Grid";
 import Modal from "@components/roadmap/Modal/Modal";
 import H from "@components/shared/H";
 
+import TicketNumber from "@components/roadmap/TicketNumber";
+
 import { Ticket as TicketType } from "../types";
 
 import { TicketWrapper, TicketHeader, TicketContent } from "./styled";
@@ -26,9 +28,7 @@ const Ticket: React.FunctionComponent<TicketProps> = ({
         </div>
       </TicketHeader>
       <TicketContent>
-        <span>
-          Ticket N<sup>o</sup> {ticket.number}
-        </span>
+        <TicketNumber number={ticket.number} />
         <H as="h4">{ticket.title}</H>
       </TicketContent>
     </TicketWrapper>

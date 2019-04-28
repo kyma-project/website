@@ -30,7 +30,7 @@ const ReleaseComponent: React.FunctionComponent<ReleaseProps> = ({
     tickets: React.ReactNode,
     futurePlanned: boolean,
   ) => (
-    <Grid.Container padding={"0 30px"}>
+    <Grid.Container padding={"0 30px"} key={order}>
       <Grid.Row>
         <TicketsWrapper
           futurePlanned={futurePlanned}
@@ -54,7 +54,7 @@ const ReleaseComponent: React.FunctionComponent<ReleaseProps> = ({
   ) => (
     <TicketsRow order={order} direction={order % 2 ? "rtl" : "ltl"}>
       {tickets.map((ticket, index) => (
-        <Grid.Unit df={6} md={12}>
+        <Grid.Unit df={6} md={12} key={index}>
           <TicketModalWrapper>
             <TicketComponent
               key={index}

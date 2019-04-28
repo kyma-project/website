@@ -1,9 +1,14 @@
 import React from "react";
 
+import { FormattedMessage } from "@common/i18n";
+
 import Svg from "@components/roadmap/Svg";
 
 import Link from "@components/shared/Link";
 import Icon from "@components/shared/Icon";
+
+import TicketNumber from "@components/roadmap/TicketNumber";
+import DueDate from "@components/roadmap/DueDate";
 
 import { Ticket } from "../types";
 
@@ -43,23 +48,27 @@ const ModalHeader: React.FunctionComponent<ModalHeaderProps> = ({
           {capabilityDisplayName}
         </ModalHeaderMetaCapability>
         <ModalHeaderMetaTicketNumber>
-          Ticket N<sup>o</sup> {n}
+          <TicketNumber number={n} />
         </ModalHeaderMetaTicketNumber>
       </ModalHeaderMeta>
       <ModalHeaderDueDate>
         <Icon iconName="calendar-alt" iconPrefix="far" />
-        Due by {dueDate}
+        <DueDate date={dueDate} />
       </ModalHeaderDueDate>
       <ModalHeaderTitle>{title}</ModalHeaderTitle>
       <ModalHeaderLinks>
         <ModalHeaderLink>
           <Link.External to={zenHubUrl}>
-            <ModalHeaderLinkButton>View in ZenHub</ModalHeaderLinkButton>
+            <ModalHeaderLinkButton>
+              <FormattedMessage id="roadmap.modal.viewInZenHub" />
+            </ModalHeaderLinkButton>
           </Link.External>
         </ModalHeaderLink>
         <ModalHeaderLink>
           <Link.External to={url}>
-            <ModalHeaderLinkButton>View in GitHub</ModalHeaderLinkButton>
+            <ModalHeaderLinkButton>
+              <FormattedMessage id="roadmap.modal.viewInGitHub" />
+            </ModalHeaderLinkButton>
           </Link.External>
         </ModalHeaderLink>
       </ModalHeaderLinks>
