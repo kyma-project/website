@@ -10,6 +10,8 @@ import {
 interface Props {
   className?: string;
   checked?: boolean;
+  onChange: () => void;
+  onClick: () => void;
 }
 
 const Checkbox: React.FunctionComponent<Props> = ({

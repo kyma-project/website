@@ -5,8 +5,7 @@ import Link from "@components/shared/Link";
 import CapabilitySvg from "@components/roadmap/Svg";
 
 import ScrollSpy from "@common/state/useScrollSpy";
-
-import { RoadmapPageContext, NavigationItem, CapabilityEnum } from "../types";
+import RoadmapService from "@components/roadmap/service";
 
 import { CAPABILITY_SCROLL_SPY_NODE } from "@components/roadmap/constants";
 
@@ -16,14 +15,12 @@ import {
   NavigationListItemName,
 } from "./styled";
 
-interface NavigationProps {
-  pageContext: RoadmapPageContext;
-}
-
-const Navigation: React.FunctionComponent<NavigationProps> = ({
-  pageContext,
-}) => {
+const Navigation: React.FunctionComponent = () => {
+  const {
+    pageContext: { capabilitiesNavigation, ids },
+  } = useContext(RoadmapService);
   const { activeNodes } = useContext(ScrollSpy.Context);
+
   const isActive = (id: string): boolean => {
     if (activeNodes && activeNodes[CAPABILITY_SCROLL_SPY_NODE]) {
       return activeNodes[CAPABILITY_SCROLL_SPY_NODE].id === id;
@@ -33,10 +30,10 @@ const Navigation: React.FunctionComponent<NavigationProps> = ({
 
   return (
     <NavigationList>
-      {pageContext.capabilitiesNavigation.map(item => (
+      {capabilitiesNavigation.map(item => (
         <NavigationListItem key={item.displayName} active={isActive(item.id)}>
           <Link.Hash to={item.id}>
-            <CapabilitySvg capability={pageContext.ids[item.displayName]} />
+            <CapabilitySvg capability={ids[item.displayName]} />
             <NavigationListItemName>
               <span>{item.displayName}</span>
             </NavigationListItemName>

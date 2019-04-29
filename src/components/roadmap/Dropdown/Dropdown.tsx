@@ -13,17 +13,7 @@ import {
   DropdownActionElementWrapper,
 } from "./styled";
 
-interface Props {
-  capabilities: Capability[];
-  checkedCapabilities: string[];
-  setCapability: (capability: string) => void;
-}
-
-const Dropdown: React.FunctionComponent<Props> = ({
-  capabilities,
-  checkedCapabilities,
-  setCapability,
-}) => {
+const Dropdown: React.FunctionComponent = () => {
   const iconEl = useRef(null);
   const capabilitiesDropEl = useRef(null);
   const [capabilitiesDropOpen, toggleCapabilitiesDrop] = useDropdown(
@@ -43,11 +33,7 @@ const Dropdown: React.FunctionComponent<Props> = ({
         ref={capabilitiesDropEl}
         hidden={!capabilitiesDropOpen}
       >
-        <DropElement
-          capabilities={capabilities}
-          checkedCapabilities={checkedCapabilities}
-          setCapability={setCapability}
-        />
+        <DropElement />
       </DropdownDropElementWrapper>
     </DropDownWrapper>
   );

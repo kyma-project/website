@@ -3,6 +3,7 @@ export interface RoadmapPageContext {
   slug: string;
   capabilitiesNavigation: NavigationItem[];
   ids: { [key: string]: CapabilityEnum };
+  ticket: Ticket;
 }
 
 export interface NavigationItem {

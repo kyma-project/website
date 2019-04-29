@@ -30,11 +30,20 @@ export const DropdownIcon = styled.div`
   position: relative;
   width: 67px;
   height: 67px;
-  background: #fff;
   box-shadow: 0 2px 26px 0 rgba(11, 116, 222, 0.2);
-  color: #0b74de;
   border-radius: 100%;
+  transition: 0.3s all;
   cursor: pointer;
+
+  background: #0b74de;
+  color: #fff;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background: #fff;
+    color: #0b74de;
+  }
 
   > svg {
     font-size: 36px;

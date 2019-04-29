@@ -138,7 +138,7 @@ export const TicketModalWrapper = styled.div`
   display: flex;
   flex: 1;
 
-  > div {
+  > a {
     display: flex;
     flex: 1;
   }
@@ -189,6 +189,7 @@ export const TicketHeader = styled.header`
 
 export const TicketContent = styled.div`
   padding: 16px 16px 24px;
+  color: #485766;
 
   > span {
     display: block;

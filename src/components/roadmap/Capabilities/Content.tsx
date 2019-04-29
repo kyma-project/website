@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import Grid from "@styled/Grid";
 
@@ -7,6 +7,7 @@ import H from "@components/shared/H";
 import Button from "@components/shared/Button";
 import ReactMarkdown from "@components/shared/ReactMarkdown";
 
+import RoadmapService from "@components/roadmap/service";
 import { scrollToAnchor } from "@common/utils/index";
 
 import { Capability } from "../types";
@@ -18,23 +19,13 @@ import {
   StyledReactMarkdown,
 } from "./styled";
 
-import { sortCapabilities } from "../helpers";
-
 import {
   CAPABILITIES_SCROLL_SPY_ROOT,
   CAPABILITY_SCROLL_SPY_NODE,
 } from "@components/roadmap/constants";
 
-interface ContentProps {
-  ticketsReference: React.MutableRefObject<any>;
-  capabilities: Capability[];
-}
-
-const Content: React.FunctionComponent<ContentProps> = ({
-  capabilities,
-  ticketsReference,
-}) => {
-  const sortedCapabilities = sortCapabilities(capabilities);
+const Content: React.FunctionComponent = () => {
+  const { sortCapabilities, scrollToTickets } = useContext(RoadmapService);
 
   const header = (capability: Capability) => (
     <Grid.Container padding="0 30px">
@@ -44,11 +35,7 @@ const Content: React.FunctionComponent<ContentProps> = ({
         </Grid.Unit>
         <Grid.Unit df={9} withoutPadding={true}>
           <H as="h2">{capability.frontmatter.displayName}</H>
-          <div
-            onClick={() => {
-              scrollToAnchor(ticketsReference.current)();
-            }}
-          >
+          <div onClick={scrollToTickets}>
             <Button.Emphasized>View Roadmap</Button.Emphasized>
           </div>
         </Grid.Unit>
@@ -62,7 +49,7 @@ const Content: React.FunctionComponent<ContentProps> = ({
 
   return (
     <ContentWrapper id={CAPABILITIES_SCROLL_SPY_ROOT}>
-      {sortedCapabilities.map(capability => (
+      {sortCapabilities().map(capability => (
         <CapabilityWrapper
           id={capability.frontmatter.id}
           data-scrollspy-node-type={CAPABILITY_SCROLL_SPY_NODE}

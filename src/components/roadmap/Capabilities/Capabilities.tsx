@@ -17,13 +17,7 @@ import {
   CAPABILITY_SCROLL_SPY_NODE,
 } from "@components/roadmap/constants";
 
-interface CapabilitiesWrapperProps {
-  pageContext: RoadmapPageContext;
-}
-
-export const CapabilitiesWrapper: React.FunctionComponent<
-  CapabilitiesWrapperProps
-> = ({ pageContext, children }) => (
+export const CapabilitiesWrapper: React.FunctionComponent = ({ children }) => (
   <Wrapper>
     <Grid.Container>
       <StickyContainer>
@@ -32,7 +26,7 @@ export const CapabilitiesWrapper: React.FunctionComponent<
             <Sticky>
               {({ style }: any) => (
                 <div style={{ ...style, zIndex: 110 }}>
-                  <Navigation pageContext={pageContext} />
+                  <Navigation />
                 </div>
               )}
             </Sticky>
@@ -46,17 +40,7 @@ export const CapabilitiesWrapper: React.FunctionComponent<
   </Wrapper>
 );
 
-interface CapabilitiesProps {
-  pageContext: RoadmapPageContext;
-  ticketsReference: React.MutableRefObject<any>;
-  capabilities: Capability[];
-}
-
-const Capabilities: React.FunctionComponent<CapabilitiesProps> = ({
-  pageContext,
-  ticketsReference,
-  capabilities,
-}) => {
+const Capabilities: React.FunctionComponent = () => {
   const scrollSpyProps = {
     nodeTypes: [CAPABILITY_SCROLL_SPY_NODE],
     rootElement: `#${CAPABILITIES_SCROLL_SPY_ROOT}`,
@@ -67,11 +51,8 @@ const Capabilities: React.FunctionComponent<CapabilitiesProps> = ({
 
   return (
     <ScrollSpy.Provider {...scrollSpyProps}>
-      <CapabilitiesWrapper pageContext={pageContext}>
-        <Content
-          capabilities={capabilities}
-          ticketsReference={ticketsReference}
-        />
+      <CapabilitiesWrapper>
+        <Content />
       </CapabilitiesWrapper>
     </ScrollSpy.Provider>
   );

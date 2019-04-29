@@ -6,7 +6,7 @@ const {
 } = require("./helpers");
 const { ROADMAP_PATH_PREFIX } = require("../../constants");
 
-module.exports = ({ createPage, capabilities }) => {
+module.exports = ({ createPage, createRedirect, capabilities }) => {
   const roadmapTemplate = resolve(
     __dirname,
     "../../../src/templates/Roadmap.tsx",
@@ -14,17 +14,20 @@ module.exports = ({ createPage, capabilities }) => {
 
   const capabilitiesNavigation = generateCapabilitiesNavigation(capabilities);
   const ids = generateMapOfDisplayNameToId(capabilities);
+  const path = `/${ROADMAP_PATH_PREFIX}`;
 
-  capabilities.map(capability => {
-    const path = `/${ROADMAP_PATH_PREFIX}`;
+  createRedirect({
+    fromPath: path,
+    redirectInBrowser: true,
+    toPath: `${path}/`,
+  });
 
-    createPage({
-      path: path,
-      component: roadmapTemplate,
-      context: {
-        capabilitiesNavigation,
-        ids,
-      },
-    });
+  createPage({
+    path: `${path}/`,
+    component: roadmapTemplate,
+    context: {
+      capabilitiesNavigation,
+      ids,
+    },
   });
 };

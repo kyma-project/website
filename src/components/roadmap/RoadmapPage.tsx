@@ -2,9 +2,13 @@ import React, { useRef } from "react";
 
 import Grid from "@styled/Grid";
 
+import Modal from "@components/roadmap/Modal/Modal";
 import Overview from "@components/roadmap/Overview";
 import Capabilities from "@components/roadmap/Capabilities/Capabilities";
 import Tickets from "@components/roadmap/Tickets/Tickets";
+
+import { Provider } from "@components/roadmap/service";
+import { Provider as TicketsProvider } from "@components/roadmap/Tickets/service";
 
 import { Location } from "@common/types";
 import { RoadmapPageContext, Capability, NavigationItem } from "./types";
@@ -16,29 +20,23 @@ interface RoadmapPageProps {
 }
 
 const RoadmapPage: React.FunctionComponent<RoadmapPageProps> = ({
-  pageContext,
-  capabilities,
-  location,
-}) => {
-  const ticketsReference = useRef(null);
-
-  return (
-    <>
-      <Overview />
-      <Capabilities
-        pageContext={pageContext}
-        capabilities={capabilities}
-        ticketsReference={ticketsReference}
+  ...props
+}) => (
+  <Provider {...props}>
+    <Overview />
+    <Capabilities />
+    <TicketsProvider>
+      <Tickets />
+    </TicketsProvider>
+    {props.pageContext.ticket ? (
+      <Modal
+        openComponent={null}
+        ticket={props.pageContext.ticket}
+        capabilityDisplayName={"dupa"}
+        show={true}
       />
-      <div ref={ticketsReference}>
-        <Tickets
-          capabilities={capabilities}
-          location={location}
-          ticketsReference={ticketsReference}
-        />
-      </div>
-    </>
-  );
-};
+    ) : null}
+  </Provider>
+);
 
 export default RoadmapPage;

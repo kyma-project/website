@@ -2,7 +2,7 @@ import React from "react";
 
 import Grid from "@styled/Grid";
 
-import Modal from "@components/roadmap/Modal/Modal";
+import Link from "@components/shared/Link";
 import H from "@components/shared/H";
 
 import TicketNumber from "@components/roadmap/TicketNumber";
@@ -19,8 +19,8 @@ interface TicketProps {
 const Ticket: React.FunctionComponent<TicketProps> = ({
   ticket,
   capabilityDisplayName,
-}) => {
-  const openingModalComponent = (
+}) => (
+  <Link.Internal to={`/roadmap/${ticket.repository}/${ticket.number}/`}>
     <TicketWrapper>
       <TicketHeader>
         <div>
@@ -32,15 +32,7 @@ const Ticket: React.FunctionComponent<TicketProps> = ({
         <H as="h4">{ticket.title}</H>
       </TicketContent>
     </TicketWrapper>
-  );
-
-  return (
-    <Modal
-      openComponent={openingModalComponent}
-      ticket={ticket}
-      capabilityDisplayName={capabilityDisplayName}
-    />
-  );
-};
+  </Link.Internal>
+);
 
 export default Ticket;

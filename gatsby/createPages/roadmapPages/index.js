@@ -1,9 +1,11 @@
-const createSingleRoadmapPage = require("./singleRoadmapPage");
+const createRoadmapPage = require("./roadmapPage");
+const createModalPage = require("./modalPage");
 
 const { getCapabilities } = require("./helpers");
 
-module.exports = async ({ graphql, createPage }) => {
+module.exports = async ({ graphql, createPage, createRedirect }) => {
   const capabilities = await getCapabilities(graphql);
 
-  createSingleRoadmapPage({ createPage, capabilities });
+  createRoadmapPage({ createPage, createRedirect, capabilities });
+  createModalPage({ createPage, createRedirect, capabilities });
 };

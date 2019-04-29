@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useModal } from "react-modal-hook";
 
 import Icon from "@components/shared/Icon";
@@ -8,12 +8,14 @@ import { StyledModal, CloseButton } from "./styled";
 export interface ModalProps {
   openComponent: React.ReactNode;
   className?: string;
+  show?: boolean;
 }
 
 const Modal: React.FunctionComponent<ModalProps> = ({
   openComponent,
   children,
   className = "",
+  show = false,
 }) => {
   const [showModal, hideModal] = useModal(
     ({ in: open, onExited }: { in: boolean; onExited: boolean }) => (
@@ -73,6 +75,12 @@ const Modal: React.FunctionComponent<ModalProps> = ({
       </>
     ),
   );
+
+  useEffect(() => {
+    if (show) {
+      showModal();
+    }
+  }, []);
 
   return <div onClick={showModal}>{openComponent}</div>;
 };

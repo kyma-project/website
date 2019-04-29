@@ -13,34 +13,13 @@ import { Capability } from "../types";
 
 import { HeaderWrapper } from "./styled";
 
-interface Props {
-  capabilities: Capability[];
-  checkedCapabilities: string[];
-  setCapability: (capability: string) => void;
-  clearFilters: () => void;
-}
-
-const Header: React.FunctionComponent<Props> = ({
-  capabilities,
-  checkedCapabilities,
-  setCapability,
-  clearFilters,
-}) => (
+const Header: React.FunctionComponent = () => (
   <HeaderWrapper>
     <FormattedMessage id="roadmap.timeline.header">
       {header => <H as="h2">{header}</H>}
     </FormattedMessage>
-    <Dropdown
-      capabilities={capabilities}
-      checkedCapabilities={checkedCapabilities}
-      setCapability={setCapability}
-    />
-    <Filters
-      capabilities={capabilities}
-      checkedCapabilities={checkedCapabilities}
-      setCapability={setCapability}
-      clearFilters={clearFilters}
-    />
+    <Dropdown />
+    <Filters />
   </HeaderWrapper>
 );
 

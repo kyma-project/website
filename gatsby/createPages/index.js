@@ -9,5 +9,5 @@ module.exports = async ({ graphql, actions }) => {
 
   await createBlogPostPages({ graphql, createPage, createRedirect });
   await createDocsPages({ graphql, createPage });
-  await createRoadmapPages({ graphql, createPage });
+  await createRoadmapPages({ graphql, createPage, createRedirect });
 };
