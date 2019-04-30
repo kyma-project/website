@@ -26,6 +26,10 @@ export const DropdownActionElementWrapper = styled.div`
   display: inline-block;
 `;
 
+interface DropdownIconProps {
+  capabilitiesDropOpen: boolean;
+}
+
 export const DropdownIcon = styled.div`
   position: relative;
   width: 67px;
@@ -37,6 +41,17 @@ export const DropdownIcon = styled.div`
 
   background: #0b74de;
   color: #fff;
+
+  ${(props: DropdownIconProps) =>
+    props.capabilitiesDropOpen
+      ? `
+    background: #fff;
+    color: #0b74de;
+  `
+      : `
+    background: #0b74de;
+    color: #fff;
+  `}
 
   &:hover,
   &:focus,

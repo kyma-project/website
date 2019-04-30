@@ -6,6 +6,7 @@ import CapabilitySvg from "@components/roadmap/Svg";
 
 import ScrollSpy from "@common/state/useScrollSpy";
 import RoadmapService from "@components/roadmap/service";
+import TicketsService from "@components/roadmap/Tickets/service";
 
 import { CAPABILITY_SCROLL_SPY_NODE } from "@components/roadmap/constants";
 
@@ -18,7 +19,9 @@ import {
 const Navigation: React.FunctionComponent = () => {
   const {
     pageContext: { capabilitiesNavigation, ids },
+    location,
   } = useContext(RoadmapService);
+  const { clearFilters } = useContext(TicketsService);
   const { activeNodes } = useContext(ScrollSpy.Context);
 
   const isActive = (id: string): boolean => {
@@ -28,16 +31,22 @@ const Navigation: React.FunctionComponent = () => {
     return false;
   };
 
+  const LinkType = location.search ? Link.Internal : Link.Hash;
+  const onClick = location.search ? clearFilters : () => null;
+
   return (
     <NavigationList>
       {capabilitiesNavigation.map(item => (
         <NavigationListItem key={item.displayName} active={isActive(item.id)}>
-          <Link.Hash to={item.id}>
+          <LinkType
+            to={location.search ? `/roadmap/#${item.id}` : item.id}
+            onClick={onClick}
+          >
             <CapabilitySvg capability={ids[item.displayName]} />
             <NavigationListItemName>
               <span>{item.displayName}</span>
             </NavigationListItemName>
-          </Link.Hash>
+          </LinkType>
         </NavigationListItem>
       ))}
     </NavigationList>

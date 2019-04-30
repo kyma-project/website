@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import createContainer from "constate";
 
 import { Location } from "@common/types";
@@ -9,6 +9,7 @@ import { scrollToAnchor } from "@common/utils/index";
 export interface RoadmapService extends Location {
   pageContext: RoadmapPageContext;
   capabilities: Capability[];
+  isModal: boolean;
 }
 
 const RoadmapService = (input: RoadmapService) => {

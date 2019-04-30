@@ -4,8 +4,14 @@ import Icon from "@components/shared/Icon";
 
 import { DropdownIcon } from "./styled";
 
-const ActionElement: React.FunctionComponent = () => (
-  <DropdownIcon>
+interface Props {
+  capabilitiesDropOpen: boolean;
+}
+
+const ActionElement: React.FunctionComponent<Props> = ({
+  capabilitiesDropOpen = false,
+}) => (
+  <DropdownIcon capabilitiesDropOpen={capabilitiesDropOpen}>
     <Icon iconName="sliders-h" iconPrefix="fas" />
   </DropdownIcon>
 );

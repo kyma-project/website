@@ -22,15 +22,23 @@ const RoadmapPageTemplate: React.FunctionComponent<
   },
   pageContext,
   location,
-}) => (
-  <Layout locale={pageContext.locale} pageTitle="Roadmap">
-    <RoadmapPage
-      pageContext={pageContext}
-      capabilities={edges.map(cap => cap.node)}
-      location={location}
-    />
-  </Layout>
-);
+}) => {
+  let isModal: boolean = false;
+  if (window && (window as any).___GATSBYGRAM_INITIAL_RENDER_COMPLETE) {
+    isModal = true;
+  }
+
+  return (
+    <Layout locale={pageContext.locale} pageTitle="Roadmap">
+      <RoadmapPage
+        pageContext={pageContext}
+        capabilities={edges.map(cap => cap.node)}
+        location={location}
+        isModal={isModal}
+      />
+    </Layout>
+  );
+};
 
 export const pageQuery = graphql`
   query {

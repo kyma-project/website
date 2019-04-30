@@ -27,7 +27,7 @@ const Dropdown: React.FunctionComponent = () => {
         ref={iconEl}
         onClick={toggleCapabilitiesDrop as any}
       >
-        <ActionElement />
+        <ActionElement capabilitiesDropOpen={capabilitiesDropOpen as boolean} />
       </DropdownActionElementWrapper>
       <DropdownDropElementWrapper
         ref={capabilitiesDropEl}

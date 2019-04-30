@@ -8,7 +8,8 @@ import Button from "@components/shared/Button";
 import ReactMarkdown from "@components/shared/ReactMarkdown";
 
 import RoadmapService from "@components/roadmap/service";
-import { scrollToAnchor } from "@common/utils/index";
+import TicketsService from "@components/roadmap/Tickets/service";
+import { toKebabCase } from "@common/utils/index";
 
 import { Capability } from "../types";
 
@@ -26,6 +27,7 @@ import {
 
 const Content: React.FunctionComponent = () => {
   const { sortCapabilities, scrollToTickets } = useContext(RoadmapService);
+  const { setCapability } = useContext(TicketsService);
 
   const header = (capability: Capability) => (
     <Grid.Container padding="0 30px">
@@ -35,7 +37,12 @@ const Content: React.FunctionComponent = () => {
         </Grid.Unit>
         <Grid.Unit df={9} withoutPadding={true}>
           <H as="h2">{capability.frontmatter.displayName}</H>
-          <div onClick={scrollToTickets}>
+          <div
+            onClick={() => {
+              scrollToTickets();
+              setCapability(toKebabCase(capability.frontmatter.displayName));
+            }}
+          >
             <Button.Emphasized>View Roadmap</Button.Emphasized>
           </div>
         </Grid.Unit>

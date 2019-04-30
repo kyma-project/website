@@ -37,8 +37,39 @@ const getTargetOffset = (hash, pathname) => {
   return null;
 };
 
+const checkCorrectLocationsForModal = ({
+  previousLocation,
+  location,
+  getSavedScrollPosition,
+}) => {
+  if (location.hash) return false;
+
+  if (/\/roadmap\/[a-z]/.test(location.pathname)) {
+    const offset = getSavedScrollPosition(previousLocation);
+    if (offset) {
+      window.scrollTo(offset);
+    }
+    return true;
+  }
+
+  if (
+    /\/roadmap/.test(location.pathname) &&
+    /\/roadmap\/[a-z]/.test(previousLocation.pathname)
+  ) {
+    const offset = getSavedScrollPosition(previousLocation);
+    if (offset) {
+      window.scrollTo(offset);
+      document.querySelector(`html`).style.overflowY = `auto`;
+    }
+    return true;
+  }
+
+  return false;
+};
+
 exports.onInitialClientRender = (_, pluginOptions) => {
   options = pluginOptions;
+  window.___GATSBYGRAM_INITIAL_RENDER_COMPLETE = true;
 
   requestAnimationFrame(() => {
     const offset = getTargetOffset(
@@ -51,7 +82,24 @@ exports.onInitialClientRender = (_, pluginOptions) => {
   });
 };
 
-exports.shouldUpdateScroll = ({ routerProps: { location } }) => {
+exports.shouldUpdateScroll = ({
+  prevRouterProps: { location: previousLocation },
+  routerProps: { location },
+  getSavedScrollPosition,
+}) => {
+  // for modal
+  if (
+    checkCorrectLocationsForModal({
+      previousLocation,
+      location,
+      getSavedScrollPosition,
+    })
+  ) {
+    return false;
+  }
+  document.querySelector(`html`).style.overflowY = `auto`;
+
+  // for anchors
   const offset = getTargetOffset(location.hash, location.pathname);
   return offset !== null ? [0, offset] : true;
 };

@@ -3,10 +3,19 @@ import styled from "@styled";
 import Modal from "@components/shared/Modal";
 import Button from "@components/shared/Button";
 
+export const Wrapper = styled.div`
+  margin-top: 52px;
+`;
+
 export const StyledModal = styled(Modal)`
   > div {
     padding: 96px 0;
   }
+`;
+
+export const ContentWrapper = styled.div`
+  border-radius: 8px;
+  box-shadow: 0 2px 26px 0 rgba(11, 116, 222, 0.2);
 `;
 
 export const ModalHeaderWrapper = styled.header`
@@ -38,6 +47,7 @@ export const ModalHeaderIcon = styled.div`
   border-radius: 100%;
   padding: 12px;
   transform: translate(0, -50%);
+  box-shadow: 0 2px 26px 0 rgba(11, 116, 222, 0.2);
 `;
 
 export const ModalHeaderMeta = styled.ul`

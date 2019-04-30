@@ -14,12 +14,10 @@ export const TicketsWrapper: React.FunctionComponent = ({ children }) => (
   <Wrapper>
     <Grid.Container>
       <Grid.Row>
-        <Grid.Unit df={12} md={0}>
+        <Grid.Unit df={12}>
           <Header />
         </Grid.Unit>
-        <Grid.Unit df={12} md={12}>
-          {children}
-        </Grid.Unit>
+        <Grid.Unit df={12}>{children}</Grid.Unit>
       </Grid.Row>
     </Grid.Container>
   </Wrapper>

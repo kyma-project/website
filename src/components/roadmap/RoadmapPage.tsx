@@ -17,25 +17,24 @@ interface RoadmapPageProps {
   pageContext: RoadmapPageContext;
   capabilities: Capability[];
   location: any;
+  isModal: boolean;
 }
 
 const RoadmapPage: React.FunctionComponent<RoadmapPageProps> = ({
   ...props
 }) => (
   <Provider {...props}>
-    <Overview />
-    <Capabilities />
     <TicketsProvider>
-      <Tickets />
+      {props.isModal ||
+      (!props.isModal && !/\/roadmap\/[a-z]/.test(props.location.pathname)) ? (
+        <>
+          <Overview />
+          <Capabilities />
+          <Tickets />
+        </>
+      ) : null}
+      {props.pageContext.ticket ? <Modal /> : null}
     </TicketsProvider>
-    {props.pageContext.ticket ? (
-      <Modal
-        openComponent={null}
-        ticket={props.pageContext.ticket}
-        capabilityDisplayName={"dupa"}
-        show={true}
-      />
-    ) : null}
   </Provider>
 );
 

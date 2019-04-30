@@ -40,11 +40,12 @@ const ReleaseComponent: React.FunctionComponent<ReleaseProps> = ({
           futurePlanned={futurePlanned}
           rightBorder={true}
           df={6}
-          sm={12}
+          sm={10}
+          xs={12}
         >
           {order % 2 ? tickets : null}
         </TicketsWrapper>
-        <TicketsWrapper futurePlanned={futurePlanned} df={6} sm={12}>
+        <TicketsWrapper futurePlanned={futurePlanned} df={6} sm={10} xs={12}>
           {order % 2 === 0 ? tickets : null}
         </TicketsWrapper>
       </Grid.Row>
