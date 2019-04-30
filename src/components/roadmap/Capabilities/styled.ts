@@ -1,13 +1,15 @@
 import styled, { css, media } from "@styled";
+
+import Grid from "@styled/Grid";
 import Link from "@components/shared/Link";
 
 export const Wrapper = styled.div`
-  margin-top: 52px;
+  margin-top: 37px;
 `;
 
 /* Navigation */
 export const NavigationList = styled.ul`
-  margin: 0;
+  margin: 15px 0 0 0;
   padding: 0;
 `;
 
@@ -91,16 +93,27 @@ export const ContentWrapper = styled.section`
 
 export const CapabilityWrapper = styled.article`
   border-bottom: solid 1px #d5dce3;
-  padding: 72px 0;
+  margin: 0 0 72px 0;
+  padding: 0 0 72px 0;
 
   &:first-child {
-    padding-top: 0;
+    margin-top: 0;
   }
 
   &:last-child {
     padding-bottom: 0;
     border-bottom: none;
   }
+
+  ${media.phone`
+    margin-top: 52px;
+    padding-bottom: 52px;
+  `};
+
+  ${media.smallPhone`
+    margin-top: 26px;
+    padding-bottom: 26px;
+  `};
 `;
 
 export const Header = styled.header`
@@ -118,6 +131,38 @@ export const Header = styled.header`
   svg {
     height: 162px;
   }
+
+  ${media.phone`
+    h2 {
+      font-size: 32px;
+    }
+
+    button {
+      border-radius: 18px;
+      font-size: 16px;
+      font-weight: 500;
+      padding: 0 16px;
+      line-height: 32px;
+    }
+
+    ${Grid.Unit}:first-child {
+      display: none
+    }
+  `};
+
+  ${media.smallPhone`
+    h2 {
+      font-size: 26px;
+    }
+
+    button {
+      border-radius: 16px;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 0 16px;
+      line-height: 32px;
+    }
+  `};
 `;
 
 export const StyledReactMarkdown = styled.div`

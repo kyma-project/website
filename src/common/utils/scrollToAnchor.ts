@@ -27,6 +27,16 @@ const easeInOutSine = (
   length: number,
 ) => (-change / 2) * (Math.cos((Math.PI * elapsed) / length) - 1) + start;
 
+const cumulativeOffset = (element: any) => {
+  let top = 0;
+  do {
+    top += element.offsetTop || 0;
+    element = element.offsetParent;
+  } while (element);
+
+  return top;
+};
+
 // Sets up a loop that executes for the length of time set in duration
 const animateScroll = (
   element: any,
@@ -54,7 +64,11 @@ const animateScroll = (
   }
 };
 
-const scrollToLocation = (
+const scrollToLocation = (targetPos: number) => {
+  window.scrollTo(...[0, targetPos]);
+};
+
+const scrollToLocationSmooth = (
   element: any,
   targetPos: number,
   duration: number,
@@ -73,16 +87,28 @@ const scrollToLocation = (
     });
   });
 
-const scrollToAnchor = (target: any, callback?: () => void) => (
-  event?: any,
-) => {
+interface ScrollToAnchorProps {
+  target: any;
+  timeout?: number;
+  callback?: () => void;
+  smooth?: boolean;
+}
+
+const scrollToAnchor = ({
+  target,
+  timeout = 750,
+  callback = () => null,
+  smooth = true,
+}: ScrollToAnchorProps) => (event?: any) => {
   if (event) {
     event.preventDefault();
   }
   const rootElement = getScrollableElement();
-  const targetOffset = target.offsetTop;
+  const targetOffset = cumulativeOffset(target);
 
-  scrollToLocation(rootElement, targetOffset, 750, callback);
+  smooth
+    ? scrollToLocationSmooth(rootElement, targetOffset, timeout, callback)
+    : scrollToLocation(targetOffset);
 };
 
 export default scrollToAnchor;

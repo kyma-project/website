@@ -20,7 +20,7 @@ enum Sizes {
 // desktop: 992,
 // largeDesktop: 1200,
 
-const sizes: { [index in Sizes]: number } = {
+export const sizes: { [index in Sizes]: number } = {
   smallPhone: 576,
   phone: 768,
   tablet: 1024,

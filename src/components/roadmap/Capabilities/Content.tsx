@@ -26,21 +26,23 @@ import {
 } from "@components/roadmap/constants";
 
 const Content: React.FunctionComponent = () => {
-  const { sortCapabilities, scrollToTickets } = useContext(RoadmapService);
+  const { sortCapabilities, scrollToTicketsReference } = useContext(
+    RoadmapService,
+  );
   const { setCapability } = useContext(TicketsService);
 
-  const header = (capability: Capability) => (
+  const header = ({ frontmatter: { id, displayName } }: Capability) => (
     <Grid.Container padding="0 30px">
       <Grid.Row>
-        <Grid.Unit df={3} withoutPadding={true}>
-          <CapabilitySvg capability={capability.frontmatter.id} />
+        <Grid.Unit df={3} sm={0} withoutPadding={true}>
+          <CapabilitySvg capability={id} />
         </Grid.Unit>
-        <Grid.Unit df={9} withoutPadding={true}>
-          <H as="h2">{capability.frontmatter.displayName}</H>
+        <Grid.Unit df={9} sm={12} withoutPadding={true}>
+          <H as="h2">{displayName}</H>
           <div
             onClick={() => {
-              scrollToTickets();
-              setCapability(toKebabCase(capability.frontmatter.displayName));
+              scrollToTicketsReference({});
+              setCapability(id);
             }}
           >
             <Button.Emphasized>View Roadmap</Button.Emphasized>

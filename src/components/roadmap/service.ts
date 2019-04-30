@@ -9,14 +9,35 @@ import { scrollToAnchor } from "@common/utils/index";
 export interface RoadmapService extends Location {
   pageContext: RoadmapPageContext;
   capabilities: Capability[];
-  isModal: boolean;
+  isInitialRenderComplete: boolean;
 }
 
 const RoadmapService = (input: RoadmapService) => {
   const ticketsReference = useRef(null);
 
-  const scrollToTickets = () => {
-    scrollToAnchor(ticketsReference.current)();
+  const scrollToTickets = (): boolean => {
+    const modalPathname = /roadmap\/[a-z]/;
+    return (
+      (modalPathname.test(input.location.pathname) ||
+        Boolean(location.search)) &&
+      !input.isInitialRenderComplete
+    );
+  };
+
+  const scrollToTicketsReference = ({
+    timeout,
+    smooth = true,
+  }: {
+    timeout?: number;
+    smooth?: boolean;
+  }) => {
+    if (ticketsReference.current) {
+      scrollToAnchor({
+        target: ticketsReference.current,
+        timeout,
+        smooth,
+      })();
+    }
   };
 
   const sortCapabilities = () =>
@@ -34,9 +55,10 @@ const RoadmapService = (input: RoadmapService) => {
 
   return {
     ...input,
+    scrollToTickets,
     sortCapabilities,
     ticketsReference,
-    scrollToTickets,
+    scrollToTicketsReference,
   };
 };
 

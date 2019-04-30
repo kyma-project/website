@@ -1,4 +1,4 @@
-import styled from "@styled";
+import styled, { media } from "@styled";
 
 import Modal from "@components/shared/Modal";
 import Button from "@components/shared/Button";
@@ -11,19 +11,26 @@ export const StyledModal = styled(Modal)`
   > div {
     padding: 96px 0;
   }
+
+  ${media.phone`
+    > div {
+      padding: 0;
+    }
+  `};
 `;
 
 export const ContentWrapper = styled.div`
   border-radius: 8px;
-  box-shadow: 0 2px 26px 0 rgba(11, 116, 222, 0.2);
+
+  ${media.phone`
+    border-radius: 0;
+  `};
 `;
 
 export const ModalHeaderWrapper = styled.header`
   background: #2068df;
   color: #fff;
   position: relative;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
 
   > div {
     padding: 72px 68px 32px;
@@ -35,6 +42,12 @@ export const ModalHeaderWrapper = styled.header`
       rgba(60, 144, 228, 0)
     );
   }
+
+  ${media.phone`
+    > div {
+      padding: 62px 44px 24px;
+    }
+  `};
 `;
 
 export const ModalHeaderIcon = styled.div`
@@ -48,6 +61,10 @@ export const ModalHeaderIcon = styled.div`
   padding: 12px;
   transform: translate(0, -50%);
   box-shadow: 0 2px 26px 0 rgba(11, 116, 222, 0.2);
+
+  ${media.phone`
+    display: none;
+  `};
 `;
 
 export const ModalHeaderMeta = styled.ul`
@@ -114,11 +131,19 @@ export const ModalHeaderLinkButton = styled(Button.Default)`
     color: #fff;
     background-color: rgba(255, 255, 255, 0);
   }
+
+  ${media.smallPhone`
+    line-height: 18px;
+    padding: 6px 12px;
+    border-radius: 28px;
+  `};
 `;
 
 export const ModalContentWrapper = styled.div`
   padding: 32px 68px 46px;
   background: #fff;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
+
+  ${media.phone`
+    padding: 24px 44px 24px;
+  `};
 `;

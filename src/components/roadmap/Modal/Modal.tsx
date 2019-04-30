@@ -35,7 +35,8 @@ const Modal: React.FunctionComponent<Props> = () => {
   const {
     pageContext: { ticket },
     location,
-    isModal,
+    scrollToTickets,
+    isInitialRenderComplete,
   } = useContext(RoadmapService);
 
   const getExitLocation = () => {
@@ -64,7 +65,7 @@ const Modal: React.FunctionComponent<Props> = () => {
     </ContentWrapper>
   );
 
-  return isModal ? (
+  return (
     <StyledModal
       openComponent={null}
       onRequestClose={getExitLocation}
@@ -72,8 +73,6 @@ const Modal: React.FunctionComponent<Props> = () => {
     >
       {content}
     </StyledModal>
-  ) : (
-    <WithoutModal>{content}</WithoutModal>
   );
 };
 

@@ -16,8 +16,8 @@ const Overview: React.FunctionComponent = () => (
     <Grid.Row>
       <OverviewWrapper>
         <Grid.Row>
-          <Grid.Unit df={2} />
-          <Grid.Unit df={8}>
+          <Grid.Unit df={2} md={0} />
+          <Grid.Unit df={8} md={12}>
             <OverviewHeader>
               <FormattedMessage id={gt("header")}>
                 {data => <H as="h2">{data}</H>}
@@ -30,7 +30,7 @@ const Overview: React.FunctionComponent = () => (
               </FormattedMessage>
             </OverviewHeader>
           </Grid.Unit>
-          <Grid.Unit df={2} />
+          <Grid.Unit df={2} md={0} />
         </Grid.Row>
       </OverviewWrapper>
     </Grid.Row>

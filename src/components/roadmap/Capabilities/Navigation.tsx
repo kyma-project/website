@@ -32,16 +32,12 @@ const Navigation: React.FunctionComponent = () => {
   };
 
   const LinkType = location.search ? Link.Internal : Link.Hash;
-  const onClick = location.search ? clearFilters : () => null;
 
   return (
     <NavigationList>
       {capabilitiesNavigation.map(item => (
         <NavigationListItem key={item.displayName} active={isActive(item.id)}>
-          <LinkType
-            to={location.search ? `/roadmap/#${item.id}` : item.id}
-            onClick={onClick}
-          >
+          <LinkType to={location.search ? `/roadmap/#${item.id}` : item.id}>
             <CapabilitySvg capability={ids[item.displayName]} />
             <NavigationListItemName>
               <span>{item.displayName}</span>

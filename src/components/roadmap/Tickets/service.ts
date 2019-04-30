@@ -24,9 +24,12 @@ const initialState: State = {
 };
 
 const TicketsService = () => {
-  const { capabilities, scrollToTickets, location, isModal } = useContext(
-    RoadmapService,
-  );
+  const {
+    capabilities,
+    scrollToTicketsReference,
+    scrollToTickets,
+    location,
+  } = useContext(RoadmapService);
   const [{ filters, initial }, setState] = useState<State>(initialState);
 
   interface ReleaseWithNumber {
@@ -111,10 +114,19 @@ const TicketsService = () => {
       comma: true,
     });
 
-    if (caps && caps.length) {
+    let formattedCapabilities: string[] | null = null;
+    if (Array.isArray(caps)) {
+      formattedCapabilities = caps;
+    } else {
+      if (caps) {
+        formattedCapabilities = [caps];
+      }
+    }
+
+    if (formattedCapabilities && formattedCapabilities.length) {
       setState({
         filters: {
-          capabilities: caps,
+          capabilities: formattedCapabilities,
         },
         initial: false,
       });
@@ -138,14 +150,26 @@ const TicketsService = () => {
   }, []);
 
   useEffect(() => {
-    const { pathname, search } = location;
+    if (location.hash) {
+      clearFilters();
+    }
+  }, [location.hash]);
+
+  useEffect(() => {
+    const { pathname, search, hash } = location;
     const queryString = qs.stringify(
       { capabilities: filters.capabilities },
       { arrayFormat: "comma", encode: false },
     );
 
+    if (!filters.capabilities.length && hash) return;
+
+    if (!initial && queryString === "capabilities=") {
+      navigate(pathname, { replace: true });
+      return;
+    }
+
     if (
-      queryString &&
       !initial &&
       search.replace(/^\?/, ``) !== queryString &&
       !/roadmap\/[a-z]/.test(pathname)
@@ -171,7 +195,7 @@ const TicketsService = () => {
       initial: false,
     });
 
-    scrollToTickets();
+    scrollToTicketsReference({});
   };
 
   const clearFilters = () => {

@@ -1,4 +1,4 @@
-import styled from "@styled";
+import styled, { media } from "@styled";
 
 export const OverviewWrapper = styled.div`
   margin-top: 72px;
@@ -24,4 +24,8 @@ export const OverviewHeader = styled.header`
     text-align: center;
     margin-bottom: 0;
   }
+
+  ${media.phone`
+    padding-bottom: 32px;
+  `}
 `;

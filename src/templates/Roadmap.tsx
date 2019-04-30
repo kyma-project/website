@@ -10,6 +10,7 @@ import {
   IntlPageContext,
   Location,
 } from "@common/types";
+import { isInitialRenderComplete } from "@common/utils/index";
 import { RoadmapPageContext, Capability } from "@components/roadmap/types";
 
 const RoadmapPageTemplate: React.FunctionComponent<
@@ -23,10 +24,7 @@ const RoadmapPageTemplate: React.FunctionComponent<
   pageContext,
   location,
 }) => {
-  let isModal: boolean = false;
-  if (window && (window as any).___GATSBYGRAM_INITIAL_RENDER_COMPLETE) {
-    isModal = true;
-  }
+  const isInitialRender: boolean = isInitialRenderComplete();
 
   return (
     <Layout locale={pageContext.locale} pageTitle="Roadmap">
@@ -34,7 +32,7 @@ const RoadmapPageTemplate: React.FunctionComponent<
         pageContext={pageContext}
         capabilities={edges.map(cap => cap.node)}
         location={location}
-        isModal={isModal}
+        isInitialRenderComplete={isInitialRender}
       />
     </Layout>
   );

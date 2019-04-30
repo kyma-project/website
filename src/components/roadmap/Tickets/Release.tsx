@@ -1,5 +1,6 @@
 import React from "react";
 
+import { sizes } from "@styled";
 import Grid from "@styled/Grid";
 
 import { FormattedMessage } from "@common/i18n";
@@ -33,24 +34,39 @@ const ReleaseComponent: React.FunctionComponent<ReleaseProps> = ({
     order: number,
     tickets: React.ReactNode,
     futurePlanned: boolean,
-  ) => (
-    <Grid.Container padding={"0 30px"} key={order}>
-      <Grid.Row>
-        <TicketsWrapper
-          futurePlanned={futurePlanned}
-          rightBorder={true}
-          df={6}
-          sm={10}
-          xs={12}
-        >
-          {order % 2 ? tickets : null}
-        </TicketsWrapper>
-        <TicketsWrapper futurePlanned={futurePlanned} df={6} sm={10} xs={12}>
-          {order % 2 === 0 ? tickets : null}
-        </TicketsWrapper>
-      </Grid.Row>
-    </Grid.Container>
-  );
+  ) => {
+    const isMobile = window.innerWidth < sizes.phone;
+    let leftItems;
+    let rightItems;
+
+    if (isMobile) {
+      rightItems = tickets;
+      leftItems = null;
+    } else {
+      leftItems = order % 2 ? tickets : null;
+      rightItems = order % 2 === 0 ? tickets : null;
+    }
+
+    return (
+      <Grid.Container padding={"0 30px"} key={order}>
+        <Grid.Row>
+          {!isMobile ? (
+            <TicketsWrapper
+              futurePlanned={futurePlanned}
+              rightBorder={true}
+              df={6}
+              sm={12}
+            >
+              {leftItems}
+            </TicketsWrapper>
+          ) : null}
+          <TicketsWrapper futurePlanned={futurePlanned} df={6} sm={12}>
+            {rightItems}
+          </TicketsWrapper>
+        </Grid.Row>
+      </Grid.Container>
+    );
+  };
 
   const createTicketsComponents = (
     order: number,

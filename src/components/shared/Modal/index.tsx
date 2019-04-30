@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { useModal } from "react-modal-hook";
 
+import { sizes } from "@styled";
+
 import Icon from "@components/shared/Icon";
 
 import { StyledModal, CloseButton } from "./styled";
@@ -44,8 +46,8 @@ const Modal: React.FunctionComponent<ModalProps> = ({
     right: `inherit`,
     bottom: `inherit`,
     margin: `0 auto`,
-    width: `900px`,
-    minWidth: `680px`,
+    width: window.innerWidth > 900 ? `900px` : `100vw`,
+    minWidth: `320px`,
     maxWidth: `900px`,
     minHeight: `100%`,
     maxHeight: `100vh`,
@@ -66,7 +68,8 @@ const Modal: React.FunctionComponent<ModalProps> = ({
     minWidth: `100%`,
     zIndex: 350,
     overflowY: `auto`,
-    backgroundColor: `rgba(0, 0, 0, 0.48)`,
+    backgroundColor:
+      window.innerWidth > sizes.phone ? `rgba(0, 0, 0, 0.48)` : `#fff`,
   };
 
   const [showModal, hideModal] = useModal(

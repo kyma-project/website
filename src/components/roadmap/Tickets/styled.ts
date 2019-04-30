@@ -6,7 +6,6 @@ import Roadmap from "@static/img/roadmap.svg";
 
 export const Wrapper = styled.div`
   position: relative;
-  margin-bottom: 0;
   background: #e5eff6;
   margin-bottom: -132px;
   padding-bottom: 72px;
@@ -39,6 +38,10 @@ export const ReleaseHeader = styled.header`
   > h3 {
     text-align: center;
     margin: 0;
+
+    ${media.phone`
+      text-align: left;
+    `}
   }
 `;
 
@@ -48,12 +51,32 @@ export const ReleaseTicketsWrapper = styled.div`
   }
 
   ${Grid.Container}:first-child > ${Grid.Row} > ${Grid.Unit} {
-    padding-top: 40px;
+    padding-top: 32px;
   }
 
   ${Grid.Container}:last-child > ${Grid.Row} > ${Grid.Unit} {
     padding-bottom: 70px;
   }
+
+  ${media.phone`
+    ${Grid.Container}:last-child > ${Grid.Row} > ${Grid.Unit} {
+      padding-bottom: 38px;
+    }
+
+    ${Grid.Container} > ${Grid.Row} {
+      margin: 0 30px;
+
+      > ${Grid.Unit} {
+        padding-bottom: 32px;
+      }
+    }
+  `};
+
+  ${media.smallPhone`
+    ${Grid.Container} > ${Grid.Row} {
+      margin: 0 15px;
+    }
+  `};
 `;
 
 /* Ticket */
@@ -77,6 +100,12 @@ export const TicketsWrapper = styled(Grid.Unit)`
     border-left: ${
       !props.futurePlanned ? `1px solid #3298fe` : `1px dashed #7e98b1`
     }
+  `};
+
+  ${media.phone`
+    border-left: ${(props: TicketsWrapperProps) =>
+      !props.futurePlanned ? `1px solid #3298fe` : `1px dashed #7e98b1`}
+    border-right: none;
   `};
 `;
 
@@ -105,6 +134,18 @@ export const TicketsRow = styled(Grid.Row)`
       padding-right: 0;
     }
   `}
+
+  ${media.phone`
+    margin-right: inherit;
+    padding-left: inherit;
+    margin-left: 32px;
+    padding-right: 16px;
+
+    > ${Grid.Unit} {
+      padding-right: 0;
+      padding-left: inherit;
+    }
+  `};
 `;
 
 interface TicketsIconProps {
@@ -123,6 +164,18 @@ export const TicketsIcon = styled.div`
       : `
     left: -33px;
   `}
+
+  ${media.phone`
+    ${(props: TicketsIconProps) =>
+      props.order % 2
+        ? `
+      left: -78px;
+      right: inherit;
+    `
+        : `
+      left: -33px;
+    `}
+  `};
 
   background: #fff;
   width: 47px;

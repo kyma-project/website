@@ -9,6 +9,7 @@ import Tickets from "@components/roadmap/Tickets/Tickets";
 
 import { Provider } from "@components/roadmap/service";
 import { Provider as TicketsProvider } from "@components/roadmap/Tickets/service";
+import { Provider as UrlObserver } from "@components/roadmap/UrlObserver";
 
 import { Location } from "@common/types";
 import { RoadmapPageContext, Capability, NavigationItem } from "./types";
@@ -17,24 +18,21 @@ interface RoadmapPageProps {
   pageContext: RoadmapPageContext;
   capabilities: Capability[];
   location: any;
-  isModal: boolean;
+  isInitialRenderComplete: boolean;
 }
 
 const RoadmapPage: React.FunctionComponent<RoadmapPageProps> = ({
   ...props
 }) => (
   <Provider {...props}>
-    <TicketsProvider>
-      {props.isModal ||
-      (!props.isModal && !/\/roadmap\/[a-z]/.test(props.location.pathname)) ? (
-        <>
-          <Overview />
-          <Capabilities />
-          <Tickets />
-        </>
-      ) : null}
-      {props.pageContext.ticket ? <Modal /> : null}
-    </TicketsProvider>
+    <UrlObserver>
+      <TicketsProvider>
+        <Overview />
+        <Capabilities />
+        <Tickets />
+        {props.pageContext.ticket ? <Modal /> : null}
+      </TicketsProvider>
+    </UrlObserver>
   </Provider>
 );
 
