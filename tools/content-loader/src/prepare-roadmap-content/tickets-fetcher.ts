@@ -8,14 +8,14 @@ import roadmapConfig from "./config";
 import GitHubGraphQLClient from "../github-client/github-graphql-client";
 import ZenHubClient from "../github-client/zenhub-client";
 
-import TicketsHelper from "./tickets-helper";
+import TicketsExtractor from "./tickets-extractor";
 
 import {
   Repository,
   Release,
   Issue,
-  ReleasesData,
   ReleaseIssues,
+  ReleasesIssuesData,
 } from "./types";
 
 export class TicketsFetcher {
@@ -45,12 +45,22 @@ export class TicketsFetcher {
     );
     if (err) throw new VError(err, `while query repositories`);
 
-    return data.organization.repositories.edges.map(
-      repo => ({ ...repo.node, id: repo.node.databaseId } as Repository),
-    ) as Repository[];
+    const repositories: Repository[] = data.organization.repositories.edges.map(
+      repo => {
+        const result: Repository = { 
+          name: repo.node.name, 
+          id: repo.node.databaseId,
+          issues: [],
+        }
+
+        return result;
+      },
+    );
+
+    return repositories;
   };
 
-  queryEpics = async (repositories: Repository[]): Promise<Repository[]> => {
+  queryEpicIssues = async (repository: Repository): Promise<Issue[]> => {
     const query = `
       query epics(
         $organization: String!, 
@@ -96,39 +106,57 @@ export class TicketsFetcher {
       issuesStates: ["OPEN"],
     };
 
+    const [err, data] = await to<any>(
+      GitHubGraphQLClient.query(query, {
+        ...options,
+        repositoryName: repository.name,
+      }),
+    );
+    if (err) {
+      throw new VError(
+        err,
+        `while query epics for repository: ${repository.name}`,
+      );
+    };
+
+    const issues: Issue[] = data.organization.repository.issues.edges.map(
+      issue => {
+        const node = issue.node;
+        const labels: string[] = node.labels.edges
+          .map(label => label.node.name)
+          .filter((label: string) => !roadmapConfig.labels.includes(label));
+
+        return { 
+          ...node,
+          githubUrl: node.url,
+          labels,
+          repository: {
+            ...repository,
+            issues: [],
+          },
+        } as Issue
+      },
+    );
+
+    return issues;
+  }
+
+  queryEpics = async (repositories: Repository[]): Promise<Repository[]> => {
     let result: Repository[] = [];
     for (const repository of repositories) {
-      const [err, data] = await to<any>(
-        GitHubGraphQLClient.query(query, {
-          ...options,
-          repositoryName: repository.name,
-        }),
-      );
-      if (err)
-        throw new VError(
-          err,
-          `while query epics for repository: ${repository.name}`,
-        );
-
-      const issues: Issue[] = data.organization.repository.issues.edges.map(
-        issue => {
-          const node = issue.node;
-          const labels: string[] = node.labels.edges
-            .map(label => label.node.name)
-            .filter((label: string) => !roadmapConfig.labels.includes(label));
-
-          return { ...node, labels };
-        },
-      );
+      const [err, issues] = await to<Issue[]>(this.queryEpicIssues(repository));
+      if (err) {
+        throw err;
+      }
 
       result.push({
         ...repository,
         issues,
-      });
+      })
     }
 
     return result;
-  };
+  }
 
   queryRepositoriesReleases = async (
     repositories: Repository[],
@@ -142,12 +170,12 @@ export class TicketsFetcher {
 
       releases = [...releases, ...data];
     }
-    releases = TicketsHelper.removeDuplicateOfReleases(releases);
-    return TicketsHelper.removeClosedReleases(releases);
+    releases = TicketsExtractor.removeDuplicateOfReleases(releases);
+    return TicketsExtractor.removeClosedReleases(releases);
   };
 
-  queryIssuesReleases = async (releases: Release[]): Promise<ReleasesData> => {
-    let releaseIssues: ReleasesData = {};
+  queryIssuesReleases = async (releases: Release[]): Promise<ReleasesIssuesData> => {
+    let releaseIssues: ReleasesIssuesData = {};
 
     for (const release of releases) {
       const [err, data] = await to<ReleaseIssues[]>(

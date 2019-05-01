@@ -4,31 +4,6 @@ export interface Tickets {
   };
 }
 
-export interface Attributes {
-  displayName: string;
-  epicsLabels: string[];
-  id: string;
-}
-
-export interface Repository {
-  name: string;
-  id: string | number;
-  issues: Issue[];
-}
-
-export interface Issue {
-  title: string;
-  body: string;
-  url: string;
-  number: number;
-  labels: string[];
-  release: string;
-  zenHubUrl: string;
-  dueDate: string;
-  repository: string;
-  capabilityId: string;
-}
-
 export interface Release {
   release_id: string;
   title: string;
@@ -37,7 +12,32 @@ export interface Release {
   state: "open" | "closed";
 }
 
-export interface ReleasesData {
+export interface Repository {
+  name: string;
+  id: string | number;
+  issues: Issue[];
+}
+
+export interface Capability {
+  displayName: string;
+  epicsLabels: string[];
+  id: string;
+}
+
+export interface Issue {
+  title: string;
+  body: string;
+  number: number;
+  labels: string[];
+  githubUrl: string;
+  zenHubUrl: string;
+  dueDate: string;
+  release: Release;
+  repository: Repository;
+  capability: Capability;
+}
+
+export interface ReleasesIssuesData {
   [release: string]: ReleaseIssues[];
 }
 

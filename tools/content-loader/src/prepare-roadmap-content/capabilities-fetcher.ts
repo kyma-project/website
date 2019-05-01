@@ -10,7 +10,7 @@ import GitClient from "../github-client/git-client";
 import GitHubGraphQLClient from "../github-client/github-graphql-client";
 
 import { copyResources, getFilesPaths } from "../helpers";
-import { Attributes } from "./types";
+import { Capability } from "./types";
 
 export class CapabilitiesFetcher {
   private allowedFilesRegex = /^((?!(README\.md|display-name\.md|assets)).)*$/;
@@ -36,7 +36,7 @@ export class CapabilitiesFetcher {
 
   extractCapabilitiesMetadata = async (
     capabilitiesDir: string,
-  ): Promise<Attributes[]> => {
+  ): Promise<Capability[]> => {
     let err: Error | null;
     let files: any;
     [err, files] = await to(getFilesPaths(capabilitiesDir));
@@ -47,18 +47,18 @@ export class CapabilitiesFetcher {
     );
 
     const extractedMetadata = filteredFiles.map(
-      async (file: string): Promise<Attributes> => {
+      async (file: string): Promise<Capability> => {
         const [err, result] = await to(readFile(file, "utf8"));
         return fm(result).attributes;
       },
     );
 
-    let attributes: any;
-    [err, attributes] = await to(Promise.all(extractedMetadata));
+    let capabilities: any;
+    [err, capabilities] = await to(Promise.all(extractedMetadata));
     if (err)
       throw new VError(err, `while extracting metadata from capabilities`);
 
-    return attributes as Attributes[];
+    return capabilities as Capability[];
   };
 }
 

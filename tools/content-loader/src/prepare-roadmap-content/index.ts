@@ -8,13 +8,13 @@ import GitClient from "../github-client/git-client";
 
 import CapabilitiesFetcher from "./capabilities-fetcher";
 import TicketsFetcher from "./tickets-fetcher";
-import TicketsHelper from "./tickets-helper";
+import TicketsExtractor from "./tickets-extractor";
 
 import {
-  Attributes,
+  Capability,
   Repository,
   Release,
-  ReleasesData,
+  ReleasesIssuesData,
   Tickets,
 } from "./types";
 
@@ -36,13 +36,13 @@ const prepareRoadmapContent = async (coreConfig: CoreConfig) => {
   if (err) throw err;
 
   console.log(`Extracting metadata of capabilities`);
-  let attributes: Attributes[] = [];
-  [err, attributes] = await to(
+  let capabilities: Capability[] = [];
+  [err, capabilities] = await to(
     CapabilitiesFetcher.extractCapabilitiesMetadata(capabilitiesDir),
   );
   if (err) throw err;
 
-  console.log(`Querying or repositories of ${coreConfig.organization}`);
+  console.log(`Querying for repositories of ${coreConfig.organization}`);
   let repositories: Repository[];
   [err, repositories] = await to(TicketsFetcher.queryRepositories());
   if (err) throw err;
@@ -62,20 +62,20 @@ const prepareRoadmapContent = async (coreConfig: CoreConfig) => {
   if (err) throw err;
 
   console.log(`Querying for issues in releases`);
-  let releasesData: ReleasesData;
-  [err, releasesData] = await to(TicketsFetcher.queryIssuesReleases(releases));
+  let releaseIssuesData: ReleasesIssuesData;
+  [err, releaseIssuesData] = await to(TicketsFetcher.queryIssuesReleases(releases));
   if (err) throw err;
 
   console.log(`Generating tickets`);
-  const tickets: Tickets = TicketsHelper.prepareTickets(
+  const tickets: Tickets = TicketsExtractor.extractTickets({
     repositoriesWithEpics,
-    releasesData,
+    releaseIssuesData,
     releases,
-    attributes,
-  );
+    capabilities,
+  });
 
   console.log(`Writing tickets to ${ticketsOutput}`);
-  [err] = await to(TicketsHelper.writeTickets(ticketsOutput, tickets));
+  [err] = await to(TicketsExtractor.writeTickets(ticketsOutput, tickets));
   if (err) throw err;
 };
 
