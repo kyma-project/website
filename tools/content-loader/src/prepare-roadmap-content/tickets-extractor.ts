@@ -19,10 +19,10 @@ import {
 } from "./types";
 
 export interface ExtractTicketsArgs {
-  repositoriesWithEpics: Repository[],
-  releaseIssuesData: ReleasesIssuesData,
-  releases: Release[],
-  capabilities: Capability[],
+  repositoriesWithEpics: Repository[];
+  releaseIssuesData: ReleasesIssuesData;
+  releases: Release[];
+  capabilities: Capability[];
 }
 
 export class TicketsExtractor {
@@ -44,7 +44,7 @@ export class TicketsExtractor {
     );
 
     return tickets;
-  }
+  };
 
   writeTickets = async (outputPath: string, tickets: Tickets) => {
     const [err] = await to(writeToJson(outputPath, tickets));
@@ -54,7 +54,7 @@ export class TicketsExtractor {
   removeDuplicateOfReleases = (releases: Release[]): Release[] => {
     return getUnique<Release>(releases, "release_id");
   };
-    
+
   removeClosedReleases = (releases: Release[]): Release[] => {
     return releases.filter(release => release.state === "open");
   };
@@ -85,7 +85,10 @@ export class TicketsExtractor {
 
     newReleaseData[
       roadmapConfig.releaseForNonCategorizedIssues
-    ] = this.filterIssuesForFutureRelease(repositoriesWithEpics, releaseIssuesData);
+    ] = this.filterIssuesForFutureRelease(
+      repositoriesWithEpics,
+      releaseIssuesData,
+    );
     return newReleaseData;
   };
 
@@ -105,19 +108,19 @@ export class TicketsExtractor {
             for (const repository of repositoriesWithEpics) {
               if (issue.repo_id === Number(repository.id)) {
                 for (const repositoryIssue of repository.issues) {
-
                   const isLabels = repositoryIssue.labels.filter(
                     label => capability.epicsLabels.indexOf(label) > -1,
-                  ).length
+                  ).length;
                   if (
-                    issue.issue_number === repositoryIssue.number && isLabels
+                    issue.issue_number === repositoryIssue.number &&
+                    isLabels
                   ) {
                     return this.extractIssue(
                       repositoryIssue,
                       releases.find(r => r.title === release),
                       repository,
                       capability,
-                    )
+                    );
                   }
                 }
               }
@@ -187,12 +190,14 @@ export class TicketsExtractor {
   };
 
   private createZenHubUrl = (
-    repository: string, 
-    issueNumber: number
+    repository: string,
+    issueNumber: number,
   ): string => {
-    const prefix: string = roadmapConfig.zenHubUrlPrefix.endsWith("/") ? roadmapConfig.zenHubUrlPrefix : `${roadmapConfig.zenHubUrlPrefix}/`;
+    const prefix: string = roadmapConfig.zenHubUrlPrefix.endsWith("/")
+      ? roadmapConfig.zenHubUrlPrefix
+      : `${roadmapConfig.zenHubUrlPrefix}/`;
     return `${prefix}${coreConfig.organization}/${repository}/${issueNumber}`;
   };
-};
+}
 
 export default new TicketsExtractor();

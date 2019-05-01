@@ -26,7 +26,9 @@ const config: RoadmapConfig = {
     : ["Epic"],
   releaseForNonCategorizedIssues:
     process.env.APP_ROADMAP_NON_CATEGORIZED_ISSUES || "Future",
-  zenHubUrlPrefix: process.env.APP_ZENHUB_URL_PREFIX || "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues",
+  zenHubUrlPrefix:
+    process.env.APP_ZENHUB_URL_PREFIX ||
+    "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues",
 };
 
 export default config;

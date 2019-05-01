@@ -47,11 +47,11 @@ export class TicketsFetcher {
 
     const repositories: Repository[] = data.organization.repositories.edges.map(
       repo => {
-        const result: Repository = { 
-          name: repo.node.name, 
+        const result: Repository = {
+          name: repo.node.name,
           id: repo.node.databaseId,
           issues: [],
-        }
+        };
 
         return result;
       },
@@ -117,7 +117,7 @@ export class TicketsFetcher {
         err,
         `while query epics for repository: ${repository.name}`,
       );
-    };
+    }
 
     const issues: Issue[] = data.organization.repository.issues.edges.map(
       issue => {
@@ -126,7 +126,7 @@ export class TicketsFetcher {
           .map(label => label.node.name)
           .filter((label: string) => !roadmapConfig.labels.includes(label));
 
-        return { 
+        return {
           ...node,
           githubUrl: node.url,
           labels,
@@ -134,12 +134,12 @@ export class TicketsFetcher {
             ...repository,
             issues: [],
           },
-        } as Issue
+        } as Issue;
       },
     );
 
     return issues;
-  }
+  };
 
   queryEpics = async (repositories: Repository[]): Promise<Repository[]> => {
     let result: Repository[] = [];
@@ -152,11 +152,11 @@ export class TicketsFetcher {
       result.push({
         ...repository,
         issues,
-      })
+      });
     }
 
     return result;
-  }
+  };
 
   queryRepositoriesReleases = async (
     repositories: Repository[],
@@ -174,7 +174,9 @@ export class TicketsFetcher {
     return TicketsExtractor.removeClosedReleases(releases);
   };
 
-  queryIssuesReleases = async (releases: Release[]): Promise<ReleasesIssuesData> => {
+  queryIssuesReleases = async (
+    releases: Release[],
+  ): Promise<ReleasesIssuesData> => {
     let releaseIssues: ReleasesIssuesData = {};
 
     for (const release of releases) {

@@ -63,7 +63,9 @@ const prepareRoadmapContent = async (coreConfig: CoreConfig) => {
 
   console.log(`Querying for issues in releases`);
   let releaseIssuesData: ReleasesIssuesData;
-  [err, releaseIssuesData] = await to(TicketsFetcher.queryIssuesReleases(releases));
+  [err, releaseIssuesData] = await to(
+    TicketsFetcher.queryIssuesReleases(releases),
+  );
   if (err) throw err;
 
   console.log(`Generating tickets`);
