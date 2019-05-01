@@ -25,7 +25,6 @@ const Ticket: React.FunctionComponent<TicketProps> = ({ ticket }) => {
       to={`/roadmap/${ticket.repository.name}/${ticket.number}/`}
       state={{
         filters,
-        pageYOffset: window.pageYOffset,
       }}
     >
       <TicketWrapper>

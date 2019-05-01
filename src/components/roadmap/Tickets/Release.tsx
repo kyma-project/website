@@ -1,6 +1,6 @@
 import React from "react";
 
-import { sizes } from "@styled";
+import { is } from "@styled";
 import Grid from "@styled/Grid";
 
 import { FormattedMessage } from "@common/i18n";
@@ -35,7 +35,7 @@ const ReleaseComponent: React.FunctionComponent<ReleaseProps> = ({
     tickets: React.ReactNode,
     futurePlanned: boolean,
   ) => {
-    const isMobile = window.innerWidth < sizes.phone;
+    const isMobile = is.phone();
     let leftItems;
     let rightItems;
 

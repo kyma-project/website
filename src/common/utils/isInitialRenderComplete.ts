@@ -1,2 +1,5 @@
 export const isInitialRenderComplete = (): boolean =>
-  Boolean(window && (window as any).___GATSBYGRAM_INITIAL_RENDER_COMPLETE);
+  Boolean(
+    typeof window !== "undefined" &&
+      (window as any).__GATSBY_INITIAL_RENDER_COMPLETE,
+  );

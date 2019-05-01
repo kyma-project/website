@@ -46,7 +46,10 @@ const Modal: React.FunctionComponent<ModalProps> = ({
     right: `inherit`,
     bottom: `inherit`,
     margin: `0 auto`,
-    width: window.innerWidth > 900 ? `900px` : `100vw`,
+    width:
+      typeof window !== `undefined` && window.innerWidth > 900
+        ? `900px`
+        : `100vw`,
     minWidth: `320px`,
     maxWidth: `900px`,
     minHeight: `100%`,
@@ -69,7 +72,9 @@ const Modal: React.FunctionComponent<ModalProps> = ({
     zIndex: 350,
     overflowY: `auto`,
     backgroundColor:
-      window.innerWidth > sizes.phone ? `rgba(0, 0, 0, 0.48)` : `#fff`,
+      typeof window !== `undefined` && window.innerWidth > sizes.phone
+        ? `rgba(0, 0, 0, 0.48)`
+        : `#fff`,
   };
 
   const [showModal, hideModal] = useModal(

@@ -81,7 +81,7 @@ const checkCorrectLocationsForModal = ({
 
 exports.onInitialClientRender = (_, pluginOptions) => {
   options = pluginOptions;
-  window.___GATSBYGRAM_INITIAL_RENDER_COMPLETE = true;
+  window.__GATSBY_INITIAL_RENDER_COMPLETE = true;
 
   requestAnimationFrame(() => {
     const offset = getTargetOffset(

@@ -49,4 +49,21 @@ const media: Media = Object.keys(sizes).reduce(
   {} as Media,
 );
 
+export const is = {
+  smallPhone: (): boolean =>
+    Boolean(
+      typeof window !== "undefined" && window.innerWidth < sizes.smallPhone,
+    ),
+  phone: (): boolean =>
+    Boolean(typeof window !== "undefined" && window.innerWidth < sizes.phone),
+  tablet: (): boolean =>
+    Boolean(typeof window !== "undefined" && window.innerWidth < sizes.tablet),
+  desktop: (): boolean =>
+    Boolean(typeof window !== "undefined" && window.innerWidth < sizes.desktop),
+  largeDesktop: (): boolean =>
+    Boolean(
+      typeof window !== "undefined" && window.innerWidth < sizes.largeDesktop,
+    ),
+};
+
 export default media;
