@@ -74,6 +74,8 @@ module.exports = {
         anonymize: true,
       },
     },
+    `gatsby-plugin-netlify`,
+    `gatsby-plugin-netlify-cache`,
   ],
   pathPrefix: "/website",
 };

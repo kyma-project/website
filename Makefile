@@ -1,4 +1,4 @@
-netlify-master: validate prepare-functions prepare-content build
+netlify-master: validate build prepare-functions
 
 validate:
 	npm run conflict-check
