@@ -1,5 +1,6 @@
 {
   "include": ["./src/**/*"],
+  "exclude": ["./netlify/functions"],
   "compilerOptions": {
     "target": "esnext",
     "module": "commonjs",

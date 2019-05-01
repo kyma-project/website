@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-#
-# Script for fetching and publishing new documentation to kyma-project.io
+# Script for preparing content for kyma-project.io
 
 set -e
 set -o pipefail
@@ -83,8 +82,12 @@ preparing() {
 main() {
     init "${ARGS[@]}"
 
-    step "Preparing content"
-    preparing
-    pass "Content prepared"
+    if [[ -z "${NETLIFY_CI}" ]]; then
+        echo "Co się nauczyliśmy to nasze"
+    else
+        step "Copying"
+        copy
+        pass "Copied"
+    fi
 }
 main
