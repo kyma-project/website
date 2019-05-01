@@ -71,23 +71,19 @@ const ReleaseComponent: React.FunctionComponent<ReleaseProps> = ({
   const createTicketsComponents = (
     order: number,
     tickets: Ticket[],
-    capabilityDisplayName: string,
+    capabilityId: string,
   ) => (
     <TicketsRow order={order} direction={order % 2 ? "rtl" : "ltl"}>
       {tickets.map((ticket, index) => (
         <Grid.Unit df={6} md={12} key={index}>
           <TicketModalWrapper>
-            <TicketComponent
-              key={index}
-              ticket={ticket}
-              capabilityDisplayName={capabilityDisplayName}
-            />
+            <TicketComponent key={index} ticket={ticket} />
           </TicketModalWrapper>
         </Grid.Unit>
       ))}
       {tickets && tickets.length ? (
         <TicketsIcon order={order}>
-          <Svg capability={tickets[0].capabilityId} />
+          <Svg capability={capabilityId} />
         </TicketsIcon>
       ) : null}
     </TicketsRow>
@@ -118,7 +114,7 @@ const ReleaseComponent: React.FunctionComponent<ReleaseProps> = ({
           const ticketsComponents = createTicketsComponents(
             orderNumber + idx,
             tickets,
-            capability,
+            tickets.length ? tickets[0].capability.id : "",
           );
 
           return tickets.length

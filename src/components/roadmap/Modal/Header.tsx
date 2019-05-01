@@ -25,28 +25,29 @@ import {
   ModalHeaderLinkButton,
 } from "./styled";
 
-export interface ModalHeaderProps extends Ticket {
-  capabilityDisplayName: string;
+export interface ModalHeaderProps {
+  ticket: Ticket;
 }
 
 const ModalHeader: React.FunctionComponent<ModalHeaderProps> = ({
-  capabilityId,
-  capabilityDisplayName,
-  title,
-  number: n,
-  dueDate,
-  url,
-  zenHubUrl,
-  release,
+  ticket: {
+    capability,
+    number: n,
+    dueDate,
+    release,
+    title,
+    zenHubUrl,
+    githubUrl,
+  },
 }) => (
   <ModalHeaderWrapper>
     <div>
       <ModalHeaderIcon>
-        <Svg capability={capabilityId} />
+        <Svg capability={capability.id} />
       </ModalHeaderIcon>
       <ModalHeaderMeta>
         <ModalHeaderMetaCapability>
-          {capabilityDisplayName}
+          {capability.displayName}
         </ModalHeaderMetaCapability>
         <ModalHeaderMetaTicketNumber>
           <TicketNumber number={n} />
@@ -54,7 +55,7 @@ const ModalHeader: React.FunctionComponent<ModalHeaderProps> = ({
       </ModalHeaderMeta>
       <ModalHeaderDueDate>
         <Icon iconName="calendar-alt" iconPrefix="far" />
-        <DueDate date={dueDate} futurePlanned={release === "Future"} />
+        <DueDate date={dueDate} futurePlanned={release.title === "Future"} />
       </ModalHeaderDueDate>
       <ModalHeaderTitle>{title}</ModalHeaderTitle>
       <ModalHeaderLinks>
@@ -66,7 +67,7 @@ const ModalHeader: React.FunctionComponent<ModalHeaderProps> = ({
           </Link.External>
         </ModalHeaderLink>
         <ModalHeaderLink>
-          <Link.External to={url}>
+          <Link.External to={githubUrl}>
             <ModalHeaderLinkButton>
               <FormattedMessage id="roadmap.modal.viewInGitHub" />
             </ModalHeaderLinkButton>

@@ -15,11 +15,33 @@
           "area/monitoring",
           "quality/observability"
         ],
-        "release": "0.8",
+        "githubUrl": "https://github.com/kyma-project/kyma/issues/1879",
+        "repository": {
+          "name": "kyma",
+          "id": 139590616,
+          "issues": []
+        },
         "dueDate": "2019-03-07T23:00:00.000Z",
-        "repository": "kyma",
         "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/1879",
-        "capabilityId": "logging-tracing-monitoring"
+        "release": {
+          "release_id": "5c0791391a6a4c6bf4b314c6",
+          "title": "0.8",
+          "description": "Release 0.8 - Edmonton",
+          "start_date": "2019-02-10T23:00:00.000Z",
+          "desired_end_date": "2019-03-07T23:00:00.000Z",
+          "created_at": "2018-12-05T08:50:01.239Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Logging / Tracing / Monitoring",
+          "epicsLabels": [
+            "area/logging",
+            "area/tracing",
+            "area/monitoring"
+          ],
+          "id": "logging-tracing-monitoring"
+        }
       }
     ],
     "Service Management": []
@@ -36,11 +58,32 @@
           "area/service-mesh",
           "quality/devx"
         ],
-        "release": "Future",
+        "githubUrl": "https://github.com/kyma-project/kyma/issues/3397",
+        "repository": {
+          "name": "kyma",
+          "id": 139590616,
+          "issues": []
+        },
         "dueDate": "2020-12-31T11:00:00.000Z",
-        "repository": "kyma",
         "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/3397",
-        "capabilityId": "api-gateway"
+        "release": {
+          "release_id": "5c0791ef1a6a4c6bf4b314ce",
+          "title": "Future",
+          "description": "Items selected for development but not scheduled yet.",
+          "start_date": "2020-01-01T11:00:00.000Z",
+          "desired_end_date": "2020-12-31T11:00:00.000Z",
+          "created_at": "2018-12-05T08:53:03.286Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "API Gateway",
+          "epicsLabels": [
+            "area/service-mesh",
+            "quality/security"
+          ],
+          "id": "api-gateway"
+        }
       }
     ],
     "Application Connectivity": [
@@ -53,11 +96,31 @@
           "area/application-connector",
           "enhancement"
         ],
-        "release": "Future",
+        "githubUrl": "https://github.com/kyma-project/kyma/issues/2716",
+        "repository": {
+          "name": "kyma",
+          "id": 139590616,
+          "issues": []
+        },
         "dueDate": "2020-12-31T11:00:00.000Z",
-        "repository": "kyma",
         "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/2716",
-        "capabilityId": "application-connectivity"
+        "release": {
+          "release_id": "5c0791ef1a6a4c6bf4b314ce",
+          "title": "Future",
+          "description": "Items selected for development but not scheduled yet.",
+          "start_date": "2020-01-01T11:00:00.000Z",
+          "desired_end_date": "2020-12-31T11:00:00.000Z",
+          "created_at": "2018-12-05T08:53:03.286Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Application Connectivity",
+          "epicsLabels": [
+            "area/application-connector"
+          ],
+          "id": "application-connectivity"
+        }
       },
       {
         "title": "Application Connector test coverage improvements.",
@@ -69,11 +132,31 @@
           "enhancement",
           "quality/testability"
         ],
-        "release": "Future",
+        "githubUrl": "https://github.com/kyma-project/kyma/issues/3519",
+        "repository": {
+          "name": "kyma",
+          "id": 139590616,
+          "issues": []
+        },
         "dueDate": "2020-12-31T11:00:00.000Z",
-        "repository": "kyma",
         "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/3519",
-        "capabilityId": "application-connectivity"
+        "release": {
+          "release_id": "5c0791ef1a6a4c6bf4b314ce",
+          "title": "Future",
+          "description": "Items selected for development but not scheduled yet.",
+          "start_date": "2020-01-01T11:00:00.000Z",
+          "desired_end_date": "2020-12-31T11:00:00.000Z",
+          "created_at": "2018-12-05T08:53:03.286Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Application Connectivity",
+          "epicsLabels": [
+            "area/application-connector"
+          ],
+          "id": "application-connectivity"
+        }
       },
       {
         "title": "Provide essential data and e2e test to *-kyma-gke-upgrade plan ",
@@ -89,11 +172,31 @@
           "area/service-catalog",
           "enhancement"
         ],
-        "release": "Future",
+        "githubUrl": "https://github.com/kyma-project/test-infra/issues/582",
+        "repository": {
+          "name": "test-infra",
+          "id": 147495537,
+          "issues": []
+        },
         "dueDate": "2020-12-31T11:00:00.000Z",
-        "repository": "test-infra",
         "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/test-infra/582",
-        "capabilityId": "application-connectivity"
+        "release": {
+          "release_id": "5c0791ef1a6a4c6bf4b314ce",
+          "title": "Future",
+          "description": "Items selected for development but not scheduled yet.",
+          "start_date": "2020-01-01T11:00:00.000Z",
+          "desired_end_date": "2020-12-31T11:00:00.000Z",
+          "created_at": "2018-12-05T08:53:03.286Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Application Connectivity",
+          "epicsLabels": [
+            "area/application-connector"
+          ],
+          "id": "application-connectivity"
+        }
       }
     ],
     "Console / Microfrontends": [
@@ -105,11 +208,32 @@
         "labels": [
           "area/luigi"
         ],
-        "release": "Future",
+        "githubUrl": "https://github.com/kyma-project/luigi/issues/473",
+        "repository": {
+          "name": "luigi",
+          "id": 139590701,
+          "issues": []
+        },
         "dueDate": "2020-12-31T11:00:00.000Z",
-        "repository": "luigi",
         "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/luigi/473",
-        "capabilityId": "console-microfrontends"
+        "release": {
+          "release_id": "5c0791ef1a6a4c6bf4b314ce",
+          "title": "Future",
+          "description": "Items selected for development but not scheduled yet.",
+          "start_date": "2020-01-01T11:00:00.000Z",
+          "desired_end_date": "2020-12-31T11:00:00.000Z",
+          "created_at": "2018-12-05T08:53:03.286Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Console / Microfrontends",
+          "epicsLabels": [
+            "area/console",
+            "area/luigi"
+          ],
+          "id": "console-microfrontends"
+        }
       }
     ],
     "Core & Supporting": [
@@ -122,11 +246,32 @@
           "area/community",
           "enhancement"
         ],
-        "release": "Future",
+        "githubUrl": "https://github.com/kyma-project/website/issues/100",
+        "repository": {
+          "name": "website",
+          "id": 139847219,
+          "issues": []
+        },
         "dueDate": "2020-12-31T11:00:00.000Z",
-        "repository": "website",
         "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/website/100",
-        "capabilityId": "core-and-supporting"
+        "release": {
+          "release_id": "5c0791ef1a6a4c6bf4b314ce",
+          "title": "Future",
+          "description": "Items selected for development but not scheduled yet.",
+          "start_date": "2020-01-01T11:00:00.000Z",
+          "desired_end_date": "2020-12-31T11:00:00.000Z",
+          "created_at": "2018-12-05T08:53:03.286Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Core & Supporting",
+          "epicsLabels": [
+            "area/core-and-supporting",
+            "area/community"
+          ],
+          "id": "core-and-supporting"
+        }
       },
       {
         "title": "Enable community to easier act as social media advocate",
@@ -137,11 +282,32 @@
           "area/community",
           "enhancement"
         ],
-        "release": "Future",
+        "githubUrl": "https://github.com/kyma-project/website/issues/104",
+        "repository": {
+          "name": "website",
+          "id": 139847219,
+          "issues": []
+        },
         "dueDate": "2020-12-31T11:00:00.000Z",
-        "repository": "website",
         "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/website/104",
-        "capabilityId": "core-and-supporting"
+        "release": {
+          "release_id": "5c0791ef1a6a4c6bf4b314ce",
+          "title": "Future",
+          "description": "Items selected for development but not scheduled yet.",
+          "start_date": "2020-01-01T11:00:00.000Z",
+          "desired_end_date": "2020-12-31T11:00:00.000Z",
+          "created_at": "2018-12-05T08:53:03.286Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Core & Supporting",
+          "epicsLabels": [
+            "area/core-and-supporting",
+            "area/community"
+          ],
+          "id": "core-and-supporting"
+        }
       },
       {
         "title": "Expose product content more and enable easy contributions",
@@ -152,11 +318,32 @@
           "area/community",
           "enhancement"
         ],
-        "release": "Future",
+        "githubUrl": "https://github.com/kyma-project/website/issues/105",
+        "repository": {
+          "name": "website",
+          "id": 139847219,
+          "issues": []
+        },
         "dueDate": "2020-12-31T11:00:00.000Z",
-        "repository": "website",
         "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/website/105",
-        "capabilityId": "core-and-supporting"
+        "release": {
+          "release_id": "5c0791ef1a6a4c6bf4b314ce",
+          "title": "Future",
+          "description": "Items selected for development but not scheduled yet.",
+          "start_date": "2020-01-01T11:00:00.000Z",
+          "desired_end_date": "2020-12-31T11:00:00.000Z",
+          "created_at": "2018-12-05T08:53:03.286Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Core & Supporting",
+          "epicsLabels": [
+            "area/core-and-supporting",
+            "area/community"
+          ],
+          "id": "core-and-supporting"
+        }
       },
       {
         "title": "Enable basic search and set up a chat bot ",
@@ -167,11 +354,32 @@
           "area/community",
           "enhancement"
         ],
-        "release": "Future",
+        "githubUrl": "https://github.com/kyma-project/website/issues/106",
+        "repository": {
+          "name": "website",
+          "id": 139847219,
+          "issues": []
+        },
         "dueDate": "2020-12-31T11:00:00.000Z",
-        "repository": "website",
         "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/website/106",
-        "capabilityId": "core-and-supporting"
+        "release": {
+          "release_id": "5c0791ef1a6a4c6bf4b314ce",
+          "title": "Future",
+          "description": "Items selected for development but not scheduled yet.",
+          "start_date": "2020-01-01T11:00:00.000Z",
+          "desired_end_date": "2020-12-31T11:00:00.000Z",
+          "created_at": "2018-12-05T08:53:03.286Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Core & Supporting",
+          "epicsLabels": [
+            "area/core-and-supporting",
+            "area/community"
+          ],
+          "id": "core-and-supporting"
+        }
       },
       {
         "title": "Improve experience and usability of blog section",
@@ -182,11 +390,32 @@
           "area/community",
           "enhancement"
         ],
-        "release": "Future",
+        "githubUrl": "https://github.com/kyma-project/website/issues/142",
+        "repository": {
+          "name": "website",
+          "id": 139847219,
+          "issues": []
+        },
         "dueDate": "2020-12-31T11:00:00.000Z",
-        "repository": "website",
         "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/website/142",
-        "capabilityId": "core-and-supporting"
+        "release": {
+          "release_id": "5c0791ef1a6a4c6bf4b314ce",
+          "title": "Future",
+          "description": "Items selected for development but not scheduled yet.",
+          "start_date": "2020-01-01T11:00:00.000Z",
+          "desired_end_date": "2020-12-31T11:00:00.000Z",
+          "created_at": "2018-12-05T08:53:03.286Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Core & Supporting",
+          "epicsLabels": [
+            "area/core-and-supporting",
+            "area/community"
+          ],
+          "id": "core-and-supporting"
+        }
       }
     ],
     "Eventing": [
@@ -199,11 +428,31 @@
           "area/eventing",
           "enhancement"
         ],
-        "release": "Future",
+        "githubUrl": "https://github.com/kyma-project/kyma/issues/3847",
+        "repository": {
+          "name": "kyma",
+          "id": 139590616,
+          "issues": []
+        },
         "dueDate": "2020-12-31T11:00:00.000Z",
-        "repository": "kyma",
         "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/3847",
-        "capabilityId": "eventing"
+        "release": {
+          "release_id": "5c0791ef1a6a4c6bf4b314ce",
+          "title": "Future",
+          "description": "Items selected for development but not scheduled yet.",
+          "start_date": "2020-01-01T11:00:00.000Z",
+          "desired_end_date": "2020-12-31T11:00:00.000Z",
+          "created_at": "2018-12-05T08:53:03.286Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Eventing",
+          "epicsLabels": [
+            "area/eventing"
+          ],
+          "id": "eventing"
+        }
       },
       {
         "title": "Align with Open standards for Kyma eventing interfaces",
@@ -214,11 +463,31 @@
           "area/eventing",
           "enhancement"
         ],
-        "release": "Future",
+        "githubUrl": "https://github.com/kyma-project/kyma/issues/3849",
+        "repository": {
+          "name": "kyma",
+          "id": 139590616,
+          "issues": []
+        },
         "dueDate": "2020-12-31T11:00:00.000Z",
-        "repository": "kyma",
         "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/3849",
-        "capabilityId": "eventing"
+        "release": {
+          "release_id": "5c0791ef1a6a4c6bf4b314ce",
+          "title": "Future",
+          "description": "Items selected for development but not scheduled yet.",
+          "start_date": "2020-01-01T11:00:00.000Z",
+          "desired_end_date": "2020-12-31T11:00:00.000Z",
+          "created_at": "2018-12-05T08:53:03.286Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Eventing",
+          "epicsLabels": [
+            "area/eventing"
+          ],
+          "id": "eventing"
+        }
       },
       {
         "title": "Provide support for data events in Kyma eventing",
@@ -229,11 +498,31 @@
           "area/eventing",
           "enhancement"
         ],
-        "release": "Future",
+        "githubUrl": "https://github.com/kyma-project/kyma/issues/3854",
+        "repository": {
+          "name": "kyma",
+          "id": 139590616,
+          "issues": []
+        },
         "dueDate": "2020-12-31T11:00:00.000Z",
-        "repository": "kyma",
         "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/3854",
-        "capabilityId": "eventing"
+        "release": {
+          "release_id": "5c0791ef1a6a4c6bf4b314ce",
+          "title": "Future",
+          "description": "Items selected for development but not scheduled yet.",
+          "start_date": "2020-01-01T11:00:00.000Z",
+          "desired_end_date": "2020-12-31T11:00:00.000Z",
+          "created_at": "2018-12-05T08:53:03.286Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Eventing",
+          "epicsLabels": [
+            "area/eventing"
+          ],
+          "id": "eventing"
+        }
       },
       {
         "title": "Provide support for in-cluster events",
@@ -244,11 +533,31 @@
           "area/eventing",
           "enhancement"
         ],
-        "release": "Future",
+        "githubUrl": "https://github.com/kyma-project/kyma/issues/3855",
+        "repository": {
+          "name": "kyma",
+          "id": 139590616,
+          "issues": []
+        },
         "dueDate": "2020-12-31T11:00:00.000Z",
-        "repository": "kyma",
         "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/3855",
-        "capabilityId": "eventing"
+        "release": {
+          "release_id": "5c0791ef1a6a4c6bf4b314ce",
+          "title": "Future",
+          "description": "Items selected for development but not scheduled yet.",
+          "start_date": "2020-01-01T11:00:00.000Z",
+          "desired_end_date": "2020-12-31T11:00:00.000Z",
+          "created_at": "2018-12-05T08:53:03.286Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Eventing",
+          "epicsLabels": [
+            "area/eventing"
+          ],
+          "id": "eventing"
+        }
       },
       {
         "title": "Improve UX for Kyma eventing",
@@ -258,11 +567,31 @@
         "labels": [
           "area/eventing"
         ],
-        "release": "Future",
+        "githubUrl": "https://github.com/kyma-project/kyma/issues/3857",
+        "repository": {
+          "name": "kyma",
+          "id": 139590616,
+          "issues": []
+        },
         "dueDate": "2020-12-31T11:00:00.000Z",
-        "repository": "kyma",
         "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/3857",
-        "capabilityId": "eventing"
+        "release": {
+          "release_id": "5c0791ef1a6a4c6bf4b314ce",
+          "title": "Future",
+          "description": "Items selected for development but not scheduled yet.",
+          "start_date": "2020-01-01T11:00:00.000Z",
+          "desired_end_date": "2020-12-31T11:00:00.000Z",
+          "created_at": "2018-12-05T08:53:03.286Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Eventing",
+          "epicsLabels": [
+            "area/eventing"
+          ],
+          "id": "eventing"
+        }
       },
       {
         "title": "Provide essential data and e2e test to *-kyma-gke-upgrade plan ",
@@ -278,11 +607,31 @@
           "area/service-catalog",
           "enhancement"
         ],
-        "release": "Future",
+        "githubUrl": "https://github.com/kyma-project/test-infra/issues/582",
+        "repository": {
+          "name": "test-infra",
+          "id": 147495537,
+          "issues": []
+        },
         "dueDate": "2020-12-31T11:00:00.000Z",
-        "repository": "test-infra",
         "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/test-infra/582",
-        "capabilityId": "eventing"
+        "release": {
+          "release_id": "5c0791ef1a6a4c6bf4b314ce",
+          "title": "Future",
+          "description": "Items selected for development but not scheduled yet.",
+          "start_date": "2020-01-01T11:00:00.000Z",
+          "desired_end_date": "2020-12-31T11:00:00.000Z",
+          "created_at": "2018-12-05T08:53:03.286Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Eventing",
+          "epicsLabels": [
+            "area/eventing"
+          ],
+          "id": "eventing"
+        }
       }
     ],
     "Logging / Tracing / Monitoring": [
@@ -295,11 +644,33 @@
           "area/monitoring",
           "quality/observability"
         ],
-        "release": "Future",
+        "githubUrl": "https://github.com/kyma-project/kyma/issues/376",
+        "repository": {
+          "name": "kyma",
+          "id": 139590616,
+          "issues": []
+        },
         "dueDate": "2020-12-31T11:00:00.000Z",
-        "repository": "kyma",
         "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/376",
-        "capabilityId": "logging-tracing-monitoring"
+        "release": {
+          "release_id": "5c0791ef1a6a4c6bf4b314ce",
+          "title": "Future",
+          "description": "Items selected for development but not scheduled yet.",
+          "start_date": "2020-01-01T11:00:00.000Z",
+          "desired_end_date": "2020-12-31T11:00:00.000Z",
+          "created_at": "2018-12-05T08:53:03.286Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Logging / Tracing / Monitoring",
+          "epicsLabels": [
+            "area/logging",
+            "area/tracing",
+            "area/monitoring"
+          ],
+          "id": "logging-tracing-monitoring"
+        }
       },
       {
         "title": "Monitor Knative Function Controller",
@@ -312,11 +683,33 @@
           "enhancement",
           "quality/observability"
         ],
-        "release": "Future",
+        "githubUrl": "https://github.com/kyma-project/kyma/issues/2251",
+        "repository": {
+          "name": "kyma",
+          "id": 139590616,
+          "issues": []
+        },
         "dueDate": "2020-12-31T11:00:00.000Z",
-        "repository": "kyma",
         "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/2251",
-        "capabilityId": "logging-tracing-monitoring"
+        "release": {
+          "release_id": "5c0791ef1a6a4c6bf4b314ce",
+          "title": "Future",
+          "description": "Items selected for development but not scheduled yet.",
+          "start_date": "2020-01-01T11:00:00.000Z",
+          "desired_end_date": "2020-12-31T11:00:00.000Z",
+          "created_at": "2018-12-05T08:53:03.286Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Logging / Tracing / Monitoring",
+          "epicsLabels": [
+            "area/logging",
+            "area/tracing",
+            "area/monitoring"
+          ],
+          "id": "logging-tracing-monitoring"
+        }
       }
     ],
     "Service Management": [
@@ -334,11 +727,31 @@
           "area/service-catalog",
           "enhancement"
         ],
-        "release": "Future",
+        "githubUrl": "https://github.com/kyma-project/test-infra/issues/582",
+        "repository": {
+          "name": "test-infra",
+          "id": 147495537,
+          "issues": []
+        },
         "dueDate": "2020-12-31T11:00:00.000Z",
-        "repository": "test-infra",
         "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/test-infra/582",
-        "capabilityId": "service-management"
+        "release": {
+          "release_id": "5c0791ef1a6a4c6bf4b314ce",
+          "title": "Future",
+          "description": "Items selected for development but not scheduled yet.",
+          "start_date": "2020-01-01T11:00:00.000Z",
+          "desired_end_date": "2020-12-31T11:00:00.000Z",
+          "created_at": "2018-12-05T08:53:03.286Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Service Management",
+          "epicsLabels": [
+            "area/service-catalog"
+          ],
+          "id": "service-management"
+        }
       }
     ]
   },
@@ -373,11 +786,31 @@
           "area/documentation",
           "enhancement"
         ],
-        "release": "1.1",
+        "githubUrl": "https://github.com/kyma-project/kyma/issues/3449",
+        "repository": {
+          "name": "kyma",
+          "id": 139590616,
+          "issues": []
+        },
         "dueDate": "2019-05-10T10:00:00.000Z",
-        "repository": "kyma",
         "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/3449",
-        "capabilityId": "application-connectivity"
+        "release": {
+          "release_id": "5c86318b1aa06e798dcd6782",
+          "title": "1.1",
+          "description": "Release 1.1 - Helsinki",
+          "start_date": "2019-04-06T22:00:00.000Z",
+          "desired_end_date": "2019-05-10T10:00:00.000Z",
+          "created_at": "2019-03-11T09:59:39.887Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Application Connectivity",
+          "epicsLabels": [
+            "area/application-connector"
+          ],
+          "id": "application-connectivity"
+        }
       }
     ],
     "Console / Microfrontends": [
@@ -390,11 +823,32 @@
           "area/console",
           "enhancement"
         ],
-        "release": "1.1",
+        "githubUrl": "https://github.com/kyma-project/console/issues/202",
+        "repository": {
+          "name": "console",
+          "id": 139590577,
+          "issues": []
+        },
         "dueDate": "2019-05-10T10:00:00.000Z",
-        "repository": "console",
         "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/console/202",
-        "capabilityId": "console-microfrontends"
+        "release": {
+          "release_id": "5c86318b1aa06e798dcd6782",
+          "title": "1.1",
+          "description": "Release 1.1 - Helsinki",
+          "start_date": "2019-04-06T22:00:00.000Z",
+          "desired_end_date": "2019-05-10T10:00:00.000Z",
+          "created_at": "2019-03-11T09:59:39.887Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Console / Microfrontends",
+          "epicsLabels": [
+            "area/console",
+            "area/luigi"
+          ],
+          "id": "console-microfrontends"
+        }
       },
       {
         "title": "I18N Support",
@@ -404,11 +858,32 @@
         "labels": [
           "area/luigi"
         ],
-        "release": "1.1",
+        "githubUrl": "https://github.com/kyma-project/luigi/issues/396",
+        "repository": {
+          "name": "luigi",
+          "id": 139590701,
+          "issues": []
+        },
         "dueDate": "2019-05-10T10:00:00.000Z",
-        "repository": "luigi",
         "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/luigi/396",
-        "capabilityId": "console-microfrontends"
+        "release": {
+          "release_id": "5c86318b1aa06e798dcd6782",
+          "title": "1.1",
+          "description": "Release 1.1 - Helsinki",
+          "start_date": "2019-04-06T22:00:00.000Z",
+          "desired_end_date": "2019-05-10T10:00:00.000Z",
+          "created_at": "2019-03-11T09:59:39.887Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Console / Microfrontends",
+          "epicsLabels": [
+            "area/console",
+            "area/luigi"
+          ],
+          "id": "console-microfrontends"
+        }
       }
     ],
     "Core & Supporting": [
@@ -421,11 +896,32 @@
           "area/community",
           "enhancement"
         ],
-        "release": "1.1",
+        "githubUrl": "https://github.com/kyma-project/website/issues/258",
+        "repository": {
+          "name": "website",
+          "id": 139847219,
+          "issues": []
+        },
         "dueDate": "2019-05-10T10:00:00.000Z",
-        "repository": "website",
         "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/website/258",
-        "capabilityId": "core-and-supporting"
+        "release": {
+          "release_id": "5c86318b1aa06e798dcd6782",
+          "title": "1.1",
+          "description": "Release 1.1 - Helsinki",
+          "start_date": "2019-04-06T22:00:00.000Z",
+          "desired_end_date": "2019-05-10T10:00:00.000Z",
+          "created_at": "2019-03-11T09:59:39.887Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Core & Supporting",
+          "epicsLabels": [
+            "area/core-and-supporting",
+            "area/community"
+          ],
+          "id": "core-and-supporting"
+        }
       }
     ],
     "Eventing": [],
@@ -441,11 +937,31 @@
           "area/service-catalog",
           "enhancement"
         ],
-        "release": "1.1",
+        "githubUrl": "https://github.com/kyma-project/kyma/issues/3068",
+        "repository": {
+          "name": "kyma",
+          "id": 139590616,
+          "issues": []
+        },
         "dueDate": "2019-05-10T10:00:00.000Z",
-        "repository": "kyma",
         "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/3068",
-        "capabilityId": "service-management"
+        "release": {
+          "release_id": "5c86318b1aa06e798dcd6782",
+          "title": "1.1",
+          "description": "Release 1.1 - Helsinki",
+          "start_date": "2019-04-06T22:00:00.000Z",
+          "desired_end_date": "2019-05-10T10:00:00.000Z",
+          "created_at": "2019-03-11T09:59:39.887Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Service Management",
+          "epicsLabels": [
+            "area/service-catalog"
+          ],
+          "id": "service-management"
+        }
       },
       {
         "title": "Helm Broker creates Service Class documentation from add-ons",
@@ -457,11 +973,31 @@
           "area/service-catalog",
           "enhancement"
         ],
-        "release": "1.1",
+        "githubUrl": "https://github.com/kyma-project/kyma/issues/3358",
+        "repository": {
+          "name": "kyma",
+          "id": 139590616,
+          "issues": []
+        },
         "dueDate": "2019-05-10T10:00:00.000Z",
-        "repository": "kyma",
         "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/3358",
-        "capabilityId": "service-management"
+        "release": {
+          "release_id": "5c86318b1aa06e798dcd6782",
+          "title": "1.1",
+          "description": "Release 1.1 - Helsinki",
+          "start_date": "2019-04-06T22:00:00.000Z",
+          "desired_end_date": "2019-05-10T10:00:00.000Z",
+          "created_at": "2019-03-11T09:59:39.887Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Service Management",
+          "epicsLabels": [
+            "area/service-catalog"
+          ],
+          "id": "service-management"
+        }
       },
       {
         "title": "Finalize PR with Service Catalog CRD solution",
@@ -472,11 +1008,31 @@
           "area/service-catalog",
           "enhancement"
         ],
-        "release": "1.1",
+        "githubUrl": "https://github.com/kyma-project/kyma/issues/3594",
+        "repository": {
+          "name": "kyma",
+          "id": 139590616,
+          "issues": []
+        },
         "dueDate": "2019-05-10T10:00:00.000Z",
-        "repository": "kyma",
         "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/3594",
-        "capabilityId": "service-management"
+        "release": {
+          "release_id": "5c86318b1aa06e798dcd6782",
+          "title": "1.1",
+          "description": "Release 1.1 - Helsinki",
+          "start_date": "2019-04-06T22:00:00.000Z",
+          "desired_end_date": "2019-05-10T10:00:00.000Z",
+          "created_at": "2019-03-11T09:59:39.887Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Service Management",
+          "epicsLabels": [
+            "area/service-catalog"
+          ],
+          "id": "service-management"
+        }
       },
       {
         "title": "Provide AWS Service Broker bundle",
@@ -486,11 +1042,31 @@
         "labels": [
           "area/service-catalog"
         ],
-        "release": "1.1",
+        "githubUrl": "https://github.com/kyma-project/bundles/issues/57",
+        "repository": {
+          "name": "bundles",
+          "id": 151691065,
+          "issues": []
+        },
         "dueDate": "2019-05-10T10:00:00.000Z",
-        "repository": "bundles",
         "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/bundles/57",
-        "capabilityId": "service-management"
+        "release": {
+          "release_id": "5c86318b1aa06e798dcd6782",
+          "title": "1.1",
+          "description": "Release 1.1 - Helsinki",
+          "start_date": "2019-04-06T22:00:00.000Z",
+          "desired_end_date": "2019-05-10T10:00:00.000Z",
+          "created_at": "2019-03-11T09:59:39.887Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Service Management",
+          "epicsLabels": [
+            "area/service-catalog"
+          ],
+          "id": "service-management"
+        }
       }
     ]
   },
@@ -507,11 +1083,32 @@
           "area/console",
           "enhancement"
         ],
-        "release": "1.2",
+        "githubUrl": "https://github.com/kyma-project/console/issues/638",
+        "repository": {
+          "name": "console",
+          "id": 139590577,
+          "issues": []
+        },
         "dueDate": "2019-06-07T10:00:00.000Z",
-        "repository": "console",
         "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/console/638",
-        "capabilityId": "console-microfrontends"
+        "release": {
+          "release_id": "5cb59383709ee87123145468",
+          "title": "1.2",
+          "description": "Release 1.2 - Istanbul",
+          "start_date": "2019-05-13T10:00:00.000Z",
+          "desired_end_date": "2019-06-07T10:00:00.000Z",
+          "created_at": "2019-04-16T08:34:11.381Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Console / Microfrontends",
+          "epicsLabels": [
+            "area/console",
+            "area/luigi"
+          ],
+          "id": "console-microfrontends"
+        }
       },
       {
         "title": "APIs view improvements",
@@ -521,11 +1118,32 @@
         "labels": [
           "area/console"
         ],
-        "release": "1.2",
+        "githubUrl": "https://github.com/kyma-project/kyma/issues/3822",
+        "repository": {
+          "name": "kyma",
+          "id": 139590616,
+          "issues": []
+        },
         "dueDate": "2019-06-07T10:00:00.000Z",
-        "repository": "kyma",
         "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/3822",
-        "capabilityId": "console-microfrontends"
+        "release": {
+          "release_id": "5cb59383709ee87123145468",
+          "title": "1.2",
+          "description": "Release 1.2 - Istanbul",
+          "start_date": "2019-05-13T10:00:00.000Z",
+          "desired_end_date": "2019-06-07T10:00:00.000Z",
+          "created_at": "2019-04-16T08:34:11.381Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Console / Microfrontends",
+          "epicsLabels": [
+            "area/console",
+            "area/luigi"
+          ],
+          "id": "console-microfrontends"
+        }
       }
     ],
     "Core & Supporting": [],

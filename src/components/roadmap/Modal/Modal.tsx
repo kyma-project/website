@@ -60,7 +60,7 @@ const Modal: React.FunctionComponent<Props> = () => {
 
   const content = (
     <ContentWrapper>
-      <ModalHeader {...ticket} capabilityDisplayName={"dupa"} />
+      <ModalHeader ticket={ticket} />
       <ModalContent body={ticket.body} />
     </ContentWrapper>
   );

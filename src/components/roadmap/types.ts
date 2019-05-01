@@ -43,15 +43,6 @@ export enum CapabilityEnum {
   SERVICE_MANAGEMENT = "service-management",
 }
 
-/* Release */
-
-export interface Release {
-  displayName: string;
-  capabilities: {
-    [capability: string]: Ticket[];
-  };
-}
-
 /* Tickets */
 export interface Tickets {
   [release: string]: {
@@ -62,12 +53,40 @@ export interface Tickets {
 export interface Ticket {
   title: string;
   body: string;
-  url: string;
   number: number;
   labels: string[];
-  release: string;
+  githubUrl: string;
   zenHubUrl: string;
   dueDate: string;
-  repository: string;
-  capabilityId: string;
+  release: TicketRelease;
+  repository: TicketRepository;
+  capability: TicketCapability;
+}
+
+export interface TicketRelease {
+  release_id: string;
+  title: string;
+  start_date: string;
+  desired_end_date: string;
+  state: "open" | "closed";
+}
+
+export interface TicketRepository {
+  name: string;
+  id: string | number;
+  issues: Ticket[];
+}
+
+export interface TicketCapability {
+  displayName: string;
+  epicsLabels: string[];
+  id: string;
+}
+
+/* Release */
+export interface Release {
+  displayName: string;
+  capabilities: {
+    [capability: string]: Ticket[];
+  };
 }

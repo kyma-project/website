@@ -31,6 +31,8 @@ export const ModalHeaderWrapper = styled.header`
   background: #2068df;
   color: #fff;
   position: relative;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
 
   > div {
     padding: 72px 68px 32px;
@@ -142,6 +144,8 @@ export const ModalHeaderLinkButton = styled(Button.Default)`
 export const ModalContentWrapper = styled.div`
   padding: 32px 68px 46px;
   background: #fff;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 
   ${media.phone`
     padding: 24px 44px 24px;

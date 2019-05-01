@@ -15,18 +15,14 @@ import { TicketWrapper, TicketHeader, TicketContent } from "./styled";
 
 interface TicketProps {
   ticket: TicketType;
-  capabilityDisplayName: string;
 }
 
-const Ticket: React.FunctionComponent<TicketProps> = ({
-  ticket,
-  capabilityDisplayName,
-}) => {
+const Ticket: React.FunctionComponent<TicketProps> = ({ ticket }) => {
   const { filters } = useContext(TicketsService);
 
   return (
     <Link.Internal
-      to={`/roadmap/${ticket.repository}/${ticket.number}/`}
+      to={`/roadmap/${ticket.repository.name}/${ticket.number}/`}
       state={{
         filters,
         pageYOffset: window.pageYOffset,
@@ -35,7 +31,7 @@ const Ticket: React.FunctionComponent<TicketProps> = ({
       <TicketWrapper>
         <TicketHeader>
           <div>
-            <H as="h3">{capabilityDisplayName}</H>
+            <H as="h3">{ticket.capability.displayName}</H>
           </div>
         </TicketHeader>
         <TicketContent>
