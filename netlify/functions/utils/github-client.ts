@@ -23,6 +23,8 @@ export class GitHubClient {
       pull_number: event.number,
     });
 
+    console.log(response);
+
     return response ? response.data : null;
   };
 }

@@ -28,6 +28,8 @@ const REGEX: { [repository: string]: RegExp } = {
 export const checkPullRequestEvent = async (
   event: PullRequest,
 ): Promise<boolean> => {
+  console.log(event.action);
+  console.log(await fetchChangedFiles(event));
   if (
     (event.action as PullRequestActionType) !== PullRequestActionType.CLOSED
   ) {
