@@ -10,43 +10,38 @@ enum PullRequestActionType {
 enum RepositoryName {
   KYMA = "kyma",
   COMMUNITY = "community",
-  WEBSITE = "website",
 }
 
 const REPOSITORY_NAMES: string[] = [
   RepositoryName.KYMA,
   RepositoryName.COMMUNITY,
-  RepositoryName.WEBSITE,
 ];
 
 const REGEX: { [repository: string]: RegExp } = {
-  [RepositoryName.KYMA]: /docs\//,
-  [RepositoryName.COMMUNITY]: /capabilities\//,
-  [RepositoryName.WEBSITE]: /capabilities\//,
+  [RepositoryName.KYMA]: /^docs\//,
+  [RepositoryName.COMMUNITY]: /^capabilities\//,
 };
 
 export const checkPullRequestEvent = async (
   event: PullRequest,
 ): Promise<boolean> => {
-  console.log(await fetchChangedFiles(event));
-
   const repositoryName = event.repository.name;
   if (!REPOSITORY_NAMES.includes(repositoryName)) {
     return false;
   }
 
   if (
-    (event.action as PullRequestActionType) !== PullRequestActionType.CLOSED
+    (event.action as PullRequestActionType) === PullRequestActionType.CLOSED &&
+    event.pull_request.merged
   ) {
-    if (!event.pull_request.merged) {
-      const files = await fetchChangedFiles(event);
-      if (!files || !files.length) {
-        return false;
-      }
-
-      return checkChangedFiles(repositoryName, files);
+    const files = await fetchChangedFiles(event);
+    if (!files || !files.length) {
+      return false;
     }
+
+    return checkChangedFiles(repositoryName, files);
   }
+  
   return false;
 };
 
@@ -56,9 +51,9 @@ const checkChangedFiles = (
 ): boolean => {
   switch (repositoryName) {
     case RepositoryName.KYMA:
-      return checkChangedFileNames(files, REGEX.KYMA);
+      return checkChangedFileNames(files, REGEX[RepositoryName.KYMA]);
     case RepositoryName.COMMUNITY:
-      return checkChangedFileNames(files, REGEX.COMMUNITY);
+      return checkChangedFileNames(files, REGEX[RepositoryName.COMMUNITY]);
     default:
       return false;
   }
@@ -68,7 +63,6 @@ const checkChangedFileNames = (
   files: PullsListFilesResponse,
   regex: RegExp,
 ): boolean => {
-  console.log(files.map(file => file.filename));
   return files.some(file => regex.test(file.filename));
 };
 

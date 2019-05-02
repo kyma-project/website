@@ -1,3 +1,4 @@
+import fetch from 'node-fetch';
 import { Handler, Context, Callback, APIGatewayEvent } from "aws-lambda";
 import { Issues, PullRequest, Release } from "github-webhook-event-types";
 
@@ -50,7 +51,9 @@ const actionByEventType = async (
   }
 };
 
-const triggerBuild = (): void => {};
+const triggerBuild = async () => {
+  await fetch(process.env.MASTER_BRANCH_BUILD_HOOK, { method: "POST" });
+};
 
 const handler: Handler = async (
   event: APIGatewayEvent,
@@ -65,14 +68,20 @@ const handler: Handler = async (
     result = await actionByEventType(eventType as EventType, event.body);
   } catch (err) {
     console.error(err);
-    return;
+    return {
+      statusCode: 500,
+      body: JSON.stringify(err)
+    }
   }
-
-  console.log(result);
 
   if (result) {
-    triggerBuild();
+    await triggerBuild();
   }
+
+  return {
+    statusCode: 200,
+    body: JSON.stringify({ result: result }),
+  };
 };
 
 export { handler };

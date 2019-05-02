@@ -1,28 +1,32 @@
-import Octokit, { Response, PullsListFilesResponse } from "@octokit/rest";
+import fetch from 'node-fetch';
+import { PullsListFilesResponse } from "@octokit/rest";
 import { PullRequest } from "github-webhook-event-types";
 
 export class GitHubClient {
-  private octokit: Octokit;
-
-  constructor() {
-    this.octokit = new Octokit();
-    this.octokit.authenticate({
-      type: "token",
-      token: process.env.BOT_GITHUB_TOKEN,
-    });
+  private static apiPath: string = "https://api.github.com";
+  private static options = {
+    headers: {
+      Authorization: `token ${process.env.BOT_GITHUB_TOKEN}`,
+    }
   }
 
   getFilesFromPullRequest = async (
     event: PullRequest,
   ): Promise<PullsListFilesResponse> => {
-    const response: Response<
-      PullsListFilesResponse
-    > = await this.octokit.pulls.listFiles({
-      owner: event.repository.owner.login,
-      repo: event.repository.name,
-      pull_number: event.number,
-    });
+    let data: PullsListFilesResponse;
+    try {
+      const subPath = `repos/${event.repository.owner.login}/${event.repository.name}/pulls/${event.number}/files`;
 
-    return response ? response.data : null;
+      const response = await fetch(`${GitHubClient.apiPath}/${subPath}`, GitHubClient.options);
+      if (!response.ok) {
+        throw new Error(response.statusText);
+      }
+
+      data = await response.json();
+    } catch (err) {
+      throw new Error(err);
+    }
+
+    return data ? data : null;
   };
 }
