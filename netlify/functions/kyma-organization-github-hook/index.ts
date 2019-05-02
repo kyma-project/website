@@ -10,7 +10,7 @@ const handler: Handler = (
   context: Context,
   callback: Callback,
 ) => {
-  console.log(JSON.parse(event.body), event.headers);
+  console.log(event, context);
   const response: Response = {
     statusCode: 200,
     body: "",
