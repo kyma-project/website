@@ -15,7 +15,7 @@ export class GitHubClient {
   getFilesFromPullRequest = async (
     event: PullRequest,
   ): Promise<PullsListFilesResponse> => {
-    console.log("middles")
+    console.log("middles");
     const response: Response<
       PullsListFilesResponse
     > = await this.octokit.pulls.listFiles({

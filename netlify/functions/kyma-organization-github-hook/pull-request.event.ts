@@ -76,7 +76,7 @@ const checkChangedFileNames = (
 const fetchChangedFiles = async (
   event: PullRequest,
 ): Promise<PullsListFilesResponse> => {
-  console.log("start")
+  console.log("start");
   const client = new GitHubClient();
   return await client.getFilesFromPullRequest(event);
 };
