@@ -42,7 +42,7 @@ const actionByEventType = async (
     case EventType.ISSUES:
       return checkCondition<Issues>(body, checkIssuesEvent);
     case EventType.PULL_REQUEST:
-      return checkCondition<PullRequest>(body, checkPullRequestEvent);
+      return await checkCondition<PullRequest>(body, checkPullRequestEvent);
     case EventType.RELEASE:
       return checkCondition<Release>(body, checkReleaseEvent);
     default:

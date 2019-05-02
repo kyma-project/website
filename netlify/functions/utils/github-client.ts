@@ -15,6 +15,7 @@ export class GitHubClient {
   getFilesFromPullRequest = async (
     event: PullRequest,
   ): Promise<PullsListFilesResponse> => {
+    console.log("middles")
     const response: Response<
       PullsListFilesResponse
     > = await this.octokit.pulls.listFiles({
@@ -23,7 +24,7 @@ export class GitHubClient {
       pull_number: event.number,
     });
 
-    console.log(response);
+    console.log("end", response);
 
     return response ? response.data : null;
   };

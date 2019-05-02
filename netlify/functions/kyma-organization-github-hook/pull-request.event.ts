@@ -29,24 +29,25 @@ export const checkPullRequestEvent = async (
   event: PullRequest,
 ): Promise<boolean> => {
   console.log(event.action);
-  console.log(await fetchChangedFiles(event));
-  if (
-    (event.action as PullRequestActionType) !== PullRequestActionType.CLOSED
-  ) {
-    if (!event.pull_request.merged) {
-      const repositoryName = event.repository.name;
-      if (!REPOSITORY_NAMES.includes(repositoryName)) {
-        return false;
-      }
+  await fetchChangedFiles(event);
 
-      const files = await fetchChangedFiles(event);
-      if (!files || !files.length) {
-        return false;
-      }
+  // if (
+  //   (event.action as PullRequestActionType) !== PullRequestActionType.CLOSED
+  // ) {
+  //   if (!event.pull_request.merged) {
+  //     const repositoryName = event.repository.name;
+  //     if (!REPOSITORY_NAMES.includes(repositoryName)) {
+  //       return false;
+  //     }
 
-      return checkChangedFiles(repositoryName, files);
-    }
-  }
+  //     const files = await fetchChangedFiles(event);
+  //     if (!files || !files.length) {
+  //       return false;
+  //     }
+
+  //     return checkChangedFiles(repositoryName, files);
+  //   }
+  // }
   return false;
 };
 
@@ -75,6 +76,7 @@ const checkChangedFileNames = (
 const fetchChangedFiles = async (
   event: PullRequest,
 ): Promise<PullsListFilesResponse> => {
+  console.log("start")
   const client = new GitHubClient();
   return await client.getFilesFromPullRequest(event);
 };
