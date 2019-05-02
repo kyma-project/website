@@ -75,8 +75,18 @@ const handler: Handler = async (
   }
 
   if (result) {
-    await triggerBuild();
+    try {
+      await triggerBuild();
+    } catch (err) {
+      console.error(err);
+      return {
+        statusCode: 500,
+        body: JSON.stringify(err),
+      };
+    }
   }
+
+  console.log(eventType, result);
 
   return {
     statusCode: 200,
