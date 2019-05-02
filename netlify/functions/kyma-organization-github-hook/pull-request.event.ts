@@ -41,7 +41,7 @@ export const checkPullRequestEvent = async (
 
     return checkChangedFiles(repositoryName, files);
   }
-  
+
   return false;
 };
 

@@ -1,4 +1,4 @@
-import fetch from 'node-fetch';
+import fetch from "node-fetch";
 import { Handler, Context, Callback, APIGatewayEvent } from "aws-lambda";
 import { Issues, PullRequest, Release } from "github-webhook-event-types";
 
@@ -70,8 +70,8 @@ const handler: Handler = async (
     console.error(err);
     return {
       statusCode: 500,
-      body: JSON.stringify(err)
-    }
+      body: JSON.stringify(err),
+    };
   }
 
   if (result) {
