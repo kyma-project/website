@@ -60,7 +60,13 @@ const handler: Handler = async (
   const eventType = extractGithubEventType(event.headers);
   if (!eventType) return;
 
-  const result = await actionByEventType(eventType as EventType, event.body);
+  let result: boolean = false;
+  try {
+    result = await actionByEventType(eventType as EventType, event.body);
+  } catch (err) {
+    console.error(err);
+    return;
+  }
 
   console.log(result);
 
