@@ -41,6 +41,7 @@
     "@fortawesome/free-regular-svg-icons": "^5.7.1",
     "@fortawesome/free-solid-svg-icons": "^5.7.1",
     "@fortawesome/react-fontawesome": "^0.1.4",
+    "@octokit/rest": "^16.25.1",
     "babel-plugin-styled-components": "^1.10.0",
     "constate": "^1.0.0",
     "gatsby": "^2.0.91",
