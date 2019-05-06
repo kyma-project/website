@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 
 import Grid from "@styled/Grid";
 
+import { FormattedMessage } from "@common/i18n";
+
 import CapabilitySvg from "@components/roadmap/Svg";
 import H from "@components/shared/H";
 import Button from "@components/shared/Button";
@@ -45,7 +47,9 @@ const Content: React.FunctionComponent = () => {
               setCapability(id);
             }}
           >
-            <Button.Emphasized>View Roadmap</Button.Emphasized>
+            <Button.Emphasized>
+              <FormattedMessage id={"roadmap.capabilities.viewRoadmap"} />
+            </Button.Emphasized>
           </div>
         </Grid.Unit>
       </Grid.Row>

@@ -4,12 +4,12 @@
     "subHeader": "Evolving the Vision and driving the Product",
     "description": "Give Kyma organization minimal Kyma usage statistics. We should know how ofter Kyma is privisioned daily on local and cluster and with what configration to understand which components are used less Have proper components in place to enable analytics. They should be preconfigured in the way the basic analytics are available out of the box"
   },
+  "capabilities": {
+    "viewRoadmap": "View Roadmap"
+  },
   "modal": {
     "viewInZenHub": "View in ZenHub",
     "viewInGitHub": "View in GitHub"
-  },
-  "dropdown": {
-    
   },
   "timeline": {
     "header": "Roadmap",

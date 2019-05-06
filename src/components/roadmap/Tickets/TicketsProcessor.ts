@@ -45,13 +45,19 @@ export class TicketsProcessor {
       return {
         displayName: release.displayName,
         capabilities: Object.keys(release.capabilities)
-          .filter(capability =>
-            filters.capabilities.includes(
-              capabilities.find(
-                cap => cap.frontmatter.displayName === capability,
-              )!.frontmatter.id,
-            ),
-          )
+          .filter(capability => {
+            const searchedCapability = capabilities.find(
+              cap => cap.frontmatter.displayName === capability,
+            );
+
+            if (searchedCapability) {
+              return filters.capabilities.includes(
+                searchedCapability.frontmatter.id,
+              );
+            }
+
+            return false;
+          })
           .reduce(
             (res: any, key) => ((res[key] = release.capabilities[key]), res),
             {},
