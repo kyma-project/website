@@ -14,7 +14,7 @@ The blog post should have the following format:
 ``` yaml
 ---
 title: {TITLE}
-author: 
+author:
   name: {AUTHOR}
 tags:
   - {TAG_1}
@@ -40,7 +40,7 @@ Example:
 ``` yaml
 ---
 title: "Latin's not dead"
-author: 
+author:
   name: "Cicero, Roman Philosopher"
 tags:
   - Lorem
@@ -50,7 +50,7 @@ tags:
   - Amet
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
 <!-- overview -->
 
@@ -90,7 +90,7 @@ See an example that contains other metadata and the blog post content:
 ``` yaml
 ---
 title: "Kyma 0.7 Dublin"
-author: 
+author:
   name: "Barbara Szwarc, Technical Writer @Kyma"
 tags:
   - release-notes
@@ -98,7 +98,7 @@ type: release
 releaseTag: "0.7.0"
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
 <!-- overview -->
 
@@ -161,7 +161,7 @@ Use this pattern to add links to other blog posts:
 ``` Markdown
 [Another blog post](/blog/{DATE}/{ADDRESS})
 ```
-where: 
+where:
 - `{DATE}` is the blog post's publication date, in the `YYYY/MM/DD` format.
 - `{ADDRESS}` is the last part of the site's address in the location bar.
 
@@ -176,16 +176,28 @@ Example:
 Use this pattern to add links to other documents:
 
 ``` Markdown
-[Overview - In a nutshell](/docs/{VERSION}/{DOCS_TYPE}/{DOC_TOPIC}#{HASH})
+[Overview - In a nutshell](/docs/{VERSION}/{DOCS_TYPE}/{DOC_TOPIC}/#{HASH})
 ```
-where: 
+where:
 - `{VERSION}` is the version of the referenced documentation.
-- `{DOCS_TYPE}` is the type of documentation. The available types are `root` and `components`.
-- `{DOC_TOPIC}` is the topic type of the referenced documentation.
+- `{DOCS_TYPE}` is the type of documentation. The available types are `root` for documents related directly to Kyma, and `components` for the components documentation.
+- `{DOC_TOPIC}` is the metadata type of the referenced documentation.
 - `{HASH}` is an optional anchor link to the referenced documentation.
 
-Example:
+Examples:
 
 ```
-[Overview - In a nutshell](/docs/master/root/kyma#overview-in-a-nutshell)
+[Overview - In a nutshell](/docs/master/root/kyma/#overview-in-a-nutshell)
 ```
+
+```
+[Create a bundle](/docs/master/components/helm-broker/#details-create-a-bundle)
+```
+
+For posts with release notes, put the release number in place of `{VERSION}`. For example, the reference to the Helm Broker 0.8 documentation looks as follows:
+
+```
+[Configuration](/docs/0.8/components/helm-broker/#configuration-configuration)
+```
+
+For more information on how to write release notes, see [this](https://github.com/kyma-project/community/blob/master/guidelines/content-guidelines/release-notes.md) document.
