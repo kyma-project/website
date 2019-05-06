@@ -6,9 +6,10 @@ export const writeToJson = async (outputPath: string, data: any) => {
   const [err] = await to(
     writeJSON(outputPath, data, { encoding: "utf8", spaces: 2 }),
   );
-  if (err)
+  if (err) {
     throw new VError(
       err,
       `while writing versions ${JSON.stringify(data)} to ${outputPath}`,
     );
+  }
 };

@@ -22,7 +22,7 @@ const prepareDocsFn = async () => {
   GitClient.withConfig(config, docsConfig.tempPath);
   GitHubClient.withConfig(config);
 
-  let [err] = await to(prepareDocs(config));
+  const [err] = await to(prepareDocs(config));
   if (err) throw err;
 };
 
@@ -37,7 +37,7 @@ const prepareRoadmapContentFn = async () => {
   GitHubGraphQLClient.withConfig(config);
   ZenHubCLient.withConfig(roadmapConfig.zenHubToken);
 
-  let [err] = await to(prepareRoadmapContent(config));
+  const [err] = await to(prepareRoadmapContent(config));
   if (err) throw err;
 };
 

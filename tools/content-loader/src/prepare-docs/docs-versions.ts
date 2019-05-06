@@ -45,7 +45,9 @@ export class DocsVersions {
     };
 
     const [err] = await to(writeToJson(outputPath, versions));
-    if (err) throw err;
+    if (err) {
+      throw err;
+    }
   }
 
   private forReleases(releases?: Map<string, string>) {

@@ -14,7 +14,7 @@ import {
   Release,
   ReleasesIssuesData,
   Capability,
-  ReleaseIssues,
+  ReleaseIssue,
   Issue,
 } from "./types";
 
@@ -48,10 +48,12 @@ export class TicketsExtractor {
 
   writeTickets = async (outputPath: string, tickets: Tickets) => {
     const [err] = await to(writeToJson(outputPath, tickets));
-    if (err) throw err;
+    if (err) {
+      throw err;
+    }
   };
 
-  removeDuplicateOfReleases = (releases: Release[]): Release[] => {
+  removeDuplicatedReleases = (releases: Release[]): Release[] => {
     return getUnique<Release>(releases, "release_id");
   };
 
@@ -135,8 +137,8 @@ export class TicketsExtractor {
   private filterIssuesForFutureRelease = (
     repositoriesWithEpics: Repository[],
     releaseIssuesData: ReleasesIssuesData,
-  ): ReleaseIssues[] => {
-    const futureReleaseIssues: ReleaseIssues[] = [];
+  ): ReleaseIssue[] => {
+    const futureReleaseIssues: ReleaseIssue[] = [];
 
     for (const repository of repositoriesWithEpics) {
       for (const repositoryIssue of repository.issues) {

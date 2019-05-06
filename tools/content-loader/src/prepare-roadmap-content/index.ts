@@ -28,12 +28,16 @@ const prepareRoadmapContent = async (coreConfig: CoreConfig) => {
   let err: Error | null;
 
   [err] = await to(CapabilitiesFetcher.copyCommunityRepository(coreConfig));
-  if (err) throw err;
+  if (err) {
+    throw err;
+  }
 
   [err] = await to(
     CapabilitiesFetcher.copyCapabilities(capabilitiesDir, capabilitiesOutput),
   );
-  if (err) throw err;
+  if (err) {
+    throw err;
+  }
 
   console.log(`Extracting metadata of capabilities`);
   let capabilities: Capability[] = [];
@@ -45,28 +49,36 @@ const prepareRoadmapContent = async (coreConfig: CoreConfig) => {
   console.log(`Querying for repositories of ${coreConfig.organization}`);
   let repositories: Repository[];
   [err, repositories] = await to(TicketsFetcher.queryRepositories());
-  if (err) throw err;
+  if (err) {
+    throw err;
+  }
 
   console.log(`Querying for issues with Epic label`);
   let repositoriesWithEpics: Repository[];
   [err, repositoriesWithEpics] = await to(
     TicketsFetcher.queryEpics(repositories),
   );
-  if (err) throw err;
+  if (err) {
+    throw err;
+  }
 
   console.log(`Querying for releases`);
   let releases: Release[];
   [err, releases] = await to(
     TicketsFetcher.queryRepositoriesReleases(repositories),
   );
-  if (err) throw err;
+  if (err) {
+    throw err;
+  }
 
   console.log(`Querying for issues in releases`);
   let releaseIssuesData: ReleasesIssuesData;
   [err, releaseIssuesData] = await to(
     TicketsFetcher.queryIssuesReleases(releases),
   );
-  if (err) throw err;
+  if (err) {
+    throw err;
+  }
 
   console.log(`Generating tickets`);
   const tickets: Tickets = TicketsExtractor.extractTickets({
@@ -78,7 +90,9 @@ const prepareRoadmapContent = async (coreConfig: CoreConfig) => {
 
   console.log(`Writing tickets to ${ticketsOutput}`);
   [err] = await to(TicketsExtractor.writeTickets(ticketsOutput, tickets));
-  if (err) throw err;
+  if (err) {
+    throw err;
+  }
 };
 
 export default prepareRoadmapContent;

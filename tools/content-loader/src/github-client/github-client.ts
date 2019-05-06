@@ -38,7 +38,9 @@ export class GitHubClient {
         repo: this.config.repository,
       }),
     );
-    if (err) throw new VError(err, `while getting list of releases`);
+    if (err) {
+      throw new VError(err, `while getting list of releases`);
+    }
 
     return response ? response.data : null;
   };
@@ -51,7 +53,9 @@ export class GitHubClient {
         branch: branch,
       }),
     );
-    if (err) throw new VError(err, `while getting data from branch: ${branch}`);
+    if (err) {
+      throw new VError(err, `while getting data from branch: ${branch}`);
+    }
 
     return response ? response.data.commit.sha : null;
   };
@@ -64,7 +68,9 @@ export class GitHubClient {
         per_page: 100,
       }),
     );
-    if (err) throw new VError(err, `while getting list of tags`);
+    if (err) {
+      throw new VError(err, `while getting list of tags`);
+    }
 
     return response ? response.data : null;
   };

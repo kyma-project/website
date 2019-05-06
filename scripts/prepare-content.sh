@@ -21,6 +21,7 @@ trap on_exit EXIT
 readonly SCRIPTS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 readonly KYMA_REPOSITORY="https://github.com/kyma-project/kyma.git"
 readonly CONTENT_DIR="${SCRIPTS_DIR}/../content"
+readonly VOLUME_CONTENT_DIR="/app/content"
 readonly LOADER_IMAGE="eu.gcr.io/kyma-project/develop/website-content-loader:a0aff067"
 
 # Colors
@@ -68,12 +69,12 @@ preparing() {
     docker run --rm -v "${CONTENT_DIR}:/app/content" \
                -e APP_DOCS_REPOSITORY="kyma" \
                -e APP_DOCS_BRANCHES="${BRANCHES}" \
-               -e APP_DOCS_OUTPUT="/app/content/docs" \
-               -e APP_DOCS_VERSIONS_CONFIG_FILE="/app/content/docs/versions.json" \
+               -e APP_DOCS_OUTPUT="${VOLUME_CONTENT_DIR}/docs" \
+               -e APP_DOCS_VERSIONS_CONFIG_FILE="${VOLUME_CONTENT_DIR}/docs/versions.json" \
                -e APP_ROADMAP_REPOSITORY="community" \
-               -e APP_ROADMAP_OUTPUT="/app/content/roadmap" \
-               -e APP_ROADMAP_CAPABILITIES_OUTPUT="/app/content/roadmap/capabilities" \
-               -e APP_ROADMAP_TICKETS_OUTPUT="/app/content/roadmap/tickets.json" \
+               -e APP_ROADMAP_OUTPUT="${VOLUME_CONTENT_DIR}/roadmap" \
+               -e APP_ROADMAP_CAPABILITIES_OUTPUT="${VOLUME_CONTENT_DIR}/roadmap/capabilities" \
+               -e APP_ROADMAP_TICKETS_OUTPUT="${VOLUME_CONTENT_DIR}/roadmap/tickets.json" \
                -e APP_TOKEN="${BOT_GITHUB_TOKEN}" \
                -e APP_ZEN_HUB_TOKEN="${BOT_ZENHUB_TOKEN}" \
                ${LOADER_IMAGE}

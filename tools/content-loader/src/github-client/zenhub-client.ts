@@ -26,11 +26,12 @@ export class ZenHubClient {
     const [err, data] = await to(
       this.axios.get(`/p1/repositories/${repo_id}/reports/releases`),
     );
-    if (err)
+    if (err) {
       throw new VError(
         err,
         `while fetching reports for releases for repo: ${repo_id}`,
       );
+    }
 
     return data.data;
   };
@@ -39,11 +40,12 @@ export class ZenHubClient {
     const [err, data] = await to(
       this.axios.get(`/p1/reports/release/${repo_id}/issues`),
     );
-    if (err)
+    if (err) {
       throw new VError(
         err,
         `while fetching reports for releases for repo: ${repo_id}`,
       );
+    }
 
     return data.data;
   };

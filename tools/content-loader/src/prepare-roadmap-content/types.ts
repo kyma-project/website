@@ -38,10 +38,10 @@ export interface Issue {
 }
 
 export interface ReleasesIssuesData {
-  [release: string]: ReleaseIssues[];
+  [release: string]: ReleaseIssue[];
 }
 
-export interface ReleaseIssues {
+export interface ReleaseIssue {
   repo_id: number;
   issue_number: number;
 }

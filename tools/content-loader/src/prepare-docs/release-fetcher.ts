@@ -10,7 +10,9 @@ import { DocsReleasesVersion } from "./docs-versions";
 export class ReleaseFetcher {
   async get() {
     const [err, releases] = await to(GitHubClient.getReleases());
-    if (err) throw err;
+    if (err) {
+      throw err;
+    }
 
     return releases;
   }

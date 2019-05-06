@@ -4,5 +4,7 @@ import { VError } from "verror";
 
 export const removeDir = async (dir: string) => {
   const [err] = await to(remove(dir));
-  if (err) throw new VError(err, `while removing dir: ${dir}`);
+  if (err) {
+    throw new VError(err, `while removing dir: ${dir}`);
+  }
 };

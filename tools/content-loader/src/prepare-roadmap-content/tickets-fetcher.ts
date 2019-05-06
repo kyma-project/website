@@ -14,7 +14,7 @@ import {
   Repository,
   Release,
   Issue,
-  ReleaseIssues,
+  ReleaseIssue,
   ReleasesIssuesData,
 } from "./types";
 
@@ -43,7 +43,9 @@ export class TicketsFetcher {
     const [err, data] = await to<any>(
       GitHubGraphQLClient.query(query, options),
     );
-    if (err) throw new VError(err, `while query repositories`);
+    if (err) {
+      throw new VError(err, `while query repositories`);
+    }
 
     const repositories: Repository[] = data.organization.repositories.edges.map(
       repo => {
@@ -166,11 +168,13 @@ export class TicketsFetcher {
       const [err, data] = await to<Release[]>(
         ZenHubClient.reportForReleases(String(repository.id)),
       );
-      if (err) throw err;
+      if (err) {
+        throw err;
+      }
 
       releases = [...releases, ...data];
     }
-    releases = TicketsExtractor.removeDuplicateOfReleases(releases);
+    releases = TicketsExtractor.removeDuplicatedReleases(releases);
     return TicketsExtractor.removeClosedReleases(releases);
   };
 
@@ -180,10 +184,12 @@ export class TicketsFetcher {
     let releaseIssues: ReleasesIssuesData = {};
 
     for (const release of releases) {
-      const [err, data] = await to<ReleaseIssues[]>(
+      const [err, data] = await to<ReleaseIssue[]>(
         ZenHubClient.issuesForRelease(String(release.release_id)),
       );
-      if (err) throw err;
+      if (err) {
+        throw err;
+      }
 
       releaseIssues[release.title] = data;
     }

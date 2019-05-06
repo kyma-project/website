@@ -12,11 +12,12 @@ export class BranchesSerializer {
       const [err, commit] = await to(
         GitHubClient.getLatestCommitFromBranch(branchName),
       );
-      if (err)
+      if (err) {
         throw new VError(
           err,
           `while getting last commit from branch: ${branchName}`,
         );
+      }
 
       if (commit) branches.set(branchName, commit);
     }

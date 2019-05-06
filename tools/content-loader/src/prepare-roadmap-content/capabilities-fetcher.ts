@@ -31,7 +31,9 @@ export class CapabilitiesFetcher {
     const [err] = await to(
       copyResources(capabilitiesDir, output, this.allowedFilesRegex),
     );
-    if (err) throw new VError(err, `while copying capabilities to ${output}`);
+    if (err) {
+      throw new VError(err, `while copying capabilities to ${output}`);
+    }
   };
 
   extractCapabilitiesMetadata = async (
@@ -40,7 +42,9 @@ export class CapabilitiesFetcher {
     let err: Error | null;
     let files: any;
     [err, files] = await to(getFilesPaths(capabilitiesDir));
-    if (err) throw new VError(err, `while getting files paths`);
+    if (err) {
+      throw new VError(err, `while getting files paths`);
+    }
 
     let filteredFiles = files.filter(file =>
       Boolean(this.allowedFilesRegex.exec(file)),
@@ -55,8 +59,9 @@ export class CapabilitiesFetcher {
 
     let capabilities: any;
     [err, capabilities] = await to(Promise.all(extractedMetadata));
-    if (err)
+    if (err) {
       throw new VError(err, `while extracting metadata from capabilities`);
+    }
 
     return capabilities as Capability[];
   };

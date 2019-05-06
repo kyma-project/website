@@ -26,7 +26,9 @@ export class GitHubGraphQLClient {
 
   query = async (query: string, options: any) => {
     const [err, data] = await to(this.graphql(query, options));
-    if (err) throw new VError(err, `while query: ${query}`);
+    if (err) {
+      throw new VError(err, `while query: ${query}`);
+    }
 
     return data;
   };

@@ -11,11 +11,15 @@ export class BranchesChecking {
 
     let allReleases;
     [err, allReleases] = await to(ReleaseFetcher.get());
-    if (err) throw err;
+    if (err) {
+      throw err;
+    }
 
     let tags;
     [err, tags] = await to(TagsFetcher.get());
-    if (err) throw err;
+    if (err) {
+      throw err;
+    }
 
     if (!allReleases || !tags) return;
 
@@ -48,7 +52,9 @@ export class BranchesChecking {
 
   branches = async (configBranches: string[]) => {
     const [err, branches] = await to(BranchesSerializer.get(configBranches));
-    if (err) throw new VError(err, `while getting branches`);
+    if (err) {
+      throw new VError(err, `while getting branches`);
+    }
 
     return branches;
   };

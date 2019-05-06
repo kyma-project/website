@@ -27,11 +27,12 @@ export class GitClient {
       this.execShellCommand(`git clone "${repository}" "${this.destination}"`),
     );
 
-    if (err)
+    if (err) {
       throw new VError(
         err,
         `while cloning ${repository} to ${this.destination}`,
       );
+    }
   };
 
   checkout = async (branch: string) => {
@@ -40,12 +41,16 @@ export class GitClient {
         `cd "${this.destination}" && git checkout "${branch}"`,
       ),
     );
-    if (err) throw new VError(err, `while checkout to branch: ${branch}`);
+    if (err) {
+      throw new VError(err, `while checkout to branch: ${branch}`);
+    }
   };
 
   checkoutTag = async (tag: string) => {
     const [err] = await to(this.checkout(`tags/${tag}`));
-    if (err) throw err;
+    if (err) {
+      throw err;
+    }
   };
 
   private execShellCommand = (cmd: string) => {
