@@ -195,6 +195,7 @@ Examples:
 ```
 
 >**CAUTION:** In case of release notes, remember to put the release number in place of `{VERSION}`. For example, the reference to the Helm Broker 0.8 documentation looks as follows:
-```
-[Configuration](/docs/0.8/components/helm-broker/#configuration-configuration)
-```
+>```
+>[Configuration](/docs/0.8/components/helm-broker/#configuration-configuration)
+>```
+>For more information on how to write release notes, see [this](https://github.com/kyma-project/community/blob/master/guidelines/content-guidelines/release-notes.md) document.
