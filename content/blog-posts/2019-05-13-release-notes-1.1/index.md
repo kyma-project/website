@@ -23,7 +23,7 @@ See the overview of all changes in this release:
 - [Application Connector](#application-connector) - Application Operator optimization, OData support in documentation, Event Service
 - [Console](#console) - Performance improvements, usability improvements
 - [Core and Supporting](#core-and-supporting) - Minio Gateway mode
-- [Eventing](#eventing) - Subscription CR status change, Improved upgradability, new dashboards in Grafana
+- [Eventing](#eventing) - Subscription CR status change, improved upgradability, new dashboards in Grafana
 
 ---
 
