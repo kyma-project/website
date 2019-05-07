@@ -62,7 +62,7 @@ The [Asset Store](/docs/1.1/components/asset-store) that provides asset manageme
 In this release we focused on preparing an easy switch from the standalone mode to the Gateway mode by:
 - Making sure sure your data is seamlessly recreated after the switch
 - Improving the stability of the Asset Store with Minio in the Gateway mode
-- Providing clear documentation on [how to switch to GCS](/docs/1.1/components/asset-store/#tutorials-set-minio-to-the-google-cloud-storage-gateway-mode)
+- Providing clear documentation on how to [switch to GCS](/docs/1.1/components/asset-store/#tutorials-set-minio-to-the-google-cloud-storage-gateway-mode)
 
 ## Eventing
 
