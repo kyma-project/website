@@ -7,7 +7,6 @@ slides:
     },
     {
   - text: "Join us for the KubeCon, Barcelona, May 21-23!"
-    url: "https://events.linuxfoundation.org/events/kubecon-cloudnativecon-europe-2019/schedule/"
     startDate: "07/05/2019"
     endDate: "23/05/2019"
      }
