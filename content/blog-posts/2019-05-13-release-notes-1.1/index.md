@@ -68,7 +68,7 @@ In this release we focused on preparing an easy switch from the standalone mode 
 
 ### Subscription CR status change
 
-We moved the status of a given resource from the `.spec` section of the Subscription custom resource definition (CRD) to a sub-resource. This allows for direct status interactions and recreating it without modifying the specification.
+We moved the status of a given resource from the `spec` section of the Subscription custom resource definition (CRD) to a sub-resource. This allows for direct status interactions and recreating it without modifying the specification.
 
 ### Improved upgradability
 
