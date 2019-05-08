@@ -4,7 +4,9 @@
   "description": "Content loader for kyma-project.io",
   "main": "bin/main.ts",
   "scripts": {
-    "start": "ts-node bin/main.ts"
+    "start": "ts-node bin/main.ts",
+    "lint-check": "tslint -c tslint.json '**/*.{ts,tsx}' --format verbose && prettier --check '**/*.{ts,tsx,js,jsx,json,html,css,yaml}'",
+    "lint-fix": "tslint -c tslint.json '**/*.{ts,tsx}' --format verbose --fix && prettier --write '**/*.{ts,tsx,js,jsx,json,html,css,yaml}'"
   },
   "author": "The Kyma project authors",
   "license": "Apache-2.0",
@@ -26,6 +28,8 @@
     "prettier": "^1.15.2",
     "safe-buffer": "5.1.1",
     "ts-node": "^8.0.3",
+    "tslint": "^5.10.0",
+    "tslint-config-prettier": "^1.17.0",
     "typescript": "^3.4.1",
     "verror": "^1.10.0"
   },

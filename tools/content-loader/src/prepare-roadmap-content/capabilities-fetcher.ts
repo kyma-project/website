@@ -46,13 +46,16 @@ export class CapabilitiesFetcher {
       throw new VError(err, `while getting files paths`);
     }
 
-    let filteredFiles = files.filter(file =>
+    const filteredFiles = files.filter(file =>
       Boolean(this.allowedFilesRegex.exec(file)),
     );
 
     const extractedMetadata = filteredFiles.map(
       async (file: string): Promise<Capability> => {
-        const [err, result] = await to(readFile(file, "utf8"));
+        const [e, result] = await to(readFile(file, "utf8"));
+        if (e) {
+          throw new VError(e, `cannot read file: ${file}`);
+        }
         return fm(result).attributes;
       },
     );

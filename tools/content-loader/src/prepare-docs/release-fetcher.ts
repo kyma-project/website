@@ -30,9 +30,7 @@ export class ReleaseFetcher {
   }
 
   groupReleaseByName(releases: ReposGetReleaseResponse[]) {
-    return this.groupBy(releases, current => {
-      return this.getReleaseName(current);
-    });
+    return this.groupBy(releases, current => this.getReleaseName(current));
   }
 
   getReleaseName(release: ReposGetReleaseResponse) {
@@ -42,9 +40,9 @@ export class ReleaseFetcher {
   }
 
   groupReleaseByType(releases: ReposGetReleaseResponse[]) {
-    return this.groupBy(releases, current => {
-      return current.prerelease ? "prereleases" : "releases";
-    });
+    return this.groupBy(releases, current =>
+      current.prerelease ? "prereleases" : "releases",
+    );
   }
 
   groupBy(array: any[], fn) {

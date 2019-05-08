@@ -23,5 +23,8 @@
     "no-debugger": true,
     "radix": true
   },
-  "jsRules": {}
+  "jsRules": {},
+  "linterOptions": {
+    "exclude": ["node_modules/**/*", "tools/**/*"]
+  }
 }

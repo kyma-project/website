@@ -53,20 +53,18 @@ export class TicketsExtractor {
     }
   };
 
-  removeDuplicatedReleases = (releases: Release[]): Release[] => {
-    return getUnique<Release>(releases, "release_id");
-  };
+  removeDuplicatedReleases = (releases: Release[]): Release[] =>
+    getUnique<Release>(releases, "release_id");
 
-  removeClosedReleases = (releases: Release[]): Release[] => {
-    return releases.filter(release => release.state === "open");
-  };
+  removeClosedReleases = (releases: Release[]): Release[] =>
+    releases.filter(release => release.state === "open");
 
   private filterIssuesByEpics = (
     repositoriesWithEpics: Repository[],
     releaseIssuesData: ReleasesIssuesData,
   ): ReleasesIssuesData => {
     const newReleaseData: ReleasesIssuesData = {};
-    for (const release in releaseIssuesData) {
+    for (const release of Object.keys(releaseIssuesData)) {
       newReleaseData[release] = releaseIssuesData[release].filter(issue => {
         let result: boolean = false;
 
@@ -101,7 +99,7 @@ export class TicketsExtractor {
     capabilities: Capability[],
   ): Tickets => {
     const tickets: Tickets = {};
-    for (const release in releaseData) {
+    for (const release of Object.keys(releaseData)) {
       tickets[release] = {};
 
       capabilities.map(capability => {
@@ -144,7 +142,7 @@ export class TicketsExtractor {
       for (const repositoryIssue of repository.issues) {
         let add: boolean = true;
 
-        for (const release in releaseIssuesData) {
+        for (const release of Object.keys(releaseIssuesData)) {
           for (const releaseIssue of releaseIssuesData[release]) {
             if (release === roadmapConfig.releaseForNonCategorizedIssues) {
               break;
@@ -176,20 +174,18 @@ export class TicketsExtractor {
     release: Release,
     repository: Repository,
     capability: Capability,
-  ): Issue => {
-    return {
-      ...issue,
-      body: removeHTMLComments(issue.body),
-      dueDate: release.desired_end_date,
-      zenHubUrl: this.createZenHubUrl(repository.name, issue.number),
-      release,
-      repository: {
-        ...repository,
-        issues: [],
-      },
-      capability,
-    };
-  };
+  ): Issue => ({
+    ...issue,
+    body: removeHTMLComments(issue.body),
+    dueDate: release.desired_end_date,
+    zenHubUrl: this.createZenHubUrl(repository.name, issue.number),
+    release,
+    repository: {
+      ...repository,
+      issues: [],
+    },
+    capability,
+  });
 
   private createZenHubUrl = (
     repository: string,

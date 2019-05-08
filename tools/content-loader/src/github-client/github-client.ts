@@ -50,7 +50,7 @@ export class GitHubClient {
       this.octokit.repos.getBranch({
         owner: this.config.organization,
         repo: this.config.repository,
-        branch: branch,
+        branch,
       }),
     );
     if (err) {

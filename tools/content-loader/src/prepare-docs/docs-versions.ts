@@ -10,27 +10,27 @@ import {
 
 import { writeToJson } from "../helpers";
 
-export type DocsVersionsInterface = {
+export interface DocsVersionsInterface {
   releases?: Map<string, string>;
   pre_releases?: Map<string, string>;
   branches?: Map<string, string>;
-};
+}
 
-export type DocsGeneratedVersions = {
+export interface DocsGeneratedVersions {
   releases: DocsReleasesVersion[];
   pre_releases: DocsReleasesVersion[];
   branches: DocsBranchesVersion[];
-};
+}
 
-export type DocsReleasesVersion = {
+export interface DocsReleasesVersion {
   name: string;
   tag: string;
-};
+}
 
-export type DocsBranchesVersion = {
+export interface DocsBranchesVersion {
   name: string;
   commit: string;
-};
+}
 
 export class DocsVersions {
   async generate(v: DocsVersionsInterface, outputPath: string) {
@@ -56,8 +56,8 @@ export class DocsVersions {
 
     releases.forEach((tag, name) => {
       versions.push({
-        name: name,
-        tag: tag,
+        name,
+        tag,
       });
     });
 
@@ -71,7 +71,7 @@ export class DocsVersions {
     branches.forEach((commit, branch) => {
       versions.push({
         name: branch,
-        commit: commit,
+        commit,
       });
     });
 

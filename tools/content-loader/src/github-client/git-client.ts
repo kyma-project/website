@@ -53,13 +53,12 @@ export class GitClient {
     }
   };
 
-  private execShellCommand = (cmd: string) => {
-    return new Promise((resolve, reject) => {
+  private execShellCommand = (cmd: string) =>
+    new Promise((resolve, reject) => {
       exec(cmd, (error, stdout, stderr) => {
         error ? reject(error) : resolve(stdout ? stdout : stderr);
       });
     });
-  };
 }
 
 export default new GitClient();

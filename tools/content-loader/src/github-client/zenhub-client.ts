@@ -22,28 +22,28 @@ export class ZenHubClient {
     });
   };
 
-  reportForReleases = async (repo_id: string) => {
+  reportForReleases = async (repoId: string) => {
     const [err, data] = await to(
-      this.axios.get(`/p1/repositories/${repo_id}/reports/releases`),
+      this.axios.get(`/p1/repositories/${repoId}/reports/releases`),
     );
     if (err) {
       throw new VError(
         err,
-        `while fetching reports for releases for repo: ${repo_id}`,
+        `while fetching reports for releases for repo: ${repoId}`,
       );
     }
 
     return data.data;
   };
 
-  issuesForRelease = async (repo_id: string) => {
+  issuesForRelease = async (repoId: string) => {
     const [err, data] = await to(
-      this.axios.get(`/p1/reports/release/${repo_id}/issues`),
+      this.axios.get(`/p1/reports/release/${repoId}/issues`),
     );
     if (err) {
       throw new VError(
         err,
-        `while fetching reports for releases for repo: ${repo_id}`,
+        `while fetching reports for releases for repo: ${repoId}`,
       );
     }
 

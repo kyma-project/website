@@ -12,7 +12,7 @@ export const copyResources = async (
   regex: RegExp,
 ) => {
   let err: Error | null;
-  
+
   [err] = await to(removeDir(output));
   if (err) {
     throw err;
@@ -30,11 +30,11 @@ export const copyResources = async (
 
   const copyingFiles = files.map(async file => {
     const newPath = join(output, file.replace(dir, ""));
-    const [err, result] = await to(copy(file, newPath));
-    if (err) {
-      throw new VError(err, `while copying file "${file}" to path: ${newPath}`);
+    const [e, r] = await to(copy(file, newPath));
+    if (e) {
+      throw new VError(e, `while copying file "${file}" to path: ${newPath}`);
     }
-    return result;
+    return r;
   });
 
   let result;

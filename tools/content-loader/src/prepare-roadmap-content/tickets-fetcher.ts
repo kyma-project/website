@@ -144,7 +144,7 @@ export class TicketsFetcher {
   };
 
   queryEpics = async (repositories: Repository[]): Promise<Repository[]> => {
-    let result: Repository[] = [];
+    const result: Repository[] = [];
     for (const repository of repositories) {
       const [err, issues] = await to<Issue[]>(this.queryEpicIssues(repository));
       if (err) {
@@ -181,7 +181,7 @@ export class TicketsFetcher {
   queryIssuesReleases = async (
     releases: Release[],
   ): Promise<ReleasesIssuesData> => {
-    let releaseIssues: ReleasesIssuesData = {};
+    const releaseIssues: ReleasesIssuesData = {};
 
     for (const release of releases) {
       const [err, data] = await to<ReleaseIssue[]>(

@@ -23,7 +23,8 @@ const prepareDocs = async (coreConfig: CoreConfig) => {
     throw new VError(err, `while checking releases`);
   }
 
-  let releases, prereleases;
+  let releases;
+  let prereleases;
   if (result) {
     releases = result.releases;
     prereleases = result.prereleases;
