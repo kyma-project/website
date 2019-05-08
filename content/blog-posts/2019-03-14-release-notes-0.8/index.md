@@ -10,7 +10,8 @@ redirectFrom:
   - "/blog/release-notes-08"
 ---
 
-The 0.8 release is packed with new features and improvements that bring your experience to a new level. The Kyma-Knative integration continues, making it now possible to both publish and consume Events using Knative Eventing. You can now back up a Kyma cluster manually or schedule periodic backups. The Minikube version constraint is removed, allowing you to use any compatible Minikube version. The Application Connector got even more powerful with certificate signing, renewal, and revocation, as well as a brand new information endpoint. Other significant improvements include replacing OK Log with Grafana Loki, switching all Console views to SAP Fiori Fundamentals, and the introduction of the **kyma-developer** role.  
+The 0.8 release is packed with new features and improvements that bring your experience to a new level. The Kyma-Knative integration continues, making it now possible to both publish and consume Events using Knative Eventing. You can now back up a Kyma cluster manually or schedule periodic backups. The Minikube version constraint is removed, allowing you to use any compatible Minikube version. The Application Connector got even more powerful with certificate signing, renewal, and revocation, as well as a brand new information endpoint. Other significant improvements include replacing OK Log with Grafana Loki, switching all Console views to SAP Fiori Fundamentals, and the introduction of the **kyma-developer** role.
+
 <!-- overview -->
 
 The highlights of Kyma 0.8 Edmonton include:

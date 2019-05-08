@@ -2,7 +2,7 @@
 
 This repository has the following structure:
 
-```
+``` text
   ├── .github                     # Pull request and issue templates
   ├── content                     # Content for the website
   │    ├── assets                 # Assets files
@@ -14,7 +14,7 @@ This repository has the following structure:
   ├── gatsby                      # Directory with files using the Gatsby API for creating static pages or creating nodes
   ├── plugins                     # Original plugins used in the "gatsby.config.js" file
   ├── scripts                     # Scripts used for Continuous Integration. Do not use them locally
-  ├── src                         # Website's source code 
+  ├── src                         # Website's source code
   │    ├── common                 # Various helper functions and types
   │    ├── components             # Structure of website's components
   │    │    ├── blog              # Structure and styles of the blog posts

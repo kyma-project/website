@@ -64,6 +64,7 @@ Integer volutpat interdum eros a malesuada. Proin porttitor, leo eu dignissim po
 When writing a post you can determine what type it should be. By specifying the type, the content of the post is automatically adapted to the template of the given type. Specifying the type is optional. If you don't provide this information, the post renders in the default way.
 
 To specify a type, you must provide it as metadata in the blog post:
+
 ``` yaml
 ---
 ...
@@ -82,7 +83,9 @@ To create a release blog post, write `release` in place of `{POST_TYPE}` and rep
 ``` yaml
 releaseTag: {VERSION}
 ```
+
 where:
+
 - `{VERSION}` is the release Kyma version.
 
 See an example that contains other metadata and the blog post content:
@@ -111,7 +114,7 @@ Integer volutpat interdum eros a malesuada. Proin porttitor, leo eu dignissim po
 
 To add the image to your blog post, copy the desired image to the folder with the `index.md` file and write:
 
-```
+``` Markdown
 ![{ALT_TITLE}](./{IMAGE_FILENAME} "{TEXT_WHILE_HOVERING}")
 ```
 
@@ -124,7 +127,7 @@ You can use a link instead of a relative path to the image.
 
 Example:
 
-```
+``` Markdown
 ![Kyma logo](https://raw.githubusercontent.com/kyma-project/kyma/master/logo.png "Hover over me!")
 ```
 
@@ -142,12 +145,14 @@ See the example usage with mixed elements:
 
 ``` HTML
 <p align="center">
-    <img src="./logo.png" width="235">
+  <img src="./logo.png" width="235">
 </p>
 ```
 
+<!-- markdownlint-disable MD033 -->
 <p align="center">
-    <img src="./assets/logo.png" width="235">
+<!-- markdownlint-disable MD033 -->
+  <img src="./assets/logo.png" width="235">
 </p>
 
 ---
@@ -161,13 +166,15 @@ Use this pattern to add links to other blog posts:
 ``` Markdown
 [Another blog post](/blog/{DATE}/{ADDRESS})
 ```
+
 where:
+
 - `{DATE}` is the blog post's publication date, in the `YYYY/MM/DD` format.
 - `{ADDRESS}` is the last part of the site's address in the location bar.
 
 Example:
 
-```
+``` Markdown
 [Introduction](/blog/2018/07-24/introduction-project-kyma)
 ```
 
@@ -178,7 +185,9 @@ Use this pattern to add links to other documents:
 ``` Markdown
 [Overview - In a nutshell](/docs/{VERSION}/{DOCS_TYPE}/{DOC_TOPIC}/#{HASH})
 ```
+
 where:
+
 - `{VERSION}` is the version of the referenced documentation.
 - `{DOCS_TYPE}` is the type of documentation. The available types are `root` for documents related directly to Kyma, and `components` for the components documentation.
 - `{DOC_TOPIC}` is the metadata type of the referenced documentation.
@@ -186,17 +195,17 @@ where:
 
 Examples:
 
-```
+``` Markdown
 [Overview - In a nutshell](/docs/master/root/kyma/#overview-in-a-nutshell)
 ```
 
-```
+``` Markdown
 [Create a bundle](/docs/master/components/helm-broker/#details-create-a-bundle)
 ```
 
 For posts with release notes, put the release number in place of `{VERSION}`. For example, the reference to the Helm Broker 0.8 documentation looks as follows:
 
-```
+``` Markdown
 [Configuration](/docs/0.8/components/helm-broker/#configuration-configuration)
 ```
 

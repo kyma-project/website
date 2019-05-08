@@ -14,7 +14,6 @@ The 1.0 release may not be abundant in new features, but it surely adds value to
 
 <!-- overview -->
 
-
 See the overview of all changes in this release:
 
 - [Logging](#logging) - Logging solution based on Loki
@@ -25,7 +24,6 @@ See the overview of all changes in this release:
 ### Loki bundled and enabled 
 
 [Loki](https://github.com/grafana/loki), a lightweight Prometheus-like log management system, is now the central logging solution. It is fully integrated with the Kyma Console and the bundled Grafana. 
-
  
 ## Service Mesh
 

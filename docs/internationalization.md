@@ -1,6 +1,7 @@
 # Internationalization
 
 Follow these steps to add a new translated content to the website:
+
 1. Create a new subfolder in the `content/i18n` folder with a lowercase abbreviated language name which you want to add. Follow the naming convention from the [react-intl](https://github.com/yahoo/react-intl) library.
 2. Create `json` files with names and content identical to those in `content/i18n/en`.
 3. Replace only values in appropriate files. Remember that the value between `{}` chars is a variable and you cannot remove it. If required, change the location of variables in a sentence to match the word order of a given language.
