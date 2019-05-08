@@ -19,9 +19,12 @@ const prepareDocs = async (coreConfig: CoreConfig) => {
   let err: Error | null;
   let result;
   [err, result] = await to(CheckingDocs.releases());
-  if (err) throw new VError(err, `while checking releases`);
+  if (err) {
+    throw new VError(err, `while checking releases`);
+  }
 
-  let releases, prereleases;
+  let releases;
+  let prereleases;
   if (result) {
     releases = result.releases;
     prereleases = result.prereleases;
@@ -29,21 +32,28 @@ const prepareDocs = async (coreConfig: CoreConfig) => {
 
   let branches;
   [err, branches] = await to(CheckingDocs.branches(configBranches));
-  if (err) throw new VError(err, `while checking branches`);
+  if (err) {
+    throw new VError(err, `while checking branches`);
+  }
 
   [err] = await to(mkdirs(outputPath));
-  if (err) throw new VError(err, `while creating dir ${outputPath}`);
+  if (err) {
+    throw new VError(err, `while creating dir ${outputPath}`);
+  }
 
   [err] = await to(mkdirs(tempPath));
-  if (err) throw new VError(err, `while creating dir ${tempPath}`);
+  if (err) {
+    throw new VError(err, `while creating dir ${tempPath}`);
+  }
 
   console.log(`Cloning ${coreConfig.organization}/${coreConfig.repository}`);
   [err] = await to(GitClient.clone());
-  if (err)
+  if (err) {
     throw new VError(
       err,
       `while cloning ${coreConfig.organization}/${coreConfig.repository}`,
     );
+  }
 
   [err] = await to(
     CopyDocs.releases({
@@ -52,7 +62,9 @@ const prepareDocs = async (coreConfig: CoreConfig) => {
       output: outputPath,
     }),
   );
-  if (err) throw err;
+  if (err) {
+    throw err;
+  }
 
   [err] = await to(
     CopyDocs.releases({
@@ -61,7 +73,9 @@ const prepareDocs = async (coreConfig: CoreConfig) => {
       output: outputPath,
     }),
   );
-  if (err) throw err;
+  if (err) {
+    throw err;
+  }
 
   [err] = await to(
     CopyDocs.branches({
@@ -70,7 +84,9 @@ const prepareDocs = async (coreConfig: CoreConfig) => {
       output: outputPath,
     }),
   );
-  if (err) throw err;
+  if (err) {
+    throw err;
+  }
 
   console.log(`Generating documentation versions file to ${outputDocsVersion}`);
   [err] = await to(
@@ -83,7 +99,9 @@ const prepareDocs = async (coreConfig: CoreConfig) => {
       outputDocsVersion,
     ),
   );
-  if (err) throw err;
+  if (err) {
+    throw err;
+  }
 };
 
 export default prepareDocs;

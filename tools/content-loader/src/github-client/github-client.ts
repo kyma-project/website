@@ -10,7 +10,7 @@ import {
 
 import { CoreConfig } from "../config";
 
-class GitHubClient {
+export class GitHubClient {
   private config: CoreConfig;
   private octokit: any;
 
@@ -38,7 +38,9 @@ class GitHubClient {
         repo: this.config.repository,
       }),
     );
-    if (err) throw new VError(err, `while getting list of releases`);
+    if (err) {
+      throw new VError(err, `while getting list of releases`);
+    }
 
     return response ? response.data : null;
   };
@@ -48,10 +50,12 @@ class GitHubClient {
       this.octokit.repos.getBranch({
         owner: this.config.organization,
         repo: this.config.repository,
-        branch: branch,
+        branch,
       }),
     );
-    if (err) throw new VError(err, `while getting data from branch: ${branch}`);
+    if (err) {
+      throw new VError(err, `while getting data from branch: ${branch}`);
+    }
 
     return response ? response.data.commit.sha : null;
   };
@@ -64,7 +68,9 @@ class GitHubClient {
         per_page: 100,
       }),
     );
-    if (err) throw new VError(err, `while getting list of tags`);
+    if (err) {
+      throw new VError(err, `while getting list of tags`);
+    }
 
     return response ? response.data : null;
   };

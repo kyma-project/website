@@ -20,5 +20,6 @@
       "@styled": ["./src/common/styled"],
       "@styled/*": ["./src/common/styled/*"]
     }
-  }
+  },
+  "exclude": ["**/node_modules/**/*"]
 }

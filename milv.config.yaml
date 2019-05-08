@@ -10,6 +10,10 @@ black-list-internal:
 timeout: 60
 request-repeats: 5
 files:
+  - path: "./website/tools/content-loader/README.md"
+    config:
+      white-list-external:
+        - https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues
   - path: "./website/.github/ISSUE_TEMPLATE/security-vulnerability.md"
     config:
       white-list-internal: ["{CVSS"]

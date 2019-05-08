@@ -8,29 +8,31 @@ import {
   ReposListTagsResponse,
 } from "@octokit/rest";
 
-export type DocsVersionsInterface = {
+import { writeToJson } from "../helpers";
+
+export interface DocsVersionsInterface {
   releases?: Map<string, string>;
   pre_releases?: Map<string, string>;
   branches?: Map<string, string>;
-};
+}
 
-export type DocsGeneratedVersions = {
+export interface DocsGeneratedVersions {
   releases: DocsReleasesVersion[];
   pre_releases: DocsReleasesVersion[];
   branches: DocsBranchesVersion[];
-};
+}
 
-export type DocsReleasesVersion = {
+export interface DocsReleasesVersion {
   name: string;
   tag: string;
-};
+}
 
-export type DocsBranchesVersion = {
+export interface DocsBranchesVersion {
   name: string;
   commit: string;
-};
+}
 
-class DocsVersions {
+export class DocsVersions {
   async generate(v: DocsVersionsInterface, outputPath: string) {
     const releasesVersions = this.forReleases(v.releases);
     const prereleasesVersions = this.forReleases(v.pre_releases);
@@ -42,14 +44,10 @@ class DocsVersions {
       branches: branchesVersions,
     };
 
-    const [err] = await to(
-      writeJSON(outputPath, versions, { encoding: "utf8" }),
-    );
-    if (err)
-      throw new VError(
-        err,
-        `while writing versions ${JSON.stringify(versions)} to ${outputPath}`,
-      );
+    const [err] = await to(writeToJson(outputPath, versions));
+    if (err) {
+      throw err;
+    }
   }
 
   private forReleases(releases?: Map<string, string>) {
@@ -58,8 +56,8 @@ class DocsVersions {
 
     releases.forEach((tag, name) => {
       versions.push({
-        name: name,
-        tag: tag,
+        name,
+        tag,
       });
     });
 
@@ -73,7 +71,7 @@ class DocsVersions {
     branches.forEach((commit, branch) => {
       versions.push({
         name: branch,
-        commit: commit,
+        commit,
       });
     });
 

@@ -4,7 +4,7 @@ import { exec } from "child_process";
 
 import { CoreConfig } from "../config";
 
-class GitClient {
+export class GitClient {
   private config: CoreConfig;
   private destination: string;
 
@@ -27,11 +27,12 @@ class GitClient {
       this.execShellCommand(`git clone "${repository}" "${this.destination}"`),
     );
 
-    if (err)
+    if (err) {
       throw new VError(
         err,
         `while cloning ${repository} to ${this.destination}`,
       );
+    }
   };
 
   checkout = async (branch: string) => {
@@ -40,21 +41,24 @@ class GitClient {
         `cd "${this.destination}" && git checkout "${branch}"`,
       ),
     );
-    if (err) throw new VError(err, `while checkout to branch: ${branch}`);
+    if (err) {
+      throw new VError(err, `while checkout to branch: ${branch}`);
+    }
   };
 
   checkoutTag = async (tag: string) => {
     const [err] = await to(this.checkout(`tags/${tag}`));
-    if (err) throw err;
+    if (err) {
+      throw err;
+    }
   };
 
-  private execShellCommand = (cmd: string) => {
-    return new Promise((resolve, reject) => {
+  private execShellCommand = (cmd: string) =>
+    new Promise((resolve, reject) => {
       exec(cmd, (error, stdout, stderr) => {
         error ? reject(error) : resolve(stdout ? stdout : stderr);
       });
     });
-  };
 }
 
 export default new GitClient();

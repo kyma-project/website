@@ -1,0 +1,10 @@
+{
+  "extends": ["../../tslint.json"],
+  "rules": {
+    "no-console": [false, "log", "info"],
+    "no-var-requires": false
+  },
+  "linterOptions": {
+    "exclude": ["node_modules/**/*"]
+  }
+}

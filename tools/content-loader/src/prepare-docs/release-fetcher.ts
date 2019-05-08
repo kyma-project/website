@@ -7,10 +7,12 @@ import {
 import GitHubClient from "../github-client/github-client";
 import { DocsReleasesVersion } from "./docs-versions";
 
-class ReleaseFetcher {
+export class ReleaseFetcher {
   async get() {
     const [err, releases] = await to(GitHubClient.getReleases());
-    if (err) throw err;
+    if (err) {
+      throw err;
+    }
 
     return releases;
   }
@@ -28,9 +30,7 @@ class ReleaseFetcher {
   }
 
   groupReleaseByName(releases: ReposGetReleaseResponse[]) {
-    return this.groupBy(releases, current => {
-      return this.getReleaseName(current);
-    });
+    return this.groupBy(releases, current => this.getReleaseName(current));
   }
 
   getReleaseName(release: ReposGetReleaseResponse) {
@@ -40,9 +40,9 @@ class ReleaseFetcher {
   }
 
   groupReleaseByType(releases: ReposGetReleaseResponse[]) {
-    return this.groupBy(releases, current => {
-      return current.prerelease ? "prereleases" : "releases";
-    });
+    return this.groupBy(releases, current =>
+      current.prerelease ? "prereleases" : "releases",
+    );
   }
 
   groupBy(array: any[], fn) {

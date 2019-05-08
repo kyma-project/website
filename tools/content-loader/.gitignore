@@ -1,3 +1,7 @@
 out/
 tempDir/
+tempDocsDir/
+tempRoadmapDir/
+docs/
+roadmap/
 node_modules/
