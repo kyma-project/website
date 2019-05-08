@@ -12,6 +12,7 @@ import {
   faTimes,
   faLink,
   faSlidersH,
+  faChevronUp,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faEdit,
@@ -46,6 +47,7 @@ library.add(
   faTimes,
   faEdit,
   faCopy,
+  faChevronUp,
   faTwitter,
   faLinkedinIn,
   faGithub,

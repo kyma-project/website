@@ -60,7 +60,7 @@ const Layout: React.FunctionComponent<LayoutProps> = ({
                   <SlidesBanner {...slidesProps} />
                   <Popup />
                   <CookiesBanner />
-                  {/* {backToTopButton && <BackToTop />} */}
+                  {backToTopButton && <BackToTop />}
                   <Header horizontalBg={horizontalHeaderBg} />
                   <Content>{children}</Content>
                   <Footer />

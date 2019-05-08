@@ -424,10 +424,11 @@ export const BackToTopIcon = styled.div`
   color: #fff;
   z-index: 8888;
 
-  width: 45px;
-  height: 45px;
+  width: 62px;
+  height: 62px;
   border-radius: 100%;
-  background: rgb(11, 116, 222);
+  box-shadow: 0 1px 26px 0 rgba(137, 165, 199, 0.42);
+  background: #fff;
 
   transition: visibility 0.2s linear, opacity 0.2s linear;
   opacity: ${(props: BackToTopIconProps) => (props.visibleIcon ? "1" : "0")};
@@ -437,13 +438,22 @@ export const BackToTopIcon = styled.div`
     cursor: pointer;
   }
 
+  ${media.phone`
+    width: 52px;
+    height: 52px;
+  `};
+
   > svg {
-    color: #fff;
-    font-size: 26px;
+    color: #0b74de;
+    font-size: 32px;
     position: absolute;
     top: 50%;
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
+
+    ${media.phone`
+      font-size: 28px;
+    `};
   }
 `;

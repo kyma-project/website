@@ -2,11 +2,12 @@ import styled, { media } from "@styled";
 
 import Grid from "@styled/Grid";
 
-import Roadmap from "@static/img/roadmap.svg";
+import RoadmapTop from "@static/img/roadmap-top.png";
 
 export const Wrapper = styled.div`
+  background: #e2edf5;
   position: relative;
-  background: #e5eff6;
+  margin-top: 72px;
   margin-bottom: -132px;
   padding-bottom: 72px;
 
@@ -16,6 +17,8 @@ export const Wrapper = styled.div`
 `;
 
 export const HeaderWrapper = styled.header`
+  margin-top: 52px;
+
   > h2 {
     text-align: center;
   }

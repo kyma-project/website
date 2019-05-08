@@ -108,11 +108,13 @@ export const CapabilityWrapper = styled.article`
   ${media.phone`
     margin-top: 52px;
     padding-bottom: 52px;
+    margin-bottom: 52px;
   `};
 
   ${media.smallPhone`
     margin-top: 26px;
     padding-bottom: 26px;
+    margin-bottom: 26px;
   `};
 `;
 

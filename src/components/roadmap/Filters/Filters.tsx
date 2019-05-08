@@ -13,32 +13,31 @@ const Filters: React.FunctionComponent = () => {
   const { capabilities } = useContext(RoadmapService);
   const { filters, setCapability, clearFilters } = useContext(TicketsService);
 
+  if (!filters.capabilities || !filters.capabilities.length) {
+    return null;
+  }
+
   return (
     <>
-      {filters.capabilities.length ? (
-        <FiltersList>
-          {filters.capabilities.map(capability => {
-            const displayName = capabilities.find(
-              cap => cap.frontmatter.id === capability,
-            )!.frontmatter.displayName;
+      <FiltersList>
+        {filters.capabilities.map(capability => {
+          const displayName = capabilities.find(
+            cap => cap.frontmatter.id === capability,
+          )!.frontmatter.displayName;
 
-            return (
-              <Filter
-                key={displayName}
-                onClick={() => setCapability(capability)}
-              >
-                <FilterButton>
-                  {displayName}
-                  <Icon iconName="times" iconPrefix="fas" />
-                </FilterButton>
-              </Filter>
-            );
-          })}
-          <Filter key={"clear-all"} onClick={clearFilters}>
-            <FilterButton>Clear all</FilterButton>
-          </Filter>
-        </FiltersList>
-      ) : null}
+          return (
+            <Filter key={displayName} onClick={() => setCapability(capability)}>
+              <FilterButton>
+                {displayName}
+                <Icon iconName="times" iconPrefix="fas" />
+              </FilterButton>
+            </Filter>
+          );
+        })}
+        <Filter key={"clear-all"} onClick={clearFilters}>
+          <FilterButton>Clear all</FilterButton>
+        </Filter>
+      </FiltersList>
     </>
   );
 };

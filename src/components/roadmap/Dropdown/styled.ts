@@ -82,8 +82,6 @@ export const DropdownListWrapper = styled.div`
   box-shadow: 0 2px 26px 0 rgba(11, 116, 222, 0.2);
   padding: 26px;
   max-height: 700px;
-  /* overflow-y: scroll;
-  -webkit-overflow-scrolling: touch; */
 
   &:before {
     content: "";

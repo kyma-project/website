@@ -27,7 +27,11 @@ const RoadmapPageTemplate: React.FunctionComponent<
   const isInitialRender: boolean = isInitialRenderComplete();
 
   return (
-    <Layout locale={pageContext.locale} pageTitle="Roadmap">
+    <Layout
+      locale={pageContext.locale}
+      pageTitle="Roadmap"
+      backToTopButton={!Boolean(pageContext.ticket)}
+    >
       <RoadmapPage
         pageContext={pageContext}
         capabilities={edges.map(cap => cap.node)}

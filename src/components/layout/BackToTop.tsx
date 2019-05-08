@@ -35,7 +35,7 @@ class BackToTop extends Component<{}, BackToTopState> {
         onClick={this.backToTop}
         visibleIcon={this.state.scrollY > 350}
       >
-        <Icon iconName="arrow-up" iconPrefix="fas" />
+        <Icon iconName="chevron-up" iconPrefix="fas" />
       </BackToTopIcon>
     );
   }

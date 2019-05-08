@@ -52,17 +52,31 @@ const media: Media = Object.keys(sizes).reduce(
 export const is = {
   smallPhone: (): boolean =>
     Boolean(
-      typeof window !== "undefined" && window.innerWidth < sizes.smallPhone,
+      typeof window !== "undefined" && window.innerWidth <= sizes.smallPhone,
     ),
   phone: (): boolean =>
-    Boolean(typeof window !== "undefined" && window.innerWidth < sizes.phone),
+    Boolean(
+      typeof window !== "undefined" &&
+        window.innerWidth > sizes.smallPhone &&
+        window.innerWidth <= sizes.phone,
+    ),
   tablet: (): boolean =>
-    Boolean(typeof window !== "undefined" && window.innerWidth < sizes.tablet),
+    Boolean(
+      typeof window !== "undefined" &&
+        window.innerWidth > sizes.phone &&
+        window.innerWidth <= sizes.tablet,
+    ),
   desktop: (): boolean =>
-    Boolean(typeof window !== "undefined" && window.innerWidth < sizes.desktop),
+    Boolean(
+      typeof window !== "undefined" &&
+        window.innerWidth > sizes.tablet &&
+        window.innerWidth <= sizes.desktop,
+    ),
   largeDesktop: (): boolean =>
     Boolean(
-      typeof window !== "undefined" && window.innerWidth < sizes.largeDesktop,
+      typeof window !== "undefined" &&
+        window.innerWidth > sizes.desktop &&
+        window.innerWidth <= sizes.largeDesktop,
     ),
 };
 
