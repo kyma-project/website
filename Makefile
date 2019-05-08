@@ -8,6 +8,7 @@ resolve:
 validate:
 	npm run conflict-check
 	npm run lint-check
+	npm run markdownlint
 	
 build:
 	npm run build:prod
