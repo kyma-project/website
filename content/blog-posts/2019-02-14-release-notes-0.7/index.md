@@ -1,6 +1,6 @@
 ---
 title: "Kyma 0.7 Dublin"
-author: 
+author:
   name: "Barbara Szwarc, Technical Writer @Kyma"
 tags:
   - release-notes
@@ -145,7 +145,7 @@ We have switched from a custom Istio RBAC implementation based on Envoy to Kuber
 
 ### Azure Service Broker runtime bundling and installation
 
-Kyma allows you to integrate with the Azure Service Broker in an easy way, and to use the vast range of Service Classes it provides. Each Service Class is comprehensively described in the [documentation](https://github.com/kyma-project/kyma/tree/master/docs/service-brokers). Read more about the Azure Service Broker [here](https://kyma-project.io/docs/master/components/helm-broker#overview-azure-broker).
+Kyma allows you to integrate with the Azure Service Broker in an easy way, and to use the vast range of Service Classes it provides. Each Service Class is comprehensively described in the [documentation](https://github.com/kyma-project/bundles/tree/master/bundles/azure-service-broker-0.0.1/docs). Read more about the Azure Service Broker [here](https://kyma-project.io/docs/0.7/components/helm-broker/#overview-azure-broker).
 
 ### One-time provisioning for Helm Broker
 
