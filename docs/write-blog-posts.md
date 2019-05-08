@@ -195,17 +195,17 @@ where:
 
 Examples:
 
-``` Examples
+``` Markdown
 [Overview - In a nutshell](/docs/master/root/kyma/#overview-in-a-nutshell)
 ```
 
-``` Examples
+``` Markdown
 [Create a bundle](/docs/master/components/helm-broker/#details-create-a-bundle)
 ```
 
 For posts with release notes, put the release number in place of `{VERSION}`. For example, the reference to the Helm Broker 0.8 documentation looks as follows:
 
-``` Examples
+``` Markdown
 [Configuration](/docs/0.8/components/helm-broker/#configuration-configuration)
 ```
 
