@@ -17,4 +17,3 @@ declare module "prism-react-renderer";
 declare module "react-copy-to-clipboard";
 declare module "react-sticky";
 declare module "react-modal-hook";
-declare module "react-modal";

@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 
-import useDropdown from "@components/shared/DropDown/useDropdown";
+import useDropdown from "@common/hooks/useDropdown";
 
 import ActionElement from "@components/roadmap/Dropdown/ActionElement";
 import DropElement from "@components/roadmap/Dropdown/DropElement";

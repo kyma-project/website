@@ -25,9 +25,9 @@ export const CapabilitiesWrapper: React.FunctionComponent = ({ children }) => (
           <Grid.Unit df={3} md={1} withoutPadding={true}>
             <Sticky>
               {({ style }: any) => (
-                <div style={{ ...style, zIndex: 110 }}>
+                <nav style={{ ...style, zIndex: 110 }}>
                   <Navigation />
-                </div>
+                </nav>
               )}
             </Sticky>
           </Grid.Unit>
