@@ -39,7 +39,7 @@ The configuration options are as follows:
 | **APP_ROADMAP_REPOSITORY**              | **YES**  | `community`              | The repository with capabilities descriptions                         |
 | **APP_ROADMAP_OUTPUT**                  | **YES**  | `roadmap`                | The path for storing the roadmap content results                      |
 | **APP_ROADMAP_TEMP_DIR**                | **YES**  | `tempRoadmapDir`         | The path for storing temporary data for roadmap content               |
-| **APP_ROADMAP_CAPABILITIES_DIR**        | **YES**  | `capabilities`           | The path where capabilities is storing in community repository        |
+| **APP_ROADMAP_CAPABILITIES_DIR**        | **YES**  | `capabilities`           | The capabilities location in the community repository                 |
 | **APP_ROADMAP_CAPABILITIES_OUTPUT**     | **YES**  | `roadmap/capabilities`   | The path for storing the capabilities results                         |
 | **APP_ROADMAP_TICKETS_OUTPUT**          | **YES**  | `roadmap/tickets.json`   | The path for storing the tickets results                              |
 | **APP_ROADMAP_LABELS**                  | **YES**  | `["Epic"]`               | The labels for tickets                                                |
