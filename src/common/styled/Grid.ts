@@ -1,16 +1,23 @@
 import styled from "@styled";
 import media from "@styled/media";
+import { PrevNextSectionPostTitle } from "@components/blog/styled";
+
+interface GridContainerProps {
+  padding?: string;
+}
 
 const GridContainer = styled.div`
   width: 1200px;
   max-width: 100%;
-  padding: 30px 30px 0 30px;
+  ${(props: GridContainerProps) =>
+    props.padding ? props.padding : "padding: 30px 30px 0 30px"};
   margin: 0 auto;
 `;
 
 interface GridRowProps {
   space?: boolean;
   alignCenter?: boolean;
+  direction?: string;
 }
 
 const GridRow = styled.div`
@@ -23,6 +30,12 @@ const GridRow = styled.div`
     `
     justify-content: space-between;
   `}
+
+  ${props =>
+    props.direction &&
+    `
+    direction: ${props.direction}
+    `}
 
   ${props =>
     props.alignCenter &&
@@ -40,6 +53,7 @@ interface GridUnitProps {
   md?: GridUnits;
   sm?: GridUnits;
   xs?: GridUnits;
+  withoutPadding?: boolean;
 }
 
 const defaultStyle = `
@@ -109,6 +123,7 @@ const gridUnitStyles = {
 
 const GridUnit = styled.div`
   ${defaultStyle}
+  ${(props: GridUnitProps) => props.withoutPadding && "padding: 0;"}
   ${(props: GridUnitProps) => props.df && gridUnitStyles[props.df]}
 
   ${media.largeDesktop`

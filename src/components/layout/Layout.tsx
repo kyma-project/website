@@ -1,5 +1,7 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
+import { ModalProvider } from "react-modal-hook";
+import { TransitionGroup } from "react-transition-group";
 
 import { ThemeProvider } from "@styled";
 import { lightTheme } from "@styled/theme";
@@ -54,13 +56,15 @@ const Layout: React.FunctionComponent<LayoutProps> = ({
                 siteMetadata={data.site.siteMetadata}
               />
               <LayoutWrapper>
-                <SlidesBanner {...slidesProps} />
-                <Popup />
-                <CookiesBanner />
-                {/* {backToTopButton && <BackToTop />} */}
-                <Header horizontalBg={horizontalHeaderBg} />
-                <Content>{children}</Content>
-                <Footer />
+                <ModalProvider>
+                  <SlidesBanner {...slidesProps} />
+                  <Popup />
+                  <CookiesBanner />
+                  {backToTopButton && <BackToTop />}
+                  <Header horizontalBg={horizontalHeaderBg} />
+                  <Content>{children}</Content>
+                  <Footer />
+                </ModalProvider>
               </LayoutWrapper>
             </GlobalState>
           </ThemeProvider>

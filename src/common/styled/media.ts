@@ -20,7 +20,7 @@ enum Sizes {
 // desktop: 992,
 // largeDesktop: 1200,
 
-const sizes: { [index in Sizes]: number } = {
+export const sizes: { [index in Sizes]: number } = {
   smallPhone: 576,
   phone: 768,
   tablet: 1024,
@@ -48,5 +48,36 @@ const media: Media = Object.keys(sizes).reduce(
   },
   {} as Media,
 );
+
+export const is = {
+  smallPhone: (): boolean =>
+    Boolean(
+      typeof window !== "undefined" && window.innerWidth <= sizes.smallPhone,
+    ),
+  phone: (): boolean =>
+    Boolean(
+      typeof window !== "undefined" &&
+        window.innerWidth > sizes.smallPhone &&
+        window.innerWidth <= sizes.phone,
+    ),
+  tablet: (): boolean =>
+    Boolean(
+      typeof window !== "undefined" &&
+        window.innerWidth > sizes.phone &&
+        window.innerWidth <= sizes.tablet,
+    ),
+  desktop: (): boolean =>
+    Boolean(
+      typeof window !== "undefined" &&
+        window.innerWidth > sizes.tablet &&
+        window.innerWidth <= sizes.desktop,
+    ),
+  largeDesktop: (): boolean =>
+    Boolean(
+      typeof window !== "undefined" &&
+        window.innerWidth > sizes.desktop &&
+        window.innerWidth <= sizes.largeDesktop,
+    ),
+};
 
 export default media;

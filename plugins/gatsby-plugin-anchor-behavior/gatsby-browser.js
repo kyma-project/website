@@ -14,14 +14,26 @@ const cumulativeOffset = element => {
 const evaluateOffset = pathname => {
   const windowWidth = window.innerWidth;
 
-  const onMobileOffset = options.mobileOffsetInclude.some(arg =>
-    pathname.includes(arg),
-  );
+  let optionsForPath = {};
+  for (const path in options.paths) {
+    if (pathname.includes(path)) {
+      optionsForPath = options.paths[path];
+      break;
+    }
+  }
 
-  if (windowWidth <= 1024 && onMobileOffset) {
-    offset = options.mobileOffset || 0;
+  if (windowWidth <= 1024) {
+    if (optionsForPath.mobileOffset !== undefined) {
+      offset = optionsForPath.mobileOffset;
+    } else {
+      offset = options.mobileOffset || 0;
+    }
   } else {
-    offset = options.defaultOffset || 0;
+    if (optionsForPath.defaultOffset !== undefined) {
+      offset = optionsForPath.defaultOffset;
+    } else {
+      offset = options.defaultOffset || 0;
+    }
   }
 };
 
@@ -37,8 +49,39 @@ const getTargetOffset = (hash, pathname) => {
   return null;
 };
 
+const checkCorrectLocationsForModal = ({
+  previousLocation,
+  location,
+  getSavedScrollPosition,
+}) => {
+  if (location.hash) return false;
+
+  if (/\/roadmap\/[a-z]/.test(location.pathname)) {
+    const offset = getSavedScrollPosition(previousLocation);
+    if (offset) {
+      window.scrollTo(offset);
+    }
+    return true;
+  }
+
+  if (
+    /\/roadmap/.test(location.pathname) &&
+    /\/roadmap\/[a-z]/.test(previousLocation.pathname)
+  ) {
+    const offset = getSavedScrollPosition(previousLocation);
+    if (offset) {
+      window.scrollTo(offset);
+      document.querySelector(`html`).style.overflowY = `auto`;
+    }
+    return true;
+  }
+
+  return false;
+};
+
 exports.onInitialClientRender = (_, pluginOptions) => {
   options = pluginOptions;
+  window.__GATSBY_INITIAL_RENDER_COMPLETE = true;
 
   requestAnimationFrame(() => {
     const offset = getTargetOffset(
@@ -51,7 +94,24 @@ exports.onInitialClientRender = (_, pluginOptions) => {
   });
 };
 
-exports.shouldUpdateScroll = ({ routerProps: { location } }) => {
+exports.shouldUpdateScroll = ({
+  prevRouterProps: { location: previousLocation },
+  routerProps: { location },
+  getSavedScrollPosition,
+}) => {
+  // for modal
+  if (
+    checkCorrectLocationsForModal({
+      previousLocation,
+      location,
+      getSavedScrollPosition,
+    })
+  ) {
+    return false;
+  }
+  document.querySelector(`html`).style.overflowY = `auto`;
+
+  // for anchors
   const offset = getTargetOffset(location.hash, location.pathname);
   return offset !== null ? [0, offset] : true;
 };

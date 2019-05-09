@@ -4,7 +4,7 @@ import { graphql } from "gatsby";
 import Layout from "@components/layout/Layout";
 import LandingPage from "@components/landingPage/LandingPage";
 
-import { PageContext, IntlPageContext } from "@types";
+import { PageContext, IntlPageContext } from "@common/types";
 
 const IndexPage: React.FunctionComponent<PageContext<IntlPageContext>> = ({
   pageContext: { locale },

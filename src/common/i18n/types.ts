@@ -22,6 +22,7 @@ export interface Internationalization {
     landingPage: any;
     docs: any;
     blog: any;
+    roadmap: any;
     siteMetadata: any;
     utils: any;
   };

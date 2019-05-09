@@ -49,3 +49,8 @@ export interface PageContext<T> {
 export interface IntlPageContext {
   locale: string;
 }
+
+/* Location */
+export interface Location {
+  location: any;
+}

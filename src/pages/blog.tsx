@@ -1,13 +1,13 @@
 import React from "react";
 import { graphql } from "gatsby";
 
-import { AllMarkdownRemark, PageContext, IntlPageContext } from "@types";
+import { AllMarkdownRemark, PageContext, IntlPageContext } from "@common/types";
 import { Post, PostPageContext } from "@components/blog/types";
 
 import Layout from "@components/layout/Layout";
 import BlogPage from "@components/blog/BlogPage";
 
-const BlogIndex: React.FunctionComponent<
+const RoadmapIndex: React.FunctionComponent<
   AllMarkdownRemark<Post> & PageContext<IntlPageContext>
 > = ({
   data: {
@@ -39,4 +39,4 @@ export const pageQuery = graphql`
   }
 `;
 
-export default BlogIndex;
+export default RoadmapIndex;

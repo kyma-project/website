@@ -49,6 +49,7 @@ const Internal: React.FunctionComponent<LinkProps & InjectedIntlProps> = ({
   children,
   underline = false,
   onClick,
+  state,
 }) => {
   let path = i18nConfig[locale].default ? to : `/${locale}${to}`;
   path = path.endsWith("/") || path.includes("#") ? path : `${path}/`;
@@ -59,6 +60,7 @@ const Internal: React.FunctionComponent<LinkProps & InjectedIntlProps> = ({
       className={className}
       underline={underline ? "true" : "false"}
       onClick={onClick}
+      state={state}
     >
       {children}
     </InternalLink>

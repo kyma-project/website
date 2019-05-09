@@ -7,6 +7,7 @@ import enCookies from "../../../content/i18n/en/cookies.json";
 import enLandingPage from "../../../content/i18n/en/landing-page.json";
 import enDocs from "../../../content/i18n/en/docs.json";
 import enBlog from "../../../content/i18n/en/blog.json";
+import enRoadmap from "../../../content/i18n/en/roadmap.json";
 import enSiteMetadata from "../../../content/i18n/en/siteMetadata.json";
 import enUtils from "../../../content/i18n/en/utils.json";
 
@@ -18,6 +19,7 @@ const intl: Internationalization = {
     landingPage: enLandingPage,
     docs: enDocs,
     blog: enBlog,
+    roadmap: enRoadmap,
     siteMetadata: enSiteMetadata,
     utils: enUtils,
   },

@@ -1,7 +1,7 @@
 import * as styledComponents from "styled-components";
 
 import { Theme } from "./theme";
-import media from "./media";
+import media, { sizes, is } from "./media";
 
 const {
   default: styled,
@@ -24,6 +24,8 @@ export {
   withTheme,
   ThemeProps,
   media,
+  sizes,
+  is,
 };
 
 export default styled;

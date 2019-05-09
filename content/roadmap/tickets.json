@@ -1,0 +1,1172 @@
+{
+  "0.8": {
+    "API Gateway": [],
+    "Application Connectivity": [],
+    "Console / Microfrontends": [],
+    "Core & Supporting": [],
+    "Eventing": [],
+    "Logging / Tracing / Monitoring": [
+      {
+        "title": "Minimal monitoring setup for kyma",
+        "body": "As an operator I need insights (metrics) and notifications for all kyma components and the kubernetes cluster itself to ensure a stable environment and investigate critical situations.\r\nTo have a first meaningful improvement in that area following things should be done:\r\n- have example monitoring setups for every type of component\r\n- have alerts for basic system metrics\r\n- assure usability of reports\r\n\r\nIn concrete that actions should be done:\r\n- Enable alerting and grafana dashboard entries for **namespace-controller**, alerting should be based on golang specific metrics and [USE](http://www.brendangregg.com/usemethod.html) metrics\r\n- Enable alerting and grafana dashboard entries for **application-registry**, alerting should be based on golang specific metrics and [RED](https://www.weave.works/blog/the-red-method-key-metrics-for-microservices-architecture/) metrics\r\n- Enable alerting and grafana dashboard entries for **lambda-ui**, alerting should be based on [RED](https://www.weave.works/blog/the-red-method-key-metrics-for-microservices-architecture/) metrics\r\n- Propose general grafana dashboard structure and naming\r\n- Define alert rules for generic system metrics - CPU, memory, PVC\r\n\r\n\r\nMonitoring Documentation:\r\n- [Metrics](https://github.com/kyma-project/examples/tree/master/monitoring-custom-metrics)\r\n- [Alerting](https://github.com/kyma-project/examples/tree/master/monitoring-alert-rules)\r\n- [Dashboards](https://github.com/kyma-project/kyma/tree/master/resources/monitoring/charts/grafana#making-a-dashboard-part-of-kyma-installation)",
+        "url": "https://github.com/kyma-project/kyma/issues/1879",
+        "number": 1879,
+        "labels": [
+          "area/monitoring",
+          "quality/observability"
+        ],
+        "githubUrl": "https://github.com/kyma-project/kyma/issues/1879",
+        "repository": {
+          "name": "kyma",
+          "id": 139590616,
+          "issues": []
+        },
+        "dueDate": "2019-03-07T23:00:00.000Z",
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/1879",
+        "release": {
+          "release_id": "5c0791391a6a4c6bf4b314c6",
+          "title": "0.8",
+          "description": "Release 0.8 - Edmonton",
+          "start_date": "2019-02-10T23:00:00.000Z",
+          "desired_end_date": "2019-03-07T23:00:00.000Z",
+          "created_at": "2018-12-05T08:50:01.239Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Logging / Tracing / Monitoring",
+          "epicsLabels": [
+            "area/logging",
+            "area/tracing",
+            "area/monitoring"
+          ],
+          "id": "logging-tracing-monitoring"
+        }
+      }
+    ],
+    "Service Management": []
+  },
+  "Future": {
+    "API Gateway": [
+      {
+        "title": "Authorization server in Kyma",
+        "body": "\r\n\r\n**Description**\r\n\r\nCurrently, Kyma supports only API authentication and does not offer authorization. Authentication is covered by istio policy which relies on id tokens validation. API Gateway lacks the feature of applying authorization to an exposed API. Internal communication can be covered with istio RBAC rules but it cannot be applied for incoming requests from external services/applications. For developers creating for example lambdas and exposing them to the public internet, it is beneficial to allow service to service communication with autn and authz in place. Moreover, it's not possible to fetch token in service to service without the context of the user.\r\n\r\nSolutions to investigate :\r\n- OAuth2 server (https://github.com/ory/hydra)\r\n- OPA (https://www.openpolicyagent.org/)\r\n- Integration with istio one of the solutions\r\n- ...\r\n\r\n\r\n\r\n**Reasons**\r\n\r\nEnrich API gateway functionality with authZ capabilities. Allow fetching tokens without the context of the user.\r\n\r\n**Attachments**\r\n\r\n\r\n",
+        "url": "https://github.com/kyma-project/kyma/issues/3397",
+        "number": 3397,
+        "labels": [
+          "area/security",
+          "area/service-mesh",
+          "quality/devx"
+        ],
+        "githubUrl": "https://github.com/kyma-project/kyma/issues/3397",
+        "repository": {
+          "name": "kyma",
+          "id": 139590616,
+          "issues": []
+        },
+        "dueDate": "2020-12-31T11:00:00.000Z",
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/3397",
+        "release": {
+          "release_id": "5c0791ef1a6a4c6bf4b314ce",
+          "title": "Future",
+          "description": "Items selected for development but not scheduled yet.",
+          "start_date": "2020-01-01T11:00:00.000Z",
+          "desired_end_date": "2020-12-31T11:00:00.000Z",
+          "created_at": "2018-12-05T08:53:03.286Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "API Gateway",
+          "epicsLabels": [
+            "area/service-mesh",
+            "quality/security"
+          ],
+          "id": "api-gateway"
+        }
+      }
+    ],
+    "Application Connectivity": [
+      {
+        "title": "Create a suite of end-to-end tests for Application Connector - part 2",
+        "body": "**Description**\r\n\r\nThe suite of the end-to-end tests must be created which will ensure the quality of the Application Connector components.\r\n\r\nThe tests must simulate usage of the Application Connector components from the external system point of view.\r\n\r\nThe tests must be integrated with delivery pipelines and smoke tests. The tests must also work in standalone mode for a development.\r\n\r\n**Reasons**\r\n\r\nThe Application Connector components must be well tested to allow smooth usage across all integrated solutions.\r\n\r\n**Language**\r\nThe tests will be implemented using SPOCK.",
+        "url": "https://github.com/kyma-project/kyma/issues/2716",
+        "number": 2716,
+        "labels": [
+          "area/application-connector",
+          "enhancement"
+        ],
+        "githubUrl": "https://github.com/kyma-project/kyma/issues/2716",
+        "repository": {
+          "name": "kyma",
+          "id": 139590616,
+          "issues": []
+        },
+        "dueDate": "2020-12-31T11:00:00.000Z",
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/2716",
+        "release": {
+          "release_id": "5c0791ef1a6a4c6bf4b314ce",
+          "title": "Future",
+          "description": "Items selected for development but not scheduled yet.",
+          "start_date": "2020-01-01T11:00:00.000Z",
+          "desired_end_date": "2020-12-31T11:00:00.000Z",
+          "created_at": "2018-12-05T08:53:03.286Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Application Connectivity",
+          "epicsLabels": [
+            "area/application-connector"
+          ],
+          "id": "application-connectivity"
+        }
+      },
+      {
+        "title": "Application Connector test coverage improvements.",
+        "body": "**Description**\r\n\r\nWe need to take and improve all our tests. The main part is to have a test increasing our confidence in delivery.\r\n\r\nThere are different kind of tests which we need to provide or improve:\r\n- Backup tests\r\n- Upgradability tests\r\n- E2E Test\r\n\r\nWe also need to increase test visibility by finalizing: https://github.wdf.sap.corp/framefrog/documentation/blob/master/tests-in-kyma.md\r\n\r\n**Reasons**\r\n\r\nThe Application Connector must be covered with tests.\r\n\r\n\r\n**Acceptance criteria**\r\n- Good plan for improvements in the test done\r\n- Test implemented\r\n\r\nPlease bear in mind that we need to use Octopus tests.",
+        "url": "https://github.com/kyma-project/kyma/issues/3519",
+        "number": 3519,
+        "labels": [
+          "area/application-connector",
+          "enhancement",
+          "quality/testability"
+        ],
+        "githubUrl": "https://github.com/kyma-project/kyma/issues/3519",
+        "repository": {
+          "name": "kyma",
+          "id": 139590616,
+          "issues": []
+        },
+        "dueDate": "2020-12-31T11:00:00.000Z",
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/3519",
+        "release": {
+          "release_id": "5c0791ef1a6a4c6bf4b314ce",
+          "title": "Future",
+          "description": "Items selected for development but not scheduled yet.",
+          "start_date": "2020-01-01T11:00:00.000Z",
+          "desired_end_date": "2020-12-31T11:00:00.000Z",
+          "created_at": "2018-12-05T08:53:03.286Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Application Connectivity",
+          "epicsLabels": [
+            "area/application-connector"
+          ],
+          "id": "application-connectivity"
+        }
+      },
+      {
+        "title": "Provide essential data and e2e test to *-kyma-gke-upgrade plan ",
+        "body": "**Description**\r\n\r\nAs Kyma 0.8 should be upgradeable from 0.7 and still work we need to test at least our top Kyma scenario, namely enterprise application integration, sending evens and receiving API calls back.\r\n\r\n**Acceptance Criteria**\r\n- Provide a separate steps for:\r\n  - essential component and data installation\r\n  - e2e test\r\n- Implement e2e test scenario: \r\n  - _your component e2e scenario_\r\n- Upgrade plan steps:\r\n  * install 0.7.0 -> apply setup and execute test\r\n  * upgrade to 0.8.0\r\n  * execute test again\r\n- Provide a way to install essential components and data in kyma before upgrade\r\n- Provide a way to run test\r\n\r\n\r\n**Example e2e test scenario**\r\n  - ec-mock installed, \r\n  - kyma and mock paired, \r\n  - api, events registered,\r\n  - app to namespace mapping created,\r\n  - APIs and Events classes provisioned, \r\n  - lambda with code to call back EC Mock API created, trigger by event checked,\r\n  - service binding usage to lambda created, \r\n  - EC mock event sent,\r\n  - lambda triggered,\r\n  - lambda calls API\r\n  - success",
+        "url": "https://github.com/kyma-project/test-infra/issues/582",
+        "number": 582,
+        "labels": [
+          "area/application-connector",
+          "area/ci",
+          "area/cluster",
+          "area/eventing",
+          "area/serverless",
+          "area/service-catalog",
+          "enhancement"
+        ],
+        "githubUrl": "https://github.com/kyma-project/test-infra/issues/582",
+        "repository": {
+          "name": "test-infra",
+          "id": 147495537,
+          "issues": []
+        },
+        "dueDate": "2020-12-31T11:00:00.000Z",
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/test-infra/582",
+        "release": {
+          "release_id": "5c0791ef1a6a4c6bf4b314ce",
+          "title": "Future",
+          "description": "Items selected for development but not scheduled yet.",
+          "start_date": "2020-01-01T11:00:00.000Z",
+          "desired_end_date": "2020-12-31T11:00:00.000Z",
+          "created_at": "2018-12-05T08:53:03.286Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Application Connectivity",
+          "epicsLabels": [
+            "area/application-connector"
+          ],
+          "id": "application-connectivity"
+        }
+      }
+    ],
+    "Console / Microfrontends": [
+      {
+        "title": "Shell enhancements",
+        "body": "",
+        "url": "https://github.com/kyma-project/luigi/issues/473",
+        "number": 473,
+        "labels": [
+          "area/luigi"
+        ],
+        "githubUrl": "https://github.com/kyma-project/luigi/issues/473",
+        "repository": {
+          "name": "luigi",
+          "id": 139590701,
+          "issues": []
+        },
+        "dueDate": "2020-12-31T11:00:00.000Z",
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/luigi/473",
+        "release": {
+          "release_id": "5c0791ef1a6a4c6bf4b314ce",
+          "title": "Future",
+          "description": "Items selected for development but not scheduled yet.",
+          "start_date": "2020-01-01T11:00:00.000Z",
+          "desired_end_date": "2020-12-31T11:00:00.000Z",
+          "created_at": "2018-12-05T08:53:03.286Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Console / Microfrontends",
+          "epicsLabels": [
+            "area/console",
+            "area/luigi"
+          ],
+          "id": "console-microfrontends"
+        }
+      }
+    ],
+    "Core & Supporting": [
+      {
+        "title": "Basic SEO for kyma-project.io",
+        "body": "**Description**\r\n\r\nFirst:\r\n* We should do some basic optimization to be able to measure the effectiveness\r\n* Try with official google recommendations for start\r\n* Focus on search queries that we expect due to kyma name, technology stack and the mission statement:\r\n  * `kyma` (github org is 4th, the kyma-project.io is 15th)\r\n  * `extending enterprise software in cloud` (currently 46th result, in incognito, excluding advertisement items)\r\n  * `extending enterprise software using kubernetes` (currently 4th result, in incognito, excluding advertisement items)\r\n\r\nAC:\r\n* After each improvement reindexing of the website must be triggered and after a week we need to check if there is any noticable change in the search results\r\n* After completing the Epic we need to measure the traffic in google analytics if it improved comparing to previous months\r\n\r\nSuccess measure:\r\n- Better search position\r\n- More traffic on kyma-project.io\r\n\r\n**Reasons**\r\n\r\n* Kyma is a new project in Kubernetes landscape and we need to enable kyma-project.io site to be much more visible in google search results. \r\n* People can end up directly on kyma-project.io only if they are attending some conference and learn about kyma. In majority of cases you find different projects that solve your problems by googling and reading about them. So google should be our focus and we should work on SEO\r\n* Increase traffic on kyma-project.io to get more users",
+        "url": "https://github.com/kyma-project/website/issues/100",
+        "number": 100,
+        "labels": [
+          "area/community",
+          "enhancement"
+        ],
+        "githubUrl": "https://github.com/kyma-project/website/issues/100",
+        "repository": {
+          "name": "website",
+          "id": 139847219,
+          "issues": []
+        },
+        "dueDate": "2020-12-31T11:00:00.000Z",
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/website/100",
+        "release": {
+          "release_id": "5c0791ef1a6a4c6bf4b314ce",
+          "title": "Future",
+          "description": "Items selected for development but not scheduled yet.",
+          "start_date": "2020-01-01T11:00:00.000Z",
+          "desired_end_date": "2020-12-31T11:00:00.000Z",
+          "created_at": "2018-12-05T08:53:03.286Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Core & Supporting",
+          "epicsLabels": [
+            "area/core-and-supporting",
+            "area/community"
+          ],
+          "id": "core-and-supporting"
+        }
+      },
+      {
+        "title": "Enable community to easier act as social media advocate",
+        "body": "**Description**\r\n\r\n- Enable social media sharing buttons (quickly share on facebook, twitter, linkedin) for blog and other sections\r\n- Enable twitter sharing of parts of the blog post as a quote (you mark a sentence/paragraph and twitter icon shows up that you can click on and quickly create a tweet that quotes a given sentence)\r\n\r\nSuccess:\r\nCheck analytics of social media and if after a month from completing the Epic we see a higher number of tweets and enabled functionality is actually used\r\n\r\n**Reasons**\r\n\r\nMake it easy to share us on social media",
+        "url": "https://github.com/kyma-project/website/issues/104",
+        "number": 104,
+        "labels": [
+          "area/community",
+          "enhancement"
+        ],
+        "githubUrl": "https://github.com/kyma-project/website/issues/104",
+        "repository": {
+          "name": "website",
+          "id": 139847219,
+          "issues": []
+        },
+        "dueDate": "2020-12-31T11:00:00.000Z",
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/website/104",
+        "release": {
+          "release_id": "5c0791ef1a6a4c6bf4b314ce",
+          "title": "Future",
+          "description": "Items selected for development but not scheduled yet.",
+          "start_date": "2020-01-01T11:00:00.000Z",
+          "desired_end_date": "2020-12-31T11:00:00.000Z",
+          "created_at": "2018-12-05T08:53:03.286Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Core & Supporting",
+          "epicsLabels": [
+            "area/core-and-supporting",
+            "area/community"
+          ],
+          "id": "core-and-supporting"
+        }
+      },
+      {
+        "title": "Expose product content more and enable easy contributions",
+        "body": "\r\n\r\n**Description**\r\n\r\n- Provide `Edit` functionality in docs section that enables easy documentation contribution like https://kubernetes.io/docs/tasks/tools/install-kubectl/. After clicking Edit user should first get an overview info about contrib requirements for documentation (links to guidelines and templates) and then a direct link to github PR submission\r\n- Have a place on landing page where we can introduce all different product content channels \r\n\r\nSuccess:\r\nAfter implementation of each Epic's item we should measure if:\r\n- amount of documentation contributions increased (number of PRs with `area/documentation` label)\r\n- traffic on youtube (check insights from kyma channel), examples repo visitors increase and number of visits referred from kyma-project.io is increased (https://github.com/kyma-project/examples/graphs/traffic)\r\n\r\n**Reasons**\r\n\r\n- So far we have only docs section but in future we will have for example webinars from our releases, we also have examples in examples repo. kyma-project.io as entry point for new users to onboard on kyma should provide and overview of all locations of these different content channels\r\n- It should be very easy to contribute to documentation",
+        "url": "https://github.com/kyma-project/website/issues/105",
+        "number": 105,
+        "labels": [
+          "area/community",
+          "enhancement"
+        ],
+        "githubUrl": "https://github.com/kyma-project/website/issues/105",
+        "repository": {
+          "name": "website",
+          "id": 139847219,
+          "issues": []
+        },
+        "dueDate": "2020-12-31T11:00:00.000Z",
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/website/105",
+        "release": {
+          "release_id": "5c0791ef1a6a4c6bf4b314ce",
+          "title": "Future",
+          "description": "Items selected for development but not scheduled yet.",
+          "start_date": "2020-01-01T11:00:00.000Z",
+          "desired_end_date": "2020-12-31T11:00:00.000Z",
+          "created_at": "2018-12-05T08:53:03.286Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Core & Supporting",
+          "epicsLabels": [
+            "area/core-and-supporting",
+            "area/community"
+          ],
+          "id": "core-and-supporting"
+        }
+      },
+      {
+        "title": "Enable basic search and set up a chat bot ",
+        "body": "\r\n\r\n**Description**\r\n\r\n- setup basic search for traditional users\r\n- add a chat bot using https://recast.ai\r\n  - work on content structure to make sure Conversational AI is useful\r\n  - is should not only support docs but entire page, so not only questions like `How can I secure my lambda` but also `What is the next event where I can meet some kyma member`\r\n\r\n**Reasons**\r\n\r\n- improve findability of content by getting simple search on docs section\r\n- follow trend of enabling conversational AI standards on a website to make it easier for the user to find relevant content",
+        "url": "https://github.com/kyma-project/website/issues/106",
+        "number": 106,
+        "labels": [
+          "area/community",
+          "enhancement"
+        ],
+        "githubUrl": "https://github.com/kyma-project/website/issues/106",
+        "repository": {
+          "name": "website",
+          "id": 139847219,
+          "issues": []
+        },
+        "dueDate": "2020-12-31T11:00:00.000Z",
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/website/106",
+        "release": {
+          "release_id": "5c0791ef1a6a4c6bf4b314ce",
+          "title": "Future",
+          "description": "Items selected for development but not scheduled yet.",
+          "start_date": "2020-01-01T11:00:00.000Z",
+          "desired_end_date": "2020-12-31T11:00:00.000Z",
+          "created_at": "2018-12-05T08:53:03.286Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Core & Supporting",
+          "epicsLabels": [
+            "area/core-and-supporting",
+            "area/community"
+          ],
+          "id": "core-and-supporting"
+        }
+      },
+      {
+        "title": "Improve experience and usability of blog section",
+        "body": "\r\n\r\n**Description**\r\n\r\n- add navigation\r\n- add filtering by tag\r\n- add atom/rss and feedburner or something better\r\n- make it possible to subscribe to given tag and not all\r\n- consider restricting adding tags to only a selected number of tags. Or maybe remove tags and introduce stale categories (https://blog.github.com/). Or do both\r\n- have paging in place\r\n\r\n**Reasons**\r\n\r\nWe are getting more and more posts, and more will come and we need to improve UX if blog section to a bigger scale\r\n",
+        "url": "https://github.com/kyma-project/website/issues/142",
+        "number": 142,
+        "labels": [
+          "area/community",
+          "enhancement"
+        ],
+        "githubUrl": "https://github.com/kyma-project/website/issues/142",
+        "repository": {
+          "name": "website",
+          "id": 139847219,
+          "issues": []
+        },
+        "dueDate": "2020-12-31T11:00:00.000Z",
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/website/142",
+        "release": {
+          "release_id": "5c0791ef1a6a4c6bf4b314ce",
+          "title": "Future",
+          "description": "Items selected for development but not scheduled yet.",
+          "start_date": "2020-01-01T11:00:00.000Z",
+          "desired_end_date": "2020-12-31T11:00:00.000Z",
+          "created_at": "2018-12-05T08:53:03.286Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Core & Supporting",
+          "epicsLabels": [
+            "area/core-and-supporting",
+            "area/community"
+          ],
+          "id": "core-and-supporting"
+        }
+      }
+    ],
+    "Eventing": [
+      {
+        "title": "Enable using a messaging middleware other than NATS Streaming for Kyma eventing",
+        "body": "**Description**\nAs an operator, I want to configure a default messaging middleware that my Kyma cluster should use for eventing.\n\nAs a developer, I want to configure a subscription for an event type from a source in Kyma. I don't want to care about the underlying details.\n\nPlease refer to the [proposal](https://github.com/kyma-project/community/blob/master/sig-and-wg/sig-core/proposals/knative-eventing-default-pubsub.md) for further details.",
+        "url": "https://github.com/kyma-project/kyma/issues/3847",
+        "number": 3847,
+        "labels": [
+          "area/eventing",
+          "enhancement"
+        ],
+        "githubUrl": "https://github.com/kyma-project/kyma/issues/3847",
+        "repository": {
+          "name": "kyma",
+          "id": 139590616,
+          "issues": []
+        },
+        "dueDate": "2020-12-31T11:00:00.000Z",
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/3847",
+        "release": {
+          "release_id": "5c0791ef1a6a4c6bf4b314ce",
+          "title": "Future",
+          "description": "Items selected for development but not scheduled yet.",
+          "start_date": "2020-01-01T11:00:00.000Z",
+          "desired_end_date": "2020-12-31T11:00:00.000Z",
+          "created_at": "2018-12-05T08:53:03.286Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Eventing",
+          "epicsLabels": [
+            "area/eventing"
+          ],
+          "id": "eventing"
+        }
+      },
+      {
+        "title": "Align with Open standards for Kyma eventing interfaces",
+        "body": "**Description**\nKyma eventing interfaces were designed with a pre-release version of [CloudEvents Specification](https://github.com/cloudevents/spec). Over a period of time this specification has evolved and we should have the Kyma eventing interfaces aligned with the latest stable specifications of CloudEvents. ",
+        "url": "https://github.com/kyma-project/kyma/issues/3849",
+        "number": 3849,
+        "labels": [
+          "area/eventing",
+          "enhancement"
+        ],
+        "githubUrl": "https://github.com/kyma-project/kyma/issues/3849",
+        "repository": {
+          "name": "kyma",
+          "id": 139590616,
+          "issues": []
+        },
+        "dueDate": "2020-12-31T11:00:00.000Z",
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/3849",
+        "release": {
+          "release_id": "5c0791ef1a6a4c6bf4b314ce",
+          "title": "Future",
+          "description": "Items selected for development but not scheduled yet.",
+          "start_date": "2020-01-01T11:00:00.000Z",
+          "desired_end_date": "2020-12-31T11:00:00.000Z",
+          "created_at": "2018-12-05T08:53:03.286Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Eventing",
+          "epicsLabels": [
+            "area/eventing"
+          ],
+          "id": "eventing"
+        }
+      },
+      {
+        "title": "Provide support for data events in Kyma eventing",
+        "body": "**Description**\nThe current Kyma eventing model semantics fits better for business events which contain minimalistic data such as object-ids and then the serverless pulls the data from the application.\n\nThere could be other scenarios where the application would like to send data events that contain the full object e.g. a `purchase order`. Such events can be used to synchronize among various applications connected via Kyma. In such scenarios, we will need additional semantics that fits with data events such as `correlation-ids` and other business metadata (possibly as headers) that might be required by the receiver to identify the source and other domain information.",
+        "url": "https://github.com/kyma-project/kyma/issues/3854",
+        "number": 3854,
+        "labels": [
+          "area/eventing",
+          "enhancement"
+        ],
+        "githubUrl": "https://github.com/kyma-project/kyma/issues/3854",
+        "repository": {
+          "name": "kyma",
+          "id": 139590616,
+          "issues": []
+        },
+        "dueDate": "2020-12-31T11:00:00.000Z",
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/3854",
+        "release": {
+          "release_id": "5c0791ef1a6a4c6bf4b314ce",
+          "title": "Future",
+          "description": "Items selected for development but not scheduled yet.",
+          "start_date": "2020-01-01T11:00:00.000Z",
+          "desired_end_date": "2020-12-31T11:00:00.000Z",
+          "created_at": "2018-12-05T08:53:03.286Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Eventing",
+          "epicsLabels": [
+            "area/eventing"
+          ],
+          "id": "eventing"
+        }
+      },
+      {
+        "title": "Provide support for in-cluster events",
+        "body": "**Description**\nAs a developer, I should be able to define and generate internal events to trigger asynchronous business workflows.\n\nAt present, the eventing in Kyma is tightly coupled with the aspect of events being sent by an external solution. e.g. `source-id` which identifies the external solution is used as a part of publishing an event in Kyma.\n\nFor events generated inside Kyma, the following open questions or design details needs to be answered:\n\n* How the origin of the internal event is identified? (events originated from the Kyma environments???)\n* How the event schema will be published?\n* How the event schema will be made available to the developers?\n* Do we need concepts such as event activation for internal events?",
+        "url": "https://github.com/kyma-project/kyma/issues/3855",
+        "number": 3855,
+        "labels": [
+          "area/eventing",
+          "enhancement"
+        ],
+        "githubUrl": "https://github.com/kyma-project/kyma/issues/3855",
+        "repository": {
+          "name": "kyma",
+          "id": 139590616,
+          "issues": []
+        },
+        "dueDate": "2020-12-31T11:00:00.000Z",
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/3855",
+        "release": {
+          "release_id": "5c0791ef1a6a4c6bf4b314ce",
+          "title": "Future",
+          "description": "Items selected for development but not scheduled yet.",
+          "start_date": "2020-01-01T11:00:00.000Z",
+          "desired_end_date": "2020-12-31T11:00:00.000Z",
+          "created_at": "2018-12-05T08:53:03.286Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Eventing",
+          "epicsLabels": [
+            "area/eventing"
+          ],
+          "id": "eventing"
+        }
+      },
+      {
+        "title": "Improve UX for Kyma eventing",
+        "body": "**Description**\nAs an operator, I will need to do minimal configurations to get the desired tuning and setup of eventing. I would expect most of the knobs already fine-tuned OOB.\n\nAs a developer, I should be able to focus only on writing the serverless for my business use cases and would not be required to worry about the Eventing internals.\n\nAs a support person, I should have the right set of alerting, metrics and monitoring available to me to fix any issues related to eventing",
+        "url": "https://github.com/kyma-project/kyma/issues/3857",
+        "number": 3857,
+        "labels": [
+          "area/eventing"
+        ],
+        "githubUrl": "https://github.com/kyma-project/kyma/issues/3857",
+        "repository": {
+          "name": "kyma",
+          "id": 139590616,
+          "issues": []
+        },
+        "dueDate": "2020-12-31T11:00:00.000Z",
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/3857",
+        "release": {
+          "release_id": "5c0791ef1a6a4c6bf4b314ce",
+          "title": "Future",
+          "description": "Items selected for development but not scheduled yet.",
+          "start_date": "2020-01-01T11:00:00.000Z",
+          "desired_end_date": "2020-12-31T11:00:00.000Z",
+          "created_at": "2018-12-05T08:53:03.286Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Eventing",
+          "epicsLabels": [
+            "area/eventing"
+          ],
+          "id": "eventing"
+        }
+      },
+      {
+        "title": "Provide essential data and e2e test to *-kyma-gke-upgrade plan ",
+        "body": "**Description**\r\n\r\nAs Kyma 0.8 should be upgradeable from 0.7 and still work we need to test at least our top Kyma scenario, namely enterprise application integration, sending evens and receiving API calls back.\r\n\r\n**Acceptance Criteria**\r\n- Provide a separate steps for:\r\n  - essential component and data installation\r\n  - e2e test\r\n- Implement e2e test scenario: \r\n  - _your component e2e scenario_\r\n- Upgrade plan steps:\r\n  * install 0.7.0 -> apply setup and execute test\r\n  * upgrade to 0.8.0\r\n  * execute test again\r\n- Provide a way to install essential components and data in kyma before upgrade\r\n- Provide a way to run test\r\n\r\n\r\n**Example e2e test scenario**\r\n  - ec-mock installed, \r\n  - kyma and mock paired, \r\n  - api, events registered,\r\n  - app to namespace mapping created,\r\n  - APIs and Events classes provisioned, \r\n  - lambda with code to call back EC Mock API created, trigger by event checked,\r\n  - service binding usage to lambda created, \r\n  - EC mock event sent,\r\n  - lambda triggered,\r\n  - lambda calls API\r\n  - success",
+        "url": "https://github.com/kyma-project/test-infra/issues/582",
+        "number": 582,
+        "labels": [
+          "area/application-connector",
+          "area/ci",
+          "area/cluster",
+          "area/eventing",
+          "area/serverless",
+          "area/service-catalog",
+          "enhancement"
+        ],
+        "githubUrl": "https://github.com/kyma-project/test-infra/issues/582",
+        "repository": {
+          "name": "test-infra",
+          "id": 147495537,
+          "issues": []
+        },
+        "dueDate": "2020-12-31T11:00:00.000Z",
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/test-infra/582",
+        "release": {
+          "release_id": "5c0791ef1a6a4c6bf4b314ce",
+          "title": "Future",
+          "description": "Items selected for development but not scheduled yet.",
+          "start_date": "2020-01-01T11:00:00.000Z",
+          "desired_end_date": "2020-12-31T11:00:00.000Z",
+          "created_at": "2018-12-05T08:53:03.286Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Eventing",
+          "epicsLabels": [
+            "area/eventing"
+          ],
+          "id": "eventing"
+        }
+      }
+    ],
+    "Logging / Tracing / Monitoring": [
+      {
+        "title": "Monitor all existing Kyma components",
+        "body": "As an administrator (e.g. SRE Team) I need insights (metrics) and alerts of all kyma components to ensure a stable environment and investigate critical situations.\n\nAnalysis of components by the teams: \nhttps://github.wdf.sap.corp/SAP-CP-Extension-Factory/community/blob/master/sig-and-wg/sig-production/investigations/nfr_components.md\n\nPreparation epic resulting in guidelines for controller/ui/services:\n#1879\n\nMonitoring Documentation:\n- [Metrics](https://github.com/kyma-project/examples/tree/master/monitoring-custom-metrics)\n- [Alerting](https://github.com/kyma-project/examples/tree/master/monitoring-alert-rules)\n- [Dashboards](https://github.com/kyma-project/kyma/tree/master/resources/monitoring/charts/grafana#making-a-dashboard-part-of-kyma-installation)\n\nAC:\nAll Kyma Components the team is maintaining and which will stay in mid-term future are monitored\n- Metrics exposed and documented\n- alerts are configured - part of the alert is a short description, whats wrong and how to fix it (or an link to the documentation) to bring the product support in a position to react on the problem without knowing the details\n- grafana dashboards are configured\n- Make the steps part of your DoD",
+        "url": "https://github.com/kyma-project/kyma/issues/376",
+        "number": 376,
+        "labels": [
+          "area/monitoring",
+          "quality/observability"
+        ],
+        "githubUrl": "https://github.com/kyma-project/kyma/issues/376",
+        "repository": {
+          "name": "kyma",
+          "id": 139590616,
+          "issues": []
+        },
+        "dueDate": "2020-12-31T11:00:00.000Z",
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/376",
+        "release": {
+          "release_id": "5c0791ef1a6a4c6bf4b314ce",
+          "title": "Future",
+          "description": "Items selected for development but not scheduled yet.",
+          "start_date": "2020-01-01T11:00:00.000Z",
+          "desired_end_date": "2020-12-31T11:00:00.000Z",
+          "created_at": "2018-12-05T08:53:03.286Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Logging / Tracing / Monitoring",
+          "epicsLabels": [
+            "area/logging",
+            "area/tracing",
+            "area/monitoring"
+          ],
+          "id": "logging-tracing-monitoring"
+        }
+      },
+      {
+        "title": "Monitor Knative Function Controller",
+        "body": "As a operator I like to know if my function controller is working like expected to react on issues.\n\nAC:\n- Monitoring for Functions\n  - Running Functions\n  - Deploying Functions\n  - Deployment errors",
+        "url": "https://github.com/kyma-project/kyma/issues/2251",
+        "number": 2251,
+        "labels": [
+          "area/monitoring",
+          "area/serverless",
+          "enhancement",
+          "quality/observability"
+        ],
+        "githubUrl": "https://github.com/kyma-project/kyma/issues/2251",
+        "repository": {
+          "name": "kyma",
+          "id": 139590616,
+          "issues": []
+        },
+        "dueDate": "2020-12-31T11:00:00.000Z",
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/2251",
+        "release": {
+          "release_id": "5c0791ef1a6a4c6bf4b314ce",
+          "title": "Future",
+          "description": "Items selected for development but not scheduled yet.",
+          "start_date": "2020-01-01T11:00:00.000Z",
+          "desired_end_date": "2020-12-31T11:00:00.000Z",
+          "created_at": "2018-12-05T08:53:03.286Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Logging / Tracing / Monitoring",
+          "epicsLabels": [
+            "area/logging",
+            "area/tracing",
+            "area/monitoring"
+          ],
+          "id": "logging-tracing-monitoring"
+        }
+      }
+    ],
+    "Service Management": [
+      {
+        "title": "Provide essential data and e2e test to *-kyma-gke-upgrade plan ",
+        "body": "**Description**\r\n\r\nAs Kyma 0.8 should be upgradeable from 0.7 and still work we need to test at least our top Kyma scenario, namely enterprise application integration, sending evens and receiving API calls back.\r\n\r\n**Acceptance Criteria**\r\n- Provide a separate steps for:\r\n  - essential component and data installation\r\n  - e2e test\r\n- Implement e2e test scenario: \r\n  - _your component e2e scenario_\r\n- Upgrade plan steps:\r\n  * install 0.7.0 -> apply setup and execute test\r\n  * upgrade to 0.8.0\r\n  * execute test again\r\n- Provide a way to install essential components and data in kyma before upgrade\r\n- Provide a way to run test\r\n\r\n\r\n**Example e2e test scenario**\r\n  - ec-mock installed, \r\n  - kyma and mock paired, \r\n  - api, events registered,\r\n  - app to namespace mapping created,\r\n  - APIs and Events classes provisioned, \r\n  - lambda with code to call back EC Mock API created, trigger by event checked,\r\n  - service binding usage to lambda created, \r\n  - EC mock event sent,\r\n  - lambda triggered,\r\n  - lambda calls API\r\n  - success",
+        "url": "https://github.com/kyma-project/test-infra/issues/582",
+        "number": 582,
+        "labels": [
+          "area/application-connector",
+          "area/ci",
+          "area/cluster",
+          "area/eventing",
+          "area/serverless",
+          "area/service-catalog",
+          "enhancement"
+        ],
+        "githubUrl": "https://github.com/kyma-project/test-infra/issues/582",
+        "repository": {
+          "name": "test-infra",
+          "id": 147495537,
+          "issues": []
+        },
+        "dueDate": "2020-12-31T11:00:00.000Z",
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/test-infra/582",
+        "release": {
+          "release_id": "5c0791ef1a6a4c6bf4b314ce",
+          "title": "Future",
+          "description": "Items selected for development but not scheduled yet.",
+          "start_date": "2020-01-01T11:00:00.000Z",
+          "desired_end_date": "2020-12-31T11:00:00.000Z",
+          "created_at": "2018-12-05T08:53:03.286Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Service Management",
+          "epicsLabels": [
+            "area/service-catalog"
+          ],
+          "id": "service-management"
+        }
+      }
+    ]
+  },
+  "2019-Q4": {
+    "API Gateway": [],
+    "Application Connectivity": [],
+    "Console / Microfrontends": [],
+    "Core & Supporting": [],
+    "Eventing": [],
+    "Logging / Tracing / Monitoring": [],
+    "Service Management": []
+  },
+  "2019-Q3": {
+    "API Gateway": [],
+    "Application Connectivity": [],
+    "Console / Microfrontends": [],
+    "Core & Supporting": [],
+    "Eventing": [],
+    "Logging / Tracing / Monitoring": [],
+    "Service Management": []
+  },
+  "1.1": {
+    "API Gateway": [],
+    "Application Connectivity": [
+      {
+        "title": "Application Connector Gateway extensions and stabilization",
+        "body": "**Description**\r\n\r\nThat epic is grouping issues around improvement in Application Connector and Application Gateway for increasing functionality and stabilizes support.\r\n\r\n**Reasons**\r\n\r\nThe enablement team requires a new feature to support integrations.\r\n",
+        "url": "https://github.com/kyma-project/kyma/issues/3449",
+        "number": 3449,
+        "labels": [
+          "area/application-connector",
+          "area/documentation",
+          "enhancement"
+        ],
+        "githubUrl": "https://github.com/kyma-project/kyma/issues/3449",
+        "repository": {
+          "name": "kyma",
+          "id": 139590616,
+          "issues": []
+        },
+        "dueDate": "2019-05-10T10:00:00.000Z",
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/3449",
+        "release": {
+          "release_id": "5c86318b1aa06e798dcd6782",
+          "title": "1.1",
+          "description": "Release 1.1 - Helsinki",
+          "start_date": "2019-04-06T22:00:00.000Z",
+          "desired_end_date": "2019-05-10T10:00:00.000Z",
+          "created_at": "2019-03-11T09:59:39.887Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Application Connectivity",
+          "epicsLabels": [
+            "area/application-connector"
+          ],
+          "id": "application-connectivity"
+        }
+      }
+    ],
+    "Console / Microfrontends": [
+      {
+        "title": "Make sure all views in console use ui-api-layer",
+        "body": "**Description**\r\n\r\n- Implement missing queries\r\n- Change UI to call the graphql layer\r\n\r\n**Reasons**\r\n\r\n- We agreed https://github.com/kyma-project/community/blob/master/sig-and-wg/sig-core/decisions/dr-007-GraphQL_as_API_facade_for_UI.md that all Console views should use `ui-api-layer` as a backed, for reasons described in the decision.\r\n- Don't use kubernetes-dashboard as dependency to the UI as this is going to be a blocker for https://github.com/kyma-project/kyma/issues/926 as kubernetes is an addon that should be optional",
+        "url": "https://github.com/kyma-project/console/issues/202",
+        "number": 202,
+        "labels": [
+          "area/console",
+          "enhancement"
+        ],
+        "githubUrl": "https://github.com/kyma-project/console/issues/202",
+        "repository": {
+          "name": "console",
+          "id": 139590577,
+          "issues": []
+        },
+        "dueDate": "2019-05-10T10:00:00.000Z",
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/console/202",
+        "release": {
+          "release_id": "5c86318b1aa06e798dcd6782",
+          "title": "1.1",
+          "description": "Release 1.1 - Helsinki",
+          "start_date": "2019-04-06T22:00:00.000Z",
+          "desired_end_date": "2019-05-10T10:00:00.000Z",
+          "created_at": "2019-03-11T09:59:39.887Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Console / Microfrontends",
+          "epicsLabels": [
+            "area/console",
+            "area/luigi"
+          ],
+          "id": "console-microfrontends"
+        }
+      },
+      {
+        "title": "I18N Support",
+        "body": "An application using luigi-core should be able to be displayed in multiple languages. This requires a standardized way/interface to store selected language information within the luigi core context as well as passing it to the client.\nAdditionally there might be a need of enhancing the node configuration schema so localized display data can be configured for e.g. node labels.",
+        "url": "https://github.com/kyma-project/luigi/issues/396",
+        "number": 396,
+        "labels": [
+          "area/luigi"
+        ],
+        "githubUrl": "https://github.com/kyma-project/luigi/issues/396",
+        "repository": {
+          "name": "luigi",
+          "id": 139590701,
+          "issues": []
+        },
+        "dueDate": "2019-05-10T10:00:00.000Z",
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/luigi/396",
+        "release": {
+          "release_id": "5c86318b1aa06e798dcd6782",
+          "title": "1.1",
+          "description": "Release 1.1 - Helsinki",
+          "start_date": "2019-04-06T22:00:00.000Z",
+          "desired_end_date": "2019-05-10T10:00:00.000Z",
+          "created_at": "2019-03-11T09:59:39.887Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Console / Microfrontends",
+          "epicsLabels": [
+            "area/console",
+            "area/luigi"
+          ],
+          "id": "console-microfrontends"
+        }
+      }
+    ],
+    "Core & Supporting": [
+      {
+        "title": "Create a view of kyma roadmap",
+        "body": "**Description**\r\n\r\n- due to the irregular quality of Epics  and lack of final vision for all capabilities page should not be yet visible in the navigation, we should see it only with direct URL for review\r\n- content for visions should be taken from https://github.com/kyma-project/community/tree/master/capabilities (feel free to reorganize or introduce some index file to make it easy to fetch)\r\n- dynamic display of roadmap means calling GitHub and ZenHub API and the number of API calls is limited. It can be done on a pipeline level, we do not need real-time refresh, set up the pipeline to periodically refresh the page as often as the limits allow us to do that.\r\n\r\n**Reasons**\r\n\r\nHave nice to digest, scalable and dynamic solution to share Kyma roadmap\r\n\r\n**Attachments**\r\n\r\nDesigns are too big and not so easy to make a screenshot, just pick it up during implementation from the system\r\n",
+        "url": "https://github.com/kyma-project/website/issues/258",
+        "number": 258,
+        "labels": [
+          "area/community",
+          "enhancement"
+        ],
+        "githubUrl": "https://github.com/kyma-project/website/issues/258",
+        "repository": {
+          "name": "website",
+          "id": 139847219,
+          "issues": []
+        },
+        "dueDate": "2019-05-10T10:00:00.000Z",
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/website/258",
+        "release": {
+          "release_id": "5c86318b1aa06e798dcd6782",
+          "title": "1.1",
+          "description": "Release 1.1 - Helsinki",
+          "start_date": "2019-04-06T22:00:00.000Z",
+          "desired_end_date": "2019-05-10T10:00:00.000Z",
+          "created_at": "2019-03-11T09:59:39.887Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Core & Supporting",
+          "epicsLabels": [
+            "area/core-and-supporting",
+            "area/community"
+          ],
+          "id": "core-and-supporting"
+        }
+      }
+    ],
+    "Eventing": [],
+    "Logging / Tracing / Monitoring": [],
+    "Service Management": [
+      {
+        "title": "Implement Add-on Manager",
+        "body": "**Description**\r\nThe Add-on Manager is responsible for managing all of the add-ons installed in the kubernetes. Currently Add-on Manager is a part of service catalog UI view powered by helm-broker. That feature is about to separate views and backend logic but still powered by helm-broker application.\r\n\r\n**Add-ons examples**\r\n- application - Order Service\r\n- application - OSB API Broker\r\n- database\r\n- integration scenario\r\n- showcase - two lambdas\r\n- example \r\n- others\r\n\r\n**AC**\r\n- UI/UX discussed and provided\r\n- Create a new view in namespaced Console UI for Add-on Manager\r\n- Create a new view in system Console UI for Add-on Manager Repositories\r\n- Adjust a backend ui-api-layer to feed Add-on Manager UI and Service Catalog UI independently\r\n\r\n**Attachments**\r\n- Catalog View 1 : \r\n<img width=\"1083\" alt=\"Add-ons Catalog 1\" src=\"https://user-images.githubusercontent.com/9609118/55703702-9e97c580-59da-11e9-85b0-41ce6c8a2ce6.png\">\r\n- Catalog View 2: \r\n<img width=\"1082\" alt=\"Add-ons Catalog 2\" src=\"https://user-images.githubusercontent.com/9609118/55703709-a5263d00-59da-11e9-84ef-8e030024406c.png\">\r\n- Instances View: \r\n<img width=\"1081\" alt=\"Add-ons Instances\" src=\"https://user-images.githubusercontent.com/9609118/55703730-b111ff00-59da-11e9-9007-a82f30b8d7c8.png\">\r\n- Add-ons Config: \r\n<img width=\"1084\" alt=\"Add-ons Config\" src=\"https://user-images.githubusercontent.com/9609118/55703737-b707e000-59da-11e9-9a26-ab2b22296fe4.png\">\r\n\r\n\r\n\r\n\r\n",
+        "url": "https://github.com/kyma-project/kyma/issues/3068",
+        "number": 3068,
+        "labels": [
+          "area/installation",
+          "area/service-catalog",
+          "enhancement"
+        ],
+        "githubUrl": "https://github.com/kyma-project/kyma/issues/3068",
+        "repository": {
+          "name": "kyma",
+          "id": 139590616,
+          "issues": []
+        },
+        "dueDate": "2019-05-10T10:00:00.000Z",
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/3068",
+        "release": {
+          "release_id": "5c86318b1aa06e798dcd6782",
+          "title": "1.1",
+          "description": "Release 1.1 - Helsinki",
+          "start_date": "2019-04-06T22:00:00.000Z",
+          "desired_end_date": "2019-05-10T10:00:00.000Z",
+          "created_at": "2019-03-11T09:59:39.887Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Service Management",
+          "epicsLabels": [
+            "area/service-catalog"
+          ],
+          "id": "service-management"
+        }
+      },
+      {
+        "title": "Helm Broker creates Service Class documentation from add-ons",
+        "body": "**Description**\r\n\r\nStore bundle's documentation in bundle itself via the Headless CMS functionality.\r\n\r\n**Reasons**\r\n\r\nWe don't want to store bundle documentation in kyma itself, as it is right now.\r\n\r\n**AC**\r\n- Not estimated in that story (all bundles docs moved to respective bundles (https://github.com/kyma-project/kyma/issues/3577))\r\n- helm-broker uploads bundle documentation as ClusterDocsTopic during repository registration\r\n- that solution must support documentation registration from bundle but with external resources (md, swagger, asyncAPI specs), see details in the `technical details section`\r\n- HB removes given ClusterDocsTopic when repository URL is deregistered\r\n- helm-broker pass repository URL parameter to given bundle (Could be used in helm-chart of the given bundle to upload documentation for given namespace by DocsTopic for example Azure Service Classess documentation)\r\n- ~using ClusterDocsTopic and DocsTopis only if those CRDs exists~\r\n- show refactoring on our Redis bundle\r\n\r\n**Technical Details**\r\n- about AC: `documentation registration from bundle but with external resources`, see how it can be realized: https://github.com/PK85/add-ons/blob/master/addons/slack-connector-0.1.0/docs/cluster-docs-topic.yaml . And HB will take that CR and install, of course in case documentation is provided in a bundle itself, HB need to adjust URLs to bundleRespository what was registered to HB with given bundle.\r\n\r\nSee, dependency:\r\n- https://github.com/kyma-project/console/issues/666\r\n- https://github.com/kyma-project/kyma/pull/3292/files",
+        "url": "https://github.com/kyma-project/kyma/issues/3358",
+        "number": 3358,
+        "labels": [
+          "area/documentation",
+          "area/service-catalog",
+          "enhancement"
+        ],
+        "githubUrl": "https://github.com/kyma-project/kyma/issues/3358",
+        "repository": {
+          "name": "kyma",
+          "id": 139590616,
+          "issues": []
+        },
+        "dueDate": "2019-05-10T10:00:00.000Z",
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/3358",
+        "release": {
+          "release_id": "5c86318b1aa06e798dcd6782",
+          "title": "1.1",
+          "description": "Release 1.1 - Helsinki",
+          "start_date": "2019-04-06T22:00:00.000Z",
+          "desired_end_date": "2019-05-10T10:00:00.000Z",
+          "created_at": "2019-03-11T09:59:39.887Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Service Management",
+          "epicsLabels": [
+            "area/service-catalog"
+          ],
+          "id": "service-management"
+        }
+      },
+      {
+        "title": "Finalize PR with Service Catalog CRD solution",
+        "body": "**Description**\r\n\r\nCreate PR in k8s Service Catalog with CRD implemented.\r\n\r\n**AC**\r\n- PR created in k8s SC SIG",
+        "url": "https://github.com/kyma-project/kyma/issues/3594",
+        "number": 3594,
+        "labels": [
+          "area/service-catalog",
+          "enhancement"
+        ],
+        "githubUrl": "https://github.com/kyma-project/kyma/issues/3594",
+        "repository": {
+          "name": "kyma",
+          "id": 139590616,
+          "issues": []
+        },
+        "dueDate": "2019-05-10T10:00:00.000Z",
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/3594",
+        "release": {
+          "release_id": "5c86318b1aa06e798dcd6782",
+          "title": "1.1",
+          "description": "Release 1.1 - Helsinki",
+          "start_date": "2019-04-06T22:00:00.000Z",
+          "desired_end_date": "2019-05-10T10:00:00.000Z",
+          "created_at": "2019-03-11T09:59:39.887Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Service Management",
+          "epicsLabels": [
+            "area/service-catalog"
+          ],
+          "id": "service-management"
+        }
+      },
+      {
+        "title": "Provide AWS Service Broker bundle",
+        "body": "**Description**\r\n\r\nProvide AWS Service Broker installation at runtime.\r\n\r\n**Reasons**\r\n\r\nAllow Kyma users to integrate AWS Service Broker with Kyma in an easy way with well documented steps described in a documentation of the service class.\r\n\r\n**Acceptance Criteria**\r\n- Make a bundle for AWS Service Broker\r\n  - keep all naming conventions, like description etc synced with already existing Azure and GCP bundles\r\n  - check if bundle requires some input parameters (for example Azure Broker has such one)\r\n  - bundle itself implementation and doc\r\n- Create service class documentation for above bundle\r\n  - add documentation per every AWS class, use reference to AWS documentation\r\n- Make sure all input parameters are displayed correctly in Service Catalog UI\r\n- release bundles repository and use new version in Kyma\r\n- Keep bundle AWS image/chart version and docs with the same version\r\n\r\n\r\n\r\n**Attachments**\r\n- Documentation, see: https://github.com/awslabs/aws-servicebroker/tree/master/docs\r\n- Installation on Kubernetes, see: https://github.com/awslabs/aws-servicebroker/blob/master/docs/getting-started-k8s.md",
+        "url": "https://github.com/kyma-project/bundles/issues/57",
+        "number": 57,
+        "labels": [
+          "area/service-catalog"
+        ],
+        "githubUrl": "https://github.com/kyma-project/bundles/issues/57",
+        "repository": {
+          "name": "bundles",
+          "id": 151691065,
+          "issues": []
+        },
+        "dueDate": "2019-05-10T10:00:00.000Z",
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/bundles/57",
+        "release": {
+          "release_id": "5c86318b1aa06e798dcd6782",
+          "title": "1.1",
+          "description": "Release 1.1 - Helsinki",
+          "start_date": "2019-04-06T22:00:00.000Z",
+          "desired_end_date": "2019-05-10T10:00:00.000Z",
+          "created_at": "2019-03-11T09:59:39.887Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Service Management",
+          "epicsLabels": [
+            "area/service-catalog"
+          ],
+          "id": "service-management"
+        }
+      }
+    ]
+  },
+  "1.2": {
+    "API Gateway": [],
+    "Application Connectivity": [],
+    "Console / Microfrontends": [
+      {
+        "title": "Enrich Micro frontend CRD",
+        "body": "**Description**\r\n\r\nRecently we have found 2 additional parameteres that could be passed to console via spec of Microfrontend CRD:\r\n\r\n - `settings` field - to pass setting object to the luigi client context\r\n - `requiredBackendModules` - a list of modules required for a MF to show up in the navigation\r\n\r\nWe should move them to microfrontend, clustermicrofrontend spec and document their purpose\r\n",
+        "url": "https://github.com/kyma-project/console/issues/638",
+        "number": 638,
+        "labels": [
+          "area/console",
+          "enhancement"
+        ],
+        "githubUrl": "https://github.com/kyma-project/console/issues/638",
+        "repository": {
+          "name": "console",
+          "id": 139590577,
+          "issues": []
+        },
+        "dueDate": "2019-06-07T10:00:00.000Z",
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/console/638",
+        "release": {
+          "release_id": "5cb59383709ee87123145468",
+          "title": "1.2",
+          "description": "Release 1.2 - Istanbul",
+          "start_date": "2019-05-13T10:00:00.000Z",
+          "desired_end_date": "2019-06-07T10:00:00.000Z",
+          "created_at": "2019-04-16T08:34:11.381Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Console / Microfrontends",
+          "epicsLabels": [
+            "area/console",
+            "area/luigi"
+          ],
+          "id": "console-microfrontends"
+        }
+      },
+      {
+        "title": "APIs view improvements",
+        "body": "**Description**\r\n\r\nThe user should be able to see APIs including API status. The APIs ui should be responsive and provide live feedback (websockets) after API creation, deletion, status change.\r\nUser should be able to manage wheather API should be with or w/o TLS:\r\n\r\nAC:\r\n\r\n- API status is shown on the list and API details view\r\n- APIs are fetched, updated, created, deleted via gql\r\n\r\n",
+        "url": "https://github.com/kyma-project/kyma/issues/3822",
+        "number": 3822,
+        "labels": [
+          "area/console"
+        ],
+        "githubUrl": "https://github.com/kyma-project/kyma/issues/3822",
+        "repository": {
+          "name": "kyma",
+          "id": 139590616,
+          "issues": []
+        },
+        "dueDate": "2019-06-07T10:00:00.000Z",
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/3822",
+        "release": {
+          "release_id": "5cb59383709ee87123145468",
+          "title": "1.2",
+          "description": "Release 1.2 - Istanbul",
+          "start_date": "2019-05-13T10:00:00.000Z",
+          "desired_end_date": "2019-06-07T10:00:00.000Z",
+          "created_at": "2019-04-16T08:34:11.381Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Console / Microfrontends",
+          "epicsLabels": [
+            "area/console",
+            "area/luigi"
+          ],
+          "id": "console-microfrontends"
+        }
+      }
+    ],
+    "Core & Supporting": [],
+    "Eventing": [],
+    "Logging / Tracing / Monitoring": [],
+    "Service Management": []
+  },
+  "1.3": {
+    "API Gateway": [],
+    "Application Connectivity": [],
+    "Console / Microfrontends": [],
+    "Core & Supporting": [],
+    "Eventing": [],
+    "Logging / Tracing / Monitoring": [],
+    "Service Management": []
+  },
+  "1.0": {
+    "API Gateway": [],
+    "Application Connectivity": [],
+    "Console / Microfrontends": [],
+    "Core & Supporting": [],
+    "Eventing": [],
+    "Logging / Tracing / Monitoring": [],
+    "Service Management": []
+  }
+}
