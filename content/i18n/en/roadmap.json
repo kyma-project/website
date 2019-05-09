@@ -2,7 +2,10 @@
   "overview": {
     "header": "Capabilities",
     "subHeader": "Evolving the Vision and driving the Product",
-    "description": "Kyma consists of a number of different features that enable Kyma to be a ready-to-extend enterprise application in a cloud-native world. These features are grouped in different areas called Capabilities."
+    "description": [
+      "Kyma consists of a number of different features that enable Kyma to be a ready-to-extend enterprise application in a cloud-native world. These features are grouped in different areas called Capabilities.",
+      "If you see a feature you like but it has not been scheduled for any release yet, feel free to contact us on {slackLink} to talk about your use cases or contribution options."
+    ]
   },
   "capabilities": {
     "viewRoadmap": "View Roadmap"

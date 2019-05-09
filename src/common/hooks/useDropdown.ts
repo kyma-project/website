@@ -20,7 +20,7 @@ export default function useDropdown(dropEl: any, actionEl: any) {
       const clickOnDrop =
         dropEl && (ev.target === dropEl || dropEl.contains(ev.target));
 
-      if (!clickOnAction && !clickOnDrop && drop === true) {
+      if (!clickOnDrop && drop === true) {
         toggleDrop(false);
       }
     },
