@@ -22,6 +22,6 @@ prepare-content:
 	echo "Co się nauczyliśmy to nasze"
 
 publish-website: prepare-git
-	./scripts/prepare-content.sh --branches $(PULL_BASE_REF)
+	./scripts/prepare-content.sh
 	./scripts/publish-website.sh
 	
