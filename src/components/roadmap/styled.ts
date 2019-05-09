@@ -1,4 +1,5 @@
 import styled, { media } from "@styled";
+import Paragraph from "@components/shared/Paragraph";
 
 export const OverviewWrapper = styled.div`
   margin-top: 72px;
@@ -22,7 +23,11 @@ export const OverviewHeader = styled.header`
     line-height: 1.63;
     letter-spacing: normal;
     text-align: center;
-    margin-bottom: 0;
+    margin-bottom: 16px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 
   ${media.phone`

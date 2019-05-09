@@ -2,7 +2,10 @@
   "overview": {
     "header": "Capabilities",
     "subHeader": "Evolving the Vision and driving the Product",
-    "description": "Give Kyma organization minimal Kyma usage statistics. We should know how ofter Kyma is privisioned daily on local and cluster and with what configration to understand which components are used less Have proper components in place to enable analytics. They should be preconfigured in the way the basic analytics are available out of the box"
+    "description": [
+      "Kyma consists of a number of different features that enable Kyma to be a ready-to-extend enterprise application in a cloud-native world. These features are grouped in different areas called Capabilities.",
+      "If you see a feature you like but it has not been scheduled for any release yet, feel free to contact us on {slackLink} to talk about your use cases or contribution options."
+    ]
   },
   "capabilities": {
     "viewRoadmap": "View Roadmap"
