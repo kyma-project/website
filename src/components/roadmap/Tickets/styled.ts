@@ -2,14 +2,27 @@ import styled, { media } from "@styled";
 
 import Grid from "@styled/Grid";
 
-import RoadmapTop from "@static/img/roadmap-top.png";
+import RoadmapTop from "@static/img/roadmap-top.svg";
 
 export const Wrapper = styled.div`
-  background: #e2edf5;
   position: relative;
   margin-top: 72px;
   margin-bottom: -132px;
   padding-bottom: 72px;
+  padding-top: 32px;
+  background: url(${RoadmapTop}) top center no-repeat;
+  background-size: cover 100%;
+
+  &:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    background: #e2edf5;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
 
   ${media.tablet`
     padding: 50px 0 150px 0;
@@ -17,7 +30,7 @@ export const Wrapper = styled.div`
 `;
 
 export const HeaderWrapper = styled.header`
-  margin-top: 52px;
+  z-index: 2;
 
   > h2 {
     text-align: center;
@@ -27,6 +40,7 @@ export const HeaderWrapper = styled.header`
 /* Release */
 export const ReleaseWrapper = styled.div`
   position: relative;
+  z-index: 1;
 `;
 
 interface ReleaseHeaderProps {
