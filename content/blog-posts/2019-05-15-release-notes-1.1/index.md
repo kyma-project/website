@@ -17,9 +17,9 @@ After the long-awaited 1.0 Gliwice release, we focused mainly on putting the pol
 The highlights of Kyma 1.1 Helsinki include:
 
 - [Add-on Catalog](#service-management) - We enabled a new way to share add-ons by combining the concepts of Service Catalog bundles with Helm charts.
-- [AWS Broker](#asset-store) - We extended our third-party services by adding the AWS service offering.
-- [Minio Gateway](#asset-store) - We improved the Asset Store configuration to let you use Google Cloud Storage.
-- [Octopus](#productivity) - We introduced a new testing tool that replaced Helm tests.
+- [AWS Service Broker](#aws-service-broker-add-on) - We extended our third-party services by adding the AWS service offering.
+- [Minio Gateway](#minio-gateway-mode) - We improved the Asset Store configuration to let you use Google Cloud Storage.
+- [Octopus](#octopus-in-kyma) - We introduced a new testing tool that replaced Helm tests.
 
 See the overview of all changes in this release:
 
@@ -83,6 +83,7 @@ In 1.1, we focused on creating configuration documents and simplifying the exist
 Configuration improvements:
 - An [overview](/docs/1.1/root/kyma/#configuration-overview) document explaining what you can configure in Kyma and how you can do it before and after installation.
 - Improved documents on selected [component installation](/docs/1.1/root/kyma/#configuration-custom-component-installation) and chart values [overrides](/docs/1.1/root/kyma/#configuration-helm-overrides-for-kyma-installation).
+- A [template](https://github.com/kyma-project/community/blob/master/guidelines/templates/resources/configuration.md) for the **Configuration** document type that provides technical details about configuration of a Kyma component's chart or sub-chart.
 - A set of configuration documents for the [Asset Store](/docs/1.1/components/asset-store/#configuration-configuration) specifying the configurable parameters from the `values.yaml` charts and sub-charts that you can override. You can expect more of such documents for other Kyma components to come in the upcoming releases.
 
 Installation improvements:
@@ -137,4 +138,4 @@ APIs and Events of the Application Broker Service Classes now have a new "provis
 ### Octopus in Kyma
 
 As part of productivity improvements in Kyma, we replaced Helm tests with the Octopus test runner. Kyma components now use Octopus as a testing framework to run tests defined as Docker images on a running cluster.
-Read more about [testing ](/docs/1.1/root/kyma/#details-testing-kyma) in Kyma, [Octopus](https://github.com/kyma-incubator/octopus/blob/master/README.md) itself, and the benefits it brings to the Kyma testing process.
+Read more about [testing](/docs/1.1/root/kyma/#details-testing-kyma) in Kyma, [Octopus](https://github.com/kyma-incubator/octopus/blob/master/README.md) itself, and the benefits it brings to the Kyma testing process.
