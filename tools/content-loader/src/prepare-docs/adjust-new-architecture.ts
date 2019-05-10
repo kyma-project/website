@@ -179,17 +179,15 @@ export class AdjustNewArchitecture {
     return docsConfig;
   };
 
-  private extractClusterDocsTopics = (
-    groupName: string,
-  ): ClusterDocsTopic[] => {
-    return this.clusterDocsTopics
+  private extractClusterDocsTopics = (groupName: string): ClusterDocsTopic[] =>
+    this.clusterDocsTopics
       .filter(cdt => cdt.metadata.labels[GROUP_NAME_LABEL] === groupName)
       .sort((a, b) =>
-        Number(a.metadata.labels[ORDER_LABEL]) > Number(b.metadata.labels[ORDER_LABEL])
+        Number(a.metadata.labels[ORDER_LABEL]) >
+        Number(b.metadata.labels[ORDER_LABEL])
           ? 1
           : -1,
       );
-  };
 
   private loadAllClusterDocsTopics = async (source: string) => {
     let err: Error | null;
@@ -204,9 +202,9 @@ export class AdjustNewArchitecture {
     files = files.filter(file => Boolean(cdtRegex.exec(file)));
 
     for (const file of files) {
-      const [err, cdt] = await to(readYaml(file));
-      if (err) {
-        throw new VError(err, `while reading yaml ${file}`);
+      const [e, cdt] = await to(readYaml(file));
+      if (e) {
+        throw new VError(e, `while reading yaml ${file}`);
       }
 
       if (cdt.kind === CLUSTER_DOCS_TOPIC) {
