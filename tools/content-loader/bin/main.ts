@@ -50,10 +50,10 @@ const main = async () => {
     errors.push(new VError(err, "while preparing documentation"));
   }
 
-  // [err] = await to(prepareRoadmapContentFn());
-  // if (err) {
-  //   errors.push(new VError(err, "while preparing content for roadmap"));
-  // }
+  [err] = await to(prepareRoadmapContentFn());
+  if (err) {
+    errors.push(new VError(err, "while preparing content for roadmap"));
+  }
 
   if (errors.length) {
     errors.forEach(e => {

@@ -9,9 +9,11 @@ import { copyResources, fileExists } from "../helpers";
 
 export class CopyDocs {
   releases = async ({ releases, source, output }) => {
-    for (const key of Array.from(releases.keys())) {
-      const tag = releases.get(key);
-      console.log(`Copying documentation for release ${key} from tag ${tag}`);
+    for (const release of Array.from(releases.keys())) {
+      const tag = releases.get(release);
+      console.log(
+        `Copying documentation for release ${release} from tag ${tag}`,
+      );
 
       let err: Error;
       [err] = await to(GitClient.checkoutTag(tag));
@@ -19,7 +21,7 @@ export class CopyDocs {
         throw err;
       }
 
-      const out = `${output}/${key}`;
+      const out = `${output}/${release}`;
       [err] = await to(this.do(source, out));
       if (err) {
         throw new VError(err, `while copying sources from tag: ${tag}`);
@@ -50,7 +52,7 @@ export class CopyDocs {
     let err: Error | null;
 
     console.log(`Copy documentation to ${output}`);
-    const manifestExists = this.checkExistsOfManifest(docsDir);
+    const manifestExists = await this.checkExistsOfManifest(docsDir);
     if (manifestExists) {
       [err] = await to(this.copyOldArchitecture(docsDir, output));
     } else {
@@ -63,7 +65,10 @@ export class CopyDocs {
   };
 
   private checkExistsOfManifest = async (docsDir: string): Promise<boolean> => {
-    const manifestPaths: string[] = [`${docsDir}/manifest.yaml`, `${docsDir}/manifest.yml`];
+    const manifestPaths: string[] = [
+      `${docsDir}/manifest.yaml`,
+      `${docsDir}/manifest.yml`,
+    ];
     for (const path of manifestPaths) {
       const exists = await fileExists(path);
       if (exists) {
@@ -77,14 +82,18 @@ export class CopyDocs {
     const allowedFilesRegex = /docs\/(manifest\.(yaml|yml)|[A-z0-9-_]*\/(docs\.config\.json|docs\/assets\/[A-z0-9-_.]*\.(png|jpg|gif|jpeg|svg|yaml|yml|json)|docs\/[A-z0-9-_.]*\.md))/;
     const [err] = await to(copyResources(docsDir, output, allowedFilesRegex));
     if (err) {
-      throw err
+      throw err;
     }
   };
 
-  private copyNewArchitecture = async (source: string, docsDir: string, output: string) => {
+  private copyNewArchitecture = async (
+    source: string,
+    docsDir: string,
+    output: string,
+  ) => {
     const [err] = await to(AdjustNewArchitecture.do(source, docsDir, output));
     if (err) {
-      throw err
+      throw err;
     }
   };
 }
