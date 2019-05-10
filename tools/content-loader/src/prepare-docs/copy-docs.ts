@@ -3,6 +3,8 @@ import { VError } from "verror";
 
 import GitClient from "../github-client/git-client";
 
+import AdjustNewArchitecture from "./adjust-new-architecture";
+
 import { copyResources, fileExists } from "../helpers";
 
 export class CopyDocs {
@@ -45,12 +47,18 @@ export class CopyDocs {
 
   private do = async (source: string, output: string) => {
     const docsDir = `${source}/docs`;
+    let err: Error | null;
 
+    console.log(`Copy documentation to ${output}`);
     const manifestExists = this.checkExistsOfManifest(docsDir);
     if (manifestExists) {
-      this.copyOldArchitecture(docsDir, output);
+      [err] = await to(this.copyOldArchitecture(docsDir, output));
     } else {
-      this.copyNewArchitecture(docsDir, output);
+      [err] = await to(this.copyNewArchitecture(source, docsDir, output));
+    }
+
+    if (err) {
+      throw new VError(err, `while copying documentation to ${output}`);
     }
   };
 
@@ -66,20 +74,17 @@ export class CopyDocs {
   };
 
   private copyOldArchitecture = async (docsDir: string, output: string) => {
-    console.log(`Copy documentation to ${output}`);
     const allowedFilesRegex = /docs\/(manifest\.(yaml|yml)|[A-z0-9-_]*\/(docs\.config\.json|docs\/assets\/[A-z0-9-_.]*\.(png|jpg|gif|jpeg|svg|yaml|yml|json)|docs\/[A-z0-9-_.]*\.md))/;
     const [err] = await to(copyResources(docsDir, output, allowedFilesRegex));
     if (err) {
-      throw new VError(err, `while copying documentation to ${output}`);
+      throw err
     }
   };
 
-  private copyNewArchitecture = async (docsDir: string, output: string) => {
-    console.log(`Copy documentation to ${output}`);
-    const allowedFilesRegex = /docs\/(assets\/[A-z0-9-_.]*\.(png|jpg|gif|jpeg|svg|yaml|yml|json)|[A-z0-9-_.]*\.md)/;
-    const [err] = await to(copyResources(docsDir, output, allowedFilesRegex));
+  private copyNewArchitecture = async (source: string, docsDir: string, output: string) => {
+    const [err] = await to(AdjustNewArchitecture.do(source, docsDir, output));
     if (err) {
-      throw new VError(err, `while copying documentation to ${output}`);
+      throw err
     }
   };
 }

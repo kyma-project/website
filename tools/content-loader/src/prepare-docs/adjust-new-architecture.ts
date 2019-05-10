@@ -58,8 +58,14 @@ interface DocsConfigSpec {
 export class AdjustNewArchitecture {
   private clusterDocsTopics: ClusterDocsTopic[] = [];
 
-  do = async (docsPath: string) => {
+  do = async (source: string, docsDir: string, output: string) => {
+    let err: Error | null;
+    [err] = await to(this.loadAllClusterDocsTopics(source));
+    if (err) {
+      throw err;
+    }
 
+    const manifest = this.prepareManifest();
   }
 
   private prepareManifest = (): Manifest => {
@@ -81,7 +87,6 @@ export class AdjustNewArchitecture {
         }))
       }
     };
-
     return manifest;
   }
 
@@ -96,7 +101,7 @@ export class AdjustNewArchitecture {
 
     const docsConfig: DocsConfig = {
       spec,
-    }
+    };
     return docsConfig;
   }
 
