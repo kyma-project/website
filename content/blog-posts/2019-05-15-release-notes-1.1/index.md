@@ -10,14 +10,14 @@ redirectFrom:
   - "/blog/release-notes-11"
 ---
 
-After the long-awaited 1.0 Gliwice release, we focused mainly on putting the polishing touches to the current setup, including improvements in the Console UI performance and usability, Asset Store and Service Catalog extensions, Application Operator optimization, and documentation-related tweaks. Still, we are proud to communicate a few new features we bring to you in 1.1. Helsinki. Read on to find out what has changed in Kyma since 1.0.
+After the long-awaited 1.0 Gliwice release, we focused mainly on putting the polishing touches to the current setup, including improvements in the Console UI performance and usability, Asset Store and Service Catalog extensions, Application Operator optimization, and documentation-related tweaks. Still, we are proud to communicate a few new features we bring to you in 1.1 Helsinki. Read on to find out what has changed in Kyma since 1.0.
 
 <!-- overview -->
 
 The highlights of Kyma 1.1 Helsinki include:
 
 - [Add-ons in the Catalog UI](#add-ons-in-the-catalog-ui) - We enabled a new way to share add-ons by combining the concepts of Service Catalog bundles with Helm charts.
-- [AWS Service Broker](#aws-service-broker-add-on) - We extended our third-party services by adding the AWS service offering.
+- [AWS Service Broker](#aws-service-broker-add-on) - We extended our third-party services by adding the AWS service offerings.
 - [Minio Gateway](#minio-gateway-mode) - We improved the Asset Store configuration to let you use Google Cloud Storage.
 - [Octopus](#octopus-in-kyma) - We introduced a new testing tool that replaced Helm tests.
 
@@ -37,7 +37,7 @@ See the overview of all changes in this release:
 
 ### Application Operator optimization
 
-In this release, we optimized the memory consumption for the Application Operator. The component is now much more stable and reliable even under the high cluster load.
+In this release, we optimized the memory consumption for the Application Operator. The component is now much more stable and reliable, even under the high cluster load.
 
 ### OData support in documentation
 
@@ -56,7 +56,7 @@ As a result of aggregating several calls into one, we reduced the initial loadin
 
 ### Usability improvements
 
-We added the `SYSTEM` badge to the system Namespaces thanks to which you can easily distinguish them from the user-created ones on the Namespace overview page in the Console UI.
+We added the `SYSTEM` badge to the system Namespaces. Thanks to it, you can easily distinguish them from the user-created ones on the Namespace overview page in the Console UI.
 
 ![Namespace overview](./namespaces-overview.png)
 
@@ -68,10 +68,10 @@ We added the `SYSTEM` badge to the system Namespaces thanks to which you can eas
 The [Asset Store](/docs/1.1/components/asset-store) that ensures asset management in Kyma uses [Minio](https://min.io/) as a back-end solution. As stated in our documentation, we recommend that you use Minio in its Gateway mode for your production environment. This means you should use Minio as a gateway to Google Cloud Storage (GCS).
 
 In this release, we focused on preparing an easy switch from the standalone mode to the Gateway mode by:
-- Making sure your data is seamlessly recreated after the switch
-- Improving the stability of the Asset Store with Minio in the Gateway mode
-- Providing clear documentation on how to [switch to GCS](/docs/1.1/components/asset-store/#tutorials-set-minio-to-the-google-cloud-storage-gateway-mode)
-- Integrating the Minio Gateway mode with our testing pipeline. This way, we can now test any new functionality against the Minio Gateway mode pointing to GCS
+- Making sure your data is seamlessly recreated after the switch.
+- Improving the stability of the Asset Store with Minio in the Gateway mode.
+- Providing clear documentation on how to [switch to GCS](/docs/1.1/components/asset-store/#tutorials-set-minio-to-the-google-cloud-storage-gateway-mode).
+- Integrating the Minio Gateway mode with our testing pipeline. This way, we can now test any new functionality against the Minio Gateway mode pointing to GCS.
 
 
 ## Documentation
@@ -81,13 +81,13 @@ In this release, we focused on preparing an easy switch from the standalone mode
 In 1.1, we focused on creating configuration documents and simplifying the existing installation documents.
 
 Configuration improvements:
-- An [overview](/docs/1.1/root/kyma/#configuration-overview) document explaining what you can configure in Kyma and how you can do it before and after installation.
-- Improved documents on selected [component installation](/docs/1.1/root/kyma/#configuration-custom-component-installation) and chart values [overrides](/docs/1.1/root/kyma/#configuration-helm-overrides-for-kyma-installation).
-- A [template](https://github.com/kyma-project/community/blob/master/guidelines/templates/resources/configuration.md) for the **Configuration** document type that provides technical details about configuration of a Kyma component's chart or sub-chart.
-- A set of configuration documents for the [Asset Store](/docs/1.1/components/asset-store/#configuration-configuration) specifying the configurable parameters from the `values.yaml` charts and sub-charts that you can override. You can expect more of such documents for other Kyma components to come in the upcoming releases.
+- An [overview](/docs/1.1/root/kyma/#configuration-overview) document explaining what you can configure in Kyma and how you can do it before and after installation
+- Improved documents on selected [component installation](/docs/1.1/root/kyma/#configuration-custom-component-installation) and chart values [overrides](/docs/1.1/root/kyma/#configuration-helm-overrides-for-kyma-installation)
+- A [template](https://github.com/kyma-project/community/blob/master/guidelines/templates/resources/configuration.md) for the **Configuration** document type that provides technical details about configuration of a Kyma component's chart or sub-chart
+- A set of configuration documents for the [Asset Store](/docs/1.1/components/asset-store/#configuration-configuration) specifying the configurable parameters from the `values.yaml` charts and sub-charts that you can override. You can expect more of such documents for other Kyma components to come in the upcoming releases
 
 Installation improvements:
-- Simplified [cluster installation](/docs/1.1/root/kyma/#installation-install-kyma-on-a-cluster) documents explaining how you can can quickly deploy Kyma on a cluster with a wildcard DNS provided by `xip.io`.
+- A simplified [cluster installation](/docs/1.1/root/kyma/#installation-install-kyma-on-a-cluster) document explaining how you can quickly deploy Kyma on a cluster with a wildcard DNS provided by `xip.io`
 - A unified [local installation](/docs/1.1/root/kyma/#installation-install-kyma-locally) flow
 
 
@@ -124,7 +124,7 @@ As part of our constant efforts to improve your experience on third-party Servic
 
 ### Documentation support for add-ons
 
-The Helm Broker creates Service Class documentation from an add-on which appears in the **Add-Ons** Catalog UI view. Read how to add documentation to your [add-on](https://kyma-project.io/docs/master/components/helm-broker/#details-create-a-bundle-docs-directory). If your add-on extends the Service Catalog UI, read how to provide documentation for those new [Service Classes](/docs/1.1/components/helm-broker#details-service-classes-documentation-provided-by-bundles).
+The Helm Broker creates Service Class documentation from an add-on which appears in the **Add-Ons** Catalog UI view. [Read](https://kyma-project.io/docs/master/components/helm-broker/#details-create-a-bundle-docs-directory) how to add documentation to your add-on. If your add-on extends the Service Catalog UI, [read](/docs/1.1/components/helm-broker#details-service-classes-documentation-provided-by-bundles) how to provide documentation for those new Service Classes.
 
 ### "Provision only once" APIs and Events
 
