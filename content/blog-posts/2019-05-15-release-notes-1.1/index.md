@@ -16,7 +16,7 @@ After the long-awaited 1.0 Gliwice release, we focused mainly on putting the pol
 
 The highlights of Kyma 1.1 Helsinki include:
 
-- [Add-on Catalog](#service-management) - We enabled a new way to share add-ons by combining the concepts of Service Catalog bundles with Helm charts.
+- [Add-ons in the Catalog UI](#add-ons-in-the-catalog-ui) - We enabled a new way to share add-ons by combining the concepts of Service Catalog bundles with Helm charts.
 - [AWS Service Broker](#aws-service-broker-add-on) - We extended our third-party services by adding the AWS service offering.
 - [Minio Gateway](#minio-gateway-mode) - We improved the Asset Store configuration to let you use Google Cloud Storage.
 - [Octopus](#octopus-in-kyma) - We introduced a new testing tool that replaced Helm tests.
