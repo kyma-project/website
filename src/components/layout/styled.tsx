@@ -302,11 +302,12 @@ export const FooterWrapper = styled.footer`
   background-size: 100% 100%;
   min-height: 340px;
   margin-top: 72px;
+  padding-top: 24px;
 `;
 
 export const FooterLogo = styled.div`
   display: block;
-  margin: 0 auto 45px;
+  margin: 0 auto 16px;
 
   > svg {
     width: 79px;
@@ -345,6 +346,7 @@ export const FooterCopyright = styled(Paragraph)`
   color: ${props => props.theme.colors.link.secondary};
   text-align: center;
   font-size: ${props => props.theme.fontSize.xs};
+  margin-bottom: 12px;
 
   a {
     color: #fff;
@@ -355,6 +357,14 @@ export const FooterCopyright = styled(Paragraph)`
     &:active {
       color: ${props => props.theme.colors.link.secondary};
     }
+  }
+`;
+
+export const NetlifyIcon = styled.div`
+  text-align: center;
+
+  img {
+    margin-bottom: 0;
   }
 `;
 
@@ -413,6 +423,7 @@ export const ReadPrivacyStatementLink = styled(Link.External)`
   border-bottom: 1px solid ${props => props.theme.colors.border.secondary};
 `;
 
+/* Back to top */
 interface BackToTopIconProps {
   visibleIcon: boolean;
 }

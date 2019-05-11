@@ -1,8 +1,12 @@
 # Website
 
+<a href="https://www.netlify.com">
+  <img src="https://www.netlify.com/img/global/badges/netlify-color-bg.svg"/>
+</a>
+
 ## Overview
 
-This repository contains website source for [`kyma-project.io`](https://kyma-project.io). It uses [GatsbyJS](https://www.gatsbyjs.org/) for static site generation.
+This repository contains website source for [`kyma-project.io`](https://kyma-project.io). It uses [GatsbyJS](https://www.gatsbyjs.org/) for static site generation and deploys by [Netlify](https://www.netlify.com)
 
 > **NOTE:** The description of the application configuration, the project structure, the architecture, and other project-specific details are located in the [`docs`](./docs/README.md) directory.
 

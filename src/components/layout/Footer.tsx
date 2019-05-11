@@ -10,6 +10,8 @@ import { FormattedMessage, getTranslation } from "@common/i18n";
 import config from "@config";
 import { getActualYear, resolveSocialMedia } from "@common/utils";
 
+import Netlify from "@static/img/netlify.svg";
+
 import {
   FooterWrapper,
   FooterLogo,
@@ -17,6 +19,7 @@ import {
   FooterSocialMediaItem,
   FooterSocialMediaLink,
   FooterCopyright,
+  NetlifyIcon,
 } from "./styled";
 
 const gt = getTranslation("layout.footer");
@@ -62,6 +65,11 @@ const Footer: React.FunctionComponent = () => {
           }}
         />
       </FooterCopyright>
+      <NetlifyIcon>
+        <a href="https://www.netlify.com">
+          <img src={Netlify} />
+        </a>
+      </NetlifyIcon>
     </FooterWrapper>
   );
 };

@@ -1,6 +1,6 @@
 [build]
   functions = "build-functions"
-  publish = "/public"
+  publish = "public/"
 
 [context.production]
   command = "make netlify-production"
