@@ -18,7 +18,6 @@ interface SlidesBannerProps {
 interface SlidesBannerState {
   slides: Slide[];
   currentSlide: number;
-  wrapperHeight?: number;
 }
 
 class SlidesBanner extends PureComponent<SlidesBannerProps, SlidesBannerState> {
@@ -30,21 +29,17 @@ class SlidesBanner extends PureComponent<SlidesBannerProps, SlidesBannerState> {
     this.state = {
       slides: this.filterEventsFromData(this.props.slides),
       currentSlide: 0,
-      wrapperHeight: undefined,
     };
   }
 
   componentDidMount() {
-    window.addEventListener("resize", this.resize);
     if (this.multipleEvents()) {
       this.timer = this.timerFunc();
     }
-    this.resize();
   }
 
   componentWillUnmount() {
     this.timer && clearInterval(this.timer);
-    window.removeEventListener("resize", this.resize);
   }
 
   filterEventsFromData = (events: Slide[]) =>
@@ -118,14 +113,6 @@ class SlidesBanner extends PureComponent<SlidesBannerProps, SlidesBannerState> {
 
   multipleEvents = () => this.state.slides.length > 1;
 
-  resize = () => {
-    if (this.slides) {
-      const slidesHeight = this.slides.map((elem: any) => elem.clientHeight);
-      const maxElemHeight = Math.max(...slidesHeight);
-      this.setState({ wrapperHeight: maxElemHeight });
-    }
-  };
-
   onCircleClick = (index: number): void => {
     this.setState({
       currentSlide: index,
@@ -151,7 +138,7 @@ class SlidesBanner extends PureComponent<SlidesBannerProps, SlidesBannerState> {
 
     return (
       <Wrapper>
-        <InnerWrapper height={this.state.wrapperHeight}>
+        <InnerWrapper>
           {manySlides && (
             <CircleIndicator
               slides={this.state.slides}

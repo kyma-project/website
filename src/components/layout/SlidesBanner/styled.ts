@@ -1,4 +1,5 @@
 import styled, { ThemeProps } from "@styled";
+import { customScrollBar } from "@styled/mixins";
 
 import Paragraph from "@components/shared/Paragraph";
 
@@ -12,31 +13,39 @@ export const Wrapper = styled.section`
   z-index: 150;
 `;
 
-interface InnerWrapperProps {
-  height?: number;
-}
-
 export const InnerWrapper = styled.div`
-  position: absolute;
+  position: relative;
   left: 0;
   right: 0;
-  top: -9999px;
-  ${(props: InnerWrapperProps) =>
-    props.height &&
-    `min-height: ${props.height}px;
-    position: relative; 
-    top:0;
-  `};
   width: 100%;
   max-width: 1200px;
   display: flex;
   justify-content: left;
   align-items: center;
-  padding: 15px 30px;
+  padding: 6px 30px;
+  height: 48px;
+  min-height: 48px;
+  flex-flow: row nowrap;
+  white-space: nowrap;
+  overflow-y: hidden;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+
+  ${customScrollBar({
+    thumbColor: "#395dc8",
+  })}
 
   @media (max-width: 736px) {
-    padding: 0 15px;
+    padding: 6px 15px;
   }
+
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    rgb(102, 51, 153) 1rem,
+    rgb(102, 51, 153) 96%,
+    transparent
+  );
 `;
 
 interface ContentWrapperProps {
@@ -66,7 +75,7 @@ export const Text = styled.p`
   text-align: left;
   padding: 0 10px;
   font-family: Poppins;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
   font-style: normal;
   font-stretch: normal;
@@ -84,15 +93,24 @@ export const Text = styled.p`
 
   @media (min-width: 737px) {
     margin: 20px 0;
+    font-size: 16px;
   }
 `;
 
 export const CircleWrapper = styled.section`
-  min-height: 45px;
+  position: absolute;
+  top: 50%;
+  left: 30px;
   min-width: 8px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  z-index: 155;
+  transform: translateY(-50%);
+
+  @media (max-width: 736px) {
+    left: 15px;
+  }
 `;
 
 type CircleProps = ThemeProps<{
