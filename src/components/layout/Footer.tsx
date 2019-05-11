@@ -66,7 +66,7 @@ const Footer: React.FunctionComponent = () => {
         />
       </FooterCopyright>
       <NetlifyIcon>
-        <a href="https://www.netlify.com">
+        <a href="https://www.netlify.com" target="_blank">
           <img src={Netlify} />
         </a>
       </NetlifyIcon>

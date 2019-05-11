@@ -1,6 +1,6 @@
 # Website
 
-<a href="https://www.netlify.com">
+<a href="https://www.netlify.com" target="_blank">
   <img src="https://www.netlify.com/img/global/badges/netlify-color-bg.svg"/>
 </a>
 
