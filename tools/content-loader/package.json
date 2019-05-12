@@ -6,7 +6,8 @@
   "scripts": {
     "start": "ts-node bin/main.ts",
     "lint-check": "tslint -c tslint.json '**/*.{ts,tsx}' --format verbose && prettier --check '**/*.{ts,tsx,js,jsx,json,html,css,yaml}'",
-    "lint-fix": "tslint -c tslint.json '**/*.{ts,tsx}' --format verbose --fix && prettier --write '**/*.{ts,tsx,js,jsx,json,html,css,yaml}'"
+    "lint-fix": "tslint -c tslint.json '**/*.{ts,tsx}' --format verbose --fix && prettier --write '**/*.{ts,tsx,js,jsx,json,html,css,yaml}'",
+    "conflict-check": "tslint-config-prettier-check ./tslint.json"
   },
   "author": "The Kyma project authors",
   "license": "Apache-2.0",
