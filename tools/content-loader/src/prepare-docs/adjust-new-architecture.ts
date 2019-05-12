@@ -13,7 +13,6 @@ import {
 const CLUSTER_DOCS_TOPIC: string = "ClusterDocsTopic";
 const KYMA_DOCS: string = "kyma-docs";
 
-const VIEW_CONTEXT_LABEL: string = "cms.kyma-project.io/view-context";
 const GROUP_NAME_LABEL: string = "cms.kyma-project.io/group-name";
 const ORDER_LABEL: string = "cms.kyma-project.io/order";
 
@@ -202,9 +201,10 @@ export class AdjustNewArchitecture {
     files = files.filter(file => Boolean(cdtRegex.exec(file)));
 
     for (const file of files) {
-      const [e, cdt] = await to(readYaml(file));
-      if (e) {
-        throw new VError(e, `while reading yaml ${file}`);
+      let cdt: ClusterDocsTopic
+      [err, cdt] = await to<ClusterDocsTopic>(readYaml(file));
+      if (err) {
+        throw new VError(err, `while reading yaml ${file}`);
       }
 
       if (cdt.kind === CLUSTER_DOCS_TOPIC) {
