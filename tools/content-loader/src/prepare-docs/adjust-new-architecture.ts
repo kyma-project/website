@@ -201,7 +201,7 @@ export class AdjustNewArchitecture {
     files = files.filter(file => Boolean(cdtRegex.exec(file)));
 
     for (const file of files) {
-      let cdt: ClusterDocsTopic
+      let cdt: ClusterDocsTopic;
       [err, cdt] = await to<ClusterDocsTopic>(readYaml(file));
       if (err) {
         throw new VError(err, `while reading yaml ${file}`);
