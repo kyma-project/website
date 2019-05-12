@@ -3,4 +3,7 @@ slides:
   - text: "Enroll the Kyma openSAP course starting from May 08!"
     url: "https://open.sap.com/courses/kyma1"
     startDate: "04/04/2019"
-    endDate: "08/05/2019"
+    endDate: "20/05/2019"
+  - text: "Join us for the KubeCon at SAP booth, Barcelona, May 21-23!"
+    startDate: "07/05/2019"
+    endDate: "23/05/2019"
