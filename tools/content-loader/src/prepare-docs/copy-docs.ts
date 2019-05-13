@@ -52,7 +52,7 @@ export class CopyDocs {
     let err: Error | null;
 
     console.log(`Copy documentation to ${output}`);
-    const manifestExists = await this.checkExistsOfManifest(docsDir);
+    const manifestExists = await this.checkIfManifestExists(docsDir);
     if (manifestExists) {
       [err] = await to(this.copyOldArchitecture(docsDir, output));
     } else {
@@ -64,7 +64,7 @@ export class CopyDocs {
     }
   };
 
-  private checkExistsOfManifest = async (docsDir: string): Promise<boolean> => {
+  private checkIfManifestExists = async (docsDir: string): Promise<boolean> => {
     const manifestPaths: string[] = [
       `${docsDir}/manifest.yaml`,
       `${docsDir}/manifest.yml`,
