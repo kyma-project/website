@@ -3,13 +3,17 @@ import { VError } from "verror";
 
 import GitClient from "../github-client/git-client";
 
-import { copyResources } from "../helpers";
+import AdjustNewArchitecture from "./adjust-new-architecture";
+
+import { copyResources, fileExists } from "../helpers";
 
 export class CopyDocs {
   releases = async ({ releases, source, output }) => {
-    for (const key of Array.from(releases.keys())) {
-      const tag = releases.get(key);
-      console.log(`Copying documentation for release ${key} from tag ${tag}`);
+    for (const release of Array.from(releases.keys())) {
+      const tag = releases.get(release);
+      console.log(
+        `Copying documentation for release ${release} from tag ${tag}`,
+      );
 
       let err: Error;
       [err] = await to(GitClient.checkoutTag(tag));
@@ -17,7 +21,7 @@ export class CopyDocs {
         throw err;
       }
 
-      const out = `${output}/${key}`;
+      const out = `${output}/${release}`;
       [err] = await to(this.do(source, out));
       if (err) {
         throw new VError(err, `while copying sources from tag: ${tag}`);
@@ -45,12 +49,51 @@ export class CopyDocs {
 
   private do = async (source: string, output: string) => {
     const docsDir = `${source}/docs`;
+    let err: Error | null;
 
     console.log(`Copy documentation to ${output}`);
+    const manifestExists = await this.checkIfManifestExists(docsDir);
+    if (manifestExists) {
+      [err] = await to(this.copyOldArchitecture(docsDir, output));
+    } else {
+      [err] = await to(this.copyNewArchitecture(source, docsDir, output));
+    }
+
+    if (err) {
+      throw new VError(err, `while copying documentation to ${output}`);
+    }
+  };
+
+  private checkIfManifestExists = async (docsDir: string): Promise<boolean> => {
+    const manifestPaths: string[] = [
+      `${docsDir}/manifest.yaml`,
+      `${docsDir}/manifest.yml`,
+    ];
+    for (const path of manifestPaths) {
+      const exists = await fileExists(path);
+      if (exists) {
+        return true;
+      }
+    }
+    return false;
+  };
+
+  private copyOldArchitecture = async (docsDir: string, output: string) => {
     const allowedFilesRegex = /docs\/(manifest\.(yaml|yml)|[A-z0-9-_]*\/(docs\.config\.json|docs\/assets\/[A-z0-9-_.]*\.(png|jpg|gif|jpeg|svg|yaml|yml|json)|docs\/[A-z0-9-_.]*\.md))/;
     const [err] = await to(copyResources(docsDir, output, allowedFilesRegex));
     if (err) {
-      throw new VError(err, `while copying documentation to ${output}`);
+      throw err;
+    }
+  };
+
+  private copyNewArchitecture = async (
+    source: string,
+    docsDir: string,
+    output: string,
+  ) => {
+    const [err] = await to(AdjustNewArchitecture.do(source, docsDir, output));
+    if (err) {
+      throw err;
     }
   };
 }

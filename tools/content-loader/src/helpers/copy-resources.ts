@@ -24,8 +24,6 @@ export const copyResources = async (
     throw new VError(err, `while getting files paths`);
   }
 
-  const allowedFilesRegex = /docs\/(manifest\.(yaml|yml)|[A-z0-9-_]*\/(docs\.config\.json|docs\/assets\/[A-z0-9-_.]*\.(png|jpg|gif|jpeg|svg|yaml|yml|json)|docs\/[A-z0-9-_.]*\.md))/;
-
   files = files.filter(file => Boolean(regex.exec(file)));
 
   const copyingFiles = files.map(async file => {

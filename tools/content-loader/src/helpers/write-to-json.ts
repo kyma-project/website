@@ -9,7 +9,7 @@ export const writeToJson = async (outputPath: string, data: any) => {
   if (err) {
     throw new VError(
       err,
-      `while writing versions ${JSON.stringify(data)} to ${outputPath}`,
+      `while writing json ${JSON.stringify(data)} to ${outputPath}`,
     );
   }
 };
