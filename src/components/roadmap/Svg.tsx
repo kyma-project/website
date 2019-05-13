@@ -4,7 +4,7 @@ import Api from "@components/roadmap/Svgs/Api";
 import ApplicationConnectivity from "@components/roadmap/Svgs/ApplicationConnectivity";
 import CoreAndSupporting from "@components/roadmap/Svgs/CoreAndSupporting";
 import Eventing from "@components/roadmap/Svgs/Eventing";
-import Functions from "@components/roadmap/Svgs/Functions";
+import Serverless from "@components/roadmap/Svgs/Serverless";
 import MicroFrontend from "@components/roadmap/Svgs/MicroFrontend";
 import Monitoring from "@components/roadmap/Svgs/Monitoring";
 import Provisioning from "@components/roadmap/Svgs/Provisioning";
@@ -28,8 +28,8 @@ const CapabilitySvg: React.FunctionComponent<CapabilitySvgProps> = ({
         return <CoreAndSupporting />;
       case "eventing":
         return <Eventing />;
-      case "functions":
-        return <Functions />;
+      case "serverless":
+        return <Serverless />;
       case "console-microfrontends":
         return <MicroFrontend />;
       case "logging-tracing-monitoring":
