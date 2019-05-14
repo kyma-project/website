@@ -21,7 +21,6 @@ const Navigation: React.FunctionComponent = () => {
     pageContext: { capabilitiesNavigation, ids },
     location,
   } = useContext(RoadmapService);
-  const { clearFilters } = useContext(TicketsService);
   const { activeNodes } = useContext(ScrollSpy.Context);
 
   const isActive = (id: string): boolean => {
