@@ -24,11 +24,10 @@ export const TicketsWrapper: React.FunctionComponent = ({ children }) => (
 );
 
 const Tickets: React.FunctionComponent = () => {
-  const { ticketsReference } = useContext(RoadmapService);
   const { prepareReleases } = useContext(TicketsService);
 
   return (
-    <div ref={ticketsReference}>
+    <div>
       <TicketsWrapper>
         {prepareReleases().map((release, idx) => (
           <ReleaseComponent

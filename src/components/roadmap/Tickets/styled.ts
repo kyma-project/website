@@ -32,8 +32,28 @@ export const Wrapper = styled.div`
 export const HeaderWrapper = styled.header`
   z-index: 2;
 
-  > h2 {
+  h2 {
     text-align: center;
+    margin-bottom: 0;
+  }
+
+  p {
+    text-align: center;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+`;
+
+export const RoadmapLinkWrapper = styled.div`
+  display: inline-block;
+  text-align: center;
+  margin-bottom: 30px;
+
+  a {
+    display: inline-block;
+    color: #485766;
   }
 `;
 
