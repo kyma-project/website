@@ -1,5 +1,8 @@
-netlify-deploy-preview: validate prepare-tools prepare-content build prepare-functions
-netlify-production: validate prepare-tools prepare-content build prepare-functions
+netlify-deploy-preview: clear-cache validate prepare-tools prepare-content build prepare-functions
+netlify-production: clear-cache validate prepare-tools prepare-content build prepare-functions
+
+clear-cache:
+	make -C "./tools/content-loader" clear-cache
 
 validate:
 	npm run conflict-check
