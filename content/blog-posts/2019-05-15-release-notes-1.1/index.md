@@ -52,7 +52,7 @@ We enriched the Event Service with the new `/{application}/v1/events/subscribed`
 
 ### Performance improvements  
 
-As a result of aggregating several calls into one, we reduced the initial loading time of the Console UI navigation. We also leveraged a new Luigi feature for improving caching behavior when reopening micro front-ends. Thanks to it, micro front-ends no longer need to reload each time you switch from one to another.
+As a result of aggregating several calls into one, we reduced the initial loading time of the Console UI navigation.
 
 ### Usability improvements
 
