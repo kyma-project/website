@@ -39,6 +39,10 @@ export const HeaderWrapper = styled.header`
 
   p {
     text-align: center;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 `;
 

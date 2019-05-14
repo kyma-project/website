@@ -4,6 +4,7 @@ export const DropDownWrapper = styled.div`
   position: relative;
   text-align: center;
   z-index: 1;
+  padding-top: 1.6rem;
 
   &:after {
     content: "";
