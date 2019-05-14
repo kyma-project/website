@@ -2,8 +2,6 @@ import styled, { media } from "@styled";
 
 import Grid from "@styled/Grid";
 
-import Link from "@components/shared/Link";
-
 import RoadmapTop from "@static/img/roadmap-top.svg";
 
 export const Wrapper = styled.div`
