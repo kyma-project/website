@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-#
-# Script for fetching and publishing new documentation to kyma-project.io
+# Script for preparing content for kyma-project.io
 
 set -e
 set -o pipefail
@@ -19,10 +18,7 @@ on_exit() {
 trap on_exit EXIT
 
 readonly SCRIPTS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-readonly KYMA_REPOSITORY="https://github.com/kyma-project/kyma.git"
 readonly CONTENT_DIR="${SCRIPTS_DIR}/../content"
-readonly VOLUME_CONTENT_DIR="/app/content"
-readonly LOADER_IMAGE="eu.gcr.io/kyma-project/develop/website-content-loader:8f720971"
 
 # Colors
 readonly ARGS=("$@")
@@ -43,8 +39,6 @@ step() {
 
 init() {
     BRANCHES=''
-    PREPARE_DOCS=''
-    PREPARE_ROADMAP=''
 
     while test $# -gt 0; do
         case "$1" in
@@ -65,26 +59,29 @@ init() {
     readonly BRANCHES
 }
 
-preparing() {
-    docker run --rm -v "${CONTENT_DIR}:/app/content" \
-               -e APP_DOCS_REPOSITORY="kyma" \
-               -e APP_DOCS_BRANCHES="${BRANCHES}" \
-               -e APP_DOCS_OUTPUT="${VOLUME_CONTENT_DIR}/docs" \
-               -e APP_DOCS_VERSIONS_CONFIG_FILE="${VOLUME_CONTENT_DIR}/docs/versions.json" \
-               -e APP_ROADMAP_REPOSITORY="community" \
-               -e APP_ROADMAP_OUTPUT="${VOLUME_CONTENT_DIR}/roadmap" \
-               -e APP_ROADMAP_CAPABILITIES_OUTPUT="${VOLUME_CONTENT_DIR}/roadmap/capabilities" \
-               -e APP_ROADMAP_TICKETS_OUTPUT="${VOLUME_CONTENT_DIR}/roadmap/tickets.json" \
-               -e APP_TOKEN="${BOT_GITHUB_TOKEN}" \
-               -e APP_ZEN_HUB_TOKEN="${BOT_ZENHUB_TOKEN}" \
-               ${LOADER_IMAGE}
+fetch() {
+    APP_DOCS_BRANCHES="${BRANCHES}" \
+    APP_DOCS_REPOSITORY="kyma" \
+    APP_DOCS_OUTPUT="${CONTENT_DIR}/docs" \
+    APP_DOCS_VERSIONS_CONFIG_FILE="${CONTENT_DIR}/docs/versions.json" \
+    APP_ROADMAP_REPOSITORY="community" \
+    APP_ROADMAP_OUTPUT="${CONTENT_DIR}/roadmap" \
+    APP_ROADMAP_CAPABILITIES_OUTPUT="${CONTENT_DIR}/roadmap/capabilities" \
+    APP_ROADMAP_TICKETS_OUTPUT="${CONTENT_DIR}/roadmap/tickets.json" \
+    APP_TOKEN="${BOT_GITHUB_TOKEN}" \
+    APP_ZEN_HUB_TOKEN="${BOT_ZENHUB_TOKEN}" \
+    make -C "./tools/content-loader" fetch-content
 }
 
 main() {
     init "${ARGS[@]}"
 
-    step "Preparing content"
-    preparing
-    pass "Content prepared"
+    if [[ -z "${NETLIFY_CI}" ]]; then
+        echo "Co się nauczyliśmy to nasze"
+    else
+        step "Fetching"
+        fetch
+        pass "Fetched"
+    fi
 }
 main

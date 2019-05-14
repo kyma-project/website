@@ -1,0 +1,9 @@
+[build]
+  functions = "build-functions"
+  publish = "public/"
+
+[context.production]
+  command = "make netlify-production"
+
+[context.deploy-preview]
+  command = "make netlify-deploy-preview"

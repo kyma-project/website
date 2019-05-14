@@ -68,4 +68,7 @@ yarn-error.log
 # temporary folder
 temp-*/
 
+# netlify production functions
+/build-functions
+
 .DS_Store
