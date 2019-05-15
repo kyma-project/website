@@ -15,12 +15,28 @@ export const BlockQuote: React.FunctionComponent = ({ children }) => {
     return type && type.replace(":", "").toLowerCase();
   };
 
-  const createPanels = (elem: any) =>
-    elem.map((child: any, index: number) => (
-      <NotePanel type={getPanelType(child)} key={index}>
-        {child}
+  const createPanels = (elem: React.ReactChild[][]) =>
+    elem.map((element: React.ReactChild[], index: number) => (
+      <NotePanel type={getPanelType(element[0])} key={index}>
+        {element}
       </NotePanel>
     ));
 
-  return children ? <>{createPanels(children)}</> : null;
+  const isOneOfTypes = (arg: string | undefined) =>
+    !!arg && ["note", "caution", "tip"].includes(arg);
+
+  const modifiedChildren =
+    !!children &&
+    Array.isArray(children) &&
+    children.reduce((accumulator: any, curr: any) => {
+      const currType = getPanelType(curr);
+      if (isOneOfTypes(currType)) {
+        return [...accumulator, [curr]];
+      }
+      const len = accumulator.length - 1;
+      const newLastElement = [...accumulator[len], curr];
+      return [...accumulator.slice(0, len), newLastElement];
+    }, []);
+
+  return modifiedChildren ? <>{createPanels(modifiedChildren)}</> : null;
 };
