@@ -29,4 +29,10 @@ export const NotePanelWrapper = styled.blockquote`
 
 export const NotePanelContent = styled.div`
   display: inline-block;
+  > p {
+    margin-bottom: 5px;
+  }
+  > ul > li {
+    margin-bottom: 3px;
+  }
 `;

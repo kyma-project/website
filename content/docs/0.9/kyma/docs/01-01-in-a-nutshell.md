@@ -3,6 +3,16 @@ title: In a nutshell
 type: Overview
 ---
 
+>**CAUTION:** data1
+>* 123
+>* sdf
+
+>**TIP:** To learn more about how to use overrides in Kyma, see the following documents: 
+>* [Helm overrides for Kyma installation](/root/kyma/#configuration-helm-overrides-for-kyma-installation)
+>* [Sub-charts overrides](/root/kyma/#configuration-helm-overrides-for-kyma-installation-sub-chart-overrides)
+
+
+
 Kyma allows you to connect applications and third-party services in a cloud-native environment. Use it to create extensions for the existing systems, regardless of the language they are written in. Customize extensions with minimum effort and time devoted to learning their configuration details.
 
 With Kyma in hand, you can focus purely on coding since it ensures the following out-of-the-box functionalities:
