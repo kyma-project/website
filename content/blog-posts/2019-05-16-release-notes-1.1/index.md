@@ -31,6 +31,8 @@ See the overview of all changes in this release:
 - [Productivity](#productivity) - Octopus in Kyma
 - [Service Management](#service-management) - Add-ons in the Catalog UI, AWS Service Broker add-on, documentation support for add-ons, "provision only once" APIs and Events
 
+Read about a known issue for [Tracing](#known-issues).
+
 ---
 
 ## Application Connector
@@ -107,6 +109,15 @@ There are two new dashboards available in Grafana:
 - **Ignored events** with Events for which there are no subscriptions
 - **Subscription details** to check if there are any issues with a given subscription
 
+> **CAUTION:** Currently, if the subscription name contains a dot (`.`), the dashboard charts will display the `NOT READY` status even if the subscription is `READY`.
+
+## Productivity
+
+### Octopus in Kyma
+
+As part of productivity improvements in Kyma, we replaced Helm tests with the Octopus test runner. Kyma components now use Octopus as a testing framework to run tests defined as Docker images on a running cluster.
+Read more about [testing](/docs/1.1/root/kyma/#details-testing-kyma) in Kyma, [Octopus](https://github.com/kyma-incubator/octopus/blob/master/README.md) itself, and the benefits it brings to the Kyma testing process.
+
 
 ## Service Management
 
@@ -133,9 +144,9 @@ APIs and Events of the Application Broker Service Classes now have a new "provis
 ![Provision only once](./provision-only-once.png)
 
 
-## Productivity
+## Tracing
 
-### Octopus in Kyma
+### Known issues
 
-As part of productivity improvements in Kyma, we replaced Helm tests with the Octopus test runner. Kyma components now use Octopus as a testing framework to run tests defined as Docker images on a running cluster.
-Read more about [testing](/docs/1.1/root/kyma/#details-testing-kyma) in Kyma, [Octopus](https://github.com/kyma-incubator/octopus/blob/master/README.md) itself, and the benefits it brings to the Kyma testing process.
+By default, the trace sampling rate for Istio is configured to 1%. With that rate, only a small ratio of all requests will be available in Jaeger for the trace analysis. We are planning to optimize that setting in next releases, including recommendations for specific usage scenarios.
+As a workaround, adjust the setting manually using the official [Istio documentation](https://istio.io/docs/tasks/telemetry/distributed-tracing/overview/) if you require a higher sampling rate.
