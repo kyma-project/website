@@ -1,7 +1,6 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 import { ModalProvider } from "react-modal-hook";
-import { TransitionGroup } from "react-transition-group";
 
 import { ThemeProvider } from "@styled";
 import { lightTheme } from "@styled/theme";
