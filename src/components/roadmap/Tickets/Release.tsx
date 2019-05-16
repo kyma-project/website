@@ -35,7 +35,7 @@ const ReleaseComponent: React.FunctionComponent<ReleaseProps> = ({
     tickets: React.ReactNode,
     futurePlanned: boolean,
   ) => {
-    const isMobile = is.phone();
+    const isMobile = is.phone() || is.smallPhone();
     let leftItems;
     let rightItems;
 
