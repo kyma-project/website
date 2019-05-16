@@ -27,10 +27,10 @@ const navigation = [
     path: "/blog/",
     title: "Blog",
   },
-  // {
-  //   path: "/roadmap/",
-  //   title: "Roadmap",
-  // },
+  {
+    path: "/roadmap/",
+    title: "Roadmap",
+  },
 ];
 
 interface NavigationState {
@@ -66,7 +66,7 @@ class Navigation extends Component<{}, NavigationState> {
 
   resize = () => {
     this.setState({
-      isOnMobile: window.innerWidth <= PHONE_RESPONSIVE_BREAKPOINT,
+      isOnMobile: window.innerWidth <= MOBILE_DEVICES_BREAKPOINT,
     });
   };
 
