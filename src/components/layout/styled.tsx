@@ -159,7 +159,7 @@ export const NavigationList = styled.ul`
   margin: 0;
   transition: all 0.2s ease-in-out;
 
-  ${media.phone`
+  ${media.tablet`
     position: fixed;
     top: 0;
     left: ${(props: NavigationListProps) => (props.visible ? 0 : "100vw")};
@@ -180,7 +180,7 @@ export const NavigationItem = styled.li`
   display: ${({ visible = true }: NavigationItemProps) =>
     visible ? "inline-block" : "none"};
 
-  ${media.phone`
+  ${media.tablet`
     display: ${({ visible = true }: NavigationItemProps) =>
       visible ? "block" : "none"};
 
@@ -235,7 +235,7 @@ export const NavigationIntLink = styled(Link.Internal)`
 
   ${linkEffect}
 
-  ${media.phone`
+  ${media.tablet`
     &:after, &:before {
       content: "";
     }
@@ -247,21 +247,17 @@ export const NavigationExtLink = styled(Link.External)`
 
   > button {
     margin-left: 15px;
+
+    > svg {
+      margin-right: 0;
+    }
+
+    > span {
+      display: none;
+    }
   }
 
   ${media.tablet`
-    > button {
-      > svg {
-        margin-right: 0;
-      }
-
-      > span {
-        display: none;
-      }
-    }
-  `};
-
-  ${media.phone`
     > button {
       width: calc(100% - 60px);
       margin-left: 30px;
@@ -286,7 +282,7 @@ export const NavigationMobileButton = styled.div`
     }
   }
 
-  ${media.phone`
+  ${media.tablet`
     display: block;
   `};
 `;
