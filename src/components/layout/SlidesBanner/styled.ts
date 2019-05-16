@@ -31,10 +31,6 @@ export const InnerWrapper = styled.div`
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
 
-  ${customScrollBar({
-    thumbColor: "#395dc8",
-  })}
-
   @media (max-width: 736px) {
     padding: 6px 15px;
   }
