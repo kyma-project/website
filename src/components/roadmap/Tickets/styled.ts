@@ -25,7 +25,7 @@ export const Wrapper = styled.div`
   }
 
   ${media.tablet`
-    padding: 50px 0 150px 0;
+    padding: 56px 0 72px 0;
   `};
 `;
 
