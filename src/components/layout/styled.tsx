@@ -247,6 +247,9 @@ export const NavigationExtLink = styled(Link.External)`
 
   > button {
     margin-left: 15px;
+    border-radius: 100%;
+    padding: 0 12px;
+    line-height: 42px;
 
     > svg {
       margin-right: 0;
@@ -261,6 +264,7 @@ export const NavigationExtLink = styled(Link.External)`
     > button {
       width: calc(100% - 60px);
       margin-left: 30px;
+      border-radius: 25px;
 
       > svg {
         margin-right: 16px;
@@ -373,19 +377,20 @@ export const StyledCookieBanner = styled(CookiesBanner)`
   height: auto;
   z-index: 9999;
   bottom: 0px;
-  padding: 20px 15px;
+  padding: 12px;
+  font-size: 14px;
 
   > .button-close {
     border: 2px solid #fff;
     color: #fff;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 14px;
     background: transparent;
     border-radius: 25px;
     line-height: 1em;
-    padding: 10px 15px;
+    padding: 6px 12px;
     display: inline-block;
-    margin-left: 15px;
+    margin-left: 12px;
     position: static;
     cursor: pointer;
     transition: all ease-out 0.2s;
@@ -397,11 +402,11 @@ export const StyledCookieBanner = styled(CookiesBanner)`
       color: #1ea393;
     }
 
-    @media (max-width: 730px) {
+    ${media.phone`
       display: block;
       margin: 0 auto;
       margin-top: 10px;
-    }
+    `};
   }
 
   > .cookie-message {
@@ -409,8 +414,12 @@ export const StyledCookieBanner = styled(CookiesBanner)`
     color: #fff;
 
     > a {
-      margin-left: 10px;
+      margin-left: 6px;
       color: #fff;
+
+      ${media.smallPhone`
+        display: inline-block;
+      `};
     }
   }
 `;
