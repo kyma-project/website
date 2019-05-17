@@ -4,5 +4,4 @@ export interface Slide {
   startDate: string;
   endDate?: string;
   openInNewTab?: boolean;
-  icon?: string;
 }

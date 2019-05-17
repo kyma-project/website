@@ -1,7 +1,6 @@
 import React, { PureComponent } from "react";
 
 import CircleIndicator from "./CircleIndicator";
-import SlideIcon from "./SlideIcon";
 import SlideContent from "./SlideContent";
 
 import { Slide } from "./types";
@@ -153,7 +152,6 @@ class SlidesBanner extends PureComponent<SlidesBannerProps, SlidesBannerState> {
               active={index === this.state.currentSlide}
               key={index}
             >
-              {elem.icon && <SlideIcon iconPath={elem.icon} />}
               <SlideContent
                 text={elem.text}
                 url={elem.url}
