@@ -15,17 +15,19 @@ export const BlockQuote: React.FunctionComponent = ({ children }) => {
     return type && type.replace(":", "").toLowerCase();
   };
 
-  const createPanels = (elem: any) =>
-    !elem
-      ? null
-      : elem.map((element: React.ReactChild[], index: number) => (
-          <NotePanel type={getPanelType(element[0])} key={index}>
-            {element}
-          </NotePanel>
-        ));
+  const createPanels = (elem: any) => {
+    if (!elem) {
+      return null;
+    }
+    return elem.map((element: React.ReactChild[], index: number) => (
+      <NotePanel type={getPanelType(element[0])} key={index}>
+        {element}
+      </NotePanel>
+    ));
+  };
 
-  const isOneOfTypes = (arg: string | undefined) =>
-    !!arg && ["note", "caution", "tip"].includes(arg);
+  const panelTypes = ["note", "caution", "tip"];
+  const isOneOfTypes = (arg?: string) => !!arg && panelTypes.includes(arg);
 
   const modifiedChildren =
     Array.isArray(children) &&
