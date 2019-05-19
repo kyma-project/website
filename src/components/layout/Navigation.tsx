@@ -37,6 +37,7 @@ interface NavigationState {
   mobileMenuVisible?: boolean;
   isOnMobile?: boolean;
   initial?: boolean;
+  search?: boolean;
 }
 
 class Navigation extends Component<{}, NavigationState> {
@@ -44,6 +45,7 @@ class Navigation extends Component<{}, NavigationState> {
     mobileMenuVisible: false,
     isOnMobile: false,
     initial: false,
+    search: false,
   };
 
   componentDidMount() {

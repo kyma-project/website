@@ -12,6 +12,7 @@ import { HeaderWrapper, HeaderLogo } from "./styled";
 
 interface HeaderProps {
   horizontalBg?: boolean;
+  search?: boolean;
 }
 
 const Header: React.FunctionComponent<HeaderProps> = ({
@@ -24,7 +25,7 @@ const Header: React.FunctionComponent<HeaderProps> = ({
           <Logo />
         </HeaderLogo>
       </Link.Internal>
-      <Navigation />
+      <Navigation search={search} />
     </Grid.Container>
   </HeaderWrapper>
 );

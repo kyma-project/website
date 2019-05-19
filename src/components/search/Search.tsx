@@ -7,12 +7,12 @@ import GoogleCustomSearchElement from "@components/search/GoogleCustomSearchElem
 
 import { SearchWrapper } from "./styled";
 
-const Search: React.FunctionComponent = ({}) => (
+const Search: React.FunctionComponent = () => (
   <SearchWrapper>
     <Grid.Container>
       <Grid.Row>
         <Grid.Unit df={12}>
-          {/* <Algolia /> */}
+          <Algolia />
           <GoogleCustomSearchElement />
         </Grid.Unit>
       </Grid.Row>
