@@ -81,7 +81,7 @@ Feel free to play with it and give us your feedback:
 
 - Read the related [documentation](https://github.com/asyncapi/asyncapi-react#props).
 
-- Test the component [playground](https://www.asyncapi.com/asyncapi-react/).
+- Test the component [playground](https://playground.asyncapi.io/).
 
 - Customize the component quickly in the [sandbox project](https://codesandbox.io/s/5vz8l9zlmn).  
 
