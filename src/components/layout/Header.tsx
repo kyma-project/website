@@ -17,6 +17,7 @@ interface HeaderProps {
 
 const Header: React.FunctionComponent<HeaderProps> = ({
   horizontalBg = false,
+  search,
 }) => (
   <HeaderWrapper horizontalBg={horizontalBg}>
     <Grid.Container>

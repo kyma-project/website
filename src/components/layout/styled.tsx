@@ -246,10 +246,9 @@ export const NavigationExtLink = styled(Link.External)`
   box-shadow: none;
 
   > button {
-    margin-left: 15px;
-    border-radius: 100%;
+    margin-left: 6px;
     padding: 0 12px;
-    line-height: 42px;
+    border: none;
 
     > svg {
       margin-right: 0;
@@ -265,6 +264,7 @@ export const NavigationExtLink = styled(Link.External)`
       width: calc(100% - 60px);
       margin-left: 30px;
       border-radius: 25px;
+      border: 2px solid #fff;
 
       > svg {
         margin-right: 16px;
@@ -297,7 +297,7 @@ export const FooterWrapper = styled.footer`
   flex-direction: column;
   justify-content: center;
   position: relative;
-  z-index: 100;
+  z-index: 50;
   background: url(${Footer}) no-repeat;
   background-size: 100% 100%;
   min-height: 340px;

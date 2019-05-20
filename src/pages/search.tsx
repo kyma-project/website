@@ -9,7 +9,12 @@ import { PageContext, IntlPageContext } from "@common/types";
 const IndexPage: React.FunctionComponent<PageContext<IntlPageContext>> = ({
   pageContext: { locale },
 }) => (
-  <Layout backToTopButton={false} locale={locale} pageTitle="Search">
+  <Layout
+    backToTopButton={false}
+    locale={locale}
+    search={true}
+    pageTitle="Search"
+  >
     <Search />
   </Layout>
 );

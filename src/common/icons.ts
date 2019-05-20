@@ -13,6 +13,7 @@ import {
   faLink,
   faSlidersH,
   faChevronUp,
+  faSearch,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faEdit,
@@ -45,6 +46,7 @@ library.add(
   faBook,
   faBars,
   faTimes,
+  faSearch,
   faEdit,
   faCopy,
   faChevronUp,

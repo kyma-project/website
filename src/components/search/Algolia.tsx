@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { navigate } from "gatsby";
 
-import { AlgoliaWrapper } from "./styled";
+import Icon from "@components/shared/Icon";
+
+import AlgoliaWrapper from "./AlgoliaWrapper";
 
 const Algolia: React.FunctionComponent = () => {
   const [initial, setInitial] = useState<boolean>(false);
   const [loadedAlgolia, setLoadedAlgolia] = useState<boolean>(false);
+  const [focused, setFocused] = useState<boolean>(false);
 
   const autocompleteSelected = (event: any) => {
     event.stopPropagation();
@@ -33,7 +36,7 @@ const Algolia: React.FunctionComponent = () => {
       apiKey: `25626fae796133dc1e734c6bcaaeac3c`,
       indexName: `docsearch`,
       inputSelector: `#algolia-search`,
-      debug: false,
+      debug: true,
       autocompleteOptions: {
         openOnFocus: true,
         autoselect: true,
@@ -46,7 +49,7 @@ const Algolia: React.FunctionComponent = () => {
   };
 
   const loadJS = () => import(`@static/js/docsearch.min.js`);
-  const loadDocSearch = (): void => {
+  const mount = (): void => {
     if (!loadedAlgolia) {
       loadJS().then(a => {
         setLoadedAlgolia(true);
@@ -66,32 +69,32 @@ const Algolia: React.FunctionComponent = () => {
     );
   };
 
-  useEffect(() => () => {
-    unmount();
+  useEffect(() => {
+    mount();
+    return () => {
+      unmount();
+    };
   });
 
   return (
-    <AlgoliaWrapper>
-      <form
-        style={{
-          display: "flex",
-          flex: "0 0 auto",
-          flexDirection: "row",
-          alignItems: "center",
-          paddingLeft: "0.25rem",
-          paddingRight: "0.25rem",
-        }}
-        onSubmit={e => e.preventDefault()}
-        onClick={loadDocSearch}
-        onMouseEnter={loadDocSearch}
-      >
-        <input
-          id="algolia-search"
-          type="search"
-          placeholder="Search"
-          aria-label="Search docs"
-        />
-      </form>
+    <AlgoliaWrapper focused={focused}>
+      <div>
+        <form
+          onSubmit={e => e.preventDefault()}
+          onFocus={() => setFocused(true)}
+          onBlur={() => setFocused(false)}
+        >
+          <span>
+            <Icon iconName="search" iconPrefix="fas" />
+          </span>
+          <input
+            id="algolia-search"
+            type="search"
+            placeholder="Search"
+            aria-label="Search docs"
+          />
+        </form>
+      </div>
     </AlgoliaWrapper>
   );
 };

@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import Button from "@components/shared/Button";
 import Icon from "@components/shared/Icon";
 
+import Algolia from "@components/search/Algolia";
+
 import { resolveSocialMedia } from "@common/utils";
 import {
   MOBILE_DEVICES_BREAKPOINT,
@@ -33,19 +35,21 @@ const navigation = [
   },
 ];
 
-interface NavigationState {
-  mobileMenuVisible?: boolean;
-  isOnMobile?: boolean;
-  initial?: boolean;
+interface Props {
   search?: boolean;
 }
 
-class Navigation extends Component<{}, NavigationState> {
-  state: NavigationState = {
+interface State {
+  mobileMenuVisible?: boolean;
+  isOnMobile?: boolean;
+  initial?: boolean;
+}
+
+class Navigation extends Component<Props, State> {
+  state: State = {
     mobileMenuVisible: false,
     isOnMobile: false,
     initial: false,
-    search: false,
   };
 
   componentDidMount() {
@@ -115,6 +119,7 @@ class Navigation extends Component<{}, NavigationState> {
               </NavigationExtLink>
             </NavigationItem>
           ))}
+          {this.props.search ? <Algolia /> : null}
         </NavigationList>
       </NavigationWrapper>
     );
