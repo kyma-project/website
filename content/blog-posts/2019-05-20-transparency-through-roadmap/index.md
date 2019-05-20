@@ -6,7 +6,7 @@ tags:
   - community
 ---
 
-Recently we released a new view in our website called <a href="/roadmap" target="_blank">Roadmap</a> that's main purpose is to raise transparency of project direction and to enable contribution of the features.
+Recently we released a new view in our website called [Roadmap](https://kyma-project.io/roadmap/) that's main purpose is to raise transparency of project direction and to enable contribution of the features.
 
 <!-- overview -->
 
@@ -18,8 +18,7 @@ It is not easy to choose the right open source tool. There are many different fa
 
 These kind of articles are very helpful. When I started using open source projects as my dependencies, I quickly realized that not all of them are trustworthy and deserve investment. Unfortunately, these guides and articles always focus on me, on the person that performs research. It is always me who needs to do the review, search for information, check out contributors and review projects' backlog. This is relatively easy if you have to choose a small library for parsing `.yaml` files in a browser. Things get more complicated when you have to decide upon a solution on which you will run or extend your business applications. The size and complexity prevent you from good research. The number of PRs and issues clearly indicates a huge investment in the project, but you can only guess what will come next and how it will evolve. If you have to take a strategic decision, you need to know what the direction, vision and future development plans of a given solution are.
 
-We wanted to improve in this area and make things easier for the Kyma community. We identified in Kyma different capabilities and shared our goal and vision for each of them. The capabilities have their own roadmaps which are in sync with one another and all together constitute an overview of what is going to happen in Kyma in the short and long term. We combined them all in one view 
-called <a href="/roadmap" target="_blank">Roadmap</a>.
+We wanted to improve in this area and make things easier for the Kyma community. We identified in Kyma different capabilities and shared our goal and vision for each of them. The capabilities have their own roadmaps which are in sync with one another and all together constitute an overview of what is going to happen in Kyma in the short and long term. We combined them all in one view called [Roadmap](https://kyma-project.io/roadmap/).
 
 Thanks to this view you can clearly identify the areas of Kyma that are the most important for you, and see if the planned development goes in the direction you expect. If something is not the way you wanted, you can always share your opinion with us at our [Core SIG meetings](https://github.com/kyma-project/community/tree/master/sig-and-wg/sig-core). Contact us especially if you notice that we are not fully transparent regarding a specific capability, and its roadmap is not properly maintained. Another way to make things better is to join us, and contribute.
 
