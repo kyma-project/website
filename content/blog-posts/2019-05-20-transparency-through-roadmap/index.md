@@ -6,7 +6,7 @@ tags:
   - community
 ---
 
-Recently we released a new view in our website called [Roadmap](https://kyma-project.io/roadmap/) that's main purpose is to raise transparency of project direction and to enable contribution of the features.
+Recently, on our website, we released a new view called [Roadmap](https://kyma-project.io/roadmap/). Its main purpose is to raise the transparency of the project direction and enable features contribution.
 
 <!-- overview -->
 
