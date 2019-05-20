@@ -40,7 +40,6 @@ const Algolia: React.FunctionComponent = () => {
     indexName: ALGOLIA.INDEX_NAME,
     inputSelector: `#algolia-search`,
     autocompleteOptions: {
-      debug: true,
       openOnFocus: true,
       autoselect: true,
       hint: true,
