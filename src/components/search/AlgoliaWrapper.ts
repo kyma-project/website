@@ -1,4 +1,5 @@
-import styled from "@styled";
+import styled, { media } from "@styled";
+import { customScrollBar } from "@styled/mixins";
 
 interface Props {
   focused?: boolean;
@@ -60,14 +61,24 @@ const AlgoliaWrapper = styled.li`
 
         .ds-dropdown-menu {
           margin-top: 16px;
-          box-shadow: none;
+          box-shadow: 0 1px 9px 0 rgba(0, 0, 0, 0.1);
+
+          &:before {
+            right: 50px !important;
+          }
         }
 
         [class^="ds-dataset-"] {
           margin: 0;
           padding: 0;
           border: 0;
-          box-shadow: 0 1px 9px 0 rgba(0, 0, 0, 0.1);
+          max-height: 75vh;
+          overflow-y: auto;
+
+          ${customScrollBar({
+            thumbBorderRadius: "6px",
+            trackBorderRadius: "6px",
+          })}
         }
 
         .ds-dropdown-menu .ds-suggestions {
@@ -103,6 +114,8 @@ const AlgoliaWrapper = styled.li`
 
         .algolia-docsearch-suggestion
           .algolia-docsearch-suggestion--no-results {
+          max-width: 100%;
+          width: 100%;
           padding: 16px 0;
         }
 
@@ -161,6 +174,57 @@ const AlgoliaWrapper = styled.li`
           margin-left: auto;
           margin-right: 12px;
         }
+
+        ${media.desktop`
+          .ds-dropdown-menu {
+            max-width: 600px;
+            min-width: 600px;
+          }
+
+          .algolia-docsearch-suggestion
+          .algolia-docsearch-suggestion--subcategory-column {
+            width: 30%;
+          }
+
+          .algolia-docsearch-suggestion--content {
+            width: 70%;
+            max-width: 70%;
+          }
+        `}
+
+        ${media.tablet`
+          .ds-dropdown-menu {
+            position: fixed !important;
+            top: calc(48px + 80px) !important;
+            left: auto !important;
+            right: 0.75rem !important;
+            min-width: 600px !important;
+
+            &:before {
+              right: 147px !important;
+            }
+          }
+        `}
+
+        ${media.phone`
+          .ds-dropdown-menu {
+            left: 0.75rem !important;
+            right: 0.75rem !important;
+            min-width: calc(100vw - 1.5rem) !important;
+          }
+        `}
+
+        ${media.smallPhone`
+          .algolia-docsearch-suggestion
+          .algolia-docsearch-suggestion--subcategory-column {
+            width: 100%;
+          }
+
+          .algolia-docsearch-suggestion--content {
+            width: 100%;
+            max-width: 100%;
+          }
+        `}
       }
     }
   }

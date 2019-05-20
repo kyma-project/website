@@ -287,7 +287,8 @@ export const NavigationMobileButton = styled.div`
   }
 
   ${media.tablet`
-    display: block;
+    display: inline-block;
+    margin-left: 16px;
   `};
 `;
 

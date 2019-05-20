@@ -3,6 +3,8 @@ import { navigate } from "gatsby";
 
 import Icon from "@components/shared/Icon";
 
+import { ALGOLIA } from "@common/constants";
+
 import AlgoliaWrapper from "./AlgoliaWrapper";
 
 const Algolia: React.FunctionComponent = () => {
@@ -10,8 +12,7 @@ const Algolia: React.FunctionComponent = () => {
   const [loadedAlgolia, setLoadedAlgolia] = useState<boolean>(false);
   const [focused, setFocused] = useState<boolean>(false);
 
-  const autocompleteSelected = (event: any) => {
-    event.stopPropagation();
+  const autocompleteSelected = (input: any, event: any) => {
     const a = document.createElement(`a`);
     a.href = event._args[0].url;
 
@@ -23,27 +24,26 @@ const Algolia: React.FunctionComponent = () => {
     navigate(path);
   };
 
+  const algoliaOptions = {
+    apiKey: ALGOLIA.API_KEY,
+    indexName: ALGOLIA.INDEX_NAME,
+    inputSelector: `#algolia-search`,
+    autocompleteOptions: {
+      openOnFocus: true,
+      autoselect: true,
+      hint: true,
+      keyboardShortcuts: [`s`],
+    },
+    algoliaOptions: {
+      hitsPerPage: 7,
+    },
+    handleSelected: autocompleteSelected,
+  };
+
   const init = (): void => {
     if (initial || !window || !(window as any).docsearch) return;
 
-    window.addEventListener(
-      `autocomplete:selected`,
-      autocompleteSelected,
-      true,
-    );
-
-    (window as any).docsearch({
-      apiKey: `25626fae796133dc1e734c6bcaaeac3c`,
-      indexName: `docsearch`,
-      inputSelector: `#algolia-search`,
-      autocompleteOptions: {
-        openOnFocus: true,
-        autoselect: true,
-        hint: false,
-        keyboardShortcuts: [`s`],
-      },
-    });
-
+    (window as any).docsearch(algoliaOptions);
     setInitial(true);
   };
 
@@ -60,19 +60,8 @@ const Algolia: React.FunctionComponent = () => {
     }
   };
 
-  const unmount = (): void => {
-    window.removeEventListener(
-      `autocomplete:selected`,
-      autocompleteSelected,
-      true,
-    );
-  };
-
   useEffect(() => {
     mount();
-    return () => {
-      unmount();
-    };
   });
 
   return (

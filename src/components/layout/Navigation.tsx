@@ -92,6 +92,7 @@ class Navigation extends Component<Props, State> {
 
     return (
       <NavigationWrapper>
+        {this.props.search && isOnMobile ? <Algolia /> : null}
         <NavigationMobileButton onClick={this.toggleVisibility}>
           <Button.Light iconName="bars" iconPrefix="fas" />
         </NavigationMobileButton>
@@ -119,7 +120,7 @@ class Navigation extends Component<Props, State> {
               </NavigationExtLink>
             </NavigationItem>
           ))}
-          {this.props.search ? <Algolia /> : null}
+          {this.props.search && !isOnMobile ? <Algolia /> : null}
         </NavigationList>
       </NavigationWrapper>
     );
