@@ -13,7 +13,18 @@ const Algolia: React.FunctionComponent = () => {
   const [focused, setFocused] = useState<boolean>(false);
 
   const autocompleteSelected = (input: any, event: any) => {
+    // creating a tag for easier extracting parts of url
     const a = document.createElement(`a`);
+
+    if (
+      !event ||
+      !event._args ||
+      !Array.isArray(event._args) ||
+      !event._args[0] ||
+      !event._args[0].url
+    ) {
+      return;
+    }
     a.href = event._args[0].url;
 
     const paths = a.pathname.split(`/`).filter(el => el !== ``);
@@ -29,6 +40,7 @@ const Algolia: React.FunctionComponent = () => {
     indexName: ALGOLIA.INDEX_NAME,
     inputSelector: `#algolia-search`,
     autocompleteOptions: {
+      debug: true,
       openOnFocus: true,
       autoselect: true,
       hint: true,
@@ -79,7 +91,7 @@ const Algolia: React.FunctionComponent = () => {
             id="algolia-search"
             type="search"
             placeholder="Search"
-            aria-label="Search docs"
+            aria-label="Search content on website"
           />
         </form>
       </div>

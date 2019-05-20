@@ -1,13 +1,21 @@
 import styled from "@styled";
 
 export const SearchWrapper = styled.div`
-  margin: 50px 0;
+  margin: 75px 0;
 `;
 
 export const GoogleCustomSearchElementWrapper = styled.div`
   > div {
-    .gsc-input-box > table {
+    .gsc-search-box table {
       margin-bottom: 0;
+
+      .gsc-input {
+        padding: 0 0 16px;
+      }
+
+      .gsc-search-button {
+        display: none;
+      }
     }
 
     .gsc-tabsAreaInvisible,
