@@ -61,9 +61,17 @@ export const Code: React.FunctionComponent<CodeProps> = ({
   children,
 }) => {
   const code = children ? children : value;
+  if (!code) {
+    return null;
+  }
+
   const processedCode = (code as string)
     .replace(/&#60;/gm, "<")
     .replace(/^(\$ *)/gm, "");
+
+  if (!processedCode.replace(/ /g, "")) {
+    return null;
+  }
 
   return (
     <CodeWrapper>

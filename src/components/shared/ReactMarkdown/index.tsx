@@ -9,6 +9,8 @@ import {
   replaceAllLessThanChars,
 } from "./helpers";
 
+let globalAssetsPath = "";
+
 type Renderers = { [key in NodeType | "parsedHtml"]: ReactType };
 
 interface ReactMarkdownAdditionalProps {
@@ -26,6 +28,10 @@ const ReactMarkdown: React.FunctionComponent<
   assetsPath = "",
   renderedFileName = "",
 }) => {
+  if (assetsPath) {
+    globalAssetsPath = assetsPath;
+  }
+
   let processedSource = removeBlankLinesFromTabsBlock(source);
   processedSource = replaceAllLessThanChars(processedSource);
 
@@ -40,12 +46,12 @@ const ReactMarkdown: React.FunctionComponent<
     blockquote: Components.BlockQuote,
     delete: Components.Delete,
     link: (props: any) => (
-      <Components.Link {...props} assetsPath={assetsPath} />
+      <Components.Link {...props} assetsPath={globalAssetsPath} />
     ),
     image: (props: any) => (
       <Components.Image
         {...props}
-        assetsPath={assetsPath}
+        assetsPath={globalAssetsPath}
         renderedFileName={renderedFileName}
       />
     ),

@@ -24,6 +24,7 @@ export const tabs = {
             childDetails.name === "summary" &&
             childDetails.children.length === 1 &&
             childDetails.children[0].type === "text" &&
+            childDetails.next &&
             childDetails.next.data
           ) {
             const summary = childDetails.children[0].data;
