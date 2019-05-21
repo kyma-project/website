@@ -12,7 +12,10 @@ const Algolia: React.FunctionComponent = () => {
   const [loadedAlgolia, setLoadedAlgolia] = useState<boolean>(false);
   const [focused, setFocused] = useState<boolean>(false);
 
-  const autocompleteSelected = (input: any, event: any) => {
+  const autocompleteSelected = (
+    input: HTMLInputElement,
+    event: Event & { _args: any },
+  ) => {
     // creating a tag for easier extracting parts of url
     const a = document.createElement(`a`);
 
@@ -59,7 +62,7 @@ const Algolia: React.FunctionComponent = () => {
   };
 
   const loadJS = () => import(`@static/js/docsearch.min.js`);
-  const mount = (): void => {
+  const loadAlgolia = (): void => {
     if (!loadedAlgolia) {
       loadJS().then(a => {
         setLoadedAlgolia(true);
@@ -72,8 +75,8 @@ const Algolia: React.FunctionComponent = () => {
   };
 
   useEffect(() => {
-    mount();
-  });
+    loadAlgolia();
+  }, []);
 
   return (
     <AlgoliaWrapper focused={focused}>
