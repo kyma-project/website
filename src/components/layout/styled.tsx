@@ -119,10 +119,11 @@ export const HeaderWrapper = styled.header`
 
 interface HeaderLogoProps {
   horizontalBg?: boolean;
+  isMobile?: boolean;
 }
 
 export const HeaderLogo = styled.h1`
-  width: 173px;
+  width: ${props => (props.isMobile ? "61px" : "173px")};
   max-height: 61px;
   margin-bottom: 0;
   display: inline-block;
@@ -317,6 +318,8 @@ export const FooterLogo = styled.div`
   }
 
   ${media.phone`
+    height: 71px;
+    max-height: 71px;
     margin-bottom: 15px;
   `};
 `;

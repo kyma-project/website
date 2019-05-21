@@ -3,7 +3,7 @@ import React from "react";
 import Button from "@components/shared/Button";
 import Link from "@components/shared/Link";
 
-import Logo from "./assets/LogoFooter";
+import Logo from "./assets/LogoFirst";
 import Icon from "@components/shared/Icon";
 
 import { FormattedMessage, getTranslation } from "@common/i18n";
