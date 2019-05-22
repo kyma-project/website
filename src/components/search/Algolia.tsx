@@ -16,9 +16,6 @@ const Algolia: React.FunctionComponent = () => {
     input: HTMLInputElement,
     event: Event & { _args: any },
   ) => {
-    // creating a tag for easier extracting parts of url
-    const a = document.createElement(`a`);
-
     if (
       !event ||
       !event._args ||
@@ -28,12 +25,14 @@ const Algolia: React.FunctionComponent = () => {
     ) {
       return;
     }
-    a.href = event._args[0].url;
+    const url = new URL(event._args[0].url);
 
-    const paths = a.pathname.split(`/`).filter(el => el !== ``);
+    const paths = url.pathname.split(`/`).filter(el => el !== ``);
     const slug = paths[paths.length - 1];
     const path =
-      `#${slug}` === a.hash ? `${a.pathname}` : `${a.pathname}${a.hash}`;
+      `#${slug}` === url.hash
+        ? `${url.pathname}`
+        : `${url.pathname}${url.hash}`;
 
     navigate(path);
   };
