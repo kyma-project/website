@@ -119,10 +119,11 @@ export const HeaderWrapper = styled.header`
 
 interface HeaderLogoProps {
   horizontalBg?: boolean;
+  isMobile?: boolean;
 }
 
 export const HeaderLogo = styled.h1`
-  width: 173px;
+  width: ${props => (props.isMobile ? "61px" : "173px")};
   max-height: 61px;
   margin-bottom: 0;
   display: inline-block;
@@ -246,10 +247,9 @@ export const NavigationExtLink = styled(Link.External)`
   box-shadow: none;
 
   > button {
-    margin-left: 15px;
-    border-radius: 100%;
+    margin-left: 6px;
     padding: 0 12px;
-    line-height: 42px;
+    border: none;
 
     > svg {
       margin-right: 0;
@@ -265,6 +265,7 @@ export const NavigationExtLink = styled(Link.External)`
       width: calc(100% - 60px);
       margin-left: 30px;
       border-radius: 25px;
+      border: 2px solid #fff;
 
       > svg {
         margin-right: 16px;
@@ -287,7 +288,8 @@ export const NavigationMobileButton = styled.div`
   }
 
   ${media.tablet`
-    display: block;
+    display: inline-block;
+    margin-left: 16px;
   `};
 `;
 
@@ -297,7 +299,7 @@ export const FooterWrapper = styled.footer`
   flex-direction: column;
   justify-content: center;
   position: relative;
-  z-index: 100;
+  z-index: 50;
   background: url(${Footer}) no-repeat;
   background-size: 100% 100%;
   min-height: 340px;
@@ -316,6 +318,8 @@ export const FooterLogo = styled.div`
   }
 
   ${media.phone`
+    height: 71px;
+    max-height: 71px;
     margin-bottom: 15px;
   `};
 `;

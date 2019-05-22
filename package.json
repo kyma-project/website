@@ -45,6 +45,7 @@
     "babel-plugin-styled-components": "^1.10.0",
     "constate": "^1.0.0",
     "gatsby": "^2.0.91",
+    "gatsby-plugin-env-variables": "^1.0.1",
     "gatsby-plugin-google-analytics": "^2.0.14",
     "gatsby-plugin-manifest": "^2.0.13",
     "gatsby-plugin-netlify": "^2.0.16",

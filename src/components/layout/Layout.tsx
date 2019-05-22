@@ -1,7 +1,6 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 import { ModalProvider } from "react-modal-hook";
-import { TransitionGroup } from "react-transition-group";
 
 import { ThemeProvider } from "@styled";
 import { lightTheme } from "@styled/theme";
@@ -29,6 +28,7 @@ interface LayoutProps {
   mediaType?: string;
   horizontalHeaderBg?: boolean;
   backToTopButton?: boolean;
+  search?: boolean;
 }
 
 const Layout: React.FunctionComponent<LayoutProps> = ({
@@ -38,6 +38,7 @@ const Layout: React.FunctionComponent<LayoutProps> = ({
   horizontalHeaderBg = true,
   children,
   backToTopButton = true,
+  search = false,
 }) => (
   <StaticQuery
     query={query}
@@ -61,7 +62,7 @@ const Layout: React.FunctionComponent<LayoutProps> = ({
                   <Popup />
                   <CookiesBanner />
                   {/* {backToTopButton && <BackToTop />} */}
-                  <Header horizontalBg={horizontalHeaderBg} />
+                  <Header horizontalBg={horizontalHeaderBg} search={search} />
                   <Content>{children}</Content>
                   <Footer />
                 </ModalProvider>
