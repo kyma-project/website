@@ -21,7 +21,8 @@ export const GoogleCustomSearchElementWrapper = styled.div`
     .gsc-tabsAreaInvisible,
     .gsc-tabsAreaInvisible,
     .gsc-above-wrapper-area,
-    .gsc-adBlockInvisible {
+    .gsc-adBlockInvisible,
+    .gsc-adBlock {
       display: none;
     }
 

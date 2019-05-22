@@ -31,8 +31,10 @@ const GoogleCustomSearchElement: React.FunctionComponent = () => {
     <GoogleCustomSearchElementWrapper>
       <div
         className="gcse-search"
+        data-enableAutoComplete="true"
         data-linkTarget="_self"
         data-queryParameterName="google"
+        data-as_sitesearch="https://kyma-project.io"
       />
     </GoogleCustomSearchElementWrapper>
   );
