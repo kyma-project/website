@@ -5,7 +5,7 @@ For additional, project-specific guidelines, see the respective sections of this
 
 ## Implementation guidelines
 
-Global `CSS` rules are stored in a [global.css](./static/global.css) file. You do not need to explicitly import it to apply them, but use [styled-components](https://www.styled-components.com/) with the color schema defined in [this](./src/config/colors.js) file to define new components.
+Use [styled-components](https://www.styled-components.com/) with the color schema defined in [this](./src/config/colors.js) file to define new components.
 
 ## Naming guidelines
 
