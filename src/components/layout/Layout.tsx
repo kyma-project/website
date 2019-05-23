@@ -28,6 +28,8 @@ interface LayoutProps {
   mediaType?: string;
   horizontalHeaderBg?: boolean;
   backToTopButton?: boolean;
+  docSearchLanguage?: string;
+  docSearchVersion?: string;
   search?: boolean;
 }
 
@@ -38,6 +40,8 @@ const Layout: React.FunctionComponent<LayoutProps> = ({
   horizontalHeaderBg = true,
   children,
   backToTopButton = true,
+  docSearchLanguage,
+  docSearchVersion,
   search = false,
 }) => (
   <StaticQuery
@@ -55,6 +59,8 @@ const Layout: React.FunctionComponent<LayoutProps> = ({
                 pageTitle={pageTitle}
                 pageDescription={pageDescription}
                 siteMetadata={data.site.siteMetadata}
+                docSearchLanguage={docSearchLanguage}
+                docSearchVersion={docSearchVersion}
               />
               <LayoutWrapper>
                 <ModalProvider>
