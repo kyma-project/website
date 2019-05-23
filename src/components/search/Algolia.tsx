@@ -12,7 +12,7 @@ const Algolia: React.FunctionComponent = () => {
   const [loadedAlgolia, setLoadedAlgolia] = useState<boolean>(false);
   const [focused, setFocused] = useState<boolean>(false);
 
-  const autocompleteSelected = (
+  const handleSelected = (
     input: HTMLInputElement,
     event: Event & { _args: any },
   ) => {
@@ -50,7 +50,7 @@ const Algolia: React.FunctionComponent = () => {
     algoliaOptions: {
       hitsPerPage: 7,
     },
-    handleSelected: autocompleteSelected,
+    handleSelected,
   };
 
   const init = (): void => {

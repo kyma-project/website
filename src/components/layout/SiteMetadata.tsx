@@ -9,6 +9,8 @@ interface MetadataProps {
   pageTitle?: string;
   pageDescription?: string;
   siteMetadata: any;
+  docSearchLanguage?: string;
+  docSearchVersion?: string;
 }
 
 const SiteMetadata: React.FunctionComponent<MetadataProps & IntlInterface> = ({
@@ -16,6 +18,8 @@ const SiteMetadata: React.FunctionComponent<MetadataProps & IntlInterface> = ({
   pageDescription = "",
   siteMetadata,
   formatMessage,
+  docSearchLanguage,
+  docSearchVersion,
 }) => {
   const host = process.env.GATSBY_SITE_URL || "";
   const logoPath = `${host}${withPrefix("/favicon-32x32.png")}`;
@@ -37,6 +41,18 @@ const SiteMetadata: React.FunctionComponent<MetadataProps & IntlInterface> = ({
   );
   const keywords = formatMessage({ id: "keywords" });
   const twitterUsername = siteMetadata.twitterUsername;
+  const docSearchMeta = pageTitle.includes("Docs")
+    ? [
+        {
+          name: "docsearch:language",
+          content: docSearchLanguage ? docSearchLanguage : "en",
+        },
+        {
+          name: "docsearch:version",
+          content: docSearchVersion ? docSearchVersion : "latest",
+        },
+      ]
+    : [];
 
   return (
     <Helmet
@@ -109,6 +125,7 @@ const SiteMetadata: React.FunctionComponent<MetadataProps & IntlInterface> = ({
           name: "keywords",
           content: keywords,
         },
+        ...docSearchMeta,
       ]}
       link={[
         {

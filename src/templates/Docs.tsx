@@ -12,6 +12,7 @@ const DocsPageTemplate: React.FunctionComponent<
   <Layout
     locale={pageContext.locale}
     pageTitle={`${pageContext.content.displayName} - Docs`}
+    docSearchVersion={pageContext.version}
   >
     <DocsPage pageContext={pageContext} />
   </Layout>
