@@ -136,31 +136,35 @@ class SlidesBanner extends PureComponent<SlidesBannerProps, SlidesBannerState> {
     const manySlides = this.multipleEvents();
 
     return (
-      <Wrapper>
-        <InnerWrapper>
-          {manySlides && (
-            <CircleIndicator
-              slides={this.state.slides}
-              currentSlide={this.state.currentSlide}
-              onCircleClick={this.onCircleClick}
-            />
-          )}
-          {this.state.slides.map((elem: Slide, index: number) => (
-            <ContentWrapper
-              multipleSlides={manySlides}
-              ref={(el: any) => this.refCallback(el, index)}
-              active={index === this.state.currentSlide}
-              key={index}
-            >
-              <SlideContent
-                text={elem.text}
-                url={elem.url}
-                openInNewTab={elem.openInNewTab}
-              />
-            </ContentWrapper>
-          ))}
-        </InnerWrapper>
-      </Wrapper>
+      <>
+        {this.state.slides && this.state.slides.length > 0 && (
+          <Wrapper>
+            <InnerWrapper>
+              {manySlides && (
+                <CircleIndicator
+                  slides={this.state.slides}
+                  currentSlide={this.state.currentSlide}
+                  onCircleClick={this.onCircleClick}
+                />
+              )}
+              {this.state.slides.map((elem: Slide, index: number) => (
+                <ContentWrapper
+                  multipleSlides={manySlides}
+                  ref={(el: any) => this.refCallback(el, index)}
+                  active={index === this.state.currentSlide}
+                  key={index}
+                >
+                  <SlideContent
+                    text={elem.text}
+                    url={elem.url}
+                    openInNewTab={elem.openInNewTab}
+                  />
+                </ContentWrapper>
+              ))}
+            </InnerWrapper>
+          </Wrapper>
+        )}
+      </>
     );
   }
 }
