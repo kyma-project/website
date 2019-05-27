@@ -28,7 +28,7 @@ const Header: React.FunctionComponent<HeaderProps> = ({
           {is.smallPhone() ? <LogoFirst /> : <LogoSecond />}
         </HeaderLogo>
       </Link.Internal>
-      <Navigation search={search} />
+      <Navigation />
     </Grid.Container>
   </HeaderWrapper>
 );

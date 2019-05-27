@@ -1,13 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { navigate } from "gatsby";
 
 import Icon from "@components/shared/Icon";
 
+import LayoutService from "@components/layout/service";
+
 import { ALGOLIA } from "@common/constants";
 
-import AlgoliaWrapper from "./AlgoliaWrapper";
+import Wrapper from "./Wrapper";
 
 const Algolia: React.FunctionComponent = () => {
+  const {
+    docsMetadata: { version, language },
+  } = useContext(LayoutService);
+
   const [initial, setInitial] = useState<boolean>(false);
   const [loadedAlgolia, setLoadedAlgolia] = useState<boolean>(false);
   const [focused, setFocused] = useState<boolean>(false);
@@ -49,7 +55,7 @@ const Algolia: React.FunctionComponent = () => {
     },
     algoliaOptions: {
       hitsPerPage: 7,
-      facetFilters: [`language:en`, `version:latest`],
+      facetFilters: [`language:${language}`, `version:${version}`],
     },
     handleSelected,
   };
@@ -79,7 +85,7 @@ const Algolia: React.FunctionComponent = () => {
   }, []);
 
   return (
-    <AlgoliaWrapper focused={focused}>
+    <Wrapper focused={focused}>
       <div>
         <form
           onSubmit={e => e.preventDefault()}
@@ -97,7 +103,7 @@ const Algolia: React.FunctionComponent = () => {
           />
         </form>
       </div>
-    </AlgoliaWrapper>
+    </Wrapper>
   );
 };
 
