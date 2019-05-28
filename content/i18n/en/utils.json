@@ -1,0 +1,54 @@
+{
+  "copyButtonTooltip": "Click to copy",
+  "copyPopup": "Copied to clipboard",
+  "months": {
+    "1": {
+      "abbreviation": "Jan",
+      "name": "January"
+    },
+    "2": {
+      "abbreviation": "Feb",
+      "name": "February"
+    },
+    "3": {
+      "abbreviation": "Mar",
+      "name": "March"
+    },
+    "4": {
+      "abbreviation": "Apr",
+      "name": "April"
+    },
+    "5": {
+      "abbreviation": "May",
+      "name": "May"
+    },
+    "6": {
+      "abbreviation": "Jun",
+      "name": "June"
+    },
+    "7": {
+      "abbreviation": "Jul",
+      "name": "July"
+    },
+    "8": {
+      "abbreviation": "Aug",
+      "name": "August"
+    },
+    "9": {
+      "abbreviation": "Sep",
+      "name": "September"
+    },
+    "10": {
+      "abbreviation": "Oct",
+      "name": "October"
+    },
+    "11": {
+      "abbreviation": "Nov",
+      "name": "November"
+    },
+    "12": {
+      "abbreviation": "Dec",
+      "name": "December"
+    }
+  }
+}
