@@ -1,6 +1,5 @@
 import styled from "@styled";
 import media from "@styled/media";
-import { PrevNextSectionPostTitle } from "@components/blog/styled";
 
 interface GridContainerProps {
   padding?: string;

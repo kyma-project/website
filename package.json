@@ -21,19 +21,20 @@
     "k8s"
   ],
   "scripts": {
-    "start": "npm run develop",
-    "develop": "gatsby develop",
+    "start": "npm run clear-cache && npm run develop",
+    "develop": "gatsby develop --port 5000",
     "build": "gatsby build",
     "serve": "gatsby serve",
     "serve:out": "gatsby serve -H 0.0.0.0",
     "build:prod": "GATSBY_SITE_URL='https://kyma-project.io' gatsby build",
     "start:functions": "netlify-lambda serve netlify/functions",
     "build:functions": "netlify-lambda build netlify/functions",
-    "lint-check": "tslint -c tslint.json 'src/**/*.{ts,tsx}' --format verbose && prettier --check '**/*.{ts,tsx,js,jsx,json,html,css,yaml}'",
-    "lint-fix": "tslint -c tslint.json 'src/**/*.{ts,tsx}' --format verbose --fix && prettier --write '**/*.{ts,tsx,js,jsx,json,html,css,yaml}'",
+    "lint-check": "tslint -c tslint.json --project tsconfig.json --format verbose && prettier --check '**/*.{ts,tsx,js,jsx,json,html,css,yaml}'",
+    "lint-fix": "tslint -c tslint.json --project tsconfig.json --format verbose --fix; prettier --write '**/*.{ts,tsx,js,jsx,json,html,css,yaml}'",
     "conflict-check": "tslint-config-prettier-check ./tslint.json",
     "markdownlint": "markdownlint **/*.md",
-    "clear-cache": "gatsby clean"
+    "clear-cache": "gatsby clean",
+    "explore": "source-map-explorer \"public/*.js\""
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.14",
@@ -44,7 +45,7 @@
     "@octokit/rest": "^16.25.1",
     "babel-plugin-styled-components": "^1.10.0",
     "constate": "^1.0.0",
-    "gatsby": "^2.0.91",
+    "gatsby": "^2.7.1",
     "gatsby-plugin-env-variables": "^1.0.1",
     "gatsby-plugin-google-analytics": "^2.0.14",
     "gatsby-plugin-manifest": "^2.0.13",
@@ -62,10 +63,10 @@
     "node-fetch": "^2.5.0",
     "prism-react-renderer": "^0.1.5",
     "qs": "^6.7.0",
-    "react": "^16.6.3",
+    "react": "^16.8.6",
     "react-cookie-banner": "^4.0.0",
     "react-copy-to-clipboard": "^5.0.1",
-    "react-dom": "^16.6.3",
+    "react-dom": "^16.8.6",
     "react-helmet": "^5.2.0",
     "react-intl": "^2.8.0",
     "react-markdown": "^4.0.8",
@@ -80,30 +81,38 @@
     "typography": "^0.16.18"
   },
   "devDependencies": {
-    "@types/qs": "^6.5.3",
     "@babel/preset-typescript": "^7.3.3",
     "@types/aws-lambda": "^8.10.24",
+    "@types/lodash": "^4.14.132",
     "@types/node-fetch": "^2.3.3",
+    "@types/qs": "^6.5.3",
+    "@types/react-copy-to-clipboard": "^4.2.6",
     "@types/react-helmet": "^5.0.8",
     "@types/react-intl": "^2.3.15",
     "@types/react-modal": "^3.8.2",
+    "@types/react-sticky": "^6.0.3",
     "@types/styled-components": "^4.1.6",
     "@types/typography": "^0.16.2",
     "babel-preset-gatsby": "^0.1.6",
     "compare-versions": "^3.4.0",
     "fs-extra": "^7.0.1",
+    "gatsby-plugin-lodash": "^3.0.5",
     "gh-pages": "^2.0.1",
     "github-webhook-event-types": "^1.2.1",
     "glob": "^7.1.3",
+    "husky": "^1.1.4",
     "js-yaml": "^3.12.1",
     "lint-staged": "^8.0.5",
-    "husky": "^1.1.4",
+    "lodash": "^4.17.11",
     "markdownlint-cli": "^0.13.0",
     "prettier": "^1.15.2",
+    "source-map-explorer": "^1.8.0",
     "ts-node": "^7.0.1",
+    "tslib": "^1.9.3",
     "tslint": "^5.10.0",
     "tslint-config-prettier": "^1.17.0",
     "tslint-react": "^3.6.0",
+    "tslint-react-hooks": "^2.1.0",
     "typescript": "^3.2.4"
   },
   "bugs": {
@@ -121,12 +130,14 @@
         "git add"
       ],
       "src/**/*.{ts,tsx}": [
-        "tslint -c tslint.json --format verbose --fix",
+        "tslint -c tslint.json --project tsconfig.json --format verbose --fix",
         "prettier --config .prettierrc --write",
         "git add"
+      ],
+      "**/.md": [
+        "markdownlint"
       ]
     },
-    "**/*.md": "markdownlint",
     "ignore": [
       "package.json",
       "package-lock.json"

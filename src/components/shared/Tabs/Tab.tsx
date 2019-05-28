@@ -1,26 +1,27 @@
-import React, { Component } from "react";
-
+import React, { ReactNode } from "react";
 import { TabLink, TabWrapper } from "./styled";
 
 export interface TabProps {
-  children: React.ReactNode;
   label: string;
   tabIndex?: number;
   isActive?: boolean;
-  parentCallback?: (value: number) => void;
+  handleTabClick?: (value: number) => void;
+  children?: any;
 }
 
 const Tab: React.FunctionComponent<TabProps> = ({
   label = "",
   tabIndex,
   isActive = false,
-  parentCallback,
+  handleTabClick,
 }) => (
   <TabWrapper key={tabIndex}>
     <TabLink
       onClick={(event: any) => {
         event.preventDefault();
-        parentCallback!(tabIndex!);
+        if (handleTabClick && tabIndex !== undefined && !isNaN(tabIndex)) {
+          handleTabClick(tabIndex);
+        }
       }}
       active={isActive}
     >

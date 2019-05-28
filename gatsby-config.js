@@ -4,7 +4,14 @@ module.exports = {
   siteMetadata,
   plugins: [
     "gatsby-plugin-react-helmet",
-    "gatsby-plugin-styled-components",
+    {
+      resolve: "gatsby-plugin-styled-components",
+      options: {
+        ssr: false,
+        displayName: true,
+      },
+    },
+    "gatsby-plugin-lodash",
     "gatsby-plugin-typescript",
     {
       resolve: "gatsby-source-filesystem",

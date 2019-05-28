@@ -8,7 +8,6 @@ import Button from "@components/shared/Button";
 import PostHeader from "@components/blog/PostHeader";
 import PostContent from "@components/blog/content/PostContent";
 import PostFooter from "@components/blog/PostFooter";
-import PrevNextSection from "@components/blog/PrevNextSection";
 
 import { PostPageContext, PostMetaData, PostFields } from "./types";
 

@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import styled, { css } from "@styled";
+import styled from "@styled";
 
 import PopupState from "@common/state/usePopup";
 
@@ -28,7 +28,7 @@ const PopupWrapper = styled.div`
   }
 `;
 
-const Popup: React.FunctionComponent = ({ children }) => {
+const Popup: React.FunctionComponent = () => {
   const { popup, popupVisible, onDismissPopup } = useContext(
     PopupState.Context,
   );

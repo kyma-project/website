@@ -35,8 +35,6 @@ const Modal: React.FunctionComponent<Props> = () => {
   const {
     pageContext: { ticket },
     location,
-    scrollToTickets,
-    isInitialRenderComplete,
   } = useContext(RoadmapService);
 
   const getExitLocation = () => {

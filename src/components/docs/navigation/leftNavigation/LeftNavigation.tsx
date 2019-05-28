@@ -22,7 +22,7 @@ interface LeftNavigationProps {
   version: string;
   versions: DocsVersions;
   items: DocsManifest;
-  changeDocsVersion: () => void;
+  changeDocsVersion: (e: any) => Promise<void>;
   activeNav: ActiveNav;
   setActiveNav: (arg: ActiveNav) => void;
 }

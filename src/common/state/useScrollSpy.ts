@@ -1,4 +1,4 @@
-import { useState, useEffect, useLayoutEffect } from "react";
+import { useState, useLayoutEffect } from "react";
 import createContainer from "constate";
 
 interface ScrollSpyNode {
@@ -23,11 +23,6 @@ interface ScrollSpyProps {
   rootElement: string;
   nodeTypes: string[];
   offset: ScrollSpyOffset;
-}
-
-interface ScrollSpyState {
-  nodes: ScrollSpyNodes;
-  activeNodes: ScrollSpyActiveNodes;
 }
 
 const useScrollSpy = ({ rootElement, nodeTypes, offset }: ScrollSpyProps) => {
@@ -102,9 +97,9 @@ const useScrollSpy = ({ rootElement, nodeTypes, offset }: ScrollSpyProps) => {
 
     const newActiveNodes: ScrollSpyActiveNodes = {};
     for (const type of nodeTypes) {
-      const scrollTop =
+      const scrollTop: number =
         (doc.documentElement.scrollTop ||
-          doc.body.parentNode.scrollTop ||
+          (doc as any).body.parentNode.scrollTop ||
           doc.body.scrollTop) + (offset[type] ? offset[type] : 0);
       const newActiveNode = updateActiveNode(nodes[type], scrollTop);
 
