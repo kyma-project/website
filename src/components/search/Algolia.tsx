@@ -49,6 +49,7 @@ const Algolia: React.FunctionComponent = () => {
     },
     algoliaOptions: {
       hitsPerPage: 7,
+      facetFilters: [`language:en`, `version:latest`],
     },
     handleSelected,
   };
