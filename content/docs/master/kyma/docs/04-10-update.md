@@ -5,11 +5,6 @@ type: Installation
 
 This guide describes how to update Kyma deployed locally or on a cluster.
 
-If you are unsure of what version of Kyma you're running, check the name of the Installer image used for deployment. Run:
-```
-kubectl -n kyma-installer get deploy kyma-installer -o jsonpath='{.spec.template.spec.containers[].image}
-```
-
 ## Prerequisites
 
 - [Docker](https://www.docker.com/)
@@ -20,18 +15,19 @@ kubectl -n kyma-installer get deploy kyma-installer -o jsonpath='{.spec.template
 Kyma consists of multiple components, installed as [Helm](https://github.com/helm/helm/tree/master/docs) releases.
 
 Update of an existing deployment can include:
-- Changes in charts
-- Changes in overrides
-- Adding new releases
+- changes in charts
+- changes in overrides
+- adding new releases
 
 The update procedure consists of three main steps:
 - Prepare the update
 - Update the Kyma Installer
 - Trigger the update process
 
-In case of dependency conflicts or major changes between components versions, some updates may not be possible.
+> **NOTE:** In case of dependency conflicts or major changes between components versions, some updates may not be possible.
 
-> **CAUTION:** Currently Kyma doesn't support removing components as a part of the update process.
+> **NOTE:** Currently Kyma doesn't support removing components as a part of the update process.
+
 
 ## Prepare the update
 
@@ -42,18 +38,13 @@ In case of dependency conflicts or major changes between components versions, so
   kubectl edit installation kyma-installation
   ```
 
-> **NOTE:** Read [this](#custom-resource-installation) document to learn more about the Installation custom resource.
+  > **NOTE:** Read [this](#custom-resource-installation) document to learn more about the Installation custom resource.
 
 
-- If you introduced changes in overrides, update the existing ConfigMaps and Secrets. Add new ConfigMaps and Secrets if required. See [this](#configuration-helm-overrides-for-kyma-installation) document for more information on overrides.
+- If you introduced changes in overrides, update the existing ConfigMaps and Secrets. Add new ConfigMaps and Secrets if required. See [this](#getting-started-helm-overrides-for-kyma-installation) document for more information on overrides.
 
-## Perform the update
 
-If your changes involve any modifications in the `/resources` folder that includes component chart configurations, perform the whole update process that includes updating the Kyma Installer and triggering the update. If you only modify installation artifacts, for example by adding or removing components in the installation files or adding or removing overrides in the configuration files, only trigger the update process.
-
-Read about each update step in the following sections.
-
-### Update the Kyma Installer on a local deployment
+## Update the Kyma Installer on a local deployment
 
 - Build a new image for the Kyma Installer:  
   ```
@@ -66,7 +57,7 @@ Read about each update step in the following sections.
   kubectl delete pod -n kyma-installer {INSTALLER_POD_NAME}
   ```
 
-### Update the Kyma Installer on a cluster deployment
+## Update the Kyma Installer on a cluster deployment
 
 - Build a new image for the Kyma Installer:
   ```
@@ -86,9 +77,9 @@ Read about each update step in the following sections.
            - image: <your_image_name>:<your_tag>
              imagePullPolicy: Always
     ```  
-> **NOTE:** If the desired image name and `imagePullPolicy` is already set in the deployment configuration, restart the Pod by running `kubectl delete pod -n kyma-installer {INSTALLER_POD_NAME}`.
+  > **NOTE:** If the desired image name and `imagePullPolicy` is already set in the deployment configuration, restart the Pod by running `kubectl delete pod -n kyma-installer {INSTALLER_POD_NAME}`
 
-### Trigger the update process
+## Trigger the update process
 
 Execute the following command to trigger the update process:
 

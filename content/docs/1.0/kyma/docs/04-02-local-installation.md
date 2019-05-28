@@ -56,7 +56,7 @@ You can install Kyma either with all core subcomponents or only with the selecte
   > **NOTE:** Logging and Monitoring subcomponents are not included by default when you install Kyma on Minikube. You can install them using the instructions provided [here](https://github.com/kyma-project/kyma/tree/master/resources).
 
 Follow these instructions to install Kyma from a release or from local sources:
-<div tabs name="asdasdas">
+<div tabs>
   <details>
   <summary>
   From a release
