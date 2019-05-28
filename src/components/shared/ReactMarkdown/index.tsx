@@ -32,8 +32,8 @@ const ReactMarkdown: React.FunctionComponent<
     globalAssetsPath = assetsPath;
   }
 
-  let processedSource = removeBlankLinesFromTabsBlock(source);
-  processedSource = replaceAllLessThanChars(processedSource);
+  let processedSource = replaceAllLessThanChars(source);
+  processedSource = removeBlankLinesFromTabsBlock(processedSource);
 
   const renderers: Renderers = {
     root: Components.Root,
