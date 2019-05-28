@@ -14,12 +14,17 @@ export interface ReturnType {
   };
 }
 
-const LayoutService = (input: Props): ReturnType => ({
-  docsMetadata: {
-    version: input.docsMetadata.version || "latest",
-    language: input.docsMetadata.language || "en",
-  },
-});
+const LayoutService = (input: Props): ReturnType => {
+  const version = input.docsMetadata && input.docsMetadata.version;
+  const language = input.docsMetadata && input.docsMetadata.language;
+
+  return {
+    docsMetadata: {
+      version: version || "latest",
+      language: language || "en",
+    },
+  };
+};
 
 const { Provider, Context } = createContainer(LayoutService);
 export { Provider };
