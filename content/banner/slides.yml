@@ -1,9 +1,6 @@
 bannerDuration: 5000
 slides:
-  - text: "Enroll the Kyma openSAP course starting from May 08!"
-    url: "https://open.sap.com/courses/kyma1"
-    startDate: "04/04/2019"
-    endDate: "20/05/2019"
-  - text: "Join us for the KubeCon at SAP booth, Barcelona, May 21-23!"
-    startDate: "07/05/2019"
-    endDate: "23/05/2019"
+  - text: "Join our speakers at soap! conference, Cracow, Poland, June 6-7"
+    url: "http://soapconf.com/speakers2019/#basia_lukasz"
+    startDate: "28/05/2019"
+    endDate: "07/06/2019"
