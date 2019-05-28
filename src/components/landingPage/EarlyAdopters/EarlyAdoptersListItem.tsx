@@ -11,7 +11,11 @@ export const EarlyAdoptersListItem: React.FunctionComponent<ListItemProps> = ({
   children,
 }) => {
   if (company === "saas") {
-    return <img src={SaasLogo} alt="SAAS - Software as a Service" />;
+    return (
+      <StyledEarlyAdoptersListItem>
+        <img src={SaasLogo} alt="SAAS - Software as a Service" />
+      </StyledEarlyAdoptersListItem>
+    );
   }
 
   return (
