@@ -299,10 +299,13 @@ export const EarlyAdoptersList = styled.ul`
 export const StyledEarlyAdoptersListItem = styled.li`
   margin: 10px 15px;
   text-align: center;
+
+  > img {
+    width: 100%;
+  }
 `;
 
 /* Community and EarlyAdopters bg */
-
 export const CommunityAndEarlyAdoptersWrapper = styled.div`
   position: relative;
   background: url(${Bottom}) no-repeat;

@@ -43,7 +43,10 @@ const EarlyAdopters: React.FunctionComponent = () => (
               </EarlyAdoptersListItem>
               <EarlyAdoptersListItem company="mgm" />
               <EarlyAdoptersListItem company="accenture-interactive" />
+            </EarlyAdoptersList>
+            <EarlyAdoptersList>
               <EarlyAdoptersListItem company="arithnea" />
+              <EarlyAdoptersListItem company="saas" />
             </EarlyAdoptersList>
           </EarlyAdoptersContent>
         </Grid.Unit>
