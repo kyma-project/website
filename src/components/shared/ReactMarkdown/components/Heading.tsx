@@ -8,7 +8,7 @@ import { tokenize } from "@common/utils";
 const formatString = (arg: string) =>
   tokenize(arg)
     .replace(/[^a-zA-Z0-9]/g, "-")
-    .replace("--", "-")
+    .replace(/--+/g, "-")
     .replace(/-+$/g, "");
 
 interface HeadingProps {
