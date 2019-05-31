@@ -63,7 +63,7 @@ const Tabs: React.FunctionComponent<TabsProps> = ({ children, active = 0 }) => {
       React.cloneElement(child, {
         key: index,
         label: child.props.label,
-        handleTabClick,
+        parentCallback: handleTabClick,
         tabIndex: index,
         isActive: index === activeTab,
       }),
