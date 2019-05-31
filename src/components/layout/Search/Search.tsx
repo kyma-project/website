@@ -48,6 +48,7 @@ const Algolia: React.FunctionComponent = () => {
     indexName: ALGOLIA.INDEX_NAME,
     inputSelector: `#algolia-search`,
     autocompleteOptions: {
+      debug: true,
       openOnFocus: true,
       autoselect: true,
       hint: true,
@@ -60,7 +61,7 @@ const Algolia: React.FunctionComponent = () => {
     handleSelected,
   };
 
-  const init = (): void => {
+  const loadOptions = (): void => {
     if (initial || !window || !(window as any).docsearch) return;
 
     (window as any).docsearch(algoliaOptions);
@@ -73,10 +74,10 @@ const Algolia: React.FunctionComponent = () => {
       loadJS().then(a => {
         setLoadedAlgolia(true);
         (window as any).docsearch = a.default;
-        init();
+        loadOptions();
       });
     } else {
-      init();
+      loadOptions();
     }
   };
 

@@ -7,6 +7,7 @@ interface Props {
 
 const AlgoliaWrapper = styled.li`
   display: inline-block;
+  position: relative;
   margin-left: 6px;
 
   > div {
@@ -16,6 +17,7 @@ const AlgoliaWrapper = styled.li`
       padding: 0;
       top: 0;
       line-height: 46px;
+      /* position: absolute; */
 
       border-radius: 25px;
       transition: all 0.3s ease-in-out;
@@ -44,7 +46,7 @@ const AlgoliaWrapper = styled.li`
         background: transparent;
         transition: all 0.3s ease-in-out;
         color: #fff;
-        width: 5rem;
+        width: 0;
         padding: 0;
         padding-right: 16px;
 
@@ -61,9 +63,9 @@ const AlgoliaWrapper = styled.li`
 
         .ds-dropdown-menu {
           margin-top: 16px;
-          box-shadow: 0 1px 9px 0 rgba(0, 0, 0, 0.1);
-          max-width: 640px;
-          min-width: 640px;
+          box-shadow: 0 1px 26px 0 rgba(137, 165, 199, 0.42);
+          max-width: 543px;
+          min-width: 543px;
 
           &:before {
             right: 50px !important;
@@ -192,7 +194,7 @@ const AlgoliaWrapper = styled.li`
             top: calc(48px + 80px) !important;
             left: auto !important;
             right: 0.75rem !important;
-            min-width: 600px !important;
+            min-width: 543px !important;
 
             &:before {
               right: 147px !important;
