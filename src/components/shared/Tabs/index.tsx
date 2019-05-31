@@ -96,7 +96,9 @@ const useLocation = (): HookReturnVal => {
     const removeListener = globalHistory.listen(params => {
       const { location } = params;
       const newState = Object.assign({}, initialState, { location });
-      setState(newState);
+      if (newState.location.hash !== state.location.hash) {
+        setState(newState);
+      }
     });
     return () => {
       removeListener();
