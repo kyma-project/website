@@ -1,3 +1,13 @@
+---
+title: "Kyma 1.2 Istambul scheduled for release on 13.06.2019"
+author:
+  name:  "Piotr Bochynski, Product Owner @Kyma"
+tags:
+  - release
+redirectFrom:
+  - "/blog/release-12-plan"
+---
+
 Just as we initially promised, the developers are working hard to deliver new features and improvements every four weeks. Our last release is already available for 3 weeks, which means that the next Kyma version will be available in about a week. This time around, the release gets its codename from a city with an incredibly rich history, one that bridges the gap (literally!) between the East and the West. Kyma 1.2 Istanbul has a very rich history of improvements and new features and continues to aid the users in bridging the gap between different pieces of software. What's in store for the 1.2 release? 
 <!-- overview -->
 
