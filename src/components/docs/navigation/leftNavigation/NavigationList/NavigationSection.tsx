@@ -71,7 +71,10 @@ const NavigationSections: React.FunctionComponent<NavigationSectionsProps> = ({
     />
   );
 
-  const renderNavigationItem = (item: DocsNavigationTopicSection) => {
+  const renderNavigationItem = (
+    item: DocsNavigationTopicSection,
+    index: number,
+  ) => {
     const hash = hashing(item);
     const hasSubElements = item && item.titles && item.titles.length > 0;
 
@@ -115,7 +118,7 @@ const NavigationSections: React.FunctionComponent<NavigationSectionsProps> = ({
       : `${rootId}-${item.anchor}`;
 
     return (
-      <NavigationItem key={key}>
+      <NavigationItem key={`${key}-${index}`}>
         <LinkWrapper>
           {hasSubElements && renderArrow(hash, isActive, isActiveNavArrow)}
           <NavigationLink
@@ -173,7 +176,7 @@ const NavigationSections: React.FunctionComponent<NavigationSectionsProps> = ({
       marginTop={true}
       show={isActiveNav || isClickedNav}
     >
-      {items.map(item => renderNavigationItem(item))}
+      {items.map((item, index) => renderNavigationItem(item, index))}
     </NavigationItems>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useLayoutEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { globalHistory, HistoryLocation } from "@reach/router";
 import has from "lodash/has";
 import { TabProps } from "./Tab";
@@ -45,17 +45,6 @@ const Tabs: React.FunctionComponent<TabsProps> = ({ children, active = 0 }) => {
         handleTabClick(index);
       }
     });
-  }, [hash]);
-
-  useLayoutEffect(() => {
-    if (!!document) {
-      setTimeout(() => {
-        const element = document.getElementById(hash.slice(1));
-        if (!!element) {
-          element.scrollIntoView({ behavior: "auto", block: "center" });
-        }
-      }, 0);
-    }
   }, [hash]);
 
   const renderHeader = (ch: Array<React.ReactElement<TabProps>>) =>
