@@ -1,8 +1,8 @@
 {
-  "spec": {
-    "id": "tracing",
-    "displayName": "Tracing",
-    "description": "Overall documentation for Tracing",
-    "type": "Components"
+  "spec":{
+    "id":"tracing",
+    "displayName":"Tracing",
+    "description":"Overall documentation for Tracing",
+    "type":"Components"
   }
 }

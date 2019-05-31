@@ -7,13 +7,11 @@ excludedNamespaces:
 - kyma-installer
 - default
 - natss
-- kyma-backup
+- heptio-ark
 includedResources:
 - '*'
-excludedResources:
-- pods
+excludedResources: null
 includeClusterResources: true
 labelSelector: null
 storageLocation: default
-volumeSnapshotLocations:
-- default
+volumeSnapshotLocations: null

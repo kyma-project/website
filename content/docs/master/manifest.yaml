@@ -1,9 +1,10 @@
+---
 metadata:
   name: kyma-docs
 spec:
   root:
-    - displayName: Kyma
-      id: kyma
+    displayName: Kyma
+    id: kyma
   components:
     - displayName: Security
       id: security
