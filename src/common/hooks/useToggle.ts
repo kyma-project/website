@@ -1,6 +1,10 @@
 import { useState, useEffect, useCallback } from "react";
 
-export default function useDropdown(dropEl: any, actionEl: any) {
+export default function useToggle(
+  dropEl: any,
+  actionEl: any,
+  hiddenOnClickOnAction: boolean = true,
+) {
   dropEl = dropEl.current;
   actionEl = actionEl.current;
 
@@ -18,7 +22,11 @@ export default function useDropdown(dropEl: any, actionEl: any) {
       const clickOnDrop =
         dropEl && (ev.target === dropEl || dropEl.contains(ev.target));
 
-      if (!clickOnDrop && drop === true) {
+      if (clickOnAction && !hiddenOnClickOnAction) {
+        return;
+      }
+
+      if (!clickOnDrop && drop) {
         toggleDrop(false);
       }
     },

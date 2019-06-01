@@ -147,6 +147,7 @@ export const NavigationWrapper = styled.nav`
   width: auto;
   float: right;
   margin-top: 0;
+  position: relative;
 `;
 
 interface NavigationListProps {
@@ -159,6 +160,7 @@ export const NavigationList = styled.ul`
   width: 100%;
   margin: 0;
   transition: all 0.2s ease-in-out;
+  position: relative;
 
   ${media.tablet`
     position: fixed;
@@ -195,7 +197,7 @@ export const NavigationItem = styled.li`
       }
     }
 
-    :nth-child(n+2):nth-last-child(n+3) {
+    :nth-child(n+2):nth-last-child(n+4) {
       a {
         display: block;
         width: 100%;

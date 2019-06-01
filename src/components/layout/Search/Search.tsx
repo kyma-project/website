@@ -1,13 +1,15 @@
 import React, { useState, useEffect, useContext } from "react";
 import { navigate } from "gatsby";
 
-import Icon from "@components/shared/Icon";
+import Button from "@components/shared/Button";
+
+import Input from "@components/layout/Search/Input";
 
 import LayoutService from "@components/layout/service";
 
 import { ALGOLIA } from "@common/constants";
 
-import Wrapper from "./Wrapper";
+import { AlgoliaWrapper } from "./styled";
 
 const Algolia: React.FunctionComponent = () => {
   const {
@@ -16,7 +18,6 @@ const Algolia: React.FunctionComponent = () => {
 
   const [initial, setInitial] = useState<boolean>(false);
   const [loadedAlgolia, setLoadedAlgolia] = useState<boolean>(false);
-  const [focused, setFocused] = useState<boolean>(false);
 
   const handleSelected = (
     input: HTMLInputElement,
@@ -48,7 +49,6 @@ const Algolia: React.FunctionComponent = () => {
     indexName: ALGOLIA.INDEX_NAME,
     inputSelector: `#algolia-search`,
     autocompleteOptions: {
-      debug: true,
       openOnFocus: true,
       autoselect: true,
       hint: true,
@@ -86,25 +86,10 @@ const Algolia: React.FunctionComponent = () => {
   }, []);
 
   return (
-    <Wrapper focused={focused}>
-      <div>
-        <form
-          onSubmit={e => e.preventDefault()}
-          onFocus={() => setFocused(true)}
-          onBlur={() => setFocused(false)}
-        >
-          <span>
-            <Icon iconName="search" iconPrefix="fas" />
-          </span>
-          <input
-            id="algolia-search"
-            type="search"
-            placeholder="Search"
-            aria-label="Search content on website"
-          />
-        </form>
-      </div>
-    </Wrapper>
+    <AlgoliaWrapper>
+      <Button.Light iconName="search" iconPrefix="fas" />
+      <Input />
+    </AlgoliaWrapper>
   );
 };
 

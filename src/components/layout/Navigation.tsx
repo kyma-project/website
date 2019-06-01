@@ -116,7 +116,9 @@ class Navigation extends Component<{}, State> {
               </NavigationExtLink>
             </NavigationItem>
           ))}
-          {!isOnMobile ? <Search /> : null}
+          <NavigationItem key="search">
+            {!isOnMobile ? <Search /> : null}
+          </NavigationItem>
         </NavigationList>
       </NavigationWrapper>
     );

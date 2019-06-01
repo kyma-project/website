@@ -1,71 +1,43 @@
 import styled, { media } from "@styled";
 import { customScrollBar } from "@styled/mixins";
 
-interface Props {
-  focused?: boolean;
-}
+import Button from "@components/shared/Button";
 
-const AlgoliaWrapper = styled.li`
+export const AlgoliaWrapper = styled.div`
   display: inline-block;
-  position: relative;
-  margin-left: 6px;
+  box-shadow: none;
 
-  > div {
+  > button {
+    margin-left: 6px;
+    padding: 0 12px;
+    border: none;
+    color: transparent;
+
+    > svg {
+      margin-right: 0;
+    }
+
+    > span {
+      display: none;
+    }
+
+    ${media.tablet`
+      &:first-child {
+        display: none;
+        color: transparent;
+      }
+    `}
+
     > form {
-      display: inline-block;
-      margin: 0;
-      padding: 0;
-      top: 0;
-      line-height: 46px;
-      /* position: absolute; */
-
-      border-radius: 25px;
-      transition: all 0.3s ease-in-out;
-      background-color: ${(props: Props) =>
-        props.focused ? "#fff" : "rgba(255, 255, 255, 0.1)"};
-
-      &:active,
-      &:focus {
-        background-color: #fff;
-      }
-
-      > span {
-        margin: 0 12px;
-        font-size: 18px;
-
-        > svg {
-          color: ${(props: Props) => (props.focused ? "#0077e1" : "#fff")};
-        }
-      }
-
-      input {
-        border: 0;
-        font-size: 14px;
-        font-weight: 500;
-        width: 0;
-        background: transparent;
-        transition: all 0.3s ease-in-out;
-        color: #fff;
-        width: 0;
-        padding: 0;
-        padding-right: 16px;
-
-        &:active,
-        &:focus {
-          outline: none;
-          color: #0077e1;
-          width: 7rem;
-        }
-      }
-
       .algolia-autocomplete {
-        margin: 0;
+        margin: 0 !important;
 
         .ds-dropdown-menu {
           margin-top: 16px;
           box-shadow: 0 1px 26px 0 rgba(137, 165, 199, 0.42);
           max-width: 543px;
           min-width: 543px;
+          right: -8px !important;
 
           &:before {
             right: 50px !important;
@@ -76,9 +48,11 @@ const AlgoliaWrapper = styled.li`
           margin: 0;
           padding: 0;
           border: 0;
+          border-radius: 10px;
         }
 
         .ds-suggestions {
+          margin-top: 0;
           max-height: 75vh;
           overflow-y: auto;
 
@@ -88,22 +62,45 @@ const AlgoliaWrapper = styled.li`
           })}
         }
 
-        .ds-dropdown-menu .ds-suggestions {
-          margin-top: 0;
-        }
-
         .algolia-docsearch-suggestion {
           padding: 0;
         }
 
+        .algolia-docsearch-suggestion__main {
+          padding: 16px 0 0 0 !important;
+        }
+
         .algolia-docsearch-suggestion--wrapper {
           padding: 0;
+
+          &:hover {
+            background-color: rgba(11, 116, 222, 0.07);
+          }
         }
 
         .algolia-docsearch-suggestion--content {
           padding: 12px;
+          padding-right: 26px;
           width: 70%;
           max-width: 70%;
+
+          &:hover {
+            background-color: transparent;
+          } 
+
+          &:before {
+            width: 0;
+          }
+
+          ${media.phone`
+            padding-left: 26px;
+          `}
+        }
+
+        .ds-suggestion.ds-cursor
+        .algolia-docsearch-suggestion:not(.suggestion-layout-simple)
+        .algolia-docsearch-suggestion--content {
+          background-color: transparent !important;
         }
 
         .algolia-docsearch-suggestion--title {
@@ -118,7 +115,8 @@ const AlgoliaWrapper = styled.li`
           font-size: 12px;
 
           .algolia-docsearch-suggestion--highlight {
-            background-color: #fff;
+            background-color: transparent;
+            box-shadow: none;
           }
         }
 
@@ -149,9 +147,14 @@ const AlgoliaWrapper = styled.li`
           font-weight: normal;
           line-height: normal;
           padding: 12px;
+          padding-left: 26px;
+
+          ${media.phone`
+            opacity: 1;
+          `}
 
           &:before {
-            background: "#000";
+            width: 0;
           }
 
           &:after {
@@ -160,8 +163,9 @@ const AlgoliaWrapper = styled.li`
         }
 
         .algolia-docsearch-suggestion--highlight {
-          background-color: rgba(22, 99, 222, 0.15);
-          color: rgba(22, 99, 222, 1);
+          color: #0b74de;
+          font-weight: 700;
+          background-color: transparent;
         }
 
         .algolia-docsearch-suggestion--category-header {
@@ -170,15 +174,18 @@ const AlgoliaWrapper = styled.li`
           font-size: 13px;
           font-weight: 700;
           line-height: normal;
-          padding: 12px;
+          padding: 6px 0;
+          margin: 0 26px;
           color: #485766;
+          border-bottom: 1px solid #7f98b1;
         }
 
         .algolia-docsearch-footer {
           width: 100%;
-          height: 30px;
+          height: 45px;
           margin-top: 0;
-          border-top: 1px solid #ddd;
+          padding: 0;
+          margin: 0;
         }
 
         .algolia-docsearch-footer--logo {
@@ -221,6 +228,86 @@ const AlgoliaWrapper = styled.li`
             max-width: 100%;
           }
         `}
+      }
+    }
+  }
+`;
+
+interface InputWrapperProps {
+  active?: boolean;
+}
+
+export const InputWrapper = styled(Button.Light)`
+  &&& {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease-in-out;
+
+    ${media.tablet`
+      position: relative;
+    `}
+
+    > svg:last-child {
+      position: absolute;
+      top: 50%;
+      right: 16px;
+      font-size: 16px;
+      transform: translateY(-50%);
+      color: transparent;
+      transition: color 0.3s ease-in-out;
+    }
+
+    &:hover {
+      color: #0b74de;
+      background-color: #fff;
+    }
+
+    ${(props: InputWrapperProps) =>
+      props.active
+        ? `
+      color: #0b74de;
+      background-color: #fff;
+
+      > svg:last-child {
+        color: #0b74de;
+      }
+    `
+        : ``}
+
+    > form {
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+      top: 0;
+      line-height: 46px;
+
+      border-radius: 25px;
+      transition: all 0.3s ease-in-out;
+
+      > span {
+        margin: 0 12px;
+        font-size: 18px;
+
+        > svg {
+          color: ${(props: InputWrapperProps) =>
+            props.active ? "#0077e1" : "#fff"};
+        }
+      }
+
+      input {
+        border: 0;
+        font-size: 14px;
+        font-weight: 500;
+        width: ${(props: InputWrapperProps) => (props.active ? "10rem" : "0")};
+        background: transparent;
+        transition: all 0.3s ease-in-out;
+        outline: none;
+        color: #0077e1;
+        padding: ${(props: InputWrapperProps) =>
+          props.active ? "0 24px 0 8px" : "0"};
       }
     }
   }
