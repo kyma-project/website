@@ -43,6 +43,14 @@ const Tabs: React.FunctionComponent<TabsProps> = ({ children, active = 0 }) => {
           .includes(`# ${hashData[2].split("-").join(" ")}`)
       ) {
         handleTabClick(index);
+        setTimeout(() => {
+          if (!!document) {
+            const element = document.getElementById(hash.slice(1));
+            if (!!element) {
+              element.scrollIntoView(true);
+            }
+          }
+        }, 100);
       }
     });
   }, [hash]);
