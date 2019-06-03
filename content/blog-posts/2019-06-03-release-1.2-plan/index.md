@@ -1,5 +1,5 @@
 ---
-title: "Kyma 1.2 Istambul scheduled for release on 13.06.2019"
+title: "Kyma 1.2 Istanbul scheduled for release on 13.06.2019"
 author:
   name:  "Piotr Bochynski, Product Owner @Kyma"
 tags:
