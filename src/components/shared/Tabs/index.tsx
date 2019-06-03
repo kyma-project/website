@@ -21,6 +21,22 @@ const Tabs: React.FunctionComponent<TabsProps> = ({ children, active = 0 }) => {
 
   const content = [].concat(...(children as any)).filter(child => !!child);
 
+  const isAppropriateElement = (
+    elem: React.ReactElement<TabProps>,
+    hashParts: string[],
+  ) =>
+    !!hashParts &&
+    hashParts.length === 3 &&
+    has(elem, "props.children.props.tabData.group") &&
+    has(elem, "props.children.props.source") &&
+    (elem as any).props.children.props.tabData.group === hashParts[0] &&
+    elem.key === hashParts[1] &&
+    (elem as any).props.children.props.source
+      .toLowerCase()
+      .trim()
+      .replace(/[^a-zA-Z0-9\s#]/g, "")
+      .includes(`# ${hashParts[2].split("-").join(" ")}`);
+
   useEffect(() => {
     if (!hash) {
       return;
@@ -31,17 +47,7 @@ const Tabs: React.FunctionComponent<TabsProps> = ({ children, active = 0 }) => {
     }
 
     content.forEach((elem: React.ReactElement<TabProps>, index: number) => {
-      if (
-        has(elem, "props.children.props.tabData.group") &&
-        has(elem, "props.children.props.source") &&
-        elem.props.children.props.tabData.group === hashData[0] &&
-        elem.key === hashData[1] &&
-        elem.props.children.props.source
-          .toLowerCase()
-          .trim()
-          .replace(/[^a-zA-Z0-9\s#]/g, "")
-          .includes(`# ${hashData[2].split("-").join(" ")}`)
-      ) {
+      if (isAppropriateElement(elem, hashData)) {
         handleTabClick(index);
         setTimeout(() => {
           if (!!document) {
