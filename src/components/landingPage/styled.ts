@@ -300,7 +300,7 @@ export const StyledEarlyAdoptersListItem = styled.li`
   margin: 10px 15px;
   text-align: center;
 
-  > img {
+  > a > img {
     width: 100%;
   }
 `;
