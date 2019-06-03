@@ -11,6 +11,8 @@ import { ALGOLIA } from "@common/constants";
 
 import { AlgoliaWrapper } from "./styled";
 
+let search: any;
+
 const Algolia: React.FunctionComponent = () => {
   const {
     docsMetadata: { version, language },
@@ -56,7 +58,6 @@ const Algolia: React.FunctionComponent = () => {
     },
     algoliaOptions: {
       hitsPerPage: 7,
-      facetFilters: [`language:${language}`, `version:${version}`],
     },
     handleSelected,
   };
@@ -64,7 +65,7 @@ const Algolia: React.FunctionComponent = () => {
   const loadOptions = (): void => {
     if (initial || !window || !(window as any).docsearch) return;
 
-    (window as any).docsearch(algoliaOptions);
+    search = (window as any).docsearch(algoliaOptions);
     setInitial(true);
   };
 
@@ -88,7 +89,7 @@ const Algolia: React.FunctionComponent = () => {
   return (
     <AlgoliaWrapper>
       <Button.Light iconName="search" iconPrefix="fas" />
-      <Input />
+      <Input search={search} />
     </AlgoliaWrapper>
   );
 };

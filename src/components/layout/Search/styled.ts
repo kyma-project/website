@@ -163,9 +163,10 @@ export const AlgoliaWrapper = styled.div`
         }
 
         .algolia-docsearch-suggestion--highlight {
-          color: #0b74de;
+          color: #0b74de !important;
           font-weight: 700;
           background-color: transparent;
+          box-shadow: none !important;
         }
 
         .algolia-docsearch-suggestion--category-header {
@@ -301,13 +302,17 @@ export const InputWrapper = styled(Button.Light)`
         border: 0;
         font-size: 14px;
         font-weight: 500;
-        width: ${(props: InputWrapperProps) => (props.active ? "10rem" : "0")};
+        width: ${(props: InputWrapperProps) => (props.active ? "7.5rem" : "0")};
         background: transparent;
         transition: all 0.3s ease-in-out;
         outline: none;
         color: #0077e1;
         padding: ${(props: InputWrapperProps) =>
           props.active ? "0 24px 0 8px" : "0"};
+
+        ${media.phone`
+          width: ${(props: InputWrapperProps) => (props.active ? "5rem" : "0")};
+        `}
       }
     }
   }

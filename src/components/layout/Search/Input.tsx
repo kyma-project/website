@@ -6,15 +6,18 @@ import Icon from "@components/shared/Icon";
 
 import { InputWrapper } from "./styled";
 
-const Input: React.FunctionComponent = () => {
-  const [search, setSearch] = useState<string>("");
+interface Props {
+  search?: any;
+}
+
+const Input: React.FunctionComponent<Props> = ({ search }) => {
   const iconEl = useRef(null);
   const inputEl = useRef(null);
   const [inputActive, searchFocus] = useToggle(inputEl, iconEl, false);
 
   useEffect(() => {
-    setSearch("");
     focusSearch();
+    clearValue();
   }, [inputActive]);
 
   const focusSearch = () => {
@@ -29,15 +32,42 @@ const Input: React.FunctionComponent = () => {
     if (inputActive) {
       (inputEl.current as any).focus();
     }
-    return;
   };
+
+  const clearValue = () => {
+    if (
+      search &&
+      search.autocomplete &&
+      search.autocomplete.autocomplete &&
+      typeof search.autocomplete.autocomplete.setVal === "function"
+    ) {
+      search.autocomplete.autocomplete.setVal("");
+    }
+  };
+
+  if (
+    search &&
+    search.autocomplete &&
+    typeof search.autocomplete.on === "function"
+  ) {
+    search.autocomplete.on("autocomplete:opened", () => {
+      if (!inputActive) {
+        (searchFocus as any)();
+      }
+    });
+  }
 
   return (
     <InputWrapper
       iconName="search"
       iconPrefix="fas"
       reference={iconEl}
-      onClick={searchFocus}
+      onClick={() => {
+        focusSearch();
+        if (!inputActive) {
+          (searchFocus as any)();
+        }
+      }}
       active={inputActive as boolean}
     >
       <form onSubmit={e => e.preventDefault()}>
@@ -47,17 +77,13 @@ const Input: React.FunctionComponent = () => {
           placeholder="Search"
           aria-label="Search content on website"
           ref={inputEl}
-          value={search ? search : ""}
-          onChange={e => {
-            setSearch(e.target.value);
-          }}
         />
       </form>
       <Icon
         iconName="times"
         iconPrefix="fas"
         onClick={() => {
-          setSearch("");
+          clearValue();
           focusSearch();
         }}
       />
