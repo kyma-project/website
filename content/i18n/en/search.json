@@ -1,9 +1,7 @@
 {
-    "description": "You can:",
+    "description": "Search options/filters:",
     "filters": {
-        "logicOperator": "Handle value with logic operator like AND, OR, NOT.\nExample pod OR deployment",
-        "numberOperator": "Handle value with number operator like =, !=, >, >=, <, <=.\nExample: limit > 9000",
-        "limitOperator": "Handle value with limit TO operator.\nExample: 123 TO 1234",
-        "doubleQuotes": "Handle value with double quotes.\nExample: \"Kyma!\""
+        "logicOperator": "Logic operators like AND, OR, NOT.\nExample: pod OR deployment",
+        "doubleQuotes": "Double quotes.\nExample: \"service catalog\""
     }
 }
