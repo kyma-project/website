@@ -2,15 +2,15 @@ import React from "react";
 import { StyledEarlyAdoptersListItem } from "../styled";
 
 import Link from "@components/shared/Link";
+import Tooltip from "@components/shared/Tooltip";
 
 import SaasLogo from "@static/img/early-adopters/saas.svg";
 
-interface ListItemProps {
-  company: string;
-  link: string;
-}
-export const EarlyAdoptersListItem: React.FunctionComponent<ListItemProps> = ({
+import { EarlyAdopter } from "./EarlyAdopters";
+
+export const EarlyAdoptersListItem: React.FunctionComponent<EarlyAdopter> = ({
   company,
+  title,
   link,
   children,
 }) => {
@@ -31,8 +31,10 @@ export const EarlyAdoptersListItem: React.FunctionComponent<ListItemProps> = ({
   }
 
   return (
-    <StyledEarlyAdoptersListItem>
-      {link ? <Link.External to={link}>{content}</Link.External> : content}
-    </StyledEarlyAdoptersListItem>
+    <Tooltip content={title} placement="bottom">
+      <StyledEarlyAdoptersListItem>
+        {link ? <Link.External to={link}>{content}</Link.External> : content}
+      </StyledEarlyAdoptersListItem>
+    </Tooltip>
   );
 };

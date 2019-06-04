@@ -15,8 +15,9 @@ import Sprites, { getSapGradientDef, getTwiggleGradientDef } from "../Sprites";
 
 import { FormattedMessage, getTranslation } from "@common/i18n";
 
-interface EarlyAdopter {
-  name: string;
+export interface EarlyAdopter {
+  company: string;
+  title: string;
   link: string;
 }
 
@@ -27,10 +28,8 @@ interface Props {
 const gt = getTranslation("landingPage.earlyAdopters");
 
 const EarlyAdopters: React.FunctionComponent<Props> = ({ earlyAdopters }) => {
-  const getLink = (company: string): string => {
-    const comp = earlyAdopters.find(c => c.name === company);
-    return comp ? comp.link : "";
-  };
+  const getCompanyData = (company: string) =>
+    earlyAdopters.find(c => c.company === company) as EarlyAdopter;
 
   return (
     <EarlyAdoptersWrapper>
@@ -49,31 +48,21 @@ const EarlyAdopters: React.FunctionComponent<Props> = ({ earlyAdopters }) => {
           <Grid.Unit df={12}>
             <EarlyAdoptersContent className="adopters">
               <EarlyAdoptersList>
-                <EarlyAdoptersListItem
-                  company="twiggle"
-                  link={getLink("twiggle")}
-                >
+                <EarlyAdoptersListItem {...getCompanyData("twiggle")}>
                   {getTwiggleGradientDef()}
                 </EarlyAdoptersListItem>
-                <EarlyAdoptersListItem
-                  company="netconomy"
-                  link={getLink("netconomy")}
-                />
-                <EarlyAdoptersListItem company="sap" link={getLink("sap")}>
+                <EarlyAdoptersListItem {...getCompanyData("netconomy")} />
+                <EarlyAdoptersListItem {...getCompanyData("sap")}>
                   {getSapGradientDef()}
                 </EarlyAdoptersListItem>
-                <EarlyAdoptersListItem company="mgm" link={getLink("mgm")} />
+                <EarlyAdoptersListItem {...getCompanyData("mgm")} />
                 <EarlyAdoptersListItem
-                  company="accenture-interactive"
-                  link={getLink("accenture-interactive")}
+                  {...getCompanyData("accenture-interactive")}
                 />
               </EarlyAdoptersList>
               <EarlyAdoptersList>
-                <EarlyAdoptersListItem
-                  company="arithnea"
-                  link={getLink("arithnea")}
-                />
-                <EarlyAdoptersListItem company="saas" link={getLink("saas")} />
+                <EarlyAdoptersListItem {...getCompanyData("arithnea")} />
+                <EarlyAdoptersListItem {...getCompanyData("saas")} />
               </EarlyAdoptersList>
             </EarlyAdoptersContent>
           </Grid.Unit>

@@ -39,7 +39,8 @@ const query = graphql`
       edges {
         node {
           adopters {
-            name
+            company
+            title
             link
           }
         }
