@@ -66,12 +66,6 @@ const Input: React.FunctionComponent<Props> = ({ search }) => {
           <FormattedMessage id="search.filters.logicOperator" />
         </li>
         <li>
-          <FormattedMessage id="search.filters.numberOperator" />
-        </li>
-        <li>
-          <FormattedMessage id="search.filters.limitOperator" />
-        </li>
-        <li>
           <FormattedMessage id="search.filters.doubleQuotes" />
         </li>
       </ul>
