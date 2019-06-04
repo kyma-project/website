@@ -28,7 +28,7 @@ export const AlgoliaWrapper = styled.div`
       }
     `}
 
-    > form {
+    > form {      
       .algolia-autocomplete {
         margin: 0 !important;
 
@@ -38,9 +38,10 @@ export const AlgoliaWrapper = styled.div`
           max-width: 543px;
           min-width: 543px;
           right: -8px !important;
+          z-index: 102 !important;
 
           &:before {
-            right: 50px !important;
+            right: 60px !important;
           }
         }
 
@@ -262,6 +263,27 @@ export const InputWrapper = styled(Button.Light)`
         props.active ? "block" : "none"};
     }
 
+    > div {
+      position: absolute;
+      top: 50%;
+      right: 32px;
+      font-size: 16px;
+      color: transparent;
+      transform: translateY(-50%);
+      display: ${(props: InputWrapperProps) =>
+        props.active ? "block" : "none"};
+
+      /* Tooltip */
+      > div {
+        top: 90%;
+        width: 210px;
+        text-align: left;
+        padding: 16px;
+        font-size: 12px;
+        line-height: 1rem;
+      }
+    }
+
     &:hover {
       color: #0b74de;
       background-color: #fff;
@@ -273,7 +295,7 @@ export const InputWrapper = styled(Button.Light)`
       color: #0b74de;
       background-color: #fff;
 
-      > svg:last-child {
+      > svg:last-child, > div {
         color: #0b74de;
       }
     `
@@ -309,7 +331,7 @@ export const InputWrapper = styled(Button.Light)`
         outline: none;
         color: #0077e1;
         padding: ${(props: InputWrapperProps) =>
-          props.active ? "0 24px 0 8px" : "0"};
+          props.active ? "0 42px 0 8px" : "0"};
 
         ${media.phone`
           width: ${(props: InputWrapperProps) => (props.active ? "5rem" : "0")};
@@ -319,4 +341,25 @@ export const InputWrapper = styled(Button.Light)`
   }
 `;
 
-export default AlgoliaWrapper;
+export const TooltipContent = styled.div`
+  > ul {
+    margin: 6px 0 0 0;
+    list-style: none;
+
+    > li {
+      position: relative;
+      padding-left: 6px;
+
+      &:before {
+        content: "•";
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: inline-block;
+        width: 1em;
+        height: 100%;
+        color: #fff;
+      }
+    }
+  }
+`;

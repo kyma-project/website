@@ -23,6 +23,7 @@ export interface Internationalization {
     docs: any;
     blog: any;
     roadmap: any;
+    search: any;
     siteMetadata: any;
     utils: any;
   };

@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 
 import useToggle from "@common/hooks/useToggle";
+import { FormattedMessage } from "@common/i18n";
 
 import Icon from "@components/shared/Icon";
+import Tooltip from "@components/shared/Tooltip";
 
-import { InputWrapper } from "./styled";
+import { InputWrapper, TooltipContent } from "./styled";
 
 interface Props {
   search?: any;
@@ -56,6 +58,26 @@ const Input: React.FunctionComponent<Props> = ({ search }) => {
     });
   }
 
+  const tooltipContent = (
+    <TooltipContent>
+      <FormattedMessage id="search.description" />
+      <ul>
+        <li>
+          <FormattedMessage id="search.filters.logicOperator" />
+        </li>
+        <li>
+          <FormattedMessage id="search.filters.numberOperator" />
+        </li>
+        <li>
+          <FormattedMessage id="search.filters.limitOperator" />
+        </li>
+        <li>
+          <FormattedMessage id="search.filters.doubleQuotes" />
+        </li>
+      </ul>
+    </TooltipContent>
+  );
+
   return (
     <InputWrapper
       iconName="search"
@@ -78,6 +100,9 @@ const Input: React.FunctionComponent<Props> = ({ search }) => {
           ref={inputEl}
         />
       </form>
+      <Tooltip content={tooltipContent} placement="bottom">
+        <Icon iconName="question-circle" iconPrefix="fas" />
+      </Tooltip>
       <Icon
         iconName="times"
         iconPrefix="fas"

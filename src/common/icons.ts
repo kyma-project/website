@@ -14,6 +14,7 @@ import {
   faSlidersH,
   faChevronUp,
   faSearch,
+  faQuestionCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faEdit,
@@ -46,6 +47,7 @@ library.add(
   faBars,
   faTimes,
   faSearch,
+  faQuestionCircle,
   faEdit,
   faCopy,
   faChevronUp,
