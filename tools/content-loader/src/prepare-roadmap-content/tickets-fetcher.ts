@@ -97,7 +97,7 @@ export class TicketsFetcher {
       }
     `;
 
-    const firstLabels = 10;
+    const firstLabels = 7;
     const firstIssues = Math.floor(500 / firstLabels);
 
     const options = {
