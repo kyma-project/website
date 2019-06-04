@@ -335,7 +335,7 @@ export const InputWrapper = styled(Button.Light)`
           props.active ? "0 42px 0 8px" : "0"};
 
         ${media.phone`
-          width: ${(props: InputWrapperProps) => (props.active ? "5rem" : "0")};
+          width: ${(props: InputWrapperProps) => (props.active ? "7rem" : "0")};
         `}
       }
     }
@@ -350,6 +350,10 @@ export const TooltipContent = styled.div`
     > li {
       position: relative;
       padding-left: 12px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
 
       &:before {
         content: "•";
