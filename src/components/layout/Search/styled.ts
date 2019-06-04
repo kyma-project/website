@@ -349,7 +349,7 @@ export const TooltipContent = styled.div`
 
     > li {
       position: relative;
-      padding-left: 6px;
+      padding-left: 12px;
 
       &:before {
         content: "•";
