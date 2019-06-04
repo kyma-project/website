@@ -269,9 +269,10 @@ export const InputWrapper = styled(Button.Light)`
       right: 32px;
       font-size: 16px;
       color: transparent;
-      transform: translateY(-50%);
+      transform: translateY(-48%);
       display: ${(props: InputWrapperProps) =>
         props.active ? "block" : "none"};
+      cursor: help;
 
       /* Tooltip */
       > div {
