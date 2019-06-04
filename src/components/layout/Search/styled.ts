@@ -258,7 +258,8 @@ export const InputWrapper = styled(Button.Light)`
       font-size: 16px;
       transform: translateY(-50%);
       color: transparent;
-      transition: color 0.3s ease-in-out;
+      display: ${(props: InputWrapperProps) =>
+        props.active ? "block" : "none"};
     }
 
     &:hover {
