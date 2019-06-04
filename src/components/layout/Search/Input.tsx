@@ -17,7 +17,6 @@ const Input: React.FunctionComponent<Props> = ({ search }) => {
 
   useEffect(() => {
     focusSearch();
-    clearValue();
   }, [inputActive]);
 
   const focusSearch = () => {

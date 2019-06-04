@@ -57,7 +57,7 @@ const Algolia: React.FunctionComponent = () => {
       keyboardShortcuts: [`s`],
     },
     algoliaOptions: {
-      hitsPerPage: 7,
+      hitsPerPage: 10,
     },
     handleSelected,
   };

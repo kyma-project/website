@@ -302,7 +302,7 @@ export const InputWrapper = styled(Button.Light)`
         border: 0;
         font-size: 14px;
         font-weight: 500;
-        width: ${(props: InputWrapperProps) => (props.active ? "7.5rem" : "0")};
+        width: ${(props: InputWrapperProps) => (props.active ? "15rem" : "0")};
         background: transparent;
         transition: all 0.3s ease-in-out;
         outline: none;
