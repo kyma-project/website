@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { globalHistory, HistoryLocation } from "@reach/router";
+import { useLocation } from "@common/hooks/useLocation";
 import has from "lodash/has";
 import { TabProps } from "./Tab";
 import { TabsWrapper, TabsHeader, TabsContent } from "./styled";
@@ -27,6 +27,7 @@ const Tabs: React.FunctionComponent<TabsProps> = ({ children, active = 0 }) => {
   ) =>
     !!hashParts &&
     hashParts.length === 3 &&
+    !!elem &&
     has(elem, "props.children.props.tabData.group") &&
     has(elem, "props.children.props.source") &&
     (elem as any).props.children.props.tabData.group === hashParts[0] &&
@@ -84,28 +85,3 @@ const Tabs: React.FunctionComponent<TabsProps> = ({ children, active = 0 }) => {
 };
 
 export default Tabs;
-
-interface HookReturnVal {
-  location: HistoryLocation;
-}
-
-const useLocation = (): HookReturnVal => {
-  const initialState = {
-    location: globalHistory.location,
-  };
-
-  const [state, setState] = useState(initialState);
-  useEffect(() => {
-    const removeListener = globalHistory.listen(params => {
-      const { location } = params;
-      const newState = Object.assign({}, initialState, { location });
-      if (newState.location.hash !== state.location.hash) {
-        setState(newState);
-      }
-    });
-    return () => {
-      removeListener();
-    };
-  }, []);
-  return state;
-};

@@ -5,12 +5,6 @@ import Link from "@components/shared/Link";
 
 import { tokenize } from "@common/utils";
 
-const formatString = (arg: string) =>
-  tokenize(arg)
-    .replace(/[^a-zA-Z0-9]/g, "-")
-    .replace(/--+/g, "-")
-    .replace(/-+$/g, "");
-
 interface HeadingProps {
   level: 1 | 2 | 3 | 4 | 5 | 6;
   headingPrefix?: string;
@@ -27,6 +21,12 @@ export const Heading: React.FunctionComponent<HeadingProps> = ({
   children,
   tabData,
 }) => {
+  const formatString = (arg: string) =>
+    tokenize(arg)
+      .replace(/[^a-zA-Z0-9]/g, "-")
+      .replace(/--+/g, "-")
+      .replace(/-+$/g, "");
+
   const newLevel = level + 2 >= 6 ? 6 : level + 2;
   if (!children) {
     return null;

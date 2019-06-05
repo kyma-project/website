@@ -41,18 +41,19 @@ export const tabs = (headingPrefix: string) => ({
               );
 
             const trimmedSummary = tokenize(summary);
+            const tabData = {
+              group: tokenize(
+                node.attribs.hasOwnProperty("name") && !!node.attribs.name
+                  ? node.attribs.name
+                  : "",
+              ),
+              tab: trimmedSummary,
+            };
 
             return (
               <Tab key={trimmedSummary} label={summary}>
                 <ReactMarkdown
-                  tabData={{
-                    group: tokenize(
-                      node.attribs.hasOwnProperty("name") && !!node.attribs.name
-                        ? node.attribs.name
-                        : "",
-                    ),
-                    tab: trimmedSummary,
-                  }}
+                  tabData={tabData}
                   source={source}
                   headingPrefix={headingPrefix}
                 />
