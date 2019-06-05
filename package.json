@@ -32,6 +32,7 @@
     "lint-check": "tslint -c tslint.json --project tsconfig.json --format verbose && prettier --check '**/*.{ts,tsx,js,jsx,json,html,css,yaml}'",
     "lint-fix": "tslint -c tslint.json --project tsconfig.json --format verbose --fix; prettier --write '**/*.{ts,tsx,js,jsx,json,html,css,yaml}'",
     "conflict-check": "tslint-config-prettier-check ./tslint.json",
+    "type-check": "tsc --noEmit",
     "markdownlint": "markdownlint **/*.md",
     "clear-cache": "gatsby clean",
     "explore": "source-map-explorer \"public/*.js\""
@@ -113,7 +114,7 @@
     "tslint-config-prettier": "^1.17.0",
     "tslint-react": "^3.6.0",
     "tslint-react-hooks": "^2.1.0",
-    "typescript": "^3.2.4"
+    "typescript": "^3.5.1"
   },
   "bugs": {
     "url": "https://github.com/kyma-project/website/issues"

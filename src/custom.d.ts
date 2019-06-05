@@ -15,3 +15,4 @@ declare module "*.js" {
 
 declare module "prism-react-renderer";
 declare module "react-modal-hook";
+declare module "get-video-id";
