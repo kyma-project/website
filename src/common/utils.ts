@@ -1,7 +1,7 @@
 import config from "@config";
 
-export const resolveSocialMedia = (media: string) =>
-  (config as any).socialMedia[media];
+export const resolveSocialMedia = (media: keyof typeof config.socialMedia) =>
+  config.socialMedia[media];
 
 export const getActualYear = () => {
   const d = new Date();
