@@ -72,7 +72,8 @@ export const HeaderWrapper = styled.header`
   }
   @media (max-width: 376px) {
     &:before {
-      min-height: 43vw;
+      min-height: ${(props: HeaderWrapperProps) =>
+        props.horizontalBg ? "43vw" : "92vw"};
     }
   }
   @media (min-width: 1400px) {
@@ -148,6 +149,11 @@ export const NavigationWrapper = styled.nav`
   float: right;
   margin-top: 0;
   position: relative;
+
+  ${media.tablet`
+    position: absolute;
+    right: 30px;
+  `}
 `;
 
 interface NavigationListProps {

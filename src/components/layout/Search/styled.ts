@@ -28,7 +28,7 @@ export const AlgoliaWrapper = styled.div`
       }
     `}
 
-    > form {      
+    > form {  
       .algolia-autocomplete {
         margin: 0 !important;
 
@@ -102,6 +102,11 @@ export const AlgoliaWrapper = styled.div`
         .algolia-docsearch-suggestion:not(.suggestion-layout-simple)
         .algolia-docsearch-suggestion--content {
           background-color: transparent !important;
+        }
+
+        .ds-suggestion.ds-cursor
+        .algolia-docsearch-suggestion--wrapper {
+            background-color: rgba(11, 116, 222, 0.07);
         }
 
         .algolia-docsearch-suggestion--title {
@@ -199,10 +204,8 @@ export const AlgoliaWrapper = styled.div`
 
         ${media.tablet`
           .ds-dropdown-menu {
-            position: fixed !important;
-            top: calc(48px + 80px) !important;
             left: auto !important;
-            right: 0.75rem !important;
+            right: -5.5rem !important;
             min-width: 543px !important;
 
             &:before {
@@ -213,8 +216,7 @@ export const AlgoliaWrapper = styled.div`
 
         ${media.phone`
           .ds-dropdown-menu {
-            left: 0.75rem !important;
-            right: 0.75rem !important;
+            right: -6.75rem !important;
             min-width: calc(100vw - 1.5rem) !important;
           }
         `}
@@ -335,7 +337,12 @@ export const InputWrapper = styled(Button.Light)`
           props.active ? "0 42px 0 8px" : "0"};
 
         ${media.phone`
-          width: ${(props: InputWrapperProps) => (props.active ? "7rem" : "0")};
+          width: ${(props: InputWrapperProps) =>
+            props.active ? "10rem" : "0"};
+        `}
+
+        ${media.smallPhone`
+          width: ${(props: InputWrapperProps) => (props.active ? "30vw" : "0")};
         `}
       }
     }

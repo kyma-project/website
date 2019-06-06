@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 
 import useToggle from "@common/hooks/useToggle";
-import { FormattedMessage } from "@common/i18n";
+import { FormattedMessage, injectIntl, IntlInterface } from "@common/i18n";
 
 import Icon from "@components/shared/Icon";
 import Tooltip from "@components/shared/Tooltip";
@@ -12,10 +12,16 @@ interface Props {
   search?: any;
 }
 
-const Input: React.FunctionComponent<Props> = ({ search }) => {
-  const iconEl = useRef(null);
-  const inputEl = useRef(null);
-  const [inputActive, searchFocus] = useToggle(inputEl, iconEl, false);
+const Input: React.FunctionComponent<Props & IntlInterface> = ({
+  search,
+  formatMessage,
+}) => {
+  const iconEl = useRef<HTMLInputElement>(null);
+  const inputEl = useRef<HTMLInputElement>(null);
+  const [inputActive, setInputActive] = useToggle<
+    HTMLInputElement,
+    HTMLInputElement
+  >(inputEl, iconEl, false);
 
   useEffect(() => {
     focusSearch();
@@ -25,13 +31,13 @@ const Input: React.FunctionComponent<Props> = ({ search }) => {
     if (
       !inputEl ||
       !inputEl.current ||
-      typeof (inputEl.current as any).focus !== "function"
+      typeof inputEl.current.focus !== "function"
     ) {
       return;
     }
 
     if (inputActive) {
-      (inputEl.current as any).focus();
+      inputEl.current.focus();
     }
   };
 
@@ -53,7 +59,7 @@ const Input: React.FunctionComponent<Props> = ({ search }) => {
   ) {
     search.autocomplete.on("autocomplete:opened", () => {
       if (!inputActive) {
-        (searchFocus as any)();
+        setInputActive();
       }
     });
   }
@@ -80,7 +86,7 @@ const Input: React.FunctionComponent<Props> = ({ search }) => {
       onClick={() => {
         focusSearch();
         if (!inputActive) {
-          (searchFocus as any)();
+          setInputActive();
         }
       }}
       active={inputActive as boolean}
@@ -89,8 +95,8 @@ const Input: React.FunctionComponent<Props> = ({ search }) => {
         <input
           id="algolia-search"
           type="search"
-          placeholder="Search"
-          aria-label="Search content on website"
+          placeholder={formatMessage({ id: "placeholder" })}
+          aria-label={formatMessage({ id: "ariaLabel" })}
           ref={inputEl}
         />
       </form>
@@ -109,4 +115,4 @@ const Input: React.FunctionComponent<Props> = ({ search }) => {
   );
 };
 
-export default Input;
+export default injectIntl("search")(Input);

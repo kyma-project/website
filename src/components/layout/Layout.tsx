@@ -33,7 +33,6 @@ interface LayoutProps {
     version?: string;
     language?: string;
   };
-  search?: boolean;
 }
 
 const Layout: React.FunctionComponent<LayoutProps> = ({
@@ -44,7 +43,6 @@ const Layout: React.FunctionComponent<LayoutProps> = ({
   children,
   backToTopButton = true,
   docsMetadata,
-  search = false,
 }) => (
   <StaticQuery
     query={query}
@@ -68,7 +66,6 @@ const Layout: React.FunctionComponent<LayoutProps> = ({
                     <SlidesBanner {...slidesProps} />
                     <Popup />
                     <CookiesBanner />
-                    {/* {backToTopButton && <BackToTop />} */}
                     <Header horizontalBg={horizontalHeaderBg} />
                     <Content>{children}</Content>
                     <Footer />

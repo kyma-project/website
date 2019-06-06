@@ -19,6 +19,7 @@
       "@common/*": ["./src/common/*"],
       "@components/*": ["./src/components/*"],
       "@config": ["./config.json"],
+      "@content": ["./content/*"],
       "@static": ["./static/*"],
       "@styled": ["./src/common/styled"],
       "@styled/*": ["./src/common/styled/*"]

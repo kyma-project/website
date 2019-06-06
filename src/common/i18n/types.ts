@@ -16,15 +16,6 @@ export type FunctionComponentIntl<P = {}> = React.FunctionComponent<
 
 export interface Internationalization {
   [key: string]: {
-    layout: any;
-    "404": any;
-    cookies: any;
-    landingPage: any;
-    docs: any;
-    blog: any;
-    roadmap: any;
-    search: any;
-    siteMetadata: any;
-    utils: any;
+    [key: string]: any;
   };
 }

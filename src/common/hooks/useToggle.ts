@@ -1,12 +1,12 @@
 import { useState, useEffect, useCallback } from "react";
 
-export default function useToggle(
-  dropEl: any,
-  actionEl: any,
+export default function useToggle<F = any, S = any>(
+  dropEl: React.RefObject<F> | React.MutableRefObject<F>,
+  actionEl: React.RefObject<S> | React.MutableRefObject<S>,
   hiddenOnClickOnAction: boolean = true,
-) {
-  dropEl = dropEl.current;
-  actionEl = actionEl.current;
+): [boolean, (toogleState?: any) => void] {
+  const dropElCurrent = dropEl.current;
+  const actionElCurrent = actionEl.current;
 
   const [drop, setDrop] = useState(false);
 
@@ -19,8 +19,15 @@ export default function useToggle(
 
   const onWindowClick = useCallback(
     ev => {
+      const clickOnAction =
+        actionElCurrent &&
+        (ev.target === actionElCurrent ||
+          (actionElCurrent as any).contains(ev.target));
+
       const clickOnDrop =
-        dropEl && (ev.target === dropEl || dropEl.contains(ev.target));
+        dropElCurrent &&
+        (ev.target === dropElCurrent ||
+          (dropElCurrent as any).contains(ev.target));
 
       if (clickOnAction && !hiddenOnClickOnAction) {
         return;

@@ -13,7 +13,7 @@ import { AlgoliaWrapper } from "./styled";
 
 let search: any;
 
-const Algolia: React.FunctionComponent = () => {
+const Search: React.FunctionComponent = () => {
   const {
     docsMetadata: { version, language },
   } = useContext(LayoutService);
@@ -51,6 +51,7 @@ const Algolia: React.FunctionComponent = () => {
     indexName: ALGOLIA.INDEX_NAME,
     inputSelector: `#algolia-search`,
     autocompleteOptions: {
+      debug: true,
       openOnFocus: true,
       autoselect: true,
       hint: true,
@@ -63,9 +64,9 @@ const Algolia: React.FunctionComponent = () => {
   };
 
   const loadOptions = (): void => {
-    if (initial || !window || !(window as any).docsearch) return;
+    if (initial || !window || !window.docsearch) return;
 
-    search = (window as any).docsearch(algoliaOptions);
+    search = window.docsearch(algoliaOptions);
     setInitial(true);
   };
 
@@ -74,7 +75,7 @@ const Algolia: React.FunctionComponent = () => {
     if (!loadedAlgolia) {
       loadJS().then(a => {
         setLoadedAlgolia(true);
-        (window as any).docsearch = a.default;
+        window.docsearch = a.default;
         loadOptions();
       });
     } else {
@@ -94,4 +95,4 @@ const Algolia: React.FunctionComponent = () => {
   );
 };
 
-export default Algolia;
+export default Search;
