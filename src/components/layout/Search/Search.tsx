@@ -59,6 +59,7 @@ const Search: React.FunctionComponent = () => {
     },
     algoliaOptions: {
       hitsPerPage: 10,
+      facetFilters: [`language:${language}`, `version:${version}`],
     },
     handleSelected,
   };
