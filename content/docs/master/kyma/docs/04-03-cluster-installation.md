@@ -5,18 +5,12 @@ type: Installation
 
 This Installation guide shows developers how to quickly deploy Kyma on a cluster. Kyma is installed on a cluster using a proprietary installer based on a [Kubernetes operator](https://coreos.com/operators/). By default, Kyma is installed on a cluster with a wildcard DNS provided by [xip.io](http://xip.io). Alternatively, you can provide your own domain for the cluster.
 
-[aks](/root/kyma/#installation-install-kyma-on-a-cluster--cluster--aks--prepare-the-aks-cluster)
-[gke](/root/kyma/#installation-install-kyma-on-a-cluster--cluster--gke--prepare-the-gke-cluster)
-
 Follow these installation guides to install Kyma on a cluster depending on the supported cloud providers:
-<div tabs name="cluster">
+<div tabs>
   <details>
   <summary>
   GKE
   </summary>
-
-
-[aks](/root/kyma/#installation-install-kyma-on-a-cluster--cluster--aks--prepare-the-aks-cluster)
 
 This Installation guide shows developers how to quickly deploy Kyma on a [Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine/) (GKE) cluster.
 
@@ -314,8 +308,6 @@ After the installation, add the custom Kyma [`xip.io`](http://xip.io/) self-sign
   <summary>
   AKS
   </summary>
-
-[gke](/root/kyma/#installation-install-kyma-on-a-cluster--cluster--gke--prepare-the-gke-cluster)
 
 This Installation guide shows developers how to quickly deploy Kyma on an [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) (AKS) cluster.
 
