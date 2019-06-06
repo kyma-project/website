@@ -2,8 +2,6 @@ import React from "react";
 
 import Grid from "@styled/Grid";
 
-import Separator from "@components/shared/Separator";
-
 import PostPage from "@components/blog/Post";
 
 import { AllMarkdownRemarkNode } from "@common/types";

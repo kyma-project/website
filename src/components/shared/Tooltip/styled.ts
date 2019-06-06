@@ -34,14 +34,8 @@ export const TooltipContainer = styled.div`
   &:after {
     content: "";
     border: 6px solid;
-    border-color: ${props => {
-      switch (props.placement) {
-        case "bottom":
-          return `transparent transparent #0077e1`;
-        default:
-          return `transparent transparent #0077e1`;
-      }
-    }};
+    border-color: ${props =>
+      props.placement && `transparent transparent #0077e1;`};
     right: 50%;
     transform: translateX(6px);
     margin-left: -10px;

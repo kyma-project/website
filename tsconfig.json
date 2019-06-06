@@ -1,6 +1,6 @@
 {
   "include": ["./src/**/*"],
-  "exclude": ["./netlify/functions"],
+  "exclude": ["./netlify/functions", "**/node_modules/**/*"],
   "compilerOptions": {
     "target": "esnext",
     "module": "commonjs",
@@ -13,6 +13,8 @@
     "noEmit": true,
     "skipLibCheck": true,
     "baseUrl": "./",
+    "resolveJsonModule": true,
+    "importHelpers": true,
     "paths": {
       "@common/*": ["./src/common/*"],
       "@components/*": ["./src/components/*"],
@@ -21,6 +23,5 @@
       "@styled": ["./src/common/styled"],
       "@styled/*": ["./src/common/styled/*"]
     }
-  },
-  "exclude": ["**/node_modules/**/*"]
+  }
 }

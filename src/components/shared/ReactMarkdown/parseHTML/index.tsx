@@ -5,10 +5,11 @@ import { tabs } from "./Tabs";
 
 const isValidNode = (node: any) => node.type !== "script";
 
-export default htmlParser({
-  isValidNode,
-  processingInstructions: [
-    // Tabs processing
-    tabs,
-  ],
-});
+export default (headingPrefix: string) =>
+  htmlParser({
+    isValidNode,
+    processingInstructions: [
+      // Tabs processing
+      tabs(headingPrefix),
+    ],
+  });

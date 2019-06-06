@@ -21,7 +21,7 @@ class BackToTop extends Component<{}, BackToTopState> {
     window.removeEventListener("scroll", this.onScroll);
   }
 
-  onScroll = (e: any) => {
+  onScroll = () => {
     this.setState({ scrollY: window.scrollY });
   };
 

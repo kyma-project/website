@@ -11,13 +11,6 @@ export default createGlobalStyle`
   ${reset};
   ${typography.createStyles()}
 
-  /* html body {
-    background-color: ${props => props.theme.backgroundColor};
-    color: ${props => props.theme.textColor};
-    transition: all ease-out 0.15s;
-    transition-property: background-color, color;
-  } */
-
   * {
     box-sizing: border-box;
   }

@@ -65,7 +65,7 @@ const animateScroll = (
 };
 
 const scrollToLocation = (targetPos: number) => {
-  window.scrollTo(...[0, targetPos]);
+  window.scrollTo(0, targetPos);
 };
 
 const scrollToLocationSmooth = (

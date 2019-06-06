@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import styled from "@styled";
 
-import { CopyToClipboard } from "react-copy-to-clipboard";
+import CopyToClipboard from "react-copy-to-clipboard";
 
 import PopupState from "@common/state/usePopup";
 import { injectIntl, IntlInterface } from "@common/i18n";

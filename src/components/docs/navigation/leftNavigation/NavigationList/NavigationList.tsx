@@ -9,12 +9,9 @@ import {
   DocsNavigationTopic,
   DocsManifest,
 } from "@components/docs/types";
-import {
-  ActiveNav,
-  ScrollSpyActiveNodes,
-} from "@components/docs/navigation/types";
+import { ActiveNav } from "@components/docs/navigation/types";
 
-import { getDocsPath, getDocsPathLink } from "@components/docs/helpers";
+import { getDocsPathLink } from "@components/docs/helpers";
 import { tokenize } from "@common/utils";
 
 import { Separator, NavigationContainer } from "./styled";
@@ -25,7 +22,7 @@ interface NavigationListProps {
   version: string;
   items: DocsManifest;
   activeNav: ActiveNav;
-  setActiveNav: (arg: ActiveNav) => string;
+  setActiveNav: (arg: ActiveNav) => void;
   hideNavIfShouldOnMobile: (value: boolean) => void;
 }
 
