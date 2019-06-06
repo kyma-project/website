@@ -1,14 +1,11 @@
 import React from "react";
-import ReactMarkdown from "react-markdown";
 
 import DefaultTemplate from "@components/blog/content/templates/Default";
 import ReleaseTemplate from "@components/blog/content/templates/Release";
 
 import {
-  PostType,
   PostMetaData,
   PostTypeRelease,
-  PostTypeEvent,
 } from "@components/blog/types";
 
 interface PostContentProps {

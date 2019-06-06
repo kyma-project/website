@@ -28,7 +28,6 @@ import {
   faYoutube,
   faStackOverflow,
 } from "@fortawesome/free-brands-svg-icons";
-import { Props } from "@fortawesome/react-fontawesome";
 
 config.autoAddCss = false;
 

@@ -14,6 +14,7 @@ import {
 import config from "../../../../config.json";
 
 const i18nConfig = config.i18n;
+type KeysOfi18nConfig = keyof typeof i18nConfig;
 
 interface LinkProps extends GatsbyLinkProps<{}> {
   underline?: boolean;
@@ -42,7 +43,9 @@ const External: React.FunctionComponent<
   </ExternalLink>
 );
 
-const Internal: React.FunctionComponent<LinkProps & InjectedIntlProps> = ({
+const Internal: React.FunctionComponent<
+  LinkProps & InjectedIntlProps & { intl: { locale: KeysOfi18nConfig } }
+> = ({
   to = "",
   intl: { locale },
   className,

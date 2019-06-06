@@ -1,43 +1,80 @@
-import React, { useState } from "react";
-
+import React, { useState, useEffect } from "react";
+import { useLocation } from "@common/hooks/useLocation";
+import has from "lodash/has";
 import { TabProps } from "./Tab";
-
 import { TabsWrapper, TabsHeader, TabsContent } from "./styled";
 
 interface TabsProps {
-  className?: string;
   active?: number;
+  children: any;
 }
 
-const Tabs: React.FunctionComponent<TabsProps> = ({
-  className = "",
-  active = 0,
-  children,
-}) => {
+const Tabs: React.FunctionComponent<TabsProps> = ({ children, active = 0 }) => {
   const [activeTab, setActiveTab] = useState(active);
+  const {
+    location: { hash },
+  } = useLocation();
 
   const handleTabClick = (index: number) => {
     setActiveTab(index);
   };
 
+  const content = [].concat(...(children as any)).filter(child => !!child);
+
+  const isAppropriateElement = (
+    elem: React.ReactElement<TabProps>,
+    hashParts: string[],
+  ) =>
+    !!hashParts &&
+    hashParts.length === 3 &&
+    !!elem &&
+    has(elem, "props.children.props.tabData.group") &&
+    has(elem, "props.children.props.source") &&
+    (elem as any).props.children.props.tabData.group === hashParts[0] &&
+    elem.key === hashParts[1] &&
+    (elem as any).props.children.props.source
+      .toLowerCase()
+      .trim()
+      .replace(/[^a-zA-Z0-9\s#]/g, "")
+      .includes(`# ${hashParts[2].split("-").join(" ")}`);
+
+  useEffect(() => {
+    if (!hash) {
+      return;
+    }
+    const hashData = hash.split("--").slice(1);
+    if (hashData.length !== 3) {
+      return;
+    }
+
+    content.forEach((elem: React.ReactElement<TabProps>, index: number) => {
+      if (isAppropriateElement(elem, hashData)) {
+        handleTabClick(index);
+        setTimeout(() => {
+          if (!!document) {
+            const element = document.getElementById(hash.slice(1));
+            if (!!element) {
+              element.scrollIntoView(true);
+            }
+          }
+        }, 100);
+      }
+    });
+  }, [hash]);
+
   const renderHeader = (ch: Array<React.ReactElement<TabProps>>) =>
-    React.Children.map(ch, (child, index) => {
-      const c = child as React.ReactElement<TabProps>;
-      return React.cloneElement(c, {
+    React.Children.map(ch, (child, index) =>
+      React.cloneElement(child, {
         key: index,
-        label: c.props.label,
+        label: child.props.label,
         parentCallback: handleTabClick,
         tabIndex: index,
         isActive: index === activeTab,
-      });
-    });
+      }),
+    );
 
   const renderActiveTab = (ch: Array<React.ReactElement<TabProps>>) =>
     ch[activeTab] ? ch[activeTab].props.children : null;
-
-  const content = []
-    .concat(...(children as any))
-    .filter(child => child !== null && child !== undefined);
 
   return (
     <TabsWrapper>

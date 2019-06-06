@@ -1,5 +1,4 @@
 import React from "react";
-
 import L from "@components/shared/Link";
 
 interface LinkProps {

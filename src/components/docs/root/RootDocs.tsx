@@ -17,15 +17,13 @@ import { ActiveNav } from "../navigation/types";
 
 import { DOCS_SCROLL_SPY_ROOT } from "@components/docs/constants";
 
-import { MOBILE_DEVICES_BREAKPOINT } from "@common/constants";
-
 interface RootDocsProps {
   content: DocsContentItem;
   topics: DocsNavigationTopic[];
   version: string;
   versions: DocsVersions;
   manifest: DocsManifest;
-  changeDocsVersion: () => void;
+  changeDocsVersion: (e: any) => Promise<void>;
   assetsPath: string;
 }
 

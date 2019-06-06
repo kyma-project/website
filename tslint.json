@@ -1,6 +1,11 @@
 {
   "defaultSeverity": "error",
-  "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
+  "extends": [
+    "tslint:recommended",
+    "tslint-react",
+    "tslint-react-hooks",
+    "tslint-config-prettier"
+  ],
   "rules": {
     "interface-name": [true, "never-prefix"],
     "member-access": [true, "no-public"],
@@ -21,7 +26,8 @@
     "triple-equals": true,
     "use-isnan": true,
     "no-debugger": true,
-    "radix": true
+    "radix": true,
+    "react-hooks-nesting": "error"
   },
   "jsRules": {},
   "linterOptions": {

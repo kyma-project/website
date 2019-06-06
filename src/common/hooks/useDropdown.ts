@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 export default function useDropdown(dropEl: any, actionEl: any) {
   dropEl = dropEl.current;
@@ -15,8 +15,6 @@ export default function useDropdown(dropEl: any, actionEl: any) {
 
   const onWindowClick = useCallback(
     ev => {
-      const clickOnAction =
-        actionEl && (ev.target === actionEl || actionEl.contains(ev.target));
       const clickOnDrop =
         dropEl && (ev.target === dropEl || dropEl.contains(ev.target));
 

@@ -24,12 +24,19 @@ const Modal: React.FunctionComponent<ModalProps> = ({
   children,
 }) => {
   const onOpen = () => {
-    (document as any).querySelector(`html`).style.overflowY = `hidden`;
+    const element = document.querySelector(`html`);
+    if (!!element) {
+      element.style.overflowY = `hidden`;
+    }
+
     onRequestOpen && onRequestOpen();
   };
 
   const onClose = () => {
-    (document as any).querySelector(`html`).style.overflowY = `auto`;
+    const element = document.querySelector(`html`);
+    if (!!element) {
+      element.style.overflowY = `auto`;
+    }
     hideModal();
     onRequestClose && onRequestClose();
   };

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import createContainer from "constate";
 import { useTimeout } from "rooks";
 

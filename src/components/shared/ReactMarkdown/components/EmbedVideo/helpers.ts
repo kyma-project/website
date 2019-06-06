@@ -1,5 +1,4 @@
-import { Url } from "url";
-
+import { URL } from "url";
 import {
   getVideoService,
   videoIdProcessors,

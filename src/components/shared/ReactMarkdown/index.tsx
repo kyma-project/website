@@ -17,6 +17,10 @@ interface ReactMarkdownAdditionalProps {
   headingPrefix?: string;
   assetsPath?: string;
   renderedFileName?: string;
+  tabData?: {
+    group: string;
+    tab: string;
+  };
 }
 
 const ReactMarkdown: React.FunctionComponent<
@@ -27,6 +31,7 @@ const ReactMarkdown: React.FunctionComponent<
   headingPrefix = "",
   assetsPath = "",
   renderedFileName = "",
+  tabData = null,
 }) => {
   if (assetsPath) {
     globalAssetsPath = assetsPath;
@@ -66,7 +71,11 @@ const ReactMarkdown: React.FunctionComponent<
     listItem: Components.ListItem,
     definition: Components.Definition,
     heading: (props: any) => (
-      <Components.Heading {...props} headingPrefix={headingPrefix} />
+      <Components.Heading
+        {...props}
+        headingPrefix={headingPrefix}
+        tabData={tabData}
+      />
     ),
     inlineCode: Components.InlineCode,
     code: Components.Code,
@@ -80,7 +89,7 @@ const ReactMarkdown: React.FunctionComponent<
       source={processedSource}
       escapeHtml={escapeHtml}
       renderers={renderers}
-      astPlugins={[parseHtml]}
+      astPlugins={[parseHtml(headingPrefix)]}
     />
   );
 };
