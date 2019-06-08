@@ -73,7 +73,7 @@ export const HeaderWrapper = styled.header`
   @media (max-width: 376px) {
     &:before {
       min-height: ${(props: HeaderWrapperProps) =>
-        props.horizontalBg ? "43vw" : "92vw"};
+        props.horizontalBg ? "43vw" : "68vw"};
     }
   }
   @media (min-width: 1400px) {
@@ -120,11 +120,10 @@ export const HeaderWrapper = styled.header`
 
 interface HeaderLogoProps {
   horizontalBg?: boolean;
-  isMobile?: boolean;
 }
 
 export const HeaderLogo = styled.h1`
-  width: ${props => (props.isMobile ? "61px" : "173px")};
+  width: "173px";
   max-height: 61px;
   margin-bottom: 0;
   display: inline-block;

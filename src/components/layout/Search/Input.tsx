@@ -89,7 +89,7 @@ const Input: React.FunctionComponent<Props & IntlInterface> = ({
           setInputActive();
         }
       }}
-      active={inputActive as boolean}
+      active={inputActive ? 1 : 0}
     >
       <form onSubmit={e => e.preventDefault()}>
         <input
