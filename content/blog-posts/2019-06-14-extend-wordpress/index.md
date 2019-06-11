@@ -86,7 +86,7 @@ tmpfile=$(mktemp /tmp/temp-cert.XXXXXX) \
 && rm $tmpfile
 ```
 
-Then you can go to Kyma Console URL, and login with the provided credentials:
+These commands will display Console URL, login and password:
 ```sh
 echo 'Kyma Console Url:'
 echo `kubectl get virtualservice core-console -n kyma-system -o jsonpath='{ .spec.hosts[0] }'`
@@ -101,6 +101,10 @@ console.1.2.3.4.xip.io
 User admin@kyma.cx, password:
 Eca23NyShqwK
 ```
+Now you can open Kyma Console Url in the browser and log in with provided credentials. 
+
+![Kyma Console](./console.png)
+
 ## Wordpress installation
 If you already have wordpress installed you can go to the next step. If not you can easily deploy wordpress with few clicks in Kyma console.
 First, create namespace for wordpress.  Then download the wordpress deployment file: [wordpress-deployment.yaml](wordpress-deployment.yaml) (it is recommended to change the `mysql-pass` secret). Then go to the namespace wordpress and click **Deploy new resource to the namespace** link, and select wordpress-deployment.yaml file from your disk.
@@ -127,6 +131,8 @@ Now download and install (Plugins -> Add new -> Upload plugin), and activate the
 
 Go to Settings -> Kyma Connector, uncheck Verify SSL option (you need it because default Kyma installation uses self-signed certificates), and provide username and password you created during installation, and save changes. 
 
+![Kyma Connector](./kyma-connector.png)
+
 # Connect Wordpress to Kyma
 
 In this step you will establish trusted connection between Wordpress instance and your Kubernetes cluster. You will also register Wordpress API and Wordpress Events in Service Catalog, and enable both in selected namespace.
@@ -134,6 +140,8 @@ In this step you will establish trusted connection between Wordpress instance an
 In Kyma console navigate back to home and go to Applications, and create new one named `wordpress`.
 
 Open it and press Connect Application link. Copy connection token URL to the clipboard. Go to wordpress Kyma Connector Settings, and paste token URL in Kyma Connection field, and press Connect button. You should see the success message in wordpress and you should see new entry inside Provided Services & Events section of worpdress application in Kyma.
+
+![Application](./application.png)
 
 ## Diasable SSL for Kyma->Wordpress
 
@@ -159,6 +167,8 @@ kubectl -n kyma-integration \
 # Enable Wordpress Events and APIs in default namespace
 
 Application connector can expose APIs and Events (Async API) of the application in Service Catalog. To show Wordpress in the Service Catalog you need to first bind application to selected namespace. In the wordpress application create binding and select default namespace. Now you can go to the default namespace and open Catalog - you should see Wordpress API in the Services tab. Open it and have a look at API console and Events specification. We will react on `comment.post.v1` event and will interact with `/wp/v2/comments/{id}` API. To make them available in the default  namespace click **Add once** button and create instance of wordpress Service Class. Application Connector behind the scenes creates application gateway (kind of proxy) that is forwarding requests from bounded services or functions to the Wordpress instance. 
+
+![Add Wordpress Instance](./add-wordpress-instance.png)
 
 # Write your code
 You did the wiring, so let's write some code. In the default namespace create new Lambda named local-review and paste in the editor following code:
@@ -210,14 +220,20 @@ Select trigger for your function - event `comment.post`, and save the function (
 # Binding
 
 Go to Service Management -> Instances, open wordpress instance in the Services tab. Click *Bind Application*, select *local-review* function, set namespace prefix to `WP_`, and confirm.
+
+![Binding](./binding.png)
+
 You can now open again local-review lambda and check if there is a new entry in Service Bindings section with WP_GATEWAY_URL environment variable.
+
 
 # Test it
 
 Go to Wordpress main site and open *Hello World!* blog post. Add there 2 comments:
 - I love it!
 - I hate it!
-Refresh the page and you should see that both comments have score footer with the sentiment value (1 for positive and -1 for negative comment), and negative comment is waiting for moderation.
+Go to wordpress dashboard and check the comments. You should see that both comments have score footer with the sentiment value (1 for positive and -1 for negative comment), and negative comment is waiting for moderation.
+
+![Comments](./comments.png)
 
 # Explore the benefits
 
