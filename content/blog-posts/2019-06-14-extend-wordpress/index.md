@@ -45,7 +45,7 @@ From the list above you can expect long installation process, but I will use Kym
 ## Prepare the GKE cluster with Kyma
 Follow the [installation guide](https://kyma-project.io/docs/1.2/root/kyma/#installation-install-kyma-on-a-cluster) for GKE or just execute the following commands (replace placeholders with proper values):
 
-```sh
+```bash
 # Set ENV variables, see sample values in comments:
 export KYMA_VERSION={KYMA_RELEASE_VERSION}      # 1.2.0-rc1
 export CLUSTER_NAME={CLUSTER_NAME_YOU_WANT}     # kyma-cluster
@@ -78,7 +78,7 @@ done
 ## Access Kyma
 
 The simple installation guide we followed uses self-signed certificates and xip.io domain. Such certificate will be rejected by your browser so you have to set it as trusted. 
-```sh
+```bash
 # After the installation, add Kyma self-signed certificate to the trusted certificates (MacOS):
 tmpfile=$(mktemp /tmp/temp-cert.XXXXXX) \
 && kubectl get configmap net-global-overrides -n kyma-installer -o jsonpath='{.data.global\.ingress\.tlsCrt}' | base64 --decode > $tmpfile \
@@ -87,7 +87,7 @@ tmpfile=$(mktemp /tmp/temp-cert.XXXXXX) \
 ```
 
 These commands will display Console URL, login and password:
-```sh
+```bash
 echo 'Kyma Console Url:'
 echo `kubectl get virtualservice core-console -n kyma-system -o jsonpath='{ .spec.hosts[0] }'`
 
@@ -110,7 +110,7 @@ If you already have wordpress installed you can go to the next step. If not you 
 First, create namespace for wordpress.  Then download the wordpress deployment file: [wordpress-deployment.yaml](wordpress-deployment.yaml) (it is recommended to change the `mysql-pass` secret). Then go to the namespace wordpress and click **Deploy new resource to the namespace** link, and select wordpress-deployment.yaml file from your disk.
 
 If you prefer you can do the same from command line (assuming that your current Kubernetes context is set to the Kyma cluster):
-```sh
+```bash
 # Create namespace
 kubectl create namespace wordpress
 
@@ -156,7 +156,7 @@ Wordpress installed in cluster also uses self-signed SSL certificate. Kyma defau
   4. Select `esc`, type `:wq`, and select `enter` to write and quit.
 
 One command to do it:
-```sh
+```bash
 # Update kyma installer image to 1.1.0
 kubectl -n kyma-integration \
   patch deployment wordpress-application-gateway --type=json \
