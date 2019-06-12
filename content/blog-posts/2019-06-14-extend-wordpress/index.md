@@ -12,20 +12,20 @@ Cloud Native application development is now the hot topic in the industry. Devel
 
 If you start a new, green field project you are lucky - you can dive into the great variety of tools and frameworks and use them. But how to pick the right tools? At the moment of writing this post, there is 686 projects registered in the [CNCF landscape](https://landscape.cncf.io/).
 
-We have also less lucky developers, that still has to deal with the applications designed when monoliths where cool. What about them? Can they benefit from Cloud Native patterns? Yes, they can!
+We have also less lucky developers, that still have to deal with the applications designed at a time when monoliths where state of the art. What about them? Can they benefit from Cloud Native patterns? The answer is yes, they can!
 <!-- overview -->
 
 # Imagine your legacy application
-You probably have some applications you have to integrate with or extend it features, but you are not happy with it.You can have different reasons:
-- it requires writing code in the language you don't know, and you want to use only Golang or JavaScript
+You probably have some applications you have to integrate with or extend it features, but you are not happy with it. You can have different reasons:
+- it requires writing code in the language you don't know, and for example you want to use only Golang or JavaScript
 - it is possible to add new feature to the application but requires complex redeployment process which is risky
 - you just don't want to touch it because it is fragile and adding anything can make it unstable
 - you want to write extension which can be scaled independently of the application
 
 # Wordpress as an example
-I prepared some example to help your imagination. The simple scenario with Wordpress as a legacy application. Imagine you are running some commerce site and you created a blog with product reviews and tests based on Wordpress. Now you want to engage your customers and you enabled comments in your blog posts. Users should see their comments immediately published, but you don't have time to moderate the content. The idea is to publish only positive comments automatically, and send send other comments to some channel where customer service can react (slack channel will be used for that).
+I prepared some example to help your imagination. The simple scenario with Wordpress as a legacy application. Imagine you are running some commerce site and you created a blog on wordpress showing product reviews and tests. Now you want to engage your customers and you enabled comments in your blog posts. Users should see their comments immediately published, but you don't have time to moderate the content. The idea is to publish only positive comments automatically, and send other comments to some channel where customer service can react (slack channel will be used for that).
 
-You could use Wordpress hook `comment_post` and implement a plugin in PHP. But it won't work for me. I don't know PHP, and my team mates don't either. I would like to use external systems (text analytics, slack, maybe more int he future), and I don't want to deal with secrets and authorization flows in Wordpress side. Additionally, I want to utilize all modern DevOps practices and patterns, like [12 Factor App](https://12factor.net). In other words: me and my team want to do cool, cloud native stuff on top of Kubernetes, instead of be wordpress maintainers.
+You could use Wordpress hook `comment_post` and implement a plugin in PHP. But it won't work for me. I don't know PHP, and my team mates don't either. I would like to use external systems (text analytics, slack, maybe more in the future), and I don't want to deal with secrets and authorization flows in Wordpress side. Additionally, I want to utilize all modern DevOps practices and patterns, like [12 Factor App](https://12factor.net). In other words: me and my team want to do cool, cloud native stuff on top of Kubernetes, instead of be Wordpress maintainers.
 
 Of course in this simple scenario, microservices, Kubernetes, service mesh, and other tools would be overkill, but real world use cases are more complex, and you can imagine how this initial flow can grow in the future.
 
@@ -135,7 +135,7 @@ Go to Settings -> Kyma Connector, uncheck Verify SSL option (you need it because
 
 # Connect Wordpress to Kyma
 
-In this step you will establish trusted connection between Wordpress instance and your Kubernetes cluster. You will also register Wordpress API and Wordpress Events in Service Catalog, and enable both in selected namespace.
+In this step you will establish trusted connection between Wordpress instance and your Kyma cluster both hosted on the same kubernetes cluster. You will also register Wordpress API and Wordpress Events in Service Catalog, and enable both in selected namespace.
 
 In Kyma console navigate back to home and go to Applications, and create new one named `wordpress`.
 
@@ -166,7 +166,7 @@ kubectl -n kyma-integration \
 
 # Enable Wordpress Events and APIs in default namespace
 
-Application connector can expose APIs and Events (Async API) of the application in Service Catalog. To show Wordpress in the Service Catalog you need to first bind application to selected namespace. In the wordpress application create binding and select default namespace. Now you can go to the default namespace and open Catalog - you should see Wordpress API in the Services tab. Open it and have a look at API console and Events specification. We will react on `comment.post.v1` event and will interact with `/wp/v2/comments/{id}` API. To make them available in the default  namespace click **Add once** button and create instance of wordpress Service Class. Application Connector behind the scenes creates application gateway (kind of proxy) that is forwarding requests from bounded services or functions to the Wordpress instance. 
+The Kyma application connectivity can expose APIs and Events (Async API) of the application in Service Catalog. To show Wordpress in the Service Catalog you need to first bind application to selected namespace. In the wordpress application create binding and select default namespace. Now you can go to the default namespace and open Catalog - you should see Wordpress API in the Services tab. Open it and have a look at API console and Events specification. We will react on `comment.post.v1` event and will interact with `/wp/v2/comments/{id}` API. To make them available in the default  namespace click **Add once** button and create instance of wordpress Service Class. Application Connector behind the scenes creates application gateway (kind of proxy) that is forwarding requests from bounded services or functions to the Wordpress instance. 
 
 ![Add Wordpress Instance](./add-wordpress-instance.png)
 
@@ -240,7 +240,8 @@ Go to wordpress dashboard and check the comments. You should see that both comme
 Your code is running in Istio service mesh with the network secured by mutual TLS. You can see the metrics from your function (latency, responses, errors and memory usage) with one click on Grafana Dashboard. You can trace your requests using Jaeger. And you can scale your functions independently from Wordpress.
 
 # Summary
-Why should you try Kyma? If you start a new project on Kubernetes, you will get carefully selected, best tools from Cloud Native landscape, already configured and integrated. If you want to move only part of your project to the cloud and you have to keep legacy application around, Kyma will help you to build extension for them using modern tools on top of Kuberbetes.
+Why should you try Kyma? If you start a new project on Kubernetes, you will get carefully selected, best tools from Cloud Native landscape, already configured and integrated. If you want to move only part of your project to the cloud and you have to keep legacy application around, Kyma will help you to build extension for them using modern tools on top of Kubernetes.
+Also when you start a new project with the goal that final solution should be extendable and customizable consindering Kyma to address these challanges from day one would offer some benefits. 
 Please remember that Kyma is actively developed open source project (~80 contributors and ~600 github stars) with the support from such big company as SAP. 
 
 # Next steps
