@@ -10,169 +10,121 @@ redirectFrom:
   - "/blog/release-notes-12"
 ---
 
-It's about time to sail our ship to Istanbul and see all of the new features and tweaks that come with the 1.2 release. This time around we focused on streamlining the installation flow, providing a simpler way to test Lambda functions, giving more power to Kyma Eventing, migrating to a new version of Istio and ensuring that all components use it, providing even  more useful documentation, and more.
+It's about time to sail our ship to Istanbul and see all of the new features and tweaks that come with the 1.2 release. This time around we focused on streamlining the installation flow, providing a simpler way to test Lambda functions, giving more power to Kyma Eventing, migrating to a new version of Istio and ensuring that all components use it, providing even more useful documentation, and more.
 
 <!-- overview -->
 
 The highlights of Kyma 1.2 Istanbul include:
 
-- [Streamlined installation] - We enabled platform-agnostic local installation with the Kyma CLI, enabled Kyma installation through GCP Marketplace, and simplified all cluster installation flows.
-- [Testing lambda functions in the UI] - We added an option to test lambda functions through the Console UI.
-- [Migration to Istio 1.1.6] - We migrated to a new, more secure and stable version of Istio.
-- [Migration to Istio in the Application Connector] - We moved from Nginx Ingress to Istio in the Application Connector.
-- [Configuration for using different messaging middleware] - We added configuration that allows to use different messaging middleware in Kyma Eventing.
+- [Streamlined installation](#installation) - We enabled platform-agnostic local installation with the Kyma CLI, enabled Kyma installation through GCP Marketplace, and simplified all cluster installation flows.
+- [Testing lambda functions in the UI](#testing-lambda-functions-in-the-ui) - We added an option to test lambda functions through the Console UI.
+- [Migration to Istio 1.1.6](#service-mesh) - We migrated to a new, more secure and stable version of Istio.
+- [Migration to Istio in the Application Connector](#migration-to-istio) - We moved from Nginx Ingress to Istio in the Application Connector.
+- [Configuration for using different messaging middleware](#choose-and-configure-a-custom-messaging-middleware) - We added configuration that allows using different messaging middleware in Kyma Eventing.
 
 See the overview of all changes in this release:
 
 - [Application Connector](#application-connector) - Migration to Istio, support for custom headers and query parameters in authentication requests
 - [Console](#console) - Testing lambda functions through the UI, more Namespace configuration options available at the moment of creation
 - [Installation](#installation) - Local installation with Kyma CLI, Kyma available trough GCP Marketplace, streamlined cluster installation flows
-- [Documentation](#documentation) - New configuration, troubleshooting, and Headless CMS metadata documents, tutorial for customizing the Documentation view in the Console UI
+- [Documentation](#documentation) - New configuration, troubleshooting, and Headless CMS metadata documents, tutorial for customizing the Documentation view in the Console UI, testing bundle with sample documentation
 - [Eventing](#eventing) - Choosing and configuring a custom messaging middleware, sending custom metadata with published events, example for triggering microservices with events
 - [Observability](#observability) - Early version of Kiali added to Istio
+- [Service Mesh](#service-mesh) - Istio update to version 1.1.6
 
 Migration guide
-
-
-
-
-After the long-awaited 1.0 Gliwice release, we focused mainly on putting the polishing touches to the current setup, including improvements in the Console UI performance and usability, Asset Store and Service Catalog extensions, Application Operator optimization, and documentation-related tweaks. Still, we are proud to communicate a few new features we bring to you in 1.1 Helsinki. Read on to find out what has changed in Kyma since 1.0.
-
-<!-- overview -->
-
-The highlights of Kyma 1.1 Helsinki include:
-
-- [Add-ons in the Catalog UI](#add-ons-in-the-catalog-ui) - We enabled a new way to share add-ons by combining the concepts of Service Catalog bundles with Helm charts.
-- [AWS Service Broker](#aws-service-broker-add-on) - We extended our third-party services by adding the AWS service offerings.
-- [Minio Gateway](#minio-gateway-mode) - We improved the Asset Store configuration to let you use Google Cloud Storage.
-- [Octopus](#octopus-in-kyma) - We introduced a new testing tool that replaced Helm tests.
-
-See the overview of all changes in this release:
-
-- [Application Connector](#application-connector) - Application Operator optimization, OData support in documentation, new Event Service endpoint
-- [Console](#console) - Performance improvements, usability improvements
-- [Core and Supporting](#core-and-supporting) - Minio Gateway mode
-- [Documentation](#documentation) - Configuration and installation document improvements
-- [Eventing](#eventing) - Subscription CR status change, improved upgradability, new dashboards in Grafana
-- [Productivity](#productivity) - Octopus in Kyma
-- [Service Management](#service-management) - Add-ons in the Catalog UI, AWS Service Broker add-on, documentation support for add-ons, "provision only once" APIs and Events
-
-Read about a known issue for [Tracing](#known-issues).
 
 ---
 
 ## Application Connector
 
-### Application Operator optimization
+### Migration to Istio
 
-In this release, we optimized the memory consumption for the Application Operator. The component is now much more stable and reliable, even under the high cluster load.
+From the very beginning of the Kyma project, the Application Connector has been exposed using the Nginx Ingress. After the recent changes in Istio 1.x, which included support for client certificates, we decided to migrate to Istio and follow the rest of Kyma components. We are proud to announce that the migration is complete and we are already benefiting from a number of advantages including easier maintenance and a smaller number of components in the implementation.
 
-### OData support in documentation
+Read [this](/docs/1.2/components/application-connector/#architecture-architecture) document to learn more about the role Istio plays in the Application Connector.
 
-You can now read the updated Application Connector documentation that includes information on the supported APIs, including the support for [OData API registration](/docs/1.1/components/application-connector/#overview-overview-supported-apis).
+### Custom headers and query parameters in authentication requests
 
-### New Event Service endpoint
+To facilitate integration of APIs that require sending additional headers and query parameters with every request to an external system, we allow the developers to provide a custom list of the headers and query parameters when you register an API in the Application Registry. The Proxy service reads this configuration and enriches each call from an API to an external service with the required items.
 
-We enriched the Event Service with the new `/{application}/v1/events/subscribed` endpoint that only returns information on the subscribed Events. This endpoint is perfect for your system optimization as the connected application no longer needs to send Events that are not used by any lambda or service. [Read more](/docs/1.1/components/application-connector/#api-event-service) about the endpoint and learn how you can use it to fetch Events.
+Read [this](/docs/1.2/components/application-connector/#tutorials-register-a-secured-api-specify-custom-headers-and-query-parameters-for-authentication-requests) document to learn more.
 
 
 ## Console
 
-### Performance improvements  
+### Testing lambda functions in the UI
 
-As a result of aggregating several calls into one, we reduced the initial loading time of the Console UI navigation.
+Now you can test your lambda functions directly in the Console UI. Use any of the Event samples that available in your Namespace or any custom payload to dry–run a function before connecting it to your live system's business events.
 
-### Usability improvements
+### More Namespace configuration options at the moment of creation
 
-We added the `SYSTEM` badge to the system Namespaces. Thanks to it, you can easily distinguish them from the user-created ones on the Namespace overview page in the Console UI.
-
-![Namespace overview](./namespaces-overview.png)
+Users can now configure more of the important Namespace option when they create it using the UI. The available options include setting memory consumption limits and choosing whether Istio should handle all of the communication between Pods in the Namespace.
 
 
-## Core and Supporting
+## Installation
 
-### Minio Gateway mode
+### Kyma available on GCP Marketplace
 
-The [Asset Store](/docs/1.1/components/asset-store) that ensures asset management in Kyma uses [Minio](https://min.io/) as a back-end solution. As stated in our documentation, we recommend that you use Minio in its Gateway mode for your production environment. This means you should use Minio as a gateway to Google Cloud Storage (GCS).
+Deploying on GKE is now easier than ever as you can get a fully functional Kyma deployment with http://xip.io/ straight from the GCP Marketplace. Follow [this link](https://console.cloud.google.com/marketplace/details/sap-public/kyma) to find Kyma on the Marketplace, read [this](/docs/1.2/root/kyma/#installation-install-kyma-on-a-cluster) document to get detailed installation instructions, and watch [this video](https://www.youtube.com/watch?v=hxVhQqI1B5A) for a detailed walkthrough. Enjoy!
 
-In this release, we focused on preparing an easy switch from the standalone mode to the Gateway mode by:
-- Making sure your data is seamlessly recreated after the switch.
-- Improving the stability of the Asset Store with Minio in the Gateway mode.
-- Providing clear documentation on how to [switch to GCS](/docs/1.1/components/asset-store/#tutorials-set-minio-to-the-google-cloud-storage-gateway-mode).
-- Integrating the Minio Gateway mode with our testing pipeline. This way, we can now test any new functionality against the Minio Gateway mode pointing to GCS.
+### Platform-agnostic local deployments with Kyma CLI
+
+Our very own [Kyma CLI](https://github.com/kyma-project/cli) graduated from the Incubator and became an integral part of Kyma with the 1.2 release. From now on you can easily deploy Kyma on your local machine, no matter what OS you're running, using simple `kyma` commands - all you have to do is install our proprietary CLI tool. The local installation flow is now updated to use the CLI and we are retiring the old installation approach that used custom scripts.
+
+To experience the convenience the Kyma CLI brings to the table, follow [our documentation](/docs/1.2/root/kyma/#installation-install-kyma-locally) and install Kyma on your machine.
+
+### Simpler cluster installation
+
+The existing cluster installation flows were significantly simplified. The `sed` commands and the cluster configuration template file are now gone in favor of a set of `kubectl` calls. Now you simply set up your cluster, apply the desired configuration with `kubectl`, and wait for the magic to happen. For more details, see the [installation documentation](/docs/1.2/root/kyma/#installation-installation).
 
 
 ## Documentation
 
-### Configuration and installation document improvements
+### Configuration documents for components
 
-In 1.1, we focused on creating configuration documents and simplifying the existing installation documents.
+After preparing a set of generic configuration documents in the last release, this time around we focused on specific Kyma components. The idea was to create configuration documents that list all configurable parameters from the `values.yaml` file of each of the components' charts and sub-charts that you can configure with overrides. Not all components have their **Configuration** documents ready, but you can expect full coverage in the near future.
 
-Configuration improvements:
-- An [overview](/docs/1.1/root/kyma/#configuration-overview) document explaining what you can configure in Kyma and how you can do it before and after installation
-- Improved documents on selected [component installation](/docs/1.1/root/kyma/#configuration-custom-component-installation) and chart values [overrides](/docs/1.1/root/kyma/#configuration-helm-overrides-for-kyma-installation)
-- A [template](https://github.com/kyma-project/community/blob/master/guidelines/templates/resources/configuration.md) for the **Configuration** document type that provides technical details about configuration of a Kyma component's chart or sub-chart
-- A set of configuration documents for the [Asset Store](/docs/1.1/components/asset-store/#configuration-configuration) specifying the configurable parameters from the `values.yaml` charts and sub-charts that you can override. You can expect more of such documents for other Kyma components to come in the upcoming releases
+### Troubleshooting guides
 
-Installation improvements:
-- A simplified [cluster installation](/docs/1.1/root/kyma/#installation-install-kyma-on-a-cluster) document explaining how you can quickly deploy Kyma on a cluster with a wildcard DNS provided by `xip.io`
-- A unified [local installation](/docs/1.1/root/kyma/#installation-install-kyma-locally) flow
+As we interact with the community, we take note of recurring issues and misunderstanding that concern different releases. We decide to gather these cases under the **Troubleshooting** documentation type to help the users find help with the most common issues easily. The troubleshooting documents are now available for the [Service Mesh](/docs/1.2/components/service-mesh/#troubleshooting-troubleshooting) and the general [Kyma](/docs/1.2/root/kyma/#troubleshooting-troubleshooting) topic.
+
+### Markdown documents in Headless CMS
+
+If you've ever had any doubts regarding what the structure of a markdown document processed by Headless CMS should look like, we come with a solution. See the [document](https://kyma-project.io/docs/master/components/headless-cms/#details-markdown-documents) describing the required metadata and content of a Markdown file.
+
+### How to modify the Documentation view in the Console UI
+
+We prepared a tutorial that shows how to adjust the Documentation view in the Console UI. Based on it, you create a new Prometheus documentation section that contains Concepts and Guides topics and a set of Markdown subdocuments. [Try it](/docs/1.2/components/headless-cms/#tutorial-add-new-documents-to-the-documentation-view-in-the-console-ui) on your own.
+
+### Testing bundle with sample documentation
+
+The testing bundle is now enriched with sample documentation. There are examples of Markdown documents together with OpenAPI and AsyncAPI specifications. See the testing bundle for details on how different document types render in the Console UI.  
 
 
 ## Eventing
 
-### Subscription CR status change
+### Choose and configure a custom messaging middleware
 
-We moved the status of a given resource from the `spec` section of the Subscription custom resource definition (CRD) to a sub-resource. This enables direct status interactions and recreating it without modifying the specification.
+Out of the box, Kyma comes with NATS Streaming as the default messaging middleware. With this release, we're giving you the tools to choose your own messaging middleware that best fits your needs from the usage, volume, and costs perspective. The only requirement is that the middleware must have Knative eventing-based ClusterChannelProvisioner available (https://knative.dev/docs/eventing/channels/). Compatible solutions include Google PubSub, Kafka, and NATSS.
 
-### Improved upgradability
+### Sending custom metadata with published Events
 
-We added new tests for verifying the upgradability of Kyma Eventing. The tests ensure that a subscription created before an upgrade continues to work after the upgrade.
+The applications sending events to Kyma can now send additional context or metadata by sending headers with the `ce-` prefix, for example, `ce-correlation-id`. These headers are delivered to the lambda function.
 
-### New dashboards in Grafana
+### Example for triggering microservices with Events
 
-There are two new dashboards available in Grafana:
-- **Ignored events** with Events for which there are no subscriptions
-- **Subscription details** to check if there are any issues with a given subscription
-
-> **CAUTION:** Currently, if the subscription name contains a dot (`.`), the dashboard charts will display the `NOT READY` status even if the subscription is `READY`.
-
-## Productivity
-
-### Octopus in Kyma
-
-As part of productivity improvements in Kyma, we replaced Helm tests with the Octopus test runner. Kyma components now use Octopus as a testing framework to run tests defined as Docker images on a running cluster.
-Read more about [testing](/docs/1.1/root/kyma/#details-testing-kyma) in Kyma, [Octopus](https://github.com/kyma-incubator/octopus/blob/master/README.md) itself, and the benefits it brings to the Kyma testing process.
+We prepared a self-contained example that shows how to configure an Event trigger for a microservice deployed in Kyma. This is extremely useful for applications written in Java which want to use events as a trigger.
 
 
-## Service Management
+## Observability
 
-### Add-ons in the Catalog UI
+### Early integration of Kiali
 
-Aiming to improve your user experience, we split the Catalog UI view into **Add-Ons** and **Services** tabs. This way, we separated the Helm Broker add-on configuration and installation inside the cluster from the third-party services. The Kyma cluster-wide integration UI also has a new **Add-ons Config** view where you can manage add-ons that are available in your Namespaced **Add-Ons** Catalog view. In the near future, we are also planning to rename bundles to add-ons.
+Early integration of Kiali is available as part of Istio. To enable Kiali, ensure that the monitoring module is installed and set the **kiali.enabled** parameter to `true`.  The Kiali UI will be accessible under the `kiali`. The early integration is based on static user security. To learn how to get the the Kiali UI password, see [this](https://github.com/kyma-project/kyma/tree/master/resources/istio) document.
 
-![Add-ons 1](./add-ons-1.png)
+## Service Mesh
 
-![Add-ons 2](./add-ons-2.png)
+### Istio updated to 1.1.6
 
-### AWS Service Broker add-on
-
-As part of our constant efforts to improve your experience on third-party Service Brokers in Kyma, we extended our Service Catalog with Amazon offerings. The new [AWS Service Broker](/docs/1.1/components/service-catalog/#service-brokers-aws-service-broker) is available for you as an add-on, extending the existing GCP and Azure Service Brokers add-on family.
-
-### Documentation support for add-ons
-
-The Helm Broker creates Service Class documentation from an add-on which appears in the **Add-Ons** Catalog UI view. [Read](https://kyma-project.io/docs/master/components/helm-broker/#details-create-a-bundle-docs-directory) how to add documentation to your add-on. If your add-on extends the Service Catalog UI, [read](/docs/1.1/components/helm-broker#details-service-classes-documentation-provided-by-bundles) how to provide documentation for those new Service Classes.
-
-### "Provision only once" APIs and Events
-
-APIs and Events of the Application Broker Service Classes now have a new "provision only once" feature that shows they are already available in a given Namespace.
-
-![Provision only once](./provision-only-once.png)
-
-
-## Tracing
-
-### Known issues
-
-By default, the trace sampling rate for Istio is configured to 1%. With that rate, only a small ratio of all requests will be available in Jaeger for the trace analysis. We are planning to optimize that setting in next releases, including recommendations for specific usage scenarios.
-As a workaround, adjust the setting manually using the official [Istio documentation](https://istio.io/docs/tasks/telemetry/distributed-tracing/overview/) if you require a higher sampling rate.
+The new release comes with Istio version updated to 1.1.6. Previously Kyma used Istio 1.1.0, but due to a security issue in Istio and problems with the Ingress Gateway, we made the move to a newer version. The update makes the Service Mesh and more stable - the Ingress Gateway issues seen in the previous version that caused port configurations not being applied properly are now resolved.
