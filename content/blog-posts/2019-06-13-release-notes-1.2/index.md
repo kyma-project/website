@@ -10,7 +10,7 @@ redirectFrom:
   - "/blog/release-notes-12"
 ---
 
-It's about time to sail our ship to Istanbul and see all of the new features and tweaks that come with the 1.2 release. This time around we focused on streamlining the installation flow, providing a simpler way to test Lambda functions, giving more power to Kyma Eventing, migrating to a new version of Istio and ensuring that all components use it, providing even more useful documentation, and more.
+It's about time to sail our ship to Istanbul and see all of the new features and tweaks that come with the 1.2 release. This time around we focused on streamlining the installation flow, providing a simpler way to test lambda functions, giving more power and flexibility to Kyma Eventing, migrating to a new version of Istio and providing even more useful documentation.
 
 <!-- overview -->
 
@@ -106,7 +106,7 @@ The testing bundle is now enriched with sample documentation. There are examples
 
 ### Choose and configure a custom messaging middleware
 
-Out of the box, Kyma comes with NATS Streaming as the default messaging middleware. With this release, we're giving you the tools to choose your own messaging middleware that best fits your needs from the usage, volume, and costs perspective. The only requirement is that the middleware must have Knative eventing-based ClusterChannelProvisioner available (https://knative.dev/docs/eventing/channels/). Compatible solutions include Google PubSub, Kafka, and NATSS.
+Out of the box, Kyma comes with NATS Streaming as the default messaging middleware. With this release, we're giving you the tools to choose your own messaging middleware that best fits your needs from the usage, volume, and costs perspective. The only requirement is that the middleware must have Knative eventing-based [ClusterChannelProvisioner](https://knative.dev/docs/eventing/channels/) available. Compatible solutions include Google PubSub, Kafka, and NATSS.
 
 ### Sending custom metadata with published Events
 
@@ -121,10 +121,10 @@ We prepared a self-contained example that shows how to configure an Event trigge
 
 ### Early integration of Kiali
 
-Early integration of Kiali is available as part of Istio. To enable Kiali, ensure that the monitoring module is installed and set the **kiali.enabled** parameter to `true`.  The Kiali UI will be accessible under the `kiali`. The early integration is based on static user security. To learn how to get the the Kiali UI password, see [this](https://github.com/kyma-project/kyma/tree/master/resources/istio) document.
+Early integration of Kiali is available as part of Istio. To enable Kiali, ensure that the monitoring module is installed and set the **kiali.enabled** parameter to `true`. The Kiali UI will be accessible under the `kiali` subdomain. The early integration is based on static user security. To learn how to get the the Kiali UI password, see [this](https://github.com/kyma-project/kyma/tree/master/resources/istio) document.
 
 ## Service Mesh
 
 ### Istio updated to 1.1.6
 
-The new release comes with Istio version updated to 1.1.6. Previously Kyma used Istio 1.1.0, but due to a security issue in Istio and problems with the Ingress Gateway, we made the move to a newer version. The update makes the Service Mesh and more stable - the Ingress Gateway issues seen in the previous version that caused port configurations not being applied properly are now resolved.
+The new release comes with Istio updated to 1.1.6. Previously Kyma used version 1.1.0, but due to a security issue and problems with the Ingress Gateway, we made the move to a newer version. The update makes the Service Mesh more secure and stable - the Ingress Gateway issues seen in the previous version that caused port configurations not being applied properly are now resolved.
