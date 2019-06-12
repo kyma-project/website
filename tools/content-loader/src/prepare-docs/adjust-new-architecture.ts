@@ -69,6 +69,8 @@ export class AdjustNewArchitecture {
   private clusterDocsTopics: ClusterDocsTopic[] = [];
 
   do = async (source: string, docsDir: string, output: string) => {
+    this.clearClusterDocsTopic();
+
     let err: Error | null;
     [err] = await to(this.loadAllClusterDocsTopics(source));
     if (err) {
@@ -88,8 +90,6 @@ export class AdjustNewArchitecture {
     if (err) {
       throw err;
     }
-
-    this.clearClusterDocsTopic();
   };
 
   private copyDocsPerTopic = async (
@@ -217,7 +217,7 @@ export class AdjustNewArchitecture {
 
   private clearClusterDocsTopic = (): void => {
     this.clusterDocsTopics = [];
-  }
+  };
 }
 
 export default new AdjustNewArchitecture();
