@@ -46,14 +46,15 @@ const Search: React.FunctionComponent = () => {
     navigate(path);
   };
 
-  const productionMode =
-    process.env.NODE_ENV && process.env.NODE_ENV === "production";
+  const developmentMode =
+    process.env.NODE_ENV && process.env.NODE_ENV === "development";
+
   const algoliaOptions = {
     apiKey: ALGOLIA.API_KEY,
     indexName: ALGOLIA.INDEX_NAME,
     inputSelector: `#algolia-search`,
     autocompleteOptions: {
-      debug: productionMode,
+      debug: developmentMode,
       openOnFocus: true,
       autoselect: true,
       hint: true,
@@ -61,9 +62,6 @@ const Search: React.FunctionComponent = () => {
     },
     algoliaOptions: {
       hitsPerPage: 10,
-      facetFilters: productionMode
-        ? [`language:${language}`, `version:${version}`]
-        : [],
     },
     handleSelected,
   };

@@ -263,6 +263,10 @@ export const InputWrapper = styled(Button.Light)`
       color: transparent;
       display: ${(props: InputWrapperProps) =>
         props.active ? "block" : "none"};
+
+      ${media.tablet`
+        display: none;
+      `}
     }
 
     > div {
@@ -275,6 +279,10 @@ export const InputWrapper = styled(Button.Light)`
       display: ${(props: InputWrapperProps) =>
         props.active ? "block" : "none"};
       cursor: help;
+
+      ${media.tablet`
+        right: 16px;
+      `}
 
       /* Tooltip */
       > div {
@@ -335,11 +343,6 @@ export const InputWrapper = styled(Button.Light)`
         color: #0077e1;
         padding: ${(props: InputWrapperProps) =>
           props.active ? "0 42px 0 8px" : "0"};
-
-        ${media.phone`
-          width: ${(props: InputWrapperProps) =>
-            props.active ? "10rem" : "0"};
-        `}
 
         ${media.smallPhone`
           width: ${(props: InputWrapperProps) => (props.active ? "30vw" : "0")};
