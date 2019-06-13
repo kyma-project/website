@@ -110,21 +110,21 @@ Out of the box, Kyma comes with NATS Streaming as the default messaging middlewa
 
 ### Sending custom metadata with published Events
 
-The applications sending events to Kyma can now send additional context or metadata by sending headers with the `ce-` prefix, for example, `ce-correlation-id`. These headers are delivered to the lambda function.
+The applications sending Events to Kyma can now send additional context or metadata by sending headers with the `ce-` prefix, for example, `ce-correlation-id`. These headers are delivered to the lambda function.
 
 ### Example for triggering microservices with Events
 
-We prepared a self-contained example that shows how to configure an Event trigger for a microservice deployed in Kyma. This is extremely useful for applications written in Java which want to use events as a trigger.
+We prepared a self-contained example that shows how to configure an Event trigger for a microservice deployed in Kyma. This is extremely useful for applications written in Java which want to use Events as a trigger.
 
 
 ## Observability
 
 ### Early integration of Kiali
 
-Early integration of Kiali is available as part of Istio. To enable Kiali, ensure that the monitoring module is installed and set the **kiali.enabled** parameter to `true`. The Kiali UI will be accessible under the `kiali` subdomain. The early integration is based on static user security. To learn how to get the the Kiali UI password, see [this](https://github.com/kyma-project/kyma/tree/master/resources/istio) document.
+Early integration of Kiali is available as part of Istio. To enable Kiali, ensure that the monitoring module is installed and set the **kiali.enabled** parameter to `true`. The Kiali UI will be accessible under the `kiali` subdomain. The early integration is based on static user security. To learn how to get the Kiali UI password, see [this](https://github.com/kyma-project/kyma/tree/master/resources/istio) document.
 
 ## Service Mesh
 
 ### Istio updated to 1.1.6
 
-The new release comes with Istio updated to 1.1.6. Previously Kyma used version 1.1.0, but due to a security issue and problems with the Ingress Gateway, we made the move to a newer version. The update makes the Service Mesh more secure and stable - the Ingress Gateway issues seen in the previous version that caused port configurations not being applied properly are now resolved.
+The new release comes with Istio updated to 1.1.6. Previously Kyma used version 1.1.0, but due to a security issue and problems with the Ingress Gateway, we moved to a newer version. The update makes the Service Mesh more secure and stable - the Ingress Gateway issues seen in the previous version that caused port configurations not being applied properly are now resolved.
