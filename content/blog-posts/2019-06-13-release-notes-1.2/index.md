@@ -10,7 +10,7 @@ redirectFrom:
   - "/blog/release-notes-12"
 ---
 
-It's about time to sail our ship to Istanbul and see all of the new features and tweaks that come with the 1.2 release. This time around we focused on streamlining the installation flow, providing a simpler way to test lambda functions, giving more power and flexibility to Kyma Eventing, migrating to a new version of Istio and providing even more useful documentation.
+It's about time to sail our ship to Istanbul and see all of the new features and tweaks that come with the 1.2 release. This time around we focused on streamlining the installation flow, providing a simpler way to test lambda functions, giving more power and flexibility to Kyma Eventing, migrating to a new version of Istio, and providing even more useful documentation.
 
 <!-- overview -->
 
@@ -87,7 +87,7 @@ After preparing a set of generic configuration documents in the last release, th
 
 ### Troubleshooting guides
 
-As we interact with the community, we take note of recurring issues and misunderstanding that concern different releases. We decide to gather these cases under the **Troubleshooting** documentation type to help the users find help with the most common issues easily. The troubleshooting documents are now available for the [Service Mesh](/docs/1.2/components/service-mesh/#troubleshooting-troubleshooting) and the general [Kyma](/docs/1.2/root/kyma/#troubleshooting-troubleshooting) topic.
+As we interact with the community, we take note of recurring issues and misunderstanding that concern different releases. We decide to gather these cases under the **Troubleshooting** documentation type to help the users find help with the most common issues easily. The troubleshooting documents are now available for the [Service Mesh](/docs/1.2/components/service-mesh/#troubleshooting-troubleshooting) and the general [Kyma](/docs/1.2/root/kyma/#troubleshooting-troubleshooting-overview) topic.
 
 ### Markdown documents in Headless CMS
 
