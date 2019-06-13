@@ -55,7 +55,7 @@ Read [this](/docs/1.2/components/application-connector/#tutorials-register-a-sec
 
 ### Testing lambda functions in the UI
 
-Now you can test your lambda functions directly in the Console UI. Use any of the Event samples that available in your Namespace or any custom payload to dry–run a function before connecting it to your live system's business events.
+Now you can test your lambda functions directly in the Console UI. Use any of the Event samples available in your Namespace or any custom payload to dry–run a function before connecting it to your live system's business events.
 
 ### More configuration options at the moment of Namespace creation
 
