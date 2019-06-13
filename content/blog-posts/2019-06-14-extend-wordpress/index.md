@@ -18,15 +18,15 @@ We have also less lucky developers, that still have to deal with the application
 
 # Imagine your legacy application
 You probably have some applications you have to integrate with or extend it features, but you are not happy with it. You can have different reasons:
-- it requires writing code in the language you don't know, and for example you want to use only Golang or JavaScript
+- It requires writing code in the language you don't know, and for example you want to use only Golang or JavaScript.
 - It is possible to add a new feature to the application but it requires a complex redeployment process which is risky.
 - You just don't want to touch it because it is fragile and adding anything can make it unstable.
 - You want to write an extension which can be scaled independently of the application.
 
-# Wordpress as an example
-I prepared some example to help your imagination. The simple scenario with Wordpress as a legacy application. Imagine you are running some commerce site and you created a blog on wordpress showing product reviews and tests. Now you want to engage your customers and you enabled comments in your blog posts. Users should see their comments immediately published, but you don't have time to moderate the content. The idea is to publish only positive comments automatically, and send other comments to some channel where customer service can react (slack channel will be used for that).
+# WordPress as an example
+I prepared some example to help your imagination. The simple scenario with WordPress as a legacy application. Imagine you are running some commerce site and you created a blog on WordPress showing product reviews and tests. Now you want to engage your customers and you enabled comments in your blog posts. Users should see their comments immediately published, but you don't have time to moderate the content. The idea is to publish only positive comments automatically, and put other comments on hold.
 
-You could use Wordpress hook `comment_post` and implement a plugin in PHP. But it won't work for me. I don't know PHP, and my team mates don't either. I would like to use external systems (text analytics, slack, maybe more in the future), and I don't want to deal with secrets and authorization flows in Wordpress side. Additionally, I want to utilize all modern DevOps practices and patterns, like [12 Factor App](https://12factor.net). In other words: me and my team want to do cool, cloud native stuff on top of Kubernetes, instead of be Wordpress maintainers.
+You could use WordPress hook `comment_post` and implement a plugin in PHP. But it won't work for me. I don't know PHP, and my team mates don't either. I would like to use external systems (text analytics, slack, maybe more in the future), and I don't want to deal with secrets and authorization flows in WordPress side. Additionally, I want to utilize all modern DevOps practices and patterns, like [12 Factor App](https://12factor.net). In other words: me and my team want to do cool, cloud native stuff on top of Kubernetes, instead of be WordPress maintainers.
 
 Of course, in this simple scenario microservices, Kubernetes, Service Mesh, and other tools would be overkill but the real-world use cases are more complex, and you can imagine how this initial flow can grow in the future.
 
@@ -108,7 +108,7 @@ You can now open the Kyma Console URL in the browser and log in with the provide
 
 ![Kyma Console](./console.png)
 
-## Wordpress installation
+## WordPress installation
 If you already have WordPress installed, you can go to the next step. If not, you can easily deploy WordPress with a few commands:
 ```bash
 # Create namespace
@@ -133,9 +133,9 @@ Go to **Settings** -> **Kyma Connector**, uncheck the **Verify SSL** option (you
 
 ![Kyma Connector](./kyma-connector.png)
 
-# Connect Wordpress to Kyma
+# Connect WordPress to Kyma
 
-In this step you establish a trusted connection between the wordpress instance and your Kyma cluster, both hosted on the same Kubernetes cluster. You also register Wordpress API and Wordpress Events in the Service Catalog and enable both in a selected Namespace.
+In this step you establish a trusted connection between the wordpress instance and your Kyma cluster, both hosted on the same Kubernetes cluster. You also register WordPress API and WordPress Events in the Service Catalog and enable both in a selected Namespace.
 
 In the Kyma Console navigate back to the home page, go to **Applications**, and create a new Application called `wordpress`.
 
@@ -143,7 +143,7 @@ Open it and press **Connect Application**. Copy the connection token URL to clip
 
 ![Application](./application.png)
 
-## Diasable SSL for Kyma->Wordpress
+## Diasable SSL for Kyma->WordPress
 
 WordPress installed in a cluster uses a self-signed SSL certificate. Kyma default settings don't allow for such a connection. You need to explicitly turn it on:
 
@@ -162,13 +162,13 @@ kubectl -n kyma-integration \
   patch deployment wordpress-application-gateway --type=json \
   -p='[{"op": "replace", "path": "/spec/template/spec/containers/0/args/6", "value": "--skipVerify=true"}]'
 ```
->**CAUTION:** The command assumes that **skipVerify** is the argument with index 6 (0-based).
+>**CAUTION:** The command assumes that **skipVerify** is the argument with the index 6 (0-based).
 
-# Enable Wordpress Events and APIs in the `default` Namespace
+# Enable WordPress Events and APIs in the `default` Namespace
 
 The Kyma Application connectivity can expose APIs and Events (Async API) of Applications in the Service Catalog. To show WordPress in the Service Catalog, first, you need to bind the Application to a selected Namespace. Go to **Applications**, select the `wordpress` Application, press **Create Binding** and select the `default` Namespace. Now go to the `default` Namespace and open the Catalog - you should see WordPress API in the Services tab. Open it and have a look at API console and Events specification. We will react on `comment.post.v1` event and interact with `/wp/v2/comments/{id}` API. To make them available in the `default` Namespace click the **Add once** button and create an instance of the WordPress Service Class. Behind the scenes, the Application Connector creates the Application Gateway (a kind of proxy) that forwards requests from bounded services or functions to the wordpress instance. 
 
-![Add Wordpress Instance](./add-wordpress-instance.png)
+![Add WordPress Instance](./add-wordpress-instance.png)
 
 # Write your code
 You did the wiring, so let's write some code. In the `default` Namespace create a new lambda named `review` and paste the following code in the **Settings & Code** editor:
