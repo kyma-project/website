@@ -20,7 +20,7 @@ const SiteMetadata: React.FunctionComponent<MetadataProps & IntlInterface> = ({
   formatMessage,
 }) => {
   const {
-    docsMetadata: { version, language },
+    docsMetadata: { language },
   } = useContext(LayoutService);
 
   const host = process.env.GATSBY_SITE_URL || "";
@@ -43,18 +43,6 @@ const SiteMetadata: React.FunctionComponent<MetadataProps & IntlInterface> = ({
   );
   const keywords = formatMessage({ id: "keywords" });
   const twitterUsername = siteMetadata.twitterUsername;
-  const docSearchMeta = pageTitle.includes("Docs")
-    ? [
-        {
-          name: "docsearch:language",
-          content: language ? language : "en",
-        },
-        {
-          name: "docsearch:version",
-          content: version ? version : "latest",
-        },
-      ]
-    : [];
 
   return (
     <Helmet
@@ -127,7 +115,6 @@ const SiteMetadata: React.FunctionComponent<MetadataProps & IntlInterface> = ({
           name: "keywords",
           content: keywords,
         },
-        ...docSearchMeta,
       ]}
       link={[
         {

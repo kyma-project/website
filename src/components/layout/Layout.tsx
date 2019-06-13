@@ -31,7 +31,6 @@ interface LayoutProps {
   backToTopButton?: boolean;
   docsMetadata?: {
     version?: string;
-    language?: string;
   };
 }
 

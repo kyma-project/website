@@ -15,7 +15,7 @@ let search: any;
 
 const Search: React.FunctionComponent = () => {
   const {
-    docsMetadata: { version, language },
+    docsMetadata: { version },
   } = useContext(LayoutService);
 
   const [initial, setInitial] = useState<boolean>(false);
@@ -62,6 +62,7 @@ const Search: React.FunctionComponent = () => {
     },
     algoliaOptions: {
       hitsPerPage: 10,
+      facetFilters: [`version:${version}`],
     },
     handleSelected,
   };
