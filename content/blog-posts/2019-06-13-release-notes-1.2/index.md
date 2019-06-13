@@ -25,7 +25,7 @@ The highlights of Kyma 1.2 Istanbul include:
 See the overview of all changes in this release:
 
 - [Application Connector](#application-connector) - Migration to Istio, support for custom headers and query parameters in authentication requests
-- [Console](#console) - Testing lambda functions through the UI, more configuration options available at the moment of  Namespace creation
+- [Console](#console) - Testing lambda functions through the UI, more configuration options available at the moment of Namespace creation
 - [Installation](#installation) - Local installation with Kyma CLI, Kyma available trough GCP Marketplace, streamlined cluster installation flows
 - [Documentation](#documentation) - New configuration, troubleshooting, and Headless CMS metadata documents, tutorial for customizing the Documentation view in the Console UI, testing bundle with sample documentation
 - [Eventing](#eventing) - Choosing and configuring a custom messaging middleware, sending custom metadata with published Events, an example for triggering microservices with Events
