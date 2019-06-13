@@ -1,16 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import Helmet from "react-helmet";
 import { withPrefix } from "gatsby";
 
 import { injectIntl, IntlInterface } from "@common/i18n";
 import { getActualYear } from "@common/utils";
 
+import LayoutService from "@components/layout/service";
+
 interface MetadataProps {
   pageTitle?: string;
   pageDescription?: string;
   siteMetadata: any;
-  docSearchLanguage?: string;
-  docSearchVersion?: string;
 }
 
 const SiteMetadata: React.FunctionComponent<MetadataProps & IntlInterface> = ({
@@ -18,9 +18,11 @@ const SiteMetadata: React.FunctionComponent<MetadataProps & IntlInterface> = ({
   pageDescription = "",
   siteMetadata,
   formatMessage,
-  docSearchLanguage,
-  docSearchVersion,
 }) => {
+  const {
+    docsMetadata: { language },
+  } = useContext(LayoutService);
+
   const host = process.env.GATSBY_SITE_URL || "";
   const logoPath = `${host}${withPrefix("/favicon-32x32.png")}`;
   const image = `${host}${withPrefix("/logo.png")}`;
@@ -41,23 +43,11 @@ const SiteMetadata: React.FunctionComponent<MetadataProps & IntlInterface> = ({
   );
   const keywords = formatMessage({ id: "keywords" });
   const twitterUsername = siteMetadata.twitterUsername;
-  const docSearchMeta = pageTitle.includes("Docs")
-    ? [
-        {
-          name: "docsearch:language",
-          content: docSearchLanguage ? docSearchLanguage : "en",
-        },
-        {
-          name: "docsearch:version",
-          content: docSearchVersion ? docSearchVersion : "latest",
-        },
-      ]
-    : [];
 
   return (
     <Helmet
       htmlAttributes={{
-        lang: "en",
+        lang: language,
       }}
       title={title}
       meta={[
@@ -125,7 +115,6 @@ const SiteMetadata: React.FunctionComponent<MetadataProps & IntlInterface> = ({
           name: "keywords",
           content: keywords,
         },
-        ...docSearchMeta,
       ]}
       link={[
         {

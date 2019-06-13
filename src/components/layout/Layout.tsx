@@ -9,6 +9,7 @@ import GlobalStyles from "@styled/GlobalStyles";
 import { GlobalState } from "@common/state";
 
 import IntlProvider from "@common/i18n/Provider";
+import { Provider as LayoutService } from "@components/layout/service";
 
 import SlidesBanner from "@components/layout/SlidesBanner/SlidesBanner";
 import CookiesBanner from "@components/layout/CookiesBanner";
@@ -28,9 +29,9 @@ interface LayoutProps {
   mediaType?: string;
   horizontalHeaderBg?: boolean;
   backToTopButton?: boolean;
-  docSearchLanguage?: string;
-  docSearchVersion?: string;
-  search?: boolean;
+  docsMetadata?: {
+    version?: string;
+  };
 }
 
 const Layout: React.FunctionComponent<LayoutProps> = ({
@@ -40,9 +41,7 @@ const Layout: React.FunctionComponent<LayoutProps> = ({
   horizontalHeaderBg = true,
   children,
   backToTopButton = true,
-  docSearchLanguage,
-  docSearchVersion,
-  search = false,
+  docsMetadata,
 }) => (
   <StaticQuery
     query={query}
@@ -53,27 +52,26 @@ const Layout: React.FunctionComponent<LayoutProps> = ({
       return (
         <IntlProvider locale={locale}>
           <ThemeProvider theme={lightTheme}>
-            <GlobalState>
-              <GlobalStyles />
-              <SiteMetadata
-                pageTitle={pageTitle}
-                pageDescription={pageDescription}
-                siteMetadata={data.site.siteMetadata}
-                docSearchLanguage={docSearchLanguage}
-                docSearchVersion={docSearchVersion}
-              />
-              <LayoutWrapper>
-                <ModalProvider>
-                  <SlidesBanner {...slidesProps} />
-                  <Popup />
-                  <CookiesBanner />
-                  {/* {backToTopButton && <BackToTop />} */}
-                  <Header horizontalBg={horizontalHeaderBg} search={search} />
-                  <Content>{children}</Content>
-                  <Footer />
-                </ModalProvider>
-              </LayoutWrapper>
-            </GlobalState>
+            <LayoutService docsMetadata={docsMetadata}>
+              <GlobalState>
+                <GlobalStyles />
+                <SiteMetadata
+                  pageTitle={pageTitle}
+                  pageDescription={pageDescription}
+                  siteMetadata={data.site.siteMetadata}
+                />
+                <LayoutWrapper>
+                  <ModalProvider>
+                    <SlidesBanner {...slidesProps} />
+                    <Popup />
+                    <CookiesBanner />
+                    <Header horizontalBg={horizontalHeaderBg} />
+                    <Content>{children}</Content>
+                    <Footer />
+                  </ModalProvider>
+                </LayoutWrapper>
+              </GlobalState>
+            </LayoutService>
           </ThemeProvider>
         </IntlProvider>
       );

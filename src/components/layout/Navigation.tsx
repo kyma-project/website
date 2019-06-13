@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import Button from "@components/shared/Button";
 import Icon from "@components/shared/Icon";
 
-import Algolia from "@components/search/Algolia";
+import Search from "@components/layout/Search/Search";
 
 import { resolveSocialMedia } from "@common/utils";
 import {
@@ -35,17 +35,13 @@ const navigation = [
   },
 ];
 
-interface Props {
-  search?: boolean;
-}
-
 interface State {
   mobileMenuVisible?: boolean;
   isOnMobile?: boolean;
   initial?: boolean;
 }
 
-class Navigation extends Component<Props, State> {
+class Navigation extends Component<{}, State> {
   state: State = {
     mobileMenuVisible: false,
     isOnMobile: false,
@@ -92,7 +88,7 @@ class Navigation extends Component<Props, State> {
 
     return (
       <NavigationWrapper>
-        {this.props.search && isOnMobile ? <Algolia /> : null}
+        {isOnMobile ? <Search /> : null}
         <NavigationMobileButton onClick={this.toggleVisibility}>
           <Button.Light iconName="bars" iconPrefix="fas" />
         </NavigationMobileButton>
@@ -120,7 +116,9 @@ class Navigation extends Component<Props, State> {
               </NavigationExtLink>
             </NavigationItem>
           ))}
-          {this.props.search && !isOnMobile ? <Algolia /> : null}
+          <NavigationItem key="search">
+            {!isOnMobile ? <Search /> : null}
+          </NavigationItem>
         </NavigationList>
       </NavigationWrapper>
     );

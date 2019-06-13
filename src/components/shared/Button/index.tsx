@@ -4,22 +4,24 @@ import styled from "@styled";
 import Icon from "@components/shared/Icon";
 
 interface ButtonProps {
-  className?: string;
   iconName?: string;
   iconPrefix?: string;
   size?: "sm" | "md";
   iconAlign?: "right" | "left";
+  reference?: any;
+  [key: string]: any;
 }
 
 const Button: React.FunctionComponent<ButtonProps> = ({
-  className,
   iconName,
   iconPrefix,
   size = "md",
   iconAlign = "left",
   children,
+  reference,
+  ...otherProps
 }) => (
-  <button className={className}>
+  <button {...otherProps} ref={reference}>
     {iconAlign === "left" && iconName ? (
       <Icon iconName={iconName} iconPrefix={iconPrefix} />
     ) : null}
