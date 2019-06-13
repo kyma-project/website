@@ -8,7 +8,7 @@ redirectFrom:
   - "/blog/2019-06-14-extend-wordpress"
 ---
 
-Cloud Native application development is now the hot topic in the industry. Developers want to use modern languages, write micro-services or even serverless functions. They want easy scalability with modern monitoring tools like Prometheus and Grafana. Kubernetes and CNCF landscape projects are no longer perceived as a hype for early adopters. This is the mainstream now.
+Cloud-native application development is now a hot topic in the industry. Developers want to use modern languages, write microservices or even serverless functions. They expect high scalability with modern monitoring tools like Prometheus and Grafana. Kubernetes and CNCF landscape projects are no longer perceived as hype for early adopters. This is the mainstream now.
 
 If you start a new, green field project you are lucky - you can dive into the great variety of tools and frameworks and use them. But how to pick the right tools? At the moment of writing this post, there is 686 projects registered in the [CNCF landscape](https://landscape.cncf.io/).
 
