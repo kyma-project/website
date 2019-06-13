@@ -8,6 +8,7 @@ import Input from "@components/layout/Search/Input";
 import LayoutService from "@components/layout/service";
 
 import { ALGOLIA } from "@common/constants";
+import { isDevelopmentMode, isProductionMode } from "@common/utils";
 
 import { AlgoliaWrapper } from "./styled";
 
@@ -46,31 +47,35 @@ const Search: React.FunctionComponent = () => {
     navigate(path);
   };
 
-  const developmentMode =
-    process.env.NODE_ENV && process.env.NODE_ENV === "development";
-
-  const algoliaOptions = {
-    apiKey: ALGOLIA.API_KEY,
-    indexName: ALGOLIA.INDEX_NAME,
-    inputSelector: `#algolia-search`,
-    autocompleteOptions: {
-      debug: developmentMode,
-      openOnFocus: true,
-      autoselect: true,
-      hint: true,
-      keyboardShortcuts: [`s`],
-    },
-    algoliaOptions: {
+  const createAlgoliaOptions = (): any => {
+    const options: any = {
       hitsPerPage: 10,
-      facetFilters: [`version:${version}`],
-    },
-    handleSelected,
+    };
+
+    if (isProductionMode()) {
+      options.facetFilters = [`version:${version}`];
+    }
+
+    return {
+      apiKey: ALGOLIA.API_KEY,
+      indexName: ALGOLIA.INDEX_NAME,
+      inputSelector: `#algolia-search`,
+      autocompleteOptions: {
+        debug: isDevelopmentMode(),
+        openOnFocus: true,
+        autoselect: true,
+        hint: true,
+        keyboardShortcuts: [`s`],
+      },
+      algoliaOptions: options,
+      handleSelected,
+    };
   };
 
   const loadOptions = (): void => {
     if (initial || !window || !window.docsearch) return;
 
-    search = window.docsearch(algoliaOptions);
+    search = window.docsearch(createAlgoliaOptions());
     setInitial(true);
   };
 
