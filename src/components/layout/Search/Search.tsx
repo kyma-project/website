@@ -47,23 +47,30 @@ const Search: React.FunctionComponent = () => {
     navigate(path);
   };
 
-  const createAlgoliaOptions = (): any => ({
-    apiKey: ALGOLIA.API_KEY,
-    indexName: ALGOLIA.INDEX_NAME,
-    inputSelector: `#algolia-search`,
-    autocompleteOptions: {
-      debug: isDevelopmentMode(),
-      openOnFocus: true,
-      autoselect: true,
-      hint: true,
-      keyboardShortcuts: [`s`],
-    },
-    algoliaOptions: {
+  const createAlgoliaOptions = (): any => {
+    const algoliaOptions: any = {
       hitsPerPage: 10,
-      facetFilters: [`version:${version}`],
-    },
-    handleSelected,
-  });
+    };
+
+    if (isProductionMode()) {
+      algoliaOptions.facetFilters = [`version:${version}`];
+    }
+
+    return {
+      apiKey: ALGOLIA.API_KEY,
+      indexName: ALGOLIA.INDEX_NAME,
+      inputSelector: `#algolia-search`,
+      autocompleteOptions: {
+        debug: isDevelopmentMode(),
+        openOnFocus: true,
+        autoselect: true,
+        hint: true,
+        keyboardShortcuts: [`s`],
+      },
+      algoliaOptions,
+      handleSelected,
+    };
+  };
 
   const loadOptions = (): void => {
     if (initial || !window || !window.docsearch) return;

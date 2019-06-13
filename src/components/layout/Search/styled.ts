@@ -37,7 +37,7 @@ export const AlgoliaWrapper = styled.div`
           box-shadow: 0 1px 26px 0 rgba(137, 165, 199, 0.42);
           max-width: 543px;
           min-width: 543px;
-          right: -8px !important;
+          right: -10px !important;
           z-index: 102 !important;
 
           &:before {
@@ -293,7 +293,7 @@ export const InputWrapper = styled(Button.Light)`
         font-size: 12px;
         line-height: 1rem;
         right: 0;
-        transform: translateX(32px);
+        transform: translateX(30px);
 
         &:after {
           right: 40px;
