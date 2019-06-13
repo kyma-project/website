@@ -17,8 +17,8 @@ We have also less lucky developers, that still have to deal with the application
 <!-- overview -->
 
 # Imagine your legacy application
-You probably have some applications you have to integrate with or extend it features, but you are not happy with it. You can have different reasons:
-- It requires writing code in the language you don't know, and for example you want to use only Golang or JavaScript.
+You probably have some applications you have to extend or integrate with but you are not happy with that fact. There can be a few reasons for it:
+- It requires writing code in the language you don't know and for example you want to use only Golang or JavaScript.
 - It is possible to add a new feature to the application but it requires a complex redeployment process which is risky.
 - You just don't want to touch it because it is fragile and adding anything can make it unstable.
 - You want to write an extension which can be scaled independently of the application.
