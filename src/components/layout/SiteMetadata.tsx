@@ -41,6 +41,7 @@ const SiteMetadata: React.FunctionComponent<MetadataProps & IntlInterface> = ({
   );
   const keywords = formatMessage({ id: "keywords" });
   const twitterUsername = siteMetadata.twitterUsername;
+  const lang = docSearchLanguage ? docSearchLanguage : "en";
   const docSearchMeta = pageTitle.includes("Docs")
     ? [
         {
@@ -57,7 +58,7 @@ const SiteMetadata: React.FunctionComponent<MetadataProps & IntlInterface> = ({
   return (
     <Helmet
       htmlAttributes={{
-        lang: "en",
+        lang,
       }}
       title={title}
       meta={[
@@ -116,6 +117,14 @@ const SiteMetadata: React.FunctionComponent<MetadataProps & IntlInterface> = ({
         {
           name: "og:image",
           content: image,
+        },
+        {
+          name: "og:image:width",
+          content: 600,
+        },
+        {
+          name: "og:image:height",
+          content: 600,
         },
         {
           name: "copyright",
