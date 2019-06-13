@@ -1,0 +1,9 @@
+{
+    "description": "Search options:",
+    "placeholder": "Search",
+    "ariaLabel": "Search content on website",
+    "filters": {
+        "logicOperator": "Logic operators like AND, OR, NOT.\nExample: pod OR deployment",
+        "doubleQuotes": "Double quotes.\nExample: \"service catalog\""
+    }
+}

@@ -10,16 +10,18 @@ export interface IconProps {
   iconName: string;
   iconPrefix?: string;
   className?: string;
+  [key: string]: any;
 }
 
 const Icon: React.StatelessComponent<IconProps> = ({
   iconName,
   iconPrefix = "fab",
   className = "",
+  ...otherProps
 }) => {
   const icon: IconProp = [iconPrefix as IconPrefix, iconName as IconName];
 
-  return <FontAwesomeIcon icon={icon} className={className} />;
+  return <FontAwesomeIcon icon={icon} className={className} {...otherProps} />;
 };
 
 export default Icon;

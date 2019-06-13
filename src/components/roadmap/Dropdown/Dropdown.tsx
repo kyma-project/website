@@ -1,6 +1,6 @@
 import React, { useContext, useRef } from "react";
 
-import useDropdown from "@common/hooks/useDropdown";
+import useToggle from "@common/hooks/useToggle";
 
 import RoadmapService from "@components/roadmap/service";
 
@@ -20,7 +20,7 @@ const Dropdown: React.FunctionComponent = () => {
 
   const iconEl = useRef(null);
   const capabilitiesDropEl = useRef(null);
-  const [capabilitiesDropOpen, toggleCapabilitiesDrop] = useDropdown(
+  const [capabilitiesDropOpen, toggleCapabilitiesDrop] = useToggle(
     capabilitiesDropEl,
     iconEl,
   );

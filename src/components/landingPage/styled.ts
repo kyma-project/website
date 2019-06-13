@@ -246,6 +246,10 @@ export const EarlyAdoptersWrapper = styled.div`
   margin-bottom: 160px;
   text-align: center;
 
+  ${media.smallPhone`
+    margin-bottom: 220px;
+  `}
+
   @media (max-width: 1100px) {
     & {
       background-size: cover;
@@ -302,6 +306,8 @@ export const StyledEarlyAdoptersListItem = styled.li`
 
   > a > img {
     width: 100%;
+    max-height: 62px;
+    margin-top: -2px;
   }
 `;
 

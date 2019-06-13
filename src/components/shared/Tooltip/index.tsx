@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { TooltipWrapper, TooltipContainer } from "./styled";
 
 interface TooltipProps {
-  content: any;
+  content: React.ReactNode;
   showFullTime?: boolean;
   timeout?: number;
   placement?: "left" | "top" | "right" | "bottom";

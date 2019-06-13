@@ -12,7 +12,6 @@ export const TooltipContainer = styled.div`
   visibility: ${(props: TooltipContainerProps) =>
     props.show ? "visible" : "hidden"};
   position: absolute;
-  z-index: 99;
   padding: 5px 7px;
   font-size: ${props => props.theme.fontSize.xs};
   color: #fff;
@@ -51,6 +50,7 @@ export const TooltipWrapper = styled.div`
   font-family: "72";
   position: relative;
   display: inline-block;
+  z-index: 102;
 
   &:hover ${TooltipContainer} {
     visibility: visible;
