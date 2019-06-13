@@ -1,5 +1,5 @@
 ---
-title: "How to build cloud-native extension for Wordpress - part 1"
+title: "Build a cloud-native extension for WordPress (part 1)"
 author:
   name:  "Piotr Bochynski, Product Owner @Kyma"
 tags:
@@ -18,57 +18,57 @@ We have also less lucky developers, that still have to deal with the application
 # Imagine your legacy application
 You probably have some applications you have to integrate with or extend it features, but you are not happy with it. You can have different reasons:
 - it requires writing code in the language you don't know, and for example you want to use only Golang or JavaScript
-- it is possible to add new feature to the application but requires complex redeployment process which is risky
-- you just don't want to touch it because it is fragile and adding anything can make it unstable
-- you want to write extension which can be scaled independently of the application
+- It is possible to add a new feature to the application but it requires a complex redeployment process which is risky.
+- You just don't want to touch it because it is fragile and adding anything can make it unstable.
+- You want to write an extension which can be scaled independently of the application.
 
 # Wordpress as an example
 I prepared some example to help your imagination. The simple scenario with Wordpress as a legacy application. Imagine you are running some commerce site and you created a blog on wordpress showing product reviews and tests. Now you want to engage your customers and you enabled comments in your blog posts. Users should see their comments immediately published, but you don't have time to moderate the content. The idea is to publish only positive comments automatically, and send other comments to some channel where customer service can react (slack channel will be used for that).
 
 You could use Wordpress hook `comment_post` and implement a plugin in PHP. But it won't work for me. I don't know PHP, and my team mates don't either. I would like to use external systems (text analytics, slack, maybe more in the future), and I don't want to deal with secrets and authorization flows in Wordpress side. Additionally, I want to utilize all modern DevOps practices and patterns, like [12 Factor App](https://12factor.net). In other words: me and my team want to do cool, cloud native stuff on top of Kubernetes, instead of be Wordpress maintainers.
 
-Of course in this simple scenario, microservices, Kubernetes, service mesh, and other tools would be overkill, but real world use cases are more complex, and you can imagine how this initial flow can grow in the future.
+Of course, in this simple scenario microservices, Kubernetes, Service Mesh, and other tools would be overkill but the real-world use cases are more complex, and you can imagine how this initial flow can grow in the future.
 
 # Implementation plan
 
 Let's implement and deploy our example. I will use:
-- Kubernetes cluster from Google Kubernetes Engine to deploy both Wordpress and my code.
-- KNative eventing and NATS as a messaging middleware to decouple Wordpress from my extension
-- Istio service mesh together with Prometheus, Grafana and Jaeger to get monitoring and tracing
-- Kubeless as serverless engine for my code
-- Grafana Loki for keeping logs
-- Service Catalog, Wordpress Connector for Kyma and Kyma Application Broker to bind Wordpress API and Events to my code
+- A Kubernetes cluster from Google Kubernetes Engine (GKE) to deploy both WordPress and my code
+- Knative eventing and NATS as a messaging middleware to decouple WordPress from my extension
+- Istio Service Mesh together with Prometheus, Grafana, and Jaeger to have monitoring and tracing
+- Kubeless as a serverless engine for my code
+- Grafana and Loki to manage logs
+- Service Catalog, WordPress Connector for Kyma and Kyma Application Broker to bind WordPress API and Events to my code
 
 # Installation
-From the list above you can expect long installation process, but I will use Kyma operator that will do it for me. All you need before, is Google Account and GCP Project. If you don't have one you can create it and additionally Google will give you $300 credit for running your cluster.
+Based on the above list, you can expect a long installation process but I will use a Kyma operator that will do everything for me. All you need is a Google account and a Google Cloud Platform (GCP) project. If you don't have it yet, create one and Google will give a 12-month free trial with $300 credit to run your cluster.
 
 ## Prepare the GKE cluster with Kyma
-Follow the [installation guide](https://kyma-project.io/docs/1.2/root/kyma/#installation-install-kyma-on-a-cluster) for GKE or just execute the following commands (replace placeholders with proper values):
+Follow the [installation guide](https://kyma-project.io/docs/1.2/root/kyma/#installation-install-kyma-on-a-cluster) for GKE or just execute the following commands, replacing placeholders with proper values:
 
 ```bash
-# Set ENV variables, see sample values in comments:
+# Set ENV variables. See sample values in comments:
 export KYMA_VERSION={KYMA_RELEASE_VERSION}      # 1.2.0-rc1
 export CLUSTER_NAME={CLUSTER_NAME_YOU_WANT}     # kyma-cluster
 export GCP_PROJECT={YOUR_GCP_PROJECT}           # myproject
 export GCP_ZONE={GCP_ZONE_TO_DEPLOY_TO}         # europe-west1-b
 
-# Create cluster
+# Create a cluster
 gcloud container --project "$GCP_PROJECT" clusters \
 create "$CLUSTER_NAME" --zone "$GCP_ZONE" \
 --cluster-version "1.12" --machine-type "n1-standard-4" \
 --addons HorizontalPodAutoscaling,HttpLoadBalancing
 
-# Add current user as admin
+# Add the current user as an admin
 gcloud container clusters get-credentials $CLUSTER_NAME --zone $GCP_ZONE --project $GCP_PROJECT
 kubectl create clusterrolebinding cluster-admin-binding --clusterrole=cluster-admin --user=$(gcloud config get-value account)
 
-# Install tiller
+# Install Tiller
 kubectl apply -f https://raw.githubusercontent.com/kyma-project/kyma/$KYMA_VERSION/installation/resources/tiller.yaml
 
 # Install Kyma
 kubectl apply -f https://github.com/kyma-project/kyma/releases/download/$KYMA_VERSION/kyma-installer-cluster.yaml
 
-# Show Kyma installation progress (stop the script with Ctrl+C, when installation is done)
+# Show the Kyma installation progress. Stop the script with `Ctrl+C` when the installation finishes.
 while true; do \
   kubectl -n default get installation/kyma-installation -o jsonpath="{'Status: '}{.status.state}{', description: '}{.status.description}"; echo; \
   sleep 5; \
@@ -77,16 +77,16 @@ done
 
 ## Access Kyma
 
-The simple installation guide we followed uses self-signed certificates and xip.io domain. Such certificate will be rejected by your browser so you have to set it as trusted. 
+The simple installation guide we followed uses a self-signed certificate and an `xip.io` domain. Such a certificate will be rejected by your browser so you have to set it as trusted. 
 ```bash
-# After the installation, add Kyma self-signed certificate to the trusted certificates (MacOS):
+# When the installation finishes, add a Kyma self-signed certificate to the trusted certificates (MacOS):
 tmpfile=$(mktemp /tmp/temp-cert.XXXXXX) \
 && kubectl get configmap net-global-overrides -n kyma-installer -o jsonpath='{.data.global\.ingress\.tlsCrt}' | base64 --decode > $tmpfile \
 && sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain $tmpfile \
 && rm $tmpfile
 ```
 
-These commands will display Console URL, login and password:
+Run these commands to display the Console URL, login, and password:
 ```bash
 echo 'Kyma Console Url:'
 echo `kubectl get virtualservice core-console -n kyma-system -o jsonpath='{ .spec.hosts[0] }'`
@@ -94,22 +94,26 @@ echo `kubectl get virtualservice core-console -n kyma-system -o jsonpath='{ .spe
 echo 'User admin@kyma.cx, password:'
 echo `kubectl get secret admin-user -n kyma-system -o jsonpath="{.data.password}" | base64 --decode`
 ```
-The result should be something like this:
+You should get a similar result:
 ```console
 Kyma Console Url:
 console.1.2.3.4.xip.io
 User admin@kyma.cx, password:
 Eca23NyShqwK
 ```
-Now you can open Kyma Console Url in the browser and log in with provided credentials. 
+You can now open the Kyma Console URL in the browser and log in with the provided credentials. 
 
 ![Kyma Console](./console.png)
 
 ## Wordpress installation
-If you already have wordpress installed you can go to the next step. If not you can easily deploy wordpress with few clicks in Kyma console.
-First, create namespace for wordpress.  Then download the wordpress deployment file: [wordpress-deployment.yaml](wordpress-deployment.yaml) (it is recommended to change the `mysql-pass` secret). Then go to the namespace wordpress and click **Deploy new resource to the namespace** link, and select wordpress-deployment.yaml file from your disk.
+If you already have WordPress installed, you can go to the next step. If not, you can easily deploy WordPress with a few clicks in the Kyma Console.
+First, create a Namespace `wordpress`. Then, download the WordPress deployment file, namely [wordpress-deployment.yaml](wordpress-deployment.yaml). 
 
-If you prefer you can do the same from command line (assuming that your current Kubernetes context is set to the Kyma cluster):
+>**TIP:** It is recommended to change the `mysql-pass` secret. 
+
+Then go to the Namespace `wordpress`, click **Deploy new resource to the namespace** and select wordpress-deployment.yaml file from your disk.
+
+If you prefer, you can do the same using the command line. First, make sure that your current Kubernetes context is set to the Kyma cluster. You can check the current context using `kubectl config get-contexts` and switch to the required one by running `kubectl config use-context {context-name}`. Now run:
 ```bash
 # Create namespace
 kubectl create namespace wordpress
@@ -118,34 +122,34 @@ kubectl create namespace wordpress
 kubectl -n wordpress apply -f https://raw.githubusercontent.com/kyma-project/website/master/content/blog-posts/2019-06-14-extend-wordpress/wordpress-deployment.yaml
 
 ```
-Wait few seconds until wordpress starts. You can check the status in Deployments section:
+Wait a few seconds for WordPress to start. You can check the status in the **Deployments** section.
 
-When all deployments are in the running state navigate to [https://wordpress.1.2.3.4.xip.io]() (replace IP 1.2.3.4 with the one for your cluster), and finish installation wizard. 
+When the status of all deployments is `RUNNING`, navigate to [https://wordpress.1.2.3.4.xip.io]() replacing the `1.2.3.4` IP with the one for your cluster. Then complete the installation wizard. 
 
-## Kyma plugin for Wordpress
+## Kyma plugin for WordPress
 
-Before you install plugins ensure that you have proper configuration of Permalinks. Log into Wordpress as admin, go to Settings -> Permalinks, select `Post name` option and save changes.
-Now download and install (Plugins -> Add new -> Upload plugin), and activate these 2 plugins:
-- [Basic Auth](https://github.com/WP-API/Basic-Auth/archive/master.zip) - for more details go for [GitHub repository](https://github.com/WP-API/Basic-Auth)
-- [Kyma Connector](https://github.com/kyma-incubator/wordpress-connector/archive/master.zip) - for more details go for [GitHub repository](https://github.com/kyma-incubator/wordpress-connector)
-
-Go to Settings -> Kyma Connector, uncheck Verify SSL option (you need it because default Kyma installation uses self-signed certificates), and provide username and password you created during installation, and save changes. 
+Before you install plugins, ensure that you have the proper configuration of Permalinks. Log into WordPress as an admin, go to **Settings** -> **Permalinks**, select the `Post name` option and save your changes.
+Download the following plugins:
+- [Basic Auth](https://github.com/WP-API/Basic-Auth/archive/master.zip) - for more details go to this [GitHub repository](https://github.com/WP-API/Basic-Auth)
+- [Kyma Connector](https://github.com/kyma-incubator/wordpress-connector/archive/master.zip) - for more details go to this [GitHub repository](https://github.com/kyma-incubator/wordpress-connector)
+In the left navigation, go to **Plugins** -> **Add New** -> **Upload Plugin**. Choose the Basic Auth and Kyma Connector plugins from your disk to install and activate them.
+Go to **Settings** -> **Kyma Connector**, uncheck the **Verify SSL** option (you need it because the default Kyma installation uses self-signed certificates), provide the username and password you created during the installation, and save your changes. 
 
 ![Kyma Connector](./kyma-connector.png)
 
 # Connect Wordpress to Kyma
 
-In this step you will establish trusted connection between Wordpress instance and your Kyma cluster both hosted on the same kubernetes cluster. You will also register Wordpress API and Wordpress Events in Service Catalog, and enable both in selected namespace.
+In this step you establish a trusted connection between the wordpress instance and your Kyma cluster, both hosted on the same Kubernetes cluster. You also register Wordpress API and Wordpress Events in the Service Catalog and enable both in a selected Namespace.
 
-In Kyma console navigate back to home and go to Applications, and create new one named `wordpress`.
+In the Kyma Console navigate back to the home page, go to **Applications**, and create a new Application called `wordpress`.
 
-Open it and press Connect Application link. Copy connection token URL to the clipboard. Go to wordpress Kyma Connector Settings, and paste token URL in Kyma Connection field, and press Connect button. You should see the success message in wordpress and you should see new entry inside Provided Services & Events section of worpdress application in Kyma.
+Open it and press **Connect Application**. Copy the connection token URL to clipboard. Go to  the Kyma Connector Settings in WordPress, paste the token URL in the **Kyma Connection** field, and press **Connect**. You should see the success message in WordPress and a new entry inside the Provided Services & Events section of the `wordpress` Application in Kyma.
 
 ![Application](./application.png)
 
 ## Diasable SSL for Kyma->Wordpress
 
-Wordpress installed in cluster also uses self-signed SSL certificate. Kyma default settings will not allow for such connection. You need to turn it on explicitly:
+WordPress installed in a cluster uses a self-signed SSL certificate. Kyma default settings don't allow for such a connection. You need to explicitly turn it on:
 
   1. Edit the `wordpress-application-gateway` Deployment in the `kyma-integration` Namespace. Run:
       ```
@@ -153,7 +157,7 @@ Wordpress installed in cluster also uses self-signed SSL certificate. Kyma defau
       ```
   2. Edit the Deployment in Vim. Select `i` to start editing.
   3. Find the **skipVerify** parameter and change its value to `true`.
-  4. Select `esc`, type `:wq`, and select `enter` to write and quit.
+  4. Press **ESC**, type `:wq`, and click **ENTER** to write and quit.
 
 One command to do it:
 ```bash
@@ -162,16 +166,16 @@ kubectl -n kyma-integration \
   patch deployment wordpress-application-gateway --type=json \
   -p='[{"op": "replace", "path": "/spec/template/spec/containers/0/args/6", "value": "--skipVerify=true"}]'
 ```
-*Be careful! The command assumes that skipVerify is the argument with index 6 (0-based).*
+>**CAUTION:** The command assumes that **skipVerify** is the argument with index 6 (0-based).
 
-# Enable Wordpress Events and APIs in default namespace
+# Enable Wordpress Events and APIs in the `default` Namespace
 
-The Kyma application connectivity can expose APIs and Events (Async API) of the application in Service Catalog. To show Wordpress in the Service Catalog you need to first bind application to selected namespace. In the wordpress application create binding and select default namespace. Now you can go to the default namespace and open Catalog - you should see Wordpress API in the Services tab. Open it and have a look at API console and Events specification. We will react on `comment.post.v1` event and will interact with `/wp/v2/comments/{id}` API. To make them available in the default  namespace click **Add once** button and create instance of wordpress Service Class. Application Connector behind the scenes creates application gateway (kind of proxy) that is forwarding requests from bounded services or functions to the Wordpress instance. 
+The Kyma Application connectivity can expose APIs and Events (Async API) of Applications in the Service Catalog. To show WordPress in the Service Catalog, first, you need to bind the Application to a selected Namespace. Go to **Applications**, select the `wordpress` Application, press **Create Binding** and select the `default` Namespace. Now go to the `default` Namespace and open the Catalog - you should see WordPress API in the Services tab. Open it and have a look at API console and Events specification. We will react on `comment.post.v1` event and interact with `/wp/v2/comments/{id}` API. To make them available in the `default` Namespace click the **Add once** button and create an instance of the WordPress Service Class. Behind the scenes, the Application Connector creates the Application Gateway (a kind of proxy) that forwards requests from bounded services or functions to the wordpress instance. 
 
 ![Add Wordpress Instance](./add-wordpress-instance.png)
 
 # Write your code
-You did the wiring, so let's write some code. In the default namespace create new Lambda named local-review and paste in the editor following code:
+You did the wiring, so let's write some code. In the `default` Namespace create a new lambda named `local-review` and paste the following code in the **Settings & Code** editor:
 ``` javascript
 const Sentiment = require('sentiment');
 const sentiment = new Sentiment();
@@ -206,7 +210,7 @@ async function updateComment(id, status, comment, score) {
 }
 ```
 
-In the dependencies section add:
+In the **Dependencies** section add:
 ```json
 {
   "dependencies": {
@@ -215,35 +219,38 @@ In the dependencies section add:
   }
 }
 ```
-Select trigger for your function - event `comment.post`, and save the function (the trigger is available because you have Wordpress Service Instance in the default namespace)
+Press **Select Function Trigger**, choose your function which is the `comment.post` event, and save the function. The trigger is available because you have the wordpress service instance in the `default` Namespace). 
 
 # Binding
 
-Go to Service Management -> Instances, open wordpress instance in the Services tab. Click *Bind Application*, select *local-review* function, set namespace prefix to `WP_`, and confirm.
+Go to **Instances** under the **Service Management**, open the wordpress instance in the Services tab. Click **Bind Application**, select `local-review` function, set the **Prefix namespace value** to `WP_`, and confirm.
 
 ![Binding](./binding.png)
 
-You can now open again local-review lambda and check if there is a new entry in Service Bindings section with WP_GATEWAY_URL environment variable.
+You can now open the `local-review` lambda again and check if there is a new entry in **Service Bindings** section with `WP_GATEWAY_URL` environment variable.
 
 
 # Test it
 
-Go to Wordpress main site and open *Hello World!* blog post. Add there 2 comments:
+Go to WordPress main site and open the **Hello World!** blog post. Add the following 2 comments under the blog post:
 - I love it!
 - I hate it!
-Go to wordpress dashboard and check the comments. You should see that both comments have score footer with the sentiment value (1 for positive and -1 for negative comment), and negative comment is waiting for moderation.
+Go to the WordPress **Dashboard** and check the comments. You should see that both comments have a score footer with the following sentiment values:
+- `1` for a positive comment
+- `-1` for a negative comment
+The negative comment is waiting for moderation.
 
 ![Comments](./comments.png)
 
 # Explore the benefits
 
-Your code is running in Istio service mesh with the network secured by mutual TLS. You can see the metrics from your function (latency, responses, errors and memory usage) with one click on Grafana Dashboard. You can trace your requests using Jaeger. And you can scale your functions independently from Wordpress.
+Your code runs using Istio Service Mesh with network secured by mutual TLS. You can see the metrics of your functions, such as latency, responses, errors and memory usage, with one click on Grafana Dashboard. You can trace your requests using Jaeger. And you can scale your functions independently from WordPress.
 
 # Summary
-Why should you try Kyma? If you start a new project on Kubernetes, you will get carefully selected, best tools from Cloud Native landscape, already configured and integrated. If you want to move only part of your project to the cloud and you have to keep legacy application around, Kyma will help you to build extension for them using modern tools on top of Kubernetes.
-Also when you start a new project with the goal that final solution should be extendable and customizable consindering Kyma to address these challanges from day one would offer some benefits. 
-Please remember that Kyma is actively developed open source project (~80 contributors and ~600 github stars) with the support from such big company as SAP. 
+Why should you try Kyma? If you start a new project on Kubernetes, you will get carefully selected and best tools from the Cloud Native Landscape, which are already configured and integrated. If you want to move only a part of your project to the cloud and you have to keep legacy applications around, Kyma will help you to build extensions for them using modern tools on top of Kubernetes.
+Also when you start a new project with a goal that the final solution should be extendable and customizable, considering Kyma to address these challenges from day one would offer benefits. 
+Please remember that Kyma is an open-source project which is actively developed (~80 contributors and ~600 GitHub stars) with the support from such a big company as SAP. 
 
 # Next steps
 
-In the next blog post I will show you how use services from cloud providers using Open Service Broker API. 
+In the next blog post, I will show you how to use services from cloud providers using the Open Service Broker API. 
