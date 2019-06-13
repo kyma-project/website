@@ -32,7 +32,7 @@ See the overview of all changes in this release:
 - [Observability](#observability) - Early version of Kiali added to Istio
 - [Service Mesh](#service-mesh) - Istio update to version 1.1.6
 
-> **CAUTION:** Before you upgrade to Kyma 1.2, read the [Migration Guide](https://github.com/kyma-project/kyma/blob/release-1.2/docs/migration-guides/1.1-1.2.md) which describes necessary manual actions required by the Asset Store and the Application Connector.
+> **CAUTION:** Before you upgrade to Kyma 1.2, read the [Migration Guide](https://github.com/kyma-project/kyma/blob/release-1.2/docs/migration-guides/1.1-1.2.md) which describes necessary manual actions required by the Event Bus, the Asset Store, and the Application Connector.
 
 ---
 
