@@ -46,7 +46,7 @@ Read [this](/docs/1.2/components/application-connector/#architecture-architectur
 
 ### Custom headers and query parameters in authentication requests
 
-To facilitate integration of APIs that require sending additional headers and query parameters with every request to an external system, we allow the developers to provide a custom list of the headers and query parameters when you register an API in the Application Registry. The Proxy service reads this configuration and enriches each call from an API to an external service with the required items.
+To facilitate the integration of APIs that require sending additional headers and query parameters with every request to an external system, we allow the developers to provide a custom list of the headers and query parameters when registering an API in the Application Registry. The Proxy service reads this configuration and enriches each call from an API to an external service with the required items.
 
 Read [this](/docs/1.2/components/application-connector/#tutorials-register-a-secured-api-specify-custom-headers-and-query-parameters-for-authentication-requests) document to learn more.
 
