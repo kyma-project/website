@@ -292,6 +292,12 @@ export const InputWrapper = styled(Button.Light)`
         padding: 16px;
         font-size: 12px;
         line-height: 1rem;
+        right: 0;
+        transform: translateX(32px);
+
+        &:after {
+          right: 40px;
+        }
       }
     }
 
