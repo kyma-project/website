@@ -3,7 +3,8 @@ title: "Build a cloud-native extension for WordPress (part 1)"
 author:
   name:  "Piotr Bochynski, Product Owner @Kyma"
 tags:
-  - release
+  - technology
+  - tutorial
 redirectFrom:
   - "/blog/2019-06-14-extend-wordpress"
 ---
@@ -47,7 +48,7 @@ Follow the [installation guide](https://kyma-project.io/docs/1.2/root/kyma/#inst
 
 ```bash
 # Set ENV variables. See sample values in comments:
-export KYMA_VERSION={KYMA_RELEASE_VERSION}      # 1.2.0-rc1
+export KYMA_VERSION={KYMA_RELEASE_VERSION}      # 1.2.0
 export CLUSTER_NAME={CLUSTER_NAME_YOU_WANT}     # kyma-cluster
 export GCP_PROJECT={YOUR_GCP_PROJECT}           # myproject
 export GCP_ZONE={GCP_ZONE_TO_DEPLOY_TO}         # europe-west1-b
@@ -76,6 +77,8 @@ done
 ```
 
 ## Access Kyma
+
+> **NOTE:** Follow steps in this section only if you installed Kyma from the instructions in this blog post. If you followed the official Kyma documentation, skip this section as the installation steps cover adding a self-signed certificate and accessing the cluster.
 
 The simple installation guide we followed uses a self-signed certificate and an `xip.io` domain. Such a certificate will be rejected by your browser so you have to set it as trusted. 
 ```bash
@@ -106,22 +109,15 @@ You can now open the Kyma Console URL in the browser and log in with the provide
 ![Kyma Console](./console.png)
 
 ## Wordpress installation
-If you already have WordPress installed, you can go to the next step. If not, you can easily deploy WordPress with a few clicks in the Kyma Console.
-First, create a Namespace `wordpress`. Then, download the WordPress deployment file, namely [wordpress-deployment.yaml](wordpress-deployment.yaml). 
-
->**TIP:** It is recommended to change the `mysql-pass` secret. 
-
-Then go to the Namespace `wordpress`, click **Deploy new resource to the namespace** and select wordpress-deployment.yaml file from your disk.
-
-If you prefer, you can do the same using the command line. First, make sure that your current Kubernetes context is set to the Kyma cluster. You can check the current context using `kubectl config get-contexts` and switch to the required one by running `kubectl config use-context {context-name}`. Now run:
+If you already have WordPress installed, you can go to the next step. If not, you can easily deploy WordPress with a few commands:
 ```bash
 # Create namespace
 kubectl create namespace wordpress
 
-# Deploy wordpress (master)
+# Deploy wordpress
 kubectl -n wordpress apply -f https://raw.githubusercontent.com/kyma-project/website/master/content/blog-posts/2019-06-14-extend-wordpress/wordpress-deployment.yaml
-
 ```
+
 Wait a few seconds for WordPress to start. You can check the status in the **Deployments** section.
 
 When the status of all deployments is `RUNNING`, navigate to [https://wordpress.1.2.3.4.xip.io]() replacing the `1.2.3.4` IP with the one for your cluster. Then complete the installation wizard. 
@@ -175,7 +171,7 @@ The Kyma Application connectivity can expose APIs and Events (Async API) of Appl
 ![Add Wordpress Instance](./add-wordpress-instance.png)
 
 # Write your code
-You did the wiring, so let's write some code. In the `default` Namespace create a new lambda named `local-review` and paste the following code in the **Settings & Code** editor:
+You did the wiring, so let's write some code. In the `default` Namespace create a new lambda named `review` and paste the following code in the **Settings & Code** editor:
 ``` javascript
 const Sentiment = require('sentiment');
 const sentiment = new Sentiment();
