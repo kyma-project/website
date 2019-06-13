@@ -10,7 +10,7 @@ redirectFrom:
   - "/blog/release-notes-12"
 ---
 
-It's about time to sail our ship to Istanbul and see all of the new features and tweaks that come with the 1.2 release. This time around we focused on streamlining the installation flow, providing a simpler way to test lambda functions, giving more power and flexibility to Kyma Eventing, migrating to a new version of Istio, and providing even more useful documentation.
+It's about time to sail our ship to Istanbul and see all of the new features and tweaks that come with the 1.2 release. This time around we focused on streamlining the installation flow, providing a simpler way of testing lambda functions, giving more power and flexibility to Kyma Eventing, migrating to a new version of Istio, and providing even more useful documentation.
 
 <!-- overview -->
 
