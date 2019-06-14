@@ -1,5 +1,5 @@
 ---
-title: "Build a cloud-native extension for WordPress (part 1)"
+title: "Build a cloud-native extension for WordPress"
 author:
   name:  "Piotr Bochynski, Product Owner @Kyma"
 tags:
@@ -13,12 +13,13 @@ Cloud-native application development is now a hot topic in the industry. Develop
 
 If you start a new, green field project you are lucky - you can dive into the great variety of tools and frameworks and use them. But how to pick the right tools? At the moment of writing this post, there are 686 projects registered in the [CNCF landscape](https://landscape.cncf.io/).
 
-We have also less lucky developers, that still have to deal with the applications designed at a time when monoliths where state of the art. What about them? Can they benefit from Cloud Native patterns? The answer is yes, they can!
+We also have the less lucky developers who still have to deal with applications designed when monoliths were cool. What about them? Can they benefit from cloud-native patterns? Yes, they can!
+s
 <!-- overview -->
 
 # Imagine your legacy application
 You probably have some applications you have to extend or integrate with but you are not happy with that fact. There can be a few reasons for it:
-- It requires writing code in the language you don't know and for example you want to use only Golang or JavaScript.
+- It requires writing code in the language you don't know and you want to use only Golang or JavaScript.
 - It is possible to add a new feature to the application but it requires a complex redeployment process which is risky.
 - You just don't want to touch it because it is fragile and adding anything can make it unstable.
 - You want to write an extension which can be scaled independently of the application.
