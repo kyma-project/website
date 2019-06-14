@@ -14,7 +14,6 @@ Cloud-native application development is now a hot topic in the industry. Develop
 If you start a new, green field project you are lucky - you can dive into the great variety of tools and frameworks and use them. But how to pick the right tools? At the moment of writing this post, there are 686 projects registered in the [CNCF landscape](https://landscape.cncf.io/).
 
 We also have the less lucky developers who still have to deal with applications designed when monoliths were cool. What about them? Can they benefit from cloud-native patterns? Yes, they can!
-s
 <!-- overview -->
 
 # Imagine your legacy application
