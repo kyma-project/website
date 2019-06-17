@@ -6,7 +6,7 @@ tags:
   - technology
   - tutorial
 redirectFrom:
-  - "/blog/2019-06-14-extend-wordpress"
+  - "/blog/2019-06-19-extend-wordpress"
 ---
 
 Cloud-native application development is now a hot topic in the industry. Developers want to use modern languages, write microservices or even serverless functions. They expect high scalability with modern monitoring tools like Prometheus and Grafana. Kubernetes and CNCF landscape projects are no longer perceived as hype for early adopters. This is the mainstream now.
