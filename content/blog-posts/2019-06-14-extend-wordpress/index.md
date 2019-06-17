@@ -219,11 +219,11 @@ Press **Select Function Trigger**, choose your function which is the `comment.po
 
 # Binding
 
-Go to **Instances** under the **Service Management**, open the WordPress instance in the **Services** tab. Click **Bind Application**, select `local-review` function, set the **Prefix namespace value** to `WP_`, and confirm.
+Go to **Instances** under the **Service Management**, open the WordPress instance in the **Services** tab. Click **Bind Application**, select `review` function, set the **Prefix namespace value** to `WP_`, and confirm.
 
 ![Binding](./binding.png)
 
-You can now open the `local-review` lambda again and check if there is a new entry in **Service Bindings** section with `WP_GATEWAY_URL` environment variable.
+You can now open the `review` lambda again and check if there is a new entry in **Service Bindings** section with `WP_GATEWAY_URL` environment variable.
 
 
 # Test it
