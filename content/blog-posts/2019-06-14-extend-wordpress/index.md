@@ -111,10 +111,10 @@ You can now open the Kyma Console URL in the browser and log in with the provide
 ## WordPress installation
 If you already have WordPress installed, you can go to the next step. If not, you can easily deploy WordPress with a few commands:
 ```bash
-# Create namespace
+# Create a Namespace
 kubectl create namespace wordpress
 
-# Deploy wordpress
+# Deploy WordPress
 kubectl -n wordpress apply -f https://raw.githubusercontent.com/kyma-project/website/master/content/blog-posts/2019-06-14-extend-wordpress/wordpress-deployment.yaml
 ```
 
@@ -135,11 +135,11 @@ Go to **Settings** -> **Kyma Connector**, uncheck the **Verify SSL** option (you
 
 # Connect WordPress to Kyma
 
-In this step you establish a trusted connection between the wordpress instance and your Kyma cluster, both hosted on the same Kubernetes cluster. You also register WordPress API and WordPress Events in the Service Catalog and enable both in a selected Namespace.
+In this step you establish a trusted connection between the WordPress instance and your Kyma cluster, both hosted on the same Kubernetes cluster. You also register WordPress API and WordPress Events in the Service Catalog and enable both in a selected Namespace.
 
 In the Kyma Console navigate back to the home page, go to **Applications**, and create a new Application called `wordpress`.
 
-Open it and press **Connect Application**. Copy the connection token URL to clipboard. Go to  the Kyma Connector Settings in WordPress, paste the token URL in the **Kyma Connection** field, and press **Connect**. You should see the success message in WordPress and a new entry inside the Provided Services & Events section of the `wordpress` Application in Kyma.
+Open it and press **Connect Application**. Copy the connection token URL to the clipboard. Go to the Kyma Connector Settings in WordPress, paste the token URL in the **Kyma Connection** field, and press **Connect**. You should see the success message in WordPress and a new entry inside the **Provided Services & Events** section of the `wordpress` Application in Kyma.
 
 ![Application](./application.png)
 
@@ -164,9 +164,9 @@ kubectl -n kyma-integration \
 ```
 >**CAUTION:** The command assumes that **skipVerify** is the argument with the index 6 (0-based).
 
-# Enable WordPress Events and APIs in the `default` Namespace
+# Enable WordPress Events and APIs in the default Namespace
 
-The Kyma Application connectivity can expose APIs and Events (Async API) of Applications in the Service Catalog. To show WordPress in the Service Catalog, first, you need to bind the Application to a selected Namespace. Go to **Applications**, select the `wordpress` Application, press **Create Binding** and select the `default` Namespace. Now go to the `default` Namespace and open the Catalog - you should see WordPress API in the Services tab. Open it and have a look at API console and Events specification. We will react on `comment.post.v1` event and interact with `/wp/v2/comments/{id}` API. To make them available in the `default` Namespace click the **Add once** button and create an instance of the WordPress Service Class. Behind the scenes, the Application Connector creates the Application Gateway (a kind of proxy) that forwards requests from bounded services or functions to the wordpress instance. 
+The Kyma Application connectivity can expose APIs and Events (Async API) of Applications in the Service Catalog. To show WordPress in the Service Catalog, first, you need to bind the Application to a selected Namespace. Go to **Applications**, select the `wordpress` Application, press **Create Binding** and select the `default` Namespace. Now go to the `default` Namespace and open the Catalog - you should see WordPress API in the **Services** tab. Open it and have a look at API console and Events specification. We will react on `comment.post.v1` event and interact with `/wp/v2/comments/{id}` API. To make them available in the `default` Namespace click the **Add once** button and create an instance of the WordPress Service Class. Behind the scenes, the Application Connector creates the Application Gateway (a kind of proxy) that forwards requests from bounded services or functions to the WordPress instance. 
 
 ![Add WordPress Instance](./add-wordpress-instance.png)
 
@@ -206,7 +206,7 @@ async function updateComment(id, status, comment, score) {
 }
 ```
 
-In the **Dependencies** section add:
+In the **Dependencies** section, add:
 ```json
 {
   "dependencies": {
@@ -215,11 +215,11 @@ In the **Dependencies** section add:
   }
 }
 ```
-Press **Select Function Trigger**, choose your function which is the `comment.post` event, and save the function. The trigger is available because you have the wordpress service instance in the `default` Namespace). 
+Press **Select Function Trigger**, choose your function which is the `comment.post` Event, and save the function. The trigger is available because you have the WordPress service instance in the `default` Namespace. 
 
 # Binding
 
-Go to **Instances** under the **Service Management**, open the wordpress instance in the Services tab. Click **Bind Application**, select `local-review` function, set the **Prefix namespace value** to `WP_`, and confirm.
+Go to **Instances** under the **Service Management**, open the WordPress instance in the **Services** tab. Click **Bind Application**, select `local-review` function, set the **Prefix namespace value** to `WP_`, and confirm.
 
 ![Binding](./binding.png)
 
