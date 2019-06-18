@@ -1,11 +1,9 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { navigate } from "gatsby";
 
 import Button from "@components/shared/Button";
 
 import Input from "@components/layout/Search/Input";
-
-import LayoutService from "@components/layout/service";
 
 import { ALGOLIA } from "@common/constants";
 import { isDevelopmentMode, isProductionMode } from "@common/utils";
@@ -15,10 +13,6 @@ import { AlgoliaWrapper } from "./styled";
 let search: any;
 
 const Search: React.FunctionComponent = () => {
-  const {
-    docsMetadata: { version },
-  } = useContext(LayoutService);
-
   const [initial, setInitial] = useState<boolean>(false);
   const [loadedAlgolia, setLoadedAlgolia] = useState<boolean>(false);
 
@@ -51,10 +45,6 @@ const Search: React.FunctionComponent = () => {
     const algoliaOptions: any = {
       hitsPerPage: 10,
     };
-
-    if (isProductionMode()) {
-      algoliaOptions.facetFilters = [`version:${version}`];
-    }
 
     return {
       apiKey: ALGOLIA.API_KEY,
