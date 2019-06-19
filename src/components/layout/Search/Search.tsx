@@ -1,11 +1,9 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { navigate } from "gatsby";
 
 import Button from "@components/shared/Button";
 
 import Input from "@components/layout/Search/Input";
-
-import LayoutService from "@components/layout/service";
 
 import { ALGOLIA } from "@common/constants";
 import { isDevelopmentMode, isProductionMode } from "@common/utils";
@@ -15,10 +13,6 @@ import { AlgoliaWrapper } from "./styled";
 let search: any;
 
 const Search: React.FunctionComponent = () => {
-  const {
-    docsMetadata: { version },
-  } = useContext(LayoutService);
-
   const [initial, setInitial] = useState<boolean>(false);
   const [loadedAlgolia, setLoadedAlgolia] = useState<boolean>(false);
 
@@ -47,14 +41,20 @@ const Search: React.FunctionComponent = () => {
     navigate(path);
   };
 
+  const transformData = (suggestions: any[]) => {
+    if (!suggestions || !suggestions.length) return [];
+    const newSuggestions = suggestions.filter(suggestion => {
+      const regexp: RegExp = /docs\/([0-9]\.[0-9]|master|latest)/g;
+      const found = suggestion.url.match(regexp);
+      return !found || !Boolean(found.length);
+    });
+    return newSuggestions.slice(0, 10);
+  };
+
   const createAlgoliaOptions = (): any => {
     const algoliaOptions: any = {
-      hitsPerPage: 10,
+      hitsPerPage: 150,
     };
-
-    if (isProductionMode()) {
-      algoliaOptions.facetFilters = [`version:${version}`];
-    }
 
     return {
       apiKey: ALGOLIA.API_KEY,
@@ -68,6 +68,7 @@ const Search: React.FunctionComponent = () => {
         keyboardShortcuts: [`s`],
       },
       algoliaOptions,
+      transformData,
       handleSelected,
     };
   };
