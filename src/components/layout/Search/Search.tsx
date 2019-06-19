@@ -41,9 +41,19 @@ const Search: React.FunctionComponent = () => {
     navigate(path);
   };
 
+  const transformData = (suggestions: any[]) => {
+    if (!suggestions || !suggestions.length) return [];
+    const newSuggestions = suggestions.filter(suggestion => {
+      const regexp: RegExp = /docs\/([0-9]\.[0-9]|master|latest)/g;
+      const found = suggestion.url.match(regexp);
+      return !found || !Boolean(found.length);
+    });
+    return newSuggestions.slice(0, 10);
+  };
+
   const createAlgoliaOptions = (): any => {
     const algoliaOptions: any = {
-      hitsPerPage: 10,
+      hitsPerPage: 150,
     };
 
     return {
@@ -58,6 +68,7 @@ const Search: React.FunctionComponent = () => {
         keyboardShortcuts: [`s`],
       },
       algoliaOptions,
+      transformData,
       handleSelected,
     };
   };
