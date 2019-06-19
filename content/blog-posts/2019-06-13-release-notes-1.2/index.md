@@ -32,6 +32,8 @@ See the overview of all changes in this release:
 - [Observability](#observability) - Early version of Kiali added to Istio
 - [Service Mesh](#service-mesh) - Istio update to version 1.1.6
 
+Read about a known issue for [Observability](#known-issues).
+
 > **CAUTION:** Before you upgrade to Kyma 1.2, read the [Migration Guide](https://github.com/kyma-project/kyma/blob/release-1.2/docs/migration-guides/1.1-1.2.md) which describes necessary manual actions required by the Event Bus, the Asset Store, and the Application Connector.
 
 ---
@@ -122,6 +124,18 @@ We prepared a self-contained example that shows how to configure an Event trigge
 ### Early integration of Kiali
 
 Early integration of Kiali is available as part of Istio. To enable Kiali, ensure that the monitoring module is installed and set the **kiali.enabled** parameter to `true`. The Kiali UI will be accessible under the `kiali` subdomain. The early integration is based on static user security. To learn how to get the Kiali UI password, see [this](https://github.com/kyma-project/kyma/tree/master/resources/istio) document.
+
+### Known issues
+
+Kiali is not accessible after installation when enabled as part of the Installer configuration. It should be accessible on Minikube at `https://kiali.kyma.local`.
+To access it this way, use the workaround for now and add the `kiali` prefix to the **hosts** attribute in the `kiali-virtualservice` resource:
+```
+kubectl -n istio-system edit virtualservices kiali-virtualservice
+```
+```
+hosts:
+- kiali.kyma.local
+```
 
 ## Service Mesh
 
