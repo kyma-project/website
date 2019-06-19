@@ -133,8 +133,8 @@ As a workaround prefix the hosts attribute in kiali-virtualservice resource with
 kubectl -n istio-system edit virtualservices kiali-virtualservice
 ```
 ```
-  hosts:
-  - kiali.kyma.local
+hosts:
+- kiali.kyma.local
 ```
 
 ## Service Mesh
