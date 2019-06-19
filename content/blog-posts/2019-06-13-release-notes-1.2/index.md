@@ -127,7 +127,7 @@ Early integration of Kiali is available as part of Istio. To enable Kiali, ensur
 
 ### Known issues
 
-Kiali is not accessible after installation when enabled as a part of the installer configuration. As an example, for minikube it should be accessible at https://kiali.kyma.local.
+Kiali is not accessible after installation when enabled as part of the Installer configuration. It should be accessible on Minikube at `https://kiali.kyma.local`.
 As a workaround prefix the hosts attribute in kiali-virtualservice resource with "kiali":
 ```
 kubectl -n istio-system edit virtualservices kiali-virtualservice
