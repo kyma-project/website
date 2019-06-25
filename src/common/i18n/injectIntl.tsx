@@ -1,8 +1,12 @@
 import React, { Component } from "react";
 import { intlShape, FormattedMessage, MessageValue } from "react-intl";
+import { Subtract } from "utility-types";
+import { IntlInterface } from "./types";
 
-export default (prefix?: string) => (WrappedComponent: any) =>
-  class WrapperComponent extends Component {
+export default (prefix?: string) => <T extends IntlInterface>(
+  WrappedComponent: React.ComponentType<T>,
+) =>
+  class WrapperComponent extends Component<Subtract<T, IntlInterface>> {
     static contextTypes = {
       intl: intlShape,
     };
@@ -28,7 +32,7 @@ export default (prefix?: string) => (WrappedComponent: any) =>
     render() {
       return (
         <WrappedComponent
-          {...this.props}
+          {...this.props as T}
           formatMessage={this.formatMessage}
           intl={this.context.intl}
         />

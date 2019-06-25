@@ -14,11 +14,9 @@ const DocsPage: React.FunctionComponent<DocsPageProps> = ({
   pageContext: { navigation, ...props },
 }) => {
   const changeDocsVersion = async (e: any) => {
-    const optionIndex = e.target.selectedIndex;
     const newVersion = e.target.value;
-    const isLatestVersion = optionIndex === 0;
     const path = getDocsPath(newVersion);
-    window.location.replace(path);
+    window.location.replace(path); // shouldn't it be changed to navigate?
   };
 
   return (

@@ -44,12 +44,6 @@ const HighlightWrapper = styled.div`
   }
 `;
 
-const StyledCopyButton = styled(CopyButton)`
-  position: absolute;
-  top: -10px;
-  right: -10px;
-`;
-
 interface CodeProps {
   language: string;
   value: string;
@@ -75,7 +69,7 @@ export const Code: React.FunctionComponent<CodeProps> = ({
 
   return (
     <CodeWrapper>
-      <StyledCopyButton code={processedCode} />
+      <CopyButton code={processedCode} />
       <HighlightWrapper>
         <Highlight
           {...defaultProps}

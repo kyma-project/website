@@ -1,5 +1,5 @@
 import React from "react";
-import { InjectedIntlProps, FormattedMessage, MessageValue } from "react-intl";
+import { FormattedMessage, MessageValue } from "react-intl";
 
 export type FormatMessageFn = (
   messageDescriptor: FormattedMessage.MessageDescriptor,
@@ -11,7 +11,7 @@ export interface IntlInterface {
 }
 
 export type FunctionComponentIntl<P = {}> = React.FunctionComponent<
-  P & InjectedIntlProps & IntlInterface
+  P & IntlInterface
 >;
 
 export interface Internationalization {

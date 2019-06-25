@@ -9,7 +9,7 @@ import { Wrapper, Label, SelectWrapper, VersionSelect } from "./styled";
 interface VersionSwitcherProps {
   versions: DocsVersions;
   version: string;
-  onChange: () => void;
+  onChange: (e: any) => Promise<void>;
 }
 
 const VersionSwitcher: FunctionComponentIntl<VersionSwitcherProps> = ({

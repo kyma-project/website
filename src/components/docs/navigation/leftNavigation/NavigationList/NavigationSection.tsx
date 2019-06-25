@@ -174,7 +174,7 @@ const NavigationSections: React.FunctionComponent<NavigationSectionsProps> = ({
     <NavigationItems
       secondary={true}
       marginTop={true}
-      show={isActiveNav || isClickedNav}
+      show={isActiveNav || !!isClickedNav}
     >
       {items.map((item, index) => renderNavigationItem(item, index))}
     </NavigationItems>
