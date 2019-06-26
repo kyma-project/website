@@ -58,7 +58,7 @@ function createUrl(
   let url = new URL(videoUrl);
 
   if (videoService.urlProcessing) {
-    url = videoService.urlProcessing(videoId, url, options);
+    url = videoService.urlProcessing(videoId, url as any, options);
   }
 
   return url.toString();
