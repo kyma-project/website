@@ -1,5 +1,5 @@
 import React from "react";
-
+import { navigate } from "gatsby";
 import RootDocs from "./root/RootDocs";
 
 import { DocsPageContext } from "./types";
@@ -16,7 +16,7 @@ const DocsPage: React.FunctionComponent<DocsPageProps> = ({
   const changeDocsVersion = async (e: any) => {
     const newVersion = e.target.value;
     const path = getDocsPath(newVersion);
-    window.location.replace(path); // shouldn't it be changed to navigate?
+    navigate(path);
   };
 
   return (
