@@ -80,7 +80,7 @@ const Search: React.FunctionComponent = () => {
     setInitial(true);
   };
 
-  const loadJS = () => import(`@static/js/docsearch.min.js`);
+  const loadJS = () => import("@static/js/docsearch.min.js");
   const loadAlgolia = (): void => {
     if (!loadedAlgolia) {
       loadJS().then(a => {

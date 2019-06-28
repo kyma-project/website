@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import DocsPageWrapper from "./DocsPageWrapper";
 
-import DocsLeftNavigation from "@components/docs/navigation/leftNavigation/LeftNavigation";
+import { LeftNavigation as DocsLeftNavigation } from "@components/docs/navigation/leftNavigation/LeftNavigation";
 import DocsContent from "@components/docs/content/DocsContent.container";
 
 import ScrollSpy from "@common/state/useScrollSpy";
