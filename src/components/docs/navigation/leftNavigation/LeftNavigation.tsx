@@ -111,4 +111,4 @@ class LeftNavigation extends Component<
   }
 }
 
-export default LeftNavigation;
+export { LeftNavigation };

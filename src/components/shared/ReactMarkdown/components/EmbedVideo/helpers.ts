@@ -7,7 +7,7 @@ import {
   IVideoId,
   IVideoService,
 } from "gatsby-remark-embed-video/src/interfaces";
-
+import { URL as BrowserURL } from "url";
 export function embedVideoHTML(
   type: string,
   id: string,
@@ -58,7 +58,7 @@ function createUrl(
   let url = new URL(videoUrl);
 
   if (videoService.urlProcessing) {
-    url = videoService.urlProcessing(videoId, url, options);
+    url = videoService.urlProcessing(videoId, url as BrowserURL, options);
   }
 
   return url.toString();

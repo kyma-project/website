@@ -10,6 +10,7 @@ validate:
 	npm run conflict-check
 	npm run lint-check
 	npm run markdownlint
+	npm run type-check
 
 .PHONY: prepare-tools
 prepare-tools:

@@ -95,7 +95,6 @@ const NavigationGroup: React.FunctionComponent<NavigationGroupProps> = ({
             groupType={groupType}
             rootId={item.id}
             content={content}
-            isLinkActive={isLinkActive}
             activeNav={activeNav}
             activeNodes={activeNodes}
             getPathLink={getPathLink}

@@ -114,7 +114,8 @@
     "tslint-config-prettier": "^1.17.0",
     "tslint-react": "^3.6.0",
     "tslint-react-hooks": "^2.1.0",
-    "typescript": "^3.5.1"
+    "typescript": "^3.5.1",
+    "utility-types": "^3.7.0"
   },
   "bugs": {
     "url": "https://github.com/kyma-project/website/issues"

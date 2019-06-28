@@ -1,5 +1,5 @@
 import React from "react";
-
+import { navigate } from "gatsby";
 import RootDocs from "./root/RootDocs";
 
 import { DocsPageContext } from "./types";
@@ -14,11 +14,9 @@ const DocsPage: React.FunctionComponent<DocsPageProps> = ({
   pageContext: { navigation, ...props },
 }) => {
   const changeDocsVersion = async (e: any) => {
-    const optionIndex = e.target.selectedIndex;
     const newVersion = e.target.value;
-    const isLatestVersion = optionIndex === 0;
     const path = getDocsPath(newVersion);
-    window.location.replace(path);
+    navigate(path);
   };
 
   return (

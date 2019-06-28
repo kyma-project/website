@@ -14,7 +14,7 @@ import { PostMetaDataAuthor, PostFieldsInfo } from "./types";
 
 import { PostHeaderWrapper, PostMetadata } from "./styled";
 
-interface PostHeaderProps {
+interface PostHeaderProps extends IntlInterface {
   title: string;
   author: PostMetaDataAuthor;
   postInfo: PostFieldsInfo;
@@ -23,7 +23,7 @@ interface PostHeaderProps {
 
 const gt = getTranslation("blog");
 
-const PostHeader: React.FunctionComponent<PostHeaderProps & IntlInterface> = ({
+const PostHeader: React.FunctionComponent<PostHeaderProps> = ({
   title,
   author: { name },
   postInfo: { year, month, day },

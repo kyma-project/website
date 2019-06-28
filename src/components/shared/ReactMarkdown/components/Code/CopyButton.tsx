@@ -11,6 +11,9 @@ import Tooltip from "@components/shared/Tooltip";
 
 const CopyButtonWrapper = styled.div`
   user-select: none;
+  position: absolute;
+  top: -10px;
+  right: -10px;
 `;
 
 const StyledIcon = styled(Icon)`
