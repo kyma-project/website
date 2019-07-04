@@ -19,6 +19,7 @@ Timeline of most important events:
 02.05.2019 -> Netconomy went to production with solutions for one of their customers (link to blog post once it is ready)
 07.05.2019 -> Kyma released with SAP C4/Core Foundation as a production ready offering (https://www.linkedin.com/pulse/introducing-sap-c4hana-foundation-thomas-hertz/)
 21-23.05.2019 -> Kyma at KubeCon Barcelona booth with brother Gardener project
+23.05.2019 -> We announced Kyma 1.0 release on [Kubernetes blog](https://kubernetes.io/blog/2019/05/23/kyma-extend-and-build-on-kubernetes-with-ease/) and made it clear to CNCF community what Kyma is
 25.05.2019 -> Mateusz and Piotr become Kubernetes contributoris and Service Catalog approvers
 03.07.2019 -> Setup of Knative dedicated team
 07.07.2019 -> Mateusz becomes a Service Catalog chair (soon)
