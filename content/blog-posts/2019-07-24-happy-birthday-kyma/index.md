@@ -14,7 +14,12 @@ Kyma is already 1 year old and I have a feeling it was open sourced just recentl
 
 Timeline of most important events:
 24.07.2018 -> Open source with Knative
+26.07.2018 -> Kyma, together with Knative, launched at Google Next 
+13.08.2018 -> Kyma made it to the CNCF landscape with 500 GitHub stars
+12.09.2018 -> After modeling an open governance model we hosted our [first public Core Special Interest Group meeting](https://www.youtube.com/watch?v=1DD5aCBnywQ)
+10.10.2018 -> Kyma announced to SAP customers and partners as a future of extensibility at SAP CX Live event in Barcelona 
 10-13.12.2018 -> Kyma at KubeCon Seattle booth with brother Gardener project
+19.02.2019 -> Twiggle, Netconomy, SAP, MGM & AccentureInteractive become the first Kyma early adopters
 25.04.2019 -> 1.0 Gliwice release
 02.05.2019 -> Netconomy went to production with solutions for one of their customers (link to blog post once it is ready)
 07.05.2019 -> Kyma released with SAP C4/Core Foundation as a production ready offering (https://www.linkedin.com/pulse/introducing-sap-c4hana-foundation-thomas-hertz/)
