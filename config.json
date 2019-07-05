@@ -1,7 +1,9 @@
 {
   "siteMetadata": {
     "siteUrl": "https://kyma-project.io/",
-    "twitterUsername": "kymaproject"
+    "twitterUsername": "kymaproject",
+    "title": "testTitle",
+    "description": "test"
   },
   "socialMedia": {
     "twitter": {
