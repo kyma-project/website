@@ -38,10 +38,10 @@
     "explore": "source-map-explorer \"public/*.js\""
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.14",
-    "@fortawesome/free-brands-svg-icons": "^5.7.1",
-    "@fortawesome/free-regular-svg-icons": "^5.7.1",
-    "@fortawesome/free-solid-svg-icons": "^5.7.1",
+    "@fortawesome/fontawesome-svg-core": "^1.2.19",
+    "@fortawesome/free-brands-svg-icons": "^5.9.0",
+    "@fortawesome/free-regular-svg-icons": "^5.9.0",
+    "@fortawesome/free-solid-svg-icons": "^5.9.0",
     "@fortawesome/react-fontawesome": "^0.1.4",
     "@octokit/rest": "^16.25.1",
     "babel-plugin-styled-components": "^1.10.0",
@@ -125,7 +125,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged && npm run type-check"
     }
   },
   "lint-staged": {
