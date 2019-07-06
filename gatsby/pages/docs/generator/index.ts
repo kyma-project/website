@@ -1,6 +1,6 @@
 import { DocsLoader } from "./docsLoader";
 import { extractContent } from "./extractContent";
-import { loadManifest } from "./manifest";
+import { loadManifest } from "./loadManifest";
 import { generateNavigation } from "./generateNavigation";
 import { DocQL, Docs, DocsVersions } from "../types";
 
