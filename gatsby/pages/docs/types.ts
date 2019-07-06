@@ -1,10 +1,3 @@
-import { CreatePageFn, CreateRedirectFn } from "../../types";
-
-export interface CreateDocsPages {
-  graphql: Function;
-  createPage: CreatePageFn;
-}
-
 export interface DocQL {
   rawMarkdownBody: string;
   fields: {

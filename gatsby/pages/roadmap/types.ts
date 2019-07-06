@@ -1,11 +1,3 @@
-import { CreatePageFn, CreateRedirectFn } from "../../types";
-
-export interface CreateRoadmapPages {
-  graphql: Function;
-  createPage: CreatePageFn;
-  createRedirect: CreateRedirectFn;
-}
-
 export interface CapabilityQL {
   frontmatter: {
     displayName: string;

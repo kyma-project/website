@@ -3,7 +3,6 @@ import { generator } from "./generator";
 import { fixLinks } from "./fixLinks";
 import { getDocs, getDocsVersions, populateObject } from "./helpers";
 import {
-  CreateDocsPages,
   DocsContentItems,
   DocsContentItem,
   ManifestItem,
@@ -17,6 +16,12 @@ import {
   DOCS_ROOT_TYPE,
   DOCS_KYMA_ID,
 } from "../../constants";
+import { CreatePageFn, CreateRedirectFn } from "../../types";
+
+export interface CreateDocsPages {
+  graphql: Function;
+  createPage: CreatePageFn;
+}
 
 export const createDocsPages = async ({
   graphql,
