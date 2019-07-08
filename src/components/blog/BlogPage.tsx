@@ -1,5 +1,6 @@
 import React from "react";
 
+import Link from "@components/shared/Link";
 import Grid from "@styled/Grid";
 
 import PostPage from "@components/blog/Post";
@@ -15,6 +16,12 @@ interface BlogPageProps {
   nodes: AllMarkdownRemarkNodePost[];
 }
 
+import styled from "styled-components";
+
+const Temp = styled(Link.Internal)`
+  align-self: flex-end;
+`;
+
 export const BlogPageWrapper: React.FunctionComponent = ({ children }) => (
   <Grid.Container>
     <Grid.Row>
@@ -29,7 +36,8 @@ export const BlogPageWrapper: React.FunctionComponent = ({ children }) => (
 
 const BlogPage: React.FunctionComponent<BlogPageProps> = ({ nodes }) => (
   <BlogPageWrapper>
-    {nodes.map((edge: AllMarkdownRemarkNodePost, index: number) => {
+    <Temp to={"feed.xml"}>RSS</Temp>
+    {nodes.map((edge: AllMarkdownRemarkNodePost) => {
       const post = edge.node;
       return (
         <PostPage

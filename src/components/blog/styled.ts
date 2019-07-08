@@ -3,6 +3,8 @@ import styled, { media } from "@styled";
 /* BlogPage */
 export const BlogPageWrapper = styled.div`
   margin: 75px 0 0 0;
+  display: flex;
+  flex-direction: column;
 
   ${media.phone`
     margin-top: 25px;
