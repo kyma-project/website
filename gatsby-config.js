@@ -92,25 +92,42 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-feed-generator",
+      resolve: `gatsby-plugin-feed`,
       options: {
-        generator: `GatsbyJS`,
-        rss: true, // Set to false to stop rss generation
-        json: true, // Set to false to stop json feed generation
-        siteQuery: `
-        {
-          site {
-            siteMetadata {
-              title
-              description
-              siteUrl
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+              }
             }
           }
-        }
-      `,
+        `,
         feeds: [
           {
-            name: "feed", // This determines the name of your feed file => feed.json & feed.xml
+            serialize: ({ query: { site, allMarkdownRemark } }) => {
+              return allMarkdownRemark.edges
+                .filter(arg => arg.node.fields.slug.startsWith("/blog/"))
+                .map(edge => {
+                  const host = site.siteMetadata.siteUrl;
+                  const link = `${
+                    host.endsWith("/") ? host : host + "/"
+                  }${edge.node.fields.slug.slice(1)}`;
+
+                  const author = edge.node.frontmatter.author.name;
+                  return {
+                    ...edge.node.frontmatter,
+                    date: edge.node.frontmatter.date,
+                    url: link,
+                    guid: link,
+                    description: edge.node.excerpt,
+                    ...(!!author && { author: author }),
+                    custom_elements: [{ "content:encoded": edge.node.html }],
+                  };
+                });
+            },
             query: `
             {
               allMarkdownRemark(sort: {order: DESC, fields: [fields___date]}) {
@@ -124,28 +141,16 @@ module.exports = {
                     }
                     frontmatter {
                       title
+                      author {
+                        name
+                      }
                     }
                   }
                 }
               }
-            }            
-          `,
-            normalize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.edges
-                .filter(arg => arg.node.fields.slug.startsWith("/blog/"))
-                .map(edge => {
-                  return Object.assign({}, edge.node.frontmatter, {
-                    description: edge.node.excerpt,
-                    url:
-                      site.siteMetadata.siteUrl +
-                      edge.node.fields.slug.slice(1),
-                    date: edge.node.fields.date,
-                    guid:
-                      site.siteMetadata.siteUrl +
-                      edge.node.fields.slug.slice(1),
-                  });
-                });
-            },
+            }  
+            `,
+            output: "/feed.xml",
           },
         ],
       },
@@ -153,61 +158,3 @@ module.exports = {
   ],
   pathPrefix: "/website",
 };
-
-// {
-//   resolve: `gatsby-plugin-feed`,
-//   options: {
-//     query: `
-//       {
-//         site {
-//           siteMetadata {
-//             title
-//             description
-//             siteUrl
-
-//           }
-//         }
-//       }
-//     `,
-//     feeds: [
-//       {
-//         serialize: ({ query: { site, allMarkdownRemark } }) => {
-//           return allMarkdownRemark.edges.map(edge => {
-//             console.log(edge.node.fields.slug);
-//             return Object.assign({}, edge.node.frontmatter, {
-//               description: edge.node.excerpt,
-//               date: edge.node.frontmatter.date,
-//               url: site.siteMetadata.siteUrl + edge.node.fields.slug,
-//               guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-//             });
-//           });
-//         },
-//         query: `
-//         {
-//           allMarkdownRemark {
-//             edges {
-//               node {
-//                 excerpt
-//                 html
-//                 fields {
-//                   slug
-//                 }
-//                 frontmatter {
-//                   title
-//                 }
-//               }
-//             }
-//           }
-//         }
-//         `,
-//         output: "/rss.xml",
-//         title: "Your Site's RSS Feed",
-//         // optional configuration to insert feed reference in pages:
-//         // if `string` is used, it will be used to create RegExp and then test if pathname of
-//         // current page satisfied this regular expression;
-//         // if not provided or `undefined`, all pages will have feed reference inserted
-//         match: ".*?blog.*?",
-//       },
-//     ],
-//   },
-// },

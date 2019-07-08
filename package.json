@@ -23,7 +23,7 @@
   "scripts": {
     "start": "npm run clear-cache && npm run develop",
     "develop": "gatsby develop --port 5000",
-    "build": "gatsby build",
+    "build": "npm run clear-cache && gatsby build",
     "serve": "gatsby serve",
     "serve:out": "gatsby serve -H 0.0.0.0",
     "build:prod": "GATSBY_SITE_URL='https://kyma-project.io' gatsby build",
@@ -48,7 +48,7 @@
     "constate": "^1.0.0",
     "gatsby": "^2.7.1",
     "gatsby-plugin-env-variables": "^1.0.1",
-    "gatsby-plugin-feed-generator": "^2.0.0",
+    "gatsby-plugin-feed": "^2.3.2",
     "gatsby-plugin-gtag": "^1.0.11",
     "gatsby-plugin-manifest": "^2.0.13",
     "gatsby-plugin-netlify": "^2.0.16",
