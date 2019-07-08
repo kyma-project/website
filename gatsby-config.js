@@ -123,7 +123,7 @@ module.exports = {
                     url: link,
                     guid: link,
                     description: edge.node.excerpt,
-                    ...(!!author && { author: author }),
+                    ...(!!author && { author }),
                     custom_elements: [{ "content:encoded": edge.node.html }],
                   };
                 });
