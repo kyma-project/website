@@ -4,13 +4,30 @@ import { withPrefix } from "gatsby";
 
 import { injectIntl, IntlInterface } from "@common/i18n";
 import { getActualYear } from "@common/utils";
+import { socialMedia } from "@config";
+import {
+  GOOGLE_CUSTOM_SEARCH_ENGINE_URL,
+  ORGANIZATION_NAME,
+} from "@common/constants";
 
 import LayoutService from "@components/layout/service";
+
+export interface BlogPostMetadata {
+  author?: string;
+  datePublish: string;
+  dateModified?: string;
+  headline: string;
+  inLanguage?: string;
+  image?: string;
+  slug: string;
+}
 
 interface MetadataProps {
   pageTitle?: string;
   pageDescription?: string;
   siteMetadata: any;
+  formatMessage: any;
+  blogPostMetadata?: BlogPostMetadata;
 }
 
 const SiteMetadata: React.FunctionComponent<MetadataProps & IntlInterface> = ({
@@ -18,13 +35,17 @@ const SiteMetadata: React.FunctionComponent<MetadataProps & IntlInterface> = ({
   pageDescription = "",
   siteMetadata,
   formatMessage,
+  blogPostMetadata,
 }) => {
   const {
     docsMetadata: { language },
   } = useContext(LayoutService);
 
-  const host = process.env.GATSBY_SITE_URL || "";
+  const host = process.env.GATSBY_SITE_URL || "127.0.0.1:5000";
   const logoPath = `${host}${withPrefix("/favicon-32x32.png")}`;
+  const installUrl = `${host}${withPrefix(
+    "/docs/root/kyma/#installation-installation",
+  )}`;
   const image = `${host}${withPrefix("/logo.png")}`;
 
   let title = `${formatMessage({ id: "title" })} - ${formatMessage({
@@ -43,6 +64,53 @@ const SiteMetadata: React.FunctionComponent<MetadataProps & IntlInterface> = ({
   );
   const keywords = formatMessage({ id: "keywords" });
   const twitterUsername = siteMetadata.twitterUsername;
+  const imageType = (url: string) => ({
+    "@type": "ImageObject",
+    url,
+  });
+  const contactPoint = (url: string) => ({
+    "@type": "ContactPoint",
+    contactType: "customer support",
+    url,
+  });
+  const organizationType = (name: string, logoURL: string) => ({
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    name,
+    logo: imageType(logoURL),
+    contactPoint: contactPoint(socialMedia.slack.url),
+  });
+  const organizationSchema = {
+    ...organizationType(ORGANIZATION_NAME, image),
+    url: host,
+    description,
+    potentialAction: {
+      "@type": "SearchAction",
+      target: `${GOOGLE_CUSTOM_SEARCH_ENGINE_URL}&q={search_term_string}`,
+      "query-input": "required name=search_term_string",
+    },
+  };
+  const authorType = (name: string) => ({
+    "@type": "Person",
+    name,
+  });
+  const blogpostSchema = (metadata: BlogPostMetadata) => ({
+    "@context": "http://schema.org",
+    "@type": "Article",
+    author: metadata.author
+      ? authorType(metadata.author)
+      : organizationType(ORGANIZATION_NAME, image),
+    publisher: organizationType(ORGANIZATION_NAME, image),
+    datePublished: metadata.datePublish,
+    dateModified: metadata.dateModified
+      ? metadata.dateModified
+      : metadata.datePublish,
+    headline: metadata.headline,
+    image: imageType(metadata.image ? metadata.image : image),
+    inLanguage: metadata.inLanguage ? metadata.inLanguage : "en",
+    mainEntityOfPage: `${host}${metadata.slug}`,
+    description,
+  });
 
   return (
     <Helmet
@@ -140,7 +208,18 @@ const SiteMetadata: React.FunctionComponent<MetadataProps & IntlInterface> = ({
           href: withPrefix("/favicon-16x16.png"),
         },
       ]}
-    />
+    >
+      {!blogPostMetadata && (
+        <script type="application/ld+json">
+          {JSON.stringify(organizationSchema)}
+        </script>
+      )}
+      {blogPostMetadata && (
+        <script type="application/ld+json">
+          {JSON.stringify(blogpostSchema(blogPostMetadata))}
+        </script>
+      )}
+    </Helmet>
   );
 };
 
