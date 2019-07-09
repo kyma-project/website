@@ -8,9 +8,11 @@ redirectFrom:
   - "/blog/happy-birthday-kyma"
 ---
 
-Kyma is already 1 year old and I have a feeling it was open sourced just recently. Let me take you for a journey in the past, let us do some flashbacks in to given time in the past to the most interesting moments. Once we know how it was in the past, let's see what future brings.
+Kyma is already 1 year old and we have a feeling it was open sourced just recently. Let me take you for a journey in the past, let us do some flashbacks in to given time in the past to the most interesting moments. Once we know how it was in the past, let's see what future brings.
 
 <!-- overview -->
+
+![birthday](./birthday.png)
 
 - [We had quite an interesting year](#we-had-quite-an-interesting-year)
   * [24.07.2018 Open source day one](#24072018-open-source-day-one)
@@ -31,6 +33,7 @@ Kyma is already 1 year old and I have a feeling it was open sourced just recentl
 - [We make another big step](#we-make-another-big-step)
 - [We made friends](#we-made-friends)
 - [We contribute back](#we-contribute-back)
+- [Join us](#join-us)
 
 # We had quite an interesting year
 
@@ -163,4 +166,18 @@ If you depend on someone and you need more that you can get, don't wait until yo
 - [Istio](https://github.com/istio/istio):	Missing features,
 - [Kubeless](https://github.com/kubeless/kubeless):	Minor improvements
 
-That was a hell of a year, and I can't wait to see what year 2 brings, please get me some popcorn.
+That was a hell of a year, and we can't wait to see what year 2 brings, please get me some popcorn.
+
+# Join us
+
+If you were not part of our history yet, you can still join us and become part of Kyma in the future. We have many channels that you can use to interact with us:
+
+- Twitter: https://twitter.com/kymaproject
+- Core SIG public meetings: https://docs.google.com/document/d/1vWleTon7sJIk0teee4SoVezS4mR3K8TlkvXkgLJwRD8/
+- Slack: http://slack.kyma-project.io
+- GitHub issues: https://github.com/kyma-project/kyma/issues
+- LinkedIn: https://www.linkedin.com/company/kyma-project/
+- Stackoverflow: https://stackoverflow.com/questions/tagged/kyma
+- YouTube: https://www.youtube.com/channel/UC8Q8bBtYe9gQN-dQ-_L8JvQ
+
+Choose the channel that is the most cozy for you and let us know what you think about Kyma and ask how you can start.
