@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import Helmet from "react-helmet";
 import { withPrefix } from "gatsby";
 
+import { globalHistory } from "@reach/router";
 import { injectIntl, IntlInterface } from "@common/i18n";
 import { getActualYear } from "@common/utils";
 import { socialMedia } from "@config";
@@ -41,11 +42,8 @@ const SiteMetadata: React.FunctionComponent<MetadataProps & IntlInterface> = ({
     docsMetadata: { language },
   } = useContext(LayoutService);
 
-  const host = process.env.GATSBY_SITE_URL || "127.0.0.1:5000";
-  const logoPath = `${host}${withPrefix("/favicon-32x32.png")}`;
-  const installUrl = `${host}${withPrefix(
-    "/docs/root/kyma/#installation-installation",
-  )}`;
+  const host =
+    process.env.GATSBY_SITE_URL || `127.0.0.1:${globalHistory.location.port}`;
   const image = `${host}${withPrefix("/logo.png")}`;
 
   let title = `${formatMessage({ id: "title" })} - ${formatMessage({
@@ -111,7 +109,9 @@ const SiteMetadata: React.FunctionComponent<MetadataProps & IntlInterface> = ({
     mainEntityOfPage: `${host}${metadata.slug}`,
     description,
   });
-
+  const structureData = blogPostMetadata
+    ? blogpostSchema(blogPostMetadata)
+    : organizationSchema;
   return (
     <Helmet
       htmlAttributes={{
@@ -209,16 +209,9 @@ const SiteMetadata: React.FunctionComponent<MetadataProps & IntlInterface> = ({
         },
       ]}
     >
-      {!blogPostMetadata && (
-        <script type="application/ld+json">
-          {JSON.stringify(organizationSchema)}
-        </script>
-      )}
-      {blogPostMetadata && (
-        <script type="application/ld+json">
-          {JSON.stringify(blogpostSchema(blogPostMetadata))}
-        </script>
-      )}
+      <script type="application/ld+json">
+        {JSON.stringify(structureData)}
+      </script>
     </Helmet>
   );
 };

@@ -5,7 +5,6 @@ import { graphql } from "gatsby";
 import Layout from "@components/layout/Layout";
 import BlogPage from "@components/blog/Post";
 import { BlogPageWrapper } from "@components/blog/BlogPage";
-import config from "@config";
 
 import {
   AllFile,
