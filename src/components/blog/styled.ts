@@ -1,6 +1,7 @@
 import styled, { media } from "@styled";
 import Link from "@components/shared/Link";
-
+import Img from "./assets/RSS_46x46_default.svg";
+import HoveredImage from "./assets/RSS_46x46_hover.svg";
 /* BlogPage */
 export const BlogPageWrapper = styled.div`
   margin: 75px 0 0 0;
@@ -20,16 +21,14 @@ export const StyledLink = styled(Link.External)`
   `};
 `;
 
-export const IconWrapper = styled.section`
-  width: 45px;
-  height: 45px;
-  border-radius: 45px;
-  background-color: #9dc7f1;
-  & svg {
-    margin-left: 13px;
-    font-size: 20px;
-    color: white;
-    margin-top: 11px;
+// RSS Icon
+export const Icon = styled.section`
+  width: 46px;
+  height: 46px;
+  background-image: url(${Img});
+  transition: 0.2s;
+  :hover {
+    background-image: url(${HoveredImage});
   }
 `;
 

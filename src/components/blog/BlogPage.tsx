@@ -7,9 +7,8 @@ import PostPage from "@components/blog/Post";
 import { AllMarkdownRemarkNode } from "@common/types";
 import { Post } from "./types";
 import config from "@config";
-import { BlogPageWrapper as Wrapper, IconWrapper, StyledLink } from "./styled";
+import { BlogPageWrapper as Wrapper, Icon, StyledLink } from "./styled";
 import { globalHistory } from "@reach/router";
-import Icon from "@components/shared/Icon";
 
 type AllMarkdownRemarkNodePost = AllMarkdownRemarkNode<Post>;
 
@@ -34,9 +33,7 @@ const BlogPage: React.FunctionComponent<BlogPageProps> = ({ nodes }) => {
   return (
     <BlogPageWrapper>
       <StyledLink to={`${host}/${config.siteMetadata.feedUrl}`}>
-        <IconWrapper>
-          <Icon iconName="rss" iconPrefix="fas" />
-        </IconWrapper>
+        <Icon />
       </StyledLink>
       {nodes.map((edge: AllMarkdownRemarkNodePost) => {
         const post = edge.node;
