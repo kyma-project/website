@@ -29,12 +29,12 @@ export const BlogPageWrapper: React.FunctionComponent = ({ children }) => (
 );
 
 const BlogPage: React.FunctionComponent<BlogPageProps> = ({ nodes }) => {
-  const host = globalHistory.location.host;
+  const origin = globalHistory.location.origin;
   // tslint:disable-next-line
-  console.log(globalHistory.location, host, config.siteMetadata.feedUrl);
+  console.log(globalHistory.location);
   return (
     <BlogPageWrapper>
-      <StyledLink to={`${host}/${config.siteMetadata.feedUrl}`}>
+      <StyledLink to={`${origin}/${config.siteMetadata.feedUrl}`}>
         <Icon />
       </StyledLink>
       {nodes.map((edge: AllMarkdownRemarkNodePost) => {
