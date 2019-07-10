@@ -15,6 +15,7 @@ import {
   faChevronUp,
   faSearch,
   faQuestionCircle,
+  faRss,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faEdit,
@@ -57,4 +58,5 @@ library.add(
   faSlack,
   faYoutube,
   faStackOverflow,
+  faRss,
 );

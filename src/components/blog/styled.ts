@@ -1,4 +1,5 @@
 import styled, { media } from "@styled";
+import Link from "@components/shared/Link";
 
 /* BlogPage */
 export const BlogPageWrapper = styled.div`
@@ -9,6 +10,27 @@ export const BlogPageWrapper = styled.div`
   ${media.phone`
     margin-top: 25px;
   `};
+`;
+
+export const StyledLink = styled(Link.External)`
+  align-self: flex-end;
+  ${media.tablet`
+    position: relative;
+    top: 10px;
+  `};
+`;
+
+export const IconWrapper = styled.section`
+  width: 45px;
+  height: 45px;
+  border-radius: 45px;
+  background-color: #9dc7f1;
+  & svg {
+    margin-left: 13px;
+    font-size: 20px;
+    color: white;
+    margin-top: 11px;
+  }
 `;
 
 /* Post */
