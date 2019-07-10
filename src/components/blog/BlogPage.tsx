@@ -30,8 +30,6 @@ export const BlogPageWrapper: React.FunctionComponent = ({ children }) => (
 
 const BlogPage: React.FunctionComponent<BlogPageProps> = ({ nodes }) => {
   const origin = globalHistory.location.origin;
-  // tslint:disable-next-line
-  console.log(globalHistory.location);
   return (
     <BlogPageWrapper>
       <StyledLink to={`${origin}/${config.siteMetadata.feedUrl}`}>
