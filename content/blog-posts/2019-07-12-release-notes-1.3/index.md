@@ -10,7 +10,7 @@ redirectFrom:
   - "/blog/release-notes-13"
 ---
 
-After a short stop in Istanbul, we move forward to Jakarta with a brand new Kyma 1.3 release, which brings you a set of significant improvements in many components, including the Console and Kyma CLI. It also introduces the CloudEvents specification 0.3 for Event delivery and contains even more useful documents that will guide you through the project. Read on to find out what Kyma 1.3 has to offer.
+After a short stop in Istanbul, we move forward to Jakarta with the brand new Kyma 1.3 release, which brings you a set of significant improvements in many components, including the Console and Kyma CLI. It also introduces the CloudEvents specification 0.3 for Event delivery, and contains even more useful documents that will guide you through the project. Read on to find out what Kyma 1.3 has to offer.
 
 <!-- overview -->
 
@@ -20,7 +20,7 @@ See the overview of all changes in this release:
 - [Console](#console) - Noisy logs hidden, easy Namespace labelling and filtering, API list streamed using web sockets, irrelevant navigation nodes hidden, DevX improvements for the **Lambda** view, Console Backend observability improved
 - [Core and Supporting](#core-and-supporting) - Documentation component
 - [Service Management](#service-management) - Service Catalog migration from "API Server" to "CRD only"
-- [Kyma CLI](#kyma-cli) - Initial documentation, installation and uninstallation commands improved, Kyma certificate as part of the installation command
+- [Kyma CLI](#kyma-cli) - Kyma CLI documentation, installation and uninstallation commands improved, Kyma certificate as part of the installation command
 - [Logging](#logging) - Loki update to 0.1.0
 - [Documentation](#documentation) - Configuration documents, troubleshooting document type template, upgrade process documentation
 - [Eventing](#eventing) - Event delivery aligned with the CloudEvents specification 0.3, Kyma subscription cleanup
@@ -81,7 +81,7 @@ To make sure that operations and troubleshooting of the Kyma cluster and its Con
 
 ### Documentation component
 
-In this release, we've worked on a component for documentation that will _bundle Markdown renderer and renderers_ for specifications such as OpenAPI or AsyncAPI. The goal is to have a single reusable component that can be used in any context in the Kyma Console and the `kyma-project.io` website. You can see the progress of this component in the  [kyma-incubator](https://github.com/kyma-incubator/documentation-component) organization on GitHub. You can also see the preview of this component in action in the **Documentation** view of the Kyma Console. As you can see in the screenshot, with this component we introduce a right navigation bar for Markdown documentation. This new navigation contains not only a list of documents that you can see on the page, but also a scroll-spy that indicates readers location on the website.
+In this release, we've worked on a component for documentation that will bundle Markdown renderer and  specification renderers, such as OpenAPI or AsyncAPI. The goal is to have a single reusable component that can be used in any context in the Kyma Console and the `kyma-project.io` website. You can see the progress of this component in the  [kyma-incubator](https://github.com/kyma-incubator/documentation-component) organization on GitHub. You can also see the preview of this component in action in the **Documentation** view of the Kyma Console. As you can see in the screenshot, with this component we introduce a right navigation bar for Markdown documentation. This new navigation contains not only a list of documents that you can see on the page, but also a scroll-spy that indicates readers location on the website.
 
 Our next step is to officially release this component and use it in other Kyma Console areas, such as Service Catalog related views where you can see documentation for different services.  
 
@@ -99,9 +99,9 @@ Now you can configure Kyma to use the experimental "CRD only" mode of our Servic
 
 ## Kyma CLI
 
-_### Initial documentation
+### Kyma CLI documentation
 
-We started with the initial command documentation with dedicated Markdown documents, covering the documentation for the `version` and `install` as first candidates, next one will follow with every release._
+We have started documenting Kyma CLI commands, covering the documentation for the `version` and `install` commands so far. We will continue to describe other commands with further releases.
 
 ### Installation and uninstallation commands improved
 
