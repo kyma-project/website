@@ -152,3 +152,7 @@ Certain properties which are no longer applicable after Knative migration have b
 With this release, it is possible to expose an API with authentication disabled on certain paths. It is useful for scenarios in which an API hosts public assets, such as schemas or login endpoints.
 
 To allow disabling authentication on selected paths, there is a new **triggerRule** field in the Api CRD, which contains the `excludedPaths` object that represents the paths on which authentication should be disabled. The rest of the service's paths remain secured, meaning that the authentication is enabled. You can specify a matching method for paths using `exact`,`prefix`,`suffix` and `regex`. Read [this](https://kyma-project.io/docs/1.3/components/api-gateway/#custom-resource-custom-resource) document for more details.
+
+### Known issues
+
+A known issue related to Istio sidecar handling on AKS causes Kubernetes jobs with Istio Proxy sidecar to run endlessly as the sidecar doesn't terminate. As a workaround, disable Istio sidecar injection for all jobs on AKS by adding the `sidecar.istio.io/inject: "false"` annotation. To get a better understanding of this problem, read [this](https://github.com/istio/istio/issues/15041) Istio issue and the related discussion. 
