@@ -2,9 +2,14 @@ import React, { useContext } from "react";
 import Helmet from "react-helmet";
 import { withPrefix } from "gatsby";
 
+import { globalHistory } from "@reach/router";
 import { injectIntl, IntlInterface } from "@common/i18n";
 import { getActualYear } from "@common/utils";
-import { GOOGLE_CUSTOM_SEARCH_ENGINE_URL } from "@common/constants";
+import { socialMedia } from "@config";
+import {
+  GOOGLE_CUSTOM_SEARCH_ENGINE_URL,
+  ORGANIZATION_NAME,
+} from "@common/constants";
 
 import LayoutService from "@components/layout/service";
 
@@ -37,11 +42,8 @@ const SiteMetadata: React.FunctionComponent<MetadataProps & IntlInterface> = ({
     docsMetadata: { language },
   } = useContext(LayoutService);
 
-  const host = process.env.GATSBY_SITE_URL || "localhost:5000";
-  const logoPath = `${host}${withPrefix("/favicon-32x32.png")}`;
-  const installUrl = `${host}${withPrefix(
-    "/docs/root/kyma/#installation-installation",
-  )}`;
+  const host =
+    process.env.GATSBY_SITE_URL || `127.0.0.1:${globalHistory.location.port}`;
   const image = `${host}${withPrefix("/logo.png")}`;
 
   let title = `${formatMessage({ id: "title" })} - ${formatMessage({
@@ -64,15 +66,20 @@ const SiteMetadata: React.FunctionComponent<MetadataProps & IntlInterface> = ({
     "@type": "ImageObject",
     url,
   });
+  const contactPoint = (url: string) => ({
+    "@type": "ContactPoint",
+    contactType: "customer support",
+    url,
+  });
   const organizationType = (name: string, logoURL: string) => ({
     "@context": "http://schema.org",
     "@type": "Organization",
     name,
     logo: imageType(logoURL),
+    contactPoint: contactPoint(socialMedia.slack.url),
   });
-  const organizationName = "kyma-project.io";
   const organizationSchema = {
-    ...organizationType(organizationName, image),
+    ...organizationType(ORGANIZATION_NAME, image),
     url: host,
     description,
     potentialAction: {
@@ -90,8 +97,8 @@ const SiteMetadata: React.FunctionComponent<MetadataProps & IntlInterface> = ({
     "@type": "Article",
     author: metadata.author
       ? authorType(metadata.author)
-      : organizationType(organizationName, image),
-    publisher: organizationType(organizationName, image),
+      : organizationType(ORGANIZATION_NAME, image),
+    publisher: organizationType(ORGANIZATION_NAME, image),
     datePublished: metadata.datePublish,
     dateModified: metadata.dateModified
       ? metadata.dateModified
@@ -102,7 +109,9 @@ const SiteMetadata: React.FunctionComponent<MetadataProps & IntlInterface> = ({
     mainEntityOfPage: `${host}${metadata.slug}`,
     description,
   });
-
+  const structureData = blogPostMetadata
+    ? blogpostSchema(blogPostMetadata)
+    : organizationSchema;
   return (
     <Helmet
       htmlAttributes={{
@@ -200,16 +209,9 @@ const SiteMetadata: React.FunctionComponent<MetadataProps & IntlInterface> = ({
         },
       ]}
     >
-      {!blogPostMetadata && (
-        <script type="application/ld+json">
-          {JSON.stringify(organizationSchema)}
-        </script>
-      )}
-      {blogPostMetadata && (
-        <script type="application/ld+json">
-          {JSON.stringify(blogpostSchema(blogPostMetadata))}
-        </script>
-      )}
+      <script type="application/ld+json">
+        {JSON.stringify(structureData)}
+      </script>
     </Helmet>
   );
 };

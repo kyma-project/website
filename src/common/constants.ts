@@ -12,3 +12,4 @@ export const ALGOLIA = {
 };
 export const GOOGLE_CUSTOM_SEARCH_ENGINE_URL =
   "https://cse.google.com/cse?cx=015415715199423401244:ecdzkzd4jvq";
+export const ORGANIZATION_NAME = "kyma-project";
