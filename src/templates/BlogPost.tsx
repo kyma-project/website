@@ -27,11 +27,19 @@ const BlogPostTemplate: React.FunctionComponent<
     .replace(/<(?:.|\n)*?>/gm, "")
     .substring(0, 297)}...`;
 
+  const blogPostMetadata = {
+    author: frontmatter.author.name,
+    datePublish: fields.date,
+    headline: frontmatter.title,
+    slug: fields.slug,
+  };
+
   return (
     <Layout
       locale={locale}
       pageTitle={frontmatter.title}
       pageDescription={description}
+      blogPostMetadata={blogPostMetadata}
     >
       <Helmet>
         <meta property="og:type" content="article" />
