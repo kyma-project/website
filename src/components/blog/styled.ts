@@ -1,7 +1,7 @@
 import styled, { media } from "@styled";
 import Link from "@components/shared/Link";
-import Img from "./assets/RSS_46x46_default.svg";
-import HoveredImage from "./assets/RSS_46x46_hover.svg";
+import RSSIcon from "./assets/RSS_46x46_default.svg";
+import HoveredRSSIcon from "./assets/RSS_46x46_hover.svg";
 /* BlogPage */
 export const BlogPageWrapper = styled.div`
   margin: 75px 0 0 0;
@@ -25,10 +25,10 @@ export const StyledLink = styled(Link.External)`
 export const Icon = styled.section`
   width: 46px;
   height: 46px;
-  background-image: url(${Img});
+  background-image: url(${RSSIcon});
   transition: 0.2s;
   :hover {
-    background-image: url(${HoveredImage});
+    background-image: url(${HoveredRSSIcon});
   }
 `;
 
