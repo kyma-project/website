@@ -16,15 +16,15 @@ After a short stop in Istanbul, we move forward to Jakarta with the brand new Ky
 
 See the overview of all changes in this release:
 
-- [Application Connector](#application-connector) - Fetching API specification secured with Basic Auth or OAuth, Generating CA root, additional headers and query parameters stored in a secured way
-- [Console](#console) - Noisy logs hidden, easy Namespace labelling and filtering, API list streamed using web sockets, irrelevant navigation nodes hidden, DevX improvements for the **Lambda** view, Console Backend observability improved
+- [Application Connector](#application-connector) - Fetching API specification secured with Basic Auth or OAuth, automatic generation of the root Certificate Authority, additional headers and query parameters stored in a secured way
+- [Console](#console) - Less information noise in lambda logs, easy Namespace labeling and filtering, API list streamed using WebSockets, hide irrelevant navigation nodes, DevX improvements for the **Lambda** view, Console Backend observability improved
 - [Core and Supporting](#core-and-supporting) - Documentation component
 - [Service Management](#service-management) - Service Catalog migration from "API Server" to "CRD only"
 - [Kyma CLI](#kyma-cli) - Kyma CLI documentation, installation and uninstallation commands improved, Kyma certificate as part of the installation command
-- [Logging](#logging) - Loki update to 0.1.0
+- [Logging](#logging) - Loki updated to 0.1.0
 - [Documentation](#documentation) - Configuration documents, troubleshooting document type template, upgrade process documentation
 - [Eventing](#eventing) - Event delivery aligned with the CloudEvents specification 0.3, Kyma subscription cleanup
-- [Service Mesh](#service-mesh) - Authentication on paths disabled
+- [Service Mesh](#service-mesh) - Disable authentication on selected API paths
 
 > **CAUTION:** Before you upgrade to Kyma 1.3, read the [Migration Guide](https://github.com/kyma-project/kyma/blob/release-1.3/docs/migration-guides/1.2-1.3.md) which describes necessary manual actions required by the Application Connector.
 
@@ -38,7 +38,7 @@ Application Connector supports a variety of authentication methods to allow user
 
 ### Automatic generation of the root Certificate Authority (CA)
 
-Application Connector serves as a certificate authority that issues client certificates for external systems. Users can provide their own certificates and keys to be used as the root CA. In order to improve security and reduce configuration effort, we automated the certificate and key generation process. From now on, if the user doesn't provide a custom certificate-key pair, the certificate and key are generated automatically. Read [this](https://kyma-project.io/docs/1.3/components/application-connector/#details-application-connector-certificates) document for more information. To learn how the automated certificate generation affects the upgrade process and how to preserve your certificate and key, read the migration guide.
+Application Connector serves as a certificate authority that issues client certificates for external systems. Users can provide their own certificates and keys to be used as the root CA. In order to improve security and reduce configuration effort, we automated the certificate and key generation process. From now on, if the user doesn't provide a custom certificate-key pair, the certificate and key are generated automatically. Read [this](https://kyma-project.io/docs/1.3/components/application-connector/#details-application-connector-certificates) document for more information. To learn how the automated certificate generation affects the upgrade process and how to preserve your certificate and key, read the [migration guide](https://github.com/kyma-project/kyma/blob/release-1.3/docs/migration-guides/1.2-1.3.md).
 
 ### Additional headers and query parameters stored in a secured way
 
@@ -94,7 +94,7 @@ Our next step is to officially release this component and use it in other Kyma C
 
 Now you can configure Kyma to use the experimental "CRD only" mode of our Service Catalog. Read [this](https://kyma-project.io/docs/1.3/components/service-catalog/#details-experimental-features) document to learn how to activate this feature. Moreover, the new mode contains a migration tool that migrates data for you. To learn more about the migration process, read [this](https://github.com/kyma-incubator/service-catalog/blob/crds-migration/docs/migration-apiserver-to-crds.md) document.
 
->**NOTE:** Before you start the migration, make sure that you performed a full backup of your cluster. You should also test the procedure on a testing environment first.
+>**NOTE:** Before you start the migration, make sure that you performed a full [backup](https://kyma-project.io/docs/1.3/components/backup/) of your cluster. You should also test the procedure on a testing environment first.
 
 
 ## Kyma CLI
@@ -124,8 +124,6 @@ Loki is now updated to the first beta version, which promises a much better stab
 ### Configuration documents
 
 We have successfully finished writing configuration documents for all Kyma components. If you want to check which parameters from `values.yaml` files of each component’s charts and sub-charts you can configure with overrides, check the **Configuration** section under a particular Kyma component.
-
->**CAUTION:** Override only values for those parameters from `values.yaml` files that are exposed in configuration documents for a given component.  
 
 ### Troubleshooting document type template
 
