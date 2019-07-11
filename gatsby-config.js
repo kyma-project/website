@@ -116,14 +116,12 @@ module.exports = {
                     host.endsWith("/") ? host : host + "/"
                   }${edge.node.fields.slug.slice(1)}`;
 
-                  const author = edge.node.frontmatter.author.name;
                   return {
                     ...edge.node.frontmatter,
                     date: edge.node.frontmatter.date,
                     url: link,
                     guid: link,
                     description: edge.node.excerpt,
-                    ...(!!author && { author }),
                     custom_elements: [{ "content:encoded": edge.node.html }],
                   };
                 });
