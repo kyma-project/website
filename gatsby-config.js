@@ -1,5 +1,4 @@
 const siteMetadata = require("./config.json").siteMetadata;
-const feedUrl = require("./config.json").feedUrl;
 
 module.exports = {
   siteMetadata,
