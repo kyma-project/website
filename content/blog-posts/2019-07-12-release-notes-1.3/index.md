@@ -61,7 +61,7 @@ The list of APIs contains up-to-date data with no need of refreshing the page. A
 
 ### Hide irrelevant navigation nodes
 
-In case you find some navigation nodes in the Console irrelevant, you can simply ignore them by defining a list of specific navigation nodes or even whole categories that should not show up in the Console UI navigation.
+In case you find some navigation nodes in the Console irrelevant, you can simply ignore them by defining a list of specific navigation nodes or even whole categories that should not show up in the Console UI navigation. Read [this](https://kyma-project.io/docs/1.3/components/console/#configuration-console-chart) document to learn more.
 
 ### DevX improvements for the Lambda view
 
