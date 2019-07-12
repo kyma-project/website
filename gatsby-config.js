@@ -1,4 +1,4 @@
-const siteMetadata = require("./config").siteMetadata;
+const siteMetadata = require("./config.json").siteMetadata;
 
 module.exports = {
   siteMetadata,
@@ -89,6 +89,72 @@ module.exports = {
       resolve: `gatsby-plugin-env-variables`,
       options: {
         whitelist: ["GOOGLE_CSE", "ALGOLIA_API_KEY", "ALGOLIA_INDEX_NAME"],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMarkdownRemark } }) => {
+              return allMarkdownRemark.edges
+                .filter(arg => arg.node.fields.slug.startsWith("/blog/"))
+                .map(edge => {
+                  const host = site.siteMetadata.siteUrl;
+                  const link = `${
+                    host.endsWith("/") ? host : host + "/"
+                  }${edge.node.fields.slug.slice(1)}`;
+
+                  return {
+                    ...edge.node.frontmatter,
+                    date: edge.node.frontmatter.date,
+                    url: link,
+                    guid: link,
+                    description: edge.node.excerpt,
+                    custom_elements: [{ "content:encoded": edge.node.html }],
+                  };
+                });
+            },
+            query: `
+            {
+              allMarkdownRemark(sort: {order: DESC, fields: [fields___date]}) {
+                edges {
+                  node {
+                    excerpt
+                    html
+                    fields {
+                      slug
+                      date
+                    }
+                    frontmatter {
+                      title
+                      author {
+                        name
+                      }
+                    }
+                  }
+                }
+              }
+            }  
+            `,
+            output: `${
+              siteMetadata.feedUrl.startsWith("/")
+                ? siteMetadata.feedUrl
+                : "/" + siteMetadata.feedUrl
+            }`,
+          },
+        ],
       },
     },
   ],

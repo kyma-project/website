@@ -6,8 +6,9 @@ import PostPage from "@components/blog/Post";
 
 import { AllMarkdownRemarkNode } from "@common/types";
 import { Post } from "./types";
-
-import { BlogPageWrapper as Wrapper } from "./styled";
+import config from "@config";
+import { BlogPageWrapper as Wrapper, Icon, StyledLink } from "./styled";
+import { globalHistory } from "@reach/router";
 
 type AllMarkdownRemarkNodePost = AllMarkdownRemarkNode<Post>;
 
@@ -27,21 +28,27 @@ export const BlogPageWrapper: React.FunctionComponent = ({ children }) => (
   </Grid.Container>
 );
 
-const BlogPage: React.FunctionComponent<BlogPageProps> = ({ nodes }) => (
-  <BlogPageWrapper>
-    {nodes.map((edge: AllMarkdownRemarkNodePost, index: number) => {
-      const post = edge.node;
-      return (
-        <PostPage
-          key={post.id}
-          metadata={post.frontmatter}
-          fields={post.fields}
-          markdown={post.excerpt || post.rawMarkdownBody}
-          readMore={true}
-        />
-      );
-    })}
-  </BlogPageWrapper>
-);
+const BlogPage: React.FunctionComponent<BlogPageProps> = ({ nodes }) => {
+  const origin = globalHistory.location.origin;
+  return (
+    <BlogPageWrapper>
+      <StyledLink to={`${origin}/${config.siteMetadata.feedUrl}`}>
+        <Icon />
+      </StyledLink>
+      {nodes.map((edge: AllMarkdownRemarkNodePost) => {
+        const post = edge.node;
+        return (
+          <PostPage
+            key={post.id}
+            metadata={post.frontmatter}
+            fields={post.fields}
+            markdown={post.excerpt || post.rawMarkdownBody}
+            readMore={true}
+          />
+        );
+      })}
+    </BlogPageWrapper>
+  );
+};
 
 export default BlogPage;
