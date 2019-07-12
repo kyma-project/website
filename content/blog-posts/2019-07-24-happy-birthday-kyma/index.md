@@ -22,11 +22,11 @@ Kyma is already 1 year old and we have a feeling it has only recently been open-
   * [10.10.2018 Kyma announced to SAP customers and partners](#10-10-2018-kyma-announced-to-sap-customers-and-partners)
   * [10-13.12.2018 Kyma at KubeCon Seattle](#10-13-12-2018-kyma-at-kubecon-seattle)
   * [19.02.2019 First Kyma early adopters](#19-02-2019-first-kyma-early-adopters)
-  * [25.04.2019 1.0 release](#25-04-2019-10-release)
+  * [25.04.2019 1.0 release](#25-04-2019-1-0-release)
   * [02.05.2019 Netconomy went to production](#02-05-2019-netconomy-went-to-production)
   * [07.05.2019 Kyma released with SAP C/4HANA Foundation to the production environment](#07-05-2019-kyma-released-with-sap-c-4hana-foundation-to-the-production-environment)
   * [21-23.05.2019 Kyma at KubeCon Barcelona](#21-23-05-2019-kyma-at-kubecon-barcelona)
-  * [23.05.2019 We announced Kyma 1.0 on the Kubernetes blog](#23-05-2019-we-announced-kyma-10-on-the-kubernetes-blog)
+  * [23.05.2019 We announced Kyma 1.0 on the Kubernetes blog](#23-05-2019-we-announced-kyma-1-0-on-the-kubernetes-blog)
   * [18.06.2019 Kyma devs became Kubernetes contributors and Service Catalog approvers](#18-06-2019-kyma-devs-became-kubernetes-contributors-and-service-catalog-approvers)
   * [02.07.2019 Kyma dev became a chair of the Service Catalog SIG](#02-07-2019-kyma-dev-became-a-chair-of-the-service-catalog-sig)
   * [03.07.2019 Setup of Knative dedicated team](#03-07-2019-setup-of-knative-dedicated-team)
@@ -152,7 +152,7 @@ A few of us regularly help the following communities:
 - [Ahmed Abdalla](https://twitter.com/Abd4llA) in [Knative](https://github.com/knative) 
 - [Lukasz Gornicki](https://twitter.com/derberq) in [AsyncAPI](https://www.asyncapi.org/)
 - [Piotr Kopczynski](https://twitter.com/PiotrasPk) and [Mateusz Szostok](https://twitter.com/m_szostok) in [Kubernetes Service Catalog](https://github.com/kubernetes-sigs/service-catalog)
-- [Piotr Mscichowski](https://github.com/piotrmsc) in [Ory](https://github.com/ory), Hydra, and Authkeeper projects.
+- [Piotr Mscichowski](https://github.com/piotrmsc) in [Ory](https://github.com/ory), [Hydra](https://github.com/ory/hydra), and [Authkeeper](https://github.com/ory/oathkeeper) projects.
 
 # We contribute back
 
