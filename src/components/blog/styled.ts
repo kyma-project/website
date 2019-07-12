@@ -13,7 +13,7 @@ export const BlogPageWrapper = styled.div`
   `};
 `;
 
-export const StyledLink = styled(Link.External)`
+export const StyledLink = styled.a`
   align-self: flex-end;
   ${media.tablet`
     position: relative;
