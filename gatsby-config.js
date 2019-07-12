@@ -112,6 +112,16 @@ module.exports = {
               return allMarkdownRemark.edges
                 .filter(arg => arg.node.fields.slug.startsWith("/blog/"))
                 .map(edge => {
+                  const getAuthor = arg => {
+                    if (
+                      arg.node.frontmatter.author &&
+                      !!arg.node.frontmatter.author.name
+                    ) {
+                      return arg.node.frontmatter.author.name;
+                    }
+                    return null;
+                  };
+
                   const host = site.siteMetadata.siteUrl;
                   const link = `${
                     host.endsWith("/") ? host : host + "/"
@@ -122,6 +132,7 @@ module.exports = {
                     date: edge.node.frontmatter.date,
                     url: link,
                     guid: link,
+                    author: getAuthor(edge),
                     description: edge.node.excerpt,
                     custom_elements: [{ "content:encoded": edge.node.html }],
                   };
@@ -140,6 +151,9 @@ module.exports = {
                     }
                     frontmatter {
                       title
+                      author {
+                        name
+                      }
                     }
                   }
                 }
