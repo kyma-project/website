@@ -170,7 +170,7 @@ That was a hell of a year, and we can't wait to see what the upcoming year holds
 
 # Join us
 
-If you were not part of our history yet, you can still join us and become part of Kyma in the future. We have many channels that you can use to interact with us:
+If you did not have a chance to contribute to our history, you can still join us and become part of Kyma in the future. We have many channels that you can use to interact with us:
 
 - Twitter: https://twitter.com/kymaproject
 - Core SIG public meetings: https://docs.google.com/document/d/1vWleTon7sJIk0teee4SoVezS4mR3K8TlkvXkgLJwRD8/
