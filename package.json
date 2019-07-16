@@ -23,8 +23,8 @@
   "scripts": {
     "start": "npm run clean && npm run develop",
     "develop": "gatsby develop --port 5000",
-    "build": "npm run clear-cache && gatsby build",
-    "build:prod": "GATSBY_SITE_URL='https://kyma-project.io' gatsby build",
+    "build": "npm run clean && gatsby build",
+    "build:prod": "npm run clean && GATSBY_SITE_URL='https://kyma-project.io' gatsby build",
     "serve": "gatsby serve",
     "serve:out": "gatsby serve -H 0.0.0.0",
     "clean": "gatsby clean",

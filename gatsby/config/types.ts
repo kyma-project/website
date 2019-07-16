@@ -1,4 +1,4 @@
-export interface SiteMetadata extends Record<string, unknown> {
+export interface SiteMetadata {
   siteUrl: string;
   twitterUsername: string;
   title: string;

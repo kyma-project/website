@@ -1,4 +1,33 @@
 import { siteMetadata } from "./sitemetadata";
+import { SiteMetadata } from "./types";
+
+interface Edge {
+  node: {
+    excerpt: string;
+    html: string;
+    fields: {
+      slug: string;
+      date: string;
+    };
+    frontmatter: {
+      title: string;
+      author: {
+        name: string;
+      };
+    };
+  };
+}
+
+interface QueryType {
+  query: {
+    site: {
+      siteMetadata: SiteMetadata;
+    };
+    allMarkdownRemark: {
+      edges: Edge[];
+    };
+  };
+}
 
 export const rssFeed = {
   resolve: `gatsby-plugin-feed`,
@@ -17,11 +46,15 @@ export const rssFeed = {
     `,
     feeds: [
       {
-        serialize: ({ query: { site, allMarkdownRemark } }) => {
+        serialize: ({ query: { site, allMarkdownRemark } }: QueryType) => {
           return allMarkdownRemark.edges
-            .filter(arg => arg.node.fields.slug.startsWith("/blog/"))
+            .filter(arg =>
+              arg.node.fields.slug
+                ? arg.node.fields.slug.startsWith("/blog/")
+                : false,
+            )
             .map(edge => {
-              const getAuthor = arg => {
+              const getAuthor = (arg: Edge) => {
                 if (
                   arg.node.frontmatter.author &&
                   !!arg.node.frontmatter.author.name
@@ -38,7 +71,7 @@ export const rssFeed = {
 
               return {
                 ...edge.node.frontmatter,
-                date: edge.node.frontmatter.date,
+                date: edge.node.fields.date,
                 url: link,
                 guid: link,
                 author: getAuthor(edge),
