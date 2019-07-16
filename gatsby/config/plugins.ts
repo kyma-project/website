@@ -1,10 +1,5 @@
-type Plugins = Array<
-  | string
-  | {
-      resolve: string;
-      options: Record<string, any>;
-    }
->;
+import { rssFeed } from "./rss-feed";
+import { Plugins } from "./types";
 
 export const plugins: Plugins = [
   "gatsby-plugin-react-helmet",
@@ -95,4 +90,5 @@ export const plugins: Plugins = [
       whitelist: ["GOOGLE_CSE", "ALGOLIA_API_KEY", "ALGOLIA_INDEX_NAME"],
     },
   },
+  rssFeed,
 ];

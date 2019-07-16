@@ -32,5 +32,10 @@
   "jsRules": {},
   "linterOptions": {
     "exclude": ["*/node_modules/**/*"]
-  }
+  },
+  "ban-types": [
+    true,
+    ["Object", "Use {} instead."],
+    ["Function", "Use more precise type"]
+  ]
 }
