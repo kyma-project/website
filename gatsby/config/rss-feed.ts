@@ -65,9 +65,9 @@ export const rssFeed = {
               };
 
               const host = site.siteMetadata.siteUrl;
-              const link = `${
-                host.endsWith("/") ? host : host + "/"
-              }${edge.node.fields.slug.slice(1)}`;
+              const link = `${host.endsWith("/") ? host : host + "/"}${
+                edge.node.fields.slug ? edge.node.fields.slug.slice(1) : ""
+              }`;
 
               return {
                 ...edge.node.frontmatter,
