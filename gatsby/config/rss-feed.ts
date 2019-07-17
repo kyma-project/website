@@ -6,7 +6,7 @@ interface Edge {
     excerpt: string;
     html: string;
     fields: {
-      slug: string;
+      slug?: string;
       date: string;
     };
     frontmatter: {

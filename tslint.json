@@ -36,6 +36,7 @@
   "ban-types": [
     true,
     ["Object", "Use {} instead."],
+    ["String"],
     ["Function", "Use more precise type"]
   ]
 }
