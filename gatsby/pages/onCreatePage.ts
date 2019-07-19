@@ -1,7 +1,6 @@
-import { CreatePageArgs } from "gatsby";
 import { createIntlPage } from "./helpers";
 
-export const onCreatePage = async ({ page, actions }: CreatePageArgs) => {
+export const onCreatePage = async ({ page, actions }: any) => {
   const createPage = createIntlPage(actions);
   const { deletePage } = actions;
 
