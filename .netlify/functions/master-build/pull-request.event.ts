@@ -19,7 +19,6 @@ const REPOSITORY_NAMES: string[] = [
 
 const REGEX: { [repository: string]: RegExp } = {
   [RepositoryName.KYMA]: /^docs\//,
-  [RepositoryName.COMMUNITY]: /^capabilities\//,
 };
 
 export const checkPullRequestEvent = async (
@@ -53,7 +52,7 @@ const checkChangedFiles = (
     case RepositoryName.KYMA:
       return checkChangedFileNames(files, REGEX[RepositoryName.KYMA]);
     case RepositoryName.COMMUNITY:
-      return checkChangedFileNames(files, REGEX[RepositoryName.COMMUNITY]);
+      return true;
     default:
       return false;
   }

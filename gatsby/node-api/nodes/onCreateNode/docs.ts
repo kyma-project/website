@@ -1,5 +1,5 @@
 import { Node } from "gatsby";
-import { DOCS_PATH_PREFIX, DOCS_FILENAME_REGEX } from "../../constants";
+import { DOCS_PATH_PREFIX, DOCS_FILENAME_REGEX } from "../../../constants";
 
 interface OnCreateDocsNode {
   node: Node;
@@ -21,7 +21,7 @@ export const onCreateDocsNode = ({
 
   let type = null;
   try {
-    type = require(`../../../content/docs/${version}/${id}/docs.config.json`).spec.type.toLowerCase();
+    type = require(`../../../../content/docs/${version}/${id}/docs.config.json`).spec.type.toLowerCase();
   } catch (err) {
     console.error(err);
     return;

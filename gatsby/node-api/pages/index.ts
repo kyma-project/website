@@ -1,6 +1,6 @@
 import { CreatePagesArgs } from "gatsby";
 import { createIntlPage } from "./helpers";
-import { CreateRedirectFn } from "../types";
+import { CreateRedirectFn } from "../../types";
 
 import { createBlogPages } from "./blog";
 import { createDocsPages } from "./docs";

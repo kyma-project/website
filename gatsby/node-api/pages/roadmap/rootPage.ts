@@ -4,8 +4,8 @@ import {
   generateMapOfDisplayNameToId,
 } from "./helpers";
 import { CapabilityQL } from "./types";
-import { CreatePageFn, CreateRedirectFn } from "../../types";
-import { ROADMAP_PATH_PREFIX } from "../../constants";
+import { CreatePageFn, CreateRedirectFn } from "../../../types";
+import { ROADMAP_PATH_PREFIX } from "../../../constants";
 
 export interface CreateRootPageArgs {
   createPage: CreatePageFn;
@@ -20,7 +20,7 @@ export const createRootPage = ({
 }: CreateRootPageArgs) => {
   const roadmapTemplate: string = resolve(
     __dirname,
-    "../../../src/templates/Roadmap.tsx",
+    "../../../../src/templates/Roadmap.tsx",
   );
 
   const capabilitiesNavigation = generateCapabilitiesNavigation(capabilities);

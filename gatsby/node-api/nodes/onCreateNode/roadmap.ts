@@ -1,5 +1,5 @@
 import { Node } from "gatsby";
-import { ROADMAP_CAPABILITY_FILENAME_REGEX } from "../../constants";
+import { ROADMAP_CAPABILITY_FILENAME_REGEX } from "../../../constants";
 
 interface OnCreateCapabilityNode {
   node: Node;

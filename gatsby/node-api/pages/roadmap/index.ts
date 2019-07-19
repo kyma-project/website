@@ -1,7 +1,7 @@
 import { createRootPage } from "./rootPage";
 import { createModalPage } from "./modalPage";
 import { getCapabilities } from "./helpers";
-import { CreatePageFn, CreateRedirectFn } from "../../types";
+import { CreatePageFn, CreateRedirectFn } from "../../../types";
 
 export interface CreateRoadmapPages {
   graphql: Function;

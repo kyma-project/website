@@ -3,7 +3,7 @@ import {
   ASSETS_DIR,
   BLOG_PATH_PREFIX,
   BLOG_POST_FILENAME_REGEX,
-} from "../../constants";
+} from "../../../constants";
 
 interface OnCreateBlogPostNode {
   node: Node;

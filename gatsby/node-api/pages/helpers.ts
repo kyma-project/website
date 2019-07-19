@@ -1,5 +1,5 @@
 import { Actions } from "gatsby";
-import { CreatePageFn, CreateRedirectFn } from "../types";
+import { CreatePageFn, CreateRedirectFn } from "../../types";
 
 interface Intl {
   [lang: string]: {
@@ -8,7 +8,7 @@ interface Intl {
     default?: boolean;
   };
 }
-const i18nConfig: Intl = require("../../config").i18n;
+const i18nConfig: Intl = require("../../../config").i18n;
 
 export const createIntlPage = (actions: Actions): CreatePageFn => {
   const { createPage, createRedirect: cr } = actions;

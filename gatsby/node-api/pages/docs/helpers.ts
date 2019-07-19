@@ -4,7 +4,7 @@ import {
   DocsGeneratedVersions,
   DocsBranchesVersion,
   DocsReleasesVersion,
-} from "../../../tools/content-loader/src/prepare-docs/docs-versions";
+} from "../../../../tools/content-loader/src/prepare-docs/docs-versions";
 
 const getDocs = async (graphql: Function): Promise<DocQL[]> => {
   const result = await graphql(`

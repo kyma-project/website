@@ -4,7 +4,7 @@ import {
   DOCS_DIR,
   ROADMAP_CAPABILITIES_DIR,
   ROADMAP_TICKETS_DIR,
-} from "../constants";
+} from "../../constants";
 
 import {
   onCreateBlogPostNode,

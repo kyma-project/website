@@ -1,6 +1,6 @@
 import { createSingleBlogPost } from "./singlePostPage";
 import { getPosts } from "./helpers";
-import { CreatePageFn, CreateRedirectFn } from "../../types";
+import { CreatePageFn, CreateRedirectFn } from "../../../types";
 
 export interface CreateBlogPages {
   graphql: Function;

@@ -3,10 +3,9 @@
 require("source-map-support").install();
 require("ts-node").register();
 
-const { config } = require("./config");
-const { onCreateWebpackConfig } = require("./webpack");
-const { createPages, onCreatePage } = require("./pages");
-const { onCreateNode } = require("./nodes");
+const { config } = require("./config-api");
+const { onCreateWebpackConfig } = require("./webpack-api");
+const { createPages, onCreatePage, onCreateNode } = require("./node-api");
 
 module.exports = {
   config,

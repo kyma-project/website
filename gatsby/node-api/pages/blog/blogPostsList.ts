@@ -1,7 +1,7 @@
 import { resolve } from "path";
 import { PostQL } from "./types";
-import { CreatePageFn, CreateRedirectFn } from "../../types";
-import { BLOG_PATH_PREFIX, POSTS_PER_PAGE } from "../../constants";
+import { CreatePageFn, CreateRedirectFn } from "../../../types";
+import { BLOG_PATH_PREFIX, POSTS_PER_PAGE } from "../../../constants";
 
 export interface CreateBlogPostsListArgs {
   createPage: CreatePageFn;
@@ -16,7 +16,7 @@ export const createSingleBlogPost = ({
 }: CreateBlogPostsListArgs) => {
   const blogPostsListTemplate: string = resolve(
     __dirname,
-    "../../../src/templates/BlogPostsList.tsx",
+    "../../../../src/templates/BlogPostsList.tsx",
   );
 
   const numPages = Math.ceil(posts.length / POSTS_PER_PAGE);

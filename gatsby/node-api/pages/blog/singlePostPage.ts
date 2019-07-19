@@ -1,6 +1,6 @@
 import { resolve } from "path";
 import { PostQL } from "./types";
-import { CreatePageFn, CreateRedirectFn } from "../../types";
+import { CreatePageFn, CreateRedirectFn } from "../../../types";
 
 export interface CreateSingleBlogPostArgs {
   createPage: CreatePageFn;
@@ -15,7 +15,7 @@ export const createSingleBlogPost = ({
 }: CreateSingleBlogPostArgs) => {
   const singleBlogPostTemplate: string = resolve(
     __dirname,
-    "../../../src/templates/BlogPost.tsx",
+    "../../../../src/templates/BlogPost.tsx",
   );
 
   posts.map((post, index) => {

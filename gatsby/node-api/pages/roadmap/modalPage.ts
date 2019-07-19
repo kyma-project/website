@@ -4,9 +4,9 @@ import {
   generateMapOfDisplayNameToId,
 } from "./helpers";
 import { CapabilityQL } from "./types";
-import { CreatePageFn, CreateRedirectFn } from "../../types";
-import { ROADMAP_PATH_PREFIX } from "../../constants";
-import { Tickets } from "../../../tools/content-loader/src/prepare-roadmap-content/types";
+import { CreatePageFn, CreateRedirectFn } from "../../../types";
+import { ROADMAP_PATH_PREFIX } from "../../../constants";
+import { Tickets } from "../../../../tools/content-loader/src/prepare-roadmap-content/types";
 
 export interface CreateModalPageArgs {
   createPage: CreatePageFn;
@@ -14,7 +14,7 @@ export interface CreateModalPageArgs {
   capabilities: CapabilityQL[];
 }
 
-const releases: Tickets = require("../../../content/roadmap/tickets.json");
+const releases: Tickets = require("../../../../content/roadmap/tickets.json");
 
 export const createModalPage = ({
   createPage,
@@ -23,7 +23,7 @@ export const createModalPage = ({
 }: CreateModalPageArgs) => {
   const roadmapTemplate: string = resolve(
     __dirname,
-    "../../../src/templates/Roadmap.tsx",
+    "../../../../src/templates/Roadmap.tsx",
   );
 
   const capabilitiesNavigation = generateCapabilitiesNavigation(capabilities);

@@ -28,7 +28,7 @@ export class DocsLoader {
   private createPath(path: string): string {
     return resolve(
       __dirname,
-      `../../../../content/${DOCS_FOLDER}/${this.version}/${path}`,
+      `../../../../../content/${DOCS_FOLDER}/${this.version}/${path}`,
     );
   }
 }

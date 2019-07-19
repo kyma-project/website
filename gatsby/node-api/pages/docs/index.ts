@@ -15,8 +15,8 @@ import {
   DOCS_LATEST_VERSION,
   DOCS_ROOT_TYPE,
   DOCS_KYMA_ID,
-} from "../../constants";
-import { CreatePageFn, CreateRedirectFn } from "../../types";
+} from "../../../constants";
+import { CreatePageFn, CreateRedirectFn } from "../../../types";
 
 export interface CreateDocsPages {
   graphql: Function;
@@ -29,11 +29,11 @@ export const createDocsPages = async ({
 }: CreateDocsPages) => {
   const docsTemplate: string = resolve(
     __dirname,
-    "../../../src/templates/Docs.tsx",
+    "../../../../src/templates/Docs.tsx",
   );
   const docs = await getDocs(graphql);
 
-  const versions = getDocsVersions(require("../../../content/docs/versions"));
+  const versions = getDocsVersions(require("../../../../content/docs/versions"));
   if (Object.keys(versions).length === 0) {
     console.error("No docs versions found");
     return;
