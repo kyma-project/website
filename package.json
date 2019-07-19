@@ -46,7 +46,7 @@
     "@octokit/rest": "^16.25.1",
     "babel-plugin-styled-components": "^1.10.0",
     "constate": "^1.0.0",
-    "gatsby": "^2.7.1",
+    "gatsby": "^2.13.28",
     "gatsby-plugin-env-variables": "^1.0.1",
     "gatsby-plugin-feed": "^2.3.2",
     "gatsby-plugin-gtag": "^1.0.11",
