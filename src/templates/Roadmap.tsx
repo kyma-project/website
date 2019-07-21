@@ -1,7 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
 
-import Layout from "@components/layout/Layout";
 import RoadmapPage from "@components/roadmap/RoadmapPage";
 
 import {
@@ -27,18 +26,12 @@ const RoadmapPageTemplate: React.FunctionComponent<
   const isInitialRender: boolean = isInitialRenderComplete();
 
   return (
-    <Layout
-      locale={pageContext.locale}
-      pageTitle="Roadmap"
-      backToTopButton={!Boolean(pageContext.ticket)}
-    >
-      <RoadmapPage
-        pageContext={pageContext}
-        capabilities={edges.map(cap => cap.node)}
-        location={location}
-        isInitialRenderComplete={isInitialRender}
-      />
-    </Layout>
+    <RoadmapPage
+      pageContext={pageContext}
+      capabilities={edges.map(cap => cap.node)}
+      location={location}
+      isInitialRenderComplete={isInitialRender}
+    />
   );
 };
 

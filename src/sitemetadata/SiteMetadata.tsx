@@ -6,11 +6,6 @@ import { globalHistory } from "@reach/router";
 import { RootContext } from "@root/services";
 import { injectIntl, IntlInterface } from "@common/i18n";
 import { getActualYear } from "@common/utils";
-import { socialMedia } from "@config";
-import {
-  GOOGLE_CUSTOM_SEARCH_ENGINE_URL,
-  ORGANIZATION_NAME,
-} from "@common/constants";
 import { SiteMetadata as SiteMetadataType } from "../../gatsby/config-api/types";
 
 import { Facebook } from "./Facebook";

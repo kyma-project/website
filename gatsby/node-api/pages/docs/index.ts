@@ -29,7 +29,7 @@ export const createDocsPages = async ({
 }: CreateDocsPages) => {
   const docsTemplate: string = resolve(
     __dirname,
-    "../../../../src/templates/Docs.tsx",
+    "../../../../src/views/docs/index.tsx",
   );
   const docs = await getDocs(graphql);
 

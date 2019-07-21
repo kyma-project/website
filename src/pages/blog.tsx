@@ -1,27 +1,19 @@
 import React from "react";
 import { graphql } from "gatsby";
 
-import { AllMarkdownRemark, PageContext, IntlPageContext } from "@common/types";
-import { Post, PostPageContext } from "@components/blog/types";
+import { AllMarkdownRemark } from "@common/types";
+import { Post } from "@components/blog/types";
 
-import Layout from "@components/layout/Layout";
 import BlogPage from "@components/blog/BlogPage";
 
-const RoadmapIndex: React.FunctionComponent<
-  AllMarkdownRemark<Post> & PageContext<IntlPageContext>
-> = ({
+const RoadmapIndex: React.FunctionComponent<AllMarkdownRemark<Post>> = ({
   data: {
     allMarkdownRemark: { edges = [] },
   },
-  pageContext: { locale },
 }) => {
   const nodes = edges.filter(edge => !!edge.node.fields.date);
 
-  return (
-    <Layout locale={locale} pageTitle="Blog">
-      <BlogPage nodes={nodes} />
-    </Layout>
-  );
+  return <BlogPage nodes={nodes} />;
 };
 
 export const pageQuery = graphql`

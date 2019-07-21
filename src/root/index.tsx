@@ -5,7 +5,6 @@ import { ThemeProvider } from "@styled";
 import { lightTheme } from "@styled/theme";
 import { IntlProvider } from "@common/i18n";
 import GlobalStyles from "@styled/GlobalStyles";
-// import { SiteMetadata } from "./sitemetadata";
 
 export const RootWrapper: React.FunctionComponent = ({ children }) => (
   <RootProvider>

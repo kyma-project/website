@@ -1,11 +1,6 @@
 import { Post } from "@components/blog/types";
 import { BlogPostMetadata } from "../SiteMetadata";
 
-interface BlogMetadata {
-  description: string;
-  blogPostMetadata?: BlogPostMetadata;
-}
-
 function getPageTitle(uri: string, markdownRemark: Post): string {
   if (uri === "/blog") {
     return "Blog";
@@ -40,6 +35,15 @@ function getBlogPostMetadata(
   };
 }
 
+function getBlogPostTags(markdownRemark: Post): string[] {
+  const tags =
+    markdownRemark &&
+    markdownRemark.frontmatter &&
+    markdownRemark.frontmatter.tags;
+
+  return tags || [];
+}
+
 export function extractBlogMetadata(
   uri: string,
   data: any,
@@ -47,6 +51,7 @@ export function extractBlogMetadata(
   pageTitle: string;
   description: string;
   blogPostMetadata?: BlogPostMetadata;
+  tags?: string[];
 } {
   const { markdownRemark } = data;
 
@@ -54,5 +59,6 @@ export function extractBlogMetadata(
     pageTitle: getPageTitle(uri, markdownRemark),
     description: getPageDescription(uri, markdownRemark),
     blogPostMetadata: getBlogPostMetadata(uri, markdownRemark),
+    tags: getBlogPostTags(markdownRemark),
   };
 }

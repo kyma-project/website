@@ -72,6 +72,7 @@ export interface DocsNavigationSectionTitles {
 export interface DocsManifest {
   root: DocsManifestItem[];
   components: DocsManifestItem[];
+  [type: string]: DocsManifestItem[];
 }
 
 export interface DocsManifestItem {

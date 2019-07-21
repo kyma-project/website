@@ -3,7 +3,6 @@ import { graphql, useStaticQuery } from "gatsby";
 
 import SlidesBanner from "./components/SlidesBanner";
 import CookiesBanner from "./components/CookiesBanner";
-import BackToTop from "./components/BackToTop";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
@@ -27,7 +26,6 @@ export const DefaultLayout: React.FunctionComponent<DefaultLayoutProps> = ({
       <Header horizontalBg={horizontalHeaderBg} />
       <Content>{children}</Content>
       <Footer />
-      <BackToTop />
     </LayoutWrapper>
   );
 };

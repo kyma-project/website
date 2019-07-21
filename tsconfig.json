@@ -23,7 +23,8 @@
       "@static": ["./static/*"],
       "@styled": ["./src/common/styled"],
       "@styled/*": ["./src/common/styled/*"],
-      "@root/*": ["./src/root/*"]
+      "@root/*": ["./src/root/*"],
+      "@views/*": ["./src/views/*"]
     }
   }
 }
