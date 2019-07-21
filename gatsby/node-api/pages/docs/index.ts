@@ -33,14 +33,16 @@ export const createDocsPages = async ({
   );
   const docs = await getDocs(graphql);
 
-  const versions = getDocsVersions(require("../../../../content/docs/versions"));
+  const versions = getDocsVersions(
+    require("../../../../content/docs/versions"),
+  );
   if (Object.keys(versions).length === 0) {
     console.error("No docs versions found");
     return;
   }
   const latestVersion = versions.releases[0];
 
-  let docsArch = generator(docs, versions);
+  const docsArch = generator(docs, versions);
   docsArch[DOCS_LATEST_VERSION] = JSON.parse(
     JSON.stringify(docsArch[latestVersion]),
   );

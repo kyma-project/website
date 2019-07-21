@@ -46,8 +46,8 @@ export const rssFeed = {
     `,
     feeds: [
       {
-        serialize: ({ query: { site, allMarkdownRemark } }: QueryType) => {
-          return allMarkdownRemark.edges
+        serialize: ({ query: { site, allMarkdownRemark } }: QueryType) =>
+          allMarkdownRemark.edges
             .filter(arg =>
               arg.node.fields.slug
                 ? arg.node.fields.slug.startsWith("/blog/")
@@ -78,8 +78,7 @@ export const rssFeed = {
                 description: edge.node.excerpt,
                 custom_elements: [{ "content:encoded": edge.node.html }],
               };
-            });
-        },
+            }),
         query: `
         {
           allMarkdownRemark(sort: {order: DESC, fields: [fields___date]}) {

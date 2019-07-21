@@ -43,15 +43,12 @@ const createTopic = (content: DocsContentItem) => {
   return topic;
 };
 
-const toLowerCase = (value: string) => {
-  return value && value.toString().toLowerCase();
-};
+const toLowerCase = (value: string) => value && value.toString().toLowerCase();
 
-const toAnchor = (value: string) => {
-  return toLowerCase(value)
+const toAnchor = (value: string) =>
+  toLowerCase(value)
     .trim()
     .replace(/\s/g, "-");
-};
 
 export const generateNavigation = (content: DocsContent): DocsNavigation => {
   const navigation: DocsNavigation = {

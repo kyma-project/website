@@ -1,2 +1,3 @@
-import "./static/css/fonts.css";
-import "./static/css/docsearch.min.css";
+const { browserAPI } = require("./gatsby/browser-api");
+
+module.exports = browserAPI;

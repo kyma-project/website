@@ -34,8 +34,8 @@ export const getCapabilities = async (
   ) as CapabilityQL[]);
 };
 
-const sortCapabilities = (capabilities: CapabilityQL[]): CapabilityQL[] => {
-  return capabilities.sort((a, b) => {
+const sortCapabilities = (capabilities: CapabilityQL[]): CapabilityQL[] =>
+  capabilities.sort((a, b) => {
     const orderA = a.frontmatter.displayName.toLowerCase();
     const orderB = b.frontmatter.displayName.toLowerCase();
 
@@ -47,7 +47,6 @@ const sortCapabilities = (capabilities: CapabilityQL[]): CapabilityQL[] => {
     }
     return 0;
   });
-};
 
 export const generateCapabilitiesNavigation = (
   capabilities: CapabilityQL[],

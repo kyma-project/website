@@ -43,7 +43,7 @@ const getDocsVersions = (versions: DocsGeneratedVersions): DocsVersions => {
 
   const appendType = (
     type: string,
-    versions: (DocsReleasesVersion | DocsBranchesVersion)[],
+    versions: Array<DocsReleasesVersion | DocsBranchesVersion>,
     versionsByType: DocsVersions,
   ) => {
     if (!versions || versions.length === 0) {
@@ -65,12 +65,11 @@ const getDocsVersions = (versions: DocsGeneratedVersions): DocsVersions => {
   return versionsByType;
 };
 
-const sortDocsByOrder = (docs: DocsContentDocs[]) => {
-  return docs.sort(sortFnByProperty<DocsContentDocs>("order"));
-};
+const sortDocsByOrder = (docs: DocsContentDocs[]) =>
+  docs.sort(sortFnByProperty<DocsContentDocs>("order"));
 
 const sortDocsByType = (docs: DocsContentDocs[]): DocsContentDocs[] => {
-  let docsTypes: string[] = [];
+  const docsTypes: string[] = [];
   docs.map(doc => {
     if (!docsTypes.includes(doc.type || doc.title)) {
       docsTypes.push(doc.type || doc.title);
@@ -78,7 +77,7 @@ const sortDocsByType = (docs: DocsContentDocs[]): DocsContentDocs[] => {
     return doc;
   });
 
-  let sortedDocs: DocsContentDocs[] = [];
+  const sortedDocs: DocsContentDocs[] = [];
   for (const type of docsTypes) {
     for (const doc of docs) {
       if (type === doc.type || (!doc.type && type === doc.title)) {
@@ -89,24 +88,25 @@ const sortDocsByType = (docs: DocsContentDocs[]): DocsContentDocs[] => {
   return sortedDocs;
 };
 
-const sortFnByProperty = <T extends { [k: string]: any }>(sortBy: string) => {
-  return (a: T, b: T) => {
-    if (a[sortBy] && b[sortBy]) {
-      const nameA = a[sortBy].toString().toLowerCase();
-      const nameB = b[sortBy].toString().toLowerCase();
+const sortFnByProperty = <T extends { [k: string]: any }>(sortBy: string) => (
+  a: T,
+  b: T,
+) => {
+  if (a[sortBy] && b[sortBy]) {
+    const nameA = a[sortBy].toString().toLowerCase();
+    const nameB = b[sortBy].toString().toLowerCase();
 
-      if (nameA < nameB) {
-        return -1;
-      }
-      if (nameA > nameB) {
-        return 1;
-      }
+    if (nameA < nameB) {
+      return -1;
     }
-    return 0;
-  };
+    if (nameA > nameB) {
+      return 1;
+    }
+  }
+  return 0;
 };
 
-const populateObject = <T = any>(obj: any | Array<any>): Array<T> => {
+const populateObject = <T = any>(obj: any | any[]): T[] => {
   if (Array.isArray(obj)) {
     return obj;
   }

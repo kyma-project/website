@@ -1,6 +1,6 @@
 {
   "include": ["./src/**/*"],
-  "exclude": ["./netlify/functions", "**/node_modules/**/*"],
+  "exclude": ["./.netlify/functions", "**/node_modules/**/*"],
   "compilerOptions": {
     "target": "esnext",
     "module": "commonjs",
@@ -22,7 +22,8 @@
       "@content": ["./content/*"],
       "@static": ["./static/*"],
       "@styled": ["./src/common/styled"],
-      "@styled/*": ["./src/common/styled/*"]
+      "@styled/*": ["./src/common/styled/*"],
+      "@root/*": ["./src/root/*"]
     }
   }
 }

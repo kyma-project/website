@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { IntlProvider as Intl, addLocaleData } from "react-intl";
 
 import flattenMessages from "./flattenMessages";
@@ -9,19 +9,22 @@ import enData from "react-intl/locale-data/en";
 // Messages
 import messages from "./locales";
 
+import { RootContext } from "../../root/services";
+
 addLocaleData([...enData]);
 
-const IntlProvider: React.FunctionComponent<Intl.Props> = ({
-  locale = "en",
-  children,
-}) => (
-  <Intl
-    locale={locale}
-    key={locale}
-    messages={flattenMessages(messages[locale])}
-  >
-    {children}
-  </Intl>
-);
+const IntlProvider: React.FunctionComponent<Intl.Props> = ({ children }) => {
+  const { language } = useContext(RootContext);
+
+  return (
+    <Intl
+      locale={language}
+      key={language}
+      messages={flattenMessages(messages[language])}
+    >
+      {children}
+    </Intl>
+  );
+};
 
 export default IntlProvider;

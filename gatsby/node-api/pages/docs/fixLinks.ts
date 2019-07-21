@@ -12,10 +12,10 @@ const changeVersion = ({
 }: {
   source: string;
   version: string;
-}) => {
-  return source.replace(MD_LINKS_REGEX, occurrence => {
+}) =>
+  source.replace(MD_LINKS_REGEX, occurrence => {
     MD_LINKS_REGEX.lastIndex = 0;
-    let href = MD_LINKS_REGEX.exec(occurrence);
+    const href = MD_LINKS_REGEX.exec(occurrence);
 
     if (!href || !href[2]) return occurrence;
     const h = href[2];
@@ -34,7 +34,6 @@ const changeVersion = ({
 
     return occurrence;
   });
-};
 
 const rewrite = ({
   source,
@@ -53,7 +52,7 @@ const rewrite = ({
 
   return source.replace(MD_LINKS_REGEX, occurrence => {
     MD_LINKS_REGEX.lastIndex = 0;
-    let href = MD_LINKS_REGEX.exec(occurrence);
+    const href = MD_LINKS_REGEX.exec(occurrence);
 
     if (!href || !href[2]) return occurrence;
     const h = href[2];

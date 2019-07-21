@@ -16,9 +16,9 @@ export const generator = (docs: DocQL[], versions: DocsVersions) => {
       const navigation = generateNavigation(content);
 
       docsArch[version] = {
-        content: content,
-        navigation: navigation,
-        manifest: manifest,
+        content,
+        navigation,
+        manifest,
       };
     });
   });

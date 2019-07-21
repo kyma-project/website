@@ -20,7 +20,7 @@ export const extractContent = ({
   docs: DocQL[];
   docsLoader: DocsLoader;
 }): DocsContent => {
-  let content: DocsContent = {} as DocsContent;
+  const content: DocsContent = {} as DocsContent;
 
   Object.keys(manifest).map(docsType => {
     content[docsType] = {};
@@ -41,9 +41,9 @@ export const extractContent = ({
         } = doc;
 
         if (version === v && docsType === type && topicId === id) {
-          let obj: DocsContentDocs = {
+          const obj: DocsContentDocs = {
             order: fileName,
-            title: title,
+            title,
             source: rawMarkdownBody,
           };
 

@@ -26,7 +26,7 @@ export const createIntlPage = (actions: Actions): CreatePageFn => {
       const isDefaultLang: boolean | undefined = i18nConfig[lang].default;
       path = path.startsWith("/") ? path : `/${path}`;
 
-      let localizedPath = isDefaultLang
+      const localizedPath = isDefaultLang
         ? path
         : `/${i18nConfig[lang].path}${path}`;
 
