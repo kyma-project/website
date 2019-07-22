@@ -30,6 +30,10 @@ const navigation = [
     title: "Blog",
   },
   {
+    path: "/community/",
+    title: "Community",
+  },
+  {
     path: "/roadmap/",
     title: "Roadmap",
   },

@@ -1,0 +1,8 @@
+{
+  "spec": {
+    "id": "technical-guidelines",
+    "displayName": "Technical guidelines",
+    "description": "Kyma technical guidelines",
+    "type": "Guidelines"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "spec": {
+    "id": "repository-guidelines",
+    "displayName": "Repository guidelines",
+    "description": "Kyma repository guidelines",
+    "type": "Guidelines"
+  }
+}

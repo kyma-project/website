@@ -3,7 +3,7 @@ import { VError } from "verror";
 
 import GitClient from "../github-client/git-client";
 
-import AdjustNewArchitecture from "./adjust-new-architecture";
+import ClusterDocsTopicSerializer from "../clusterDocsTopicSerializer";
 
 import { copyResources, fileExists } from "../helpers";
 
@@ -56,7 +56,7 @@ export class CopyDocs {
     if (manifestExists) {
       [err] = await to(this.copyOldArchitecture(docsDir, output));
     } else {
-      [err] = await to(this.copyNewArchitecture(source, docsDir, output));
+      [err] = await to(this.copyNewArchitecture(source, output));
     }
 
     if (err) {
@@ -86,12 +86,8 @@ export class CopyDocs {
     }
   };
 
-  private copyNewArchitecture = async (
-    source: string,
-    docsDir: string,
-    output: string,
-  ) => {
-    const [err] = await to(AdjustNewArchitecture.do(source, docsDir, output));
+  private copyNewArchitecture = async (source: string, output: string) => {
+    const [err] = await to(ClusterDocsTopicSerializer.do(source, output));
     if (err) {
       throw err;
     }

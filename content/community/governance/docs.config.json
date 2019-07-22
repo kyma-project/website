@@ -1,0 +1,8 @@
+{
+  "spec": {
+    "id": "governance",
+    "displayName": "Governance",
+    "description": "Decision-making in Kyma",
+    "type": "Governance"
+  }
+}

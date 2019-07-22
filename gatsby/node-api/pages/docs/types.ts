@@ -90,9 +90,6 @@ export interface DocsNavigationSectionTitles {
 
 /* Docs Manifest */
 export interface DocsManifest {
-  metadata: {
-    name: string;
-  };
   spec: ManifestSpec;
 }
 
