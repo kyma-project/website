@@ -1,14 +1,15 @@
-const { join } = require("path");
+const { join, resolve } = require("path");
 const fs = require("fs-extra");
 
 exports.onCreateNode = ({ node }, pluginOptions) => {
   const {
-    source,
+    source: src,
     destination,
     extensions,
     excludeDirs,
     excludeFiles,
   } = pluginOptions;
+  const source = resolve(src);
 
   const matchExcludeDirs = fileRelativeDirectory => {
     return excludeDirs.some(dir => fileRelativeDirectory.includes(dir));
