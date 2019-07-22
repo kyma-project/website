@@ -22,7 +22,7 @@ import {
 export class ClusterDocsTopicSerializer {
   private clusterDocsTopics: ClusterDocsTopic[] = [];
 
-  do = async (source: string, output: string) => {
+  do = async (source: string, output: string, copyRegex?: string) => {
     this.clearClusterDocsTopic();
 
     let err: Error | null;
@@ -35,7 +35,9 @@ export class ClusterDocsTopicSerializer {
     const manifest = this.prepareManifest();
     const configs = this.prepareDocsConfigs();
 
-    [err] = await to(this.copyContentPerTopic(source, output, configs));
+    [err] = await to(
+      this.copyContentPerTopic(source, output, configs, copyRegex),
+    );
     if (err) {
       throw err;
     }
@@ -50,13 +52,18 @@ export class ClusterDocsTopicSerializer {
     source: string,
     output: string,
     configs: DocsConfigs,
+    copyRegex?: string,
   ) => {
     for (const topic of Object.keys(configs)) {
       let err: Error | null;
       const dir = configs[topic].dir;
 
       [err] = await to(
-        this.copyContent(`${source}/${dir}`, `${output}/${topic}/docs`),
+        this.copyContent(
+          `${source}/${dir}`,
+          `${output}/${topic}/docs`,
+          copyRegex,
+        ),
       );
       if (err) {
         throw new VError(err, `while copying content for ${output}/${topic}`);
@@ -72,9 +79,17 @@ export class ClusterDocsTopicSerializer {
     }
   };
 
-  private copyContent = async (source: string, output: string) => {
-    const allowedFilesRegex = /(md|png|jpg|gif|jpeg|svg|yaml|yml|json)$/;
-    const [err] = await to(copyResources(source, output, allowedFilesRegex));
+  private copyContent = async (
+    source: string,
+    output: string,
+    copyRegex?: string,
+  ) => {
+    const allowedFilesRegex = copyRegex
+      ? `${source}/${copyRegex}`
+      : /(md|png|jpg|gif|jpeg|svg|yaml|yml|json)$/;
+    const [err] = await to(
+      copyResources(source, output, new RegExp(allowedFilesRegex)),
+    );
     if (err) {
       throw err;
     }

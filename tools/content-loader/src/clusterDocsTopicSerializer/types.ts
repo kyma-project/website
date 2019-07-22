@@ -14,13 +14,13 @@ export interface ClusterDocsTopic {
   spec: {
     displayName: string;
     description: string;
-    sources: {
+    sources: Array<{
       type: string;
       name: string;
       mode: string;
       url: string;
       filter: string;
-    }[];
+    }>;
   };
 }
 
