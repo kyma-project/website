@@ -102,7 +102,7 @@ You can't even imagine how important this date was for us. We reached or first h
 
 ## 02.05.2019 Netconomy went to production
 
-We did not wait too long and a few days after the 1.0 release we got confirmation of the first production environment user. Our early adopter, Netconomy, provided features for one of its clients that operate Kyma on their own. Read more about their experience in TODO: link to Netconomy blog post about use cases on Kyma.
+We did not wait too long and a few days after the 1.0 release we got confirmation of the first production environment user. Our early adopter, Netconomy, provided features for one of its clients that operate Kyma on their own. Soon Netconomy will have a guest blog post on Kyma website describing their use cases.
 
 ![netconomy-crew](./2019-05-02_kyma_golive_netconomy.jpg)
 
@@ -141,8 +141,7 @@ Last year, we open-sourced with our brother in arms, the [Knative](https://githu
 
 # We make another big step
 
-TODO
-
+We just keep walking, don't plan to stop. Since day one we knew that [CNCF Landscape](https://github.com/cncf/landscape) is not all we want to achieve in CNCF. Our obvious next goal is [CNCF Sandbox](https://www.cncf.io/sandbox-projects/). This is not just our decision though, the [CNCF TOC](https://github.com/cncf/toc) must sponsor the project donation and this is our focus for comming months. We need to identify what we need to prepare on our side to become a part of CNCF. We also look forward for feedback from CNCF about Kyma. 
 
 # We made friends
 
@@ -167,6 +166,19 @@ If you depend on someone and you need more than you can get, don't wait until yo
 - [Kubeless](https://github.com/kubeless/kubeless):	Minor improvements
 
 That was a hell of a year, and we can't wait to see what the upcoming year holds for us!
+
+# We want you to contribute - birthday gifts
+
+Birthdays are always connected with presents. This time we plan to give away some Kyma t-shirts. Not for free thought, you get those only if you become an external contributor in next 7 days. Our undestanding of an external contributor is that you are not a part of GitHub Kyma organization and during next 7 days you:
+- Contributed code or documentation to one of Kyma repositories. It must be a pull request, but not necesarily merged as we can imagine that depending on the size of the contribution it might not be that easy to approve and merge it.
+- Contributed an issue using one of our templates. We value equaly a well described bug that is easy to replicate and an enhancement request with well described use case.
+
+All Kyma repositories are located here: https://github.com/kyma-project/kyma/
+Once you contributed, let us know about it on [Twitter](https://twitter.com/kymaproject) or [Slack](http://slack.kyma-project.io), the #general channel. We will evaluate all contributions on Thursday, 1.08 and communicate all accepted contributions and happy winners. Happy contributing!
+
+You don't know what to contribute? I'm sure we can help, just ping us on [Twitter](https://twitter.com/kymaproject) or [Slack](http://slack.kyma-project.io), the #general channel.
+
+![chair](./swag.png)
 
 # Join us
 
