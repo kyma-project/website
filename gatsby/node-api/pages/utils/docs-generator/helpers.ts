@@ -1,16 +1,10 @@
-import compareVersions from "compare-versions";
-import { ContentQL, DocsVersions, DocsContentDocs } from "./types";
-import {
-  DocsGeneratedVersions,
-  DocsBranchesVersion,
-  DocsReleasesVersion,
-} from "../../../../../tools/content-loader/src/prepare-docs/docs-versions";
+import { ContentQL, DocsContentDocs } from "./types";
 
-const getContent = async <T>(
+const getContent = async <T extends ContentQL>(
   graphql: Function,
   dir: string,
   additionalFields: string,
-): Promise<ContentQL<T>[]> => {
+): Promise<T[]> => {
   const result = await graphql(`
     {
       allMarkdownRemark(filter: { fileAbsolutePath: { regex: "${dir}" } }) {
@@ -34,13 +28,20 @@ const getContent = async <T>(
     throw new Error(result.errors);
   }
 
-  return result.data.allMarkdownRemark.edges.map(
-    (e: any) => e.node,
-  ) as ContentQL<T>[];
+  return result.data.allMarkdownRemark.edges.map((e: any) => e.node) as T[];
 };
 
-const sortDocsByOrder = (docs: DocsContentDocs[]) =>
-  docs.sort(sortFnByProperty<DocsContentDocs>("order"));
+const sortDocsByOrder = (docs: DocsContentDocs[]) => {
+  let sortedDocs = docs.sort(sortFnByProperty<DocsContentDocs>("order"));
+  sortedDocs = sortedDocs.sort((first, sec) => {
+    const firstData = first.order.toLowerCase();
+    const secondData = sec.order.toLowerCase();
+
+    return firstData === "readme" ? -1 : secondData === "readme" ? 1 : 0;
+  });
+
+  return sortedDocs;
+};
 
 const sortDocsByType = (docs: DocsContentDocs[]): DocsContentDocs[] => {
   const docsTypes: string[] = [];

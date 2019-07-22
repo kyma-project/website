@@ -8,14 +8,21 @@ import {
 } from "./types";
 import { sortDocsByOrder, sortDocsByType, populateObject } from "./helpers";
 
-export const extractContent = <T>({
+export const extractContent = <T extends ContentQL>({
   manifestSpec,
   contentQL,
   contentLoader,
+  extractFn,
 }: {
   manifestSpec: ManifestSpec;
-  contentQL: ContentQL<T>[];
+  contentQL: T[];
   contentLoader: ContentLoader;
+  extractFn: (
+    doc: T,
+    topicDocs: DocsContentDocs[],
+    docsGroup: string,
+    topicId: string,
+  ) => void;
 }): DocsContent => {
   const content: DocsContent = {} as DocsContent;
 
@@ -26,7 +33,11 @@ export const extractContent = <T>({
     topics.map(topic => {
       const topicId = topic.id;
       const topicConfig = contentLoader.loadTopicConfig(topicId).spec;
+
       let topicDocs: DocsContentDocs[] = [];
+      contentQL.map(doc => {
+        extractFn(doc, topicDocs, docsGroup, topicId);
+      });
 
       topicDocs = sortDocsByOrder(topicDocs);
       topicDocs = sortDocsByType(topicDocs);

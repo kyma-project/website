@@ -4,11 +4,13 @@ import {
   DOCS_DIR,
   ROADMAP_CAPABILITIES_DIR,
   ROADMAP_TICKETS_DIR,
+  COMMUNITY_PATH_PREFIX,
 } from "../../constants";
 
 import {
   onCreateBlogPostNode,
   onCreateDocsNode,
+  onCreateCommunityNode,
   onCreateRoadmapNode,
 } from "./onCreateNode";
 
@@ -29,6 +31,10 @@ export const onCreateNode = async ({
 
       if (relativePath.startsWith(DOCS_DIR)) {
         onCreateDocsNode({ node, relativePath, createNodeField });
+      }
+
+      if (relativePath.startsWith(COMMUNITY_PATH_PREFIX)) {
+        onCreateCommunityNode({ node, relativePath, createNodeField });
       }
 
       if (relativePath.startsWith(ROADMAP_CAPABILITIES_DIR)) {

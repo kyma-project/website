@@ -1,3 +1,4 @@
+import { resolve } from "path";
 import { rssFeed } from "./rss-feed";
 import { Plugins } from "./types";
 
@@ -16,13 +17,13 @@ export const plugins: Plugins = [
     resolve: "gatsby-source-filesystem",
     options: {
       name: "content",
-      path: `${__dirname}/../../content/`,
+      path: resolve(`${__dirname}/../../content/`),
     },
   },
   {
     resolve: "gatsby-plugin-copy-files",
     options: {
-      source: `${__dirname}/../../content`,
+      source: resolve(`${__dirname}/../../content`),
       destination: "/assets",
       extensions: ["jpeg", "jpg", "gif", "png", "svg", "json", "yaml", "yml"],
       // add regex possibility

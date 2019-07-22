@@ -13,25 +13,38 @@ export interface DocsPageContext {
   assetsPath: string;
 }
 
-/* Docs Versions */
 export interface DocsVersions {
-  releases: string[];
-  prereleases: string[];
-  branches: string[];
+  [type: string]: string[];
 }
 
-/* Docs Content */
+export interface Docs {
+  content: DocsContent;
+  navigation: DocsNavigation;
+  manifest: ManifestSpec;
+}
+
+/* Content */
 export interface DocsContent {
-  root: { [key: string]: DocsContentItem };
-  components: { [key: string]: DocsContentItem };
+  [group: string]: {
+    [topic: string]: DocsContentItem;
+  };
 }
 
 export interface DocsContentItem {
   id: string;
-  type: DocsType;
+  type: string;
   displayName: string;
   description: string;
   docs: DocsContentDocs[];
+}
+
+export interface DocsConfig {
+  spec: {
+    id: string;
+    displayName: string;
+    description: string;
+    type: string;
+  };
 }
 
 export interface DocsContentDocs {
@@ -39,43 +52,22 @@ export interface DocsContentDocs {
   title: string;
   type?: string;
   source: string;
+  [key: string]: string | undefined;
 }
 
-export interface DocsTypesLength {
-  [key: string]: number;
-}
-
-/* Docs Navigation */
+/* Navigation */
 export interface DocsNavigation {
-  topics: DocsNavigationTopic[];
+  [group: string]: DocsNavigationTopic[];
 }
 
 export interface DocsNavigationTopic {
-  id: string;
-  contentType: DocsType;
-  sections: DocsNavigationTopicSection[];
-}
-
-export interface DocsNavigationTopicSection {
-  topicType?: string;
-  anchor: string;
-  name: string;
-  titles?: DocsNavigationSectionTitles[];
-}
-
-export interface DocsNavigationSectionTitles {
-  name: string;
-  anchor: string;
-}
-
-/* Docs Manifest */
-export interface DocsManifest {
-  root: DocsManifestItem[];
-  components: DocsManifestItem[];
-  [type: string]: DocsManifestItem[];
-}
-
-export interface DocsManifestItem {
   displayName: string;
   id: string;
 }
+
+/* Manifest */
+export interface DocsManifest {
+  spec: ManifestSpec;
+}
+export type ManifestSpec = DocsNavigation;
+export type ManifestItem = DocsNavigationTopic;

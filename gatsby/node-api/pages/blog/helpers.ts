@@ -5,7 +5,7 @@ export const getPosts = async (graphql: Function): Promise<PostQL[]> => {
     {
       allMarkdownRemark(
         sort: { order: DESC, fields: [fields___date] }
-        filter: { fileAbsolutePath: { regex: "/blog/" } }
+        filter: { fileAbsolutePath: { regex: "/blog-posts/" } }
       ) {
         edges {
           node {

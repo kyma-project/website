@@ -1,5 +1,5 @@
 import { DOCS_LATEST_VERSION } from "../../../constants";
-import { DocsContentItem } from "./types";
+import { DocsContentItem } from "../utils";
 
 const linksToRewrite = require("../../../../content/docs/fix-links");
 

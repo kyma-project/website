@@ -1,4 +1,4 @@
-export interface ContentQL<T> {
+export interface ContentQL<T = any> {
   rawMarkdownBody: string;
   fields: {
     slug: string;

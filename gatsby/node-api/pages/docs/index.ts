@@ -1,13 +1,14 @@
 import { resolve } from "path";
-import { generator } from "./generator";
 import { fixLinks } from "./fixLinks";
-import { getDocs, getDocsVersions, populateObject } from "./helpers";
+import { getDocsVersions } from "./helpers";
 import {
-  DocsContentItems,
+  docsGenerator,
+  DocsGeneratorReturnType,
+  getContent,
+  DocsContentDocs,
   DocsContentItem,
-  ManifestItem,
-  DocsType,
-} from "./types";
+} from "../utils";
+import { DocQL } from "./types";
 import {
   DOCS_DIR,
   ASSETS_DIR,
@@ -16,7 +17,36 @@ import {
   DOCS_ROOT_TYPE,
   DOCS_KYMA_ID,
 } from "../../../constants";
-import { CreatePageFn, CreateRedirectFn } from "../../../types";
+import { CreatePageFn } from "../../../types";
+
+const extractFn = (version: string) => (
+  doc: DocQL,
+  topicDocs: DocsContentDocs[],
+  docsGroup: string,
+  topicId: string,
+): void => {
+  const {
+    rawMarkdownBody,
+    fields: {
+      docInfo: { id, type, version: v, fileName },
+    },
+    frontmatter: { title, type: docType },
+  } = doc;
+
+  if (version === v && docsGroup === type && topicId === id) {
+    let obj: DocsContentDocs = {
+      order: fileName,
+      title: title,
+      source: rawMarkdownBody,
+    };
+
+    if (docType) {
+      obj.type = docType;
+    }
+
+    topicDocs.push(obj);
+  }
+};
 
 export interface CreateDocsPages {
   graphql: Function;
@@ -31,7 +61,6 @@ export const createDocsPages = async ({
     __dirname,
     "../../../../src/views/docs/index.tsx",
   );
-  const docs = await getDocs(graphql);
 
   const versions = getDocsVersions(
     require("../../../../content/docs/versions"),
@@ -42,7 +71,29 @@ export const createDocsPages = async ({
   }
   const latestVersion = versions.releases[0];
 
-  const docsArch = generator(docs, versions);
+  const docs = await getContent<DocQL>(
+    graphql,
+    "/content/docs/",
+    `docInfo {
+    id
+    type
+    version
+    fileName
+  }`,
+  );
+
+  const docsArch: { [version: string]: DocsGeneratorReturnType } = {};
+  for (const versionType in versions) {
+    for (const version of versions[versionType]) {
+      docsArch[version] = docsGenerator<DocQL>(
+        docs,
+        "docs",
+        extractFn(version),
+        version,
+      );
+    }
+  }
+
   docsArch[DOCS_LATEST_VERSION] = JSON.parse(
     JSON.stringify(docsArch[latestVersion]),
   );
@@ -55,12 +106,6 @@ export const createDocsPages = async ({
       const topics = content[docsType];
 
       Object.keys(topics).map(topic => {
-        const topicContent = topics[topic];
-
-        Object.keys(manifest).map(key => {
-          manifest[key] = populateObject<ManifestItem>(manifest[key]);
-        });
-
         const assetsPath = `/${ASSETS_DIR}${DOCS_DIR}${
           !version || version === DOCS_LATEST_VERSION ? latestVersion : version
         }/${topic}/${DOCS_DIR}${ASSETS_DIR}`;

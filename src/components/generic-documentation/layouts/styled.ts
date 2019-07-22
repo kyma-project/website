@@ -9,3 +9,13 @@ export const DocsLayoutWrapper = styled.div`
     }
   }
 `;
+
+export const CommunityLayoutWrapper = styled.div`
+  width: 100%;
+
+  &&& {
+    .grid-container {
+      padding: 15px;
+    }
+  }
+`;

@@ -12,7 +12,7 @@ import { DocsPageContext } from "@components/docs/types";
 
 import { markdownRE } from "./render-engines";
 import { MarkdownSingleRenderer } from "./renderers";
-import { DocsLayout } from "./layouts";
+import { DocsLayout, CommunityLayout } from "./layouts";
 import { serializer } from "./serializer";
 import { replaceImagePathsMutationPlugin } from "./render-engines/markdown/plugins";
 import { headingPrefix, customNodes } from "./render-engines/markdown/helpers";
@@ -42,12 +42,9 @@ function renderContent(type: LayoutType, props?: any): React.ReactNode {
     case LayoutType.DOCS: {
       return <DocsLayout renderers={RENDERERS} {...props} />;
     }
-    // case LayoutType.COMMUNITY: {
-    //   return <CatalogUILayout {...props} renderers={RENDERERS} />;
-    // }
-    // case LayoutType.INSTANCES_UI: {
-    //   return <InstancesUILayout renderers={RENDERERS} />;
-    // }
+    case LayoutType.COMMUNITY: {
+      return <CommunityLayout renderers={RENDERERS} {...props} />;
+    }
     default:
       return null;
   }

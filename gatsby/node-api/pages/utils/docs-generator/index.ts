@@ -1,26 +1,39 @@
 import { ContentLoader } from "./contentLoader";
 import { extractContent } from "./extractContent";
 import { loadManifest } from "./loadManifest";
-import { ContentQL, Docs, DocsVersions } from "./types";
+import { createNavigation } from "./createNavigation";
+import { ContentQL, DocsContentDocs } from "./types";
 
 const contentLoader = new ContentLoader();
 
-export const generator = <T>(
-  contentQL: ContentQL<T>[],
+export const docsGenerator = <T extends ContentQL>(
+  contentQL: T[],
   folder: string,
+  extractFn: (
+    doc: T,
+    topicDocs: DocsContentDocs[],
+    docsGroup: string,
+    topicId: string,
+  ) => void,
   version?: string,
 ) => {
   contentLoader.setFolder(folder);
-  if (version) {
-    contentLoader.setVersion(version);
-  }
+  contentLoader.setVersion(version ? version : "");
 
   const manifestSpec = loadManifest(contentLoader.loadManifest()).spec;
-  const content = extractContent<T>({ manifestSpec, contentQL, contentLoader });
+  const navigation = createNavigation(manifestSpec);
+  const content = extractContent<T>({
+    manifestSpec,
+    contentQL,
+    contentLoader,
+    extractFn,
+  });
 
   return {
     content,
-    navigation: manifestSpec,
+    navigation,
     manifest: manifestSpec,
   };
 };
+
+export type DocsGeneratorReturnType = ReturnType<typeof docsGenerator>;

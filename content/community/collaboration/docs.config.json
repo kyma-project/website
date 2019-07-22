@@ -1,8 +1,0 @@
-{
-  "spec": {
-    "id": "collaboration",
-    "displayName": "Collaboration",
-    "description": "Collaboration in Kyma",
-    "type": "Collaboration"
-  }
-}

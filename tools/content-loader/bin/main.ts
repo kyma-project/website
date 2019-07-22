@@ -60,20 +60,20 @@ const main = async () => {
   let err: Error | null;
   const errors: Error[] = [];
 
-  // [err] = await to(prepareDocsFn());
-  // if (err) {
-  //   errors.push(new VError(err, "while preparing documentation"));
-  // }
+  [err] = await to(prepareDocsFn());
+  if (err) {
+    errors.push(new VError(err, "while preparing documentation"));
+  }
 
   [err] = await to(prepareCommunityContentFn());
   if (err) {
     errors.push(new VError(err, "while preparing content for community"));
   }
 
-  // [err] = await to(prepareRoadmapContentFn());
-  // if (err) {
-  //   errors.push(new VError(err, "while preparing content for roadmap"));
-  // }
+  [err] = await to(prepareRoadmapContentFn());
+  if (err) {
+    errors.push(new VError(err, "while preparing content for roadmap"));
+  }
 
   if (errors.length) {
     errors.forEach(e => {
