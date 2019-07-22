@@ -7,6 +7,8 @@ tags:
   - community
   - birthday
   - cncf
+  - meetup
+  - openSAP
 redirectFrom:
   - "/blog/kyma-and-knative-turning-one"
 ---
