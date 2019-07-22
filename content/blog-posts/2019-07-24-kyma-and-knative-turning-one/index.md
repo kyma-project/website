@@ -1,8 +1,7 @@
 ---
 title: "Kyma and Knative turn one: Our First Year"
-authors:
-  - Krasimir Semerdzhiev
-  - Ahmed Abdalla
+author:
+  name: "Krasimir Semerdzhiev, Ahmed Abdalla"
 tags:
   - knative
   - community
