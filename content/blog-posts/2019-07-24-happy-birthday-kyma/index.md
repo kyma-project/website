@@ -63,7 +63,7 @@ We are definitely not planning to stop at 500 stars. This number was growing pre
 
 ## 12.09.2018 First Core Special Interest Group meeting
 
-After modeling an open governance model, we hosted our first public Core Special Interest Group meeting. It was hosted by our stars, [Piotr Kopczynski](https://twitter.com/PiotrasPk) and [Mateusz Szostok](https://twitter.com/m_szostok). 
+After creating an open governance model, we hosted our first public Core Special Interest Group meeting. It was hosted by our stars, [Piotr Kopczynski](https://twitter.com/PiotrasPk) and [Mateusz Szostok](https://twitter.com/m_szostok). 
 
 `youtube: https://youtu.be/1DD5aCBnywQ`
 
@@ -180,4 +180,4 @@ If you did not have a chance to contribute to our history, you can still join us
 - Stackoverflow: https://stackoverflow.com/questions/tagged/kyma
 - YouTube: https://www.youtube.com/channel/UC8Q8bBtYe9gQN-dQ-_L8JvQ
 
-Choose the channel that is the most cozy for you and let us know what you think about Kyma and ask how you can start.
+Use one of these communication channels to let us know what you think about Kyma and how you can start your contribution to the project.
