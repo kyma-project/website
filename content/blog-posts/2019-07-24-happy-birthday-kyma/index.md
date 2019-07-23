@@ -55,14 +55,14 @@ Open source was a new land for us. When you make a step into the world of unknow
 
 Our [`kyma`](https://github.com/kyma-project/kyma/) repository quickly reached 500 stars on GitHub. We also showed up on [CNCF Landscape](https://github.com/cncf/landscape).
 
+<iframe border=0 frameborder=0 height=430 width=550
+ src="https://twitframe.com/show?url=https://twitter.com/kymaproject/status/1029029616684552192"></iframe>
+ 
 ![landscape-view](./landscape-screen.png)
 
 We are definitely not planning to stop at 500 stars. This number was growing pretty slow since last year, but it has been increasing steadily since the 1.0 release. Remember that you can also star our project if you like it.
 
 <iframe src="https://ghbtns.com/github-btn.html?user=kyma-project&repo=kyma&type=star&count=true&size=large" frameborder="0" scrolling="0" width="158px" height="30px"></iframe>
-
-<iframe border=0 frameborder=0 height=430 width=550
- src="https://twitframe.com/show?url=https://twitter.com/kymaproject/status/1029029616684552192"></iframe>
 
 ## 12.09.2018 First Core Special Interest Group meeting
 
@@ -107,7 +107,7 @@ You can't even imagine how important this date was for us. We reached or first h
 
 ## 02.05.2019 Netconomy went to production
 
-We did not wait too long and a few days after the 1.0 release we got confirmation of the first production environment user. Our early adopter, Netconomy, provided features for one of its clients that operate Kyma on their own. Netconomy will soon publish a guest blog post on the Kyma website describing their use cases.
+We did not wait too long and a few days after the 1.0 release we got confirmation of the first production environment user. Our early adopter, [Netconomy](https://www.netconomy.net/), provided features for one of its clients and operates Kyma on their own. Netconomy will soon publish a guest blog post on the Kyma website describing their use cases.
 
 ![netconomy-crew](./2019-05-02_kyma_golive_netconomy.jpg)
 
@@ -115,12 +115,19 @@ We did not wait too long and a few days after the 1.0 release we got confirmatio
 
 SAP, another early adopter that started using the Kyma project, made a big announcement of the production-ready offering for all SAP CX customers. The product is called SAP C/4HANA Foundation and you can read more about it in the [blog post](https://www.linkedin.com/pulse/introducing-sap-c4hana-foundation-thomas-hertz/) by [Thomas Hertz](https://twitter.com/primtom), Head of Technology at SAP CX.
 
+<iframe border=0 frameborder=0 height=720 width=550 
+ src="https://twitframe.com/show?url=https://twitter.com/Abd4llA/status/1125857596789993473"></iframe>
+
 
 ## 21-23.05.2019 Kyma at KubeCon Barcelona
 
 Yet another KubeCon event and we were there again. Thanks to the SAP support, we shared a booth with Gardener. This time the interest was much higher. Luckily, there were enough Kymians at the booth to answer all the questions asked.
 
-![barca](./barca.jpg)
+<iframe border=0 frameborder=0 height=720 width=550 
+ src="https://twitframe.com/show?url=https://twitter.com/derberq/status/1130832598954061824"></iframe>
+ 
+ <iframe border=0 frameborder=0 height=720 width=550 
+ src="https://twitframe.com/show?url=https://twitter.com/m_szostok/status/1131130333242568705"></iframe>
 
 ## 23.05.2019 We announced Kyma 1.0 on the Kubernetes blog
 
