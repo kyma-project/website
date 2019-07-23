@@ -33,7 +33,7 @@ Kyma is already 1 year old and we have a feeling it has only recently been open-
 - [We are making another big step](#we-are-making-another-big-step)
 - [We made friends](#we-made-friends)
 - [We contribute back](#we-contribute-back)
-- [We want you to contribute - birthday gifts](#we-want-to-contribute---birthday-gifts)
+- [We want you to contribute - birthday gifts](#we-want-you-to-contribute---birthday-gifts)
 - [Join us](#join-us)
 
 # We have had quite an interesting year
