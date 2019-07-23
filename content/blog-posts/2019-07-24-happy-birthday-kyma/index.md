@@ -8,7 +8,7 @@ redirectFrom:
   - "/blog/happy-birthday-kyma"
 ---
 
-Kyma is already 1 year old and we have a feeling it has only recently been open-sourced. Let me take you on a journey to the past to bring back the most interesting moments. Once we look back, let's see what the future brings.
+Kyma is already 1 year old and we have a feeling it has only recently been open-sourced. Let me take you on a journey to the past to bring back the most interesting moments. Once we look back, let us see what the future brings.
 
 <!-- overview -->
 
@@ -40,9 +40,10 @@ Kyma is already 1 year old and we have a feeling it has only recently been open-
 
 ## 24.07.2018 Open source - day one
 
-We know what we did last summer, and we are very proud of it. We opened our repositories to the outside world and published the first version of our website. We introduced our project in a [blog post](https://kyma-project.io/blog/2018/7/24/introduction-project-kyma/) and took first steps on [Twitter](https://twitter.com/kymaproject), growing to over 700 followers.
+We know what we did last summer, and we are very proud of it. We opened our repositories to the outside world and published the first version of our website. We introduced our project in a [blog post](https://kyma-project.io/blog/2018/7/24/introduction-project-kyma) and took first steps on [Twitter](https://twitter.com/kymaproject), growing to over 700 followers.
 
-![open-source](./24-07-2018-kyma-open-source.png)
+<iframe border=0 frameborder=0 height=520 width=550 align="middle"
+ src="https://twitframe.com/show?url=https://twitter.com/kymaproject/status/1021830148948193280"></iframe>
 
 ## 26.07.2018 Kyma together with Knative launched at Google Cloud Next 
 
@@ -60,7 +61,8 @@ We are definitely not planning to stop at 500 stars. This number was growing pre
 
 <iframe src="https://ghbtns.com/github-btn.html?user=kyma-project&repo=kyma&type=star&count=true&size=large" frameborder="0" scrolling="0" width="158px" height="30px"></iframe>
 
-![landscape](./kyma-landscape.png)
+<iframe border=0 frameborder=0 height=430 width=550
+ src="https://twitframe.com/show?url=https://twitter.com/kymaproject/status/1029029616684552192"></iframe>
 
 ## 12.09.2018 First Core Special Interest Group meeting
 
@@ -78,7 +80,8 @@ Kyma was announced to SAP customers and partners as the future of extensibility 
 
 [Moritz Zimmermann](https://twitter.com/moritzzimmerman), CTO of SAP CX, mentioned how Kyma shows SAP's commitment to openness. 
 
-![moritz](./moritz.png)
+<iframe border=0 frameborder=0 height=585 width=550
+ src="https://twitframe.com/show?url=https://twitter.com/moritzzimmerman/status/1050427826221051905"></iframe>
 
 ## 10-13.12.2018 Kyma at KubeCon Seattle
 
@@ -99,7 +102,8 @@ The new year brought an important update to our `http://kyma-project.io` landing
 
 You can't even imagine how important this date was for us. We reached or first huge milestone and made it clear that Kyma is ready to be used on the production system. So, what are you waiting for?
 
-![release](./release.png)
+<iframe border=0 frameborder=0 height=720 width=550 
+ src="https://twitframe.com/show?url=https://twitter.com/kymaproject/status/1121426458243678209"></iframe>
 
 ## 02.05.2019 Netconomy went to production
 
@@ -189,7 +193,7 @@ If you did not have a chance to contribute to our history, you can still join us
 - Core SIG public meetings: https://docs.google.com/document/d/1vWleTon7sJIk0teee4SoVezS4mR3K8TlkvXkgLJwRD8/
 - Slack: http://slack.kyma-project.io
 - GitHub issues: https://github.com/kyma-project/kyma/issues
-- LinkedIn: https://www.linkedin.com/company/kyma-project/
+- LinkedIn: https://www.linkedin.com/company/kyma-project
 - Stackoverflow: https://stackoverflow.com/questions/tagged/kyma
 - YouTube: https://www.youtube.com/channel/UC8Q8bBtYe9gQN-dQ-_L8JvQ
 
