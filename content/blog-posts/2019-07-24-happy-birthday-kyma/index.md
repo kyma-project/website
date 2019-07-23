@@ -53,10 +53,10 @@ Open source was a new land for us. When you make a step into the world of unknow
 
 ## 13.08.2018 Kyma made it to the CNCF Landscape
 
-Our [`kyma`](https://github.com/kyma-project/kyma/) repository quickly reached 500 stars on GitHub. We also showed up on [CNCF Landscape](https://github.com/cncf/landscape).
-
 <iframe border=0 frameborder=0 height=430 width=550
  src="https://twitframe.com/show?url=https://twitter.com/kymaproject/status/1029029616684552192"></iframe>
+
+Our [`kyma`](https://github.com/kyma-project/kyma/) repository quickly reached 500 stars on GitHub. We also showed up on [CNCF Landscape](https://github.com/cncf/landscape).
  
 ![landscape-view](./landscape-screen.png)
 
@@ -121,10 +121,10 @@ SAP, another early adopter that started using the Kyma project, made a big annou
 
 ## 21-23.05.2019 Kyma at KubeCon Barcelona
 
-Yet another KubeCon event and we were there again. Thanks to the SAP support, we shared a booth with Gardener. This time the interest was much higher. Luckily, there were enough Kymians at the booth to answer all the questions asked.
-
 <iframe border=0 frameborder=0 height=720 width=550 
  src="https://twitframe.com/show?url=https://twitter.com/derberq/status/1130832598954061824"></iframe>
+ 
+Yet another KubeCon event and we were there again. Thanks to the SAP support, we shared a booth with Gardener. This time the interest was much higher. Luckily, there were enough Kymians at the booth to answer all the questions asked.
  
  <iframe border=0 frameborder=0 height=720 width=550 
  src="https://twitframe.com/show?url=https://twitter.com/m_szostok/status/1131130333242568705"></iframe>
