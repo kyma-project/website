@@ -22,7 +22,7 @@
     "slack": {
       "name": "Slack",
       "shortName": "Slack",
-      "url": "https://join.slack.com/t/kyma-community/shared_invite/enQtNDAwNzE4Mjk2NDE3LTJhOTlmZjM5YzkwNmEzNmY3ZjE2MTU2OTMxOGE4ZDM0MmU4ZWRkZGJiODgzNmRmMTYxMDYwNjZiMDAwMTA2OWM",
+      "url": "http://slack.kyma-project.io",
       "icon": "slack"
     },
     "linkedIn": {
