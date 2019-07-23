@@ -30,9 +30,10 @@ Kyma is already 1 year old and we have a feeling it has only recently been open-
   * [18.06.2019 Kyma devs became Kubernetes contributors and Service Catalog approvers](#18-06-2019-kyma-devs-became-kubernetes-contributors-and-service-catalog-approvers)
   * [02.07.2019 Kyma dev became a chair of the Service Catalog SIG](#02-07-2019-kyma-dev-became-a-chair-of-the-service-catalog-sig)
   * [03.07.2019 Setup of Knative dedicated team](#03-07-2019-setup-of-knative-dedicated-team)
-- [We make another big step](#we-make-another-big-step)
+- [We are making another big step](#we-are-making-another-big-step)
 - [We made friends](#we-made-friends)
 - [We contribute back](#we-contribute-back)
+- [We want you to contribute - birthday gifts](#we-want-to-contribute---birthday-gifts)
 - [Join us](#join-us)
 
 # We have had quite an interesting year
@@ -102,7 +103,7 @@ You can't even imagine how important this date was for us. We reached or first h
 
 ## 02.05.2019 Netconomy went to production
 
-We did not wait too long and a few days after the 1.0 release we got confirmation of the first production environment user. Our early adopter, Netconomy, provided features for one of its clients that operate Kyma on their own. Soon Netconomy will have a guest blog post on Kyma website describing their use cases.
+We did not wait too long and a few days after the 1.0 release we got confirmation of the first production environment user. Our early adopter, Netconomy, provided features for one of its clients that operate Kyma on their own. Netconomy will soon publish a guest blog post on the Kyma website describing their use cases.
 
 ![netconomy-crew](./2019-05-02_kyma_golive_netconomy.jpg)
 
@@ -139,9 +140,9 @@ Kubernetes Service Catalog is one of our main dependencies. Kyma firmly states t
 Last year, we open-sourced with our brother in arms, the [Knative](https://github.com/knative) project. Now, once we are stable and production-ready, let us make this brotherhood much more dedicated. We reorganized a bit and created a team that will be dedicated to Knative contributions. We are planning to rebase Kyma on top of these contributions to improve our Event Bus and remove the dependency to Kubeless.
 
 
-# We make another big step
+# We are making another big step
 
-We just keep walking, don't plan to stop. Since day one we knew that [CNCF Landscape](https://github.com/cncf/landscape) is not all we want to achieve in CNCF. Our obvious next goal is [CNCF Sandbox](https://www.cncf.io/sandbox-projects/). This is not just our decision though, the [CNCF TOC](https://github.com/cncf/toc) must sponsor the project donation and this is our focus for comming months. We need to identify what we need to prepare on our side to become a part of CNCF. We also look forward for feedback from CNCF about Kyma. 
+We just keep walking, not planning to stop. Since day one, we have known that [CNCF Landscape](https://github.com/cncf/landscape) is not everything we want to achieve in CNCF. Our obvious next goal is [CNCF Sandbox](https://www.cncf.io/sandbox-projects/). This is not just our decision, though. The [CNCF Technical Oversight Committee (TOC)](https://github.com/cncf/toc) must sponsor the project's donation and this is our focus for the upcoming months. We need to identify what we need to prepare on our side to become a part of CNCF. We also look forward to CNCF's feedback about Kyma. 
 
 # We made friends
 
@@ -169,20 +170,20 @@ That was a hell of a year, and we can't wait to see what the upcoming year holds
 
 # We want you to contribute - birthday gifts
 
-Birthdays are always connected with presents. This time we plan to give away some Kyma t-shirts. Not for free thought, you get those only if you become an external contributor in next 7 days. Our undestanding of an external contributor is that you are not a part of GitHub Kyma organization and during next 7 days you:
-- Contributed code or documentation to one of Kyma repositories. It must be a pull request, but not necesarily merged as we can imagine that depending on the size of the contribution it might not be that easy to approve and merge it.
-- Contributed an issue using one of our templates. We value equaly a well described bug that is easy to replicate and an enhancement request with well described use case.
+Birthdays are always connected with presents. This time we plan to give away some Kyma t-shirts, not for free thought. You get those only if you become an external contributor in the next 7 days. Our understanding of an external contributor is that you are not a member of the Kyma organization on GitHub, and for the next 7 days you:
+- Contributed code or documentation to one of Kyma repositories. It must be a pull request, but not necessarily merged. We can imagine that depending on the size of the contribution it might not be that easy to approve and merge it.
+- Contributed an issue using one of our templates. We equally value a well-described bug that is easy to replicate and an enhancement request with a well-described use case.
 
-All Kyma repositories are located here: https://github.com/kyma-project/kyma/
-Once you contributed, let us know about it on [Twitter](https://twitter.com/kymaproject) or [Slack](http://slack.kyma-project.io), the #general channel. We will evaluate all contributions on Thursday, 1.08 and communicate all accepted contributions and happy winners. Happy contributing!
+All Kyma repositories are located [here](https://github.com/kyma-project/kyma/).
+Once you contribute, let us know about it on [Twitter](https://twitter.com/kymaproject) or [Slack](http://slack.kyma-project.io), on the **#general** channel. We will evaluate all contributions on Thursday, August 1, and communicate all accepted contributions and happy winners. Happy contributing!
 
-You don't know what to contribute? I'm sure we can help, just ping us on [Twitter](https://twitter.com/kymaproject) or [Slack](http://slack.kyma-project.io), the #general channel.
+If you don't know what to contribute, I'm sure we can help - just contact us through one of the above communication channels and we will point you in the right direction.
 
 ![chair](./swag.png)
 
 # Join us
 
-If you did not have a chance to contribute to our history, you can still join us and become part of Kyma in the future. We have many channels that you can use to interact with us:
+If you did not have a chance to contribute to our history, you can still join us and become part of Kyma's future. We have many channels that you can use to interact with us:
 
 - Twitter: https://twitter.com/kymaproject
 - Core SIG public meetings: https://docs.google.com/document/d/1vWleTon7sJIk0teee4SoVezS4mR3K8TlkvXkgLJwRD8/
