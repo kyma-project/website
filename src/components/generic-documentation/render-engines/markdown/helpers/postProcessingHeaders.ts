@@ -49,7 +49,7 @@ export const postProcessingHeaders = (
   if (!types.length) {
     return decrementLevels(headers, 0);
   }
-  let processedHeaders: Header[] = [];
+  const processedHeaders: Header[] = [];
 
   for (const type of types) {
     if (numberOfTypes[type] === 1 && headers.find(h => h.title === type)) {
@@ -80,13 +80,13 @@ export const postProcessingHeaders = (
     }
   });
 
-  processedHeaders = processedHeaders.sort((first, sec) =>
-    first.title.toLowerCase() === "overview"
-      ? -1
-      : sec.title.toLowerCase() === "overview"
-      ? 1
-      : 0,
-  );
+  const sortedProcessedHeaders: Header[] = [];
+  for (const type of types) {
+    const newHeaders = processedHeaders.find(h => h.title === type);
+    if (newHeaders) {
+      sortedProcessedHeaders.push(newHeaders);
+    }
+  }
 
-  return decrementLevels(processedHeaders, 0);
+  return decrementLevels(sortedProcessedHeaders, 0);
 };

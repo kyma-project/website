@@ -32,15 +32,7 @@ const getContent = async <T extends ContentQL>(
 };
 
 const sortDocsByOrder = (docs: DocsContentDocs[]) => {
-  let sortedDocs = docs.sort(sortFnByProperty<DocsContentDocs>("order"));
-  sortedDocs = sortedDocs.sort((first, sec) => {
-    const firstData = first.order.toLowerCase();
-    const secondData = sec.order.toLowerCase();
-
-    return firstData === "readme" ? -1 : secondData === "readme" ? 1 : 0;
-  });
-
-  return sortedDocs;
+  return docs.sort(sortFnByProperty<DocsContentDocs>("order"));
 };
 
 const sortDocsByType = (docs: DocsContentDocs[]): DocsContentDocs[] => {
@@ -71,6 +63,12 @@ const sortFnByProperty = <T extends { [k: string]: any }>(sortBy: string) => (
     const nameA = a[sortBy].toString().toLowerCase();
     const nameB = b[sortBy].toString().toLowerCase();
 
+    if (nameA === "readme") {
+      return -1;
+    }
+    if (nameB === "readme") {
+      return 1;
+    }
     if (nameA < nameB) {
       return -1;
     }

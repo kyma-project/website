@@ -6,7 +6,6 @@ export const tabsStyling = css`
     box-sizing: border-box;
     width: 100%;
     height: 100%;
-    font-family: "72";
     font-weight: normal;
     margin: 0px;
     border-width: 1px;
@@ -98,8 +97,9 @@ export const Header = styled.h2`
   &&&&& {
     box-sizing: border-box;
     width: 100%;
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 24px;
+    color: rgb(0, 115, 230);
+    font-weight: 300;
     margin: 0px 0px 26px;
   }
 `;
@@ -110,10 +110,9 @@ export const StyledMarkdown = styled.div`
   &&& {
     box-sizing: border-box;
     text-align: left;
-    font-family: "72";
     font-weight: normal;
-    margin: 0px 0px 16px;
-    padding: 16px;
+    padding: 40px 0;
+    border-bottom: 1px solid rgb(229, 229, 229);
 
     &:last-child {
       margin-bottom: 0;
@@ -125,7 +124,6 @@ export const StyledMarkdown = styled.div`
     h4,
     h5,
     h6 {
-      font-family: "72";
       color: #32363a;
       font-weight: bold;
       margin: 0;
@@ -152,7 +150,6 @@ export const StyledMarkdown = styled.div`
       }
     }
     a {
-      font-family: "72";
       color: #0b74de;
       text-decoration: none;
 
@@ -265,7 +262,6 @@ export const StyledMarkdown = styled.div`
     }
 
     .cms__text {
-      font-family: "72";
       font-size: 16px;
       color: rgb(81, 85, 89);
       line-height: 1.57;

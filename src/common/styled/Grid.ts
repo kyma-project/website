@@ -2,14 +2,14 @@ import styled from "@styled";
 import media from "@styled/media";
 
 interface GridContainerProps {
+  width?: string;
   padding?: string;
 }
 
-const GridContainer = styled.div`
-  width: 1200px;
+const GridContainer = styled.div<GridContainerProps>`
+  width: ${props => (props.width ? props.width : "1200px")};
   max-width: 100%;
-  ${(props: GridContainerProps) =>
-    props.padding ? props.padding : "padding: 30px 30px 0 30px"};
+  ${props => (props.padding ? props.padding : "padding: 30px 30px 0 30px")};
   margin: 0 auto;
 `;
 
@@ -19,12 +19,12 @@ interface GridRowProps {
   direction?: string;
 }
 
-const GridRow = styled.div`
+const GridRow = styled.div<GridRowProps>`
   display: flex;
   flex-wrap: wrap;
   margin: 0 -15px;
 
-  ${(props: GridRowProps) =>
+  ${props =>
     props.space &&
     `
     justify-content: space-between;

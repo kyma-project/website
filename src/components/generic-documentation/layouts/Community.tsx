@@ -8,6 +8,7 @@ import { DocsNavigation, DocsManifest } from "@components/docs/types";
 import {
   Navigation,
   linkSerializer,
+  activeLinkChecker,
 } from "../render-engines/markdown/navigation";
 import { HeadersNavigation } from "../render-engines/markdown/headers-toc";
 import { CommunityLayoutWrapper } from "./styled";
@@ -26,6 +27,12 @@ export const CommunityLayout: React.FunctionComponent<CommunityLayoutProps> = ({
 }) => {
   const linkFn: linkSerializer = ({ group, items, id }) =>
     `/community/${items.length > 1 ? `${group}/` : ""}${id}`;
+  const activeLinkFn: activeLinkChecker = ({ group, items, id, lastItem }) => {
+    if (lastItem === "community" && group === "contributing") {
+      return true;
+    }
+    return lastItem === id;
+  };
 
   return (
     <CommunityLayoutWrapper>
@@ -42,7 +49,11 @@ export const CommunityLayout: React.FunctionComponent<CommunityLayoutProps> = ({
                 <Sticky>
                   {({ style }: any) => (
                     <div style={{ ...style, zIndex: 200 }}>
-                      <Navigation navigation={navigation} linkFn={linkFn} />
+                      <Navigation
+                        navigation={navigation}
+                        linkFn={linkFn}
+                        activeLinkFn={activeLinkFn}
+                      />
                     </div>
                   )}
                 </Sticky>
@@ -55,7 +66,7 @@ export const CommunityLayout: React.FunctionComponent<CommunityLayoutProps> = ({
               >
                 <Content renderers={renderers} />
               </Grid.Unit>
-              {/* <Grid.Unit
+              <Grid.Unit
                 df={2}
                 sm={0}
                 className="grid-unit-navigation"
@@ -68,7 +79,7 @@ export const CommunityLayout: React.FunctionComponent<CommunityLayoutProps> = ({
                     </div>
                   )}
                 </Sticky>
-              </Grid.Unit> */}
+              </Grid.Unit>
             </Grid.Row>
           </StickyContainer>
         </Grid.Container>

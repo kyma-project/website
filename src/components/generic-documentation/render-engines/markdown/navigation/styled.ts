@@ -1,12 +1,12 @@
 import styled, { media, css } from "@styled";
 
 export const NavigationWrapper = styled.div`
-  margin: 15px 0 0 0;
+  margin: 16px 0 0 0;
 `;
 
 export const NavigationList = styled.ul`
   padding: 0;
-  margin: 15px 0 0 0;
+  margin: 16px 0 0 0;
   list-style: none;
 `;
 

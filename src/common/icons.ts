@@ -15,6 +15,7 @@ import {
   faChevronUp,
   faSearch,
   faQuestionCircle,
+  faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faEdit,
@@ -33,6 +34,7 @@ import {
 config.autoAddCss = false;
 
 library.add(
+  faChevronRight,
   faExternalLinkAlt,
   faCloudDownloadAlt,
   faCalendarAlt,

@@ -1,0 +1,8 @@
+{
+  "spec": {
+    "id": "release-guidelines",
+    "displayName": "Release guidelines",
+    "description": "Kyma release guidelines",
+    "type": "Guidelines"
+  }
+}

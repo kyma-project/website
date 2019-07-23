@@ -1,4 +1,5 @@
 import styled, { media } from "@styled";
+import Icon from "@components/shared/Icon";
 
 export const HeadersNavigationsWrapper = styled.div`
   position: relative;
@@ -12,8 +13,7 @@ export const HeadersNavigationsWrapper = styled.div`
 `;
 
 export const StyledHeadersNavigation = styled.div`
-  border-radius: 4px;
-  background-color: rgb(255, 255, 255);
+  margin-top: 16px;
 
   ul {
     margin: 0;
@@ -24,18 +24,20 @@ export const StyledHeadersNavigation = styled.div`
       width: 100%;
       max-width: 100%;
       position: relative;
+      margin: 0;
 
       a {
         width: 100%;
-        font-size: 13px;
+        font-size: 12px;
         padding: 4px 24px;
         color: #32363a;
         font-weight: normal;
+        display: block;
 
         &.active {
           color: #0b74de;
           font-weight: bold;
-          border-left: 2px solid #0b74de;
+          border-left: 3px solid #0b74de;
         }
       }
 
@@ -45,7 +47,7 @@ export const StyledHeadersNavigation = styled.div`
     }
 
     .cms__toc-list-item--level-1 {
-      span {
+      svg {
         left: 17px !important;
       }
 
@@ -55,7 +57,7 @@ export const StyledHeadersNavigation = styled.div`
     }
 
     .cms__toc-list-item--level-2 {
-      span {
+      svg {
         left: 29px !important;
       }
 
@@ -65,7 +67,7 @@ export const StyledHeadersNavigation = styled.div`
     }
 
     .cms__toc-list-item--level-3 {
-      span {
+      svg {
         left: 41px !important;
       }
 
@@ -75,7 +77,7 @@ export const StyledHeadersNavigation = styled.div`
     }
 
     .cms__toc-list-item--level-4 {
-      span {
+      svg {
         left: 53px !important;
       }
 
@@ -91,28 +93,25 @@ export const StyledHeadersNavigation = styled.div`
   }
 `;
 
-// interface CollapseArrowProps {
-//   open: boolean;
-//   root: boolean;
-// }
+interface CollapseArrowProps {
+  open: boolean;
+  root: boolean;
+}
 
-// export const CollapseArrow = styled(Icon)`
-//   &&&&& {
-//     display: block;
-//     position: absolute;
-//     width: 18px;
-//     ${({ root = false }: CollapseArrowProps) =>
-//       root ? `margin-left: 5px;` : ''}
-//     top: 1px;
-//     text-align: center;
-//     cursor: pointer;
-//     color: #0b74de;
-//     &:before {
-//       font-size: 0.65rem;
-//       line-height: 1;
-//       transition: 0.3s ease;
-//       ${({ open = false }: CollapseArrowProps) =>
-//         open && 'transform: rotate(90deg);'};
-//     }
-//   }
-// `;
+export const CollapseArrow = styled(Icon)<CollapseArrowProps>`
+  &&&&& {
+    display: block;
+    position: absolute;
+    width: 12px;
+    font-size: 0.75rem;
+    margin-top: 6px;
+    ${({ root = false }) => (root ? `margin-left: 5px;` : "")}
+    top: 1px;
+    text-align: center;
+    cursor: pointer;
+    color: #0b74de;
+    line-height: 1;
+    transition: 0.3s ease;
+    ${({ open = false }) => open && "transform: rotate(90deg);"};
+  }
+`;

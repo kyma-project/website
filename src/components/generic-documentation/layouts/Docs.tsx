@@ -8,6 +8,7 @@ import { DocsNavigation, DocsManifest } from "@components/docs/types";
 import {
   Navigation,
   linkSerializer,
+  activeLinkChecker,
 } from "../render-engines/markdown/navigation";
 import { HeadersNavigation } from "../render-engines/markdown/headers-toc";
 import { DocsLayoutWrapper } from "./styled";
@@ -17,15 +18,40 @@ export interface DocsLayoutProps {
   renderers: Renderers;
   navigation: DocsNavigation;
   manifest: DocsManifest;
+  version: string;
 }
 
 export const DocsLayout: React.FunctionComponent<DocsLayoutProps> = ({
   renderers,
   navigation,
   manifest,
+  version,
 }) => {
   const linkFn: linkSerializer = ({ group, items, id }) =>
-    `/docs/${group}/${id}`;
+    `/docs/${version ? `${version}/` : ""}${group}/${id}`;
+  const activeLinkFn: activeLinkChecker = ({ group, items, id, lastItem }) => {
+    if (
+      (lastItem === "docs" || /^((\d\.\d)|latest|master)$/.test(lastItem)) &&
+      group === "root" &&
+      id === "kyma"
+    ) {
+      return true;
+    }
+    return lastItem === id;
+  };
+
+  const sortedGroup: string[] = Object.keys(navigation).sort(
+    (first, second) => {
+      const firstData = first.toLowerCase();
+      const secondData = second.toLowerCase();
+
+      return firstData === "root" ? -1 : secondData === "root" ? 1 : 0;
+    },
+  );
+  const sortedNavigation: DocsNavigation = {};
+  Object.keys(navigation).map(key => {
+    sortedNavigation[key] = navigation[key];
+  });
 
   return (
     <DocsLayoutWrapper>
@@ -42,13 +68,17 @@ export const DocsLayout: React.FunctionComponent<DocsLayoutProps> = ({
                 <Sticky>
                   {({ style }: any) => (
                     <div style={{ ...style, zIndex: 200 }}>
-                      <Navigation navigation={navigation} linkFn={linkFn} />
+                      <Navigation
+                        navigation={sortedNavigation}
+                        linkFn={linkFn}
+                        activeLinkFn={activeLinkFn}
+                      />
                     </div>
                   )}
                 </Sticky>
               </Grid.Unit>
               <Grid.Unit
-                df={8}
+                df={7}
                 sm={12}
                 className="grid-unit-content"
                 withoutPadding={true}
@@ -56,7 +86,7 @@ export const DocsLayout: React.FunctionComponent<DocsLayoutProps> = ({
                 <Content renderers={renderers} />
               </Grid.Unit>
               <Grid.Unit
-                df={2}
+                df={3}
                 sm={0}
                 className="grid-unit-navigation"
                 withoutPadding={true}

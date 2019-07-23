@@ -1,0 +1,21 @@
+spec:
+  contributing:
+    - displayName: Contributing
+      id: contributing
+  governance:
+    - displayName: Governance
+      id: governance
+  collaboration:
+    - displayName: Collaboration
+      id: collaboration
+  guidelines:
+    - displayName: Content guidelines
+      id: content-guidelines
+    - displayName: Technical guidelines
+      id: technical-guidelines
+    - displayName: Templates
+      id: templates
+    - displayName: Release guidelines
+      id: release-guidelines
+    - displayName: Repository guidelines
+      id: repository-guidelines
