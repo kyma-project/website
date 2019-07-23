@@ -6,8 +6,8 @@ import PostPage from "@components/blog/Post";
 
 import { AllMarkdownRemarkNode } from "@common/types";
 import { Post } from "./types";
-
-import { BlogPageWrapper as Wrapper } from "./styled";
+import config from "@config";
+import { BlogPageWrapper as Wrapper, Icon, StyledLink } from "./styled";
 
 type AllMarkdownRemarkNodePost = AllMarkdownRemarkNode<Post>;
 
@@ -29,7 +29,19 @@ export const BlogPageWrapper: React.FunctionComponent = ({ children }) => (
 
 const BlogPage: React.FunctionComponent<BlogPageProps> = ({ nodes }) => (
   <BlogPageWrapper>
-    {nodes.map((edge: AllMarkdownRemarkNodePost, index: number) => {
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      href={`${config.siteMetadata.siteUrl}${config.siteMetadata.feedUrl}`}
+    />
+    <StyledLink
+      href={`/${config.siteMetadata.feedUrl}`}
+      rel="alternate"
+      type="application/rss+xml"
+    >
+      <Icon />
+    </StyledLink>
+    {nodes.map((edge: AllMarkdownRemarkNodePost) => {
       const post = edge.node;
       return (
         <PostPage

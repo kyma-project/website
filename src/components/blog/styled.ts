@@ -1,12 +1,35 @@
 import styled, { media } from "@styled";
-
+import Link from "@components/shared/Link";
+import RSSIcon from "./assets/RSS_46x46_default.svg";
+import HoveredRSSIcon from "./assets/RSS_46x46_hover.svg";
 /* BlogPage */
 export const BlogPageWrapper = styled.div`
   margin: 75px 0 0 0;
+  display: flex;
+  flex-direction: column;
 
   ${media.phone`
     margin-top: 25px;
   `};
+`;
+
+export const StyledLink = styled.a`
+  align-self: flex-end;
+  ${media.tablet`
+    position: relative;
+    top: 10px;
+  `};
+`;
+
+// RSS Icon
+export const Icon = styled.section`
+  width: 46px;
+  height: 46px;
+  background-image: url(${RSSIcon});
+  transition: 0.2s;
+  :hover {
+    background-image: url(${HoveredRSSIcon});
+  }
 `;
 
 /* Post */

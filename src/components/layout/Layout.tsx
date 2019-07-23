@@ -18,7 +18,10 @@ import BackToTop from "@components/layout/BackToTop";
 import Header from "@components/layout/Header";
 import Footer from "@components/layout/Footer";
 
-import SiteMetadata from "@components/layout/SiteMetadata";
+import {
+  default as SiteMetadata,
+  BlogPostMetadata,
+} from "@components/layout/SiteMetadata";
 
 import { LayoutWrapper, Content } from "./styled";
 
@@ -32,6 +35,7 @@ interface LayoutProps {
   docsMetadata?: {
     version?: string;
   };
+  blogPostMetadata?: BlogPostMetadata;
 }
 
 const Layout: React.FunctionComponent<LayoutProps> = ({
@@ -42,6 +46,7 @@ const Layout: React.FunctionComponent<LayoutProps> = ({
   children,
   backToTopButton = true,
   docsMetadata,
+  blogPostMetadata,
 }) => (
   <StaticQuery
     query={query}
@@ -59,6 +64,7 @@ const Layout: React.FunctionComponent<LayoutProps> = ({
                   pageTitle={pageTitle}
                   pageDescription={pageDescription}
                   siteMetadata={data.site.siteMetadata}
+                  blogPostMetadata={blogPostMetadata}
                 />
                 <LayoutWrapper>
                   <ModalProvider>
