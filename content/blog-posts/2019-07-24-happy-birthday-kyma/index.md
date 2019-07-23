@@ -40,7 +40,7 @@ Kyma is already 1 year old and we have a feeling it has only recently been open-
 
 ## 24.07.2018 Open source - day one
 
-We know what we did last summer, and we are very proud of it. We opened our repositories to the outside world and published the first version of our website. We introduced our project in a [blog post](https://kyma-project.io/blog/2018/7/24/introduction-project-kyma/] and took first steps on [Twitter](https://twitter.com/kymaproject), growing to over 700 followers.
+We know what we did last summer, and we are very proud of it. We opened our repositories to the outside world and published the first version of our website. We introduced our project in a [blog post](https://kyma-project.io/blog/2018/7/24/introduction-project-kyma/) and took first steps on [Twitter](https://twitter.com/kymaproject), growing to over 700 followers.
 
 ![open-source](./24-07-2018-kyma-open-source.png)
 
