@@ -115,18 +115,18 @@ We did not wait too long and a few days after the 1.0 release we got confirmatio
 
 SAP, another early adopter that started using the Kyma project, made a big announcement of the production-ready offering for all SAP CX customers. The product is called SAP C/4HANA Foundation and you can read more about it in the [blog post](https://www.linkedin.com/pulse/introducing-sap-c4hana-foundation-thomas-hertz/) by [Thomas Hertz](https://twitter.com/primtom), Head of Technology at SAP CX.
 
-<iframe border=0 frameborder=0 height=720 width=550 
+<iframe border=0 frameborder=0 height=800 width=550 
  src="https://twitframe.com/show?url=https://twitter.com/Abd4llA/status/1125857596789993473"></iframe>
 
 
 ## 21-23.05.2019 Kyma at KubeCon Barcelona
 
-<iframe border=0 frameborder=0 height=720 width=550 
+<iframe border=0 frameborder=0 height=550 width=550 
  src="https://twitframe.com/show?url=https://twitter.com/derberq/status/1130832598954061824"></iframe>
  
 Yet another KubeCon event and we were there again. Thanks to the SAP support, we shared a booth with Gardener. This time the interest was much higher. Luckily, there were enough Kymians at the booth to answer all the questions asked.
  
- <iframe border=0 frameborder=0 height=720 width=550 
+ <iframe border=0 frameborder=0 height=500 width=550 
  src="https://twitframe.com/show?url=https://twitter.com/m_szostok/status/1131130333242568705"></iframe>
 
 ## 23.05.2019 We announced Kyma 1.0 on the Kubernetes blog
