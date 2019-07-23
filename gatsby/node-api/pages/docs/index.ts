@@ -75,11 +75,11 @@ export const createDocsPages = async ({
     graphql,
     "/content/docs/",
     `docInfo {
-    id
-    type
-    version
-    fileName
-  }`,
+      id
+      type
+      version
+      fileName
+    }`,
   );
 
   const docsArch: { [version: string]: DocsGeneratorReturnType } = {};

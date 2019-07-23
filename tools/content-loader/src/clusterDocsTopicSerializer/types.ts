@@ -1,6 +1,7 @@
 export const CLUSTER_DOCS_TOPIC: string = "ClusterDocsTopic";
 
 export const GROUP_NAME_LABEL: string = "cms.kyma-project.io/group-name";
+export const GROUP_ORDER_LABEL: string = "cms.kyma-project.io/group-order";
 export const ORDER_LABEL: string = "cms.kyma-project.io/order";
 
 export interface ClusterDocsTopic {

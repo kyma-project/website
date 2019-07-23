@@ -11,7 +11,7 @@ import {
   NavigationGroupName,
 } from "./styled";
 
-export type linkFn = ({
+export type linkSerializer = ({
   group,
   items,
   id,
@@ -23,17 +23,17 @@ export type linkFn = ({
 
 export interface NavigationProps {
   navigation: DocsNavigation;
-  linkSerializer: linkFn;
+  linkFn: linkSerializer;
 }
 
 function renderList(
   group: string,
   items: DocsNavigationTopic[],
-  linkSerializer: linkFn,
+  linkFn: linkSerializer,
 ): React.ReactNode {
   const list = items.map(item => (
     <NavigationListItem active={false} key={`${group}-${item.id}`}>
-      <Link.Internal to={linkSerializer({ group, items, id: item.id })}>
+      <Link.Internal to={linkFn({ group, items, id: item.id })}>
         <NavigationListItemName>
           <span>{item.displayName}</span>
         </NavigationListItemName>
@@ -53,10 +53,10 @@ function renderList(
 
 export const Navigation: React.FunctionComponent<NavigationProps> = ({
   navigation,
-  linkSerializer,
+  linkFn,
 }) => {
   const lists = Object.keys(navigation).map(group =>
-    renderList(group, navigation[group], linkSerializer),
+    renderList(group, navigation[group], linkFn),
   );
 
   return <NavigationWrapper>{lists}</NavigationWrapper>;

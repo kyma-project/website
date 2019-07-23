@@ -5,7 +5,10 @@ import { StickyContainer, Sticky } from "react-sticky";
 import Grid from "@styled/Grid";
 import { DocsNavigation, DocsManifest } from "@components/docs/types";
 
-import { Navigation, linkFn } from "../render-engines/markdown/navigation";
+import {
+  Navigation,
+  linkSerializer,
+} from "../render-engines/markdown/navigation";
 import { HeadersNavigation } from "../render-engines/markdown/headers-toc";
 import { DocsLayoutWrapper } from "./styled";
 import { MarkdownWrapper } from "../styled";
@@ -21,8 +24,8 @@ export const DocsLayout: React.FunctionComponent<DocsLayoutProps> = ({
   navigation,
   manifest,
 }) => {
-  const linkSerializer: linkFn = ({ group, items, id }) =>
-    `/docs/${items.length > 1 ? `${group}/` : ""}${id}`;
+  const linkFn: linkSerializer = ({ group, items, id }) =>
+    `/docs/${group}/${id}`;
 
   return (
     <DocsLayoutWrapper>
@@ -39,10 +42,7 @@ export const DocsLayout: React.FunctionComponent<DocsLayoutProps> = ({
                 <Sticky>
                   {({ style }: any) => (
                     <div style={{ ...style, zIndex: 200 }}>
-                      <Navigation
-                        navigation={navigation}
-                        linkSerializer={linkSerializer}
-                      />
+                      <Navigation navigation={navigation} linkFn={linkFn} />
                     </div>
                   )}
                 </Sticky>

@@ -16,6 +16,7 @@ import {
   DocsConfig,
   CLUSTER_DOCS_TOPIC,
   GROUP_NAME_LABEL,
+  GROUP_ORDER_LABEL,
   ORDER_LABEL,
 } from "./types";
 
@@ -166,12 +167,28 @@ export class ClusterDocsTopicSerializer {
 
   private extractGroupNames = (): string[] => {
     const groupNames: Set<string> = new Set<string>();
+    const order: { [group: string]: number } = {};
 
     this.clusterDocsTopics.map(cdt => {
-      groupNames.add(cdt.metadata.labels[GROUP_NAME_LABEL]);
+      const groupName = cdt.metadata.labels[GROUP_NAME_LABEL];
+      groupNames.add(groupName);
+      if (!order[groupName]) {
+        order[groupName] = Number(cdt.metadata.labels[GROUP_ORDER_LABEL]);
+      }
     });
 
-    return Array.from(groupNames);
+    return Array.from(groupNames).sort((first, sec) => {
+      const orderFirst = order[first];
+      const orderSec = order[sec];
+
+      if (orderFirst < orderSec) {
+        return -1;
+      }
+      if (orderFirst > orderSec) {
+        return 1;
+      }
+      return 0;
+    });
   };
 
   private loadAllClusterDocsTopics = async (source: string) => {

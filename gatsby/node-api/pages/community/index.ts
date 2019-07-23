@@ -11,10 +11,7 @@ import {
   DOCS_DIR,
   COMMUNITY_DIR,
   ASSETS_DIR,
-  DOCS_PATH_PREFIX,
-  DOCS_LATEST_VERSION,
-  DOCS_ROOT_TYPE,
-  DOCS_KYMA_ID,
+  COMMUNITY_CONTRIBUTING_TYPE,
   COMMUNITY_PATH_PREFIX,
 } from "../../../constants";
 import { CreatePageFn } from "../../../types";
@@ -66,10 +63,10 @@ export const createCommunityPages = async ({
     graphql,
     "/content/community/",
     `docInfo {
-    id
-    type
-    fileName
-  }`,
+      id
+      type
+      fileName
+    }`,
   );
   const {
     content,
@@ -103,6 +100,23 @@ export const createCommunityPages = async ({
           assetsPath,
         },
       });
+
+      // for root path: /docs -> /docs/root/kyma
+      if (
+        COMMUNITY_CONTRIBUTING_TYPE === docsType &&
+        COMMUNITY_CONTRIBUTING_TYPE === topic
+      ) {
+        createPage({
+          path: `/${COMMUNITY_PATH_PREFIX}`,
+          component: communityTemplate,
+          context: {
+            content: newContent,
+            navigation,
+            manifest,
+            assetsPath,
+          },
+        });
+      }
     });
   });
 };
