@@ -39,6 +39,7 @@ As it often goes – sometimes plans and reality do not meet as intended. In Mar
 
 Our focus, as we go forward, is to work on two fronts. From one side, we have the core Kyma features, building a truly-open frame that provides a flexible and easy way to connect and extend enterprise applications. 
 From the other side, we look at our serverless foundational layer, where we see Knative with all its different components as the natural, logical choice. Therefore we will work on:
+
 1.	Establishing Knative as a first-class citizen in Kyma.
 2.	Providing a Knative-rich user experience within Kyma by leveraging the full landscape of Knative features (Serving, Eventing, Operator, Cli,  etc.)
 3.	Enriching the Knative community with Kyma use cases, customer feedback, and challenges, which we can solve together in collaboration. 
