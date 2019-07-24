@@ -107,7 +107,7 @@ You can't even imagine how important this date was for us. We reached or first h
 
 ## 02.05.2019 Netconomy went to production
 
-We did not wait too long and a few days after the 1.0 release we got confirmation of the first production environment user. Our early adopter, [Netconomy](https://www.netconomy.net/), provided features for one of its clients and operates Kyma on its own. Netconomy will soon publish a guest blog post on the Kyma website describing their use cases.
+We did not wait too long and a few days after the 1.0 release we got confirmation of the first production environment user. Our early adopter, [Netconomy](https://www.netconomy.net/), provided features to one of its clients and operates Kyma on its own. Netconomy will soon publish a guest blog post on the Kyma website describing their use cases.
 
 ![netconomy-crew](./2019-05-02_kyma_golive_netconomy.jpg)
 
