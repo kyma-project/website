@@ -100,7 +100,7 @@ The new year brought an important update to our [`http://kyma-project.io`](https
 
 ## 25.04.2019 1.0 release
 
-You can't even imagine how important this date was for us. We reached or first huge milestone and made it clear that Kyma is ready to be used on the production system. So, what are you waiting for?
+You can't even imagine how important this date was for us. We reached or first huge milestone and made it clear that Kyma is ready to be used on the production environment. So, what are you waiting for?
 
 <iframe border=0 frameborder=0 height=720 width=550
  src="https://twitframe.com/show?url=https://twitter.com/kymaproject/status/1121426458243678209"></iframe>
@@ -186,7 +186,7 @@ Birthdays are always connected with presents. This time we plan to give away som
 - Contribute an issue using one of our templates. We equally value a well-described bug that is easy to replicate and an enhancement request with a well-described use case.
 
 All Kyma repositories are located [here](https://github.com/kyma-project/kyma/).
-Once you contribute, let us know about it on [Twitter](https://twitter.com/kymaproject) or on the **#general** channel on [Slack](http://slack.kyma-project.io). We will evaluate all contributions on Thursday, August 1, and communicate all accepted contributions and happy winners. Happy contributing!
+Once you contribute, let us know about it on [Twitter](https://twitter.com/kymaproject) or on the **#general** channel on [Slack](http://slack.kyma-project.io). We will evaluate all contributions on Thursday, August 1, and announce all accepted contributions and happy winners. Happy contributing!
 
 If you don't know what to contribute, I'm sure we can help - just contact us through one of the above communication channels and we will point you in the right direction.
 
