@@ -13,7 +13,7 @@ redirectFrom:
   - "/blog/kyma-and-knative-turning-one"
 ---
 
-It was a warm and sunny July day in San Francisco (not kidding!) when we got into the crowded Moscone West conference center for a session entitled “[Serverless on Google Cloud](https://www.youtube.com/watch?v=iPQUdb0kssE)”. On that very stage at Google Cloud Next 2018, both Knative and Kyma projects were announced and officially saw the light of day. Since then, a lot of code was written and rewritten, shaping an extraordinary first year for both projects. You can go through some of the most memorable moments throughout [Kyma’s first year](https://kyma-project.io/blog/2019/7/24/happy-birthday-kyma/) or [Knative's first year](https://cloud.google.com/blog/) recaps.
+It was a warm and sunny July day in San Francisco (not kidding!) when we got into the crowded Moscone West conference center for a session entitled “[Serverless on Google Cloud](https://www.youtube.com/watch?v=iPQUdb0kssE)”. On that very stage at Google Cloud Next 2018, both Knative and Kyma projects were announced and officially saw the light of day. Since then a lot of code was written and rewritten, shaping an extraordinary first year for both projects. You can go through some of the most memorable moments throughout [Kyma’s first year](https://kyma-project.io/blog/2019/7/24/happy-birthday-kyma/) or [Knative's first year](https://cloud.google.com/blog/) recaps.
 
 ## Getting Kyma launched
 
