@@ -181,7 +181,7 @@ That was a hell of a year, and we can't wait to see what the upcoming year holds
 
 # We want you to contribute - birthday gifts
 
-Birthdays are always connected with presents. This time we plan to give away some Kyma t-shirts, not for free thought. You get those only if you become an external contributor in the next 7 days. Our understanding of an external contributor is that you are not a member of the Kyma organization on GitHub, and for the next 7 days you:
+Birthdays are always connected with presents. This time we plan to give away some Kyma T-shirts, not for free thought. You get those only if you become an external contributor in the next 7 days. Our understanding of an external contributor is that you are not a member of the Kyma organization on GitHub, and for the next 7 days you:
 - Contributed code or documentation to one of Kyma repositories. It must be a pull request, but not necessarily merged. We can imagine that depending on the size of the contribution it might not be that easy to approve and merge it.
 - Contributed an issue using one of our templates. We equally value a well-described bug that is easy to replicate and an enhancement request with a well-described use case.
 
