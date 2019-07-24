@@ -2,13 +2,13 @@
 title: "Happy Birthday Kyma"
 author:
   name: "Lukasz Gornicki, Community Manager and Core & Supporting Capability Owner"
-tags: 
+tags:
   - community
 redirectFrom:
   - "/blog/happy-birthday-kyma"
 ---
 
-Kyma is already 1 year old and we have a feeling it has only recently been open-sourced. Let me take you on a journey to the past to bring back the most interesting moments. Once we look back, let us see what the future brings.
+Kyma is already 1-year-old and we have a feeling it has only recently been open-sourced. Let me take you on a journey to the past to bring back the most interesting moments. Once we look back, let us see what the future brings.
 
 <!-- overview -->
 
@@ -45,7 +45,7 @@ We know what we did last summer, and we are very proud of it. We opened our repo
 <iframe border=0 frameborder=0 height=520 width=550 align="middle"
  src="https://twitframe.com/show?url=https://twitter.com/kymaproject/status/1021830148948193280"></iframe>
 
-## 26.07.2018 Kyma together with Knative launched at Google Cloud Next 
+## 26.07.2018 Kyma together with Knative launched at Google Cloud Next
 
 Open source was a new land for us. When you make a step into the world of unknowns, better make it with a friend. Luckily, we were not the only ones that were at the beginning of the journey. We made an official launch at the Google Cloud Next event to be there together with the [Knative](https://github.com/knative) project.
 
@@ -57,7 +57,7 @@ Open source was a new land for us. When you make a step into the world of unknow
  src="https://twitframe.com/show?url=https://twitter.com/kymaproject/status/1029029616684552192"></iframe>
 
 Our [`kyma`](https://github.com/kyma-project/kyma/) repository quickly reached 500 stars on GitHub. We also showed up on [CNCF Landscape](https://github.com/cncf/landscape).
- 
+
 ![landscape-view](./landscape-screen.png)
 
 We are definitely not planning to stop at 500 stars. This number was growing pretty slow since last year, but it has been increasing steadily since the 1.0 release. Remember that you can also star our project if you like it.
@@ -66,7 +66,7 @@ We are definitely not planning to stop at 500 stars. This number was growing pre
 
 ## 12.09.2018 First Core Special Interest Group meeting
 
-After creating an open governance model, we hosted our first public Core Special Interest Group meeting. It was hosted by our stars, [Piotr Kopczynski](https://twitter.com/PiotrasPk) and [Mateusz Szostok](https://twitter.com/m_szostok). 
+After creating an open governance model, we hosted our first public Core Special Interest Group meeting. It was hosted by our stars, [Piotr Kopczynski](https://twitter.com/PiotrasPk) and [Mateusz Szostok](https://twitter.com/m_szostok).
 
 `youtube: https://youtu.be/1DD5aCBnywQ`
 
@@ -78,7 +78,7 @@ Kyma was announced to SAP customers and partners as the future of extensibility 
 
 ![kyma-sap-cx](./kyma-sap.png)
 
-[Moritz Zimmermann](https://twitter.com/moritzzimmerman), CTO of SAP CX, mentioned how Kyma shows SAP's commitment to openness. 
+[Moritz Zimmermann](https://twitter.com/moritzzimmerman), CTO of SAP CX, mentioned how Kyma shows SAP's commitment to openness.
 
 <iframe border=0 frameborder=0 height=585 width=550
  src="https://twitframe.com/show?url=https://twitter.com/moritzzimmerman/status/1050427826221051905"></iframe>
@@ -102,7 +102,7 @@ The new year brought an important update to our `http://kyma-project.io` landing
 
 You can't even imagine how important this date was for us. We reached or first huge milestone and made it clear that Kyma is ready to be used on the production system. So, what are you waiting for?
 
-<iframe border=0 frameborder=0 height=720 width=550 
+<iframe border=0 frameborder=0 height=720 width=550
  src="https://twitframe.com/show?url=https://twitter.com/kymaproject/status/1121426458243678209"></iframe>
 
 ## 02.05.2019 Netconomy went to production
@@ -115,18 +115,18 @@ We did not wait too long and a few days after the 1.0 release we got confirmatio
 
 SAP, another early adopter that started using the Kyma project, made a big announcement of the production-ready offering for all SAP CX customers. The product is called SAP C/4HANA Foundation and you can read more about it in the [blog post](https://www.linkedin.com/pulse/introducing-sap-c4hana-foundation-thomas-hertz/) by [Thomas Hertz](https://twitter.com/primtom), Head of Technology at SAP CX.
 
-<iframe border=0 frameborder=0 height=800 width=550 
+<iframe border=0 frameborder=0 height=800 width=550
  src="https://twitframe.com/show?url=https://twitter.com/Abd4llA/status/1125857596789993473"></iframe>
 
 
 ## 21-23.05.2019 Kyma at KubeCon Barcelona
 
-<iframe border=0 frameborder=0 height=550 width=550 
+<iframe border=0 frameborder=0 height=550 width=550
  src="https://twitframe.com/show?url=https://twitter.com/derberq/status/1130832598954061824"></iframe>
- 
+
 Yet another KubeCon event and we were there again. Thanks to the SAP support, we shared a booth with Gardener. This time the interest was much higher. Luckily, there were enough Kymians at the booth to answer all the questions asked.
- 
- <iframe border=0 frameborder=0 height=500 width=550 
+
+ <iframe border=0 frameborder=0 height=500 width=550
  src="https://twitframe.com/show?url=https://twitter.com/m_szostok/status/1131130333242568705"></iframe>
 
 ## 23.05.2019 We announced Kyma 1.0 on the Kubernetes blog
@@ -153,14 +153,14 @@ Last year, we open-sourced with our brother in arms, the [Knative](https://githu
 
 # We are making another big step
 
-We just keep walking, not planning to stop. Since day one, we have known that [CNCF Landscape](https://github.com/cncf/landscape) is not everything we want to achieve in CNCF. Our obvious next goal is [CNCF Sandbox](https://www.cncf.io/sandbox-projects/). This is not just our decision, though. The [CNCF Technical Oversight Committee (TOC)](https://github.com/cncf/toc) must sponsor the project's donation and this is our focus for the upcoming months. We need to identify what we need to prepare on our side to become a part of CNCF. We also look forward to CNCF's feedback about Kyma. 
+We just keep walking, not planning to stop. Since day one, we have known that [CNCF Landscape](https://github.com/cncf/landscape) is not everything we want to achieve in CNCF. Our obvious next goal is [CNCF Sandbox](https://www.cncf.io/sandbox-projects/). This is not just our decision, though. The [CNCF Technical Oversight Committee (TOC)](https://github.com/cncf/toc) must sponsor the project's donation and this is our focus for the upcoming months. We need to identify what we need to prepare on our side to become a part of CNCF. We also look forward to CNCF's feedback about Kyma.
 
 # We made friends
 
-We understand how important it is to make friends in the open-source community. Leaving in isolation brings loneliness and we definitely do not want that for our project. Fortunately, we have a lot of visitors to our main [Slack  channel](http://slack.kyma-project.io). Apart from making friends among users, we also want to make friends among the projects we depend on, especially those that play or will play an important role in Kyma. 
+We understand how important it is to make friends in the open-source community. Leaving in isolation brings loneliness and we definitely do not want that for our project. Fortunately, we have a lot of visitors to our main [Slack  channel](http://slack.kyma-project.io). Apart from making friends among users, we also want to make friends among the projects we depend on, especially those that play or will play an important role in Kyma.
 
 A few of us regularly help the following communities:
-- [Ahmed Abdalla](https://twitter.com/Abd4llA) in [Knative](https://github.com/knative) 
+- [Ahmed Abdalla](https://twitter.com/Abd4llA) in [Knative](https://github.com/knative)
 - [Lukasz Gornicki](https://twitter.com/derberq) in [AsyncAPI](https://www.asyncapi.org/)
 - [Piotr Kopczynski](https://twitter.com/PiotrasPk) and [Mateusz Szostok](https://twitter.com/m_szostok) in [Kubernetes Service Catalog](https://github.com/kubernetes-sigs/service-catalog)
 - [Piotr Mscichowski](https://github.com/piotrmsc) in [Ory](https://github.com/ory), [Hydra](https://github.com/ory/hydra), and [Authkeeper](https://github.com/ory/oathkeeper) projects.
