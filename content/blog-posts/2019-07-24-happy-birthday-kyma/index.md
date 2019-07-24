@@ -31,7 +31,7 @@ Kyma is already 1-year-old and we have a feeling it has only recently been open-
   * [02.07.2019 Kyma dev became a chair of the Service Catalog SIG](#02-07-2019-kyma-dev-became-a-chair-of-the-service-catalog-sig)
   * [03.07.2019 Setup of Knative dedicated team](#03-07-2019-setup-of-knative-dedicated-team)
 - [We are making another big step](#we-are-making-another-big-step)
-- [We made friends](#we-made-friends)
+- [We make friends](#we-make-friends)
 - [We contribute back](#we-contribute-back)
 - [We want you to contribute - birthday gifts](#we-want-you-to-contribute---birthday-gifts)
 - [Join us](#join-us)
@@ -56,11 +56,11 @@ Open source was a new land for us. When you make a step into the world of unknow
 <iframe border=0 frameborder=0 height=430 width=550
  src="https://twitframe.com/show?url=https://twitter.com/kymaproject/status/1029029616684552192"></iframe>
 
-Our [`kyma`](https://github.com/kyma-project/kyma/) repository quickly reached 500 stars on GitHub. We also showed up on [CNCF Landscape](https://github.com/cncf/landscape).
+Our [`kyma`](https://github.com/kyma-project/kyma/) repository quickly reached 500 stars on GitHub. We also showed up on the [CNCF Landscape](https://github.com/cncf/landscape).
 
 ![landscape-view](./landscape-screen.png)
 
-We are definitely not planning to stop at 500 stars. This number was growing pretty slow since last year, but it has been increasing steadily since the 1.0 release. Remember that you can also star our project if you like it.
+We are definitely not planning to stop at 500 stars. This number was growing pretty slowly at first, but it has been increasing steadily since the 1.0 release. Remember that you can also star our project if you like it.
 
 <iframe src="https://ghbtns.com/github-btn.html?user=kyma-project&repo=kyma&type=star&count=true&size=large" frameborder="0" scrolling="0" width="158px" height="30px"></iframe>
 
@@ -70,7 +70,7 @@ After creating an open governance model, we hosted our first public Core Special
 
 `youtube: https://youtu.be/1DD5aCBnywQ`
 
-So far, we have had 17 meetings and we are definitely not planning to stop doing them. We meet regularly and you are welcome to join. Check more details at the [Core SIG landing page](https://github.com/kyma-project/community/tree/master/sig-and-wg/sig-core), join our next meeting, and let us know what you think about Kyma.
+So far, we have had 17 meetings and we are definitely not planning to stop organizing them. We meet regularly and you are welcome to join. Check more details at the [Core SIG landing page](https://github.com/kyma-project/community/tree/master/sig-and-wg/sig-core), join our next meeting, and let us know what you think about Kyma.
 
 ## 10.10.2018 Kyma announced to SAP customers and partners
 
@@ -85,7 +85,7 @@ Kyma was announced to SAP customers and partners as the future of extensibility 
 
 ## 10-13.12.2018 Kyma at KubeCon Seattle
 
-Thanks to SAP sponsorship, we made it to KubeCon Seattle. Together with our brothers from the [Gardener](https://gardener.cloud) project, we could have a lot of valuable conversations at SAP Open Source booth. We were represented by [Ahmed](https://twitter.com/Abd4llA), [Lukasz](https://twitter.com/derberq), and [Piotr](https://twitter.com/PiotrasPk).
+Thanks to SAP sponsorship, we made it to KubeCon Seattle. Together with our brothers from the [Gardener](https://gardener.cloud) project, we could have a lot of valuable conversations at the SAP Open Source booth. We were represented by [Ahmed](https://twitter.com/Abd4llA), [Lukasz](https://twitter.com/derberq), and [Piotr](https://twitter.com/PiotrasPk).
 
 ![seattle](./lysy-seattle.png)
 
@@ -94,7 +94,7 @@ We even made it to one of the presentations and were mentioned by friends from o
 
 ## 19.02.2019 First Kyma early adopters
 
-The new year brought an important update to our `http://kyma-project.io` landing page. We created a section where we could show off the early adopters of our project:
+The new year brought an important update to our [`http://kyma-project.io`](https://kyma-project.io/) landing page. We created a section where we could show off the early adopters of our project:
 
 ![early-adopters](./early-adopters.png)
 
@@ -107,7 +107,7 @@ You can't even imagine how important this date was for us. We reached or first h
 
 ## 02.05.2019 Netconomy went to production
 
-We did not wait too long and a few days after the 1.0 release we got confirmation of the first production environment user. Our early adopter, [Netconomy](https://www.netconomy.net/), provided features for one of its clients and operates Kyma on their own. Netconomy will soon publish a guest blog post on the Kyma website describing their use cases.
+We did not wait too long and a few days after the 1.0 release we got confirmation of the first production environment user. Our early adopter, [Netconomy](https://www.netconomy.net/), provided features for one of its clients and operates Kyma on its own. Netconomy will soon publish a guest blog post on the Kyma website describing their use cases.
 
 ![netconomy-crew](./2019-05-02_kyma_golive_netconomy.jpg)
 
@@ -135,7 +135,7 @@ We wanted to make it clear to Kubernetes and CNCF communities that Kyma is out t
 
 ## 18.06.2019 Kyma devs became Kubernetes contributors and Service Catalog approvers
 
-Kyma core developers, [Mateusz Szostok](https://github.com/mszostok) and [Piotr Miskiewicz](https://github.com/piotrmiskiewicz), became official Kubernetes organization members and the approvers of changes in the Kubernetes Service Catalog. This way, we confirmed we do not only integrate and consume, but also contribute back. Currently, 2 out of 4 approvers of Service Catalog come from the Kyma project - how cool is that?
+Kyma core developers, [Mateusz Szostok](https://github.com/mszostok) and [Piotr Miskiewicz](https://github.com/piotrmiskiewicz), became official Kubernetes organization members and the approvers of changes in the Kubernetes Service Catalog. This way, we confirmed we do not only integrate and consume, but also contribute back. Currently, 2 out of 4 approvers of the Service Catalog come from the Kyma project - how cool is that?
 
 ![kyma-kubernetes-contributors](./sig-member.png)
 
@@ -148,14 +148,14 @@ Kubernetes Service Catalog is one of our main dependencies. Kyma firmly states t
 
 ## 03.07.2019 Setup of Knative dedicated team
 
-Last year, we open-sourced with our brother in arms, the [Knative](https://github.com/knative) project. Now, once we are stable and production-ready, let us make this brotherhood much more dedicated. We reorganized a bit and created a team that will be dedicated to Knative contributions. We are planning to rebase Kyma on top of these contributions to improve our Event Bus and remove the dependency to Kubeless.
+Last year, we open-sourced with our brother in arms, the [Knative](https://github.com/knative) project. Now, once we are stable and production-ready, let us make this brotherhood much more dedicated. We reorganized our setup a bit and created a team that will be dedicated to Knative contributions. We are planning to rebase Kyma on top of these contributions to improve our Event Bus and remove the dependency to Kubeless.
 
 
 # We are making another big step
 
 We just keep walking, not planning to stop. Since day one, we have known that [CNCF Landscape](https://github.com/cncf/landscape) is not everything we want to achieve in CNCF. Our obvious next goal is [CNCF Sandbox](https://www.cncf.io/sandbox-projects/). This is not just our decision, though. The [CNCF Technical Oversight Committee (TOC)](https://github.com/cncf/toc) must sponsor the project's donation and this is our focus for the upcoming months. We need to identify what we must prepare on our side to become a part of CNCF. We also look forward to CNCF's feedback about Kyma.
 
-# We made friends
+# We make friends
 
 We understand how important it is to make friends in the open-source community. Leaving in isolation brings loneliness and we definitely do not want that for our project. Fortunately, we have a lot of visitors to our main [Slack  channel](http://slack.kyma-project.io). Apart from making friends among users, we also want to make friends among the projects we depend on, especially those that play or will play an important role in Kyma.
 
@@ -181,12 +181,12 @@ That was a hell of a year, and we can't wait to see what the upcoming year holds
 
 # We want you to contribute - birthday gifts
 
-Birthdays are always connected with presents. This time we plan to give away some Kyma T-shirts, not for free though. You get those only if you become an external contributor in the next 7 days. Our understanding of an external contributor is that you are not a member of the Kyma organization on GitHub, and for the next 7 days you:
-- Contribute code or documentation to one of Kyma repositories. It must be a pull request, but not necessarily merged. We can imagine that depending on the size of the contribution it might not be that easy to approve and merge your PR.
+Birthdays are always connected with presents. This time we plan to give away some Kyma T-shirts, not for free though. You get those only if you become an external contributor in the next 7 days. Our understanding of an external contributor is that you are not a member of the Kyma organization on GitHub, and in the next 7 days you:
+- Contribute code or documentation to one of Kyma repositories. It must be a pull request but not necessarily merged. We can imagine that depending on the size of the contribution it might not be that easy to approve and merge your PR.
 - Contribute an issue using one of our templates. We equally value a well-described bug that is easy to replicate and an enhancement request with a well-described use case.
 
 All Kyma repositories are located [here](https://github.com/kyma-project/kyma/).
-Once you contribute, let us know about it on [Twitter](https://twitter.com/kymaproject) or [Slack](http://slack.kyma-project.io), on the **#general** channel. We will evaluate all contributions on Thursday, August 1, and communicate all accepted contributions and happy winners. Happy contributing!
+Once you contribute, let us know about it on [Twitter](https://twitter.com/kymaproject) or on the **#general** channel on [Slack](http://slack.kyma-project.io). We will evaluate all contributions on Thursday, August 1, and communicate all accepted contributions and happy winners. Happy contributing!
 
 If you don't know what to contribute, I'm sure we can help - just contact us through one of the above communication channels and we will point you in the right direction.
 
