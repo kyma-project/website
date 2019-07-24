@@ -1,15 +1,13 @@
-import { stat, readdir } from "fs-extra";
+import { lstatSync } from "fs";
+import { readdir } from "fs-extra";
 import to from "await-to-js";
 import { VError } from "verror";
 
 export const getFilesPaths = async (path: string) => {
   let err: Error | null;
 
-  let type;
-  [err, type] = await to(stat(path));
-  if (err) {
-    throw new VError(err, `while getting stats from path: ${path}`);
-  }
+  const type = lstatSync(path);
+  if (type.isSymbolicLink()) return "";
   if (type.isFile()) return path;
 
   let paths: string[];
@@ -38,5 +36,5 @@ export const getFilesPaths = async (path: string) => {
     [],
   );
 
-  return flattenFiles;
+  return flattenFiles.filter((f: string) => f);
 };
