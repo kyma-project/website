@@ -141,7 +141,7 @@ Kyma core developers, [Mateusz Szostok](https://github.com/mszostok) and [Piotr 
 
 ## 02.07.2019 Kyma dev became a chair of the Service Catalog SIG
 
-Kubernetes Service Catalog is one of our main dependencies. Kyma firmly states that [Service Catalog](https://github.com/kubernetes-sigs/service-catalog) and [Open Service Broker API](https://www.openservicebrokerapi.org/) are the only Service Management solutions for Kubernetes that bring the best developer experience. It is obvious that we are not only interested in contributing the code, but we also want to help to run the project. As a result, [Mateusz Szostok](https://github.com/mszostok) became a chair of the [Kubernetes Service Catalog SIG](https://github.com/kubernetes/community/tree/master/sig-service-catalog).
+Kubernetes Service Catalog is one of our main dependencies. Kyma firmly states that [Service Catalog](https://github.com/kubernetes-sigs/service-catalog) and [Open Service Broker API](https://www.openservicebrokerapi.org/) are the only Service Management solutions for Kubernetes that bring the best developer experience. It is obvious that we are not only interested in contributing code, but we also want to help to run the project. As a result, [Mateusz Szostok](https://github.com/mszostok) became a chair of the [Kubernetes Service Catalog SIG](https://github.com/kubernetes/community/tree/master/sig-service-catalog).
 
 ![chair](./chair.png)
 
