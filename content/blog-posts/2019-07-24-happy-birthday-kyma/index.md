@@ -131,7 +131,7 @@ Yet another KubeCon event and we were there again. Thanks to the SAP support, we
 
 ## 23.05.2019 We announced Kyma 1.0 on the Kubernetes blog
 
-We wanted to make it clear to Kubernetes and CNCF communities that Kyma is out there with the 1.0 release that is ready for use on the production environment. We published an article on the [Kubernetes blog](https://kubernetes.io/blog/2019/05/23/kyma-extend-and-build-on-kubernetes-with-ease/) and it brought a lot of additional attention to our Kyma communication channels, website, and Twitter. We noticed we were becoming more and recognizable. Some popular authors, such as [Infoq](https://www.infoq.com/news/2019/06/kyma-enterprise-kubernetes/), started to write about Kyma.
+We wanted to make it clear to Kubernetes and CNCF communities that Kyma is out there with the 1.0 release that is ready for use on the production environment. We published an article on the [Kubernetes blog](https://kubernetes.io/blog/2019/05/23/kyma-extend-and-build-on-kubernetes-with-ease/) and it brought a lot of additional attention to our Kyma communication channels, website, and Twitter. We noticed we were becoming more recognizable. Some popular authors, such as [Infoq](https://www.infoq.com/news/2019/06/kyma-enterprise-kubernetes/), started to write about Kyma.
 
 ## 18.06.2019 Kyma devs became Kubernetes contributors and Service Catalog approvers
 
@@ -153,7 +153,7 @@ Last year, we open-sourced with our brother in arms, the [Knative](https://githu
 
 # We are making another big step
 
-We just keep walking, not planning to stop. Since day one, we have known that [CNCF Landscape](https://github.com/cncf/landscape) is not everything we want to achieve in CNCF. Our obvious next goal is [CNCF Sandbox](https://www.cncf.io/sandbox-projects/). This is not just our decision, though. The [CNCF Technical Oversight Committee (TOC)](https://github.com/cncf/toc) must sponsor the project's donation and this is our focus for the upcoming months. We need to identify what we need to prepare on our side to become a part of CNCF. We also look forward to CNCF's feedback about Kyma.
+We just keep walking, not planning to stop. Since day one, we have known that [CNCF Landscape](https://github.com/cncf/landscape) is not everything we want to achieve in CNCF. Our obvious next goal is [CNCF Sandbox](https://www.cncf.io/sandbox-projects/). This is not just our decision, though. The [CNCF Technical Oversight Committee (TOC)](https://github.com/cncf/toc) must sponsor the project's donation and this is our focus for the upcoming months. We need to identify what we must prepare on our side to become a part of CNCF. We also look forward to CNCF's feedback about Kyma.
 
 # We made friends
 
@@ -167,7 +167,7 @@ A few of us regularly help the following communities:
 
 # We contribute back
 
-If you depend on someone and you need more than you can get, don't wait until you get it, but help out and contribute instead! This is a list of projects were we made noticeable contributions that we are very proud of:
+If you depend on someone and you need more than you can get, don't wait until you get it, but help out and contribute instead! This is a list of projects where we made noticeable contributions that we are very proud of:
 
 - [AsyncAPI](https://github.com/asyncapi/asyncapi-react):	The entire component contribution and consultations regarding best practices for building an open-source community.
 - [Knative](https://github.com/knative/eventing):	Features around NATS
@@ -181,9 +181,9 @@ That was a hell of a year, and we can't wait to see what the upcoming year holds
 
 # We want you to contribute - birthday gifts
 
-Birthdays are always connected with presents. This time we plan to give away some Kyma T-shirts, not for free thought. You get those only if you become an external contributor in the next 7 days. Our understanding of an external contributor is that you are not a member of the Kyma organization on GitHub, and for the next 7 days you:
-- Contributed code or documentation to one of Kyma repositories. It must be a pull request, but not necessarily merged. We can imagine that depending on the size of the contribution it might not be that easy to approve and merge it.
-- Contributed an issue using one of our templates. We equally value a well-described bug that is easy to replicate and an enhancement request with a well-described use case.
+Birthdays are always connected with presents. This time we plan to give away some Kyma T-shirts, not for free though. You get those only if you become an external contributor in the next 7 days. Our understanding of an external contributor is that you are not a member of the Kyma organization on GitHub, and for the next 7 days you:
+- Contribute code or documentation to one of Kyma repositories. It must be a pull request, but not necessarily merged. We can imagine that depending on the size of the contribution it might not be that easy to approve and merge your PR.
+- Contribute an issue using one of our templates. We equally value a well-described bug that is easy to replicate and an enhancement request with a well-described use case.
 
 All Kyma repositories are located [here](https://github.com/kyma-project/kyma/).
 Once you contribute, let us know about it on [Twitter](https://twitter.com/kymaproject) or [Slack](http://slack.kyma-project.io), on the **#general** channel. We will evaluate all contributions on Thursday, August 1, and communicate all accepted contributions and happy winners. Happy contributing!
@@ -194,7 +194,7 @@ If you don't know what to contribute, I'm sure we can help - just contact us thr
 
 # Join us
 
-If you did not have a chance to contribute to our history, you can still join us and become part of Kyma's future. We have many channels that you can use to interact with us:
+If you did not have a chance to contribute to our history, you can still join us and become a part of Kyma's future. We have many channels that you can use to interact with us:
 
 - Twitter: https://twitter.com/kymaproject
 - Core SIG public meetings: https://docs.google.com/document/d/1vWleTon7sJIk0teee4SoVezS4mR3K8TlkvXkgLJwRD8/
