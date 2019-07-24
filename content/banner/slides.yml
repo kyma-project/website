@@ -1,6 +1,6 @@
 bannerDuration: 5000
 slides:
-  - text: "Join our speakers at soap! conf in Cracow, Poland, June 6-7 and listen about content as code concept in Kyma"
-    url: "http://soapconf.com/speakers2019/#basia_lukasz"
-    startDate: "28/05/2019"
-    endDate: "07/06/2019"
+  - text: "Kyma is already 1-year-old. Celebrate with us! Contribute and get a Kyma t-shirt!"
+    url: "https://kyma-project.io/blog/happy-birthday-kyma"
+    startDate: "24/07/2019"
+    endDate: "31/07/2019"

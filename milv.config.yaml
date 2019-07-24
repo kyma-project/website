@@ -29,3 +29,7 @@ files:
       white-list-internal:
         - "../{some_file}#development"
         - /docs/{VERSION}/root/kyma#overview-in-a-nutshell
+  - path: ./website/content/blog-posts/2019-07-24-happy-birthday-kyma/index.md
+    config:
+      white-list-external:
+        - https://www.linkedin.com/company/kyma-project
