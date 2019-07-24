@@ -74,7 +74,14 @@ export const PostMetadata = styled.p`
 `;
 
 /* Post Content */
-export const PostContentWrapper = styled.main``;
+export const PostContentWrapper = styled.main`
+  iframe {
+    display: block;
+    margin: 0 auto;
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+`;
 
 /* Post Footer */
 export const PostFooterWrapper = styled.footer`
