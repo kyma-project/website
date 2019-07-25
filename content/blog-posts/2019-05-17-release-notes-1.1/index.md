@@ -135,7 +135,7 @@ As part of our constant efforts to improve your experience on third-party Servic
 
 ### Documentation support for add-ons
 
-The Helm Broker creates Service Class documentation from an add-on which appears in the **Add-Ons** Catalog UI view. [Read](https://kyma-project.io/docs/master/components/helm-broker/#details-create-a-bundle-docs-directory) how to add documentation to your add-on. If your add-on extends the Service Catalog UI, [read](/docs/1.1/components/helm-broker#details-service-classes-documentation-provided-by-bundles) how to provide documentation for those new Service Classes.
+The Helm Broker creates Service Class documentation from an add-on which appears in the **Add-Ons** Catalog UI view. [Read](https://kyma-project.io/docs/1.1/components/helm-broker#details-create-a-bundle-docs-directory) how to add documentation to your add-on. If your add-on extends the Service Catalog UI, [read](/docs/1.1/components/helm-broker#details-service-classes-documentation-provided-by-bundles) how to provide documentation for those new Service Classes.
 
 ### "Provision only once" APIs and Events
 
