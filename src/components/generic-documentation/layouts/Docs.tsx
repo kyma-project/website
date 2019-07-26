@@ -78,7 +78,7 @@ export const DocsLayout: React.FunctionComponent<DocsLayoutProps> = ({
                 </Sticky>
               </Grid.Unit>
               <Grid.Unit
-                df={7}
+                df={8}
                 sm={12}
                 className="grid-unit-content"
                 withoutPadding={true}
@@ -86,7 +86,7 @@ export const DocsLayout: React.FunctionComponent<DocsLayoutProps> = ({
                 <Content renderers={renderers} />
               </Grid.Unit>
               <Grid.Unit
-                df={3}
+                df={2}
                 sm={0}
                 className="grid-unit-navigation"
                 withoutPadding={true}
