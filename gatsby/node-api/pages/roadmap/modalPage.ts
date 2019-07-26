@@ -36,9 +36,7 @@ export const createModalPage = ({
       const tickets = capabilities[capability];
 
       tickets.map(ticket => {
-        const path = `/${ROADMAP_PATH_PREFIX}/${ticket.repository.name}/${
-          ticket.number
-        }`;
+        const path = `/${ROADMAP_PATH_PREFIX}/${ticket.repository.name}/${ticket.number}`;
 
         createRedirect({
           fromPath: path,

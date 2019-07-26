@@ -37,7 +37,6 @@ export const StyledHeadersNavigation = styled.div`
         &.active {
           color: #0b74de;
           font-weight: bold;
-          border-left: 3px solid #0b74de;
         }
       }
 

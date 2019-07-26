@@ -1,4 +1,4 @@
-import { lstatSync } from "fs";
+import { lstatSync, Stats } from "fs";
 import { readdir } from "fs-extra";
 import to from "await-to-js";
 import { VError } from "verror";
@@ -6,9 +6,14 @@ import { VError } from "verror";
 export const getFilesPaths = async (path: string) => {
   let err: Error | null;
 
-  const type = lstatSync(path);
-  if (type.isSymbolicLink()) return "";
-  if (type.isFile()) return path;
+  let type: Stats;
+  try {
+    type = lstatSync(path);
+    if (type.isSymbolicLink()) return "";
+    if (type.isFile()) return path;
+  } catch (e) {
+    throw new VError(e, `while getting stats from path: ${path}`);
+  }
 
   let paths: string[];
   [err, paths] = await to(readdir(path));

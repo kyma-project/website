@@ -66,7 +66,7 @@ export const CommunityLayout: React.FunctionComponent<CommunityLayoutProps> = ({
               >
                 <Content renderers={renderers} />
               </Grid.Unit>
-              {/* <Grid.Unit
+              <Grid.Unit
                 df={2}
                 sm={0}
                 className="grid-unit-navigation"
@@ -79,7 +79,7 @@ export const CommunityLayout: React.FunctionComponent<CommunityLayoutProps> = ({
                     </div>
                   )}
                 </Sticky>
-              </Grid.Unit> */}
+              </Grid.Unit>
             </Grid.Row>
           </StickyContainer>
         </Grid.Container>
