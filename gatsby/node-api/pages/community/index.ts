@@ -11,7 +11,7 @@ import {
   DOCS_DIR,
   COMMUNITY_DIR,
   ASSETS_DIR,
-  COMMUNITY_CONTRIBUTING_TYPE,
+  COMMUNITY_INTRODUCTION_TYPE,
   COMMUNITY_PATH_PREFIX,
 } from "../../../constants";
 import { CreatePageFn } from "../../../types";
@@ -77,6 +77,7 @@ export const createCommunityPages = async ({
     "community",
     extractFn,
   );
+  delete navigation[COMMUNITY_INTRODUCTION_TYPE];
 
   Object.keys(content).map(docsType => {
     const topics = content[docsType];
@@ -84,30 +85,29 @@ export const createCommunityPages = async ({
 
     topicsKeys.map(topic => {
       const assetsPath = `/${ASSETS_DIR}${COMMUNITY_DIR}${topic}/${DOCS_DIR}${ASSETS_DIR}`;
-
       let newContent = content[docsType][topic] as DocsContentItem;
-      const path = `/${COMMUNITY_PATH_PREFIX}/${
-        topicsKeys.length > 1 ? `${docsType}/` : ""
-      }${topic}`;
 
-      createPage({
-        path: path,
-        component: communityTemplate,
-        context: {
-          content: newContent,
-          navigation,
-          manifest,
-          assetsPath,
-        },
-      });
-
-      // for root path: /docs -> /docs/root/kyma
       if (
-        COMMUNITY_CONTRIBUTING_TYPE === docsType &&
-        COMMUNITY_CONTRIBUTING_TYPE === topic
+        COMMUNITY_INTRODUCTION_TYPE === docsType &&
+        COMMUNITY_INTRODUCTION_TYPE === topic
       ) {
         createPage({
           path: `/${COMMUNITY_PATH_PREFIX}`,
+          component: communityTemplate,
+          context: {
+            content: newContent,
+            navigation,
+            manifest,
+            assetsPath,
+          },
+        });
+      } else {
+        const path = `/${COMMUNITY_PATH_PREFIX}/${
+          topicsKeys.length > 1 ? `${docsType}/` : ""
+        }${topic}`;
+
+        createPage({
+          path: path,
           component: communityTemplate,
           context: {
             content: newContent,

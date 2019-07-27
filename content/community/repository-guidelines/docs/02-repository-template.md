@@ -3,7 +3,7 @@ title: Repository template
 label: internal
 ---
 
-he [`repository-template`](https://github.com/kyma-project/community/tree/master/guidelines/repository-guidelines/repository-template) folder offers a unified file, document, and folder structure. Use it for every new repository that you create in Kyma. It helps you to ensure that the project is consistent and standardized.
+The [`repository-template`](https://github.com/kyma-project/community/tree/master/guidelines/repository-guidelines/repository-template) folder offers a unified file, document, and folder structure. Use it for every new repository that you create in Kyma. It helps you to ensure that the project is consistent and standardized.
 
 ## Usage
 

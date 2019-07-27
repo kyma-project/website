@@ -91,7 +91,7 @@ const Hash: React.FunctionComponent<LinkProps & { chainIcon?: boolean }> = ({
             underline={underline ? "true" : "false"}
             onClick={onClick}
           >
-            <Icon iconName="link" iconPrefix="fas" />
+            <Icon iconName="anchor" iconPrefix="fas" />
           </HashLink>
         </div>
       </HashLinkWithIcon>

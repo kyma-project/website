@@ -15,7 +15,11 @@ import { MarkdownSingleRenderer } from "./renderers";
 import { DocsLayout, CommunityLayout } from "./layouts";
 import { serializer } from "./serializer";
 import { replaceImagePathsMutationPlugin } from "./render-engines/markdown/plugins";
-import { headingPrefix, customNodes } from "./render-engines/markdown/helpers";
+import {
+  headingPrefix,
+  customFirstNode,
+} from "./render-engines/markdown/helpers";
+import { types, setHideTitleHeader } from "./constants";
 
 const PLUGINS: Plugins = [
   markdownPlugins.frontmatterMutationPlugin,
@@ -24,7 +28,7 @@ const PLUGINS: Plugins = [
     plugin: markdownPlugins.headersExtractorPlugin,
     options: {
       headerPrefix: headingPrefix,
-      customNodes,
+      customFirstNode,
     },
   },
   markdownPlugins.tabsMutationPlugin,
@@ -63,6 +67,9 @@ export interface GenericComponentProps {
 export const GenericComponent: React.FunctionComponent<
   GenericComponentProps
 > = ({ pageContext, layout = LayoutType.DOCS }) => {
+  types.clear();
+  setHideTitleHeader(false);
+
   const sources = serializer
     .setDocsContent(pageContext.content)
     .serialize(pageContext.assetsPath)
@@ -70,6 +77,9 @@ export const GenericComponent: React.FunctionComponent<
 
   if (!sources || !sources.length) {
     return null;
+  }
+  if (sources.length === 1) {
+    setHideTitleHeader(true);
   }
 
   return (

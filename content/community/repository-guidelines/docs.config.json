@@ -1,7 +1,7 @@
 {
   "spec": {
     "id": "repository-guidelines",
-    "displayName": "Repository guidelines",
+    "displayName": "Repository",
     "description": "Kyma repository guidelines",
     "type": "Guidelines"
   }

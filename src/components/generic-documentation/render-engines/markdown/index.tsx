@@ -6,7 +6,7 @@ import {
   plugins,
 } from "@kyma-project/dc-markdown-render-engine";
 
-import { Image, Heading, CopyButton } from "./custom-renderers";
+import { Image, Link, Heading, CopyButton } from "./custom-renderers";
 import { highlightTheme } from "./highlightTheme";
 import { headingPrefix } from "./helpers";
 
@@ -17,6 +17,8 @@ export const markdownRE: RenderEngineWithOptions<
   options: {
     customRenderers: {
       image: Image,
+      link: Link,
+      heading: Heading,
     },
     parsers: [plugins.tabsParserPlugin],
     headingPrefix,

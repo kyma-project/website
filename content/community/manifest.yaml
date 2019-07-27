@@ -1,4 +1,7 @@
 spec:
+  introduction:
+    - displayName: Introduction
+      id: introduction
   contributing:
     - displayName: Contributing
       id: contributing
@@ -9,13 +12,13 @@ spec:
     - displayName: Collaboration
       id: collaboration
   guidelines:
-    - displayName: Content guidelines
+    - displayName: Content
       id: content-guidelines
-    - displayName: Technical guidelines
+    - displayName: Technicalities
       id: technical-guidelines
+    - displayName: Repository
+      id: repository-guidelines
+    - displayName: Release
+      id: release-guidelines
     - displayName: Templates
       id: templates
-    - displayName: Release guidelines
-      id: release-guidelines
-    - displayName: Repository guidelines
-      id: repository-guidelines

@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "@kyma-project/documentation-component": "0.0.1-alpha.0",
-    "@kyma-project/dc-markdown-render-engine": "https://github.com/magicmatatjahu/documentation-component/raw/fix-markdown-render-engine/packages/markdown-render-engine/kyma-project-dc-markdown-render-engine-0.0.1-alpha.0.tgz",
+    "@kyma-project/dc-markdown-render-engine": "https://github.com/magicmatatjahu/documentation-component/raw/improve-headers-extractor-plugin/packages/markdown-render-engine/kyma-project-dc-markdown-render-engine-0.0.1-alpha.0.tgz",
     "@fortawesome/fontawesome-svg-core": "^1.2.19",
     "@fortawesome/free-brands-svg-icons": "^5.9.0",
     "@fortawesome/free-regular-svg-icons": "^5.9.0",

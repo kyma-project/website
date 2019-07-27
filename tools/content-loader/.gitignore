@@ -1,8 +1,7 @@
 out/
-tempDir/
-tempDocsDir/
-tempRoadmapDir/
+temp*
 docs/
+community/
 roadmap/
 node_modules/
 versions.json

@@ -1,0 +1,8 @@
+{
+  "spec": {
+    "id": "introduction",
+    "displayName": "Introduction",
+    "description": "Introduction to Kyma community",
+    "type": "Introduction"
+  }
+}

@@ -27,12 +27,8 @@ export const CommunityLayout: React.FunctionComponent<CommunityLayoutProps> = ({
 }) => {
   const linkFn: linkSerializer = ({ group, items, id }) =>
     `/community/${items.length > 1 ? `${group}/` : ""}${id}`;
-  const activeLinkFn: activeLinkChecker = ({ group, items, id, lastItem }) => {
-    if (lastItem === "community" && group === "contributing") {
-      return true;
-    }
-    return lastItem === id;
-  };
+  const activeLinkFn: activeLinkChecker = ({ group, items, id, lastItem }) =>
+    lastItem === id;
 
   return (
     <CommunityLayoutWrapper>

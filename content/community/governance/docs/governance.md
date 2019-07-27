@@ -2,10 +2,6 @@
 title: Kyma working model
 ---
 
-## Overview
-
-This document defines the ownership policy and the decision-making process within the [Kyma](../../../) organization.
-
 ## Scope
 
 All repositories in the Kyma organization must follow the official guidelines, contributing rules, and the governance process to assure quality and consistency.

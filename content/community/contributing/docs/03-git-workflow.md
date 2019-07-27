@@ -212,6 +212,6 @@ Systematically incorporate changes from the master branch into your branch. To k
 
 See how to rebase the `master` branch step-by-step in this video:
 
-![Rebase](/assets/rebase.gif)
+![Rebase](./assets/rebase.gif)
 
 > **NOTE:** Do not merge the `master` branch into another branch as it can make latter rebase not feasible.

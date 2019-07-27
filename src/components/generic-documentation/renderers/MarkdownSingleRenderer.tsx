@@ -5,7 +5,8 @@ import {
 } from "@kyma-project/documentation-component";
 import { toKebabCase } from "@common/utils/toKebabCase";
 import { headingPrefix } from "../render-engines/markdown/helpers";
-import { StyledMarkdown, Header } from "./styled";
+import { types, hideTitleHeader } from "../constants";
+import { StyledMarkdown, GroupHeader, DocumentHeader } from "./styled";
 
 const Renderer: React.FunctionComponent<SingleRendererComponent> = ({
   source,
@@ -13,18 +14,31 @@ const Renderer: React.FunctionComponent<SingleRendererComponent> = ({
   const renderedContent = source.data && source.data.renderedContent;
   const title =
     source.data && source.data.frontmatter && source.data.frontmatter.title;
-  let type =
+  const type: string =
     source.data && source.data.frontmatter && source.data.frontmatter.type;
-  const id = toKebabCase(`${headingPrefix(source)}-${title}`);
 
-  type = type || title;
-  const kebabCasedType = toKebabCase(type);
+  let groupName: string | undefined;
+  if (!types.has(type)) {
+    groupName = type;
+    types.add(type);
+  }
+  const id = toKebabCase(headingPrefix(source));
 
   return (
-    <StyledMarkdown id={kebabCasedType}>
-      {title && <Header id={id}>{title}</Header>}
-      {renderedContent}
-    </StyledMarkdown>
+    <>
+      {groupName && (
+        <GroupHeader
+          id={toKebabCase(groupName)}
+          margin={Boolean(types.size - 1)}
+        >
+          {groupName}
+        </GroupHeader>
+      )}
+      <StyledMarkdown>
+        {title && <DocumentHeader id={id}>{title}</DocumentHeader>}
+        {renderedContent}
+      </StyledMarkdown>
+    </>
   );
 };
 

@@ -13,6 +13,7 @@ export const tabsStyling = css`
     border-color: rgba(151, 151, 151, 0.26);
     border-image: initial;
     border-radius: 3px;
+    margin-bottom: 16px;
 
     .cms__text {
       font-size: 14px;
@@ -93,29 +94,58 @@ export const tabsStyling = css`
   }
 `;
 
-export const Header = styled.h2`
+interface GroupHeaderProps {
+  margin?: boolean;
+}
+
+export const GroupHeader = styled.h1<GroupHeaderProps>`
   &&&&& {
     box-sizing: border-box;
     width: 100%;
-    font-size: 24px;
-    color: rgb(0, 115, 230);
-    font-weight: 300;
-    margin: 0px 0px 26px;
+    font-size: 40px;
+    font-weight: 600;
+    margin: 0;
+    margin-top: ${props => (props.margin ? `24px` : `0`)};
+    padding-top: 16px;
   }
 `;
 
-export const StyledMarkdown = styled.div`
+export const DocumentHeader = styled.h2`
+  &&&&& {
+    box-sizing: border-box;
+    width: 100%;
+    font-size: 32px;
+    color: rgb(0, 115, 230);
+    font-weight: 300;
+    margin: 0px 0px 26px;
+    padding-top: 16px;
+  }
+`;
+
+interface StyledMarkdownProps {
+  hideTitleHeader?: number;
+}
+
+export const StyledMarkdown = styled.div<StyledMarkdownProps>`
   width: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
   &&& {
     box-sizing: border-box;
     text-align: left;
     font-weight: normal;
-    padding: 40px 0;
+    padding: 24px 0 40px 0;
     border-bottom: 1px solid rgb(229, 229, 229);
+
+    &:first-child {
+      padding-top: ${props => (props.hideTitleHeader ? "8px" : "0")};
+    }
 
     &:last-child {
       margin-bottom: 0;
+      border-bottom: 0;
+      padding-bottom: 0;
     }
 
     h1,
@@ -125,28 +155,29 @@ export const StyledMarkdown = styled.div`
     h5,
     h6 {
       color: #32363a;
-      font-weight: bold;
+      font-weight: 600;
       margin: 0;
     }
     h1 {
-      margin-bottom: 26px;
-
+      .cms__text {
+        font-size: 28px !important;
+      }
+    }
+    h2 {
       .cms__text {
         font-size: 22px !important;
       }
     }
-    h2 {
-      margin-bottom: 16px;
+    h3 {
+      padding-top: 16px;
 
       .cms__text {
-        font-size: 16px !important;
+        font-size: 20px !important;
       }
     }
-    h3 {
-      margin-bottom: 8px;
-
+    h4 {
       .cms__text {
-        font-size: 14px !important;
+        font-size: 18px !important;
       }
     }
     a {
@@ -173,9 +204,9 @@ export const StyledMarkdown = styled.div`
     }
     table {
       border-collapse: collapse;
-      width: 100%;
-      margin: 30px 0;
+      margin: 16px 0;
       display: block;
+      width: 100%;
       overflow: auto;
     }
     thead {
@@ -183,65 +214,45 @@ export const StyledMarkdown = styled.div`
     }
     th,
     td {
-      font-weight: normal;
-      text-align: left;
-      color: #32363a;
-      border: none;
-      outline: none;
-    }
-    th {
-      padding: 14px 20px;
-      opacity: 0.6;
-      text-transform: uppercase;
-      line-height: 1.18;
+      padding: 8px 13px;
+      display: table-cell;
+      vertical-align: middle;
+      border: 1px solid rgb(223, 226, 229);
 
-      .cms__text {
-        font-size: 11px;
+      &:first-child {
+        padding-left: 13px;
+      }
+      &:last-child {
+        padding-right: 13px;
       }
     }
     tr {
-      border-bottom: 1px solid rgba(56, 70, 84, 0.25);
+      &:nth-child(2n) {
+        background-color: rgb(246, 248, 250);
+      }
     }
     tr:last-child {
       border: none;
     }
-    td {
-      line-height: 1.29;
-      text-align: left;
-      padding: 15px 20px;
-      color: #32363a;
-      font-weight: normal;
-      white-space: pre-wrap;
-      white-space: -moz-pre-wrap;
-      white-space: -o-pre-wrap;
-      word-wrap: break-word;
-
-      .cms__text {
-        font-size: 14px;
-      }
-    }
     img {
       max-width: 100%;
-    }
-    ul,
-    ol {
-      padding-left: 32px;
     }
     ul:last-child,
     ol:last-child,
     p:last-child {
       margin-bottom: 12px;
     }
-    blockquote p:last-child {
-      margin-bottom: 0;
-    }
     ul {
       list-style-type: disc;
       list-style-position: outside;
+      margin-top: 16px;
+      margin-bottom: 16px;
     }
     ol {
       list-style-type: decimal;
       list-style-position: outside;
+      margin-top: 16px;
+      margin-bottom: 16px;
     }
     ul ul,
     ol ul {
@@ -257,19 +268,29 @@ export const StyledMarkdown = styled.div`
       margin: 0;
     }
     p {
-      margin-top: 0;
-      margin-bottom: 12px;
+      margin: 12px 0;
     }
 
     .cms__text {
       font-size: 16px;
       color: rgb(81, 85, 89);
       line-height: 1.57;
+      font-weight: 500;
     }
 
     .cms__code-wrapper {
       position: relative;
-      margin: 0 0 16px 0;
+      margin: 8px 0;
+    }
+
+    .cms__inline-code {
+      font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier,
+        monospace;
+      font-size: 85%;
+      background-color: rgba(27, 31, 35, 0.05);
+      padding: 0.2em 0.4em;
+      margin: 0px;
+      border-radius: 3px;
     }
 
     .cms__code-pre-wrapper {
@@ -310,18 +331,31 @@ export const StyledMarkdown = styled.div`
       margin-left: 0;
       margin-right: 0;
       padding: 16px;
+      margin-bottom: 12px;
+      font-size: 14px;
+
+      .cms__text {
+        font-size: 14px;
+      }
+
+      p {
+        margin: 3px 0;
+      }
     }
 
     .cms__blockquote--note {
       border-left: 3px solid rgb(0, 115, 230);
+      background: rgba(0, 115, 230, 0.08);
     }
 
     .cms__blockquote--tip {
       border-left: 3px solid rgb(73, 199, 160);
+      background: rgba(73, 199, 160, 0.08);
     }
 
     .cms__blockquote--caution {
       border-left: 3px solid rgb(221, 0, 0);
+      background: rgba(221, 0, 0, 0.08);
     }
 
     .cms__blockquote-content {
@@ -334,6 +368,10 @@ export const StyledMarkdown = styled.div`
       }
     }
 
+    .cms__image {
+      margin: 16px 0;
+    }
+
     .cms__strong {
       font-weight: 700;
 
@@ -341,25 +379,11 @@ export const StyledMarkdown = styled.div`
         font-weight: 700 !important;
       }
     }
-  }
-`;
 
-export const StyledAsyncApi = styled.div`
-  &&&&& {
-    > div > div {
-      padding: 16px;
-      border-width: 1px;
-      border-style: solid;
-      border-color: rgba(151, 151, 151, 0.26);
-      border-image: initial;
-      border-radius: 4px;
-      margin-bottom: 20px;
-
-      &:last-child {
-        margin-bottom: 0;
+    .cms__list-item {
+      .cms__tabs {
+        margin-top: 16px;
       }
     }
   }
 `;
-
-export const StyledOData = styled.div``;

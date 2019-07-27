@@ -38,7 +38,7 @@ const HeaderItem: React.FunctionComponent<HeaderItemProps> = ({
         `${className}-list-item`,
       )}`}
     >
-      {header.children ? (
+      {/* {header.children ? (
         <CollapseArrow
           root={Boolean(!header.level) ? 1 : 0}
           iconName="chevron-right"
@@ -48,14 +48,14 @@ const HeaderItem: React.FunctionComponent<HeaderItemProps> = ({
             setCollapse(c => !c);
           }}
         />
-      ) : null}
+      ) : null} */}
       <a href={`#${header.id}`}>{header.title}</a>
       {header.children && (
         <RenderedHeader
           headers={header.children}
           className={className ? className : ""}
           activeAnchors={activeAnchors}
-          showNode={showNode || collapse}
+          showNode={true}
         />
       )}
     </li>

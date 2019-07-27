@@ -1,11 +1,28 @@
-import styled, { media } from "@styled";
+import styled, { css, media } from "@styled";
+import { customScrollBar } from "@styled/mixins";
 import Icon from "@components/shared/Icon";
+
+const navNode = (multiple: number) => css`
+  svg {
+    left: ${`${5 + multiple * 12}px`} !important;
+  }
+
+  a {
+    padding-left: ${`${12 + multiple * 16}px`};
+  }
+`;
 
 export const HeadersNavigationsWrapper = styled.div`
   position: relative;
   overflow-y: auto;
   overflow-x: hidden;
-  max-height: 100vh;
+  max-height: calc(100vh - 32px);
+  margin: 16px 0;
+
+  ${customScrollBar({
+    thumbBorderRadius: "4px",
+    trackBorderRadius: "4px",
+  })}
 
   ${media.phone`
     display: none;
@@ -13,8 +30,6 @@ export const HeadersNavigationsWrapper = styled.div`
 `;
 
 export const StyledHeadersNavigation = styled.div`
-  margin-top: 16px;
-
   ul {
     margin: 0;
   }
@@ -30,13 +45,41 @@ export const StyledHeadersNavigation = styled.div`
         width: 100%;
         font-size: 12px;
         padding: 4px 24px;
+        margin-left: 4px;
         color: #32363a;
         font-weight: normal;
         display: block;
+        border-left: 1px solid rgb(229, 229, 229);
+        position: relative;
+
+        &:before {
+          content: "";
+          position: absolute;
+          width: 7px;
+          height: 7px;
+          background: rgb(229, 229, 229);
+          border-radius: 100%;
+          transform: translateY(-50%);
+          top: 50%;
+          left: -4px;
+          display: none;
+        }
+
+        &:hover {
+          color: rgba(11, 116, 222, 1);
+          &:before {
+            display: block;
+          }
+        }
 
         &.active {
           color: #0b74de;
           font-weight: bold;
+
+          &:before {
+            display: block;
+            background: rgba(11, 116, 222, 1);
+          }
         }
       }
 
@@ -46,42 +89,86 @@ export const StyledHeadersNavigation = styled.div`
     }
 
     .cms__toc-list-item--level-1 {
-      svg {
-        left: 17px !important;
-      }
-
-      a {
-        padding-left: 36px;
-      }
+      ${navNode(0)}
     }
 
     .cms__toc-list-item--level-2 {
-      svg {
-        left: 29px !important;
-      }
-
-      a {
-        padding-left: 48px;
-      }
+      ${navNode(1)}
     }
 
     .cms__toc-list-item--level-3 {
-      svg {
-        left: 41px !important;
-      }
-
-      a {
-        padding-left: 60px;
-      }
+      ${navNode(2)}
     }
 
     .cms__toc-list-item--level-4 {
-      svg {
-        left: 53px !important;
+      ${navNode(3)}
+    }
+
+    .cms__toc-list-item--level-4 {
+      ${navNode(4)}
+    }
+
+    .cms__toc-list-item--level-4 {
+      ${navNode(5)}
+    }
+
+    .cms__toc-list-item--level-doc-title {
+      ${navNode(0)}
+
+      .cms__toc-list-item--level-1 {
+        ${navNode(1)}
       }
 
-      a {
-        padding-left: 72px;
+      .cms__toc-list-item--level-2 {
+        ${navNode(2)}
+      }
+
+      .cms__toc-list-item--level-3 {
+        ${navNode(3)}
+      }
+
+      .cms__toc-list-item--level-4 {
+        ${navNode(4)}
+      }
+
+      .cms__toc-list-item--level-4 {
+        ${navNode(5)}
+      }
+
+      .cms__toc-list-item--level-4 {
+        ${navNode(6)}
+      }
+    }
+
+    .cms__toc-list-item--level-doc-type {
+      ${navNode(0)}
+
+      .cms__toc-list-item--level-doc-title {
+        ${navNode(1)}
+      }
+
+      .cms__toc-list-item--level-1 {
+        ${navNode(2)}
+      }
+
+      .cms__toc-list-item--level-2 {
+        ${navNode(3)}
+      }
+
+      .cms__toc-list-item--level-3 {
+        ${navNode(4)}
+      }
+
+      .cms__toc-list-item--level-4 {
+        ${navNode(5)}
+      }
+
+      .cms__toc-list-item--level-4 {
+        ${navNode(6)}
+      }
+
+      .cms__toc-list-item--level-4 {
+        ${navNode(7)}
       }
     }
 
