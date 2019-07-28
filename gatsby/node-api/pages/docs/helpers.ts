@@ -34,8 +34,26 @@ const getDocsVersions = (versions: DocsGeneratedVersions): DocsVersions => {
   return versionsByType;
 };
 
-const sortNavigation = (navigation: DocsNavigation) => {
-  const keys = Object.keys(navigation);
+const sortNavigation = (navigation: DocsNavigation): DocsNavigation => {
+  const groups = Object.keys(navigation).sort((a, b) => {
+    const nameA = a.toString().toLowerCase();
+    const nameB = b.toString().toLowerCase();
+
+    if (nameA === "root") {
+      return -1;
+    }
+    if (nameB === "root") {
+      return 1;
+    }
+    return 0;
+  });
+
+  const sortedNavigation: DocsNavigation = {};
+  groups.map(group => {
+    sortedNavigation[group] = navigation[group];
+  });
+
+  return sortedNavigation;
 };
 
 export { getDocsVersions, sortNavigation };

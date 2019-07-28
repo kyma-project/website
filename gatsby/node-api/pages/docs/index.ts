@@ -1,12 +1,13 @@
 import { resolve } from "path";
 import { fixLinks } from "./fixLinks";
-import { getDocsVersions } from "./helpers";
+import { getDocsVersions, sortNavigation } from "./helpers";
 import {
   docsGenerator,
   DocsGeneratorReturnType,
   getContent,
   DocsContentDocs,
   DocsContentItem,
+  DocsNavigation,
 } from "../utils";
 import { DocQL } from "./types";
 import {
@@ -101,6 +102,7 @@ export const createDocsPages = async ({
 
   Object.keys(docsArch).map(version => {
     const { content, navigation, manifest } = docsArch[version];
+    const sortedNavigation: DocsNavigation = sortNavigation(navigation);
 
     Object.keys(content).map(docsType => {
       const topics = content[docsType];
@@ -126,8 +128,8 @@ export const createDocsPages = async ({
             version,
             versions,
             content: newContent,
-            navigation,
-            manifest,
+            navigation: sortedNavigation,
+            manifest: sortedNavigation,
             assetsPath,
             docsType,
             topic,
@@ -143,8 +145,8 @@ export const createDocsPages = async ({
               version,
               versions,
               content: newContent,
-              navigation,
-              manifest,
+              navigation: sortedNavigation,
+              manifest: sortedNavigation,
               assetsPath,
               docsType,
               topic,
