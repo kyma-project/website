@@ -13,7 +13,10 @@ export const onCreatePage = async ({ page, actions }: any) => {
       createPage({
         path: page.path,
         component: page.component,
-        context: page.context,
+        context: {
+          ...page.context,
+          defaultHeaderBg: page.path === "/",
+        },
       });
     }
     resolve();

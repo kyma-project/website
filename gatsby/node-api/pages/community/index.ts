@@ -99,6 +99,8 @@ export const createCommunityPages = async ({
             navigation,
             manifest,
             assetsPath,
+            docsType,
+            topic,
           },
         });
       } else {
@@ -114,6 +116,8 @@ export const createCommunityPages = async ({
             navigation,
             manifest,
             assetsPath,
+            docsType,
+            topic,
           },
         });
       }

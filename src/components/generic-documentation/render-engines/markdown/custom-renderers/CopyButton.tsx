@@ -3,7 +3,7 @@ import styled from "@styled";
 
 import CopyToClipboard from "react-copy-to-clipboard";
 
-// import PopupState from "@common/state/usePopup";
+import { default as Popup } from "@common/state/usePopup";
 import { injectIntl, IntlInterface } from "@common/i18n";
 
 import Icon from "@components/shared/Icon";
@@ -43,19 +43,28 @@ const CopyButton: React.FunctionComponent<IntlInterface & CopyButtonProps> = ({
   code,
   className = "",
   formatMessage,
-}) => (
-  <CopyButtonWrapper className={className}>
-    <Tooltip
-      content={formatMessage({ id: "copyButtonTooltip" })}
-      placement="bottom"
-    >
-      <CopyToClipboard text={code}>
-        <span>
-          <StyledIcon iconName="copy" iconPrefix="far" />
-        </span>
-      </CopyToClipboard>
-    </Tooltip>
-  </CopyButtonWrapper>
-);
+}) => {
+  const { setPopup } = useContext(Popup.Context);
+
+  return (
+    <CopyButtonWrapper className={className}>
+      <Tooltip
+        content={formatMessage({ id: "copyButtonTooltip" })}
+        placement="bottom"
+      >
+        <CopyToClipboard
+          text={code}
+          onCopy={() => {
+            setPopup(formatMessage({ id: "copyPopup" }));
+          }}
+        >
+          <span>
+            <StyledIcon iconName="copy" iconPrefix="far" />
+          </span>
+        </CopyToClipboard>
+      </Tooltip>
+    </CopyButtonWrapper>
+  );
+};
 
 export default injectIntl("utils")(CopyButton);

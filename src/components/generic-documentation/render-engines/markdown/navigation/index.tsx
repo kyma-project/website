@@ -1,7 +1,9 @@
-import React from "react";
-import { globalHistory } from "@reach/router";
+import React, { useContext } from "react";
 
 import Link from "@components/shared/Link";
+
+import { GenericDocsContext } from "../../../services";
+
 import { DocsNavigation, DocsNavigationTopic } from "@components/docs/types";
 
 import {
@@ -26,12 +28,10 @@ export type activeLinkChecker = ({
   group,
   items,
   id,
-  lastItem,
 }: {
   group: string;
   items: DocsNavigationTopic[];
   id: string;
-  lastItem: string;
 }) => boolean;
 
 export interface NavigationProps {
@@ -46,18 +46,10 @@ function renderList(
   linkFn: linkSerializer,
   activeLinkFn?: activeLinkChecker,
 ): React.ReactNode {
-  const lastItem = globalHistory.location.pathname
-    .split("/")
-    .reverse()
-    .filter(el => el)[0];
-  const defaultActiveChecker = (id: string) => lastItem === id;
-
   const list = items.map(item => (
     <NavigationListItem
       active={
-        activeLinkFn
-          ? activeLinkFn({ group, items, id: item.id, lastItem })
-          : lastItem === item.id
+        activeLinkFn ? activeLinkFn({ group, items, id: item.id }) : false
       }
       key={`${group}-${item.id}`}
     >
@@ -71,9 +63,9 @@ function renderList(
 
   return (
     <div key={group}>
-      <NavigationGroupName>
-        {items.length > 1 ? group : null}
-      </NavigationGroupName>
+      {items.length > 1 ? (
+        <NavigationGroupName>{group}</NavigationGroupName>
+      ) : null}
       <NavigationList>{list}</NavigationList>
     </div>
   );
@@ -84,9 +76,15 @@ export const Navigation: React.FunctionComponent<NavigationProps> = ({
   linkFn,
   activeLinkFn,
 }) => {
+  const { showMobileLeftNav } = useContext(GenericDocsContext);
+
   const lists = Object.keys(navigation).map(group =>
     renderList(group, navigation[group], linkFn, activeLinkFn),
   );
 
-  return <NavigationWrapper>{lists}</NavigationWrapper>;
+  return (
+    <NavigationWrapper showMobileNav={showMobileLeftNav}>
+      {lists}
+    </NavigationWrapper>
+  );
 };

@@ -129,6 +129,8 @@ export const createDocsPages = async ({
             navigation,
             manifest,
             assetsPath,
+            docsType,
+            topic,
           },
         });
 
@@ -144,6 +146,8 @@ export const createDocsPages = async ({
               navigation,
               manifest,
               assetsPath,
+              docsType,
+              topic,
             },
           });
         }

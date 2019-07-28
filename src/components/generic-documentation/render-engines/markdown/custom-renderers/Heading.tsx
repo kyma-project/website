@@ -33,8 +33,14 @@ export const Heading: React.FunctionComponent<HeadingProps> = ({
   headings.add(heading);
   const id = toKebabCase(heading);
 
+  const onClick = (e: any) => {
+    e.preventDefault();
+    const hashValue = id.startsWith("#") ? id : `#${id}`;
+    window.history.pushState(null, "", hashValue);
+  };
+
   return (
-    <Link.Hash to={id} chainIcon={true}>
+    <Link.Hash to={id} chainIcon={true} onClick={onClick}>
       <H as={`h${level}` as Headers} id={id}>
         {children}
       </H>

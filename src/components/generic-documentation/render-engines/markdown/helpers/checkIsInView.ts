@@ -1,7 +1,5 @@
 import { MutableRefObject } from "react";
 
-let lastHeight: number = 0;
-
 export const checkIsInView = (
   ref: MutableRefObject<HTMLDivElement | undefined>,
 ) => (element: HTMLAnchorElement) => {
@@ -13,23 +11,15 @@ export const checkIsInView = (
   }
 
   if (
-    !(
-      bounding.top >= 0 &&
-      bounding.left >= 0 &&
-      bounding.right <=
-        (window.innerWidth || document.documentElement.clientWidth) &&
-      bounding.bottom <=
-        (window.innerHeight || document.documentElement.clientHeight)
-    )
+    bounding.top >= 0 &&
+    bounding.left >= 0 &&
+    bounding.right <=
+      (window.innerWidth || document.documentElement.clientWidth) &&
+    bounding.bottom <=
+      (window.innerHeight || document.documentElement.clientHeight)
   ) {
-    let scrollAbout = Math.ceil(window.innerHeight * 0.7);
-    const pageYOffset = window.pageYOffset;
-
-    if (pageYOffset <= lastHeight) {
-      scrollAbout = -scrollAbout;
-    }
-    lastHeight = pageYOffset;
-
-    current.scrollBy(0, scrollAbout);
+    return;
   }
+
+  current.scrollBy(0, bounding.top - Math.ceil(window.innerHeight * 0.5));
 };

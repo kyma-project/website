@@ -39,18 +39,18 @@ export const plugins: Plugins = [
   {
     resolve: "gatsby-plugin-anchor-behavior",
     options: {
-      paths: {
-        "/docs/": {
-          defaultOffset: 16,
-          mobileOffset: 74,
-        },
-        "/roadmap/": {
-          defaultOffset: 0,
-          mobileOffset: 0,
-        },
-      },
-      defaultOffset: 16,
-      mobileOffset: 74,
+      // paths: {
+      //   "/docs/": {
+      //     defaultOffset: 0,
+      //     mobileOffset: 0,
+      //   },
+      //   "/roadmap/": {
+      //     defaultOffset: 0,
+      //     mobileOffset: 0,
+      //   },
+      // },
+      defaultOffset: 0,
+      mobileOffset: 0,
       mobileOffsetInclude: ["/docs"],
     },
   },

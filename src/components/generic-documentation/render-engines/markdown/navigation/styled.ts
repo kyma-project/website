@@ -1,12 +1,53 @@
 import styled, { media, css } from "@styled";
+import { customScrollBar } from "@styled/mixins";
 
-export const NavigationWrapper = styled.div`
-  margin: 16px 0 0 0;
+interface NavigationWrapperProps {
+  showMobileNav?: boolean;
+}
+
+export const NavigationWrapper = styled.div<NavigationWrapperProps>`
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: calc(100vh - 32px);
+  margin: 16px 0;
+  background: #fff;
+
+  ${customScrollBar({
+    thumbBorderRadius: "4px",
+    trackBorderRadius: "4px",
+  })}
+
+  ${media.tablet`
+    margin: 0;
+    max-height: 100vh;
+    bottom: 0px;
+    display: block;
+    height: 100vh;
+    position: fixed;
+    padding: 9px 0 0 0;
+    top: 0px;
+    width: 15rem;
+    z-index: 10;
+    opacity: 1;
+    pointer-events: auto;
+    border-width: 0px;
+    border-style: initial;
+    border-color: initial;
+    border-image: initial;
+    transition: transform 350ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+    box-shadow: rgba(46, 41, 51, 0.08) 0px 4px 16px, rgba(71, 63, 79, 0.16) 0px 8px 24px;
+  `}
+
+  ${media.tablet<NavigationWrapperProps>`
+    transform: ${props =>
+      props.showMobileNav ? `translateX(0)` : `translateX(-16rem)`};
+  `};
 `;
 
 export const NavigationList = styled.ul`
   padding: 0;
-  margin: 16px 0 0 0;
+  margin: 0;
   list-style: none;
 `;
 
@@ -16,6 +57,9 @@ interface NavigationListItemProps {
 
 export const NavigationListItem = styled.li`
   margin-bottom: 9px;
+  ${media.tablet`
+    padding: 0 8px;
+  `};
 
   > a {
     display: block;
@@ -73,16 +117,10 @@ export const NavigationListItemName = styled.div`
     letter-spacing: normal;
     vertical-align: middle;
   }
-
-  ${media.tablet`
-    > span {
-      display: none;
-    }
-  `};
 `;
 
 export const NavigationGroupName = styled.div`
-  margin-top: 15px;
+  margin: 16px 0;
   font-size: 12px;
   font-weight: 500;
   font-style: normal;
@@ -90,4 +128,8 @@ export const NavigationGroupName = styled.div`
   letter-spacing: normal;
   color: rgba(72, 87, 102, 0.6);
   text-transform: uppercase;
+
+  ${media.tablet`
+    margin: 16px 8px;
+  `};
 `;

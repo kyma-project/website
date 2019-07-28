@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Content, Renderers } from "@kyma-project/documentation-component";
 import { StickyContainer, Sticky } from "react-sticky";
 
@@ -11,6 +11,9 @@ import {
   activeLinkChecker,
 } from "../render-engines/markdown/navigation";
 import { HeadersNavigation } from "../render-engines/markdown/headers-toc";
+
+import { MobileNavButton } from "./components";
+
 import { DocsLayoutWrapper } from "./styled";
 import { MarkdownWrapper } from "../styled";
 
@@ -19,26 +22,21 @@ export interface DocsLayoutProps {
   navigation: DocsNavigation;
   manifest: DocsManifest;
   version: string;
+  docsType: string;
+  topic: string;
 }
 
 export const DocsLayout: React.FunctionComponent<DocsLayoutProps> = ({
   renderers,
   navigation,
-  manifest,
   version,
+  docsType,
+  topic,
 }) => {
-  const linkFn: linkSerializer = ({ group, items, id }) =>
+  const linkFn: linkSerializer = ({ group, id }) =>
     `/docs/${version ? `${version}/` : ""}${group}/${id}`;
-  const activeLinkFn: activeLinkChecker = ({ group, items, id, lastItem }) => {
-    if (
-      (lastItem === "docs" || /^((\d\.\d)|latest|master)$/.test(lastItem)) &&
-      group === "root" &&
-      id === "kyma"
-    ) {
-      return true;
-    }
-    return lastItem === id;
-  };
+  const activeLinkFn: activeLinkChecker = ({ group, id }) =>
+    topic === id && docsType === group;
 
   const sortedGroup: string[] = Object.keys(navigation).sort(
     (first, second) => {
@@ -61,7 +59,7 @@ export const DocsLayout: React.FunctionComponent<DocsLayoutProps> = ({
             <Grid.Row>
               <Grid.Unit
                 df={2}
-                sm={0}
+                md={0}
                 className="grid-unit-navigation"
                 withoutPadding={true}
               >
@@ -76,9 +74,11 @@ export const DocsLayout: React.FunctionComponent<DocsLayoutProps> = ({
                     </div>
                   )}
                 </Sticky>
+                <MobileNavButton />
               </Grid.Unit>
               <Grid.Unit
                 df={8}
+                md={9}
                 sm={12}
                 className="grid-unit-content"
                 withoutPadding={true}
@@ -87,17 +87,19 @@ export const DocsLayout: React.FunctionComponent<DocsLayoutProps> = ({
               </Grid.Unit>
               <Grid.Unit
                 df={2}
+                md={3}
                 sm={0}
-                className="grid-unit-navigation"
+                className="grid-unit-toc-navigation"
                 withoutPadding={true}
               >
                 <Sticky>
                   {({ style }: any) => (
-                    <div style={{ ...style, zIndex: 200 }}>
+                    <div style={{ ...style, zIndex: 201 }}>
                       <HeadersNavigation />
                     </div>
                   )}
                 </Sticky>
+                <MobileNavButton orientation="right" iconName="anchor" />
               </Grid.Unit>
             </Grid.Row>
           </StickyContainer>

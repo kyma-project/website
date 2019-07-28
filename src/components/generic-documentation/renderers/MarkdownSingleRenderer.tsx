@@ -3,7 +3,10 @@ import {
   SingleRenderer,
   SingleRendererComponent,
 } from "@kyma-project/documentation-component";
+
+import Link from "@components/shared/Link";
 import { toKebabCase } from "@common/utils/toKebabCase";
+
 import { headingPrefix } from "../render-engines/markdown/helpers";
 import { types, hideTitleHeader } from "../constants";
 import { StyledMarkdown, GroupHeader, DocumentHeader } from "./styled";
@@ -24,18 +27,23 @@ const Renderer: React.FunctionComponent<SingleRendererComponent> = ({
   }
   const id = toKebabCase(headingPrefix(source));
 
+  const groupHeader = groupName && (
+    <GroupHeader id={toKebabCase(groupName)} margin={Boolean(types.size - 1)}>
+      <span>{groupName}</span>
+    </GroupHeader>
+  );
+
+  const documentHeader = title && (
+    <DocumentHeader id={id}>
+      <span>{title}</span>
+    </DocumentHeader>
+  );
+
   return (
     <>
-      {groupName && (
-        <GroupHeader
-          id={toKebabCase(groupName)}
-          margin={Boolean(types.size - 1)}
-        >
-          {groupName}
-        </GroupHeader>
-      )}
+      {groupHeader}
       <StyledMarkdown>
-        {title && <DocumentHeader id={id}>{title}</DocumentHeader>}
+        {documentHeader}
         {renderedContent}
       </StyledMarkdown>
     </>

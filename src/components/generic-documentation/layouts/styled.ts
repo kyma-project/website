@@ -1,8 +1,7 @@
-import styled from "styled-components";
+import styled, { media } from "@styled";
 
 export const DocsLayoutWrapper = styled.div`
   width: 100%;
-  margin-top: 72px;
 
   &&& {
     .grid-container {
@@ -11,6 +10,14 @@ export const DocsLayoutWrapper = styled.div`
 
     .grid-unit-content {
       padding: 0 32px;
+    }
+
+    .grid-unit-navigation {
+      ${media.tablet`
+        /* Fix strange behavior of grid unit */
+        flex: 0 0 0;
+        max-width: 0;
+      `};
     }
   }
 `;
@@ -26,6 +33,14 @@ export const CommunityLayoutWrapper = styled.div`
 
     .grid-unit-content {
       padding: 0 32px;
+    }
+
+    .grid-unit-navigation {
+      ${media.tablet`
+        /* Fix strange behavior of grid unit */
+        flex: 0 0 0;
+        max-width: 0;
+      `};
     }
 
     .community-introduction {

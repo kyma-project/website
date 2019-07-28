@@ -12,11 +12,11 @@ export const tabsStyling = css`
     border-style: solid;
     border-color: rgba(151, 151, 151, 0.26);
     border-image: initial;
-    border-radius: 3px;
+    border-radius: 4px;
     margin-bottom: 16px;
 
     .cms__text {
-      font-size: 14px;
+      font-size: 16px;
     }
   }
 
@@ -33,10 +33,10 @@ export const tabsStyling = css`
   }
 
   .cms__tabs-content {
-    font-size: 14px;
+    font-size: 16px;
     color: rgb(81, 85, 89);
     line-height: 1.57;
-    margin: 20px;
+    margin: 16px;
   }
 
   .cms__tab {
@@ -46,7 +46,7 @@ export const tabsStyling = css`
     border: none;
     position: relative;
     color: #32363b;
-    font-size: 14px;
+    font-size: 16px;
     outline: none;
     transition: 0.2s color linear;
     cursor: pointer;
@@ -81,7 +81,7 @@ export const tabsStyling = css`
     }
 
     .cms__tab-label {
-      padding: 16px 0;
+      padding: 12px 0;
     }
   }
 
@@ -101,7 +101,6 @@ interface GroupHeaderProps {
 export const GroupHeader = styled.h1<GroupHeaderProps>`
   &&&&& {
     box-sizing: border-box;
-    width: 100%;
     font-size: 40px;
     font-weight: 600;
     margin: 0;
@@ -113,12 +112,11 @@ export const GroupHeader = styled.h1<GroupHeaderProps>`
 export const DocumentHeader = styled.h2`
   &&&&& {
     box-sizing: border-box;
-    width: 100%;
     font-size: 32px;
     color: rgb(0, 115, 230);
     font-weight: 300;
-    margin: 0px 0px 26px;
     padding-top: 16px;
+    margin: 0 0 16px 0;
   }
 `;
 
@@ -182,7 +180,6 @@ export const StyledMarkdown = styled.div<StyledMarkdownProps>`
     }
     a {
       color: #0b74de;
-      text-decoration: none;
 
       > .cms__text {
         color: #0b74de !important;
@@ -190,7 +187,6 @@ export const StyledMarkdown = styled.div<StyledMarkdownProps>`
     }
     a:hover {
       color: #0b74de;
-      text-decoration: underline;
     }
     code {
       width: 100%;

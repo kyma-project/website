@@ -5,6 +5,7 @@ import {
   DocsBranchesVersion,
   DocsReleasesVersion,
 } from "../../../../tools/content-loader/src/prepare-docs/docs-versions";
+import { DocsNavigation } from "../utils";
 
 const getDocsVersions = (versions: DocsGeneratedVersions): DocsVersions => {
   const versionsByType: DocsVersions = {};
@@ -33,4 +34,8 @@ const getDocsVersions = (versions: DocsGeneratedVersions): DocsVersions => {
   return versionsByType;
 };
 
-export { getDocsVersions };
+const sortNavigation = (navigation: DocsNavigation) => {
+  const keys = Object.keys(navigation);
+};
+
+export { getDocsVersions, sortNavigation };

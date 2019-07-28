@@ -12,12 +12,20 @@ const navNode = (multiple: number) => css`
   }
 `;
 
-export const HeadersNavigationsWrapper = styled.div`
+interface HeadersNavigationsWrapperProps {
+  showMobileNav?: boolean;
+}
+
+export const HeadersNavigationsWrapper = styled.div<
+  HeadersNavigationsWrapperProps
+>`
   position: relative;
   overflow-y: auto;
   overflow-x: hidden;
   max-height: calc(100vh - 32px);
+  height: 100%;
   margin: 16px 0;
+  background: #fff;
 
   ${customScrollBar({
     thumbBorderRadius: "4px",
@@ -25,11 +33,43 @@ export const HeadersNavigationsWrapper = styled.div`
   })}
 
   ${media.phone`
-    display: none;
+    margin: 0;
+    max-height: 100vh;
+    bottom: 0px;
+    display: block;
+    height: 100vh;
+    position: fixed;
+    padding: 9px 0 0 0;
+    top: 0px;
+    width: 15rem;
+    z-index: 10;
+    opacity: 1;
+    pointer-events: auto;
+    border-width: 0px;
+    border-style: initial;
+    border-color: initial;
+    border-image: initial;
+    transition: transform 350ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+    box-shadow: rgba(46, 41, 51, 0.08) 0px 4px 16px, rgba(71, 63, 79, 0.16) 0px 8px 24px;
   `}
+
+  ${media.phone<HeadersNavigationsWrapperProps>`
+    transform: ${props =>
+      props.showMobileNav
+        ? `translateX(calc(100vw - 15rem))`
+        : `translateX(calc(100vw + 1rem))`};
+  `};
 `;
 
 export const StyledHeadersNavigation = styled.div`
+  ${media.phone`
+    padding-left: 12px;
+
+    &:before {
+      left: 15px;
+    }
+  `};
+
   ul {
     margin: 0;
   }
@@ -49,8 +89,8 @@ export const StyledHeadersNavigation = styled.div`
         color: #32363a;
         font-weight: normal;
         display: block;
-        border-left: 1px solid rgb(229, 229, 229);
         position: relative;
+        border-left: 1px solid rgb(229, 229, 229);
 
         &:before {
           content: "";

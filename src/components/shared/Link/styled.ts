@@ -9,6 +9,10 @@ export const ExternalLink = styled.a`
   cursor: pointer;
   color: #0073e6;
 
+  span {
+    text-decoration: none;
+  }
+
   &:active,
   &:focus,
   &:hover {

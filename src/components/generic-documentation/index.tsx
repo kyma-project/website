@@ -19,6 +19,7 @@ import {
   headingPrefix,
   customFirstNode,
 } from "./render-engines/markdown/helpers";
+import { GenericDocsProvider } from "./services";
 import { types, setHideTitleHeader } from "./constants";
 
 const PLUGINS: Plugins = [
@@ -78,17 +79,16 @@ export const GenericComponent: React.FunctionComponent<
   if (!sources || !sources.length) {
     return null;
   }
-  if (sources.length === 1) {
-    setHideTitleHeader(true);
-  }
 
   return (
-    <DC.Provider
-      sources={sources}
-      plugins={PLUGINS}
-      renderEngines={RENDER_ENGINES}
-    >
-      {renderContent(layout, pageContext)}
-    </DC.Provider>
+    <GenericDocsProvider>
+      <DC.Provider
+        sources={sources}
+        plugins={PLUGINS}
+        renderEngines={RENDER_ENGINES}
+      >
+        {renderContent(layout, pageContext)}
+      </DC.Provider>
+    </GenericDocsProvider>
   );
 };

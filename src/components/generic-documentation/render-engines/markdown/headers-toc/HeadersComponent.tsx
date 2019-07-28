@@ -1,5 +1,9 @@
-import React, { useRef, MutableRefObject } from "react";
+import React, { useRef, useContext, MutableRefObject } from "react";
+
 import { plugins } from "@kyma-project/dc-markdown-render-engine";
+
+import { GenericDocsContext } from "../../../services";
+
 import { RenderedHeader } from "./RenderedHeader";
 import { checkIsInView, postProcessingHeaders } from "../helpers";
 import { HeadersNavigationsWrapper, StyledHeadersNavigation } from "./styled";
@@ -13,17 +17,20 @@ export interface HeadersNavigationProps {
 export const HeadersNavigation: React.FunctionComponent<
   HeadersNavigationProps
 > = ({ enableSmoothScroll = false }) => {
+  const { showMobileRightNav } = useContext(GenericDocsContext);
   const headersWrapperRef = useRef<HTMLDivElement>();
 
   return (
     <HeadersNavigationsWrapper
       ref={headersWrapperRef as any}
+      showMobileNav={showMobileRightNav}
       className="headers-navigation-wrapper"
     >
       <HN
         postProcessing={postProcessingHeaders}
         enableSmoothScroll={enableSmoothScroll}
         callback={checkIsInView(headersWrapperRef)}
+        offset={16}
       >
         <StyledHeadersNavigation className="cms__toc-wrapper">
           <RenderedHeader />

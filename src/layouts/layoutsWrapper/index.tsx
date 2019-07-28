@@ -2,15 +2,18 @@ import React from "react";
 import { DefaultLayout, DocumentationLayout } from "../";
 import { SiteMetadataExtractor } from "../../sitemetadata";
 
-const horizontalHeaderBgPaths = [""];
-
 export const LayoutsWrapper: React.FunctionComponent<any> = ({
   children,
   ...otherProps
 }) => {
-  const { path } = otherProps as any;
+  const {
+    path,
+    pageContext: { defaultHeaderBg },
+  } = otherProps as any;
   let layout: React.ReactNode = (
-    <DefaultLayout horizontalHeaderBg={path !== "/"}>{children}</DefaultLayout>
+    <DefaultLayout horizontalHeaderBg={!defaultHeaderBg}>
+      {children}
+    </DefaultLayout>
   );
 
   const documentationLayoutPaths = [/\/docs/, /\/community/];

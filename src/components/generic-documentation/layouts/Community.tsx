@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Content, Renderers } from "@kyma-project/documentation-component";
 import { StickyContainer, Sticky } from "react-sticky";
 
@@ -11,6 +11,9 @@ import {
   activeLinkChecker,
 } from "../render-engines/markdown/navigation";
 import { HeadersNavigation } from "../render-engines/markdown/headers-toc";
+
+import { MobileNavButton } from "./components";
+
 import { CommunityLayoutWrapper } from "./styled";
 import { MarkdownWrapper } from "../styled";
 
@@ -18,17 +21,20 @@ export interface CommunityLayoutProps {
   renderers: Renderers;
   navigation: DocsNavigation;
   manifest: DocsManifest;
+  docsType: string;
+  topic: string;
 }
 
 export const CommunityLayout: React.FunctionComponent<CommunityLayoutProps> = ({
   renderers,
   navigation,
-  manifest,
+  docsType,
+  topic,
 }) => {
   const linkFn: linkSerializer = ({ group, items, id }) =>
     `/community/${items.length > 1 ? `${group}/` : ""}${id}`;
-  const activeLinkFn: activeLinkChecker = ({ group, items, id, lastItem }) =>
-    lastItem === id;
+  const activeLinkFn: activeLinkChecker = ({ group, id }) =>
+    topic === id && docsType === group;
 
   return (
     <CommunityLayoutWrapper>
@@ -38,7 +44,7 @@ export const CommunityLayout: React.FunctionComponent<CommunityLayoutProps> = ({
             <Grid.Row>
               <Grid.Unit
                 df={2}
-                sm={0}
+                md={0}
                 className="grid-unit-navigation"
                 withoutPadding={true}
               >
@@ -53,9 +59,11 @@ export const CommunityLayout: React.FunctionComponent<CommunityLayoutProps> = ({
                     </div>
                   )}
                 </Sticky>
+                <MobileNavButton />
               </Grid.Unit>
               <Grid.Unit
                 df={8}
+                md={9}
                 sm={12}
                 className="grid-unit-content"
                 withoutPadding={true}
@@ -64,17 +72,19 @@ export const CommunityLayout: React.FunctionComponent<CommunityLayoutProps> = ({
               </Grid.Unit>
               <Grid.Unit
                 df={2}
+                md={3}
                 sm={0}
-                className="grid-unit-navigation"
+                className="grid-unit-toc-navigation"
                 withoutPadding={true}
               >
                 <Sticky>
                   {({ style }: any) => (
-                    <div style={{ ...style, zIndex: 200 }}>
+                    <div style={{ ...style, zIndex: 201 }}>
                       <HeadersNavigation />
                     </div>
                   )}
                 </Sticky>
+                <MobileNavButton orientation="right" iconName="anchor" />
               </Grid.Unit>
             </Grid.Row>
           </StickyContainer>
