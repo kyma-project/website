@@ -80,7 +80,7 @@ Switching Asset Store to recommended production mode, with Minio Gateway under t
 
 ### UI views migrated to SAP Fiori Fundamentals
 
-We have migrated Console UI views to SAP Fiori Fundamentals. For the core Console UI we used the [Fundamental NGX](https://github.com/SAP/fundamental-ngx) library, and the UI views were built on [Fundamental React](https://github.com/SAP/fundamental-react). In addition to the migration, we added the missing UI tests and improved the existing ones. This way, we covered all end-to-end scenarios for the Service Catalog views and based them on the [testing bundle](https://github.com/kyma-project/bundles/tree/master/bundles/testing-0.0.1).
+We have migrated Console UI views to SAP Fiori Fundamentals. For the core Console UI we used the [Fundamental NGX](https://github.com/SAP/fundamental-ngx) library, and the UI views were built on [Fundamental React](https://github.com/SAP/fundamental-react). In addition to the migration, we added the missing UI tests and improved the existing ones. This way, we covered all end-to-end scenarios for the Service Catalog views and based them on the [testing bundle](https://github.com/kyma-project/addons/tree/master/addons/testing-0.0.1).
 
 ### View modularization
 
@@ -145,7 +145,7 @@ We have switched from a custom Istio RBAC implementation based on Envoy to Kuber
 
 ### Azure Service Broker runtime bundling and installation
 
-Kyma allows you to integrate with the Azure Service Broker in an easy way, and to use the vast range of Service Classes it provides. Each Service Class is comprehensively described in the [documentation](https://github.com/kyma-project/bundles/tree/master/bundles/azure-service-broker-0.0.1/docs). Read more about the Azure Service Broker [here](https://kyma-project.io/docs/0.7/components/helm-broker/#overview-azure-broker).
+Kyma allows you to integrate with the Azure Service Broker in an easy way, and to use the vast range of Service Classes it provides. Each Service Class is comprehensively described in the [documentation](https://github.com/kyma-project/addons/tree/master/addons/azure-service-broker-0.0.1/docs). Read more about the Azure Service Broker [here](https://kyma-project.io/docs/0.7/components/helm-broker/#overview-azure-broker).
 
 ### One-time provisioning for Helm Broker
 
