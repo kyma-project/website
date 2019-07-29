@@ -25,16 +25,18 @@ const Renderer: React.FunctionComponent<SingleRendererComponent> = ({
     groupName = type;
     types.add(type);
   }
-  const id = toKebabCase(headingPrefix(source));
 
   const groupHeader = groupName && (
-    <GroupHeader id={toKebabCase(groupName)} margin={Boolean(types.size - 1)}>
+    <GroupHeader
+      id={toKebabCase(`${groupName}-${groupName}`)}
+      margin={Boolean(types.size - 1)}
+    >
       <span>{groupName}</span>
     </GroupHeader>
   );
 
   const documentHeader = title && (
-    <DocumentHeader id={id}>
+    <DocumentHeader id={toKebabCase(headingPrefix(source))}>
       <span>{title}</span>
     </DocumentHeader>
   );

@@ -1,4 +1,4 @@
-import React, { useRef, useContext, MutableRefObject } from "react";
+import React, { useRef, useContext } from "react";
 
 import { plugins } from "@kyma-project/dc-markdown-render-engine";
 

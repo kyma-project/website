@@ -144,11 +144,11 @@ export const StyledHeadersNavigation = styled.div`
       ${navNode(3)}
     }
 
-    .cms__toc-list-item--level-4 {
+    .cms__toc-list-item--level-5 {
       ${navNode(4)}
     }
 
-    .cms__toc-list-item--level-4 {
+    .cms__toc-list-item--level-6 {
       ${navNode(5)}
     }
 
@@ -171,11 +171,11 @@ export const StyledHeadersNavigation = styled.div`
         ${navNode(4)}
       }
 
-      .cms__toc-list-item--level-4 {
+      .cms__toc-list-item--level-5 {
         ${navNode(5)}
       }
 
-      .cms__toc-list-item--level-4 {
+      .cms__toc-list-item--level-6 {
         ${navNode(6)}
       }
     }
@@ -203,11 +203,11 @@ export const StyledHeadersNavigation = styled.div`
         ${navNode(5)}
       }
 
-      .cms__toc-list-item--level-4 {
+      .cms__toc-list-item--level-5 {
         ${navNode(6)}
       }
 
-      .cms__toc-list-item--level-4 {
+      .cms__toc-list-item--level-6 {
         ${navNode(7)}
       }
     }

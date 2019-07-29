@@ -57,7 +57,7 @@ export const postProcessingHeaders = (
 
     processedHeaders.push({
       title: type,
-      id: toKebabCase(`${type}`),
+      id: toKebabCase(`${type}-${type}`),
       level: "doc-type",
       children: [],
     });
