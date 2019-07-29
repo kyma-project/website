@@ -101,7 +101,7 @@ We prepared a tutorial that shows how to adjust the Documentation view in the Co
 
 ### Testing bundle with sample documentation
 
-The testing bundle is now enriched with [sample documentation](https://github.com/kyma-project/bundles/tree/master/bundles/testing-0.0.1/docs). There are examples of Markdown documents together with OpenAPI and AsyncAPI specifications. See the testing bundle for details on how different document types render in the Console UI.  
+The testing bundle is now enriched with [sample documentation](https://github.com/kyma-project/addons/tree/master/addons/testing-0.0.1/docs). There are examples of Markdown documents together with OpenAPI and AsyncAPI specifications. See the testing bundle for details on how different document types render in the Console UI.  
 
 
 ## Eventing
