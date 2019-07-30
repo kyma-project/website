@@ -1,7 +1,7 @@
 ---
 title: "Joining forces with Ory"
 author:
-  name: "Piotr Mścichowski"
+  name: "Piotr Mścichowski, Capability Owner @Kyma"
 tags:
   - ory
   - contribution
