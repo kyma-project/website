@@ -82,7 +82,7 @@ const Hash: React.FunctionComponent<LinkProps & { chainIcon?: boolean }> = ({
 
   if (chainIcon) {
     return (
-      <HashLinkWithIcon>
+      <HashLinkWithIcon className="hash-link">
         <div>
           {children}
           <HashLink

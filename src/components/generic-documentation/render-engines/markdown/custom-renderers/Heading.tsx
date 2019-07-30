@@ -4,6 +4,7 @@ import H from "@components/shared/H";
 import Link from "@components/shared/Link";
 
 import { toKebabCase } from "@common/utils/toKebabCase";
+import { removeMarkdownSyntax } from "../../../external";
 
 interface HeadingProps {
   level: 1 | 2 | 3 | 4 | 5 | 6;
@@ -21,7 +22,19 @@ export const Heading: React.FunctionComponent<HeadingProps> = ({
   if (!children) {
     return null;
   }
-  let heading = (children as any[])[0].props.value as string;
+
+  let heading = (children as any[]).find(
+    child => child.key && child.key.startsWith("text"),
+  );
+  if (!heading) {
+    return null;
+  }
+
+  heading = heading.props && heading.props.value;
+  if (!heading) {
+    return null;
+  }
+
   heading = headingPrefix ? `${headingPrefix}-${heading}` : heading;
   if (headings.has(heading)) {
     if (/[1-9]$/.test(heading)) {
@@ -30,6 +43,7 @@ export const Heading: React.FunctionComponent<HeadingProps> = ({
       heading = `${heading}-1`;
     }
   }
+  heading = removeMarkdownSyntax(heading);
   headings.add(heading);
   const id = toKebabCase(heading);
 

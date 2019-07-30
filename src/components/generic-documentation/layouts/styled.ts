@@ -43,30 +43,21 @@ export const CommunityLayoutWrapper = styled.div`
       `};
     }
 
-    .community-introduction {
-      img {
-        margin: 0;
-        margin-top: 48px;
-      }
+    .hash-link > div {
+      position: relative;
+      width: 100%;
 
-      h1 {
-        margin: 0;
-        margin-top: 48px;
+      > h1 {
+        margin: 32px 0 16px 0;
+
+        img {
+          margin: 0;
+        }
 
         span {
-          line-height: 100px;
-          margin-left: 16px;
+          margin-left: 24px;
+          display: inline-block;
         }
-      }
-
-      br {
-        height: 0;
-        width: 0;
-        display: none;
-      }
-
-      p[align="left"] {
-        margin: 0;
       }
     }
   }
