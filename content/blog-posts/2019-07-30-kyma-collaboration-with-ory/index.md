@@ -9,6 +9,10 @@ tags:
   
 ---
 
+Working with others is always a great opportunity to learn and grow, so we simply couldn't say "no" to working with the team at [Ory](https://www.ory.sh/) when such opportunity arose. Making Kyma even more secure, gaining new experience, working with awesome people, and contributing to another project at the same time? Read on to find out how we're joing forces with Ory to bring an OAuth server to Kyma and contribute a completely new component to the lair of Hydra and its Oathkeeper. 
+
+<!-- overview -->
+
 The Kyma API Gateway enables exposing applications to the world outside of the cluster, at the same time allowing to secure access to the exposed application with JWT authentication. The implemented authentication mechanism allows to secure entire services or only selected resource paths within those services. You can read all about this in our [documentation](https://kyma-project.io/docs/components/api-gateway/). 
 
 Enhancing security with authorization mechanisms has always been a part of the API Gateway vision in Kyma. Currently, basic authorization needs are fulfilled thanks to Istio and its implementation of [RBAC](https://istio.io/docs/reference/config/authorization/istio.rbac.v1alpha1/) which allows controlling access to services in the cluster. Although you can apply authorization to the requests that the exposed services receive, there's no way to authorize the requested operation based on, for example, scopes. 
@@ -22,11 +26,11 @@ Based on the positive results of the POC, we decided to focus our efforts on int
 
 So how's the solution of Ory going to be used in Kyma? In the target setup, Kyma deployments will come with 3 Ory components: the Hydra OAuth2 server, the Oathkeeper reverse proxy that secures the exposed service, and the Oathkeeper Controller, which manages access rules for Oathkeeper. Kyma users will register their own OAuth clients in the Console UI and define access rules for their APIs. Thanks to that, every application will be able to get its own OAuth token and communicate with the exposed API. 
 
-![Register access rule](./controller.svg)
-
 ![Oauth2 flow in API Gateway](./oathkeeper-gateway.svg)
 
 The role of the Kyma team in this setup is very clear - we are to create the Oathkeeper controller component and contribute it to Ory's ecosystem. 
 At the moment, the Oathkeeper is not designed to be used natively in Kubernetes as the configuration can be provided to this component only through an external server that provides the config, or directly through a file. Feeding the configuration to Oathkeeper through a CRD, which is a Kubernetes-native approach, is not supported. The Oathkeeper Controller is going to address this gap. Kubernetes users will be able to create custom resources that represent access rules for their services. The Controller will then pass this data to Oathkeeper in a format which it can work with without any additional modification.
+
+![Register access rule](./controller.svg)
 
 This collaboration is going to bring great value to Kyma and Ory(Kyma supports OAuth2, Ory supports kubernetes CRDs), and we're extremely excited that we're sailing the seas with the guys from Ory. Be sure to check out their solutions and follow our blog and releases to see how this adventure ends. 
