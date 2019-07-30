@@ -11,8 +11,6 @@ export interface DocsPageContext {
   content: DocsContentItem;
   manifest: DocsManifest;
   assetsPath: string;
-  docsType: string;
-  topic: string;
 }
 
 export interface DocsVersions {

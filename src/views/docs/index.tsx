@@ -41,7 +41,11 @@ const Wrapper: React.FunctionComponent<WrapperProps> = ({
 const DocsView: React.FunctionComponent<PageContext<DocsPageContext>> = ({
   pageContext,
 }) => {
-  const { version, versions, docsType, topic } = pageContext;
+  const {
+    version,
+    versions,
+    content: { id: topic, type: docsType },
+  } = pageContext;
 
   return (
     <>

@@ -11,7 +11,7 @@ import {
   DOCS_DIR,
   COMMUNITY_DIR,
   ASSETS_DIR,
-  COMMUNITY_INTRODUCTION_TYPE,
+  COMMUNITY_GET_STARTED_TYPE,
   COMMUNITY_PATH_PREFIX,
 } from "../../../constants";
 import { CreatePageFn } from "../../../types";
@@ -77,7 +77,6 @@ export const createCommunityPages = async ({
     "community",
     extractFn,
   );
-  delete navigation[COMMUNITY_INTRODUCTION_TYPE];
 
   Object.keys(content).map(docsType => {
     const topics = content[docsType];
@@ -87,29 +86,29 @@ export const createCommunityPages = async ({
       const assetsPath = `/${ASSETS_DIR}${COMMUNITY_DIR}${topic}/${DOCS_DIR}${ASSETS_DIR}`;
       let newContent = content[docsType][topic] as DocsContentItem;
 
+      const path = `/${COMMUNITY_PATH_PREFIX}/${
+        topicsKeys.length > 1 ? `${docsType}/` : ""
+      }${topic}`;
+
+      createPage({
+        path: path,
+        component: communityTemplate,
+        context: {
+          content: newContent,
+          navigation,
+          manifest,
+          assetsPath,
+          docsType,
+          topic,
+        },
+      });
+
       if (
-        COMMUNITY_INTRODUCTION_TYPE === docsType &&
-        COMMUNITY_INTRODUCTION_TYPE === topic
+        COMMUNITY_GET_STARTED_TYPE === docsType &&
+        COMMUNITY_GET_STARTED_TYPE === topic
       ) {
         createPage({
           path: `/${COMMUNITY_PATH_PREFIX}`,
-          component: communityTemplate,
-          context: {
-            content: newContent,
-            navigation,
-            manifest,
-            assetsPath,
-            docsType,
-            topic,
-          },
-        });
-      } else {
-        const path = `/${COMMUNITY_PATH_PREFIX}/${
-          topicsKeys.length > 1 ? `${docsType}/` : ""
-        }${topic}`;
-
-        createPage({
-          path: path,
           component: communityTemplate,
           context: {
             content: newContent,

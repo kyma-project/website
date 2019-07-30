@@ -101,7 +101,7 @@ interface GroupHeaderProps {
 export const GroupHeader = styled.h1<GroupHeaderProps>`
   &&&&& {
     box-sizing: border-box;
-    font-size: 40px;
+    font-size: 36px;
     font-weight: 600;
     margin: 0;
     margin-top: ${props => (props.margin ? `24px` : `0`)};

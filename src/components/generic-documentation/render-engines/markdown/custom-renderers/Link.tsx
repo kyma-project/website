@@ -1,14 +1,17 @@
 import React from "react";
 import L from "@components/shared/Link";
+import { LayoutType } from "../../../index";
 
 interface LinkProps {
   href: string;
   assetsPath?: string;
+  layout?: LayoutType;
 }
 
 export const Link: React.FunctionComponent<LinkProps> = ({
   href,
   assetsPath = "",
+  layout,
   children,
 }) => {
   const getAssetName = (path: string): string => {
@@ -40,6 +43,10 @@ export const Link: React.FunctionComponent<LinkProps> = ({
   const assetName = getAssetName(href);
   if (assetName) {
     return <a href={`${assetsPath}${assetName}`}>{children}</a>;
+  }
+
+  if (layout === LayoutType.COMMUNITY) {
+    href = `community/${href.startsWith("/") ? href.substring(1) : href}`;
   }
   return (
     <L.Internal to={href} underline={true}>

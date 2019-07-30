@@ -6,13 +6,13 @@ As a Kyma contributor, you must follow certain guidelines and rules.
 
 ## Naming guidelines
 
-To learn how to name objects in the Kyma project, read [this](../guidelines/technical-guidelines/01-naming.md) document.
+To learn how to name objects in the Kyma project, read [this](/guidelines/technical-guidelines/#naming-naming) document.
 
 ## Documentation types
 
-Go to [this](https://github.com/kyma-project/community/blob/master/guidelines/templates/README.md) document to see an overview of document templates used in specific Kyma repositories. The templates themselves are collected in the [`resources`](https://github.com/kyma-project/community/tree/master/guidelines/templates/resources/) subfolder in the `community` repository.
+Go to [this](guidelines/templates/#overview-overview) document to see an overview of document templates used in specific Kyma repositories. The templates themselves are collected in the [`resources`](https://github.com/kyma-project/community/tree/master/guidelines/templates/resources/) subfolder in the `community` repository.
 
-Extend the list whenever you define a new template for other document types. Make sure to update the table in the [`README.md`](../guidelines/templates/README.md) document after you add new templates to the [`resources`](https://github.com/kyma-project/community/tree/master/guidelines/templates/resources/) subfolder.
+Extend the list whenever you define a new template for other document types. Make sure to update one of the tables in the [`README.md`](../guidelines/templates/README.md) document after you add new templates to the [`resources`](https://github.com/kyma-project/community/tree/master/guidelines/templates/resources/) subfolder.
 
 ## Agreements and licenses
 
@@ -56,9 +56,9 @@ To contribute code or content to a given Kyma repository, follow these steps:
 
 1. Make sure that the change is valid and approved. If you are an external contributor, **open a GitHub issue** before you make a contribution.
 2. Fork the Kyma repository that you want to contribute to.
-3. Clone it locally, add a remote upstream repository for the original repository, and set up the `master` branch to track the remote `master` branch from the upstream repository. See the [**Git Workflow**](./03-git-workflow.md) document to learn how to configure your fork.
+3. Clone it locally, add a remote upstream repository for the original repository, and set up the `master` branch to track the remote `master` branch from the upstream repository. See the [**Git Workflow**](#git-wokflow-git-wokflow) document to learn how to configure your fork.
 4. Create a new branch out of the local `master` branch of the forked repository.
-5. Commit and push changes to your new branch. Create a clear and descriptive commit message in which you specify what you have changed. See the [**Git workflow**](./03-git-workflow.md) document for commit message guidelines.
+5. Commit and push changes to your new branch. Create a clear and descriptive commit message in which you specify what you have changed. See the [**Git workflow**](#git-wokflow-git-wokflow) document for commit message guidelines.
 6. Create a PR from your branch on the forked repository to the `master` branch of the original, upstream repository. Fill in the PR template according to instructions.
 7. Read and accept the Contributor Licence Agreement (CLA).
 8. If there are merge conflicts on your PR, squash your commits and rebase the `master` branch.
@@ -82,7 +82,7 @@ If you find a bug to report or you want to propose a new feature, go to the GitH
 
 > **NOTE:** The repository maintainers handle only well-documented, valid issues that have not been reported yet. Before you create one, check if there are no duplicates. Provide all details and include examples. When you report a bug, list the exact steps necessary to reproduce it.
 
-See the [**Issues workflow**](./04-issues-workflow.md) document for details on issues triage and processing workflow.
+See the [**Issues workflow**](/governance/#issues-workflow-issues-workflow) document for details on issues triage and processing workflow.
 
 ## Maintenance rules
 
@@ -90,7 +90,7 @@ Every maintainer reviews each contribution according to the rules listed in this
 
 Although it is the responsibility of the owner of the PR to ensure that the maintainers review and approve the PR, maintainers need to coordinate the overall number of unreviewed and unapproved PRs in their queue, and, if required, take appropriate measures to handle them effectively.
 
-To learn more about maintainers' responsibilities and rules for appointing new maintainers, and removing the existing ones, refer to the [**Kyma working model**](../governance/governance.md) document.
+To learn more about maintainers' responsibilities and rules for appointing new maintainers, and removing the existing ones, refer to the [**Kyma working model**](/governance/#kyma-working-model-kyma-working-model) document.
 
 ## Owners
 

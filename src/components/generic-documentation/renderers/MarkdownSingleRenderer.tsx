@@ -8,7 +8,7 @@ import Link from "@components/shared/Link";
 import { toKebabCase } from "@common/utils/toKebabCase";
 
 import { headingPrefix } from "../render-engines/markdown/helpers";
-import { types, hideTitleHeader } from "../constants";
+import { types } from "../constants";
 import { StyledMarkdown, GroupHeader, DocumentHeader } from "./styled";
 
 const Renderer: React.FunctionComponent<SingleRendererComponent> = ({

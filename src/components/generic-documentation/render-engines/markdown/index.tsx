@@ -9,15 +9,16 @@ import {
 import { Image, Link, Heading, CopyButton } from "./custom-renderers";
 import { highlightTheme } from "./highlightTheme";
 import { headingPrefix } from "./helpers";
+import { LayoutType } from "../../index";
 
-export const markdownRE: RenderEngineWithOptions<
-  MarkdownRenderEngineOptions
-> = {
+export const markdownRE = (
+  layout: LayoutType,
+): RenderEngineWithOptions<MarkdownRenderEngineOptions> => ({
   renderEngine: markdownRenderEngine,
   options: {
     customRenderers: {
       image: Image,
-      link: Link,
+      link: (props: any) => <Link {...props} layout={layout} />,
       heading: Heading,
     },
     parsers: [plugins.tabsParserPlugin],
@@ -25,4 +26,4 @@ export const markdownRE: RenderEngineWithOptions<
     highlightTheme,
     copyButton: CopyButton,
   },
-};
+});

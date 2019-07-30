@@ -36,8 +36,6 @@ const PLUGINS: Plugins = [
   replaceImagePathsMutationPlugin,
 ];
 
-const RENDER_ENGINES: RenderEngines = [markdownRE];
-
 const RENDERERS: Renderers = {
   single: [MarkdownSingleRenderer],
 };
@@ -79,6 +77,8 @@ export const GenericComponent: React.FunctionComponent<
   if (!sources || !sources.length) {
     return null;
   }
+
+  const RENDER_ENGINES: RenderEngines = [markdownRE(layout)];
 
   return (
     <GenericDocsProvider>

@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import { Content, Renderers } from "@kyma-project/documentation-component";
 import { StickyContainer, Sticky } from "react-sticky";
 
 import Grid from "@styled/Grid";
-import { DocsNavigation, DocsManifest } from "@components/docs/types";
+import {
+  DocsNavigation,
+  DocsManifest,
+  DocsContentItem,
+} from "@components/docs/types";
 
 import {
   Navigation,
@@ -14,7 +18,7 @@ import { HeadersNavigation } from "../render-engines/markdown/headers-toc";
 
 import { MobileNavButton } from "./components";
 
-import { DocsLayoutWrapper } from "./styled";
+import { DocsLayoutWrapper, TitleHeader } from "./styled";
 import { MarkdownWrapper } from "../styled";
 
 export interface DocsLayoutProps {
@@ -22,34 +26,19 @@ export interface DocsLayoutProps {
   navigation: DocsNavigation;
   manifest: DocsManifest;
   version: string;
-  docsType: string;
-  topic: string;
+  content: DocsContentItem;
 }
 
 export const DocsLayout: React.FunctionComponent<DocsLayoutProps> = ({
   renderers,
   navigation,
   version,
-  docsType,
-  topic,
+  content: { id: topic, type, displayName },
 }) => {
   const linkFn: linkSerializer = ({ group, id }) =>
     `/docs/${version ? `${version}/` : ""}${group}/${id}`;
   const activeLinkFn: activeLinkChecker = ({ group, id }) =>
-    topic === id && docsType === group;
-
-  const sortedGroup: string[] = Object.keys(navigation).sort(
-    (first, second) => {
-      const firstData = first.toLowerCase();
-      const secondData = second.toLowerCase();
-
-      return firstData === "root" ? -1 : secondData === "root" ? 1 : 0;
-    },
-  );
-  const sortedNavigation: DocsNavigation = {};
-  Object.keys(navigation).map(key => {
-    sortedNavigation[key] = navigation[key];
-  });
+    topic === id && type === group;
 
   return (
     <DocsLayoutWrapper>
@@ -67,7 +56,7 @@ export const DocsLayout: React.FunctionComponent<DocsLayoutProps> = ({
                   {({ style }: any) => (
                     <div style={{ ...style, zIndex: 200 }}>
                       <Navigation
-                        navigation={sortedNavigation}
+                        navigation={navigation}
                         linkFn={linkFn}
                         activeLinkFn={activeLinkFn}
                       />
@@ -83,6 +72,7 @@ export const DocsLayout: React.FunctionComponent<DocsLayoutProps> = ({
                 className="grid-unit-content"
                 withoutPadding={true}
               >
+                <TitleHeader>{displayName}</TitleHeader>
                 <Content renderers={renderers} />
               </Grid.Unit>
               <Grid.Unit

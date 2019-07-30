@@ -175,7 +175,7 @@ This process squashes all your commits into the top one. Now you can adjust the 
 
 See how to squash your commits step-by-step in this video:
 
-![Squash](/assets/squash.gif)
+![Squash](./assets/squash.gif)
 
 6. Rebase the `master` branch.
 

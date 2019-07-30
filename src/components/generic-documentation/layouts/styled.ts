@@ -48,7 +48,7 @@ export const CommunityLayoutWrapper = styled.div`
       width: 100%;
 
       > h1 {
-        margin: 32px 0 16px 0;
+        margin: 76px 0 0 0;
 
         img {
           margin: 0;
@@ -60,5 +60,15 @@ export const CommunityLayoutWrapper = styled.div`
         }
       }
     }
+  }
+`;
+
+export const TitleHeader = styled.h1`
+  &&&&& {
+    box-sizing: border-box;
+    font-size: 40px;
+    font-weight: 600;
+    margin: 0;
+    padding-top: 16px;
   }
 `;
