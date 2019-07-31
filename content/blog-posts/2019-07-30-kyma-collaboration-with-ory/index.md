@@ -9,7 +9,7 @@ tags:
   
 ---
 
-Working with others is always a great opportunity to learn and grow, so we simply couldn't say "no" to working with the team at [Ory](https://www.ory.sh/) when such opportunity arose. Making Kyma even more secure, gaining new experience, working with awesome people, and contributing to another project at the same time? Read on to find out how we're joing forces with Ory to bring an OAuth server to Kyma and contribute a completely new component to the lair of Hydra and its Oathkeeper. 
+Working with others is always a great opportunity to learn and grow, so we simply couldn't say "no" to working with the team at [Ory](https://www.ory.sh/) when such opportunity arose. Making Kyma even more secure, gaining new experience, working with awesome people, and contributing to another project at the same time? Read on to find out how we're joining forces with Ory to bring an OAuth server to Kyma and contribute a completely new component to the lair of Hydra and its Oathkeeper. 
 
 <!-- overview -->
 
@@ -29,8 +29,8 @@ So how's the solution of Ory going to be used in Kyma? In the target setup, Kyma
 ![Oauth2 flow in API Gateway](./oathkeeper-gateway.svg)
 
 The role of the Kyma team in this setup is very clear - we are to create the Oathkeeper controller component and contribute it to Ory's ecosystem. 
-At the moment, the Oathkeeper is not designed to be used natively in Kubernetes as the configuration can be provided to this component only through an external server that provides the config, or directly through a file. Feeding the configuration to Oathkeeper through a CRD, which is a Kubernetes-native approach, is not supported. The Oathkeeper Controller is going to address this gap. Kubernetes users will be able to create custom resources that represent access rules for their services. The Controller will then pass this data to Oathkeeper in a format which it can work with without any additional modification.
+At the moment, the Oathkeeper is not designed to be used natively in Kubernetes as the configuration can be provided to this component only through an external server that provides the config, or directly through a file. Feeding the configuration to Oathkeeper in Kubernetes-native way using [Custom Resource Definitions (CRDs)](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/#customresourcedefinitions) is not supported. The Oathkeeper Controller is going to address this gap. Kubernetes users will be able to create custom resources that represent access rules for their services. The Controller will then pass this data to Oathkeeper in a format which it can work with without any additional modification.
 
 ![Register access rule](./controller.svg)
 
-This collaboration is going to bring great value to Kyma and Ory(Kyma supports OAuth2, Ory supports kubernetes CRDs), and we're extremely excited that we're sailing the seas with the guys from Ory. Be sure to check out their solutions and follow our blog and releases to see how this adventure ends. 
+This collaboration is going to bring great value to Kyma and Ory (Kyma supports OAuth2, Ory supports Kubernetes CRDs), and we're extremely excited that we're sailing the seas with the guys from Ory. Be sure to check out their solutions and follow our blog and releases to see how this adventure ends. 
