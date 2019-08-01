@@ -70,7 +70,7 @@ After creating an open governance model, we hosted our first public Core Special
 
 `youtube: https://youtu.be/1DD5aCBnywQ`
 
-So far, we have had 17 meetings and we are definitely not planning to stop organizing them. We meet regularly and you are welcome to join. Check more details at the [Core SIG landing page](https://github.com/kyma-project/community/blob/master/collaboration/02-sig-core.md), join our next meeting, and let us know what you think about Kyma.
+So far, we have had 17 meetings and we are definitely not planning to stop organizing them. We meet regularly and you are welcome to join. Check more details at the [Core SIG landing page](https://github.com/kyma-project/community/tree/master/collaboration/sig-core), join our next meeting, and let us know what you think about Kyma.
 
 ## 10.10.2018 Kyma announced to SAP customers and partners
 
@@ -163,7 +163,7 @@ A few of us regularly help the following communities:
 - [Ahmed Abdalla](https://twitter.com/Abd4llA) in [Knative](https://github.com/knative)
 - [Lukasz Gornicki](https://twitter.com/derberq) in [AsyncAPI](https://www.asyncapi.org/)
 - [Piotr Kopczynski](https://twitter.com/PiotrasPk) and [Mateusz Szostok](https://twitter.com/m_szostok) in [Kubernetes Service Catalog](https://github.com/kubernetes-sigs/service-catalog)
-- [Piotr Mscichowski](https://github.com/piotrmsc) in [Ory](https://github.com/ory), [Hydra](https://github.com/ory/hydra), and [Authkeeper](https://github.com/ory/oathkeeper) projects.
+- [Piotr Mscichowski](https://github.com/piotrmsc) in [Ory](https://github.com/ory), [Hydra](https://github.com/ory/hydra), and [Oathkeeper](https://github.com/ory/oathkeeper) projects.
 
 # We contribute back
 
