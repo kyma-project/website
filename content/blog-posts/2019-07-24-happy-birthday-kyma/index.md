@@ -70,7 +70,7 @@ After creating an open governance model, we hosted our first public Core Special
 
 `youtube: https://youtu.be/1DD5aCBnywQ`
 
-So far, we have had 17 meetings and we are definitely not planning to stop organizing them. We meet regularly and you are welcome to join. Check more details at the [Core SIG landing page](https://github.com/kyma-project/community/tree/master/sig-and-wg/sig-core), join our next meeting, and let us know what you think about Kyma.
+So far, we have had 17 meetings and we are definitely not planning to stop organizing them. We meet regularly and you are welcome to join. Check more details at the [Core SIG landing page](https://github.com/kyma-project/community/tree/master/collaboration/sig-core), join our next meeting, and let us know what you think about Kyma.
 
 ## 10.10.2018 Kyma announced to SAP customers and partners
 
