@@ -163,7 +163,7 @@ A few of us regularly help the following communities:
 - [Ahmed Abdalla](https://twitter.com/Abd4llA) in [Knative](https://github.com/knative)
 - [Lukasz Gornicki](https://twitter.com/derberq) in [AsyncAPI](https://www.asyncapi.org/)
 - [Piotr Kopczynski](https://twitter.com/PiotrasPk) and [Mateusz Szostok](https://twitter.com/m_szostok) in [Kubernetes Service Catalog](https://github.com/kubernetes-sigs/service-catalog)
-- [Piotr Mscichowski](https://github.com/piotrmsc) in [Ory](https://github.com/ory), [Hydra](https://github.com/ory/hydra), and [Authkeeper](https://github.com/ory/oathkeeper) projects.
+- [Piotr Mscichowski](https://github.com/piotrmsc) in [Ory](https://github.com/ory), [Hydra](https://github.com/ory/hydra), and [Oathkeeper](https://github.com/ory/oathkeeper) projects.
 
 # We contribute back
 
