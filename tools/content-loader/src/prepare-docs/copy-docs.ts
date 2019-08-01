@@ -79,7 +79,7 @@ export class CopyDocs {
   };
 
   private copyOldArchitecture = async (docsDir: string, output: string) => {
-    const allowedFilesRegex = /docs\/(manifest\.(yaml|yml)|[A-z0-9-_]*\/(docs\.config\.json|docs\/assets\/[A-z0-9-_.]*\.(png|jpg|gif|jpeg|svg|yaml|yml|json)|docs\/[A-z0-9-_.]*\.md))/;
+    const allowedFilesRegex = /docs\/(manifest\.(yaml|yml)|[A-z0-9-_]*\/(docs\.config\.json|docs\/assets\/[A-z0-9-_.&]*\.(png|jpg|gif|jpeg|svg|yaml|yml|json)|docs\/[A-z0-9-_.&]*\.md))/;
     const [err] = await to(copyResources(docsDir, output, allowedFilesRegex));
     if (err) {
       throw err;
