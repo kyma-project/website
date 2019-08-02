@@ -8,7 +8,7 @@ redirectFrom:
   - "/blog/happy-birthday-kyma"
 ---
 
-Kyma is already 1-year-old and we have a feeling it has only recently been open-sourced. Let me take you on a journey to the past to bring back the most interesting moments. Once we look back, let us see what the future brings.
+Kyma is already 1 year old and we have a feeling it has only recently been open-sourced. Let me take you on a journey to the past to bring back the most interesting moments. Once we look back, let us see what the future brings.
 
 <!-- overview -->
 
