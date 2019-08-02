@@ -209,4 +209,4 @@ For posts with release notes, put the release number in place of `{VERSION}`. Fo
 [Configuration](/docs/0.8/components/helm-broker/#configuration-configuration)
 ```
 
-For more information on how to write release notes, see [this](https://github.com/kyma-project/community/blob/master/guidelines/content-guidelines/release-notes.md) document.
+For more information on how to write release notes, see [this](https://github.com/kyma-project/community/blob/master/guidelines/content-guidelines/06-release-notes.md) document.
