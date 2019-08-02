@@ -3,7 +3,7 @@ import { VError } from "verror";
 
 import GitClient from "../github-client/git-client";
 
-import ClusterDocsTopicSerializer from "../clusterDocsTopicSerializer";
+import ClusterDocsTopicSerializer from "../cdt-serializer";
 
 import { copyResources, fileExists } from "../helpers";
 

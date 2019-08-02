@@ -1,7 +1,7 @@
 import to from "await-to-js";
 import { VError } from "verror";
 
-import ClusterDocsTopicSerializer from "../clusterDocsTopicSerializer";
+import ClusterDocsTopicSerializer from "../cdt-serializer";
 
 export class CopyCommunity {
   do = async (source: string, output: string) => {

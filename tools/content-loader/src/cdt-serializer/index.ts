@@ -210,7 +210,7 @@ export class ClusterDocsTopicSerializer {
         throw new VError(err, `while reading yaml ${file}`);
       }
 
-      if (cdt.kind === CLUSTER_DOCS_TOPIC) {
+      if (cdt.kind && cdt.kind === CLUSTER_DOCS_TOPIC) {
         this.clusterDocsTopics.push(cdt);
       }
     }
