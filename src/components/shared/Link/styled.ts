@@ -76,14 +76,14 @@ export const HashLinkWithIcon = styled.div`
       visibility: visible;
     }
   }
-
   svg[data-icon="anchor"] {
     margin-left: 12px;
   }
 
   ${media.tablet`
     a {
-      visibility: visible;
+      visibility: hidden;
+      display: none;
     }
   `};
 `;

@@ -36,17 +36,17 @@ const PLUGINS: Plugins = [
   replaceImagePathsMutationPlugin,
 ];
 
-const RENDERERS: Renderers = {
-  single: [MarkdownSingleRenderer],
-};
-
-function renderContent(type: LayoutType, props?: any): React.ReactNode {
+function renderContent(
+  type: LayoutType,
+  renderers: Renderers,
+  props?: any,
+): React.ReactNode {
   switch (type) {
     case LayoutType.DOCS: {
-      return <DocsLayout renderers={RENDERERS} {...props} />;
+      return <DocsLayout renderers={renderers} {...props} />;
     }
     case LayoutType.COMMUNITY: {
-      return <CommunityLayout renderers={RENDERERS} {...props} />;
+      return <CommunityLayout renderers={renderers} {...props} />;
     }
     default:
       return null;
@@ -79,6 +79,9 @@ export const GenericComponent: React.FunctionComponent<
   }
 
   const RENDER_ENGINES: RenderEngines = [markdownRE(layout)];
+  const renderers: Renderers = {
+    single: [MarkdownSingleRenderer(sources.length)],
+  };
 
   return (
     <GenericDocsProvider>
@@ -87,7 +90,10 @@ export const GenericComponent: React.FunctionComponent<
         plugins={PLUGINS}
         renderEngines={RENDER_ENGINES}
       >
-        {renderContent(layout, pageContext)}
+        {renderContent(layout, renderers, {
+          ...pageContext,
+          sourcesLength: sources.length,
+        })}
       </DC.Provider>
     </GenericDocsProvider>
   );

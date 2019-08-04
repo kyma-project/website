@@ -26,12 +26,14 @@ export interface CommunityLayoutProps {
   navigation: DocsNavigation;
   manifest: DocsManifest;
   content: DocsContentItem;
+  sourcesLength: number;
 }
 
 export const CommunityLayout: React.FunctionComponent<CommunityLayoutProps> = ({
   renderers,
   navigation,
   content: { id: topic, type, displayName },
+  sourcesLength,
 }) => {
   const linkFn: linkSerializer = ({ group, items, id }) =>
     `/community/${items.length > 1 ? `${group}/` : ""}${id}`;
@@ -70,7 +72,9 @@ export const CommunityLayout: React.FunctionComponent<CommunityLayoutProps> = ({
                 className="grid-unit-content"
                 withoutPadding={true}
               >
-                <TitleHeader>{displayName}</TitleHeader>
+                <TitleHeader marginBottom={sourcesLength === 1}>
+                  {displayName}
+                </TitleHeader>
                 <Content renderers={renderers} />
               </Grid.Unit>
               <Grid.Unit
@@ -82,7 +86,7 @@ export const CommunityLayout: React.FunctionComponent<CommunityLayoutProps> = ({
               >
                 <Sticky>
                   {({ style }: any) => (
-                    <div style={{ ...style, zIndex: 201 }}>
+                    <div style={{ ...style, zIndex: 200 }}>
                       <HeadersNavigation />
                     </div>
                   )}

@@ -27,6 +27,7 @@ export interface DocsLayoutProps {
   manifest: DocsManifest;
   version: string;
   content: DocsContentItem;
+  sourcesLength: number;
 }
 
 export const DocsLayout: React.FunctionComponent<DocsLayoutProps> = ({
@@ -34,6 +35,7 @@ export const DocsLayout: React.FunctionComponent<DocsLayoutProps> = ({
   navigation,
   version,
   content: { id: topic, type, displayName },
+  sourcesLength,
 }) => {
   const linkFn: linkSerializer = ({ group, id }) =>
     `/docs/${version ? `${version}/` : ""}${group}/${id}`;
@@ -72,7 +74,9 @@ export const DocsLayout: React.FunctionComponent<DocsLayoutProps> = ({
                 className="grid-unit-content"
                 withoutPadding={true}
               >
-                <TitleHeader>{displayName}</TitleHeader>
+                <TitleHeader marginBottom={sourcesLength === 1}>
+                  {displayName}
+                </TitleHeader>
                 <Content renderers={renderers} />
               </Grid.Unit>
               <Grid.Unit
@@ -84,7 +88,7 @@ export const DocsLayout: React.FunctionComponent<DocsLayoutProps> = ({
               >
                 <Sticky>
                   {({ style }: any) => (
-                    <div style={{ ...style, zIndex: 201 }}>
+                    <div style={{ ...style, zIndex: 200 }}>
                       <HeadersNavigation />
                     </div>
                   )}

@@ -7,6 +7,7 @@ import {
 } from "@kyma-project/dc-markdown-render-engine";
 
 import { Image, Link, Heading, CopyButton } from "./custom-renderers";
+import { tabsParserPlugin } from "./plugins";
 import { highlightTheme } from "./highlightTheme";
 import { headingPrefix } from "./helpers";
 import { LayoutType } from "../../index";
@@ -21,7 +22,7 @@ export const markdownRE = (
       link: (props: any) => <Link {...props} layout={layout} />,
       heading: Heading,
     },
-    parsers: [plugins.tabsParserPlugin],
+    parsers: [tabsParserPlugin],
     headingPrefix,
     highlightTheme,
     copyButton: CopyButton,

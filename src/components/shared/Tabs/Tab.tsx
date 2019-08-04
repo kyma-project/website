@@ -4,6 +4,7 @@ import { TabLink, TabWrapper } from "./styled";
 
 export interface TabProps {
   children: React.ReactNode;
+  group?: string;
   label: string;
   tabIndex?: number;
   isActive?: boolean;

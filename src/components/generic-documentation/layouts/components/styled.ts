@@ -23,7 +23,7 @@ export const MobileNavIcon = styled.div<MobileNavIconProps>`
   }}
   visibility: visible;
   width: 3.5rem;
-  z-index: 200;
+  z-index: ${props => (props.showMobileNav ? 201 : 200)};
   border-radius: 50%;
   transition: all 350ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
 

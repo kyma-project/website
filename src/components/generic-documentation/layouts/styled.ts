@@ -1,15 +1,19 @@
 import styled, { media } from "@styled";
 
 export const DocsLayoutWrapper = styled.div`
-  width: 100%;
-
   &&& {
+    width: 100%;
+
     .grid-container {
       padding: 15px;
     }
 
     .grid-unit-content {
       padding: 0 32px;
+
+      ${media.phone`
+        padding: 0 16px;
+      `}
     }
 
     .grid-unit-navigation {
@@ -23,16 +27,20 @@ export const DocsLayoutWrapper = styled.div`
 `;
 
 export const CommunityLayoutWrapper = styled.div`
-  width: 100%;
-  margin-top: 72px;
-
   &&& {
+    width: 100%;
+    margin-top: 72px;
+
     .grid-container {
       padding: 15px;
     }
 
     .grid-unit-content {
       padding: 0 32px;
+
+      ${media.phone`
+        padding: 0 16px;
+      `}
     }
 
     .grid-unit-navigation {
@@ -43,19 +51,21 @@ export const CommunityLayoutWrapper = styled.div`
       `};
     }
 
-    .hash-link > div {
-      position: relative;
+    .hash-link {
       width: 100%;
 
-      > h1 {
+      h1 {
         margin: 76px 0 0 0;
+        width: 100%;
+        display: flex;
+        align-items: center;
 
         img {
           margin: 0;
         }
 
         span {
-          margin-left: 24px;
+          margin-left: 16px;
           display: inline-block;
         }
       }
@@ -63,12 +73,17 @@ export const CommunityLayoutWrapper = styled.div`
   }
 `;
 
-export const TitleHeader = styled.h1`
+interface TitleHeaderProps {
+  marginBottom?: boolean;
+}
+
+export const TitleHeader = styled.h1<TitleHeaderProps>`
   &&&&& {
     box-sizing: border-box;
     font-size: 40px;
     font-weight: 600;
     margin: 0;
     padding-top: 16px;
+    margin-bottom: ${props => (props.marginBottom ? `16px` : `0`)};
   }
 `;

@@ -31,7 +31,6 @@ const prepareDocsFn = async () => {
 const prepareCommunityContentFn = async () => {
   const config: CoreConfig = {
     ...coreConfig,
-    organization: "mmitoraj",
     repository: communityConfig.repository,
   };
 

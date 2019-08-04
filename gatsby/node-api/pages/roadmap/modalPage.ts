@@ -6,7 +6,7 @@ import {
 import { CapabilityQL } from "./types";
 import { CreatePageFn, CreateRedirectFn } from "../../../types";
 import { ROADMAP_PATH_PREFIX } from "../../../constants";
-import { Tickets } from "../../../../tools/content-loader/src/prepare-roadmap-content/types";
+import { Tickets } from "../../../../tools/content-loader/src/prepare-roadmap/types";
 
 export interface CreateModalPageArgs {
   createPage: CreatePageFn;

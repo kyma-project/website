@@ -95,7 +95,7 @@ export const tabsStyling = css`
 `;
 
 interface GroupHeaderProps {
-  margin?: boolean;
+  marginTop?: boolean;
 }
 
 export const GroupHeader = styled.h1<GroupHeaderProps>`
@@ -104,7 +104,7 @@ export const GroupHeader = styled.h1<GroupHeaderProps>`
     font-size: 36px;
     font-weight: 600;
     margin: 0;
-    margin-top: ${props => (props.margin ? `24px` : `0`)};
+    margin-top: ${props => (props.marginTop ? `24px` : `0`)};
     padding-top: 16px;
   }
 `;
@@ -122,22 +122,27 @@ export const DocumentHeader = styled.h2`
 
 interface StyledMarkdownProps {
   hideTitleHeader?: number;
+  groupName?: string;
 }
 
 export const StyledMarkdown = styled.div<StyledMarkdownProps>`
-  width: 100%;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
-    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-
   &&& {
+    width: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+      sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     box-sizing: border-box;
     text-align: left;
     font-weight: normal;
     padding: 24px 0 40px 0;
     border-bottom: 1px solid rgb(229, 229, 229);
+    padding-top: ${props => (props.groupName ? "0" : "24px")};
 
-    &:first-child {
+    /* &:first-child {
       padding-top: ${props => (props.hideTitleHeader ? "8px" : "0")};
+    } */
+
+    &:first-of-type {
+      padding-top: 0;
     }
 
     &:last-child {
@@ -155,6 +160,14 @@ export const StyledMarkdown = styled.div<StyledMarkdownProps>`
       color: #32363a;
       font-weight: 600;
       margin: 0;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin-bottom: -8px;
     }
     h1 {
       .cms__text {

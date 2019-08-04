@@ -32,11 +32,6 @@ const prepareCommunity = async (coreConfig: CoreConfig) => {
     );
   }
 
-  [err] = await to(GitClient.checkout("kyma-project-io"));
-  if (err) {
-    throw err;
-  }
-
   [err] = await to(CopyCommunity.do(tempPath, outputPath));
   if (err) {
     throw err;

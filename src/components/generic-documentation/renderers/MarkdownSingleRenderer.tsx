@@ -11,9 +11,9 @@ import { headingPrefix } from "../render-engines/markdown/helpers";
 import { types } from "../constants";
 import { StyledMarkdown, GroupHeader, DocumentHeader } from "./styled";
 
-const Renderer: React.FunctionComponent<SingleRendererComponent> = ({
-  source,
-}) => {
+const Renderer = (
+  sourcesLength: number,
+): React.FunctionComponent<SingleRendererComponent> => ({ source }) => {
   const renderedContent = source.data && source.data.renderedContent;
   const title =
     source.data && source.data.frontmatter && source.data.frontmatter.title;
@@ -26,25 +26,29 @@ const Renderer: React.FunctionComponent<SingleRendererComponent> = ({
     types.add(type);
   }
 
+  const groupHeaderId = toKebabCase(`${groupName}-${groupName}`);
   const groupHeader = groupName && (
-    <GroupHeader
-      id={toKebabCase(`${groupName}-${groupName}`)}
-      margin={Boolean(types.size - 1)}
-    >
-      <span>{groupName}</span>
+    <GroupHeader id={groupHeaderId} marginTop={Boolean(types.size - 1)}>
+      <Link.Hash to={groupHeaderId} anchorIcon={true}>
+        {groupName}
+      </Link.Hash>
     </GroupHeader>
   );
 
-  const documentHeader = title && (
-    <DocumentHeader id={toKebabCase(headingPrefix(source))}>
-      <span>{title}</span>
-    </DocumentHeader>
-  );
+  const documentHeaderId = toKebabCase(headingPrefix(source));
+  const documentHeader =
+    title && sourcesLength > 1 ? (
+      <DocumentHeader id={documentHeaderId}>
+        <Link.Hash to={documentHeaderId} anchorIcon={true}>
+          {title}
+        </Link.Hash>
+      </DocumentHeader>
+    ) : null;
 
   return (
     <>
       {groupHeader}
-      <StyledMarkdown>
+      <StyledMarkdown groupName={groupName}>
         {documentHeader}
         {renderedContent}
       </StyledMarkdown>
@@ -52,7 +56,9 @@ const Renderer: React.FunctionComponent<SingleRendererComponent> = ({
   );
 };
 
-export const MarkdownSingleRenderer: SingleRenderer = {
+export const MarkdownSingleRenderer = (
+  sourcesLength: number,
+): SingleRenderer => ({
   sourceType: ["markdown", "md"],
-  component: Renderer,
-};
+  component: Renderer(sourcesLength),
+});

@@ -26,7 +26,6 @@ export const plugins: Plugins = [
       source: resolve(`${__dirname}/../../content`),
       destination: "/assets",
       extensions: ["jpeg", "jpg", "gif", "png", "svg", "json", "yaml", "yml"],
-      // add regex possibility
       excludeDirs: ["i18n"],
       excludeFiles: [
         "docs/versions.json",
@@ -39,16 +38,6 @@ export const plugins: Plugins = [
   {
     resolve: "gatsby-plugin-anchor-behavior",
     options: {
-      // paths: {
-      //   "/docs/": {
-      //     defaultOffset: 0,
-      //     mobileOffset: 0,
-      //   },
-      //   "/roadmap/": {
-      //     defaultOffset: 0,
-      //     mobileOffset: 0,
-      //   },
-      // },
       defaultOffset: 0,
       mobileOffset: 0,
       mobileOffsetInclude: ["/docs"],

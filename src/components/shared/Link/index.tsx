@@ -2,6 +2,7 @@ import React from "react";
 import { GatsbyLinkProps } from "gatsby";
 import { injectIntl, InjectedIntlProps } from "react-intl";
 
+import H from "@components/shared/H";
 import Icon from "@components/shared/Icon";
 
 import {
@@ -70,17 +71,17 @@ const Internal: React.FunctionComponent<
   );
 };
 
-const Hash: React.FunctionComponent<LinkProps & { chainIcon?: boolean }> = ({
+const Hash: React.FunctionComponent<LinkProps & { anchorIcon?: boolean }> = ({
   to,
   className,
   children,
-  chainIcon = false,
+  anchorIcon = false,
   underline = false,
   onClick,
 }) => {
   const preparedTo = to.startsWith("#") ? to : `#${to}`;
 
-  if (chainIcon) {
+  if (anchorIcon) {
     return (
       <HashLinkWithIcon className="hash-link">
         <div>

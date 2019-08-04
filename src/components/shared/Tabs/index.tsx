@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
+
 import { useLocation } from "@common/hooks/useLocation";
-import has from "lodash/has";
+import { scrollIntoViewOfAnchor } from "@common/utils/scrollIntoViewOfAnchor";
+
 import { TabProps } from "./Tab";
 import { TabsWrapper, TabsHeader, TabsContent } from "./styled";
 
@@ -21,51 +23,40 @@ const Tabs: React.FunctionComponent<TabsProps> = ({ children, active = 0 }) => {
 
   const content = [].concat(...(children as any)).filter(child => !!child);
 
-  const isAppropriateElement = (
-    elem: React.ReactElement<TabProps>,
-    hashParts: string[],
-  ) =>
-    !!hashParts &&
-    hashParts.length === 3 &&
-    !!elem &&
-    has(elem, "props.children.props.tabData.group") &&
-    has(elem, "props.children.props.source") &&
-    (elem as any).props.children.props.tabData.group === hashParts[0] &&
-    elem.key === hashParts[1] &&
-    (elem as any).props.children.props.source
-      .toLowerCase()
-      .trim()
-      .replace(/[^a-zA-Z0-9\s#]/g, "")
-      .includes(`# ${hashParts[2].split("-").join(" ")}`);
-
   useEffect(() => {
     if (!hash) {
       return;
     }
+
     const hashData = hash.split("--").slice(1);
     if (hashData.length !== 3) {
       return;
     }
 
-    content.forEach((elem: React.ReactElement<TabProps>, index: number) => {
-      if (isAppropriateElement(elem, hashData)) {
-        handleTabClick(index);
-        setTimeout(() => {
-          if (!!document) {
-            const element = document.getElementById(hash.slice(1));
-            if (!!element) {
-              element.scrollIntoView(true);
-            }
-          }
-        }, 100);
-      }
-    });
-  }, [hash]);
+    const formatStr = (str?: string): string =>
+      (str || "").toLowerCase().trim();
+    React.Children.map(
+      content,
+      (child: React.ReactElement<TabProps>, index) => {
+        const group = formatStr(child.props.group);
+        const hashGroup = formatStr(hashData[0]);
+
+        const label = formatStr(child.props.label);
+        const hashLabel = formatStr(hashData[1]);
+
+        if (group === hashGroup && label === hashLabel) {
+          handleTabClick(child.props.tabIndex || index);
+          scrollIntoViewOfAnchor(hash);
+        }
+      },
+    );
+  }, []);
 
   const renderHeader = (ch: Array<React.ReactElement<TabProps>>) =>
     React.Children.map(ch, (child, index) =>
       React.cloneElement(child, {
         key: index,
+        group: child.props.group,
         label: child.props.label,
         parentCallback: handleTabClick,
         tabIndex: index,

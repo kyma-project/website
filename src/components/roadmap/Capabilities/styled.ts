@@ -20,7 +20,7 @@ interface NavigationListItemProps {
 export const NavigationListItem = styled.li`
   margin-bottom: 8px;
 
-  > a {
+  a {
     display: block;
     position: relative;
     width: 100%;

@@ -20,9 +20,9 @@ export const HeadersNavigationsWrapper = styled.div<
   HeadersNavigationsWrapperProps
 >`
   position: relative;
+  max-height: calc(100vh - 32px);
   overflow-y: auto;
   overflow-x: hidden;
-  max-height: calc(100vh - 32px);
   height: 100%;
   margin: 16px 0;
   background: #fff;
@@ -62,19 +62,17 @@ export const HeadersNavigationsWrapper = styled.div<
 `;
 
 export const StyledHeadersNavigation = styled.div`
-  ${media.phone`
-    padding-left: 12px;
-
-    &:before {
-      left: 15px;
-    }
-  `};
-
-  ul {
-    margin: 0;
-  }
-
   &&& {
+    ${media.phone`
+      &:before {
+        left: 15px;
+      }
+    `};
+
+    ul {
+      margin: 0;
+    }
+
     .cms__toc-list-item {
       width: 100%;
       max-width: 100%;
@@ -86,11 +84,15 @@ export const StyledHeadersNavigation = styled.div`
         font-size: 12px;
         padding: 4px 24px;
         margin-left: 4px;
-        color: #32363a;
+        color: #485766;
         font-weight: normal;
         display: block;
         position: relative;
         border-left: 1px solid rgb(229, 229, 229);
+
+        ${media.phone`
+          margin-left: 0;
+        `};
 
         &:before {
           content: "";
@@ -103,10 +105,12 @@ export const StyledHeadersNavigation = styled.div`
           top: 50%;
           left: -4px;
           display: none;
+          z-index: 2;
         }
 
         &:hover {
           color: rgba(11, 116, 222, 1);
+
           &:before {
             display: block;
           }
@@ -128,8 +132,27 @@ export const StyledHeadersNavigation = styled.div`
       }
     }
 
+    .cms__toc-list-item--active {
+      > a {
+        color: rgba(11, 116, 222, 1);
+
+        &:before {
+          display: block !important;
+        }
+      }
+    }
+
     .cms__toc-list-item--level-1 {
       ${navNode(0)}
+      > a {
+        font-size: 14px;
+        padding-top: 6px;
+        padding-bottom: 6px;
+
+        &:before {
+          display: block;
+        }
+      }
     }
 
     .cms__toc-list-item--level-2 {
@@ -154,9 +177,33 @@ export const StyledHeadersNavigation = styled.div`
 
     .cms__toc-list-item--level-doc-title {
       ${navNode(0)}
+      > a {
+        font-size: 14px;
+        padding-top: 6px;
+        padding-bottom: 6px;
+
+        &:before {
+          display: block;
+        }
+      }
 
       .cms__toc-list-item--level-1 {
         ${navNode(1)}
+        > a {
+          font-size: 12px;
+          padding-top: 4px;
+          padding-bottom: 4px;
+
+          &:before {
+            display: none;
+          }
+
+          &.active {
+            &:before {
+              display: block;
+            }
+          }
+        }
       }
 
       .cms__toc-list-item--level-2 {
@@ -182,9 +229,33 @@ export const StyledHeadersNavigation = styled.div`
 
     .cms__toc-list-item--level-doc-type {
       ${navNode(0)}
+      > a {
+        font-size: 14px;
+        padding-top: 6px;
+        padding-bottom: 6px;
+
+        &:before {
+          display: block;
+        }
+      }
 
       .cms__toc-list-item--level-doc-title {
         ${navNode(1)}
+        > a {
+          font-size: 12px;
+          padding-top: 4px;
+          padding-bottom: 4px;
+
+          &:before {
+            display: none;
+          }
+
+          &.active {
+            &:before {
+              display: block;
+            }
+          }
+        }
       }
 
       .cms__toc-list-item--level-1 {
@@ -216,28 +287,5 @@ export const StyledHeadersNavigation = styled.div`
     .cms__toc-list-item--show > ul {
       display: block !important;
     }
-  }
-`;
-
-interface CollapseArrowProps {
-  open: boolean;
-  root: boolean;
-}
-
-export const CollapseArrow = styled(Icon)<CollapseArrowProps>`
-  &&&&& {
-    display: block;
-    position: absolute;
-    width: 12px;
-    font-size: 0.75rem;
-    margin-top: 6px;
-    ${({ root = false }) => (root ? `margin-left: 5px;` : "")}
-    top: 1px;
-    text-align: center;
-    cursor: pointer;
-    color: #0b74de;
-    line-height: 1;
-    transition: 0.3s ease;
-    ${({ open = false }) => open && "transform: rotate(90deg);"};
   }
 `;
