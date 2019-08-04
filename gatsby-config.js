@@ -1,3 +1,3 @@
-const { config } = require("./gatsby");
+const { configAPI } = require("./gatsby");
 
-module.exports = config;
+module.exports = configAPI;
