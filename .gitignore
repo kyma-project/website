@@ -72,3 +72,6 @@ temp-*/
 /build-functions
 
 .DS_Store
+
+out
+temp*

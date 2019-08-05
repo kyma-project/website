@@ -15,14 +15,16 @@ export interface ClusterDocsTopic {
   spec: {
     displayName: string;
     description: string;
-    sources: Array<{
-      type: string;
-      name: string;
-      mode: string;
-      url: string;
-      filter: string;
-    }>;
+    sources: Array<Source>;
   };
+}
+
+export interface Source {
+  type: string;
+  name: string;
+  mode: string;
+  url: string;
+  filter: string;
 }
 
 export interface ManifestItem {
