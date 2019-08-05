@@ -1,19 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
+
 import L from "@components/shared/Link";
+
+import { GenericDocsContext } from "../../../services/GenericDocs.service";
 import { LayoutType } from "../../../index";
 
 interface LinkProps {
   href: string;
-  assetsPath?: string;
   layout?: LayoutType;
 }
 
 export const Link: React.FunctionComponent<LinkProps> = ({
   href,
-  assetsPath = "",
   layout,
   children,
 }) => {
+  const { assetsPath } = useContext(GenericDocsContext);
+
   const getAssetName = (path: string): string => {
     const fileNameRegex = /(.*?)\/(.*?).(jpeg|jpg|gif|png|svg|json|yaml|yml)$/;
     const match = fileNameRegex.exec(path);

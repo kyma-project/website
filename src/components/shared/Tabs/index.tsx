@@ -50,7 +50,7 @@ const Tabs: React.FunctionComponent<TabsProps> = ({ children, active = 0 }) => {
         }
       },
     );
-  }, []);
+  }, [hash]);
 
   const renderHeader = (ch: Array<React.ReactElement<TabProps>>) =>
     React.Children.map(ch, (child, index) =>

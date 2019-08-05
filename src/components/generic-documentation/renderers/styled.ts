@@ -194,7 +194,7 @@ export const StyledMarkdown = styled.div<StyledMarkdownProps>`
     a {
       color: #0b74de;
 
-      > .cms__text {
+      .cms__text {
         color: #0b74de !important;
       }
     }

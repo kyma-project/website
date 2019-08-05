@@ -17,13 +17,13 @@ export const RootWrapper: React.FunctionComponent = ({ children }) => (
     <LocationProvider>
       <IntlProvider>
         <ThemeProvider theme={lightTheme}>
-          <>
+          <div>
             <GlobalStyles />
             <PopupService.Provider>
               <ModalProvider>{children}</ModalProvider>
               <Popup />
             </PopupService.Provider>
-          </>
+          </div>
         </ThemeProvider>
       </IntlProvider>
     </LocationProvider>

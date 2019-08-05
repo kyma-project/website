@@ -23,6 +23,14 @@ export const DocsLayoutWrapper = styled.div`
         max-width: 0;
       `};
     }
+
+    .grid-unit-toc-navigation {
+      ${media.phone`
+        /* Fix strange behavior of grid unit */
+        flex: 0 0 0;
+        max-width: 0;
+      `};
+    }
   }
 `;
 
@@ -45,6 +53,14 @@ export const CommunityLayoutWrapper = styled.div`
 
     .grid-unit-navigation {
       ${media.tablet`
+        /* Fix strange behavior of grid unit */
+        flex: 0 0 0;
+        max-width: 0;
+      `};
+    }
+
+    .grid-unit-toc-navigation {
+      ${media.phone`
         /* Fix strange behavior of grid unit */
         flex: 0 0 0;
         max-width: 0;

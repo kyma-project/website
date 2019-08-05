@@ -13,6 +13,10 @@ import { StyledMarkdown, GroupHeader, DocumentHeader } from "./styled";
 
 const Renderer = (
   sourcesLength: number,
+  firstSourceMetadata: {
+    title: string;
+    type: string;
+  },
 ): React.FunctionComponent<SingleRendererComponent> => ({ source }) => {
   const renderedContent = source.data && source.data.renderedContent;
   const title =
@@ -25,15 +29,20 @@ const Renderer = (
     groupName = type;
     types.add(type);
   }
+  const isFirstSource =
+    firstSourceMetadata.title === title && firstSourceMetadata.type === type;
 
   const groupHeaderId = toKebabCase(`${groupName}-${groupName}`);
-  const groupHeader = groupName && (
+  let groupHeader = !isFirstSource && groupName && (
     <GroupHeader id={groupHeaderId} marginTop={Boolean(types.size - 1)}>
       <Link.Hash to={groupHeaderId} anchorIcon={true}>
         {groupName}
       </Link.Hash>
     </GroupHeader>
   );
+  if (!groupHeader) {
+    groupHeader = <div id={groupHeaderId} />;
+  }
 
   const documentHeaderId = toKebabCase(headingPrefix(source));
   const documentHeader =
@@ -56,9 +65,13 @@ const Renderer = (
   );
 };
 
-export const MarkdownSingleRenderer = (
+export const MarkdownRenderer = (
   sourcesLength: number,
+  firstSourceMetadata: {
+    title: string;
+    type: string;
+  },
 ): SingleRenderer => ({
   sourceType: ["markdown", "md"],
-  component: Renderer(sourcesLength),
+  component: Renderer(sourcesLength, firstSourceMetadata),
 });

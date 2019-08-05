@@ -35,11 +35,12 @@ export const HeadersNavigationsWrapper = styled.div<
   ${media.phone`
     margin: 0;
     max-height: 100vh;
-    bottom: 0px;
+    height: 100%;
+    top: 0;
     display: block;
     height: 100vh;
     position: fixed;
-    padding: 9px 0 0 0;
+    padding: 0;
     top: 0px;
     width: 15rem;
     z-index: 10;
@@ -55,9 +56,7 @@ export const HeadersNavigationsWrapper = styled.div<
 
   ${media.phone<HeadersNavigationsWrapperProps>`
     transform: ${props =>
-      props.showMobileNav
-        ? `translateX(calc(100vw - 15rem))`
-        : `translateX(calc(100vw + 1rem))`};
+      props.showMobileNav ? `translateX(calc(-15rem))` : `translateX(1rem)`};
   `};
 `;
 
@@ -284,7 +283,7 @@ export const StyledHeadersNavigation = styled.div`
     }
 
     .cms__toc-list-item--show,
-    .cms__toc-list-item--show > ul {
+    .cms__toc-list-item--show ul {
       display: block !important;
     }
   }

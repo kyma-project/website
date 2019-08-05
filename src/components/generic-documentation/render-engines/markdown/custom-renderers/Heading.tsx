@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { navigate } from "gatsby";
 
 import H from "@components/shared/H";
 import Link from "@components/shared/Link";

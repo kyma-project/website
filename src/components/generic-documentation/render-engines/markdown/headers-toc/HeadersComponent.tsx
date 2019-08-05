@@ -1,4 +1,4 @@
-import React, { useRef, useContext } from "react";
+import React, { useRef, useEffect, useContext } from "react";
 
 import { plugins } from "@kyma-project/dc-markdown-render-engine";
 
@@ -20,22 +20,53 @@ export const HeadersNavigation: React.FunctionComponent<
   const { showMobileRightNav } = useContext(GenericDocsContext);
   const headersWrapperRef = useRef<HTMLDivElement>();
 
+  useEffect(() => {
+    const html = document.querySelector(`html`);
+    const nav = headersWrapperRef.current;
+
+    const onMouseOver = (element?: any) => (e: Event) => {
+      e.stopPropagation();
+      if (!element) {
+        return;
+      }
+
+      if (html) {
+        html.style.overflowY = `hidden`;
+      }
+
+      element.style.overflowY = `auto`;
+    };
+
+    const onMouseOverNav = onMouseOver(nav);
+    const onMouseOverGlobalWrapper = onMouseOver(html);
+
+    nav && nav.addEventListener("mouseover", onMouseOverNav);
+    html && html.addEventListener("mouseover", onMouseOverGlobalWrapper);
+
+    return () => {
+      nav && nav.removeEventListener("mouseover", onMouseOverNav);
+      html && html.addEventListener("mouseover", onMouseOverGlobalWrapper);
+    };
+  }, [headersWrapperRef]);
+
   return (
-    <HeadersNavigationsWrapper
-      ref={headersWrapperRef as any}
-      showMobileNav={showMobileRightNav}
-      className="headers-navigation-wrapper"
-    >
-      <HN
-        postProcessing={postProcessingHeaders}
-        enableSmoothScroll={enableSmoothScroll}
-        callback={checkIsInView(headersWrapperRef)}
-        offset={16}
+    <>
+      <HeadersNavigationsWrapper
+        ref={headersWrapperRef as any}
+        showMobileNav={showMobileRightNav}
+        className="headers-navigation-wrapper"
       >
-        <StyledHeadersNavigation className="cms__toc-wrapper">
-          <RenderedHeader />
-        </StyledHeadersNavigation>
-      </HN>
-    </HeadersNavigationsWrapper>
+        <HN
+          postProcessing={postProcessingHeaders}
+          enableSmoothScroll={enableSmoothScroll}
+          callback={checkIsInView(headersWrapperRef)}
+          offset={16}
+        >
+          <StyledHeadersNavigation className="cms__toc-wrapper">
+            <RenderedHeader />
+          </StyledHeadersNavigation>
+        </HN>
+      </HeadersNavigationsWrapper>
+    </>
   );
 };

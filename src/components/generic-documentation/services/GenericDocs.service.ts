@@ -7,14 +7,15 @@ export const types: Set<string> = new Set<string>();
 export let hideTitleHeader: boolean = false;
 
 interface GenericDocsServiceProps {
-  sourcesLength: number;
+  assetsPath: string;
 }
 
-function useGenericDocsService() {
+function useGenericDocsService({ assetsPath }: GenericDocsServiceProps) {
   const [showMobileLeftNav, setShowMobileLeftNav] = useState<boolean>(false);
   const [showMobileRightNav, setShowMobileRightNav] = useState<boolean>(false);
 
   return {
+    assetsPath,
     showMobileLeftNav,
     setShowMobileLeftNav,
     showMobileRightNav,

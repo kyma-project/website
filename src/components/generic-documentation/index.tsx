@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import {
   DC,
-  Sources,
+  SourceWithOptions,
   Plugins,
   RenderEngines,
   Renderers,
@@ -11,7 +11,7 @@ import { plugins as markdownPlugins } from "@kyma-project/dc-markdown-render-eng
 import { DocsPageContext } from "@components/docs/types";
 
 import { markdownRE } from "./render-engines";
-import { MarkdownSingleRenderer } from "./renderers";
+import { MarkdownRenderer } from "./renderers";
 import { DocsLayout, CommunityLayout } from "./layouts";
 import { serializer } from "./serializer";
 import { replaceImagePathsMutationPlugin } from "./render-engines/markdown/plugins";
@@ -78,13 +78,28 @@ export const GenericComponent: React.FunctionComponent<
     return null;
   }
 
+  let tempSource = sources[0] as SourceWithOptions;
+  if (Array.isArray(tempSource)) {
+    tempSource = tempSource[0] as SourceWithOptions;
+  }
+  const firstSource = tempSource.source;
+
+  const title =
+    firstSource.data &&
+    firstSource.data.frontmatter &&
+    firstSource.data.frontmatter.title;
+  const type: string =
+    firstSource.data &&
+    firstSource.data.frontmatter &&
+    firstSource.data.frontmatter.type;
+
   const RENDER_ENGINES: RenderEngines = [markdownRE(layout)];
   const renderers: Renderers = {
-    single: [MarkdownSingleRenderer(sources.length)],
+    single: [MarkdownRenderer(sources.length, { title, type })],
   };
 
   return (
-    <GenericDocsProvider>
+    <GenericDocsProvider assetsPath={pageContext.assetsPath}>
       <DC.Provider
         sources={sources}
         plugins={PLUGINS}

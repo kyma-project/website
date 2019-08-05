@@ -21,7 +21,8 @@ export const NavigationWrapper = styled.div<NavigationWrapperProps>`
   ${media.tablet`
     margin: 0;
     max-height: 100vh;
-    bottom: 0px;
+    height: 100%;
+    top: 0;
     display: block;
     height: 100vh;
     position: fixed;
