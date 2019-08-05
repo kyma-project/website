@@ -7,7 +7,6 @@ clear-cache:
 
 .PHONY: validate
 validate:
-	npm run conflict-check
 	npm run lint-check
 	npm run markdownlint
 	npm run type-check
