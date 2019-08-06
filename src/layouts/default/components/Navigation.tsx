@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import throttle from "lodash.throttle";
 
 import Button from "@components/shared/Button";
 import Icon from "@components/shared/Icon";
@@ -49,7 +50,7 @@ class Navigation extends Component<{}, State> {
   };
 
   componentDidMount() {
-    window.addEventListener("resize", this.resize);
+    window.addEventListener("resize", throttle(this.resize, 500));
     this.resize();
     this.setState({ initial: true });
   }
