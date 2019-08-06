@@ -17,6 +17,8 @@ export const DocsLayoutWrapper = styled.div`
     }
 
     .grid-unit-navigation {
+      z-index: 200;
+
       ${media.tablet`
         /* Fix strange behavior of grid unit */
         flex: 0 0 0;
@@ -25,6 +27,8 @@ export const DocsLayoutWrapper = styled.div`
     }
 
     .grid-unit-toc-navigation {
+      z-index: 200;
+
       ${media.phone`
         /* Fix strange behavior of grid unit */
         flex: 0 0 0;
@@ -52,6 +56,8 @@ export const CommunityLayoutWrapper = styled.div`
     }
 
     .grid-unit-navigation {
+      z-index: 200;
+
       ${media.tablet`
         /* Fix strange behavior of grid unit */
         flex: 0 0 0;
@@ -60,6 +66,8 @@ export const CommunityLayoutWrapper = styled.div`
     }
 
     .grid-unit-toc-navigation {
+      z-index: 200;
+
       ${media.phone`
         /* Fix strange behavior of grid unit */
         flex: 0 0 0;

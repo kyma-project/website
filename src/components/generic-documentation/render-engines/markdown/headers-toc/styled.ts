@@ -43,7 +43,6 @@ export const HeadersNavigationsWrapper = styled.div<
     padding: 0;
     top: 0px;
     width: 15rem;
-    z-index: 10;
     opacity: 1;
     pointer-events: auto;
     border-width: 0px;

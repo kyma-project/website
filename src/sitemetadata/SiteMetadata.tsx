@@ -3,7 +3,7 @@ import Helmet from "react-helmet";
 import { withPrefix, graphql, useStaticQuery } from "gatsby";
 
 import { globalHistory } from "@reach/router";
-import { RootContext } from "@root/services";
+import { RootContext } from "../root/services/root";
 import { injectIntl, IntlInterface } from "@common/i18n";
 import { getActualYear } from "@common/utils";
 import { SiteMetadata as SiteMetadataType } from "../../gatsby/config-api/types";

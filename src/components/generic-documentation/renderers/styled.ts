@@ -175,6 +175,8 @@ export const StyledMarkdown = styled.div<StyledMarkdownProps>`
       }
     }
     h2 {
+      padding-top: 16px;
+      font-size: 22px;
       .cms__text {
         font-size: 22px !important;
       }

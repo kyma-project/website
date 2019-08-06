@@ -40,7 +40,7 @@ const Renderer = (
       </Link.Hash>
     </GroupHeader>
   );
-  if (!groupHeader) {
+  if (!groupHeader && groupName) {
     groupHeader = <div id={groupHeaderId} />;
   }
 
