@@ -3,7 +3,7 @@ import { VError } from "verror";
 
 import GitClient from "../github-client/git-client";
 
-import AdjustNewArchitecture from "./adjust-new-architecture";
+import ClusterDocsTopicSerializer from "../cdt-serializer";
 
 import { copyResources, fileExists } from "../helpers";
 
@@ -56,7 +56,7 @@ export class CopyDocs {
     if (manifestExists) {
       [err] = await to(this.copyOldArchitecture(docsDir, output));
     } else {
-      [err] = await to(this.copyNewArchitecture(source, docsDir, output));
+      [err] = await to(this.copyNewArchitecture(source, output));
     }
 
     if (err) {
@@ -79,19 +79,15 @@ export class CopyDocs {
   };
 
   private copyOldArchitecture = async (docsDir: string, output: string) => {
-    const allowedFilesRegex = /docs\/(manifest\.(yaml|yml)|[A-z0-9-_]*\/(docs\.config\.json|docs\/assets\/[A-z0-9-_.]*\.(png|jpg|gif|jpeg|svg|yaml|yml|json)|docs\/[A-z0-9-_.]*\.md))/;
+    const allowedFilesRegex = /docs\/(manifest\.(yaml|yml)|[A-z0-9-_]*\/(docs\.config\.json|docs\/assets\/[A-z0-9-_.&]*\.(png|jpg|gif|jpeg|svg|yaml|yml|json)|docs\/[A-z0-9-_.&]*\.md))/;
     const [err] = await to(copyResources(docsDir, output, allowedFilesRegex));
     if (err) {
       throw err;
     }
   };
 
-  private copyNewArchitecture = async (
-    source: string,
-    docsDir: string,
-    output: string,
-  ) => {
-    const [err] = await to(AdjustNewArchitecture.do(source, docsDir, output));
+  private copyNewArchitecture = async (source: string, output: string) => {
+    const [err] = await to(ClusterDocsTopicSerializer.do(source, output));
     if (err) {
       throw err;
     }

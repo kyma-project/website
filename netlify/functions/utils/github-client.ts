@@ -15,9 +15,7 @@ export class GitHubClient {
   ): Promise<PullsListFilesResponse> => {
     let data: PullsListFilesResponse;
     try {
-      const subPath = `repos/${event.repository.owner.login}/${
-        event.repository.name
-      }/pulls/${event.number}/files`;
+      const subPath = `repos/${event.repository.owner.login}/${event.repository.name}/pulls/${event.number}/files`;
 
       const response = await fetch(
         `${GitHubClient.apiPath}/${subPath}`,
