@@ -1,11 +1,11 @@
 import { Node } from "gatsby";
 import { DOCS_PATH_PREFIX, DOCS_FILENAME_REGEX } from "../../../constants";
-import { CreateNodeFieldArgs } from "../../../types";
+import { CreateNodeField } from "../../../types";
 
 interface OnCreateDocsNode {
   node: Node;
   relativePath: string;
-  createNodeField: CreateNodeFieldArgs;
+  createNodeField: CreateNodeField;
 }
 
 export const onCreateDocsNode = ({

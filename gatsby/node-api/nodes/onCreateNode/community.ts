@@ -3,12 +3,12 @@ import {
   COMMUNITY_FILENAME_REGEX,
   COMMUNITY_PATH_PREFIX,
 } from "../../../constants";
-import { CreateNodeFieldArgs } from "../../../types";
+import { CreateNodeField } from "../../../types";
 
 interface OnCreateCommunityNode {
   node: Node;
   relativePath: string;
-  createNodeField: CreateNodeFieldArgs;
+  createNodeField: CreateNodeField;
 }
 
 export const onCreateCommunityNode = ({

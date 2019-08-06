@@ -26,7 +26,7 @@ export type CreateRedirectFn = (
   plugin?: ActionPlugin,
 ) => void;
 
-export type CreateNodeFieldArgs = (
+export type CreateNodeField = (
   args: {
     node: Node;
     fieldName?: string;
