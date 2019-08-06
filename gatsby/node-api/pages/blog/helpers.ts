@@ -1,4 +1,4 @@
-import { PostQL } from "./types";
+import { PostGQL } from "./types";
 import { GraphQLFunction } from "../../../types";
 
 export const getPosts = async (
@@ -34,5 +34,5 @@ export const getPosts = async (
 
   return result.data.allMarkdownRemark.edges.map(
     (e: any) => e.node,
-  ) as PostQL[];
+  ) as PostGQL[];
 };

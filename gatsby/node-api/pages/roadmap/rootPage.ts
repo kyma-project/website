@@ -3,14 +3,14 @@ import {
   generateCapabilitiesNavigation,
   generateMapOfDisplayNameToId,
 } from "./helpers";
-import { CapabilityQL } from "./types";
+import { CapabilityGQL } from "./types";
 import { CreatePageFn, CreateRedirectFn } from "../../../types";
 import { ROADMAP_PATH_PREFIX } from "../../../constants";
 
 export interface CreateRootPageArgs {
   createPage: CreatePageFn;
   createRedirect: CreateRedirectFn;
-  capabilities: CapabilityQL[];
+  capabilities: CapabilityGQL[];
 }
 
 export const createRootPage = ({
