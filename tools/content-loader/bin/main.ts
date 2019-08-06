@@ -56,8 +56,10 @@ const prepareRoadmapContentFn = async () => {
 };
 
 const main = async () => {
+  const errors: Error[] = [];
+
   if (!coreConfig.token) {
-    throw new VError("APP_TOKEN is required");
+    errors.push(new VError("APP_TOKEN is required"));
   }
 
   if (!roadmapConfig.zenHubToken) {
@@ -65,7 +67,6 @@ const main = async () => {
   }
 
   let err: Error | null;
-  const errors: Error[] = [];
 
   [err] = await to(prepareDocsFn());
   if (err) {
