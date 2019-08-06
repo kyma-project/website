@@ -18,7 +18,12 @@ import { HeadersNavigation } from "../render-engines/markdown/headers-toc";
 
 import { MobileNavButton } from "./components";
 
-import { CommunityLayoutWrapper, TitleHeader } from "./styled";
+import {
+  CommunityLayoutWrapper,
+  TitleHeader,
+  StickyWrapperLeftNav,
+  StickyWrapperRightNav,
+} from "./styled";
 import { MarkdownWrapper } from "../styled";
 
 export interface CommunityLayoutProps {
@@ -54,13 +59,13 @@ export const CommunityLayout: React.FunctionComponent<CommunityLayoutProps> = ({
               >
                 <Sticky>
                   {({ style }: any) => (
-                    <div style={{ ...style, zIndex: 200 }}>
+                    <StickyWrapperLeftNav style={{ ...style, zIndex: 200 }}>
                       <Navigation
                         navigation={navigation}
                         linkFn={linkFn}
                         activeLinkFn={activeLinkFn}
                       />
-                    </div>
+                    </StickyWrapperLeftNav>
                   )}
                 </Sticky>
                 <MobileNavButton />
@@ -86,9 +91,9 @@ export const CommunityLayout: React.FunctionComponent<CommunityLayoutProps> = ({
               >
                 <Sticky>
                   {({ style }: any) => (
-                    <div style={{ ...style, zIndex: 200 }}>
+                    <StickyWrapperRightNav style={{ ...style, zIndex: 200 }}>
                       <HeadersNavigation />
-                    </div>
+                    </StickyWrapperRightNav>
                   )}
                 </Sticky>
                 <MobileNavButton orientation="right" iconName="anchor" />

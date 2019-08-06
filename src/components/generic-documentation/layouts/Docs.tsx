@@ -18,7 +18,12 @@ import { HeadersNavigation } from "../render-engines/markdown/headers-toc";
 
 import { MobileNavButton } from "./components";
 
-import { DocsLayoutWrapper, TitleHeader } from "./styled";
+import {
+  DocsLayoutWrapper,
+  TitleHeader,
+  StickyWrapperLeftNav,
+  StickyWrapperRightNav,
+} from "./styled";
 import { MarkdownWrapper } from "../styled";
 
 export interface DocsLayoutProps {
@@ -56,13 +61,13 @@ export const DocsLayout: React.FunctionComponent<DocsLayoutProps> = ({
               >
                 <Sticky>
                   {({ style }: any) => (
-                    <div style={{ ...style, zIndex: 200 }}>
+                    <StickyWrapperLeftNav style={{ ...style, zIndex: 200 }}>
                       <Navigation
                         navigation={navigation}
                         linkFn={linkFn}
                         activeLinkFn={activeLinkFn}
                       />
-                    </div>
+                    </StickyWrapperLeftNav>
                   )}
                 </Sticky>
                 <MobileNavButton />
@@ -88,9 +93,9 @@ export const DocsLayout: React.FunctionComponent<DocsLayoutProps> = ({
               >
                 <Sticky>
                   {({ style }: any) => (
-                    <div style={{ ...style, zIndex: 200 }}>
+                    <StickyWrapperRightNav style={{ ...style, zIndex: 200 }}>
                       <HeadersNavigation />
-                    </div>
+                    </StickyWrapperRightNav>
                   )}
                 </Sticky>
                 <MobileNavButton orientation="right" iconName="anchor" />

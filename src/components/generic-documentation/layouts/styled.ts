@@ -111,3 +111,19 @@ export const TitleHeader = styled.h1<TitleHeaderProps>`
     margin-bottom: ${props => (props.marginBottom ? `16px` : `0`)};
   }
 `;
+
+export const StickyWrapperLeftNav = styled.div`
+  ${media.tablet`
+    position: fixed !important;
+    transform: translateZ(0px) !important;
+    top: 0px !important;
+  `}
+`;
+
+export const StickyWrapperRightNav = styled.div`
+  ${media.phone`
+    position: fixed !important;
+    transform: translateZ(0px) !important;
+    top: 0px !important;
+  `}
+`;

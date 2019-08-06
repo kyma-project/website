@@ -50,7 +50,7 @@ class Navigation extends Component<{}, State> {
   };
 
   componentDidMount() {
-    window.addEventListener("resize", throttle(this.resize, 100));
+    window.addEventListener("resize", throttle(this.resize, 500));
     this.resize();
     this.setState({ initial: true });
   }
