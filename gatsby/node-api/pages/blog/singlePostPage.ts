@@ -1,11 +1,11 @@
 import { resolve } from "path";
-import { PostQL } from "./types";
+import { PostGQL } from "./types";
 import { CreatePageFn, CreateRedirectFn } from "../../../types";
 
 export interface CreateSingleBlogPostArgs {
   createPage: CreatePageFn;
   createRedirect: CreateRedirectFn;
-  posts: PostQL[];
+  posts: PostGQL[];
 }
 
 export const createSingleBlogPost = ({

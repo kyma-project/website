@@ -4,11 +4,12 @@ import {
   BLOG_PATH_PREFIX,
   BLOG_POST_FILENAME_REGEX,
 } from "../../../constants";
+import { CreateNodeFieldArgs } from "../../../types";
 
 interface OnCreateBlogPostNode {
   node: Node;
   relativePath: string;
-  createNodeField: Function;
+  createNodeField: CreateNodeFieldArgs;
 }
 
 export const onCreateBlogPostNode = ({

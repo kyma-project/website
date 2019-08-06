@@ -1,7 +1,8 @@
-import { ContentQL, DocsContentDocs } from "./types";
+import { ContentGQL, DocsContentDocs } from "./types";
+import { GraphQLFunction } from "../../../../types";
 
-const getContent = async <T extends ContentQL>(
-  graphql: Function,
+const getContent = async <T extends ContentGQL>(
+  graphql: GraphQLFunction,
   dir: string,
   additionalFields: string,
 ): Promise<T[]> => {

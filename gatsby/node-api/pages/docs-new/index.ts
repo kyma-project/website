@@ -9,7 +9,7 @@ import {
   DocsContentItem,
   DocsNavigation,
 } from "../utils";
-import { DocQL } from "./types";
+import { DocGQL } from "./types";
 import {
   DOCS_DIR,
   ASSETS_DIR,
@@ -18,14 +18,13 @@ import {
   DOCS_ROOT_TYPE,
   DOCS_KYMA_ID,
 } from "../../../constants";
-import { CreatePageFn } from "../../../types";
+import { CreatePageFn, GraphQLFunction } from "../../../types";
 
 const extractFn = (version: string) => (
-  doc: DocQL,
-  topicDocs: DocsContentDocs[],
+  doc: DocGQL,
   docsGroup: string,
   topicId: string,
-): void => {
+): DocsContentDocs => {
   const {
     rawMarkdownBody,
     fields: {
@@ -45,12 +44,13 @@ const extractFn = (version: string) => (
       obj.type = docType;
     }
 
-    topicDocs.push(obj);
+    return obj;
   }
+  return null;
 };
 
 export interface CreateDocsPages {
-  graphql: Function;
+  graphql: GraphQLFunction;
   createPage: CreatePageFn;
 }
 
@@ -72,7 +72,7 @@ export const createDocsPages = async ({
   }
   const latestVersion = versions.releases[0];
 
-  const docs = await getContent<DocQL>(
+  const docs = await getContent<DocGQL>(
     graphql,
     "/content/docs/",
     `docInfo {
@@ -86,7 +86,7 @@ export const createDocsPages = async ({
   const docsArch: { [version: string]: DocsGeneratorReturnType } = {};
   for (const versionType in versions) {
     for (const version of versions[versionType]) {
-      docsArch[version] = docsGenerator<DocQL>(
+      docsArch[version] = docsGenerator<DocGQL>(
         docs,
         "docs",
         extractFn(version),

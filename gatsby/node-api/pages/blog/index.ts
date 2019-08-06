@@ -1,9 +1,13 @@
 import { createSingleBlogPost } from "./singlePostPage";
 import { getPosts } from "./helpers";
-import { CreatePageFn, CreateRedirectFn } from "../../../types";
+import {
+  CreatePageFn,
+  CreateRedirectFn,
+  GraphQLFunction,
+} from "../../../types";
 
 export interface CreateBlogPages {
-  graphql: Function;
+  graphql: GraphQLFunction;
   createPage: CreatePageFn;
   createRedirect: CreateRedirectFn;
 }

@@ -1,4 +1,4 @@
-export interface PostQL {
+export interface PostGQL {
   fields: {
     slug: string;
     assetsPath: string;

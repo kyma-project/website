@@ -1,10 +1,11 @@
 import { Node } from "gatsby";
 import { ROADMAP_CAPABILITY_FILENAME_REGEX } from "../../../constants";
+import { CreateNodeFieldArgs } from "../../../types";
 
 interface OnCreateCapabilityNode {
   node: Node;
   relativePath: string;
-  createNodeField: Function;
+  createNodeField: CreateNodeFieldArgs;
 }
 
 const capability = ({

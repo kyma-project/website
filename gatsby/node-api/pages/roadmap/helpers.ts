@@ -1,12 +1,13 @@
 import {
-  CapabilityQL,
+  CapabilityGQL,
   RoadmapNavigationNode,
   CapabilityDisplayNameReferencesToId,
 } from "./types";
+import { GraphQLFunction } from "../../../types";
 
 export const getCapabilities = async (
-  graphql: Function,
-): Promise<CapabilityQL[]> => {
+  graphql: GraphQLFunction,
+): Promise<CapabilityGQL[]> => {
   const result = await graphql(`
     {
       allMarkdownRemark(
@@ -31,10 +32,10 @@ export const getCapabilities = async (
 
   return sortCapabilities(result.data.allMarkdownRemark.edges.map(
     (e: any) => e.node,
-  ) as CapabilityQL[]);
+  ) as CapabilityGQL[]);
 };
 
-const sortCapabilities = (capabilities: CapabilityQL[]): CapabilityQL[] =>
+const sortCapabilities = (capabilities: CapabilityGQL[]): CapabilityGQL[] =>
   capabilities.sort((a, b) => {
     const orderA = a.frontmatter.displayName.toLowerCase();
     const orderB = b.frontmatter.displayName.toLowerCase();
@@ -49,7 +50,7 @@ const sortCapabilities = (capabilities: CapabilityQL[]): CapabilityQL[] =>
   });
 
 export const generateCapabilitiesNavigation = (
-  capabilities: CapabilityQL[],
+  capabilities: CapabilityGQL[],
 ): RoadmapNavigationNode[] => {
   const navigation: RoadmapNavigationNode[] = [];
 
@@ -64,7 +65,7 @@ export const generateCapabilitiesNavigation = (
 };
 
 export const generateMapOfDisplayNameToId = (
-  capabilities: CapabilityQL[],
+  capabilities: CapabilityGQL[],
 ): CapabilityDisplayNameReferencesToId => {
   const map: CapabilityDisplayNameReferencesToId = {};
 

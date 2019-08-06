@@ -3,7 +3,7 @@ import {
   generateCapabilitiesNavigation,
   generateMapOfDisplayNameToId,
 } from "./helpers";
-import { CapabilityQL } from "./types";
+import { CapabilityGQL } from "./types";
 import { CreatePageFn, CreateRedirectFn } from "../../../types";
 import { ROADMAP_PATH_PREFIX } from "../../../constants";
 import { Tickets } from "../../../../tools/content-loader/src/prepare-roadmap/types";
@@ -11,7 +11,7 @@ import { Tickets } from "../../../../tools/content-loader/src/prepare-roadmap/ty
 export interface CreateModalPageArgs {
   createPage: CreatePageFn;
   createRedirect: CreateRedirectFn;
-  capabilities: CapabilityQL[];
+  capabilities: CapabilityGQL[];
 }
 
 const releases: Tickets = require("../../../../content/roadmap/tickets.json");

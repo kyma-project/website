@@ -6,7 +6,7 @@ import {
   DocsContentDocs,
   DocsContentItem,
 } from "../utils";
-import { CommunityQL } from "./types";
+import { CommunityGQL } from "./types";
 import {
   DOCS_DIR,
   COMMUNITY_DIR,
@@ -14,14 +14,13 @@ import {
   COMMUNITY_GET_STARTED_TYPE,
   COMMUNITY_PATH_PREFIX,
 } from "../../../constants";
-import { CreatePageFn } from "../../../types";
+import { CreatePageFn, GraphQLFunction } from "../../../types";
 
 const extractFn = (
-  doc: CommunityQL,
-  topicDocs: DocsContentDocs[],
+  doc: CommunityGQL,
   docsGroup: string,
   topicId: string,
-): void => {
+): DocsContentDocs => {
   const {
     rawMarkdownBody,
     fields: {
@@ -41,12 +40,13 @@ const extractFn = (
       obj.type = docType;
     }
 
-    topicDocs.push(obj);
+    return obj;
   }
+  return null;
 };
 
 export interface CreateCommunityPages {
-  graphql: Function;
+  graphql: GraphQLFunction;
   createPage: CreatePageFn;
 }
 
@@ -59,7 +59,7 @@ export const createCommunityPages = async ({
     "../../../../src/views/community/index.tsx",
   );
 
-  const docs = await getContent<CommunityQL>(
+  const docs = await getContent<CommunityGQL>(
     graphql,
     "/content/community/",
     `docInfo {
@@ -72,7 +72,7 @@ export const createCommunityPages = async ({
     content,
     navigation,
     manifest,
-  }: DocsGeneratorReturnType = docsGenerator<CommunityQL>(
+  }: DocsGeneratorReturnType = docsGenerator<CommunityGQL>(
     docs,
     "community",
     extractFn,

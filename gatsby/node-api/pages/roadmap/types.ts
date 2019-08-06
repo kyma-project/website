@@ -1,4 +1,4 @@
-export interface CapabilityQL {
+export interface CapabilityGQL {
   frontmatter: {
     displayName: string;
     epicsLabels: string[];

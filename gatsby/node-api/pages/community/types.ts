@@ -1,6 +1,6 @@
-import { ContentQL } from "../utils";
+import { ContentGQL } from "../utils";
 
-export type CommunityQL = ContentQL<{
+export type CommunityGQL = ContentGQL<{
   docInfo: {
     id: string;
     type: string;

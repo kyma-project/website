@@ -1,6 +1,9 @@
 import { PostQL } from "./types";
+import { GraphQLFunction } from "../../../types";
 
-export const getPosts = async (graphql: Function): Promise<PostQL[]> => {
+export const getPosts = async (
+  graphql: GraphQLFunction,
+): Promise<PostGQL[]> => {
   const result = await graphql(`
     {
       allMarkdownRemark(
