@@ -30,15 +30,13 @@ function extractMetadata(uri: string, data: any, pageContext: any) {
   return {};
 }
 
-export const SiteMetadataExtractor: React.FunctionComponent<any> = ({
-  ...otherProps
-}) => {
+export const SiteMetadataExtractor: React.FunctionComponent<any> = props => {
   const {
     uri,
     location: { href },
     data,
     pageContext,
-  } = otherProps;
+  } = props;
   const metadata = extractMetadata(uri, data, pageContext);
 
   return <SiteMetadata pageUrl={href} {...metadata} />;

@@ -10,7 +10,7 @@ import { FormattedMessage, getTranslation } from "@common/i18n";
 import config from "@config";
 import { getActualYear, resolveSocialMedia } from "@common/utils";
 
-import Netlify from "@static/img/netlify.svg";
+import NetlifyImage from "@static/img/netlify.svg";
 
 import {
   FooterWrapper,
@@ -67,7 +67,7 @@ const Footer: React.FunctionComponent = () => {
       </FooterCopyright>
       <NetlifyIcon>
         <a href="https://www.netlify.com" target="_blank">
-          <img src={Netlify} />
+          <img src={NetlifyImage} alt="deploys by Netlify" />
         </a>
       </NetlifyIcon>
     </FooterWrapper>
