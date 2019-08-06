@@ -6,7 +6,7 @@ import {
 import { CapabilityQL } from "./types";
 import { CreatePageFn, CreateRedirectFn } from "../../types";
 import { ROADMAP_PATH_PREFIX } from "../../constants";
-import { Tickets } from "../../../tools/content-loader/src/prepare-roadmap-content/types";
+import { Tickets } from "../../../tools/content-loader/src/prepare-roadmap/types";
 
 export interface CreateModalPageArgs {
   createPage: CreatePageFn;
@@ -36,9 +36,7 @@ export const createModalPage = ({
       const tickets = capabilities[capability];
 
       tickets.map(ticket => {
-        const path = `/${ROADMAP_PATH_PREFIX}/${ticket.repository.name}/${
-          ticket.number
-        }`;
+        const path = `/${ROADMAP_PATH_PREFIX}/${ticket.repository.name}/${ticket.number}`;
 
         createRedirect({
           fromPath: path,

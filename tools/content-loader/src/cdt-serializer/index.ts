@@ -6,69 +6,24 @@ import {
   readYaml,
   writeToYaml,
   writeToJson,
-  removeDir,
   copyResources,
 } from "../helpers";
+import {
+  ClusterDocsTopic,
+  DocsConfigs,
+  Manifest,
+  DocsConfigSpec,
+  DocsConfig,
+  CLUSTER_DOCS_TOPIC,
+  GROUP_NAME_LABEL,
+  GROUP_ORDER_LABEL,
+  ORDER_LABEL,
+} from "./types";
 
-const CLUSTER_DOCS_TOPIC: string = "ClusterDocsTopic";
-const KYMA_DOCS: string = "kyma-docs";
-
-const GROUP_NAME_LABEL: string = "cms.kyma-project.io/group-name";
-const ORDER_LABEL: string = "cms.kyma-project.io/order";
-
-enum GroupNames {
-  ROOT = "root",
-  COMPONENTS = "components",
-}
-
-interface ClusterDocsTopic {
-  kind: string;
-  metadata: {
-    labels: {
-      [key: string]: string;
-    };
-    name: string;
-  };
-  spec: {
-    displayName: string;
-    description: string;
-  };
-}
-
-interface ManifestItem {
-  displayName: string;
-  id: string;
-}
-
-interface Manifest {
-  metadata: {
-    name: string;
-  };
-  spec: {
-    root: ManifestItem[];
-    components: ManifestItem[];
-  };
-}
-
-interface DocsConfigs {
-  [topics: string]: DocsConfig;
-}
-
-interface DocsConfig {
-  spec: DocsConfigSpec;
-}
-
-interface DocsConfigSpec {
-  id: string;
-  displayName: string;
-  description: string;
-  type: string;
-}
-
-export class AdjustNewArchitecture {
+export class ClusterDocsTopicSerializer {
   private clusterDocsTopics: ClusterDocsTopic[] = [];
 
-  do = async (source: string, docsDir: string, output: string) => {
+  do = async (source: string, output: string, copyRegex?: string) => {
     this.clearClusterDocsTopic();
 
     let err: Error | null;
@@ -81,7 +36,9 @@ export class AdjustNewArchitecture {
     const manifest = this.prepareManifest();
     const configs = this.prepareDocsConfigs();
 
-    [err] = await to(this.copyDocsPerTopic(docsDir, output, configs));
+    [err] = await to(
+      this.copyContentPerTopic(source, output, configs, copyRegex),
+    );
     if (err) {
       throw err;
     }
@@ -92,61 +49,69 @@ export class AdjustNewArchitecture {
     }
   };
 
-  private copyDocsPerTopic = async (
-    docsDir: string,
+  private copyContentPerTopic = async (
+    source: string,
     output: string,
     configs: DocsConfigs,
+    copyRegex?: string,
   ) => {
     for (const topic of Object.keys(configs)) {
       let err: Error | null;
+      const dir = configs[topic].dir;
 
       [err] = await to(
-        this.copyDocs(`${docsDir}/${topic}`, `${output}/${topic}/docs`),
+        this.copyContent(
+          `${source}/${dir}`,
+          `${output}/${topic}/docs`,
+          copyRegex,
+        ),
       );
       if (err) {
-        throw new VError(err, `while copying docs for ${topic}`);
+        throw new VError(err, `while copying content for ${output}/${topic}`);
       }
 
+      delete configs[topic].dir;
       [err] = await to(
         writeToJson(`${output}/${topic}/docs.config.json`, configs[topic]),
       );
       if (err) {
-        throw new VError(err, `while copying config for ${topic}`);
+        throw new VError(err, `while copying config for ${output}/${topic}`);
       }
     }
   };
 
-  private copyDocs = async (source: string, output: string) => {
-    const allowedFilesRegex = /(md|png|jpg|gif|jpeg|svg|yaml|yml|json)$/;
-    const [err] = await to(copyResources(source, output, allowedFilesRegex));
+  private copyContent = async (
+    source: string,
+    output: string,
+    copyRegex?: string,
+  ) => {
+    const allowedFilesRegex = copyRegex
+      ? `${source}/${copyRegex}`
+      : /(md|png|jpg|gif|jpeg|svg|yaml|yml|json)$/;
+    const [err] = await to(
+      copyResources(source, output, new RegExp(allowedFilesRegex)),
+    );
     if (err) {
       throw err;
     }
   };
 
   private prepareManifest = (): Manifest => {
-    const sortedCdtsForRoot: ClusterDocsTopic[] = this.extractClusterDocsTopics(
-      GroupNames.ROOT,
-    );
-    const sortedCdtsForComponents: ClusterDocsTopic[] = this.extractClusterDocsTopics(
-      GroupNames.COMPONENTS,
-    );
-
+    const groupNames = this.extractGroupNames();
     const manifest: Manifest = {
-      metadata: {
-        name: KYMA_DOCS,
-      },
-      spec: {
-        root: sortedCdtsForRoot.map(cdt => ({
-          displayName: cdt.spec.displayName,
-          id: cdt.metadata.name,
-        })),
-        components: sortedCdtsForComponents.map(cdt => ({
-          displayName: cdt.spec.displayName,
-          id: cdt.metadata.name,
-        })),
-      },
+      spec: {},
     };
+
+    groupNames.map(group => {
+      const sortedCdts: ClusterDocsTopic[] = this.filterAndSortClusterDocsTopics(
+        group,
+      );
+
+      manifest.spec[group] = sortedCdts.map(cdt => ({
+        displayName: cdt.spec.displayName,
+        id: cdt.metadata.name,
+      }));
+    });
     return manifest;
   };
 
@@ -174,13 +139,23 @@ export class AdjustNewArchitecture {
       type: `${groupName.charAt(0).toUpperCase()}${groupName.slice(1)}`,
     };
 
+    const markdownTypes = ["markdown", "md"];
+    const markdownSource = cdt.spec.sources.find(s =>
+      markdownTypes.includes(s.type),
+    );
+    const dir: string =
+      markdownSource && markdownSource.filter.replace(/^\/?|\/?$/, "");
+
     const docsConfig: DocsConfig = {
       spec,
+      dir,
     };
     return docsConfig;
   };
 
-  private extractClusterDocsTopics = (groupName: string): ClusterDocsTopic[] =>
+  private filterAndSortClusterDocsTopics = (
+    groupName: string,
+  ): ClusterDocsTopic[] =>
     this.clusterDocsTopics
       .filter(cdt => cdt.metadata.labels[GROUP_NAME_LABEL] === groupName)
       .sort((a, b) =>
@@ -189,6 +164,32 @@ export class AdjustNewArchitecture {
           ? 1
           : -1,
       );
+
+  private extractGroupNames = (): string[] => {
+    const groupNames: Set<string> = new Set<string>();
+    const order: { [group: string]: number } = {};
+
+    this.clusterDocsTopics.map(cdt => {
+      const groupName = cdt.metadata.labels[GROUP_NAME_LABEL];
+      groupNames.add(groupName);
+      if (!order[groupName]) {
+        order[groupName] = Number(cdt.metadata.labels[GROUP_ORDER_LABEL]);
+      }
+    });
+
+    return Array.from(groupNames).sort((first, sec) => {
+      const orderFirst = order[first];
+      const orderSec = order[sec];
+
+      if (orderFirst < orderSec) {
+        return -1;
+      }
+      if (orderFirst > orderSec) {
+        return 1;
+      }
+      return 0;
+    });
+  };
 
   private loadAllClusterDocsTopics = async (source: string) => {
     let err: Error | null;
@@ -209,7 +210,7 @@ export class AdjustNewArchitecture {
         throw new VError(err, `while reading yaml ${file}`);
       }
 
-      if (cdt.kind === CLUSTER_DOCS_TOPIC) {
+      if (cdt.kind && cdt.kind === CLUSTER_DOCS_TOPIC) {
         this.clusterDocsTopics.push(cdt);
       }
     }
@@ -220,4 +221,4 @@ export class AdjustNewArchitecture {
   };
 }
 
-export default new AdjustNewArchitecture();
+export default new ClusterDocsTopicSerializer();

@@ -32,7 +32,7 @@ export default (prefix?: string) => <T extends IntlInterface>(
     render() {
       return (
         <WrappedComponent
-          {...this.props as T}
+          {...(this.props as T)}
           formatMessage={this.formatMessage}
           intl={this.context.intl}
         />

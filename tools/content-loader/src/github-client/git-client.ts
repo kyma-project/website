@@ -19,9 +19,7 @@ export class GitClient {
   };
 
   clone = async () => {
-    const repository = `https://github.com/${this.config.organization}/${
-      this.config.repository
-    }.git`;
+    const repository = `https://github.com/${this.config.organization}/${this.config.repository}.git`;
 
     const [err] = await to(
       this.execShellCommand(`git clone "${repository}" "${this.destination}"`),

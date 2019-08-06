@@ -5,6 +5,8 @@ content
 tools/content-loader/out
 tools/content-loader/tempDir
 tools/content-loader/tempDocsDir
+tools/content-loader/tempCommunityDir
 tools/content-loader/tempRoadmapDir
 tools/content-loader/docs
 tools/content-loader/roadmap
+tools/content-loader/community

@@ -36,6 +36,9 @@ The configuration options are as follows:
 | **APP_DOCS_OUTPUT**                     | **YES**  | `docs`                   | The path for storing the documentation results                        |
 | **APP_DOCS_VERSIONS_CONFIG_FILE**       | **YES**  | `versions.json`          | The path to the website documentation configuration                   |
 | **APP_DOCS_TEMP_DIR**                   | **YES**  | `tempDocsDir`            | The path for storing temporary data for documentation                 |
+| **APP_COMMUNITY_OUTPUT**                | **YES**  | `community`              | The path for storing the community content results                    |
+| **APP_COMMUNITY_REPOSITORY**            | **YES**  | `community`              | The repository with the community content                             |
+| **APP_COMMUNITY_TEMP_DIR**              | **YES**  | `tempCommunityDir`       | The path for storing temporary data for the community content         |
 | **APP_ROADMAP_REPOSITORY**              | **YES**  | `community`              | The repository with capabilities descriptions                         |
 | **APP_ROADMAP_OUTPUT**                  | **YES**  | `roadmap`                | The path for storing the roadmap content results                      |
 | **APP_ROADMAP_TEMP_DIR**                | **YES**  | `tempRoadmapDir`         | The path for storing temporary data for roadmap content               |
