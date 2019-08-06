@@ -49,7 +49,7 @@ export const Heading: React.FunctionComponent<HeadingProps> = ({
   }
 
   return (
-    <Link.Hash to={id} chainIcon={true}>
+    <Link.Hash to={id} anchorIcon={true}>
       <H
         as={`h${newLevel}` as Headers}
         id={id}

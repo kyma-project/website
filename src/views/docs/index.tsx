@@ -3,10 +3,10 @@ import React from "react";
 import Grid from "@styled/Grid";
 import { PageContext } from "@common/types";
 import { DocsPageContext, DocsVersions } from "@components/docs/types";
-// import {
-//   GenericComponent,
-//   LayoutType,
-// } from "@components/generic-documentation";
+import {
+  GenericComponent,
+  LayoutType,
+} from "@components/generic-documentation";
 
 import { VersionSwitcher } from "./components";
 import { Toolbar } from "./styled";
@@ -57,7 +57,7 @@ const DocsView: React.FunctionComponent<PageContext<DocsPageContext>> = ({
           topic={topic}
         />
       </Toolbar>
-      {/* <GenericComponent pageContext={pageContext} layout={LayoutType.DOCS} /> */}
+      <GenericComponent pageContext={pageContext} layout={LayoutType.DOCS} />
     </>
   );
 };

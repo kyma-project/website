@@ -64,6 +64,8 @@ fetch() {
     APP_DOCS_REPOSITORY="kyma" \
     APP_DOCS_OUTPUT="${CONTENT_DIR}/docs" \
     APP_DOCS_VERSIONS_CONFIG_FILE="${CONTENT_DIR}/docs/versions.json" \
+    APP_COMMUNITY_OUTPUT="${CONTENT_DIR}/community" \
+    APP_COMMUNITY_REPOSITORY="community" \
     APP_ROADMAP_REPOSITORY="community" \
     APP_ROADMAP_OUTPUT="${CONTENT_DIR}/roadmap" \
     APP_ROADMAP_CAPABILITIES_OUTPUT="${CONTENT_DIR}/roadmap/capabilities" \
