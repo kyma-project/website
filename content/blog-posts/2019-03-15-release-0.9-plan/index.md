@@ -10,7 +10,7 @@ redirectFrom:
 
 Next destination? Florence! Time to pack our bags and prepare to leave Edmonton and fly all the way to Tuscany for the next Kyma release - **0.9 Florence**. What's in store for this Italian-themed release?
 
- <!-- overview -->
+<!-- overview -->
 
 First of all - Knative. We know, it doesn't really sound Italian, but it's really important for Kyma. Starting with this release, the eventing mechanism is going to be based on Knative by default. Kyma will still ship with NATS, but switching to Knative opens a world of new possibilities and will allow us to support other messaging systems, such as Google PubSub, in the future. 
 
