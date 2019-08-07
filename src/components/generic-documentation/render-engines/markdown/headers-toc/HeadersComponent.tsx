@@ -1,5 +1,7 @@
 import React, { useRef, useEffect, useContext } from "react";
 
+import { is } from "@styled";
+
 import { plugins } from "@kyma-project/dc-markdown-render-engine";
 
 import { GenericDocsContext } from "../../../services";
@@ -26,7 +28,7 @@ export const HeadersNavigation: React.FunctionComponent<
 
     const onMouseOver = (element?: any) => (e: Event) => {
       e.stopPropagation();
-      if (!element) {
+      if (!element || is.phone()) {
         return;
       }
 
@@ -50,23 +52,21 @@ export const HeadersNavigation: React.FunctionComponent<
   }, [headersWrapperRef]);
 
   return (
-    <>
-      <HeadersNavigationsWrapper
-        ref={headersWrapperRef as any}
-        showMobileNav={showMobileRightNav}
-        className="headers-navigation-wrapper"
+    <HeadersNavigationsWrapper
+      ref={headersWrapperRef as any}
+      showMobileNav={showMobileRightNav}
+      className="headers-navigation-wrapper"
+    >
+      <HN
+        postProcessing={postProcessingHeaders}
+        enableSmoothScroll={enableSmoothScroll}
+        callback={checkIsInView(headersWrapperRef)}
+        offset={16}
       >
-        <HN
-          postProcessing={postProcessingHeaders}
-          enableSmoothScroll={enableSmoothScroll}
-          callback={checkIsInView(headersWrapperRef)}
-          offset={16}
-        >
-          <StyledHeadersNavigation className="cms__toc-wrapper">
-            <RenderedHeader />
-          </StyledHeadersNavigation>
-        </HN>
-      </HeadersNavigationsWrapper>
-    </>
+        <StyledHeadersNavigation className="cms__toc-wrapper">
+          <RenderedHeader />
+        </StyledHeadersNavigation>
+      </HN>
+    </HeadersNavigationsWrapper>
   );
 };

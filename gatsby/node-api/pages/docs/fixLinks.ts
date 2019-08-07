@@ -6,7 +6,7 @@ const linksToRewrite = require("../../../../content/docs/fix-links");
 const MD_LINKS_REGEX = /\[([^\[]+)\]\(([^\)]+)\)/g;
 const DOCS_LINKS_REGEX = /^\/(docs|components|root)\/(.*?)$/g;
 
-const changeVersion = ({
+export const changeVersion = ({
   source,
   version,
 }: {
@@ -35,7 +35,7 @@ const changeVersion = ({
     return occurrence;
   });
 
-const rewrite = ({
+export const rewrite = ({
   source,
   version,
   type,

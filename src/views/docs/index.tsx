@@ -2,7 +2,10 @@ import React from "react";
 
 import Grid from "@styled/Grid";
 import { PageContext } from "@common/types";
-import { DocsPageContext, DocsVersions } from "@components/docs/types";
+import {
+  DocsPageContext,
+  DocsVersions,
+} from "@components/generic-documentation/types";
 import {
   GenericComponent,
   LayoutType,
@@ -11,29 +14,10 @@ import {
 import { VersionSwitcher } from "./components";
 import { Toolbar } from "./styled";
 
-interface WrapperProps {
-  version: string;
-  versions: DocsVersions;
-  docsType: string;
-  topic: string;
-}
-
-const Wrapper: React.FunctionComponent<WrapperProps> = ({
-  version,
-  versions,
-  docsType,
-  topic,
-}) => (
+const Wrapper: React.FunctionComponent = ({ children }) => (
   <Grid.Container padding="0">
     <Grid.Row>
-      <Grid.Unit df={12}>
-        <VersionSwitcher
-          version={version}
-          versions={versions}
-          docsType={docsType}
-          topic={topic}
-        />
-      </Grid.Unit>
+      <Grid.Unit df={12}>{children}</Grid.Unit>
     </Grid.Row>
   </Grid.Container>
 );
@@ -47,17 +31,25 @@ const DocsView: React.FunctionComponent<PageContext<DocsPageContext>> = ({
     content: { id: topic, type: docsType },
   } = pageContext;
 
+  const docsVersionSwitcher = (
+    <VersionSwitcher
+      version={version}
+      versions={versions}
+      docsType={docsType}
+      topic={topic}
+    />
+  );
+
   return (
     <>
       <Toolbar>
-        <Wrapper
-          version={version}
-          versions={versions}
-          docsType={docsType}
-          topic={topic}
-        />
+        <Wrapper>{docsVersionSwitcher}</Wrapper>
       </Toolbar>
-      <GenericComponent pageContext={pageContext} layout={LayoutType.DOCS} />
+      <GenericComponent
+        pageContext={pageContext}
+        layout={LayoutType.DOCS}
+        docsVersionSwitcher={docsVersionSwitcher}
+      />
     </>
   );
 };

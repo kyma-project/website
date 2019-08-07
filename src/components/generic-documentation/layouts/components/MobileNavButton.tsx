@@ -1,10 +1,11 @@
-import React, { useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
 import Icon from "@components/shared/Icon";
 
 import { GenericDocsContext } from "../../services";
 
 import { MobileNavIcon } from "./styled";
+import { bool } from "prop-types";
 
 interface MobileNavButtonProps {
   orientation?: string;
@@ -24,7 +25,7 @@ export const MobileNavButton: React.FunctionComponent<MobileNavButtonProps> = ({
 
   return (
     <MobileNavIcon
-      onClick={() => {
+      onClick={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
         orientation === "left"
           ? setShowMobileLeftNav(state => !state)
           : setShowMobileRightNav(state => !state);

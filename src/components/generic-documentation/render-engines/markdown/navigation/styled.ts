@@ -13,6 +13,10 @@ export const NavigationWrapper = styled.div<NavigationWrapperProps>`
   margin: 16px 0;
   background: #fff;
 
+  @media (max-width: 1216px) {
+    margin-left: 16px;
+  }
+
   ${customScrollBar({
     thumbBorderRadius: "4px",
     trackBorderRadius: "4px",
@@ -133,4 +137,13 @@ export const NavigationGroupName = styled.div`
   ${media.tablet`
     margin: 16px 8px;
   `};
+`;
+
+export const VersionSwitcherWrapper = styled.div`
+  display: none;
+
+  ${media.tablet`
+    display: block;
+    margin-bottom: 16px;
+  `}
 `;

@@ -49,6 +49,7 @@ export const HeadersNavigationsWrapper = styled.div<
     border-style: initial;
     border-color: initial;
     border-image: initial;
+    overflow-x: auto;
     transition: transform 350ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
     box-shadow: rgba(46, 41, 51, 0.08) 0px 4px 16px, rgba(71, 63, 79, 0.16) 0px 8px 24px;
   `}

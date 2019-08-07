@@ -1,6 +1,6 @@
 import { resolve } from "path";
 import { fixLinks } from "./fixLinks";
-import { getDocsVersions, sortNavigation } from "./helpers";
+import { getDocsVersions, sortGroupOfNavigation } from "./helpers";
 import {
   docsGenerator,
   DocsGeneratorReturnType,
@@ -102,7 +102,7 @@ export const createDocsPages = async ({
 
   Object.keys(docsArch).map(version => {
     const { content, navigation, manifest } = docsArch[version];
-    const sortedNavigation: DocsNavigation = sortNavigation(navigation);
+    const sortedNavigation: DocsNavigation = sortGroupOfNavigation(navigation);
 
     Object.keys(content).map(docsType => {
       const topics = content[docsType];

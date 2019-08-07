@@ -5,6 +5,17 @@ import L from "@components/shared/Link";
 import { GenericDocsContext } from "../../../services/GenericDocs.service";
 import { LayoutType } from "../../../index";
 
+const getAssetName = (path: string): string => {
+  const fileNameRegex = /(.*?)\/(.*?).(jpeg|jpg|gif|png|svg|json|yaml|yml)$/;
+  const match = fileNameRegex.exec(path);
+
+  if (match && match[2]) {
+    const splitedName = match[2].split("/");
+    return `${splitedName[splitedName.length - 1]}.${match[3]}`;
+  }
+  return "";
+};
+
 interface LinkProps {
   href: string;
   layout?: LayoutType;
@@ -16,17 +27,6 @@ export const Link: React.FunctionComponent<LinkProps> = ({
   children,
 }) => {
   const { assetsPath } = useContext(GenericDocsContext);
-
-  const getAssetName = (path: string): string => {
-    const fileNameRegex = /(.*?)\/(.*?).(jpeg|jpg|gif|png|svg|json|yaml|yml)$/;
-    const match = fileNameRegex.exec(path);
-
-    if (match && match[2]) {
-      const splitedName = match[2].split("/");
-      return `${splitedName[splitedName.length - 1]}.${match[3]}`;
-    }
-    return "";
-  };
 
   if (href.startsWith("http")) {
     return (

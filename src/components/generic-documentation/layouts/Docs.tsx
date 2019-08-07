@@ -3,11 +3,7 @@ import { Content, Renderers } from "@kyma-project/documentation-component";
 import { StickyContainer, Sticky } from "react-sticky";
 
 import Grid from "@styled/Grid";
-import {
-  DocsNavigation,
-  DocsManifest,
-  DocsContentItem,
-} from "@components/docs/types";
+import { DocsNavigation, DocsManifest, DocsContentItem } from "../types";
 
 import {
   Navigation,
@@ -33,6 +29,7 @@ export interface DocsLayoutProps {
   version: string;
   content: DocsContentItem;
   sourcesLength: number;
+  docsVersionSwitcher: React.ReactNode;
 }
 
 export const DocsLayout: React.FunctionComponent<DocsLayoutProps> = ({
@@ -41,6 +38,7 @@ export const DocsLayout: React.FunctionComponent<DocsLayoutProps> = ({
   version,
   content: { id: topic, type, displayName },
   sourcesLength,
+  docsVersionSwitcher,
 }) => {
   const linkFn: linkSerializer = ({ group, id }) =>
     `/docs/${version ? `${version}/` : ""}${group}/${id}`;
@@ -66,6 +64,7 @@ export const DocsLayout: React.FunctionComponent<DocsLayoutProps> = ({
                         navigation={navigation}
                         linkFn={linkFn}
                         activeLinkFn={activeLinkFn}
+                        docsVersionSwitcher={docsVersionSwitcher}
                       />
                     </StickyWrapperLeftNav>
                   )}

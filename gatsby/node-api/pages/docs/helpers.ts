@@ -34,7 +34,7 @@ const getDocsVersions = (versions: DocsGeneratedVersions): DocsVersions => {
   return versionsByType;
 };
 
-const sortNavigation = (navigation: DocsNavigation): DocsNavigation => {
+const sortGroupOfNavigation = (navigation: DocsNavigation): DocsNavigation => {
   const groups = Object.keys(navigation).sort((a, b) => {
     const nameA = a.toString().toLowerCase();
     const nameB = b.toString().toLowerCase();
@@ -56,4 +56,4 @@ const sortNavigation = (navigation: DocsNavigation): DocsNavigation => {
   return sortedNavigation;
 };
 
-export { getDocsVersions, sortNavigation };
+export { getDocsVersions, sortGroupOfNavigation };

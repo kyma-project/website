@@ -8,7 +8,7 @@ import {
 } from "@kyma-project/documentation-component";
 import { plugins as markdownPlugins } from "@kyma-project/dc-markdown-render-engine";
 
-import { DocsPageContext } from "@components/docs/types";
+import { DocsPageContext } from "@components/generic-documentation/types";
 
 import { markdownRE } from "./render-engines";
 import { MarkdownRenderer } from "./renderers";
@@ -61,11 +61,12 @@ export enum LayoutType {
 export interface GenericComponentProps {
   pageContext: DocsPageContext;
   layout?: LayoutType;
+  docsVersionSwitcher?: React.ReactNode;
 }
 
 export const GenericComponent: React.FunctionComponent<
   GenericComponentProps
-> = ({ pageContext, layout = LayoutType.DOCS }) => {
+> = ({ pageContext, layout = LayoutType.DOCS, docsVersionSwitcher }) => {
   types.clear();
   setHideTitleHeader(false);
 
@@ -108,6 +109,7 @@ export const GenericComponent: React.FunctionComponent<
         {renderContent(layout, renderers, {
           ...pageContext,
           sourcesLength: sources.length,
+          docsVersionSwitcher,
         })}
       </DC.Provider>
     </GenericDocsProvider>

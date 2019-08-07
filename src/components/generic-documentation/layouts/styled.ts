@@ -3,6 +3,9 @@ import styled, { media } from "@styled";
 export const DocsLayoutWrapper = styled.div`
   &&& {
     width: 100%;
+    ${media.tablet`
+      margin-top: 72px;
+    `}
 
     .grid-container {
       padding: 15px;
@@ -42,6 +45,10 @@ export const CommunityLayoutWrapper = styled.div`
   &&& {
     width: 100%;
     margin-top: 72px;
+
+    ${media.phone`
+      margin-top: 52px;
+    `};
 
     .grid-container {
       padding: 15px;

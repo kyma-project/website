@@ -2,7 +2,7 @@ import {
   SourceWithOptions,
   Sources,
 } from "@kyma-project/documentation-component";
-import { DocsContentItem } from "@components/docs/types";
+import { DocsContentItem } from "@components/generic-documentation/types";
 
 export class DocsSerializer {
   private docsContent: DocsContentItem = {} as DocsContentItem;

@@ -4,7 +4,10 @@ import Link from "@components/shared/Link";
 
 import { GenericDocsContext } from "../../../services";
 
-import { DocsNavigation, DocsNavigationTopic } from "@components/docs/types";
+import {
+  DocsNavigation,
+  DocsNavigationTopic,
+} from "@components/generic-documentation/types";
 
 import {
   NavigationWrapper,
@@ -12,6 +15,7 @@ import {
   NavigationListItem,
   NavigationListItemName,
   NavigationGroupName,
+  VersionSwitcherWrapper,
 } from "./styled";
 
 export type linkSerializer = ({
@@ -38,6 +42,7 @@ export interface NavigationProps {
   navigation: DocsNavigation;
   linkFn: linkSerializer;
   activeLinkFn?: activeLinkChecker;
+  docsVersionSwitcher?: React.ReactNode;
 }
 
 function renderList(
@@ -75,6 +80,7 @@ export const Navigation: React.FunctionComponent<NavigationProps> = ({
   navigation,
   linkFn,
   activeLinkFn,
+  docsVersionSwitcher,
 }) => {
   const { showMobileLeftNav } = useContext(GenericDocsContext);
 
@@ -84,6 +90,9 @@ export const Navigation: React.FunctionComponent<NavigationProps> = ({
 
   return (
     <NavigationWrapper showMobileNav={showMobileLeftNav}>
+      {docsVersionSwitcher && (
+        <VersionSwitcherWrapper>{docsVersionSwitcher}</VersionSwitcherWrapper>
+      )}
       {lists}
     </NavigationWrapper>
   );
