@@ -25,16 +25,13 @@ export const MobileNavButton: React.FunctionComponent<MobileNavButtonProps> = ({
   return (
     <MobileNavIcon
       onClick={() => {
-        if (orientation === "left") {
-          setShowMobileLeftNav(state => !state);
-          return;
-        }
-        setShowMobileRightNav(state => !state);
+        orientation === "left"
+          ? setShowMobileLeftNav(state => !state)
+          : setShowMobileRightNav(state => !state);
       }}
       orientation={orientation}
-      showMobileNav={
-        orientation === "left" ? showMobileLeftNav : showMobileRightNav
-      }
+      showMobileLeftNav={showMobileLeftNav}
+      showMobileRightNav={showMobileRightNav}
     >
       <Icon iconName={iconName} iconPrefix="fas" />
     </MobileNavIcon>
