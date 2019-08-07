@@ -10,7 +10,7 @@ redirectFrom:
 
 Extra! Extra! Read all about it! With the 1.0 Gliwice release, we have successfully reached our first big release milestone in Kyma. We realize that some of you might be confused and ask "Why Gliwice?" or "Where even is that place?" A quick [Wikipedia search](https://en.wikipedia.org/wiki/Gliwice) reveals that Gliwice is a Polish city situated in the southern part of the country, in the Upper Silesia. Founded in the 13th century, it has a rich history, a beautiful old town, and a river running right through its heart. From the software point of view, Gliwice is the home of the SAP Labs office which has most of the developers working on Kyma. Now that the naming conundrum is solved, let's dive into the details of our first production release.
 
- <!-- overview -->
+<!-- overview -->
 
 The 1.0 release is all about security and stability. We invested a lot of time and energy in securing all communication in the Kyma cluster and finally we are able to turn on mutual TLS by default. This is something we promised to deliver in the previous release, but in the course of implementation we encountered more problems than we anticipated. Another important feature that we had to postpone and we're releasing with the 1.0 release is the integration with Grafana Loki. We didn't manage to implement it earlier because of several incompatible changes in log directories introduced in Kubernetes 1.14 but already applied in the Google Kubernetes Engine. See [this issue](https://github.com/grafana/loki/issues/393) for more details. These are the highlights of the Gliwice release. 
 
