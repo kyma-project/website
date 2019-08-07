@@ -22,7 +22,7 @@ export class CopyDocs {
       }
 
       const out = `${output}/${release}`;
-      [err] = await to(this.do(source, out));
+      [err] = await to(this.do(source, out, release as string));
       if (err) {
         throw new VError(err, `while copying sources from tag: ${tag}`);
       }
@@ -40,14 +40,14 @@ export class CopyDocs {
       }
 
       const out = `${output}/${branch}`;
-      [err] = await to(this.do(source, out));
+      [err] = await to(this.do(source, out, branch as string));
       if (err) {
         throw new VError(err, `while copying sources from branch: ${branch}`);
       }
     }
   };
 
-  private do = async (source: string, output: string) => {
+  private do = async (source: string, output: string, version: string) => {
     const docsDir = `${source}/docs`;
     let err: Error | null;
 
@@ -56,7 +56,7 @@ export class CopyDocs {
     if (manifestExists) {
       [err] = await to(this.copyOldArchitecture(docsDir, output));
     } else {
-      [err] = await to(this.copyNewArchitecture(source, output));
+      [err] = await to(this.copyNewArchitecture(source, output, version));
     }
 
     if (err) {
@@ -86,8 +86,14 @@ export class CopyDocs {
     }
   };
 
-  private copyNewArchitecture = async (source: string, output: string) => {
-    const [err] = await to(ClusterDocsTopicSerializer.do(source, output));
+  private copyNewArchitecture = async (
+    source: string,
+    output: string,
+    version: string,
+  ) => {
+    const [err] = await to(
+      ClusterDocsTopicSerializer.do(source, output, { docsVersion: version }),
+    );
     if (err) {
       throw err;
     }

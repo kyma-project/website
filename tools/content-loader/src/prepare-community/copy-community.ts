@@ -15,7 +15,7 @@ export class CopyCommunity {
   private copy = async (source: string, output: string) => {
     const copyRegex: string = `([A-z0-9-_.&]*\.md|assets\/[A-z0-9-_.&]*\.(png|jpg|gif|jpeg|svg|yaml|yml|json))`;
     const [err] = await to(
-      ClusterDocsTopicSerializer.do(source, output, copyRegex),
+      ClusterDocsTopicSerializer.do(source, output, { copyRegex }),
     );
     if (err) {
       throw err;

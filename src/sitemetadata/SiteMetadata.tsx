@@ -6,7 +6,7 @@ import { globalHistory } from "@reach/router";
 import { RootContext } from "../root/services";
 import { injectIntl, IntlInterface } from "@common/i18n";
 import { getActualYear } from "@common/utils";
-import { SiteMetadata as SiteMetadataType } from "../../gatsby/config/types";
+import { SiteMetadata as SiteMetadataType } from "../../gatsby/config-api/types";
 
 import { Facebook } from "./Facebook";
 import { Twitter } from "./Twitter";

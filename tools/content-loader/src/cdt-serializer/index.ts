@@ -20,11 +20,22 @@ import {
   ORDER_LABEL,
 } from "./types";
 
+interface Options {
+  copyRegex?: string;
+  docsVersion?: string;
+}
+
 export class ClusterDocsTopicSerializer {
   private clusterDocsTopics: ClusterDocsTopic[] = [];
+  private docsVersion: string = "";
 
-  do = async (source: string, output: string, copyRegex?: string) => {
+  do = async (source: string, output: string, options?: Options) => {
     this.clearClusterDocsTopic();
+
+    const { copyRegex, docsVersion } = options;
+    if (docsVersion) {
+      this.docsVersion = docsVersion;
+    }
 
     let err: Error | null;
     [err] = await to(this.loadAllClusterDocsTopics(source));
@@ -143,8 +154,16 @@ export class ClusterDocsTopicSerializer {
     const markdownSource = cdt.spec.sources.find(s =>
       markdownTypes.includes(s.type),
     );
-    const dir: string =
+    let dir: string =
       markdownSource && markdownSource.filter.replace(/^\/?|\/?$/, "");
+
+    // fix bug with service-catalog cdt in 1.2 and 1.3 version
+    if (
+      spec.id === "service-catalog" &&
+      ["1.2", "1.3"].includes(this.docsVersion)
+    ) {
+      dir = "docs/service-catalog/";
+    }
 
     const docsConfig: DocsConfig = {
       spec,
