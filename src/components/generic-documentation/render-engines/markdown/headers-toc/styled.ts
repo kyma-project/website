@@ -35,6 +35,7 @@ export const HeadersNavigationsWrapper = styled.div<
   ${media.phone`
     margin: 0;
     max-height: 100vh;
+    background: transparent;
     height: 100%;
     top: 0;
     display: block;
@@ -49,14 +50,28 @@ export const HeadersNavigationsWrapper = styled.div<
     border-style: initial;
     border-color: initial;
     border-image: initial;
-    overflow-x: auto;
     transition: transform 350ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
-    box-shadow: rgba(46, 41, 51, 0.08) 0px 4px 16px, rgba(71, 63, 79, 0.16) 0px 8px 24px;
+
+    ${media.phone`
+      &:before {
+        content: "";
+        top: 0;
+        left: 4px;
+        position: absolute;
+        background: #fff;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        border-left: 1px solid rgb(229, 229, 229);
+      }
+    `};
   `}
 
   ${media.phone<HeadersNavigationsWrapperProps>`
     transform: ${props =>
-      props.showMobileNav ? `translateX(calc(-15rem))` : `translateX(1rem)`};
+      props.showMobileNav
+        ? `translateX(calc(-15rem))`
+        : `translateX(calc(1rem))`};
   `};
 `;
 
@@ -90,7 +105,19 @@ export const StyledHeadersNavigation = styled.div`
         border-left: 1px solid rgb(229, 229, 229);
 
         ${media.phone`
-          margin-left: 0;
+          border-left: none;
+
+          &:after {
+            content: "";
+            top: 0;
+            left: 0px;
+            position: absolute;
+            background: #fff;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            border-left: 1px solid rgb(229, 229, 229);
+          }
         `};
 
         &:before {

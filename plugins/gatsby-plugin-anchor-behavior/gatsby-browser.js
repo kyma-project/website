@@ -59,7 +59,7 @@ const checkCorrectLocationsForModal = ({
   if (/\/roadmap\/[a-z]/.test(location.pathname)) {
     const offset = getSavedScrollPosition(previousLocation);
     if (offset) {
-      window.scrollTo(offset);
+      window.scrollTo(...offset);
     }
     return true;
   }
@@ -70,7 +70,7 @@ const checkCorrectLocationsForModal = ({
   ) {
     const offset = getSavedScrollPosition(previousLocation);
     if (offset) {
-      window.scrollTo(offset);
+      window.scrollTo(...offset);
       document.querySelector(`html`).style.overflowY = `auto`;
     }
     return true;

@@ -25,7 +25,7 @@ const Modal: React.FunctionComponent<ModalProps> = ({
 }) => {
   const onOpen = () => {
     const element = document.querySelector(`html`);
-    if (!!element) {
+    if (element) {
       element.style.overflowY = `hidden`;
     }
 
@@ -34,7 +34,7 @@ const Modal: React.FunctionComponent<ModalProps> = ({
 
   const onClose = () => {
     const element = document.querySelector(`html`);
-    if (!!element) {
+    if (element) {
       element.style.overflowY = `auto`;
     }
     hideModal();

@@ -219,6 +219,11 @@ export const StyledMarkdown = styled.div<StyledMarkdownProps>`
       display: block;
       width: 100%;
       overflow: auto;
+
+      ${customScrollBar({
+        thumbBorderRadius: "0 0 4px 4px",
+        trackBorderRadius: "0 0 4px 4px",
+      })}
     }
     thead {
       background-color: rgba(243, 244, 245, 0.45);
