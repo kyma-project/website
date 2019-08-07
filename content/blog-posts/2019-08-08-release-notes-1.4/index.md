@@ -18,9 +18,9 @@ The highlights of Kyma 1.4 Kyoto include:
 
 - [API Gateway with an OAuth2 server](#api-gateway) - We integrated Kyma with an OAuth2 authorization server solution from ORY.
 - [Application Connector](#application-connector) - We upgraded Istio to 1.2.2 version.
-- [Console UI without system Namespaces](#system-namespaces-hidden-in-the-console-UI) - We hid all system Namespaces built in a Kyma cluster so that you could find your namespaces quicker.
+- [Console UI without system Namespaces](#system-namespaces-hidden-in-the-console-ui) - We hid all system Namespaces built in a Kyma cluster so that you could find your namespaces quicker.
 - [Documentation component](#documentation-component) - We consolidated different documentation views into one Documentation component.
-- [Conversion and validation in the Headless CMS](#conversion-and-validation-service-for-asyncapi-20-specs-in-the-headless-cms) - We introduced a conversion and validation service for the AsyncAPI 2.0 specifications.
+- [Conversion and validation in the Headless CMS](#conversion-and-validation-service-for-the-asyncapi-20-specs-in-the-headless-cms) - We introduced a conversion and validation service for the AsyncAPI 2.0 specifications.
 - [Kiali](#kiali) - We upgraded Kiali to the latest stable version and enabled Single Sign-On.
 - [Bundles renamed to addons](#bundles-renamed-to-addons) - We renamed bundles to addons.
 
@@ -106,7 +106,7 @@ It basically means that at the moment we have 4 different views, and more to com
 
 - Documentation component project
 
-As mentioned in the [previews release notes](https://kyma-project.io/blog/2019/7/12/release-notes-13/#documentation-component) we have one single project in which we maintain the Documentation component and just reuse it in different applications. We already introduced it in the Console UI Documentation view in the last release. In the 1.4 release, it was integrated into the Console UI Catalog and Instances views. In a few days, you will see the component being used on [kyma-project.io](https://kyma-project.io/).
+As mentioned in the [previous release notes](https://kyma-project.io/blog/2019/7/12/release-notes-13/#documentation-component) we have one single project in which we maintain the Documentation component and just reuse it in different applications. We already introduced it in the Console UI Documentation view in the last release. In the 1.4 release, it was integrated into the Console UI Catalog and Instances views. In a few days, you will see the component being used on [kyma-project.io](https://kyma-project.io/).
 
 - Improved look and feel
 
