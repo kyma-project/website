@@ -3,12 +3,14 @@ import { removeDir } from "./remove-dir";
 import to from "await-to-js";
 import { VError } from "verror";
 
-export const makeDir = async (dir: string): Promise<void> => {
+export const makeDir = async (dir: string, remove?: boolean): Promise<void> => {
   let err: Error | null;
 
-  [err] = await to(removeDir(dir));
-  if (err) {
-    throw err;
+  if (remove) {
+    [err] = await to(removeDir(dir));
+    if (err) {
+      throw err;
+    }
   }
 
   [err] = await to(mkdirs(dir));

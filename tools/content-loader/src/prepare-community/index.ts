@@ -18,7 +18,7 @@ const prepareCommunity = async (coreConfig: CoreConfig) => {
     throw err;
   }
 
-  [err] = await to(makeDir(tempPath));
+  [err] = await to(makeDir(tempPath, true));
   if (err) {
     throw err;
   }
