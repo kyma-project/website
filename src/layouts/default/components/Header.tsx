@@ -5,7 +5,7 @@ import Grid from "@styled/Grid";
 import Link from "@components/shared/Link";
 
 import Logo from "./assets/LogoSecond";
-import Navigation from "@components/layout/Navigation";
+import Navigation from "./Navigation";
 
 import { FormattedMessage, getTranslation } from "@common/i18n";
 

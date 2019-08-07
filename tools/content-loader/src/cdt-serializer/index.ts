@@ -157,10 +157,10 @@ export class ClusterDocsTopicSerializer {
     let dir: string =
       markdownSource && markdownSource.filter.replace(/^\/?|\/?$/, "");
 
-    // fix bug with service-catalog cdt in 1.2 and 1.3 version
+    // fix bug with service-catalog cdt in 1.2, 1.3 and 1.4 version
     if (
       spec.id === "service-catalog" &&
-      ["1.2", "1.3"].includes(this.docsVersion)
+      ["1.2", "1.3", "1.4"].includes(this.docsVersion)
     ) {
       dir = "docs/service-catalog/";
     }
