@@ -15,6 +15,8 @@ redirectFrom:
 
 It was a warm and sunny July day in San Francisco (not kidding!) when we got into the crowded Moscone West conference center for a session entitled “[Serverless on Google Cloud](https://www.youtube.com/watch?v=iPQUdb0kssE)”. On that very stage at Google Cloud Next 2018, both Knative and Kyma projects were announced and officially saw the light of day. Since then a lot of code was written and rewritten, shaping an extraordinary first year for both projects. You can go through some of the most memorable moments throughout [Kyma’s first year](https://kyma-project.io/blog/2019/7/24/happy-birthday-kyma/) or [Knative's first year](https://cloud.google.com/blog/) recaps.
 
+<!-- overview -->
+
 ## Getting Kyma launched
 
 Kyma started eight months before its public announcement, in an attempt to simplify software extensibility in the area of eCommerce at SAP Hybris. At that time, we knew neither that it was going to be open-sourced nor that the name would be Kyma. What inspired us to choose the open-source path was the initial interaction with several friendly partners. They all provided very similar feedback, were super enthusiastic, and asked for a way to get involved. At that point, we were convinced that we needed an open and highly collaborative model around the project. We first heard about Knative in the hallway track at KubeCon Europe 2018. Our first direct interaction with the Knative team took place already in early June 2018, when we exchanged ideas and discussed the direction going forward. On that day it became clear that our roads would cross again and that Kyma and Knative were destined to integrate well with each other.
