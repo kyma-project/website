@@ -28,7 +28,7 @@
     "serve": "gatsby serve",
     "serve:out": "gatsby serve -H 0.0.0.0",
     "clean": "gatsby clean",
-    "test": "jest --passWithNoTests",
+    "test": "jest",
     "testWithCoverage": "jest --coverage",
     "start:functions": "netlify-lambda serve netlify/functions",
     "build:functions": "netlify-lambda build netlify/functions",
