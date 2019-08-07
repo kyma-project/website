@@ -9,6 +9,7 @@ import GitClient from "../github-client/git-client";
 import CheckingDocs from "./branches-checking";
 import CopyDocs from "./copy-docs";
 import DocsVersions from "./docs-versions";
+import { makeDir } from "../helpers";
 
 const prepareDocs = async (coreConfig: CoreConfig) => {
   const configBranches = docsConfig.branches;
@@ -36,14 +37,14 @@ const prepareDocs = async (coreConfig: CoreConfig) => {
     throw new VError(err, `while checking branches`);
   }
 
-  [err] = await to(mkdirs(outputPath));
+  [err] = await to(makeDir(outputPath));
   if (err) {
-    throw new VError(err, `while creating dir ${outputPath}`);
+    throw err;
   }
 
-  [err] = await to(mkdirs(tempPath));
+  [err] = await to(makeDir(tempPath));
   if (err) {
-    throw new VError(err, `while creating dir ${tempPath}`);
+    throw err;
   }
 
   console.log(`Cloning ${coreConfig.organization}/${coreConfig.repository}`);
