@@ -14,17 +14,19 @@ export const TabsWrapper = styled.div`
 `;
 
 export const TabsHeader = styled.ul`
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  border-bottom: 1px solid rgb(229, 229, 229);
-  flex-flow: row nowrap;
-  white-space: nowrap;
-  overflow-y: hidden;
-  -webkit-overflow-scrolling: touch;
+  &&& {
+    list-style: none !important;
+    padding: 0;
+    margin: 0 !important;
+    display: flex;
+    border-bottom: 1px solid rgb(229, 229, 229);
+    flex-flow: row nowrap;
+    white-space: nowrap;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
 
-  ${customScrollBar({})}
+    ${customScrollBar({})}
+  }
 `;
 
 export const TabsContent = styled.div`
