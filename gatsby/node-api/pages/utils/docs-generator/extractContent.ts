@@ -17,7 +17,11 @@ export const extractContent = <T extends ContentGQL>({
   manifestSpec: ManifestSpec;
   contentGQLs: T[];
   contentLoader: ContentLoader;
-  extractFn: (doc: T, docsGroup: string, topicId: string) => DocsContentDocs;
+  extractFn: (
+    doc: T,
+    docsGroup: string,
+    topicId: string,
+  ) => DocsContentDocs | null;
 }): DocsContent => {
   const content: DocsContent = {} as DocsContent;
 

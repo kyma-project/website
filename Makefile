@@ -1,5 +1,5 @@
-netlify-deploy-preview: clear-cache validate prepare-tools prepare-content build prepare-functions
-netlify-production: clear-cache validate prepare-tools prepare-content build prepare-functions
+netlify-deploy-preview: clear-cache validate test prepare-tools prepare-content build prepare-functions
+netlify-production: clear-cache validate test prepare-tools prepare-content build prepare-functions
 
 .PHONY: clear-cache
 clear-cache:
@@ -11,6 +11,10 @@ validate:
 	npm run lint-check
 	npm run markdownlint
 	npm run type-check
+
+.PHONY: test
+test:
+	npm run test
 
 .PHONY: prepare-tools
 prepare-tools:

@@ -1,13 +1,15 @@
 import { resolve } from "path";
-import { generator } from "./generator";
 import { fixLinks } from "./fixLinks";
-import { getDocs, getDocsVersions, populateObject } from "./helpers";
+import { getDocsVersions, sortGroupOfNavigation } from "./helpers";
 import {
-  DocsContentItems,
+  docsGenerator,
+  DocsGeneratorReturnType,
+  getContent,
+  DocsContentDocs,
   DocsContentItem,
-  ManifestItem,
-  DocsType,
-} from "./types";
+  DocsNavigation,
+} from "../utils";
+import { DocGQL } from "./types";
 import {
   DOCS_DIR,
   ASSETS_DIR,
@@ -16,10 +18,39 @@ import {
   DOCS_ROOT_TYPE,
   DOCS_KYMA_ID,
 } from "../../../constants";
-import { CreatePageFn, CreateRedirectFn } from "../../../types";
+import { CreatePageFn, GraphQLFunction } from "../../../types";
+
+const extractFn = (version: string) => (
+  doc: DocGQL,
+  docsGroup: string,
+  topicId: string,
+): DocsContentDocs | null => {
+  const {
+    rawMarkdownBody,
+    fields: {
+      docInfo: { id, type, version: v, fileName },
+    },
+    frontmatter: { title, type: docType },
+  } = doc;
+
+  if (version === v && docsGroup === type && topicId === id) {
+    let obj: DocsContentDocs = {
+      order: fileName,
+      title: title,
+      source: rawMarkdownBody,
+    };
+
+    if (docType) {
+      obj.type = docType;
+    }
+
+    return obj;
+  }
+  return null;
+};
 
 export interface CreateDocsPages {
-  graphql: Function;
+  graphql: GraphQLFunction;
   createPage: CreatePageFn;
 }
 
@@ -29,9 +60,8 @@ export const createDocsPages = async ({
 }: CreateDocsPages) => {
   const docsTemplate: string = resolve(
     __dirname,
-    "../../../../src/templates/Docs.tsx",
+    "../../../../src/views/docs/index.tsx",
   );
-  const docs = await getDocs(graphql);
 
   const versions = getDocsVersions(
     require("../../../../content/docs/versions"),
@@ -42,7 +72,29 @@ export const createDocsPages = async ({
   }
   const latestVersion = versions.releases[0];
 
-  let docsArch = generator(docs, versions);
+  const docs = await getContent<DocGQL>(
+    graphql,
+    "/content/docs/",
+    `docInfo {
+      id
+      type
+      version
+      fileName
+    }`,
+  );
+
+  const docsArch: { [version: string]: DocsGeneratorReturnType } = {};
+  for (const versionType in versions) {
+    for (const version of versions[versionType]) {
+      docsArch[version] = docsGenerator<DocGQL>(
+        docs,
+        "docs",
+        extractFn(version),
+        version,
+      );
+    }
+  }
+
   docsArch[DOCS_LATEST_VERSION] = JSON.parse(
     JSON.stringify(docsArch[latestVersion]),
   );
@@ -50,17 +102,12 @@ export const createDocsPages = async ({
 
   Object.keys(docsArch).map(version => {
     const { content, navigation, manifest } = docsArch[version];
+    const sortedNavigation: DocsNavigation = sortGroupOfNavigation(navigation);
 
     Object.keys(content).map(docsType => {
       const topics = content[docsType];
 
       Object.keys(topics).map(topic => {
-        const topicContent = topics[topic];
-
-        Object.keys(manifest).map(key => {
-          manifest[key] = populateObject<ManifestItem>(manifest[key]);
-        });
-
         const assetsPath = `/${ASSETS_DIR}${DOCS_DIR}${
           !version || version === DOCS_LATEST_VERSION ? latestVersion : version
         }/${topic}/${DOCS_DIR}${ASSETS_DIR}`;
@@ -81,9 +128,11 @@ export const createDocsPages = async ({
             version,
             versions,
             content: newContent,
-            navigation,
-            manifest,
+            navigation: sortedNavigation,
+            manifest: sortedNavigation,
             assetsPath,
+            docsType,
+            topic,
           },
         });
 
@@ -96,9 +145,11 @@ export const createDocsPages = async ({
               version,
               versions,
               content: newContent,
-              navigation,
-              manifest,
+              navigation: sortedNavigation,
+              manifest: sortedNavigation,
               assetsPath,
+              docsType,
+              topic,
             },
           });
         }

@@ -20,7 +20,7 @@ const extractFn = (
   doc: CommunityGQL,
   docsGroup: string,
   topicId: string,
-): DocsContentDocs => {
+): DocsContentDocs | null => {
   const {
     rawMarkdownBody,
     fields: {

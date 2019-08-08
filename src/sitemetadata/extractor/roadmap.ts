@@ -1,4 +1,4 @@
-import { DocsPageContext } from "@components/docs/types";
+import { DocsPageContext } from "@components/generic-documentation/types";
 
 function getPageTitle(): string {
   return `Roadmap`;

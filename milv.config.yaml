@@ -4,6 +4,7 @@ white-list-external:
 black-list:
   - node_modules
   - content/docs
+  - content/community
 black-list-internal:
   - ./website/src/blog-posts/
   - ./website/content/blog-posts/

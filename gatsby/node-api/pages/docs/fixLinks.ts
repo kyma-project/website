@@ -1,21 +1,21 @@
 import { DOCS_LATEST_VERSION } from "../../../constants";
-import { DocsContentItem } from "./types";
+import { DocsContentItem } from "../utils";
 
 const linksToRewrite = require("../../../../content/docs/fix-links");
 
 const MD_LINKS_REGEX = /\[([^\[]+)\]\(([^\)]+)\)/g;
 const DOCS_LINKS_REGEX = /^\/(docs|components|root)\/(.*?)$/g;
 
-const changeVersion = ({
+export const changeVersion = ({
   source,
   version,
 }: {
   source: string;
   version: string;
-}) => {
-  return source.replace(MD_LINKS_REGEX, occurrence => {
+}) =>
+  source.replace(MD_LINKS_REGEX, occurrence => {
     MD_LINKS_REGEX.lastIndex = 0;
-    let href = MD_LINKS_REGEX.exec(occurrence);
+    const href = MD_LINKS_REGEX.exec(occurrence);
 
     if (!href || !href[2]) return occurrence;
     const h = href[2];
@@ -34,9 +34,8 @@ const changeVersion = ({
 
     return occurrence;
   });
-};
 
-const rewrite = ({
+export const rewrite = ({
   source,
   version,
   type,
@@ -53,7 +52,7 @@ const rewrite = ({
 
   return source.replace(MD_LINKS_REGEX, occurrence => {
     MD_LINKS_REGEX.lastIndex = 0;
-    let href = MD_LINKS_REGEX.exec(occurrence);
+    const href = MD_LINKS_REGEX.exec(occurrence);
 
     if (!href || !href[2]) return occurrence;
     const h = href[2];

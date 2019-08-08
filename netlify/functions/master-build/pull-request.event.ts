@@ -18,7 +18,7 @@ const REPOSITORY_NAMES: string[] = [
 ];
 
 const REGEX: { [repository: string]: RegExp } = {
-  [RepositoryName.KYMA]: /^docs\//,
+  [RepositoryName.KYMA]: /(^docs\/)|(^docs\/resources\/core\/charts\/docs\/charts\/content-ui\/templates\/(.*?))/,
   [RepositoryName.COMMUNITY]: /^capabilities\//,
 };
 
@@ -53,7 +53,7 @@ const checkChangedFiles = (
     case RepositoryName.KYMA:
       return checkChangedFileNames(files, REGEX[RepositoryName.KYMA]);
     case RepositoryName.COMMUNITY:
-      return checkChangedFileNames(files, REGEX[RepositoryName.COMMUNITY]);
+      return true;
     default:
       return false;
   }

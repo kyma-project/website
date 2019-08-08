@@ -3,6 +3,7 @@ import SiteMetadata from "./SiteMetadata";
 import {
   extractBlogMetadata,
   extractDocsMetadata,
+  extractCommunityMetadata,
   extractRoadmapMetadata,
 } from "./extractor";
 
@@ -18,6 +19,9 @@ function extractMetadata(uri: string, data: any, pageContext: any) {
   }
   if (docsPath.test(uri)) {
     return extractDocsMetadata(uri, pageContext);
+  }
+  if (communityPath.test(uri)) {
+    return extractCommunityMetadata(uri, pageContext);
   }
   if (roadmapPath.test(uri)) {
     return extractRoadmapMetadata();

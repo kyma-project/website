@@ -1,6 +1,5 @@
 import { useState, useEffect, useContext } from "react";
 import qs from "qs";
-import { navigate } from "gatsby";
 import createContainer from "constate";
 
 import TicketsProcessor from "@components/roadmap/Tickets/TicketsProcessor";
@@ -104,7 +103,7 @@ const TicketsService = () => {
     if (!filters.capabilities.length && hash) return;
 
     if (!initial && queryString === "capabilities=") {
-      navigate(pathname, { replace: true });
+      window.history.pushState(null, "", pathname);
       return;
     }
 
@@ -113,7 +112,7 @@ const TicketsService = () => {
       search.replace(/^\?/, ``) !== queryString &&
       !/roadmap\/[a-z]/.test(pathname)
     ) {
-      navigate(`${pathname}?${queryString}`, { replace: true });
+      window.history.pushState(null, "", `${pathname}?${queryString}`);
     }
   }, [filters.capabilities]);
 
