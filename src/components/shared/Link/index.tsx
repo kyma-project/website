@@ -63,7 +63,12 @@ const Internal: React.FunctionComponent<
       to={path}
       className={className}
       underline={underline ? "true" : "false"}
-      onClick={onClick}
+      onClick={(e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+        if (onClick) {
+          e.preventDefault();
+          onClick(e);
+        }
+      }}
       state={state}
     >
       {children}

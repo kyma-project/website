@@ -3,6 +3,7 @@ import { navigate } from "gatsby";
 
 import H from "@components/shared/H";
 import Link from "@components/shared/Link";
+import Icon from "@components/shared/Icon";
 
 import { TabContext } from "../../../services/TabState.service";
 
@@ -77,10 +78,15 @@ export const Heading: React.FunctionComponent<HeadingProps> = ({
   };
 
   return (
-    <Link.Hash to={heading} anchorIcon={true} onClick={onClick}>
-      <H as={`h${level}` as Headers} id={heading}>
-        {children}
-      </H>
-    </Link.Hash>
+    <H
+      as={`h${level}` as Headers}
+      id={heading}
+      className={`header-with-anchor--level-${level}`}
+    >
+      {children}
+      <Link.Hash to={heading} onClick={onClick}>
+        <Icon iconName="anchor" iconPrefix="fas" />
+      </Link.Hash>
+    </H>
   );
 };

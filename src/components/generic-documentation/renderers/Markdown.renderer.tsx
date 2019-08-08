@@ -5,6 +5,8 @@ import {
 } from "@kyma-project/documentation-component";
 
 import Link from "@components/shared/Link";
+import Icon from "@components/shared/Icon";
+
 import { toKebabCase } from "@common/utils/toKebabCase";
 
 import { headingPrefix } from "../render-engines/markdown/helpers";
@@ -34,9 +36,15 @@ const Renderer = (
 
   const groupHeaderId = toKebabCase(`${groupName}-${groupName}`) || "";
   let groupHeader = !isFirstSource && groupName && (
-    <GroupHeader id={groupHeaderId} marginTop={Boolean(types.size - 1)}>
-      <Link.Hash to={groupHeaderId} anchorIcon={true}>
-        {groupName}
+    <GroupHeader
+      id={groupHeaderId}
+      marginTop={Boolean(types.size - 1)}
+      as="h1"
+      className={`header-with-anchor--level-1`}
+    >
+      {groupName}
+      <Link.Hash to={groupHeaderId}>
+        <Icon iconName="anchor" iconPrefix="fas" />
       </Link.Hash>
     </GroupHeader>
   );
@@ -47,9 +55,14 @@ const Renderer = (
   const documentHeaderId = toKebabCase(headingPrefix(source)) || "";
   const documentHeader =
     title && sourcesLength > 1 ? (
-      <DocumentHeader id={documentHeaderId}>
-        <Link.Hash to={documentHeaderId} anchorIcon={true}>
-          {title}
+      <DocumentHeader
+        id={documentHeaderId}
+        as="h2"
+        className={`header-with-anchor--level-1`}
+      >
+        {title}
+        <Link.Hash to={documentHeaderId}>
+          <Icon iconName="anchor" iconPrefix="fas" />
         </Link.Hash>
       </DocumentHeader>
     ) : null;

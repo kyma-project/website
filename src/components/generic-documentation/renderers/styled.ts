@@ -1,6 +1,8 @@
 import styled, { css } from "styled-components";
 import { customScrollBar } from "@styled/mixins";
 
+import H from "@components/shared/H";
+
 export const tabsStyling = css`
   .cms__tabs {
     box-sizing: border-box;
@@ -98,7 +100,7 @@ interface GroupHeaderProps {
   marginTop?: boolean;
 }
 
-export const GroupHeader = styled.h1<GroupHeaderProps>`
+export const GroupHeader = styled(H)<GroupHeaderProps>`
   &&&&& {
     box-sizing: border-box;
     font-size: 36px;
@@ -109,7 +111,7 @@ export const GroupHeader = styled.h1<GroupHeaderProps>`
   }
 `;
 
-export const DocumentHeader = styled.h2`
+export const DocumentHeader = styled(H)`
   &&&&& {
     box-sizing: border-box;
     font-size: 32px;
@@ -347,7 +349,7 @@ export const StyledMarkdown = styled.div<StyledMarkdownProps>`
       margin-left: 0;
       margin-right: 0;
       padding: 16px;
-      margin-bottom: 12px;
+      margin: 8px 0;
       font-size: 14px;
 
       .cms__text {
