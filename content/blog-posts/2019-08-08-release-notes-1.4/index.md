@@ -73,7 +73,7 @@ All backup and restore integration tests are fixed and pass.
 
 ### Backups on Azure
 
-The backup functionality was successfully introduced on Azure (AKS). Follow the steps from the [installation](https://kyma-project.io/docs/1.4/components/backup/#installation-install-velero) guide to setup Valero on Azure.
+The backup functionality was successfully introduced on Azure (AKS). Follow the steps from the [installation](https://kyma-project.io/docs/1.4/components/backup/#installation-install-velero) guide to set up Valero on Azure.
 
 ### Plugins
 
@@ -106,7 +106,7 @@ It basically means that at the moment we have 4 different views that render docu
 
 - Documentation component project
 
-As mentioned in the [previous release notes](https://kyma-project.io/blog/2019/7/12/release-notes-13/#documentation-component) we have one single project in which we maintain the Documentation component and just reuse it in different applications. We already introduced it in the Console UI Documentation view in the last release. In the 1.4 release, it was integrated into the Console UI Catalog and Instances views. In a few days, you will see the component being used on [kyma-project.io](https://kyma-project.io/).
+As mentioned in the [previous release notes](https://kyma-project.io/blog/2019/7/12/release-notes-13/#documentation-component), we have one single project in As mentioned in the [previous release notes](https://kyma-project.io/blog/2019/7/12/release-notes-13/#documentation-component), we have one single project in which we maintain the Documentation component and just reuse it in different applications. We already introduced it in the Console UI Documentation view in the last release. In the 1.4 release, it was integrated into the Console UI Catalog and Instances views. In a few days, you will see this component being used on [kyma-project.io](https://kyma-project.io/).
 
 - Improved look and feel
 
@@ -126,7 +126,7 @@ This is the new Fiori 3-like design for the OData spec:
 
 ### Conversion and validation service for the AsyncAPI 2.0 specs in the Headless CMS
 
-Ever since we introduced Kyma and its Application Connector component, we have been getting reports that you could easily register an application with the AsyncAPI spec but the spec did not render successfully in the UI. The reason was each and every time the same: the spec was not valid. It did not display because the validation only worked in the UI.
+Ever since we introduced Kyma and its Application Connector component, we have been getting reports that you could easily register an application with the AsyncAPI spec but the spec did not render successfully in the UI. The reason was each and every time the same: the spec was not valid. It wasn't rendered because the validation only worked in the UI.
 
 We decided to finally solve the problem and introduce a service that validates the AsyncAPI spec before it is accepted by the Headless CMS. Because integrating the service with Kyma will take some time, we decided to introduce the validation already for the latest version of the AsyncAPI specification. As a result, the service we introduced not only handles validation of the spec but also automatically converts the spec into the latest AsyncAPI version. For example, if you register the spec in version 1.0, 1.1, or 1.2, the service converts it to version 2.0.0-rc1.
 
