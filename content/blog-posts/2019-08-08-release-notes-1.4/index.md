@@ -146,7 +146,7 @@ data:
   global.cmsAsyncAPIService.enabled: "true"
 ```
 
-After you override the value, you can create a DocsTopic resource using [this](https://kyma-project.io/docs/1.4/components/headless-cms/#custom-resource-docstopic-sample-custom-resource) example. The example contains a reference to the official Slack AsyncAPI spec provided in version 1.2. After you go through the steps for the happy path, create a new DocsTopic using an invalid spec. You can use the [invalid AsyncAPI spec](https://raw.githubusercontent.com/kyma-project/kyma/release-1.4/components/cms-services/pkg/endpoint/asyncapi/v1/testdata/invalid.json) we used for testing.
+After you override the value, you can create a DocsTopic resource using [this](https://kyma-project.io/docs/1.4/components/headless-cms/#custom-resource-docs-topic-sample-custom-resource) example. The example contains a reference to the official Slack AsyncAPI spec provided in version 1.2. After you go through the steps for the happy path, create a new DocsTopic using an invalid spec. You can use the [invalid AsyncAPI spec](https://raw.githubusercontent.com/kyma-project/kyma/release-1.4/components/cms-services/pkg/endpoint/asyncapi/v1/testdata/invalid.json) we used for testing.
 
 ### Parameters object in the Headless CMS supported in the Console UI
 
@@ -186,7 +186,7 @@ We added an integrated authentication strategy to the Kiali dashboard to enable 
 
 ### Documentation
 
-[Kiali](https://kyma-project.io/docs/components/kiali/) is now documented in the Kyma Docs.
+[Kiali](https://kyma-project.io/docs/1.4/components/kiali) is now documented in the Kyma Docs.
 
 ## Knative
 
