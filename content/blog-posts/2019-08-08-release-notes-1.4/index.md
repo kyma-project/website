@@ -176,7 +176,7 @@ Kiali was upgraded to version 1.1.0.
 
 ### Console integration
 
-From now on, you can access Kiali from the Kyma Console. If you click the **Service Mesh** section. the link redirects you to the Kiali page.
+From now on, you can access Kiali from the Kyma Console. If you click the **Service Mesh** section on the left navigation menu, the link redirects you to the Kiali page.
 
 ![Kiali in the Console UI](./kiali-console-ui.png)
 
