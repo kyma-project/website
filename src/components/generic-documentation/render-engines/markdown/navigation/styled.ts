@@ -42,6 +42,7 @@ export const NavigationWrapper = styled.div<NavigationWrapperProps>`
     border-color: initial;
     border-image: initial;
     transition: transform 350ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+    border-right: 1px solid rgb(229, 229, 229);
   `}
 
   ${media.tablet<NavigationWrapperProps>`
