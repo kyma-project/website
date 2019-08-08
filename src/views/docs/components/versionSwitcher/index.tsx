@@ -3,8 +3,8 @@ import { navigate } from "gatsby";
 
 import { injectIntl, FunctionComponentIntl } from "@common/i18n";
 
-import { getDocsPath } from "@components/docs/helpers";
-import { DocsVersions } from "@components/docs/types";
+import { getDocsPath } from "@components/generic-documentation/helpers";
+import { DocsVersions } from "@components/generic-documentation/types";
 
 import { Wrapper, Label, SelectWrapper, VersionSelect } from "./styled";
 

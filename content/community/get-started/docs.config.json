@@ -1,0 +1,8 @@
+{
+  "spec": {
+    "id": "get-started",
+    "displayName": "Get started",
+    "description": "Introduction to Kyma community",
+    "type": "Get-started"
+  }
+}

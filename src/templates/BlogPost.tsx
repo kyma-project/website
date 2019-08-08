@@ -1,18 +1,10 @@
 import React from "react";
-import { Helmet } from "react-helmet";
 import { graphql } from "gatsby";
 
-import Layout from "@components/layout/Layout";
 import BlogPage from "@components/blog/Post";
 import { BlogPageWrapper } from "@components/blog/BlogPage";
 
-import {
-  AllFile,
-  AllFileImage,
-  MarkdownRemark,
-  PageContext,
-  IntlPageContext,
-} from "@common/types";
+import { MarkdownRemark, PageContext, IntlPageContext } from "@common/types";
 import { Post, PostPageContext } from "@components/blog/types";
 
 const BlogPostTemplate: React.FunctionComponent<
@@ -21,47 +13,19 @@ const BlogPostTemplate: React.FunctionComponent<
   data: {
     markdownRemark: { rawMarkdownBody, frontmatter, fields },
   },
-  pageContext: { locale, previous, next, assetsPath },
-}) => {
-  const description = `${rawMarkdownBody
-    .replace(/<(?:.|\n)*?>/gm, "")
-    .substring(0, 297)}...`;
-
-  const blogPostMetadata = {
-    author: frontmatter.author.name,
-    datePublish: fields.date,
-    headline: frontmatter.title,
-    slug: fields.slug,
-  };
-
-  return (
-    <Layout
-      locale={locale}
-      pageTitle={frontmatter.title}
-      pageDescription={description}
-      blogPostMetadata={blogPostMetadata}
-    >
-      <Helmet>
-        <meta property="og:type" content="article" />
-        {frontmatter &&
-          frontmatter.tags &&
-          frontmatter.tags.map(tag => (
-            <meta key={tag} property="article:tag" content={tag} />
-          ))}
-      </Helmet>
-      <BlogPageWrapper>
-        <BlogPage
-          metadata={frontmatter}
-          markdown={rawMarkdownBody}
-          fields={fields}
-          assetsPath={assetsPath}
-          previous={previous}
-          next={next}
-        />
-      </BlogPageWrapper>
-    </Layout>
-  );
-};
+  pageContext: { previous, next, assetsPath },
+}) => (
+  <BlogPageWrapper>
+    <BlogPage
+      metadata={frontmatter}
+      markdown={rawMarkdownBody}
+      fields={fields}
+      assetsPath={assetsPath}
+      previous={previous}
+      next={next}
+    />
+  </BlogPageWrapper>
+);
 
 export const pageQuery = graphql`
   query($slug: String!) {

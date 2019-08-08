@@ -1,5 +1,4 @@
 import { resolve } from "path";
-import { mkdirs } from "fs-extra";
 import to from "await-to-js";
 import { VError } from "verror";
 
@@ -7,20 +6,21 @@ import { CoreConfig } from "../config";
 import communityConfig, { CommunityConfig } from "./config";
 import GitClient from "../github-client/git-client";
 import CopyCommunity from "./copy-community";
+import { makeDir } from "../helpers";
 
 const prepareCommunity = async (coreConfig: CoreConfig) => {
   const outputPath = resolve(communityConfig.outputPath);
   const tempPath = resolve(communityConfig.tempPath);
 
   let err: Error | null;
-  [err] = await to(mkdirs(outputPath));
+  [err] = await to(makeDir(outputPath));
   if (err) {
-    throw new VError(err, `while creating dir ${outputPath}`);
+    throw err;
   }
 
-  [err] = await to(mkdirs(tempPath));
+  [err] = await to(makeDir(tempPath, true));
   if (err) {
-    throw new VError(err, `while creating dir ${tempPath}`);
+    throw err;
   }
 
   console.log(`Cloning ${coreConfig.organization}/${coreConfig.repository}`);

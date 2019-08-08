@@ -74,4 +74,7 @@ temp-*/
 .DS_Store
 
 out
-temp*
+tools/content-loader/temp*
+tools/content-loader/docs
+tools/content-loader/community
+tools/content-loader/roadmap

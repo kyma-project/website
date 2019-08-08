@@ -3,8 +3,12 @@ import styled from "@styled";
 export const Wrapper = styled.div`
   box-sizing: border-box;
   display: block;
-  width: 220px;
-  max-width: 220px;
+  width: 200px;
+  max-width: 200px;
+
+  @media (max-width: 1216px) {
+    margin-left: 16px;
+  }
 `;
 
 export const Label = styled.label`
@@ -39,7 +43,7 @@ export const VersionSelect = styled.select`
   font-weight: 600;
   background: inherit;
   border: none;
-  padding: 0 30px 0 0;
+  padding: 0 15px 0 0;
   appearance: none;
   z-index: 100;
   cursor: pointer;

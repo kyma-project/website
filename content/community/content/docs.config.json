@@ -1,0 +1,8 @@
+{
+  "spec": {
+    "id": "content",
+    "displayName": "Content",
+    "description": "Kyma content guidelines",
+    "type": "Guidelines"
+  }
+}

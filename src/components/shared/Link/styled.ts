@@ -9,6 +9,10 @@ export const ExternalLink = styled.a`
   cursor: pointer;
   color: #0073e6;
 
+  span {
+    text-decoration: none;
+  }
+
   &:active,
   &:focus,
   &:hover {
@@ -45,7 +49,6 @@ export const HashLinkWithIcon = styled.div`
 
   > div {
     padding-right: 25px;
-    margin-bottom: 1.6rem !important;
 
     h1,
     h2,
@@ -54,7 +57,7 @@ export const HashLinkWithIcon = styled.div`
     h5,
     h6 {
       margin-bottom: 0;
-      display: inline;
+      display: inline-block;
     }
   }
 
@@ -73,14 +76,14 @@ export const HashLinkWithIcon = styled.div`
       visibility: visible;
     }
   }
-
-  svg[data-icon="link"] {
+  svg[data-icon="anchor"] {
     margin-left: 12px;
   }
 
   ${media.tablet`
     a {
-      visibility: visible;
+      visibility: hidden;
+      display: none;
     }
   `};
 `;
