@@ -28,7 +28,7 @@ export const HeadersNavigation: React.FunctionComponent<
 
     const onMouseOver = (element?: any) => (e: Event) => {
       e.stopPropagation();
-      if (!element || is.phone()) {
+      if (!element) {
         return;
       }
 
