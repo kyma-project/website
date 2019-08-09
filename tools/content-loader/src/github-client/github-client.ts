@@ -36,6 +36,7 @@ export class GitHubClient {
       this.octokit.repos.listReleases({
         owner: this.config.organization,
         repo: this.config.repository,
+        per_page: 100,
       }),
     );
     if (err) {
