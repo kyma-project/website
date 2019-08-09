@@ -106,7 +106,7 @@ It basically means that at the moment we have 4 different views that render docu
 
 - Documentation component project
 
-As mentioned in the [previous release notes](https://kyma-project.io/blog/2019/7/12/release-notes-13/#documentation-component), we have one single project in As mentioned in the [previous release notes](https://kyma-project.io/blog/2019/7/12/release-notes-13/#documentation-component), we have one single project in which we maintain the Documentation component and just reuse it in different applications. We already introduced it in the Console UI Documentation view in the last release. In the 1.4 release, it was integrated into the Console UI Catalog and Instances views. In a few days, you will see this component being used on [kyma-project.io](https://kyma-project.io/).
+As mentioned in the [previous release notes](https://kyma-project.io/blog/2019/7/12/release-notes-13/#documentation-component), we have one single project in which we maintain the Documentation component and just reuse it in different applications. We already introduced it in the Console UI Documentation view in the last release. In the 1.4 release, it was integrated into the Console UI Catalog and Instances views. In a few days, you will see this component being used on [kyma-project.io](https://kyma-project.io/).
 
 - Improved look and feel
 
