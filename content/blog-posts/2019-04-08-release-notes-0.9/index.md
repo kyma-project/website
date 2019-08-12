@@ -46,7 +46,7 @@ We extended the Application Registry API with the possibility to fetch the gener
 
 ### Apply details for the tenant and group name
 
-We extended the TokenRequest functionality and now you can apply details for the tenant name and group name. It allows you to easily manage the token generation process for pairing applications in the central Connector Service. For more details, read [this](https://kyma-project.io/docs/0.9/components/application-connector/#custom-resource-tokenrequest) document.
+We extended the TokenRequest functionality and now you can apply details for the tenant name and group name. It allows you to easily manage the token generation process for pairing applications in the central Connector Service. For more details, read [this](https://kyma-project.io/docs/0.9/components/application-connector#custom-resource-token-request) document.
 
 ### Read about the Root CA rotation procedure
 
