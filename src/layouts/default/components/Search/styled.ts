@@ -38,7 +38,7 @@ export const AlgoliaWrapper = styled.div`
           max-width: 543px;
           min-width: 543px;
           right: -10px !important;
-          z-index: 102 !important;
+          z-index: 202 !important;
 
           &:before {
             right: 60px !important;
