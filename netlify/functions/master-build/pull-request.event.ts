@@ -18,8 +18,7 @@ const REPOSITORY_NAMES: string[] = [
 ];
 
 const REGEX: { [repository: string]: RegExp } = {
-  [RepositoryName.KYMA]: /(^docs\/)|(^docs\/resources\/core\/charts\/docs\/charts\/content-ui\/templates\/(.*?))/,
-  [RepositoryName.COMMUNITY]: /^capabilities\//,
+  [RepositoryName.KYMA]: /^(docs\/)|(resources\/core\/charts\/docs\/charts\/content-ui\/templates\/)/,
 };
 
 export const checkPullRequestEvent = async (
