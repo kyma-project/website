@@ -144,7 +144,8 @@
   "lint-staged": {
     "linters": {
       "**/*.{ts,tsx,js,jsx,json,css,html,yaml}": [
-        "prettier --config ./.prettierrc --ignore-path ./.prettierignore --write '**/*.{ts,tsx,js,jsx,json,html,css,yaml}'",
+        "tslint -c ./tslint.json --project ./tsconfig.json --format verbose",
+        "prettier --write",
         "git add"
       ],
       "**/.md": [
