@@ -13,8 +13,7 @@ export const plugins: Plugins = [
   },
   "gatsby-plugin-lodash",
   "gatsby-plugin-typescript",
-  `gatsby-transformer-sharp`,
-  `gatsby-plugin-sharp`,
+
   {
     resolve: "gatsby-source-filesystem",
     options: {
@@ -76,11 +75,16 @@ export const plugins: Plugins = [
   `gatsby-plugin-sitemap`,
   `gatsby-plugin-netlify`,
   `gatsby-plugin-netlify-cache`,
+  `gatsby-transformer-sharp`,
+  `gatsby-plugin-sharp`,
 
   {
     resolve: `gatsby-transformer-remark`,
     options: {
       plugins: [
+        {
+          resolve: `gatsby-remark-relative-images`,
+        },
         {
           resolve: `gatsby-remark-images`,
           options: {
