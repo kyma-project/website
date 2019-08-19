@@ -45,6 +45,7 @@ export const plugins: Plugins = [
   },
   "gatsby-plugin-banner-slides-yml",
   "gatsby-plugin-early-adopters-yml",
+  "gatsby-plugin-optimize-svgs",
   {
     resolve: "gatsby-transformer-remark",
     options: {
