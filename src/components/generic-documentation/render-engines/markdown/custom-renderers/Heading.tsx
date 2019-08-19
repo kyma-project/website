@@ -31,14 +31,18 @@ export const Heading: React.FunctionComponent<HeadingProps> = ({
     return null;
   }
 
-  let heading = (children as any[]).find(
-    child => child.key && child.key.startsWith("text"),
-  );
+  let heading = (children as any[])
+    .filter(
+      child =>
+        child.key &&
+        (child.key.startsWith("text") || child.key.startsWith("inlineCode")),
+    )
+    .map(child => child.props && child.props.value)
+    .join(" ");
   if (!heading) {
     return null;
   }
 
-  heading = heading.props && heading.props.value;
   if (!heading) {
     return null;
   }
@@ -54,7 +58,10 @@ export const Heading: React.FunctionComponent<HeadingProps> = ({
   }
   heading = removeMarkdownSyntax(heading);
   headings.add(heading);
-  heading = toKebabCase(heading);
+  heading = toKebabCase(heading) || "";
+  if (!heading) {
+    return null;
+  }
 
   if (tabDataExists && tabData.group) {
     heading = `${toKebabCase(tabData.group)}--${toKebabCase(

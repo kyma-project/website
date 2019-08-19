@@ -1,14 +1,17 @@
 // Code is taken from https://github.com/stiang/remove-markdown/blob/master/index.js with only needed regular expressions
 
-export function removeMarkdownSyntax(markdown: string): string {
+export function removeMarkdownSyntax(
+  markdown: string,
+  removeHTMLTags: boolean = true,
+): string {
   if (!markdown) {
     return markdown;
   }
 
+  const content = removeHTMLTags ? markdown.replace(/<[^>]*>/g, "") : markdown;
+
   return (
-    markdown
-      // Remove HTML tags
-      .replace(/<[^>]*>/g, "")
+    content
       // Remove images
       .replace(/\!\[(.*?)\][\[\(].*?[\]\)]/g, "")
       // Remove inline links
