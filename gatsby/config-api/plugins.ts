@@ -45,7 +45,6 @@ export const plugins: Plugins = [
   },
   "gatsby-plugin-banner-slides-yml",
   "gatsby-plugin-early-adopters-yml",
-  "gatsby-plugin-optimize-svgs",
   {
     resolve: "gatsby-transformer-remark",
     options: {
@@ -75,6 +74,27 @@ export const plugins: Plugins = [
   `gatsby-plugin-sitemap`,
   `gatsby-plugin-netlify`,
   `gatsby-plugin-netlify-cache`,
+  `gatsby-plugin-sharp`,
+  {
+    resolve: `gatsby-transformer-remark`,
+    options: {
+      plugins: [
+        {
+          resolve: `gatsby-remark-images`,
+          options: {
+            // It's important to specify the maxWidth (in pixels) of
+            // the content container as this plugin uses this as the
+            // base for generating different widths of each image.
+            maxWidth: 1200,
+            quality: 95,
+            withWebp: { quality: 95 },
+          },
+        },
+      ],
+    },
+  },
+
+  "gatsby-plugin-optimize-svgs",
   {
     resolve: `gatsby-plugin-env-variables`,
     options: {
