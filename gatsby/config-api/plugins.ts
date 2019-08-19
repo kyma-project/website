@@ -87,7 +87,8 @@ export const plugins: Plugins = [
             // base for generating different widths of each image.
             maxWidth: 1200,
             quality: 95,
-            withWebp: { quality: 95 },
+            withWebp: true,
+            tracedSVG: true,
           },
         },
       ],
