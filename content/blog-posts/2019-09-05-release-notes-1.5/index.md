@@ -10,7 +10,7 @@ redirectFrom:
   - "/blog/release-notes-15"
 ---
 
-Our next, sunny stop - Lima may falsely suggest that the Kyma crew eased off a bit in the last few weeks and got carried away by the relaxing summer atmosphere. Nothing further from the truth. Kyma 1.5 Lima brings quite a few interesting changes. Above all, we ensured that all Kyma components are compatible with Kubernetes 1.15. We also provided Namespace-level addons configuration and added the experimental function controller module that is based on Knative. Read the full release notes for the complete list of improvements offered by the 1.5 release.
+Our next, sunny stop - Lima may falsely suggest that the Kyma crew eased off a bit in the last couple of weeks and got carried away by the relaxing summer atmosphere. Nothing further from the truth. Kyma 1.5 Lima brings quite a few interesting changes. Above all, we ensured that all Kyma components are compatible with Kubernetes 1.15. We also provided Namespace-level addons configuration and added the experimental function controller module that is based on Knative. Read the full release notes for the complete list of improvements offered by the 1.5 release.
 
 <!-- overview -->
 
@@ -21,7 +21,7 @@ See the overview of all changes in this release:
 - [Console](#console) - Namespace-level addons configuration
 - [Documentation](#documentation) - Improved monitoring tutorials, Telepresence guide, troubleshooting guides for the Application Connector
 - [Kubernetes version compatibility](#kubernetes-version-compatibility) - Kyma components compatible with Kubernetes 1.15
-- [Service Management](#service-management) - Separate repository for the Helm Broker, authentication methods support for addons configurations
+- [Service Management](#service-management) - Separate repository for the Helm Broker, authentication methods support for addons configuration
 - [Serverless](#serverless) - New experimental function controller module based on Knative
 - [Service Mesh](#service-mesh) - Istio updated to 1.2.4
 
@@ -41,15 +41,15 @@ Another fruit of the Kyma-ORY collaboration, the API Gateway controller (name su
 
 ### Fix for invalid arguments order in the Connector Service header parser
 
-Previous versions of the header parser incorrectly compared certificate subject's `locality` to the `province` defined in the component's configuration, and certificate subject's `province` to the `locality` environment variable from the configuration. This could cause bugs. Thanks to the fix available with Kyma 1.5, the header parser now properly compares the subject's `locality` and `province` to their corresponding environment variables.
+Previous versions of the header parser incorrectly compared certificate subject's `locality` to the `province` defined in the component's configuration, and certificate subject's `province` to the `locality` environment variable from the configuration. This could cause issues. Thanks to the fix available with Kyma 1.5, the header parser now properly compares the subject's `locality` and `province` to their corresponding environment variables.
 
-> **NOTE:** Due to the nature of this fix, you might have to generate new certificates for the connected Applications as a part of the upgrade process.
+> **NOTE:** Due to the nature of this fix, you may have to generate new certificates for the connected Applications as a part of the upgrade process.
 
 ## Console
 
 ### Addons configuration on the Namespace level  
 
-In previous Kyma versions, it was only possible to configure cluster-wide addons. It meant that if the cluster administrator enabled a new addon, it automatically became available for everyone with access to this Kyma runtime. In the 1.5 version, it is now possible to apply addons configurations in the scope of a single Namespace. This gives cluster administrators more control over integration options and resource consumption.
+In previous Kyma versions, it was only possible to configure cluster-wide addons. It meant that if the cluster administrator enabled a new addon, it automatically became available for everyone with access to this Kyma runtime. Starting with the 1.5 version, you can apply addons configuration in the scope of a single Namespace. This gives cluster administrators more control over integration options and resource consumption.
 
 ![Addons configuration](./addons-configuration.png)
 
@@ -83,7 +83,7 @@ In the 1.5 release, we made sure that Kyma is compatible with Kubernetes 1.15. N
 
 The Helm Broker now has its own [separate repository](https://github.com/kyma-project/helm-broker) in the `kyma-project` organization. We have not changed the location of the related documentation so you can still read about the Helm Broker [here](https://kyma-project.io/docs/components/helm-broker/).
 
-### Support authentication methods for addons configurations
+### Support authentication methods for addons configuration
 
 Starting from the 1.5 release, we support fetching addons from repositories that require authentication. You can now pass credentials in a secure way using templates in your repository's URL. For more information, read [this](https://kyma-project.io/docs/1.5/components/helm-broker/#details-create-addons-repository-authorization) document.  
 
