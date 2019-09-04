@@ -10,7 +10,7 @@ redirectFrom:
   - "/blog/release-notes-15"
 ---
 
-Our next, sunny stop - Lima may falsely suggest that the Kyma crew eased off a bit in the last couple of weeks and got carried away by the relaxing summer atmosphere. Nothing further from the truth. Kyma 1.5 Lima brings quite a few interesting changes. Above all, we ensured that all Kyma components are compatible with Kubernetes 1.15. We also provided Namespace-level addons configuration options and added the experimental function controller module that is based on Knative. Read the full release notes for the complete list of improvements offered by the 1.5 release.
+Our next, sunny stop - Lima may falsely suggest that the Kyma crew eased off a bit in the last couple of weeks and got carried away by the relaxing summer atmosphere. Nothing further from the truth. Kyma 1.5 Lima brings quite a few interesting changes. Above all, we ensured that all Kyma components are compatible with Kubernetes 1.15. We also provided Namespace-level addons configurations and added the experimental function controller module that is based on Knative. Read the full release notes for the complete list of improvements offered by the 1.5 release.
 
 <!-- overview -->
 
@@ -18,10 +18,10 @@ See the overview of all changes in this release:
 
 - [API Gateway](#api-gateway) - Kubernetes-native client registration with the Hydra Maester controller, new API Gateway controller in the Incubator
 - [Application Connector](#application-connector) - Fix for invalid arguments order in the Connector Service header parser
-- [Console](#console) - Namespace-level addons configuration
+- [Console](#console) - Namespace-level addons configurations
 - [Documentation](#documentation) - Improved monitoring tutorials, Telepresence guide, troubleshooting guides for the Application Connector
 - [Kubernetes version compatibility](#kubernetes-version-compatibility) - Kyma components compatible with Kubernetes 1.15
-- [Service Management](#service-management) - Separate repository for the Helm Broker, authentication methods support for addons configuration
+- [Service Management](#service-management) - Separate repository for the Helm Broker, authentication methods support for addons configurations
 - [Serverless](#serverless) - New experimental function controller module based on Knative
 - [Service Mesh](#service-mesh) - Istio updated to 1.2.4
 
@@ -83,7 +83,7 @@ In the 1.5 release, we made sure that Kyma is compatible with Kubernetes 1.15. N
 
 The Helm Broker now has its own [separate repository](https://github.com/kyma-project/helm-broker) in the `kyma-project` organization. We have not changed the location of the related documentation so you can still read about the Helm Broker [here](https://kyma-project.io/docs/components/helm-broker/).
 
-### Support authentication methods for addons configuration
+### Support authentication methods for addons configurations
 
 Starting from the 1.5 release, we support fetching addons from repositories that require authentication. You can now pass credentials in a secure way using templates in your repository's URL. For more information, read [this](https://kyma-project.io/docs/1.5/components/helm-broker/#details-create-addons-repository-authorization) document.  
 
