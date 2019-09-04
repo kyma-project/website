@@ -10,7 +10,7 @@ redirectFrom:
   - "/blog/release-notes-15"
 ---
 
-The primary theme of the 1.5 release may falsely suggest that the Kyma crew eased off a bit in the last few weeks and got carried away by the relaxing summer atmosphere. Nothing further from the truth. Kyma 1.5 Lima brings quite a few interesting changes. Above all, we ensured that all Kyma components are compatible with Kubernetes 1.15. We also provided Namespace-level addons configuration and added the experimental function controller module that is based on Knative. Read the full release notes for the complete list of improvements offered by the 1.5 release.
+Our next, sunny stop - Lima may falsely suggest that the Kyma crew eased off a bit in the last few weeks and got carried away by the relaxing summer atmosphere. Nothing further from the truth. Kyma 1.5 Lima brings quite a few interesting changes. Above all, we ensured that all Kyma components are compatible with Kubernetes 1.15. We also provided Namespace-level addons configuration and added the experimental function controller module that is based on Knative. Read the full release notes for the complete list of improvements offered by the 1.5 release.
 
 <!-- overview -->
 
@@ -41,15 +41,15 @@ Another fruit of the Kyma-ORY collaboration, the API Gateway controller (name su
 
 ### Fix for invalid arguments order in the Connector Service header parser
 
-Previous versions of the header parser incorrectly compared certificate subject's `locality` to the `province` defined in the component's configuration, and certificate subject's `province` to the `locality` environmental variable from the configuration. This could cause bugs. In the new fix, header parser now properly compares subject's `locality` and `province` to their corresponding environmental variables.
+Previous versions of the header parser incorrectly compared certificate subject's `locality` to the `province` defined in the component's configuration, and certificate subject's `province` to the `locality` environment variable from the configuration. This could cause bugs. Thanks to the fix available with Kyma 1.5, the header parser now properly compares the subject's `locality` and `province` to their corresponding environment variables.
 
-> **NOTE:** This fix may require generating new certificates as a part of the upgrade process.
+> **NOTE:** Due to the nature of this fix, you might have to generate new certificates for the connected Applications as a part of the upgrade process.
 
 ## Console
 
 ### Addons configuration on the Namespace level  
 
-Before 1.5, it was only possible to configure addons in the whole cluster, for all Namespaces. It meant that if the cluster administrator enabled a new addon, it automatically became available for everyone with access to this Kyma runtime. In the 1.5 version, it is now possible to apply addons configurations in the scope of a single Namespace. This gives cluster administrators more control over integration options and resource consumption.
+In previous Kyma versions, it was only possible to configure cluster-wide addons. It meant that if the cluster administrator enabled a new addon, it automatically became available for everyone with access to this Kyma runtime. In the 1.5 version, it is now possible to apply addons configurations in the scope of a single Namespace. This gives cluster administrators more control over integration options and resource consumption.
 
 ![Addons configuration](./addons-configuration.png)
 
@@ -59,7 +59,7 @@ Before 1.5, it was only possible to configure addons in the whole cluster, for a
 
 Based on the existing [`monitoring-custom-metrics`](https://github.com/kyma-project/examples/tree/master/monitoring-custom-metrics) Kyma example and its `cpu_temperature_celsius` custom metric, we have created unified monitoring tutorials. Thanks to them you can see how Kyma applies monitoring tools to manage application metrics. More specifically, these tutorials show how you can observe the custom metric's changing values, create a Grafana dashboard for the metric, and set up a corresponding alerting rule for it.
 
-Read these tutorials for more details:
+Follow these links to see the improved monitoring tutorials:
 
 - [Observe application metrics](https://kyma-project.io/docs/1.5/components/monitoring/#tutorials-observe-application-metrics)
 - [Create a Grafana dashboard](https://kyma-project.io/docs/1.5/components/monitoring/#tutorials-create-a-grafana-dashboard)
@@ -67,7 +67,7 @@ Read these tutorials for more details:
 
 ### Telepresence guide
 
-We know how difficult of a task developing and debugging locally can be. That is why we have created a general [guide](https://kyma-project.io/community/guidelines/technicalities#using-telepresence-for-local-kyma-development-using-telepresence-for-local-kyma-development) for local development with Telepresence to make your work faster and your workflow smoother.
+We know how difficult of a task developing and debugging locally can be. That is why we have created a general guide for local development with Telepresence to make your work faster and your workflow smoother. Check this [link](https://kyma-project.io/community/guidelines/technicalities#using-telepresence-for-local-kyma-development-using-telepresence-for-local-kyma-development) for details.
 
 ### Troubleshooting guides for the Application Connector
 
@@ -75,7 +75,7 @@ We have provided a set of [troubleshooting guides](https://kyma-project.io/docs/
 
 ## Kubernetes version compatibility
 
-In the 1.5 release we made sure that Kyma is compatible with Kubernetes 1.15. Nevertheless, it is not supported by automated testing pipelines. The reason is that our testing pipelines currently test Kyma on GKE and AKS, and these managed Kubernetes offerings do not support Kubernetes 1.14 and 1.15. That is why, we keep our automated testing consistent with Kubernetes 1.13 for now, including testing on Minikube. Still, we performed manual tests that confirmed Kyma also works on Kubernetes 1.15.
+In the 1.5 release, we made sure that Kyma is compatible with Kubernetes 1.15. Nevertheless, it is not supported by automated testing pipelines. The reason is that our testing pipelines currently test Kyma on GKE and AKS, and these managed Kubernetes offerings do not support Kubernetes 1.14 and 1.15. That is why, we keep our automated testing consistent with Kubernetes 1.13 for now, including testing on Minikube. Still, we performed manual tests that confirmed Kyma also works on Kubernetes 1.15.
 
 ## Service Management
 
@@ -85,7 +85,7 @@ The Helm Broker now has its own [separate repository](https://github.com/kyma-pr
 
 ### Support authentication methods for addons configurations
 
-Starting from the 1.5 release, we support fetching addons from repositories that require authentication. you can now pass credentials in a secure way using templates in your repository's URL. For more information, read [this](https://kyma-project.io/docs/1.5/components/helm-broker/#details-create-addons-repository-authorization) document.  
+Starting from the 1.5 release, we support fetching addons from repositories that require authentication. You can now pass credentials in a secure way using templates in your repository's URL. For more information, read [this](https://kyma-project.io/docs/1.5/components/helm-broker/#details-create-addons-repository-authorization) document.  
 
 ## Serverless
 
