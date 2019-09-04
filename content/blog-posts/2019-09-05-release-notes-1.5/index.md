@@ -10,7 +10,7 @@ redirectFrom:
   - "/blog/release-notes-15"
 ---
 
-Our next, sunny stop - Lima may falsely suggest that the Kyma crew eased off a bit in the last couple of weeks and got carried away by the relaxing summer atmosphere. Nothing further from the truth. Kyma 1.5 Lima brings quite a few interesting changes. Above all, we ensured that all Kyma components are compatible with Kubernetes 1.15. We also provided Namespace-level addons configuration and added the experimental function controller module that is based on Knative. Read the full release notes for the complete list of improvements offered by the 1.5 release.
+Our next, sunny stop - Lima may falsely suggest that the Kyma crew eased off a bit in the last couple of weeks and got carried away by the relaxing summer atmosphere. Nothing further from the truth. Kyma 1.5 Lima brings quite a few interesting changes. Above all, we ensured that all Kyma components are compatible with Kubernetes 1.15. We also provided Namespace-level addons configuration options and added the experimental function controller module that is based on Knative. Read the full release notes for the complete list of improvements offered by the 1.5 release.
 
 <!-- overview -->
 
@@ -47,9 +47,9 @@ Previous versions of the header parser incorrectly compared certificate subject'
 
 ## Console
 
-### Addons configuration on the Namespace level  
+### Addons configurations on the Namespace level  
 
-In previous Kyma versions, it was only possible to configure cluster-wide addons. It meant that if the cluster administrator enabled a new addon, it automatically became available for everyone with access to this Kyma runtime. Starting with the 1.5 version, you can apply addons configuration in the scope of a single Namespace. This gives cluster administrators more control over integration options and resource consumption.
+In previous Kyma versions, it was only possible to configure cluster-wide addons. It meant that if the cluster administrator enabled a new addon, it automatically became available for everyone with access to this Kyma runtime. Starting with the 1.5 version, you can apply addons configurations in the scope of a single Namespace. This gives cluster administrators more control over integration options and resource consumption.
 
 ![Addons configuration](./addons-configuration.png)
 
