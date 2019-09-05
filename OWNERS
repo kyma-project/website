@@ -1,0 +1,15 @@
+filters:
+  '.*':
+    approvers:
+      - aerfio
+      - derberg
+      - magicmatatjahu
+      - m00g3n
+      - michal-hudy
+  '\.md$|/content/|^milv\.config\.yaml$':
+    approvers:
+      - documentation-approvers
+    reviewers:
+      - documentation-reviewers
+    labels:
+      - area/documentation
