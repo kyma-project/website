@@ -20,10 +20,13 @@ See the overview of all changes in this release:
 - [Application Connector](#application-connector) - Fix for invalid arguments order in the Connector Service header parser
 - [Console](#console) - Namespace-level addons configurations
 - [Documentation](#documentation) - Improved monitoring tutorials, Telepresence guide, troubleshooting guides for the Application Connector
-- [Kubernetes version compatibility](#kubernetes-version-compatibility) - Kyma components compatible with Kubernetes 1.15
 - [Service Management](#service-management) - Separate repository for the Helm Broker, authentication methods support for addons configurations
 - [Serverless](#serverless) - New experimental function controller module based on Knative
 - [Service Mesh](#service-mesh) - Istio updated to 1.2.4
+
+In the 1.5 release, we made sure that Kyma is compatible with Kubernetes 1.15. Nevertheless, it is not supported by automated testing pipelines. The reason is that our testing pipelines currently test Kyma on GKE and AKS, and these managed Kubernetes offerings do not support Kubernetes 1.14 and 1.15. That is why, we keep our automated testing consistent with Kubernetes 1.13 for now, including testing on Minikube. Still, we performed manual tests that confirmed Kyma also works on Kubernetes 1.15.
+
+> **CAUTION:** When upgrading from 1.4 to 1.5, you will experience temporary unavailability of the Connector Service. It results from changing the API group of the Connector Service Deployment and adding the **selector** field to it that was not required in previous Kubernetes versions.
 
 ---
 
@@ -72,10 +75,6 @@ We know how difficult of a task developing and debugging locally can be. That is
 ### Troubleshooting guides for the Application Connector
 
 We have provided a set of [troubleshooting guides](https://kyma-project.io/docs/1.5/components/application-connector/#troubleshooting-troubleshooting) that will help you to resolve the most common issues you may encounter when interacting with such components as the Application Gateway, Application Registry, and Connector Service.
-
-## Kubernetes version compatibility
-
-In the 1.5 release, we made sure that Kyma is compatible with Kubernetes 1.15. Nevertheless, it is not supported by automated testing pipelines. The reason is that our testing pipelines currently test Kyma on GKE and AKS, and these managed Kubernetes offerings do not support Kubernetes 1.14 and 1.15. That is why, we keep our automated testing consistent with Kubernetes 1.13 for now, including testing on Minikube. Still, we performed manual tests that confirmed Kyma also works on Kubernetes 1.15.
 
 ## Service Management
 
