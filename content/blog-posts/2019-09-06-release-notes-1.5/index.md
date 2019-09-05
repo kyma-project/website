@@ -15,7 +15,6 @@ Our next, sunny stop - Lima may falsely suggest that the Kyma crew eased off a b
 <!-- overview -->
 
 See the overview of all changes in this release:
-
 - [API Gateway](#api-gateway) - Kubernetes-native client registration with the Hydra Maester controller, new API Gateway controller in the Incubator
 - [Application Connector](#application-connector) - Fix for invalid arguments order in the Connector Service header parser
 - [Console](#console) - Namespace-level addons configurations
