@@ -6,6 +6,8 @@ filters:
       - magicmatatjahu
       - m00g3n
       - michal-hudy
+    labels:
+      - area/core-and-supporting
   '\.md$|/content/|^milv\.config\.yaml$':
     approvers:
       - documentation-approvers
