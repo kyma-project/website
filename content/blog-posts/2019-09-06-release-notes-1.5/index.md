@@ -63,18 +63,17 @@ In previous Kyma versions, it was only possible to configure cluster-wide addons
 Based on the existing [`monitoring-custom-metrics`](https://github.com/kyma-project/examples/tree/master/monitoring-custom-metrics) Kyma example and its `cpu_temperature_celsius` custom metric, we have created unified monitoring tutorials. Thanks to them you can see how Kyma applies monitoring tools to manage application metrics. More specifically, these tutorials show how you can observe the custom metric's changing values, create a Grafana dashboard for the metric, and set up a corresponding alerting rule for it.
 
 Follow these links to see the improved monitoring tutorials:
-
 - [Observe application metrics](https://kyma-project.io/docs/1.5/components/monitoring/#tutorials-observe-application-metrics)
 - [Create a Grafana dashboard](https://kyma-project.io/docs/1.5/components/monitoring/#tutorials-create-a-grafana-dashboard)
 - [Define alerting rules](https://kyma-project.io/docs/1.5/components/monitoring/#tutorials-define-alerting-rules)
 
 ### Telepresence guide
 
-We know how difficult of a task developing and debugging locally can be. That is why we have created a general guide for local development with Telepresence to make your work faster and your workflow smoother. Check this [link](https://kyma-project.io/community/guidelines/technicalities#using-telepresence-for-local-kyma-development-using-telepresence-for-local-kyma-development) for details.
+We know how difficult of a task developing and debugging locally can be. That is why we created a general guide for local development with Telepresence to make your work faster and your workflow smoother. Check this [link](https://kyma-project.io/community/guidelines/technicalities#using-telepresence-for-local-kyma-development-using-telepresence-for-local-kyma-development) for details.
 
 ### Troubleshooting guides for the Application Connector
 
-We have provided a set of [troubleshooting guides](https://kyma-project.io/docs/1.5/components/application-connector/#troubleshooting-troubleshooting) that will help you to resolve the most common issues you may encounter when interacting with such components as the Application Gateway, Application Registry, and Connector Service.
+We provided a set of [troubleshooting guides](https://kyma-project.io/docs/1.5/components/application-connector/#troubleshooting-troubleshooting) that will help you to resolve the most common issues you may encounter when interacting with such components as the Application Gateway, Application Registry, and Connector Service.
 
 ## Service Management
 
