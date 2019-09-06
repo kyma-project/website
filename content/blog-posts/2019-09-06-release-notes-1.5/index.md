@@ -33,7 +33,7 @@ In the 1.5 release, we made sure that Kyma is compatible with Kubernetes 1.15. N
 
 ### Kubernetes-native client registration with the Hydra Maester controller
 
-Our collaboration with ORY that started in the previous release continues with new contribution and functionality. This time around we created the Hydra Maester controller which makes registering OAuth2 clients a fully Kubernetes-native process. The controller listens for instances of the `oauth2clients.hydra.ory.sh` custom resource (CR) and registers clients through the Hydra API using the data contained in the CR. The credentials of the registered client are then saved in a Kubernetes Secret. Follow [this](https://github.com/ory/hydra-maester) link to visit the ORY Hydra Maester repository and read [this](https://kyma-project.io/docs/1.5/components/security/#details-o-auth2-and-open-id-connect-server) document to learn more about the ORY stack implementation in Kyma.
+Our collaboration with ORY that started in the previous release continues with new contribution and functionality. This time around, we created the Hydra Maester controller which makes registering OAuth2 clients a fully Kubernetes-native process. The controller listens for instances of the `oauth2clients.hydra.ory.sh` custom resource (CR) and registers clients through the Hydra API using the data contained in the CR. Credentials of the registered client are then saved in a Kubernetes Secret. Follow [this](https://github.com/ory/hydra-maester) link to visit the ORY Hydra Maester repository and read [this](https://kyma-project.io/docs/1.5/components/security/#details-o-auth2-and-open-id-connect-server) document to learn more about the ORY stack implementation in Kyma.
 
 ### New API Gateway controller in the Incubator
 
@@ -43,7 +43,7 @@ Another fruit of the Kyma-ORY collaboration, the API Gateway controller (name su
 
 ### Fix for invalid arguments order in the Connector Service header parser
 
-Previous versions of the header parser incorrectly compared certificate subject's `locality` to the `province` defined in the component's configuration, and certificate subject's `province` to the `locality` environment variable from the configuration. This could cause issues. Thanks to the fix available with Kyma 1.5, the header parser now properly compares the subject's `locality` and `province` to their corresponding environment variables.
+Previous versions of the header parser incorrectly compared the certificate subject's `locality` to `province` defined in the component's configuration, and certificate subject's `province` to the `locality` environment variable from the configuration. This could cause issues. Thanks to the fix available with Kyma 1.5, the header parser now properly compares the subject's `locality` and `province` to their corresponding environment variables.
 
 > **NOTE:** Due to the nature of this fix, you may have to generate new certificates for the connected Applications as a part of the upgrade process.
 
