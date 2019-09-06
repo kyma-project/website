@@ -26,14 +26,14 @@ The highlights of Kyma 1.4 Kyoto include:
 
 See the overview of all changes in this release:
 
-- [Backup](#backup) - Simplified Valero installation, a new implementation of the backup and restore functionalities, backup available on Azure, and backup tests fixed
+- [Backup](#backup) - Simplified Velero installation, a new implementation of the backup and restore functionalities, backup available on Azure, and backup tests fixed
 - [Core and Supporting](#parameters-object-in-the-headless-cms-supported-in-the-console-ui) - Relative links disabled in Markdown specs
 - [JSON schema](#json-schema) - Guidelines for creating JSON schemas for Kyma components
 - [Knative](#knative) - Knative Eventing and Serving update
 - [Kyma CLI](#kyma-cli) - Kyma CLI enriched with the `test` command and inline documentation
 - [Service Management](#service-management) - New GCP Service Broker addon and Helm Broker support for addons exposed by Git
 
-Read about known issues for [Valero](#known-issues).
+Read about known issues for [Velero](#known-issues).
 
 > **CAUTION:** Before you upgrade to Kyma 1.4, read the [Migration Guide](https://github.com/kyma-project/kyma/blob/release-1.4/docs/migration-guides/1.3-1.4.md) which describes necessary manual actions required by the Google Cloud Platform (GCP) Service Broker addon.
 
@@ -51,13 +51,13 @@ As you already know, the Application Connector uses Istio to ensure a high level
 
 ## Backup
 
-### Valero upgraded to 1.0.0
+### Velero upgraded to 1.0.0
 
 The backup component, Velero, is now upgraded to its latest stable version 1.0.0.
 
 ### Installation and setup
 
-We improved and simplified the installation and setup process for Velero. Read the [documentation](https://kyma-project.io/docs/1.4/components/backup/#installation-install-velero) and see how easy it is now to set up Valero either before or after installing Kyma.
+We improved and simplified the installation and setup process for Velero. Read the [documentation](https://kyma-project.io/docs/1.4/components/backup/#installation-install-velero) and see how easy it is now to set up Velero either before or after installing Kyma.
 
 ### Creating backups
 
@@ -73,7 +73,7 @@ All backup and restore integration tests are fixed and pass.
 
 ### Backups on Azure
 
-The backup functionality was successfully introduced on Azure (AKS). Follow the steps from the [installation](https://kyma-project.io/docs/1.4/components/backup/#installation-install-velero) guide to set up Valero on Azure.
+The backup functionality was successfully introduced on Azure (AKS). Follow the steps from the [installation](https://kyma-project.io/docs/1.4/components/backup/#installation-install-velero) guide to set up Velero on Azure.
 
 ### Plugins
 
@@ -81,7 +81,7 @@ We deleted all Velero plugins as they are not needed anymore.
 
 ### Known Issues
 
-Valero returns an error during restoring CRDs. The temporary workaround is to divide the restore process into 2 steps:
+Velero returns an error during restoring CRDs. The temporary workaround is to divide the restore process into 2 steps:
 
 1. Restore only CRDs.
 2. Restore the remaining part of the cluster.
