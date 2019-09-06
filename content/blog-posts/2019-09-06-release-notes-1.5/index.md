@@ -25,7 +25,7 @@ See the overview of all changes in this release:
 
 In the 1.5 release, we made sure that Kyma is compatible with Kubernetes 1.15. Nevertheless, it is not supported by automated testing pipelines. The reason is that our testing pipelines currently test Kyma on GKE and AKS, and these managed Kubernetes offerings do not support Kubernetes 1.14 and 1.15. That is why, we keep our automated testing consistent with Kubernetes 1.13 for now, including testing on Minikube. Still, we performed manual tests that confirmed Kyma also works on Kubernetes 1.15.
 
-> **CAUTION:** When upgrading from 1.4 to 1.5, you will experience temporary unavailability of the Connector Service. It results from changing the API group of the Connector Service Deployment and adding the **selector** field to it that was not required in previous Kubernetes versions.
+> **CAUTION:** When upgrading from 1.4 to 1.5, you will experience temporary unavailability of the Connector Service. It results from changing the API group of the Connector Service Deployment and adding to it the **selector** field that was not required in previous Kubernetes versions.
 
 ---
 
