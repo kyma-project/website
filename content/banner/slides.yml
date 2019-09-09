@@ -1,5 +1,6 @@
 bannerDuration: 5000
 slides:
   - text: "Don't miss the session by Piotr Kopczynski at Helm Summit on September 11 at 15:47."
+    url: "https://events.linuxfoundation.org/events/helm-summit-2019/program/schedule/"
     startDate: "09/09/2019"
     endDate: "12/09/2019"
