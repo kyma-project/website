@@ -16,15 +16,15 @@ Replace these parameters with real values:
 
 - **{BANNER_DURATION}** is the time (in milliseconds) after which a banner slide changes to the next one if there is more than one slide.
 - **{TEXT}** is the banner's text. The content you provide should be no longer than one sentence.
-- **{URL}** is the event's url. If is not empty, the `Read more` link appears to the right of the banner's text.
+- **{URL}** is the event's URL. If the parameter is not empty, the `Read more` link appears to the right of the banner's text.
 - **{START_DATE}** is the date from which a particular banner slide starts to appear on the website, counting from midnight. Use the `DD/MM/YYYY` format.
 - **{END_DATE}** is the date up to which a particular banner slide appears, counting to 23:59. Use the `DD/MM/YYYY` format.
 
 To show the banner for one full day, make sure **{START_DATE}** and **{END_DATE}** are equal.
 
-> **NOTE**: **{TEXT}**, **{START_DATE}**, and **{END_DATE}** are mandatory parameters. **{URL}** is optional, but if not needed, it must be empty.
+> **NOTE**: **{TEXT}**, **{START_DATE}**, and **{END_DATE}** are mandatory parameters. **{URL}** is optional, but if not needed, it must stay empty.
 >
-> **NOTE**: If the **{URL}** starts with `http` then the link opens in a new window, otherwise in the same window.
+> **NOTE**: If the **{URL}** starts with `http`, the link opens in a new tab. If not, it opens in the same tab.
 
 ## Add multiple slides
 
