@@ -3,5 +3,4 @@ export interface Slide {
   url: string;
   startDate: string;
   endDate?: string;
-  openInNewTab?: boolean;
 }
