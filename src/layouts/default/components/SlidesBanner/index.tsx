@@ -154,11 +154,7 @@ class SlidesBanner extends PureComponent<SlidesBannerProps, SlidesBannerState> {
                   active={index === this.state.currentSlide}
                   key={index}
                 >
-                  <SlideContent
-                    text={elem.text}
-                    url={elem.url}
-                    openInNewTab={elem.openInNewTab}
-                  />
+                  <SlideContent text={elem.text} url={elem.url} />
                 </ContentWrapper>
               ))}
             </InnerWrapper>

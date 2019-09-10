@@ -20,22 +20,21 @@ const SlideContent: React.FunctionComponent<SlideContentProps> = ({
   openInNewTab = true,
 }) => {
   if (!text) {
-    console.error("Provide valid text for banner!");
     return null;
   }
 
   const linkTranslation = <FormattedMessage id={gt("readMoreLink")} />;
-
-  const link = openInNewTab ? (
-    <Link.External to={url}>{linkTranslation}</Link.External>
-  ) : (
-    <Link.Internal to={url}>{linkTranslation}</Link.Internal>
-  );
+  const createLink = (to: string) =>
+    to.startsWith("http") ? (
+      <Link.External to={to}>{linkTranslation}</Link.External>
+    ) : (
+      <Link.Internal to={to}>{linkTranslation}</Link.Internal>
+    );
 
   return (
     <Text>
       {text}
-      {url && link}
+      {url ? createLink(url) : null}
     </Text>
   );
 };
