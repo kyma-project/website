@@ -22,9 +22,8 @@ Replace these parameters with real values:
 
 To show the banner for one full day, make sure **{START_DATE}** and **{END_DATE}** are equal.
 
-> **NOTE**: **{TEXT}**, **{START_DATE}**, and **{END_DATE}** are mandatory parameters.
-> **{URL}** is optional, but if not needed, it must be empty.
-
+> **NOTE**: **{TEXT}**, **{START_DATE}**, and **{END_DATE}** are mandatory parameters. **{URL}** is optional, but if not needed, it must be empty.
+>
 > **NOTE**: If the **{URL}** starts with `http` then the link opens in a new window, otherwise in the same window.
 
 ## Add multiple slides
