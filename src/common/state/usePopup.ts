@@ -1,6 +1,6 @@
 import { useState } from "react";
 import createContainer from "constate";
-import { useTimeout } from "rooks";
+import useTimeout from "@rooks/use-timeout";
 
 const popupTimeout = 1500;
 
