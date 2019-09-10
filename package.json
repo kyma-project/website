@@ -49,6 +49,7 @@
     "@kyma-project/dc-markdown-render-engine": "0.2.0-alpha.1",
     "@kyma-project/documentation-component": "0.2.0-alpha.1",
     "@octokit/rest": "^16.25.1",
+    "@rooks/use-timeout": "^3.3.0",
     "babel-plugin-styled-components": "^1.10.0",
     "constate": "^1.0.0",
     "gatsby": "^2.13.28",
@@ -83,7 +84,6 @@
     "react-sticky": "^6.0.3",
     "react-transition-group": "^2.9.0",
     "react-typography": "^0.16.18",
-    "rooks": "^1.2.2",
     "styled-components": "^4.1.3",
     "styled-reset": "^1.6.6",
     "typography": "^0.16.18"
