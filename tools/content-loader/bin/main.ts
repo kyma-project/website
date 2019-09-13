@@ -18,6 +18,7 @@ import prepareRoadmapContent from "../src/prepare-roadmap";
 const prepareDocsFn = async () => {
   const config: CoreConfig = {
     ...coreConfig,
+    organization: "mmitoraj",
     repository: docsConfig.repository,
   };
 
