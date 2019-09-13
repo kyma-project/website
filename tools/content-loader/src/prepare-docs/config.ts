@@ -7,7 +7,7 @@ export interface DocsConfig {
 }
 
 const config: DocsConfig = {
-  branches: ["master", "refactor-installation-docs"],
+  branches: ["refactor-installation-docs"],
   // branches: process.env.APP_DOCS_BRANCHES
   //   ? process.env.APP_DOCS_BRANCHES.replace(/ /g, "").split(",")
   //   : ["master"],
