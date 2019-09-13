@@ -56,16 +56,18 @@ const prepareDocs = async (coreConfig: CoreConfig) => {
     );
   }
 
-  // [err] = await to(
-  //   CopyDocs.releases({
-  //     releases,
-  //     source: tempPath,
-  //     output: outputPath,
-  //   }),
-  // );
-  // if (err) {
-  //   throw err;
-  // }
+  let releases = new Map<string, string>();
+  releases.set("0.9", "0.9.1");
+  [err] = await to(
+    CopyDocs.releases({
+      releases,
+      source: tempPath,
+      output: outputPath,
+    }),
+  );
+  if (err) {
+    throw err;
+  }
 
   // [err] = await to(
   //   CopyDocs.releases({
