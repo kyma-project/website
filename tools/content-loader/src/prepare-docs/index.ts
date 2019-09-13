@@ -19,17 +19,17 @@ const prepareDocs = async (coreConfig: CoreConfig) => {
 
   let err: Error | null;
   let result;
-  [err, result] = await to(CheckingDocs.releases());
-  if (err) {
-    throw new VError(err, `while checking releases`);
-  }
+  // [err, result] = await to(CheckingDocs.releases());
+  // if (err) {
+  //   throw new VError(err, `while checking releases`);
+  // }
 
-  let releases;
-  let prereleases;
-  if (result) {
-    releases = result.releases;
-    prereleases = result.prereleases;
-  }
+  // let releases;
+  // let prereleases;
+  // if (result) {
+  //   releases = result.releases;
+  //   prereleases = result.prereleases;
+  // }
 
   let branches;
   [err, branches] = await to(CheckingDocs.branches(configBranches));
@@ -56,27 +56,27 @@ const prepareDocs = async (coreConfig: CoreConfig) => {
     );
   }
 
-  [err] = await to(
-    CopyDocs.releases({
-      releases,
-      source: tempPath,
-      output: outputPath,
-    }),
-  );
-  if (err) {
-    throw err;
-  }
+  // [err] = await to(
+  //   CopyDocs.releases({
+  //     releases,
+  //     source: tempPath,
+  //     output: outputPath,
+  //   }),
+  // );
+  // if (err) {
+  //   throw err;
+  // }
 
-  [err] = await to(
-    CopyDocs.releases({
-      releases: prereleases,
-      source: tempPath,
-      output: outputPath,
-    }),
-  );
-  if (err) {
-    throw err;
-  }
+  // [err] = await to(
+  //   CopyDocs.releases({
+  //     releases: prereleases,
+  //     source: tempPath,
+  //     output: outputPath,
+  //   }),
+  // );
+  // if (err) {
+  //   throw err;
+  // }
 
   [err] = await to(
     CopyDocs.branches({
@@ -93,8 +93,8 @@ const prepareDocs = async (coreConfig: CoreConfig) => {
   [err] = await to(
     DocsVersions.generate(
       {
-        releases,
-        pre_releases: prereleases,
+        releases: undefined,
+        pre_releases: undefined, //prereleases,
         branches,
       },
       outputDocsVersion,

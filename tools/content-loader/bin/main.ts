@@ -32,7 +32,6 @@ const prepareDocsFn = async () => {
 const prepareCommunityContentFn = async () => {
   const config: CoreConfig = {
     ...coreConfig,
-    organization: "kyma-project",
     repository: communityConfig.repository,
   };
 
@@ -45,7 +44,6 @@ const prepareCommunityContentFn = async () => {
 const prepareRoadmapContentFn = async () => {
   const config: CoreConfig = {
     ...coreConfig,
-    organization: "kyma-project",
     repository: roadmapConfig.repository,
   };
 
