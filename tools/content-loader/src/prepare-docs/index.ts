@@ -95,7 +95,7 @@ const prepareDocs = async (coreConfig: CoreConfig) => {
   [err] = await to(
     DocsVersions.generate(
       {
-        releases: undefined,
+        releases,
         pre_releases: undefined, //prereleases,
         branches,
       },
