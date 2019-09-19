@@ -4,14 +4,14 @@ export default function useScrollPosition() {
   const [scrollPosition, setScrollPosition] = useState(0);
 
   useEffect(() => {
-    let last_known_scroll_position = 0;
+    let lastKnownScrollPosition = 0;
     let ticking = false;
     const handleScroll = (_: Event) => {
-      last_known_scroll_position = window.scrollY;
+      lastKnownScrollPosition = window.scrollY;
 
       if (!ticking) {
-        window.requestAnimationFrame(function() {
-          setScrollPosition(last_known_scroll_position);
+        window.requestAnimationFrame(() => {
+          setScrollPosition(lastKnownScrollPosition);
           ticking = false;
         });
 
