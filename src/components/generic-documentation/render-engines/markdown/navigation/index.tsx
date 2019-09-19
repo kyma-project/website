@@ -11,6 +11,7 @@ import {
 
 import {
   NavigationWrapper,
+  NavigationListWrapper,
   NavigationList,
   NavigationListItem,
   NavigationListItemName,
@@ -93,7 +94,7 @@ export const Navigation: React.FunctionComponent<NavigationProps> = ({
       {docsVersionSwitcher && (
         <VersionSwitcherWrapper>{docsVersionSwitcher}</VersionSwitcherWrapper>
       )}
-      {lists}
+      <NavigationListWrapper>{lists}</NavigationListWrapper>
     </NavigationWrapper>
   );
 };

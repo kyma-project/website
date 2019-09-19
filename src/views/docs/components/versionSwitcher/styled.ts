@@ -43,11 +43,12 @@ export const VersionSelect = styled.select`
   font-weight: 600;
   background: inherit;
   border: none;
-  padding: 0 15px 0 0;
+  padding: 0 16px 0 0;
   appearance: none;
   z-index: 100;
   cursor: pointer;
   font-family: system-ui;
+
   &::-ms-expand {
     display: none;
   }

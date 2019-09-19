@@ -440,25 +440,26 @@ export const ReadPrivacyStatementLink = styled(Link.External)`
 
 /* Back to top */
 interface BackToTopIconProps {
-  visibleIcon: boolean;
+  visible: boolean;
+  inDocsLayout: boolean;
 }
 
-export const BackToTopIcon = styled.div`
+export const BackToTopIcon = styled.div<BackToTopIconProps>`
   position: fixed;
-  bottom: 32px;
-  right: 32px;
+  bottom: 1.5rem;
+  right: 1.5rem;
   color: #fff;
   z-index: 8888;
 
-  width: 62px;
-  height: 62px;
+  width: 3.5rem;
+  height: 3.5rem;
   border-radius: 100%;
   box-shadow: 0 1px 26px 0 rgba(137, 165, 199, 0.42);
   background: #fff;
 
   transition: visibility 0.2s linear, opacity 0.2s linear;
-  opacity: ${(props: BackToTopIconProps) => (props.visibleIcon ? "1" : "0")};
-  visibility: ${props => (props.visibleIcon ? "visible" : "hidden")};
+  opacity: ${props => (props.visible ? "1" : "0")};
+  visibility: ${props => (props.visible ? "visible" : "hidden")};
 
   &:hover {
     cursor: pointer;
@@ -467,6 +468,8 @@ export const BackToTopIcon = styled.div`
   ${media.phone`
     width: 52px;
     height: 52px;
+    ${(props: BackToTopIconProps) =>
+      props.inDocsLayout ? "right: 5.5rem;" : ""}
   `};
 
   > svg {
