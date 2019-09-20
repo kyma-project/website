@@ -22,35 +22,32 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
   headingPrefix,
   children: content,
 }) => {
-  const [activeTab, setActiveTab] = useState(active);
-  const handleTabClick = (index: number) => setActiveTab(index);
+  const children: Array<React.ReactElement<TabProps>> = []
+    .concat(...(content as any))
+    .filter(Boolean);
+
+  let initActiveLabel: string = "";
+  if (children.length > active) {
+    initActiveLabel =
+      children[active].props.labelID ||
+      toKebabCase(children[active].props.label) ||
+      "";
+  }
+
+  const [activeTab, setActiveTab] = useState<string>(initActiveLabel);
+  const handleTabClick = (label: string) => {
+    const activeLabelInGroup = getActiveTabInGroup(group || "");
+
+    if (group && (!activeLabelInGroup || label !== activeLabelInGroup)) {
+      setActiveTabInGroup(group, label);
+    }
+  };
 
   const { hash } = useLocation();
   const { tabGroups, getActiveTabInGroup, setActiveTabInGroup } = useContext(
     GenericDocsContext,
   );
-
-  const children: Array<React.ReactElement<TabProps>> = []
-    .concat(...(content as any))
-    .filter(Boolean);
   const identifier = headingPrefix && toKebabCase(`${headingPrefix}-${name}`);
-
-  const isAppropriateElement = (
-    elem: React.ReactElement<TabProps>,
-    hashParts: string[],
-  ) =>
-    !!hashParts &&
-    hashParts.length === 3 &&
-    !!elem &&
-    has(elem, "props.children.props.tabData.group") &&
-    has(elem, "props.children.props.source") &&
-    (elem as any).props.children.props.tabData.group === hashParts[0] &&
-    elem.key === hashParts[1] &&
-    (elem as any).props.children.props.source
-      .toLowerCase()
-      .trim()
-      .replace(/[^a-zA-Z0-9\s#]/g, "")
-      .includes(`# ${hashParts[2].split("-").join(" ")}`);
 
   useEffect(() => {
     if (!hash) {
@@ -60,58 +57,49 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
     if (hashData.length !== 3) {
       return;
     }
-    const [tabGroup, tabLabel, id] = hashData;
+    const [tabGroup, tabLabel, anchor] = hashData;
+    const hasTab = children.find(c => c.props.labelID === tabLabel);
 
-    // children.forEach((elem: React.ReactElement<TabProps>, index: number) => {
-    //   if (isAppropriateElement(elem, hashData)) {
-    //     handleTabClick(index);
-    //     setTimeout(() => {
-    //       if (!!document) {
-    //         const element = document.getElementById(hash.slice(1));
-    //         if (!!element) {
-    //           element.scrollIntoView(true);
-    //         }
-    //       }
-    //     }, 100);
-    //   }
-    // });
+    if (hasTab && tabGroup === name) {
+      handleTabClick(tabLabel);
+      const element = document.getElementById(anchor);
+      if (element) {
+        element.scrollIntoView(true);
+      }
+    }
   }, [hash]);
 
   useEffect(() => {
-    const label = children[activeTab] && children[activeTab].props.labelID;
-    const activeLabelInGroup = getActiveTabInGroup(group || "");
-
     if (
       group &&
-      label &&
-      (!activeLabelInGroup || label !== activeLabelInGroup)
+      tabGroups.hasOwnProperty(group) &&
+      tabGroups[group] !== activeTab
     ) {
-      setActiveTabInGroup(group, label);
+      const hasTab = children.find(c => c.props.labelID === tabGroups[group]);
+      if (hasTab && tabGroups[group] !== activeTab) {
+        setActiveTab(tabGroups[group]);
+      }
     }
-  }, [activeTab]);
-
-  useEffect(() => {
-    const label = children[activeTab] && children[activeTab].props.labelID;
-    // if (group && tabGroups.hasOwnProperty(group) && tabGroups[group] !== label) {
-
-    // }
   }, [tabGroups]);
 
   const renderHeader = (ch: Array<React.ReactElement<TabProps>>) =>
-    React.Children.map(ch, (child, index) =>
-      React.cloneElement(child, {
+    React.Children.map(ch, (child, index) => {
+      const labelID =
+        child.props.labelID || toKebabCase(child.props.label) || "";
+      return React.cloneElement(child, {
         key: index,
         label: child.props.label,
-        labelID: child.props.labelID,
-        parentCallback: handleTabClick,
-        tabIndex: index,
+        labelID,
         headingPrefix,
-        isActive: index === activeTab,
-      }),
-    );
+        isActive: labelID === activeTab,
+        parentCallback: handleTabClick,
+      });
+    });
 
-  const renderActiveTab = (ch: Array<React.ReactElement<TabProps>>) =>
-    ch[activeTab] ? ch[activeTab].props.children : null;
+  const renderActiveTab = (ch: Array<React.ReactElement<TabProps>>) => {
+    const child = ch.find(c => c.props.labelID === activeTab);
+    return (child && child.props.children) || null;
+  };
 
   return (
     <TabsWrapper id={identifier}>

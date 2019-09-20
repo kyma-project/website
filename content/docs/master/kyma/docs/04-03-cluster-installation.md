@@ -46,7 +46,14 @@ This installation guide explains how you can quickly deploy Kyma on a cluster wi
 - [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) 1.14.6 or higher
 
   </details>
+  <details>
+  <summary label="lol">
+  LOL
+  </summary>
 
+    dupa
+
+  </details>
 </div>
 
 ## Choose the release to install

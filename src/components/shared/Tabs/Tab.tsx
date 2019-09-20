@@ -9,21 +9,21 @@ export interface TabProps {
   tabIndex?: number;
   isActive?: boolean;
   headingPrefix?: string;
-  parentCallback?: (value: number) => void;
+  parentCallback?: (label: string) => void;
   children: React.ReactNode;
 }
 
 const Tab: React.FunctionComponent<TabProps> = ({
   label = "",
-  tabIndex,
+  labelID,
   isActive = false,
   parentCallback,
 }) => (
-  <TabWrapper key={tabIndex}>
+  <TabWrapper key={labelID}>
     <TabLink
       onClick={(event: any) => {
         event.preventDefault();
-        parentCallback!(tabIndex!);
+        parentCallback!(labelID!);
       }}
       active={isActive}
     >
