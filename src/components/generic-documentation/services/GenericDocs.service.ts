@@ -19,14 +19,17 @@ function useGenericDocsService({ assetsPath }: GenericDocsServiceProps) {
   const [showMobileLeftNav, setShowMobileLeftNav] = useState<boolean>(false);
   const [showMobileRightNav, setShowMobileRightNav] = useState<boolean>(false);
 
-  const getActiveTabInGroup = (tabGroup: string): string | undefined => {
-    if (!tabGroups.hasOwnProperty(tabGroup)) {
+  const getActiveTabInGroup = (tabGroup?: string): string | undefined => {
+    if (!tabGroup || !tabGroups.hasOwnProperty(tabGroup)) {
       return;
     }
     return tabGroups[tabGroup];
   };
 
-  const setActiveTabInGroup = (tabGroup: string, tabLabel: string): void => {
+  const setActiveTabInGroup = (tabGroup?: string, tabLabel?: string): void => {
+    if (!tabGroup || !tabLabel) {
+      return;
+    }
     setTabGroups(state => ({
       ...state,
       [tabGroup]: tabLabel,

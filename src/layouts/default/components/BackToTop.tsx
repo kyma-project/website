@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
 import Icon from "@components/shared/Icon";
 import { useScrollPosition } from "@common/hooks/useScrollPosition";

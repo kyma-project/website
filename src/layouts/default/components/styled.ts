@@ -148,10 +148,10 @@ export const NavigationWrapper = styled.nav`
   margin-top: 0;
   position: relative;
 
-  ${media.tablet`
+  @media (max-width: 1200px) {
     position: absolute;
     right: 30px;
-  `}
+  }
 `;
 
 interface NavigationListProps {
@@ -166,7 +166,7 @@ export const NavigationList = styled.ul`
   transition: all 0.2s ease-in-out;
   position: relative;
 
-  ${media.tablet`
+  @media (max-width: 1200px) {
     position: fixed;
     top: 0;
     left: ${(props: NavigationListProps) => (props.visible ? 0 : "100vw")};
@@ -176,7 +176,7 @@ export const NavigationList = styled.ul`
     height: 100vh;
     background: #235dbe;
     z-index: 9999;
-  `};
+  }
 `;
 
 interface NavigationItemProps {
@@ -187,7 +187,7 @@ export const NavigationItem = styled.li`
   display: ${({ visible = true }: NavigationItemProps) =>
     visible ? "inline-block" : "none"};
 
-  ${media.tablet`
+  @media (max-width: 1200px) {
     display: ${({ visible = true }: NavigationItemProps) =>
       visible ? "block" : "none"};
 
@@ -201,7 +201,7 @@ export const NavigationItem = styled.li`
       }
     }
 
-    :nth-child(n+2):nth-last-child(n+4) {
+    :nth-child(n + 2):nth-last-child(n + 4) {
       a {
         display: block;
         width: 100%;
@@ -229,10 +229,10 @@ export const NavigationItem = styled.li`
       }
 
       &:hover {
-        background-color: rgba(255,255,255,0.1);
+        background-color: rgba(255, 255, 255, 0.1);
       }
     }
-  `};
+  }
 `;
 
 export const NavigationIntLink = styled(Link.Internal)`
@@ -242,11 +242,12 @@ export const NavigationIntLink = styled(Link.Internal)`
 
   ${linkEffect}
 
-  ${media.tablet`
-    &:after, &:before {
+  @media (max-width: 1200px) {
+    &:after,
+    &:before {
       content: "";
     }
-  `};
+  }
 `;
 
 export const NavigationExtLink = styled(Link.External)`
@@ -266,7 +267,7 @@ export const NavigationExtLink = styled(Link.External)`
     }
   }
 
-  ${media.tablet`
+  @media (max-width: 1200px) {
     > button {
       width: calc(100% - 60px);
       margin-left: 30px;
@@ -281,7 +282,7 @@ export const NavigationExtLink = styled(Link.External)`
         display: inline-block;
       }
     }
-  `};
+  }
 `;
 
 export const NavigationMobileButton = styled.div`
@@ -293,10 +294,10 @@ export const NavigationMobileButton = styled.div`
     }
   }
 
-  ${media.tablet`
+  @media (max-width: 1200px) {
     display: inline-block;
     margin-left: 16px;
-  `};
+  }
 `;
 
 /* Footer */
@@ -466,10 +467,7 @@ export const BackToTopIcon = styled.div<BackToTopIconProps>`
   }
 
   ${media.phone`
-    width: 52px;
-    height: 52px;
-    ${(props: BackToTopIconProps) =>
-      props.inDocsLayout ? "right: 5.5rem;" : ""}
+    display: none;
   `};
 
   > svg {

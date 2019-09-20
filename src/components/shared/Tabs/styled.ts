@@ -48,7 +48,7 @@ export const TabLink = styled.div`
   display: flex;
   align-items: center;
   margin: 0 16px;
-  padding: 16px 0 10px 0;
+  padding: 10px 0;
   border: none;
   position: relative;
   color: ${(props: TabLinkProps) => (props.active ? "#0B74DE" : "#485766")};

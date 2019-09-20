@@ -5,8 +5,7 @@ import { TabLink, TabWrapper } from "./styled";
 export interface TabProps {
   group?: string;
   label: string;
-  labelID?: string;
-  tabIndex?: number;
+  labelID: string;
   isActive?: boolean;
   headingPrefix?: string;
   parentCallback?: (label: string) => void;
@@ -23,7 +22,7 @@ const Tab: React.FunctionComponent<TabProps> = ({
     <TabLink
       onClick={(event: any) => {
         event.preventDefault();
-        parentCallback!(labelID!);
+        parentCallback && parentCallback(labelID);
       }}
       active={isActive}
     >

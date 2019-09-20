@@ -45,12 +45,7 @@ function processTab(node: any, tabsName: string | undefined, args: any) {
     .replace(orderedListRegex, (listElement: string) => `\n${listElement}\n`);
 
   return (
-    <Tab
-      key={labelID || toKebabCase(label)}
-      labelID={labelID}
-      group={tabsName}
-      label={label}
-    >
+    <Tab labelID={labelID as string} group={tabsName} label={label}>
       <TabProvider group={tabsName} label={labelID}>
         <MarkdownComponent source={source} {...args} />
       </TabProvider>

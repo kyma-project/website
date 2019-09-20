@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useLocation } from "react-use";
-import has from "lodash/has";
 
 import { TabProps } from "./Tab";
 import { toKebabCase } from "@common/utils/toKebabCase";
@@ -26,17 +25,14 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
     .concat(...(content as any))
     .filter(Boolean);
 
-  let initActiveLabel: string = "";
-  if (children.length > active) {
-    initActiveLabel =
-      children[active].props.labelID ||
-      toKebabCase(children[active].props.label) ||
-      "";
-  }
-
-  const [activeTab, setActiveTab] = useState<string>(initActiveLabel);
+  const { tabGroups, getActiveTabInGroup, setActiveTabInGroup } = useContext(
+    GenericDocsContext,
+  );
+  const identifier = headingPrefix && toKebabCase(`${headingPrefix}-${name}`);
+  const { hash } = useLocation();
+  const [activeTab, setActiveTab] = useState<string>("");
   const handleTabClick = (label: string) => {
-    const activeLabelInGroup = getActiveTabInGroup(group || "");
+    const activeLabelInGroup = group && getActiveTabInGroup(group);
 
     if (group && (!activeLabelInGroup || label !== activeLabelInGroup)) {
       setActiveTabInGroup(group, label);
@@ -45,11 +41,22 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
     }
   };
 
-  const { hash } = useLocation();
-  const { tabGroups, getActiveTabInGroup, setActiveTabInGroup } = useContext(
-    GenericDocsContext,
-  );
-  const identifier = headingPrefix && toKebabCase(`${headingPrefix}-${name}`);
+  useEffect(() => {
+    if (children.length > active && children[active].props.labelID) {
+      setActiveTab(toKebabCase(children[active].props.labelID));
+    }
+  }, []);
+
+  useEffect(() => {
+    if (group && tabGroups.hasOwnProperty(group)) {
+      const g = tabGroups[group];
+      const hasTab = children.find(c => c.props.labelID === g);
+
+      if (hasTab && g !== activeTab) {
+        setActiveTab(g);
+      }
+    }
+  }, [tabGroups]);
 
   useEffect(() => {
     if (!hash) {
@@ -70,15 +77,6 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
       }
     }
   }, [hash]);
-
-  useEffect(() => {
-    if (group && tabGroups.hasOwnProperty(group)) {
-      const hasTab = children.find(c => c.props.labelID === tabGroups[group]);
-      if (hasTab && tabGroups[group] !== activeTab) {
-        setActiveTab(tabGroups[group]);
-      }
-    }
-  }, [tabGroups]);
 
   const renderHeader = (ch: Array<React.ReactElement<TabProps>>) =>
     React.Children.map(ch, (child, index) => {

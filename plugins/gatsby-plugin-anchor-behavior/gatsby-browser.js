@@ -113,5 +113,8 @@ exports.shouldUpdateScroll = ({
 
   // for anchors
   const offset = getTargetOffset(location.hash, location.pathname);
+
+  // __GATSBY_ROUTE_UPDATE is updated in root service
+  window.__GATSBY_ROUTE_UPDATE = false;
   return offset !== null ? [0, offset] : true;
 };
