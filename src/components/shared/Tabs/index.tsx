@@ -40,6 +40,8 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
 
     if (group && (!activeLabelInGroup || label !== activeLabelInGroup)) {
       setActiveTabInGroup(group, label);
+    } else {
+      setActiveTab(label);
     }
   };
 
@@ -70,11 +72,7 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
   }, [hash]);
 
   useEffect(() => {
-    if (
-      group &&
-      tabGroups.hasOwnProperty(group) &&
-      tabGroups[group] !== activeTab
-    ) {
+    if (group && tabGroups.hasOwnProperty(group)) {
       const hasTab = children.find(c => c.props.labelID === tabGroups[group]);
       if (hasTab && tabGroups[group] !== activeTab) {
         setActiveTab(tabGroups[group]);
