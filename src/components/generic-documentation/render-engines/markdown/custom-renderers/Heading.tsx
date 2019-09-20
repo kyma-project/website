@@ -63,7 +63,7 @@ export const Heading: React.FunctionComponent<HeadingProps> = ({
     return null;
   }
 
-  if (tabDataExists && tabData.group) {
+  if (tabDataExists && tabData.group && tabData.label) {
     heading = `${toKebabCase(tabData.group)}--${toKebabCase(
       tabData.label,
     )}--${heading}`;

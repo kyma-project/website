@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 
-export default function useToggle<F = any, S = any>(
+export function useToggle<F = any, S = any>(
   dropEl: React.RefObject<F> | React.MutableRefObject<F>,
   actionEl: React.RefObject<S> | React.MutableRefObject<S>,
   hiddenOnClickOnAction: boolean = true,

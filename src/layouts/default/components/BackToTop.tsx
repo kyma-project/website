@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import Icon from "@components/shared/Icon";
-import useScrollPosition from "@common/hooks/useScrollPosition";
+import { useScrollPosition } from "@common/hooks/useScrollPosition";
 
 import { BackToTopIcon } from "./styled";
 
