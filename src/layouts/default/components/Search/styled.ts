@@ -21,12 +21,12 @@ export const AlgoliaWrapper = styled.div`
       display: none;
     }
 
-    @media (max-width: 1200px) {
+    ${media.largeTablet`
       &:first-child {
         display: none;
         color: transparent;
       }
-    }
+    `}
 
     > form {
       .algolia-autocomplete {
@@ -201,7 +201,7 @@ export const AlgoliaWrapper = styled.div`
           margin-right: 12px;
         }
 
-        @media (max-width: 1200px) {
+        ${media.largeTablet`
           .ds-dropdown-menu {
             left: auto !important;
             right: -5.5rem !important;
@@ -211,7 +211,7 @@ export const AlgoliaWrapper = styled.div`
               right: 147px !important;
             }
           }
-        }
+        `}
 
         ${media.phone`
           .ds-dropdown-menu {
@@ -249,9 +249,9 @@ export const InputWrapper = styled(Button.Light)`
     background-color: rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease-in-out;
 
-    @media (max-width: 1200px) {
+    ${media.largeTablet`
       position: relative;
-    }
+    `}
 
     > svg:last-child {
       position: absolute;
@@ -263,9 +263,9 @@ export const InputWrapper = styled(Button.Light)`
       display: ${(props: InputWrapperProps) =>
         props.active ? "block" : "none"};
 
-      @media (max-width: 1200px) {
+      ${media.largeTablet`
         display: none;
-      }
+      `}
     }
 
     > div {
@@ -279,9 +279,9 @@ export const InputWrapper = styled(Button.Light)`
         props.active ? "block" : "none"};
       cursor: help;
 
-      @media (max-width: 1200px) {
+      ${media.largeTablet`
         right: 16px;
-      }
+      `}
 
       /* Tooltip */
       > div {

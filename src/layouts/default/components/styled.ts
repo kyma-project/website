@@ -148,10 +148,10 @@ export const NavigationWrapper = styled.nav`
   margin-top: 0;
   position: relative;
 
-  @media (max-width: 1200px) {
+  ${media.largeTablet`
     position: absolute;
     right: 30px;
-  }
+  `}
 `;
 
 interface NavigationListProps {
@@ -166,7 +166,7 @@ export const NavigationList = styled.ul`
   transition: all 0.2s ease-in-out;
   position: relative;
 
-  @media (max-width: 1200px) {
+  ${media.largeTablet`
     position: fixed;
     top: 0;
     left: ${(props: NavigationListProps) => (props.visible ? 0 : "100vw")};
@@ -176,7 +176,7 @@ export const NavigationList = styled.ul`
     height: 100vh;
     background: #235dbe;
     z-index: 9999;
-  }
+  `}
 `;
 
 interface NavigationItemProps {
@@ -187,7 +187,7 @@ export const NavigationItem = styled.li`
   display: ${({ visible = true }: NavigationItemProps) =>
     visible ? "inline-block" : "none"};
 
-  @media (max-width: 1200px) {
+  ${media.largeTablet`
     display: ${({ visible = true }: NavigationItemProps) =>
       visible ? "block" : "none"};
 
@@ -232,7 +232,7 @@ export const NavigationItem = styled.li`
         background-color: rgba(255, 255, 255, 0.1);
       }
     }
-  }
+  `}
 `;
 
 export const NavigationIntLink = styled(Link.Internal)`
@@ -242,12 +242,12 @@ export const NavigationIntLink = styled(Link.Internal)`
 
   ${linkEffect}
 
-  @media (max-width: 1200px) {
+  ${media.largeTablet`
     &:after,
     &:before {
       content: "";
     }
-  }
+  `}
 `;
 
 export const NavigationExtLink = styled(Link.External)`
@@ -267,7 +267,7 @@ export const NavigationExtLink = styled(Link.External)`
     }
   }
 
-  @media (max-width: 1200px) {
+  ${media.largeTablet`
     > button {
       width: calc(100% - 60px);
       margin-left: 30px;
@@ -282,7 +282,7 @@ export const NavigationExtLink = styled(Link.External)`
         display: inline-block;
       }
     }
-  }
+  `}
 `;
 
 export const NavigationMobileButton = styled.div`
@@ -294,10 +294,10 @@ export const NavigationMobileButton = styled.div`
     }
   }
 
-  @media (max-width: 1200px) {
+  ${media.largeTablet`
     display: inline-block;
     margin-left: 16px;
-  }
+  `}
 `;
 
 /* Footer */
@@ -450,7 +450,7 @@ export const BackToTopIcon = styled.div<BackToTopIconProps>`
   bottom: 1.5rem;
   right: 1.5rem;
   color: #fff;
-  z-index: 8888;
+  z-index: 300;
 
   width: 3.5rem;
   height: 3.5rem;

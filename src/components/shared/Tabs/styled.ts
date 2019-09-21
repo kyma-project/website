@@ -47,7 +47,7 @@ interface TabLinkProps {
 export const TabLink = styled.div`
   display: flex;
   align-items: center;
-  margin: 0 16px;
+  margin: 0 8px 0 0;
   padding: 10px 0;
   border: none;
   position: relative;
@@ -57,6 +57,9 @@ export const TabLink = styled.div`
   cursor: pointer;
   &:first-letter {
     text-transform: uppercase;
+  }
+  &:first-child {
+    margin-left: 16px;
   }
   &:after {
     content: "";

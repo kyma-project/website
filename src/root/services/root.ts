@@ -8,7 +8,7 @@ function useRootService() {
 
   useEffect(() => {
     setTimeout(() => {
-      (window as any).__GATSBY_ROUTE_UPDATE = true;
+      window.__GATSBY_ROUTE_UPDATE = true;
     }, 10);
   }, [pathname]);
 
