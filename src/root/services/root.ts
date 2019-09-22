@@ -9,7 +9,7 @@ function useRootService() {
   useEffect(() => {
     setTimeout(() => {
       window.__GATSBY_ROUTE_UPDATE = true;
-    }, 10);
+    }, 100);
   }, [pathname]);
 
   return {
