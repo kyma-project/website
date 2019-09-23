@@ -6,7 +6,7 @@ export const scrollSpyCallback = (
   const bounding = element.getBoundingClientRect();
   const current = ref && ref.current;
 
-  if (element.href && (window as any).__GATSBY_ROUTE_UPDATE) {
+  if (element.href && window.__GATSBY_ROUTE_UPDATE) {
     const actualHash = window.location.hash;
     const newHash = element.getAttribute("href");
     if (actualHash !== newHash) {
