@@ -181,7 +181,7 @@ This installation guide explains how you can quickly deploy Kyma on a cluster wi
     export KUBECONFIG={PATH_TO_KUBECONFIG_FILE}
     ```
 
->**NOTE:** On an Azure cluster, make sure to run all commands from steps 5 and 6 of [this](#installation-install-kyma-on-a-cluster--provider-installation--aks) section.
+>**NOTE:** On an Azure cluster, make sure to run all commands from steps 5 and 6 of [this](#installation-install-kyma-on-a-cluster--prepare-cluster--aks) section.
 
   </details>
 </div>

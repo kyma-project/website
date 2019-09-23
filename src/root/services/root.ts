@@ -4,13 +4,15 @@ import createUseContext from "constate";
 
 function useRootService() {
   const [language, setLanguage] = useState<string>("en");
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
 
   useEffect(() => {
-    setTimeout(() => {
-      window.__GATSBY_ROUTE_UPDATE = true;
-    }, 100);
-  }, [pathname]);
+    if (!window.__GATSBY_ROUTE_UPDATE) {
+      setTimeout(() => {
+        window.__GATSBY_ROUTE_UPDATE = true;
+      }, 25);
+    }
+  }, [pathname, hash]);
 
   return {
     language,

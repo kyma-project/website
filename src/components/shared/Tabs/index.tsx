@@ -6,6 +6,15 @@ import { toKebabCase } from "@common/utils/toKebabCase";
 import { GenericDocsContext } from "@components/generic-documentation/services/GenericDocs.service";
 import { TabsWrapper, TabsHeader, TabsContent } from "./styled";
 
+function scrollIntoView(anchor: string) {
+  setTimeout(() => {
+    const element = document.getElementById(anchor.replace("#", ""));
+    if (element && element.scrollIntoView) {
+      element.scrollIntoView(true);
+    }
+  }, 25);
+}
+
 interface TabsProps {
   active?: number;
   name?: string;
@@ -28,7 +37,9 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
   const { tabGroups, getActiveTabInGroup, setActiveTabInGroup } = useContext(
     GenericDocsContext,
   );
-  const identifier = headingPrefix && toKebabCase(`${headingPrefix}-${name}`);
+  const identifier =
+    headingPrefix &&
+    `${toKebabCase(headingPrefix)}${name ? `--${toKebabCase(name)}` : ""}`;
   const { hash } = useLocation();
   const [activeTab, setActiveTab] = useState<string>("");
   const handleTabClick = (label: string) => {
@@ -63,18 +74,20 @@ const Tabs: React.FunctionComponent<TabsProps> = ({
       return;
     }
     const hashData = hash.split("--").slice(1);
-    if (hashData.length !== 3) {
-      return;
-    }
     const [tabGroup, tabLabel, anchor] = hashData;
-    const hasTab = children.find(c => c.props.labelID === tabLabel);
+    if (tabLabel) {
+      const hasTab = children.find(c => c.props.labelID === tabLabel);
+      if (hasTab && tabGroup === name) {
+        handleTabClick(tabLabel);
 
-    if (hasTab && tabGroup === name) {
-      handleTabClick(tabLabel);
-      const element = document.getElementById(anchor);
-      if (element) {
-        element.scrollIntoView(true);
+        if (!anchor) {
+          scrollIntoView(hash.slice(0, -(tabLabel.length + 2)));
+          return;
+        }
       }
+    }
+    if (tabGroup) {
+      scrollIntoView(hash);
     }
   }, [hash]);
 
