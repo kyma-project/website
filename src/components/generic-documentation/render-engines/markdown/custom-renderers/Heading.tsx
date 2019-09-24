@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { navigate } from "gatsby";
 
 import H from "@components/shared/H";
 import Link from "@components/shared/Link";
@@ -8,7 +7,6 @@ import Icon from "@components/shared/Icon";
 import { TabContext } from "../../../services/TabState.service";
 
 import { toKebabCase } from "@common/utils/toKebabCase";
-import { scrollIntoViewOfAnchor } from "@common/utils/scrollIntoViewOfAnchor";
 import { removeMarkdownSyntax } from "../../../external";
 
 interface HeadingProps {
@@ -75,12 +73,6 @@ export const Heading: React.FunctionComponent<HeadingProps> = ({
   const onClick = (e: any) => {
     e.preventDefault();
     const hashValue = heading.startsWith("#") ? heading : `#${heading}`;
-
-    if (!tabDataExists) {
-      return;
-    }
-
-    scrollIntoViewOfAnchor(hashValue);
     window.history.pushState(null, "", hashValue);
   };
 

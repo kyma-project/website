@@ -7,9 +7,9 @@ function useRootService() {
   const { pathname, hash } = useLocation();
 
   useEffect(() => {
-    if (!window.__GATSBY_ROUTE_UPDATE) {
+    if (!window.__GATSBY_ROUTE_UPDATED) {
       setTimeout(() => {
-        window.__GATSBY_ROUTE_UPDATE = true;
+        window.__GATSBY_ROUTE_UPDATED = true;
       }, 25);
     }
   }, [pathname, hash]);

@@ -1,17 +1,17 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useLocation } from "react-use";
 
-import { TabProps } from "./Tab";
-import { toKebabCase } from "@common/utils/toKebabCase";
 import { GenericDocsContext } from "@components/generic-documentation/services/GenericDocs.service";
+import { TabProps } from "./Tab";
+
+import { toKebabCase } from "@common/utils/toKebabCase";
+import { scrollIntoViewOfAnchor } from "@common/utils/scrollIntoViewOfAnchor";
+
 import { TabsWrapper, TabsHeader, TabsContent } from "./styled";
 
 function scrollIntoView(anchor: string) {
   setTimeout(() => {
-    const element = document.getElementById(anchor.replace("#", ""));
-    if (element && element.scrollIntoView) {
-      element.scrollIntoView(true);
-    }
+    scrollIntoViewOfAnchor(anchor);
   }, 25);
 }
 
