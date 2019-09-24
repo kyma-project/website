@@ -1,4 +1,5 @@
 export const DOCS_PATH_NAME: string = "docs";
+export const DOCS_ID = "documentation-content";
 
 export const MOBILE_DEVICES_BREAKPOINT: number = 1024;
 export const PHONE_RESPONSIVE_BREAKPOINT: number = 768;
