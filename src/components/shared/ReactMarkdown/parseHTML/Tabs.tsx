@@ -51,7 +51,11 @@ export const tabs = (headingPrefix: string) => ({
             };
 
             return (
-              <Tab key={trimmedSummary} label={summary}>
+              <Tab
+                key={trimmedSummary}
+                label={summary}
+                labelID={tokenize(summary)}
+              >
                 <ReactMarkdown
                   tabData={tabData}
                   source={source}

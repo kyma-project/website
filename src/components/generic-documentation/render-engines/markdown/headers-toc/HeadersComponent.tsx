@@ -7,7 +7,7 @@ import { plugins } from "@kyma-project/dc-markdown-render-engine";
 import { GenericDocsContext } from "../../../services";
 
 import { RenderedHeader } from "./RenderedHeader";
-import { checkIsInView, postProcessingHeaders } from "../helpers";
+import { scrollSpyCallback, postProcessingHeaders } from "../helpers";
 import { HeadersNavigationsWrapper, StyledHeadersNavigation } from "./styled";
 
 const HN = plugins.HeadersNavigation;
@@ -60,7 +60,7 @@ export const HeadersNavigation: React.FunctionComponent<
       <HN
         postProcessing={postProcessingHeaders}
         enableSmoothScroll={enableSmoothScroll}
-        callback={checkIsInView(headersWrapperRef)}
+        callback={scrollSpyCallback(headersWrapperRef)}
         offset={16}
       >
         <StyledHeadersNavigation className="cms__toc-wrapper">

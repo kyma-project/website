@@ -3,7 +3,7 @@ import { navigate } from "gatsby";
 
 import Button from "@components/shared/Button";
 
-import Input from "@components/layout/Search/Input";
+import Input from "./Input";
 
 import { ALGOLIA } from "@common/constants";
 import { isDevelopmentMode, isProductionMode } from "@common/utils";

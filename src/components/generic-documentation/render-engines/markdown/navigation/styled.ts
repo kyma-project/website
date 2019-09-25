@@ -6,21 +6,13 @@ interface NavigationWrapperProps {
 }
 
 export const NavigationWrapper = styled.div<NavigationWrapperProps>`
+  margin-top: 16px;
   position: relative;
-  overflow-y: auto;
-  overflow-x: hidden;
-  max-height: calc(100vh - 32px);
-  margin: 16px 0;
   background: #fff;
 
   @media (max-width: 1216px) {
     margin-left: 16px;
   }
-
-  ${customScrollBar({
-    thumbBorderRadius: "4px",
-    trackBorderRadius: "4px",
-  })}
 
   ${media.tablet`
     margin: 0;
@@ -49,6 +41,27 @@ export const NavigationWrapper = styled.div<NavigationWrapperProps>`
     transform: ${props =>
       props.showMobileNav ? `translateX(0)` : `translateX(-16rem)`};
   `};
+`;
+
+export const NavigationListWrapper = styled.div`
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: calc(100vh - 74px);
+  margin: 16px 0;
+  padding-right: 2px;
+  background: #fff;
+
+  ${customScrollBar({
+    thumbBorderRadius: "4px",
+    trackBorderRadius: "4px",
+  })}
+
+  ${media.tablet`
+    max-height: calc(100vh - 52px);
+    margin: 16px 0 0 0;
+    padding-right: 0;
+  `}
 `;
 
 export const NavigationList = styled.ul`
@@ -141,10 +154,6 @@ export const NavigationGroupName = styled.div`
 `;
 
 export const VersionSwitcherWrapper = styled.div`
-  display: none;
-
-  ${media.tablet`
-    display: block;
-    margin-bottom: 16px;
-  `}
+  display: block;
+  margin-bottom: 16px;
 `;

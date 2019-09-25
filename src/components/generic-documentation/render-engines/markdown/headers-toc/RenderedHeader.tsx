@@ -43,7 +43,11 @@ const HeaderItem: React.FunctionComponent<HeaderItemProps> = ({
         `level-${header.level}`,
         `${className}-list-item`,
       )} ${
-        showNode ? createElementClass(`${className}-list-item--active`) : ``
+        header.children
+          ? createModifierClass(`has-children`, `${className}-list-item`)
+          : ``
+      } ${
+        showNode ? createModifierClass(`active`, `${className}-list-item`) : ``
       }`}
     >
       <a href={`#${header.id}`}>{header.title}</a>

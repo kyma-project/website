@@ -161,10 +161,6 @@ export const StyledHeadersNavigation = styled.div`
     .cms__toc-list-item--active {
       > a {
         color: rgba(11, 116, 222, 1);
-
-        &:before {
-          display: block !important;
-        }
       }
     }
 
@@ -174,10 +170,6 @@ export const StyledHeadersNavigation = styled.div`
         font-size: 14px;
         padding-top: 6px;
         padding-bottom: 6px;
-
-        &:before {
-          display: block;
-        }
       }
     }
 
@@ -207,10 +199,6 @@ export const StyledHeadersNavigation = styled.div`
         font-size: 14px;
         padding-top: 6px;
         padding-bottom: 6px;
-
-        &:before {
-          display: block;
-        }
       }
 
       .cms__toc-list-item--level-1 {
@@ -219,16 +207,6 @@ export const StyledHeadersNavigation = styled.div`
           font-size: 12px;
           padding-top: 4px;
           padding-bottom: 4px;
-
-          &:before {
-            display: none;
-          }
-
-          &.active {
-            &:before {
-              display: block;
-            }
-          }
         }
       }
 
@@ -271,16 +249,6 @@ export const StyledHeadersNavigation = styled.div`
           font-size: 12px;
           padding-top: 4px;
           padding-bottom: 4px;
-
-          &:before {
-            display: none;
-          }
-
-          &.active {
-            &:before {
-              display: block;
-            }
-          }
         }
       }
 
@@ -310,8 +278,12 @@ export const StyledHeadersNavigation = styled.div`
     }
 
     .cms__toc-list-item--show,
-    .cms__toc-list-item--show ul {
+    .cms__toc-list-item--show > ul {
       display: block !important;
+    }
+
+    .cms__toc-list-item--has-children > a:before {
+      display: block;
     }
   }
 `;

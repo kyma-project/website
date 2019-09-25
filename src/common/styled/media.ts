@@ -9,6 +9,7 @@ enum Sizes {
   SMALL_PHONE = "smallPhone",
   PHONE = "phone",
   TABLET = "tablet",
+  LARGE_TABLET = "largeTablet",
   DESKTOP = "desktop",
   LARGE_DESKTOP = "largeDesktop",
 }
@@ -24,6 +25,7 @@ export const sizes: { [index in Sizes]: number } = {
   smallPhone: 576,
   phone: 768,
   tablet: 1024,
+  largeTablet: 1216,
   desktop: 1440,
   largeDesktop: 1580,
 };

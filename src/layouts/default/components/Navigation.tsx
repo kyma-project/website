@@ -2,15 +2,11 @@ import React, { Component } from "react";
 import throttle from "lodash.throttle";
 
 import Button from "@components/shared/Button";
-import Icon from "@components/shared/Icon";
 
 import Search from "./Search";
 
 import { resolveSocialMedia } from "@common/utils";
-import {
-  MOBILE_DEVICES_BREAKPOINT,
-  PHONE_RESPONSIVE_BREAKPOINT,
-} from "@common/constants";
+import { sizes } from "@styled";
 
 import {
   NavigationWrapper,
@@ -73,7 +69,7 @@ class Navigation extends Component<{}, State> {
 
   resize = () => {
     this.setState({
-      isOnMobile: window.innerWidth <= MOBILE_DEVICES_BREAKPOINT,
+      isOnMobile: window.innerWidth <= sizes.largeTablet,
     });
   };
 

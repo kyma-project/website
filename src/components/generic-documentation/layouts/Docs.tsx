@@ -14,6 +14,8 @@ import { HeadersNavigation } from "../render-engines/markdown/headers-toc";
 
 import { MobileNavButton } from "./components";
 
+import { DOCS_ID } from "@common/constants";
+
 import {
   DocsLayoutWrapper,
   TitleHeader,
@@ -77,6 +79,7 @@ export const DocsLayout: React.FunctionComponent<DocsLayoutProps> = ({
                 sm={12}
                 className="grid-unit-content"
                 withoutPadding={true}
+                id={DOCS_ID}
               >
                 <TitleHeader marginBottom={sourcesLength === 1}>
                   {displayName}

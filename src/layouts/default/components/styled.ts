@@ -148,7 +148,7 @@ export const NavigationWrapper = styled.nav`
   margin-top: 0;
   position: relative;
 
-  ${media.tablet`
+  ${media.largeTablet`
     position: absolute;
     right: 30px;
   `}
@@ -166,7 +166,7 @@ export const NavigationList = styled.ul`
   transition: all 0.2s ease-in-out;
   position: relative;
 
-  ${media.tablet`
+  ${media.largeTablet`
     position: fixed;
     top: 0;
     left: ${(props: NavigationListProps) => (props.visible ? 0 : "100vw")};
@@ -176,7 +176,7 @@ export const NavigationList = styled.ul`
     height: 100vh;
     background: #235dbe;
     z-index: 9999;
-  `};
+  `}
 `;
 
 interface NavigationItemProps {
@@ -187,7 +187,7 @@ export const NavigationItem = styled.li`
   display: ${({ visible = true }: NavigationItemProps) =>
     visible ? "inline-block" : "none"};
 
-  ${media.tablet`
+  ${media.largeTablet`
     display: ${({ visible = true }: NavigationItemProps) =>
       visible ? "block" : "none"};
 
@@ -201,7 +201,7 @@ export const NavigationItem = styled.li`
       }
     }
 
-    :nth-child(n+2):nth-last-child(n+4) {
+    :nth-child(n + 2):nth-last-child(n + 4) {
       a {
         display: block;
         width: 100%;
@@ -229,10 +229,10 @@ export const NavigationItem = styled.li`
       }
 
       &:hover {
-        background-color: rgba(255,255,255,0.1);
+        background-color: rgba(255, 255, 255, 0.1);
       }
     }
-  `};
+  `}
 `;
 
 export const NavigationIntLink = styled(Link.Internal)`
@@ -242,11 +242,12 @@ export const NavigationIntLink = styled(Link.Internal)`
 
   ${linkEffect}
 
-  ${media.tablet`
-    &:after, &:before {
+  ${media.largeTablet`
+    &:after,
+    &:before {
       content: "";
     }
-  `};
+  `}
 `;
 
 export const NavigationExtLink = styled(Link.External)`
@@ -266,7 +267,7 @@ export const NavigationExtLink = styled(Link.External)`
     }
   }
 
-  ${media.tablet`
+  ${media.largeTablet`
     > button {
       width: calc(100% - 60px);
       margin-left: 30px;
@@ -281,7 +282,7 @@ export const NavigationExtLink = styled(Link.External)`
         display: inline-block;
       }
     }
-  `};
+  `}
 `;
 
 export const NavigationMobileButton = styled.div`
@@ -293,10 +294,10 @@ export const NavigationMobileButton = styled.div`
     }
   }
 
-  ${media.tablet`
+  ${media.largeTablet`
     display: inline-block;
     margin-left: 16px;
-  `};
+  `}
 `;
 
 /* Footer */
@@ -440,33 +441,33 @@ export const ReadPrivacyStatementLink = styled(Link.External)`
 
 /* Back to top */
 interface BackToTopIconProps {
-  visibleIcon: boolean;
+  visible: boolean;
+  inDocsLayout: boolean;
 }
 
-export const BackToTopIcon = styled.div`
+export const BackToTopIcon = styled.div<BackToTopIconProps>`
   position: fixed;
-  bottom: 32px;
-  right: 32px;
+  bottom: 1.5rem;
+  right: 1.5rem;
   color: #fff;
-  z-index: 8888;
+  z-index: 300;
 
-  width: 62px;
-  height: 62px;
+  width: 3.5rem;
+  height: 3.5rem;
   border-radius: 100%;
   box-shadow: 0 1px 26px 0 rgba(137, 165, 199, 0.42);
   background: #fff;
 
   transition: visibility 0.2s linear, opacity 0.2s linear;
-  opacity: ${(props: BackToTopIconProps) => (props.visibleIcon ? "1" : "0")};
-  visibility: ${props => (props.visibleIcon ? "visible" : "hidden")};
+  opacity: ${props => (props.visible ? "1" : "0")};
+  visibility: ${props => (props.visible ? "visible" : "hidden")};
 
   &:hover {
     cursor: pointer;
   }
 
   ${media.phone`
-    width: 52px;
-    height: 52px;
+    display: none;
   `};
 
   > svg {
