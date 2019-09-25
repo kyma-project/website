@@ -1,9 +1,8 @@
-import { useState, useEffect } from "react";
 import createUseContext from "constate";
 
 export interface TabServiceProps {
-  group: string;
-  label: string;
+  group?: string;
+  label?: string;
 }
 
 function useTabService({ group, label }: TabServiceProps) {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 
-import useToggle from "@common/hooks/useToggle";
+import { useToggle } from "@common/hooks/useToggle";
 import { FormattedMessage, injectIntl, IntlInterface } from "@common/i18n";
 
 import Icon from "@components/shared/Icon";

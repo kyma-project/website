@@ -1,6 +1,6 @@
 import React, { useContext, useRef } from "react";
 
-import useToggle from "@common/hooks/useToggle";
+import { useToggle } from "@common/hooks/useToggle";
 
 import RoadmapService from "@components/roadmap/service";
 

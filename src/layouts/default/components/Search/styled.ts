@@ -21,14 +21,14 @@ export const AlgoliaWrapper = styled.div`
       display: none;
     }
 
-    ${media.tablet`
+    ${media.largeTablet`
       &:first-child {
         display: none;
         color: transparent;
       }
     `}
 
-    > form {  
+    > form {
       .algolia-autocomplete {
         margin: 0 !important;
 
@@ -87,7 +87,7 @@ export const AlgoliaWrapper = styled.div`
 
           &:hover {
             background-color: transparent;
-          } 
+          }
 
           &:before {
             width: 0;
@@ -99,14 +99,13 @@ export const AlgoliaWrapper = styled.div`
         }
 
         .ds-suggestion.ds-cursor
-        .algolia-docsearch-suggestion:not(.suggestion-layout-simple)
-        .algolia-docsearch-suggestion--content {
+          .algolia-docsearch-suggestion:not(.suggestion-layout-simple)
+          .algolia-docsearch-suggestion--content {
           background-color: transparent !important;
         }
 
-        .ds-suggestion.ds-cursor
-        .algolia-docsearch-suggestion--wrapper {
-            background-color: rgba(11, 116, 222, 0.07);
+        .ds-suggestion.ds-cursor .algolia-docsearch-suggestion--wrapper {
+          background-color: rgba(11, 116, 222, 0.07);
         }
 
         .algolia-docsearch-suggestion--title {
@@ -202,7 +201,7 @@ export const AlgoliaWrapper = styled.div`
           margin-right: 12px;
         }
 
-        ${media.tablet`
+        ${media.largeTablet`
           .ds-dropdown-menu {
             left: auto !important;
             right: -5.5rem !important;
@@ -250,7 +249,7 @@ export const InputWrapper = styled(Button.Light)`
     background-color: rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease-in-out;
 
-    ${media.tablet`
+    ${media.largeTablet`
       position: relative;
     `}
 
@@ -264,7 +263,7 @@ export const InputWrapper = styled(Button.Light)`
       display: ${(props: InputWrapperProps) =>
         props.active ? "block" : "none"};
 
-      ${media.tablet`
+      ${media.largeTablet`
         display: none;
       `}
     }
@@ -280,7 +279,7 @@ export const InputWrapper = styled(Button.Light)`
         props.active ? "block" : "none"};
       cursor: help;
 
-      ${media.tablet`
+      ${media.largeTablet`
         right: 16px;
       `}
 

@@ -3,6 +3,8 @@ import styled, { media } from "@styled";
 export const DocsLayoutWrapper = styled.div`
   &&& {
     width: 100%;
+    margin-top: 72px;
+
     ${media.tablet`
       margin-top: 72px;
     `}

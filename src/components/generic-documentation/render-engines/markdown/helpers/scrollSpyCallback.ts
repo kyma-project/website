@@ -1,10 +1,18 @@
 import { MutableRefObject } from "react";
 
-export const checkIsInView = (
+export const scrollSpyCallback = (
   ref: MutableRefObject<HTMLDivElement | undefined>,
 ) => (element: HTMLAnchorElement) => {
   const bounding = element.getBoundingClientRect();
   const current = ref && ref.current;
+
+  if (element.href && window.__GATSBY_ROUTE_UPDATED) {
+    const actualHash = window.location.hash;
+    const newHash = element.getAttribute("href");
+    if (actualHash !== newHash) {
+      window.history.pushState(null, "", newHash);
+    }
+  }
 
   if (!current) {
     return;

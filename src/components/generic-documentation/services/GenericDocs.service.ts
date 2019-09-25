@@ -10,27 +10,37 @@ interface GenericDocsServiceProps {
   assetsPath: string;
 }
 
+interface TabGroupsState {
+  [group: string]: string;
+}
+
 function useGenericDocsService({ assetsPath }: GenericDocsServiceProps) {
+  const [tabGroups, setTabGroups] = useState<TabGroupsState>({});
   const [showMobileLeftNav, setShowMobileLeftNav] = useState<boolean>(false);
   const [showMobileRightNav, setShowMobileRightNav] = useState<boolean>(false);
 
-  // this feature breaks tabs and copy button - probably by propagation of click event
-  // useEffect(() => {
-  //   const gridUnitContent = document.querySelector(".grid-unit-content");
-  //   const onClick = (e: Event) => {
-  //     e.stopPropagation();
-  //     setShowMobileLeftNav(false);
-  //     setShowMobileRightNav(false);
-  //   };
+  const getActiveTabInGroup = (tabGroup?: string): string | undefined => {
+    if (!tabGroup || !tabGroups.hasOwnProperty(tabGroup)) {
+      return;
+    }
+    return tabGroups[tabGroup];
+  };
 
-  //   gridUnitContent && gridUnitContent.addEventListener("click", onClick);
-  //   return () => {
-  //     gridUnitContent && gridUnitContent.removeEventListener("click", onClick);
-  //   };
-  // }, []);
+  const setActiveTabInGroup = (tabGroup?: string, tabLabel?: string): void => {
+    if (!tabGroup || !tabLabel) {
+      return;
+    }
+    setTabGroups(state => ({
+      ...state,
+      [tabGroup]: tabLabel,
+    }));
+  };
 
   return {
     assetsPath,
+    tabGroups,
+    getActiveTabInGroup,
+    setActiveTabInGroup,
     showMobileLeftNav,
     setShowMobileLeftNav,
     showMobileRightNav,

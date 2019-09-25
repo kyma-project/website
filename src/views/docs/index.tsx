@@ -41,16 +41,11 @@ const DocsView: React.FunctionComponent<PageContext<DocsPageContext>> = ({
   );
 
   return (
-    <>
-      <Toolbar>
-        <Wrapper>{docsVersionSwitcher}</Wrapper>
-      </Toolbar>
-      <GenericComponent
-        pageContext={pageContext}
-        layout={LayoutType.DOCS}
-        docsVersionSwitcher={docsVersionSwitcher}
-      />
-    </>
+    <GenericComponent
+      pageContext={pageContext}
+      layout={LayoutType.DOCS}
+      docsVersionSwitcher={docsVersionSwitcher}
+    />
   );
 };
 

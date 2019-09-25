@@ -35,9 +35,15 @@ export const Link: React.FunctionComponent<LinkProps> = ({
       </L.External>
     );
   }
+
+  const onClickHash = (e: any) => {
+    e.preventDefault();
+    window.history.pushState(null, "", href);
+  };
+
   if (href.startsWith("#")) {
     return (
-      <L.Hash to={href} underline={true}>
+      <L.Hash to={href} underline={true} onClick={onClickHash}>
         {children}
       </L.Hash>
     );

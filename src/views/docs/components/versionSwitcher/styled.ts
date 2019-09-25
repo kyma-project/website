@@ -1,14 +1,14 @@
-import styled from "@styled";
+import styled, { media } from "@styled";
 
 export const Wrapper = styled.div`
   box-sizing: border-box;
   display: block;
-  width: 200px;
-  max-width: 200px;
+  width: 100%;
+  max-width: 100%;
 
-  @media (max-width: 1216px) {
+  ${media.tablet`
     margin-left: 16px;
-  }
+  `}
 `;
 
 export const Label = styled.label`
@@ -35,6 +35,10 @@ export const SelectWrapper = styled.div`
     transform: translateY(-50%);
     pointer-events: none;
   }
+
+  ${media.tablet`
+    margin-right: 16px;
+  `}
 `;
 
 export const VersionSelect = styled.select`
@@ -43,11 +47,11 @@ export const VersionSelect = styled.select`
   font-weight: 600;
   background: inherit;
   border: none;
-  padding: 0 15px 0 0;
   appearance: none;
   z-index: 100;
   cursor: pointer;
   font-family: system-ui;
+
   &::-ms-expand {
     display: none;
   }
