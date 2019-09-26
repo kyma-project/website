@@ -19,7 +19,7 @@ const DOCS_COMPONENTS_TYPE = "components";
 const DOCS_KYMA_ID = "kyma";
 
 const BLOG_POST_FILENAME_REGEX = /([0-9]+)\-([0-9]+)\-([0-9]+)\-(.+)\/index\.md$/;
-const DOCS_FILENAME_REGEX = /(\d+.\d+|master|refactor-installation-docs)\/(.+)\/docs\/(.+)\.md$/;
+const DOCS_FILENAME_REGEX = /(\d+.\d+|master|issue-5305)\/(.+)\/docs\/(.+)\.md$/;
 const COMMUNITY_FILENAME_REGEX = /community\/(.+)\/docs\/(.+)\.md$/;
 const ROADMAP_CAPABILITY_FILENAME_REGEX = /roadmap\/capabilities\/(.+)\.md$/;
 
