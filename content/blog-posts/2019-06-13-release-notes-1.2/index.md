@@ -52,7 +52,6 @@ To facilitate the integration of APIs that require sending additional headers an
 
 Read [this](/docs/1.2/components/application-connector/#tutorials-register-a-secured-api-specify-custom-headers-and-query-parameters-for-authentication-requests) document to learn more.
 
-
 ## Console
 
 ### Testing lambda functions in the UI
@@ -62,7 +61,6 @@ Now you can test your lambda functions directly in the Console UI. Use any of th
 ### More configuration options at the moment of Namespace creation
 
 Users can now configure more of the important Namespace options when they create it using the UI. The available options include setting memory consumption limits and choosing whether Istio should handle all of the communication between Pods in the Namespace.
-
 
 ## Installation
 
@@ -80,7 +78,6 @@ To experience the convenience the Kyma CLI brings to the table, follow [our docu
 
 The existing cluster installation flows were significantly simplified. The `sed` commands and the cluster configuration template file are now gone in favor of a set of `kubectl` calls. Now you simply set up your cluster, apply the desired configuration with `kubectl`, and wait for the magic to happen. For more details, see the [installation documentation](/docs/1.2/root/kyma/#installation-installation).
 
-
 ## Documentation
 
 ### Configuration documents for components
@@ -93,7 +90,7 @@ As we interact with the community, we take note of recurring issues and misunder
 
 ### Markdown documents in Headless CMS
 
-If you've ever had any doubts regarding what the structure of a Markdown document processed by Headless CMS should look like, we come with a solution. See the [document](https://kyma-project.io/docs/master/components/headless-cms/#details-markdown-documents) describing the required metadata and content of a Markdown file.
+If you've ever had any doubts regarding what the structure of a Markdown document processed by Headless CMS should look like, we come with a solution. See the [document](/docs/1.2/components/headless-cms/#details-markdown-documents) describing the required metadata and content of a Markdown file.
 
 ### How to modify the Documentation view in the Console UI
 
