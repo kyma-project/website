@@ -1,5 +1,5 @@
 import { join } from "path";
-import { stat, readdir, copy } from "fs-extra";
+import { copy } from "fs-extra";
 import to from "await-to-js";
 import { VError } from "verror";
 

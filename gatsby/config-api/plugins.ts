@@ -21,22 +21,6 @@ export const plugins: Plugins = [
     },
   },
   {
-    resolve: "gatsby-plugin-copy-files",
-    options: {
-      source: resolve(`${__dirname}/../../content`),
-      destination: "/assets",
-      extensions: ["jpeg", "jpg", "gif", "png", "svg", "json", "yaml", "yml"],
-      excludeDirs: ["i18n"],
-      excludeFiles: [
-        "docs/versions.json",
-        "docs.config.json",
-        "manifest.yaml",
-        "events.yaml",
-      ],
-    },
-  },
-  "gatsby-plugin-early-adopters-yml",
-  {
     resolve: "gatsby-transformer-remark",
     options: {
       excerpt_separator: `<!-- overview -->`,
