@@ -1,5 +1,5 @@
 {
-  "include": ["./src/**/*"],
+  "include": ["./src/**/*", "./gatsby/**/*"],
   "exclude": ["./netlify/functions", "**/node_modules/**/*"],
   "compilerOptions": {
     "target": "esnext",
@@ -19,10 +19,13 @@
       "@common/*": ["./src/common/*"],
       "@components/*": ["./src/components/*"],
       "@config": ["./config.json"],
-      "@content": ["./content/*"],
-      "@static": ["./static/*"],
+      "@content": ["./content"],
+      "@static": ["./static"],
       "@styled": ["./src/common/styled"],
-      "@styled/*": ["./src/common/styled/*"]
+      "@styled/*": ["./src/common/styled/*"],
+      "@root/*": ["./src/root/*"],
+      "@typings/*": ["./src/types/*"],
+      "@views/*": ["./src/views/*"]
     }
   }
 }

@@ -1,7 +1,8 @@
 import { DOCS_LATEST_VERSION } from "../../../constants";
 import { DocsContentItem } from "../utils";
 
-const linksToRewrite = require("../../../../content/docs/fix-links");
+import fixLinksJSON from "../../../../content/docs/fix-links.json";
+const linksToRewrite = fixLinksJSON as any;
 
 const MD_LINKS_REGEX = /\[([^\[]+)\]\(([^\)]+)\)/g;
 const DOCS_LINKS_REGEX = /^\/(docs|components|root)\/(.*?)$/g;

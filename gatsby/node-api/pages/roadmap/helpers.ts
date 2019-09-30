@@ -3,7 +3,33 @@ import {
   RoadmapNavigationNode,
   CapabilityDisplayNameReferencesToId,
 } from "./types";
-import { GraphQLFunction } from "../../../types";
+import {
+  GraphQLFunction,
+  CreatePageFn,
+  CreatePageFnArgs,
+} from "../../../types";
+
+export const createRoadmapPage = (
+  createPage: CreatePageFn,
+  component: string,
+  capabilities: CapabilityGQL[],
+): CreatePageFn => {
+  const capabilitiesNavigation = generateCapabilitiesNavigation(capabilities);
+  const ids = generateMapOfDisplayNameToId(capabilities);
+
+  return (props: CreatePageFnArgs) => {
+    createPage({
+      ...props,
+      component,
+      context: {
+        ...props.context,
+        capabilities,
+        capabilitiesNavigation,
+        ids,
+      },
+    });
+  };
+};
 
 export const getCapabilities = async (
   graphql: GraphQLFunction,
@@ -16,6 +42,11 @@ export const getCapabilities = async (
       ) {
         edges {
           node {
+            rawMarkdownBody
+            fields {
+              slug
+              type
+            }
             frontmatter {
               displayName
               epicsLabels
@@ -49,7 +80,7 @@ const sortCapabilities = (capabilities: CapabilityGQL[]): CapabilityGQL[] =>
     return 0;
   });
 
-export const generateCapabilitiesNavigation = (
+const generateCapabilitiesNavigation = (
   capabilities: CapabilityGQL[],
 ): RoadmapNavigationNode[] => {
   const navigation: RoadmapNavigationNode[] = [];
@@ -64,7 +95,7 @@ export const generateCapabilitiesNavigation = (
   return navigation;
 };
 
-export const generateMapOfDisplayNameToId = (
+const generateMapOfDisplayNameToId = (
   capabilities: CapabilityGQL[],
 ): CapabilityDisplayNameReferencesToId => {
   const map: CapabilityDisplayNameReferencesToId = {};

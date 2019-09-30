@@ -8,8 +8,20 @@ interface ActionOptions {
   [key: string]: any;
 }
 
+export interface CreatePageFnArgs {
+  path: string;
+  component?: string;
+  context?: Record<string, any>;
+}
+
 export type CreatePageFn = (
-  args: { path: string; component: string; context: Record<string, any> },
+  args: CreatePageFnArgs,
+  plugin?: ActionPlugin,
+  option?: ActionOptions,
+) => void;
+
+export type OriginalCreatePageFn = (
+  args: Required<CreatePageFnArgs>,
   plugin?: ActionPlugin,
   option?: ActionOptions,
 ) => void;
@@ -17,11 +29,12 @@ export type CreatePageFn = (
 export type CreateRedirectFn = (
   redirect: {
     fromPath: string;
-    toPath: string;
     isPermanent?: boolean;
+    toPath: string;
     redirectInBrowser?: boolean;
     force?: boolean;
     statusCode?: number;
+    [key: string]: unknown;
   },
   plugin?: ActionPlugin,
 ) => void;

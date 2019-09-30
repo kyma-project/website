@@ -46,9 +46,8 @@ export interface DocsConfig {
 export interface DocsContentDocs {
   order: string;
   title: string;
-  type?: string;
   source: string;
-  [key: string]: string;
+  type?: string;
 }
 
 /* Navigation */

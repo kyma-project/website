@@ -1,11 +1,7 @@
-import { writeJSON } from "fs-extra";
 import to from "await-to-js";
-import { VError } from "verror";
 
 import coreConfig from "../config";
 import roadmapConfig from "./config";
-
-import GitHubGraphQLClient from "../github-client/github-graphql-client";
 
 import { getUnique, writeToJson, removeHTMLComments } from "../helpers";
 import {

@@ -34,9 +34,9 @@ const extractFn = (version: string) => (
   } = doc;
 
   if (version === v && docsGroup === type && topicId === id) {
-    let obj: DocsContentDocs = {
+    const obj: DocsContentDocs = {
       order: fileName,
-      title: title,
+      title,
       source: rawMarkdownBody,
     };
 
@@ -85,6 +85,9 @@ export const createDocsPages = async ({
 
   const docsArch: { [version: string]: DocsGeneratorReturnType } = {};
   for (const versionType in versions) {
+    if (!versions.hasOwnProperty(versionType)) {
+      continue;
+    }
     for (const version of versions[versionType]) {
       docsArch[version] = docsGenerator<DocGQL>(
         docs,

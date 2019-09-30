@@ -11,10 +11,13 @@ export const readFile = async (file: string): Promise<string> => {
     throw err;
   }
 
-  let data: Buffer;
+  let data: Buffer | undefined;
   [err, data] = await to(rF(file));
   if (err) {
     throw new VError(err, `while reading file: ${file}`);
+  }
+  if (!data) {
+    return "";
   }
 
   return data.toString();

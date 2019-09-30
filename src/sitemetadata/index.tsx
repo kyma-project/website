@@ -13,9 +13,9 @@ const roadmapPath = /^\/roadmap/;
 const communityPath = /^\/community/;
 const notFoundPath = /^\/404/;
 
-function extractMetadata(uri: string, data: any, pageContext: any) {
+function extractMetadata(uri: string, pageContext: any) {
   if (blogPath.test(uri)) {
-    return extractBlogMetadata(uri, data);
+    return extractBlogMetadata(uri, pageContext);
   }
   if (docsPath.test(uri)) {
     return extractDocsMetadata(uri, pageContext);
@@ -38,10 +38,9 @@ export const SiteMetadataExtractor: React.FunctionComponent<any> = props => {
   const {
     uri,
     location: { href },
-    data,
     pageContext,
   } = props;
-  const metadata = extractMetadata(uri, data, pageContext);
+  const metadata = extractMetadata(uri, pageContext);
 
   return <SiteMetadata pageUrl={href} {...metadata} />;
 };

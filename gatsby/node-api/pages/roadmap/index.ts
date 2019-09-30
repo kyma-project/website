@@ -1,11 +1,12 @@
-import { createRootPage } from "./rootPage";
-import { createModalPage } from "./modalPage";
-import { getCapabilities } from "./helpers";
+import { resolve } from "path";
+import { createRoadmapRootPage } from "./rootPage";
+import { createRoadmapModalPage } from "./modalPage";
 import {
   CreatePageFn,
   CreateRedirectFn,
   GraphQLFunction,
 } from "../../../types";
+import { getCapabilities, createRoadmapPage } from "./helpers";
 
 export interface CreateRoadmapPages {
   graphql: GraphQLFunction;
@@ -15,11 +16,16 @@ export interface CreateRoadmapPages {
 
 export const createRoadmapPages = async ({
   graphql,
-  createPage,
+  createPage: createP,
   createRedirect,
 }: CreateRoadmapPages) => {
+  const roadmapTemplate: string = resolve(
+    __dirname,
+    "../../../../src/views/roadmap/index.tsx",
+  );
   const capabilities = await getCapabilities(graphql);
+  const createPage = createRoadmapPage(createP, roadmapTemplate, capabilities);
 
-  createRootPage({ createPage, createRedirect, capabilities });
-  createModalPage({ createPage, createRedirect, capabilities });
+  createRoadmapRootPage({ createPage, createRedirect });
+  createRoadmapModalPage({ createPage, createRedirect });
 };

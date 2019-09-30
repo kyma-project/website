@@ -9,7 +9,7 @@ import { Wrapper, InnerWrapper, ContentWrapper } from "./styled";
 
 const DEFAULT_BANNER_DURATION = 5000;
 
-interface SlidesBannerProps {
+export interface SlidesBannerProps {
   bannerDuration: number;
   slides: Slide[];
 }

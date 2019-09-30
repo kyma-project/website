@@ -1,30 +1,15 @@
-import { resolve } from "path";
-import {
-  generateCapabilitiesNavigation,
-  generateMapOfDisplayNameToId,
-} from "./helpers";
-import { CapabilityGQL } from "./types";
 import { CreatePageFn, CreateRedirectFn } from "../../../types";
 import { ROADMAP_PATH_PREFIX } from "../../../constants";
 
-export interface CreateRootPageArgs {
+export interface CreateRoadmapRootPageArgs {
   createPage: CreatePageFn;
   createRedirect: CreateRedirectFn;
-  capabilities: CapabilityGQL[];
 }
 
-export const createRootPage = ({
+export const createRoadmapRootPage = ({
   createPage,
   createRedirect,
-  capabilities,
-}: CreateRootPageArgs) => {
-  const roadmapTemplate: string = resolve(
-    __dirname,
-    "../../../../src/templates/Roadmap.tsx",
-  );
-
-  const capabilitiesNavigation = generateCapabilitiesNavigation(capabilities);
-  const ids = generateMapOfDisplayNameToId(capabilities);
+}: CreateRoadmapRootPageArgs) => {
   const path = `/${ROADMAP_PATH_PREFIX}`;
 
   createRedirect({
@@ -35,10 +20,5 @@ export const createRootPage = ({
 
   createPage({
     path: `${path}/`,
-    component: roadmapTemplate,
-    context: {
-      capabilitiesNavigation,
-      ids,
-    },
   });
 };

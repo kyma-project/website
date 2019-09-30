@@ -1,12 +1,16 @@
-import { createIntlPage } from "./helpers";
+import {
+  createIntlPage,
+  addToContextSlidesBanner,
+  extractSlidesBanner,
+} from "./utils";
 
 export const onCreatePage = async ({ page, actions }: any) => {
-  const createPage = createIntlPage(actions);
-  const { deletePage } = actions;
+  let createPage = createIntlPage(actions.createPage, actions.createRedirect);
+  createPage = addToContextSlidesBanner(createPage, extractSlidesBanner());
 
   return new Promise(resolve => {
     if (page.path && page.component && page.context) {
-      deletePage({
+      actions.deletePage({
         path: page.path,
         component: page.component,
       });
@@ -15,7 +19,7 @@ export const onCreatePage = async ({ page, actions }: any) => {
         component: page.component,
         context: {
           ...page.context,
-          defaultHeaderBg: page.path === "/",
+          horizontalHeaderBg: page.path !== "/",
         },
       });
     }

@@ -4,7 +4,7 @@ import Tabs from "@components/shared/Tabs";
 import Tab from "@components/shared/Tabs/Tab";
 import ReactMarkdown from "@components/shared/ReactMarkdown";
 
-import { tokenize } from "@common/utils";
+import { toKebabCase } from "@common/utils";
 
 let tabsCounter = 0;
 const blockquoteRegex = /(^( *>).*?\n)/gm;
@@ -40,9 +40,9 @@ export const tabs = (headingPrefix: string) => ({
                 (listElement: string) => `\n${listElement}\n`,
               );
 
-            const trimmedSummary = tokenize(summary);
+            const trimmedSummary = toKebabCase(summary);
             const tabData = {
-              group: tokenize(
+              group: toKebabCase(
                 node.attribs.hasOwnProperty("name") && !!node.attribs.name
                   ? node.attribs.name
                   : "",
@@ -54,7 +54,7 @@ export const tabs = (headingPrefix: string) => ({
               <Tab
                 key={trimmedSummary}
                 label={summary}
-                labelID={tokenize(summary)}
+                labelID={toKebabCase(summary)}
               >
                 <ReactMarkdown
                   tabData={tabData}

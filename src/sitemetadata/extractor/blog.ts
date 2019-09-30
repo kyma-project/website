@@ -1,32 +1,32 @@
-import { Post } from "@components/blog/types";
+import { Post } from "@typings/blog";
 import { BlogPostMetadata } from "../SiteMetadata";
 
-function getPageTitle(uri: string, markdownRemark: Post): string {
+function getPageTitle(uri: string, post: Post): string {
   if (uri === "/blog") {
     return "Blog";
   }
-  return markdownRemark.frontmatter.title;
+  return post.frontmatter.title;
 }
 
-function getPageDescription(uri: string, markdownRemark: Post): string {
+function getPageDescription(uri: string, post: Post): string {
   if (uri === "/blog") {
     return "";
   }
 
-  return `${markdownRemark.rawMarkdownBody
+  return `${post.rawMarkdownBody
     .replace(/<(?:.|\n)*?>/gm, "")
     .substring(0, 297)}...`;
 }
 
 function getBlogPostMetadata(
   uri: string,
-  markdownRemark: Post,
+  post: Post,
 ): BlogPostMetadata | undefined {
   if (uri === "/blog") {
     return;
   }
 
-  const { frontmatter, fields } = markdownRemark;
+  const { frontmatter, fields } = post;
   return {
     author: frontmatter.author.name,
     datePublish: fields.date,
@@ -35,30 +35,28 @@ function getBlogPostMetadata(
   };
 }
 
-function getBlogPostTags(markdownRemark: Post): string[] {
-  const tags =
-    markdownRemark &&
-    markdownRemark.frontmatter &&
-    markdownRemark.frontmatter.tags;
+function getBlogPostTags(uri: string, post: Post): string[] {
+  if (uri === "/blog") {
+    return [];
+  }
 
+  const tags = post && post.frontmatter && post.frontmatter.tags;
   return tags || [];
 }
 
 export function extractBlogMetadata(
   uri: string,
-  data: any,
+  pageContext: any,
 ): {
   pageTitle: string;
   description: string;
   blogPostMetadata?: BlogPostMetadata;
   tags?: string[];
 } {
-  const { markdownRemark } = data;
-
   return {
-    pageTitle: getPageTitle(uri, markdownRemark),
-    description: getPageDescription(uri, markdownRemark),
-    blogPostMetadata: getBlogPostMetadata(uri, markdownRemark),
-    tags: getBlogPostTags(markdownRemark),
+    pageTitle: getPageTitle(uri, pageContext.post),
+    description: getPageDescription(uri, pageContext.post),
+    blogPostMetadata: getBlogPostMetadata(uri, pageContext.post),
+    tags: getBlogPostTags(uri, pageContext.post),
   };
 }

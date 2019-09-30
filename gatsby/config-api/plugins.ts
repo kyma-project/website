@@ -35,15 +35,6 @@ export const plugins: Plugins = [
       ],
     },
   },
-  {
-    resolve: "gatsby-plugin-anchor-behavior",
-    options: {
-      defaultOffset: 0,
-      mobileOffset: 0,
-      mobileOffsetInclude: ["/docs"],
-    },
-  },
-  "gatsby-plugin-banner-slides-yml",
   "gatsby-plugin-early-adopters-yml",
   {
     resolve: "gatsby-transformer-remark",

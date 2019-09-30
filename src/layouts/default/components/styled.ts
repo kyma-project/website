@@ -91,7 +91,6 @@ export const HeaderWrapper = styled.header`
       }
     `}
   }
-
   @media (min-width: 2000px) {
     ${(props: HeaderWrapperProps) =>
       props.horizontalBg
@@ -103,7 +102,6 @@ export const HeaderWrapper = styled.header`
     `
         : ""}
   }
-
   @media (min-width: 2700px) {
     ${(props: HeaderWrapperProps) =>
       props.horizontalBg
