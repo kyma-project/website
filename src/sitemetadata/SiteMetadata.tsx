@@ -47,7 +47,7 @@ const SiteMetadata: React.FunctionComponent<
 
   const host =
     process.env.GATSBY_SITE_URL || `127.0.0.1:${globalHistory.location.port}`;
-  const image = withPrefix("/logo2.png");
+  const image = `https://5d930f4b78784a00085d0824--kyma-project.netlify.com/logo2.png`;
 
   let title = `${formatMessage({ id: "title" })} - ${formatMessage({
     id: "shortDescription",
