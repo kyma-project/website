@@ -1,6 +1,6 @@
 {
   "include": ["./src/**/*", "./gatsby/**/*"],
-  "exclude": ["./netlify/functions", "**/node_modules/**/*", "./tools/**/*"],
+  "exclude": ["./netlify/functions", "**/node_modules/**/*"],
   "compilerOptions": {
     "target": "esnext",
     "module": "commonjs",
