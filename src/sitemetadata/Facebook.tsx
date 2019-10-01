@@ -31,7 +31,7 @@ export const Facebook: React.FunctionComponent<FacebookProps> = ({
     <meta property="og:description" content={description} />
     <meta property="og:image" content={image} />
     <meta property="og:image:alt" content={imageAlt ? imageAlt : description} />
-    <meta property="og:image:width" content="800" />
-    <meta property="og:image:height" content="800" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
   </Helmet>
 );
