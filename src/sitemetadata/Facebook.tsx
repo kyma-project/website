@@ -13,7 +13,7 @@ interface FacebookProps {
 }
 
 export const Facebook: React.FunctionComponent<FacebookProps> = ({
-  siteName = "https://5d9300d72562c2000a6e13ff--kyma-project.netlify.com",
+  siteName = "https://deploy-preview-449--kyma-project.netlify.com",
   locale = "en",
   url,
   type = "website",
