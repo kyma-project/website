@@ -4,7 +4,6 @@ import {
   addToContextSlidesBanner,
   extractSlidesBanner,
 } from "./utils";
-import { CreateRedirectFn } from "../../types";
 
 import { createLandingPages } from "./landingPage";
 import { createPageNotFound } from "./404";
@@ -12,7 +11,6 @@ import { createBlogPages } from "./blog";
 import { createDocsPages } from "./docs";
 import { createCommunityPages } from "./community";
 import { createRoadmapPages } from "./roadmap";
-import { onCreatePage } from "./onCreatePage";
 
 const createPages = async ({
   graphql,
@@ -29,4 +27,4 @@ const createPages = async ({
   await createRoadmapPages({ graphql, createPage, createRedirect });
 };
 
-export { createPages, onCreatePage };
+export { createPages };

@@ -18,6 +18,7 @@ export const createLandingPage = (
       context: {
         ...props.context,
         earlyAdopters,
+        horizontalHeaderBg: false,
       },
     });
   };

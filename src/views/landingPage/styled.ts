@@ -1,4 +1,4 @@
-import styled, { media } from "@styled";
+import styled from "@styled";
 
 import Bottom from "@static/img/bottom-long.svg";
 
