@@ -17,6 +17,7 @@ const DOCS_LATEST_VERSION = "latest";
 const DOCS_ROOT_TYPE = "root";
 const DOCS_COMPONENTS_TYPE = "components";
 const DOCS_KYMA_ID = "kyma";
+const DOCS_SPECIFICATIONS_PATH = "specifications";
 
 const BLOG_POST_FILENAME_REGEX = /([0-9]+)\-([0-9]+)\-([0-9]+)\-(.+)\/index\.md$/;
 const DOCS_FILENAME_REGEX = /(\d+.\d+|master)\/(.+)\/docs\/(.+)\.md$/;
@@ -41,6 +42,7 @@ export {
   DOCS_ROOT_TYPE,
   DOCS_COMPONENTS_TYPE,
   DOCS_KYMA_ID,
+  DOCS_SPECIFICATIONS_PATH,
   BLOG_POST_FILENAME_REGEX,
   DOCS_FILENAME_REGEX,
   COMMUNITY_FILENAME_REGEX,

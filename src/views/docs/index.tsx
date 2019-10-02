@@ -1,7 +1,7 @@
 import React from "react";
 
 import { PageContext } from "@common/types";
-import { DocsPageContext } from "@components/generic-documentation/types";
+import { DocsPageContext } from "@typings/docs";
 import {
   GenericComponent,
   LayoutType,
