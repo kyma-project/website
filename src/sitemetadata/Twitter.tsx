@@ -23,10 +23,7 @@ export const Twitter: React.FunctionComponent<TwitterProps> = ({
     <meta name="twitter:creator" content={username} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta
-      name="twitter:image"
-      content={"https://deploy-preview-449--kyma-project.netlify.com/logo.png"}
-    />
+    <meta name="twitter:image" content={image} />
     <meta
       name="twitter:image:alt"
       content={imageAlt ? imageAlt : description}

@@ -47,7 +47,8 @@ const SiteMetadata: React.FunctionComponent<
 
   const host =
     process.env.GATSBY_SITE_URL || `127.0.0.1:${globalHistory.location.port}`;
-  const image = `https://deploy-preview-449--kyma-project.netlify.com/logo2.png`;
+  const image = `${host}${withPrefix("/logo.png")}`;
+  const facebookImage = `${host}${withPrefix("/facebookLogo.png")}`;
 
   let title = `${formatMessage({ id: "title" })} - ${formatMessage({
     id: "shortDescription",
@@ -112,10 +113,10 @@ const SiteMetadata: React.FunctionComponent<
       </Helmet>
       <Facebook
         siteName={siteMetadata.siteUrl}
-        url={"https://5d94466a7073e9000d6361b7--kyma-project.netlify.com/"}
+        url={pageUrl ? pageUrl : siteMetadata.siteUrl}
         title={title}
         description={description}
-        image={image}
+        image={facebookImage}
         type={blogPostMetadata ? "article" : "website"}
       />
       <Twitter
