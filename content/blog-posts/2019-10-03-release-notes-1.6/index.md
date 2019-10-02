@@ -20,7 +20,7 @@ See the overview of all changes in this release:
 - [API Gateway](#api-gateway) - Brand new API Gateway
 - [Console](#console) - Simplified Logging UI,  Preloading micro frontends
 - [Compass](#compass) - Introducing Compass 
-- [Core and Supporting](#core-and-supporting) -  Support for AsyncAPI 2.0 specification, UI component restyled, support for more Gateway modes in Asset Store, metrics exposed for Asset Store and Headless CMS
+- [Core and Supporting](#core-and-supporting) -  Support for AsyncAPI 2.0 specification, UI component restyled, support for more Gateway modes by Asset Store, metrics exposed for Asset Store and Headless CMS
 - [Documentation](#documentation) - Improved installation documentation
 - [Eventing](#eventing) - Knative Eventing Channel provisioners replaced with Channel CRD Controllers, Knative Eventing chart updated to 0.8 
 - [Hydroform](#hydroform) - Introducing Hydroform - Kubernetes provisioning 
@@ -64,7 +64,7 @@ To ensure secure communication between Compass, Runtimes, and Application we pro
 
 ## Core and Supporting
 
-### AsyncAPI 2.0 specification supported
+### Support for AsyncAPI 2.0 specification
 
 Only three weeks after its official release, [AsyncAPI 2.0](https://twitter.com/AsyncAPISpec/status/1171831790887211011) is already a standard in Kyma. How did we manage to achieve this so fast? We have worked closely with the AsyncAPI community and actively contributed to their tooling. For details, have a look at the [AsyncAPI Converter](https://github.com/asyncapi/converter-go) and [AsyncAPI React](https://github.com/asyncapi/asyncapi-react) repositories maintained by Kyma developers.
 
@@ -81,7 +81,7 @@ We restyled the existing UI component to match SAP Fiori 3 and updated the compo
 
 ![Collapsible sections](./collapsible-sections.png)
 
-### Asset Store supports more Gateway modes 
+### Support for more Gateway modes by Asset Store
 
 One of the most important features of Asset Store is multi-cloud storage support. Now you can easily save your assets to Azure Blob, AWS S3, or Alibaba Object Storage Service. Read the following tutorials to learn how to set Minio to the desired Gateway mode:
 
