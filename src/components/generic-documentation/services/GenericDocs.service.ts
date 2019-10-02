@@ -1,13 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import createUseContext from "constate";
-
-import { Sources } from "@kyma-project/documentation-component";
 
 export const types: Set<string> = new Set<string>();
 export let hideTitleHeader: boolean = false;
 
 interface GenericDocsServiceProps {
-  assetsPath: string;
+  assetsPath?: string;
 }
 
 interface TabGroupsState {

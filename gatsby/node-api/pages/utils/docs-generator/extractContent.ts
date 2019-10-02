@@ -1,4 +1,5 @@
 import { ContentLoader } from "./contentLoader";
+import { extractSpecifications } from "./extractSpecifications";
 import {
   ContentGQL,
   ManifestSpec,
@@ -31,7 +32,13 @@ export const extractContent = <T extends ContentGQL>({
 
     topics.map(topic => {
       const topicId = topic.id;
-      const topicConfig = contentLoader.loadTopicConfig(topicId).spec;
+      const topicConfig = contentLoader.loadTopicConfig(topicId);
+      const topicSpec = topicConfig.spec;
+      const topicSpecifications = extractSpecifications(
+        contentLoader,
+        topicId,
+        topicConfig.specifications,
+      );
 
       let topicDocs: DocsContentDocs[] = [];
       contentGQLs.map(doc => {
@@ -45,9 +52,10 @@ export const extractContent = <T extends ContentGQL>({
       topicDocs = sortDocsByType(topicDocs);
 
       content[docsGroup][topicId] = {
-        ...topicConfig,
-        type: topicConfig.type.toLowerCase(),
+        ...topicSpec,
+        type: topicSpec.type.toLowerCase(),
         docs: topicDocs,
+        specifications: topicSpecifications,
       };
     });
   });

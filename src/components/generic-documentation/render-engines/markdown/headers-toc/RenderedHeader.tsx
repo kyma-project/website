@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { plugins } from "@kyma-project/dc-markdown-render-engine";
 
 export type Header = plugins.Header;
 export type ActiveAnchors = plugins.ActiveAnchors;
 
-const CLASS_NAME_PREFIX = "cms";
+const CLASS_NAME_PREFIX = "dc-markdown";
 
 const sumNumberOfHeaders = (headers: Header[]): number => {
   let sum: number = headers.length;

@@ -7,10 +7,7 @@ import {
   MarkdownParserPluginReturnType,
 } from "@kyma-project/dc-markdown-render-engine";
 import { toKebabCase } from "@common/utils/toKebabCase";
-import {
-  TabProvider,
-  TabServiceProps,
-} from "../../../../services/TabState.service";
+import { TabProvider } from "../../../../services/TabState.service";
 
 const TABS_PROPERTY = "tabs";
 const TABS_NAME_PROPERTY = "name";

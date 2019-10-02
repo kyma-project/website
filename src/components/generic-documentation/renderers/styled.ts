@@ -4,7 +4,7 @@ import { customScrollBar } from "@styled/mixins";
 import H from "@components/shared/H";
 
 export const tabsStyling = css`
-  .cms__tabs {
+  .dc-markdown__tabs {
     box-sizing: border-box;
     width: 100%;
     height: 100%;
@@ -17,12 +17,12 @@ export const tabsStyling = css`
     border-radius: 4px;
     margin-bottom: 16px;
 
-    .cms__text {
+    .dc-markdown__text {
       font-size: 16px;
     }
   }
 
-  .cms__tabs-header {
+  .dc-markdown__tabs-header {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -34,14 +34,14 @@ export const tabsStyling = css`
     flex-flow: row nowrap;
   }
 
-  .cms__tabs-content {
+  .dc-markdown__tabs-content {
     font-size: 16px;
     color: rgb(81, 85, 89);
     line-height: 1.57;
     margin: 16px;
   }
 
-  .cms__tab {
+  .dc-markdown__tab {
     display: flex;
     align-items: center;
     margin: 0 16px;
@@ -82,12 +82,12 @@ export const tabsStyling = css`
       }
     }
 
-    .cms__tab-label {
+    .dc-markdown__tab-label {
       padding: 12px 0;
     }
   }
 
-  .cms__tab--active {
+  .dc-markdown__tab--active {
     color: #0a6ed1;
 
     &:after {
@@ -172,7 +172,7 @@ export const StyledMarkdown = styled.div<StyledMarkdownProps>`
       margin-bottom: -8px;
     }
     h1 {
-      .cms__text {
+      .dc-markdown__text {
         font-size: 28px !important;
       }
     }
@@ -180,28 +180,28 @@ export const StyledMarkdown = styled.div<StyledMarkdownProps>`
       padding-top: 16px;
       font-size: 22px;
       
-      .cms__text {
+      .dc-markdown__text {
         font-size: 22px !important;
       }
     }
     h3 {
       padding-top: 16px;
 
-      .cms__text {
+      .dc-markdown__text {
         font-size: 20px !important;
       }
     }
     h4 {
       padding-top: 16px;
 
-      .cms__text {
+      .dc-markdown__text {
         font-size: 18px !important;
       }
     }
     a {
       color: #0b74de;
 
-      .cms__text {
+      .dc-markdown__text {
         color: #0b74de !important;
       }
     }
@@ -292,19 +292,19 @@ export const StyledMarkdown = styled.div<StyledMarkdownProps>`
       margin: 12px 0;
     }
 
-    .cms__text {
+    .dc-markdown__text {
       font-size: 16px;
       color: rgb(81, 85, 89);
       line-height: 1.57;
       font-weight: 500;
     }
 
-    .cms__code-wrapper {
+    .dc-markdown__code-wrapper {
       position: relative;
       margin: 8px 0;
     }
 
-    .cms__inline-code {
+    .dc-markdown__inline-code {
       font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier,
         monospace;
       font-size: 85%;
@@ -314,7 +314,7 @@ export const StyledMarkdown = styled.div<StyledMarkdownProps>`
       border-radius: 3px;
     }
 
-    .cms__code-pre-wrapper {
+    .dc-markdown__code-pre-wrapper {
       font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier,
         monospace !important;
       background: rgb(250, 250, 250);
@@ -348,14 +348,14 @@ export const StyledMarkdown = styled.div<StyledMarkdownProps>`
 
     ${tabsStyling}
 
-    .cms__blockquote {
+    .dc-markdown__blockquote {
       margin-left: 0;
       margin-right: 0;
       padding: 16px;
       margin: 8px 0;
       font-size: 14px;
 
-      .cms__text {
+      .dc-markdown__text {
         font-size: 14px;
       }
 
@@ -364,22 +364,22 @@ export const StyledMarkdown = styled.div<StyledMarkdownProps>`
       }
     }
 
-    .cms__blockquote--note {
+    .dc-markdown__blockquote--note {
       border-left: 3px solid rgb(0, 115, 230);
       background: rgba(0, 115, 230, 0.08);
     }
 
-    .cms__blockquote--tip {
+    .dc-markdown__blockquote--tip {
       border-left: 3px solid rgb(73, 199, 160);
       background: rgba(73, 199, 160, 0.08);
     }
 
-    .cms__blockquote--caution {
+    .dc-markdown__blockquote--caution {
       border-left: 3px solid rgb(221, 0, 0);
       background: rgba(221, 0, 0, 0.08);
     }
 
-    .cms__blockquote-content {
+    .dc-markdown__blockquote-content {
       display: inline-block;
       > p {
         margin-bottom: 5px;
@@ -389,20 +389,20 @@ export const StyledMarkdown = styled.div<StyledMarkdownProps>`
       }
     }
 
-    .cms__image {
+    .dc-markdown__image {
       margin: 16px 0;
     }
 
-    .cms__strong {
+    .dc-markdown__strong {
       font-weight: 700;
 
-      .cms__text {
+      .dc-markdown__text {
         font-weight: 700 !important;
       }
     }
 
-    .cms__list-item {
-      .cms__tabs {
+    .dc-markdown__list-item {
+      .dc-markdown__tabs {
         margin-top: 16px;
       }
     }

@@ -18,10 +18,10 @@ function extractMetadata(uri: string, pageContext: any) {
     return extractBlogMetadata(uri, pageContext);
   }
   if (docsPath.test(uri)) {
-    return extractDocsMetadata(uri, pageContext);
+    return extractDocsMetadata(pageContext);
   }
   if (communityPath.test(uri)) {
-    return extractCommunityMetadata(uri, pageContext);
+    return extractCommunityMetadata(pageContext);
   }
   if (roadmapPath.test(uri)) {
     return extractRoadmapMetadata();

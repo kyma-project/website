@@ -6,16 +6,17 @@ import qs from "qs";
 import { ModalHeader } from "./Header";
 import { ModalContent } from "./Content";
 
-import { Ticket } from "@typings/roadmap";
+import { RoadmapModalContext } from "@typings/roadmap";
 
 import { StyledModal, ContentWrapper } from "./styled";
 
-interface Props {
-  ticket: Ticket;
-}
-
-export const RoadmapModal: React.FunctionComponent<Props> = ({ ticket }) => {
+export const RoadmapModal: React.FunctionComponent<RoadmapModalContext> = ({
+  ticket,
+}) => {
   const { state } = useLocation();
+  if (!ticket) {
+    return null;
+  }
 
   const getExitLocation = () => {
     const condition = !!(

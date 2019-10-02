@@ -1,7 +1,5 @@
 import React, { useRef, useEffect, useContext } from "react";
 
-import { is } from "@styled";
-
 import { plugins } from "@kyma-project/dc-markdown-render-engine";
 
 import { GenericDocsContext } from "../../../services";
@@ -63,7 +61,7 @@ export const HeadersNavigation: React.FunctionComponent<
         callback={scrollSpyCallback(headersWrapperRef)}
         offset={16}
       >
-        <StyledHeadersNavigation className="cms__toc-wrapper">
+        <StyledHeadersNavigation className="dc-markdown__toc-wrapper">
           <RenderedHeader />
         </StyledHeadersNavigation>
       </HN>

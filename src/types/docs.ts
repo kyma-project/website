@@ -1,49 +1,99 @@
-export interface Post {
-  id: string;
-  excerpt?: string;
-  rawMarkdownBody: string;
-  fields: PostFields;
-  frontmatter: PostMetaData;
+export type DocsType = "root" | "component";
+
+/* Docs Page Context */
+export interface DocsPageContext {
+  version: string;
+  versions: DocsVersions;
+  navigation: DocsNavigation;
+  content: DocsContentItem;
+  manifest: DocsManifest;
+  assetsPath: string;
+  specifications: Specification[];
 }
 
-export interface PostPageContext {
-  previous?: Post;
-  next?: Post;
-  assetsPath?: string;
+export interface DocsModalContext {
+  specification: Specification;
+  specifications: Specification[];
 }
 
-export interface PostFields {
-  slug: string;
-  date: string;
-  postInfo: PostFieldsInfo;
+export interface DocsVersions {
+  [type: string]: string[];
 }
 
-export interface PostFieldsInfo {
-  year: string;
-  month: string;
-  day: string;
-  fileName: string;
+export interface Docs {
+  content: DocsContent;
+  navigation: DocsNavigation;
+  manifest: ManifestSpec;
 }
 
-export interface PostMetaData extends PostTypeMetadata {
-  title: string;
-  author: PostMetaDataAuthor;
-  tags?: string[];
-}
-
-export interface PostMetaDataAuthor {
-  name: string;
-  socialMedia?: {
-    github?: string;
-    twitter?: string;
+/* Content */
+export interface DocsContent {
+  [group: string]: {
+    [topic: string]: DocsContentItem;
   };
 }
 
-export type PostType = "release" | "event";
-export const PostTypeRelease = "release";
-export const PostTypeEvent = "event";
+export interface DocsContentItem {
+  id: string;
+  type: string;
+  displayName: string;
+  description: string;
+  docs: DocsContentDocs[];
+  specifications?: Specification[];
+}
 
-export interface PostTypeMetadata {
-  type?: PostType;
-  releaseTag?: string;
+export interface DocsConfig {
+  spec: {
+    id: string;
+    displayName: string;
+    description: string;
+    type: string;
+  };
+  specifications: Specification[];
+}
+
+export interface DocsContentDocs {
+  order: string;
+  title: string;
+  type?: string;
+  source: string;
+  [key: string]: string | undefined;
+}
+
+/* Navigation */
+export interface DocsNavigation {
+  [group: string]: DocsNavigationTopic[];
+}
+
+export interface DocsNavigationTopic {
+  displayName: string;
+  id: string;
+}
+
+/* Manifest */
+export interface DocsManifest {
+  spec: ManifestSpec;
+}
+export type ManifestSpec = DocsNavigation;
+export type ManifestItem = DocsNavigationTopic;
+
+/* Specification */
+export enum SpecificationType {
+  MARKDOWN = "markdown",
+  OPEN_API = "openapi",
+}
+
+export interface Specification {
+  type: SpecificationType;
+  id: string;
+  assetPath: string;
+  pageUrl: string;
+  githubUrl: string;
+  info: {
+    version: string;
+    title: string;
+    description: string;
+    [key: string]: any;
+  };
+  spec: any;
 }
