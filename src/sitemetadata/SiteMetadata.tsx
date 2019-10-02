@@ -112,7 +112,7 @@ const SiteMetadata: React.FunctionComponent<
       </Helmet>
       <Facebook
         siteName={siteMetadata.siteUrl}
-        url={"https://deploy-preview-449--kyma-project.netlify.com"}
+        url={"https://5d94466a7073e9000d6361b7--kyma-project.netlify.com/"}
         title={title}
         description={description}
         image={image}
