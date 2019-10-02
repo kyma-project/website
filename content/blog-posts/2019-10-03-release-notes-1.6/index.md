@@ -49,7 +49,7 @@ The compact version of the Logging UI allows you to display the logs in the lamb
 
 ### Preloading micro frontends
 
-Starting with this release, the Kyma Console uses the micro frontend preloading feature provided by [Luigi](https://luigi-project.io). Preloading micro frontends in the background speeds up the overall loading process and improves performance.
+We attach great importance to Kyma performance, constantly wanting to speed things up. That's why the Kyma Console uses the micro frontend preloading feature provided by [Luigi](https://luigi-project.io). Preloading micro frontends in the background shortes the overall loading process and improves performance.
 
 ## Compass
 
@@ -152,5 +152,5 @@ After some time spent in the preview mode, the GCP Service Broker is now a prima
 
 ### Fluent Bit supported 
 
-So far, Loki came with the default [Promtail](https://github.com/grafana/loki) log collector configuration. Starting with this release, Kyma supports [Fluent Bit](https://fluentbit.io/) as a yet another log collector.
+So far, Loki came with the default [Promtail](https://github.com/grafana/loki) log collector configuration. From this release, Kyma supports [Fluent Bit](https://fluentbit.io/) as a yet another log collector.
 
