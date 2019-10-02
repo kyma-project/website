@@ -10,7 +10,7 @@ redirectFrom:
   - "/blog/release-notes-16"
 ---
 
-We can't even imagine a better time to visit Munich than October. While the capital of Bavaria enjoys Oktoberfest, Kyma raises a glass to 1.6 release - an event surely worth celebrating. To start with, our automated pipelines make sure that Kyma runs on Kubernetes 1.14 on GKE and AKS. We are also happy to announce two recent additions to the Kyma family: Compass and Hydroform. The work in the improvements department does not slow down, bringing you a brand new API Gateway, refurbished UI component, and simplified Logging UI. The Kyma-Knative cooperation evolves, resulting in Function Controller and Event Bus enhancements. Read the full release notes for the complete list of improvements offered by the 1.6 release.
+We can't even imagine a better time to visit Munich than October. While the capital of Bavaria enjoys Oktoberfest, Kyma raises a glass to the 1.6 release - an event surely worth celebrating. To start with, our automated pipelines make sure that Kyma runs on Kubernetes 1.14 on GKE and AKS. We are also happy to announce two recent additions to the Kyma family: Compass and Hydroform. The work in the improvements department does not slow down, bringing you a brand new API Gateway, refurbished UI component, and simplified Logging UI. The Kyma-Knative cooperation evolves, resulting in Function Controller and Event Bus enhancements. Read the full release notes for the complete list of improvements offered by the 1.6 release.
 
 
 
@@ -18,14 +18,14 @@ We can't even imagine a better time to visit Munich than October. While the capi
 
 See the overview of all changes in this release:
 - [API Gateway](#api-gateway) - Brand new API Gateway
-- [Console](#console) - Simplified Logging UI,  Preloading micro frontends
+- [Console](#console) - Simplified Logging UI, Preloading micro frontends
 - [Compass](#compass) - Introducing Compass 
 - [Core and Supporting](#core-and-supporting) -  Support for AsyncAPI 2.0 specification, AsyncAPI UI component restyled, support for more Gateway modes by Asset Store, metrics exposed for Asset Store and Headless CMS
 - [Documentation](#documentation) - Improved installation documentation
 - [Eventing](#eventing) - Knative Eventing Channel Provisioners replaced with Channel CRD Controllers, Knative Eventing chart updated to 0.8 
 - [Hydroform](#hydroform) - Introducing Hydroform - Kubernetes provisioning 
 - [Serverless](#serverless) - Function Controller enhanced with new features, Knative Serving updated to 0.8.1 
-- [Service Management](#service-management) - Service Catalog switched to CRD implementation, GCP Service Broker as a primary addon
+- [Service Management](#service-management) - Service Catalog switched to the CRD implementation, GCP Service Broker no longer in the preview mode
 - [Logging](#serverless) - Added support for Fluent Bit
 
 
@@ -55,16 +55,16 @@ We attach great importance to Kyma performance, constantly striving to speed thi
 
 ### Introducing Compass
 
-Compass is a multi-tenant system that consists of components that provide a way to manage your applications across multiple Kyma Runtimes. Read the [documentation](https://kyma-project.io/docs/1.6/components/compass/) to learn how to enable this experimental component and try it out.
+Compass is a central, multi-tenant system that allows you to connect Applications and manage them across multiple Kyma Runtimes. Read the [documentation](https://kyma-project.io/docs/1.6/components/compass/) to learn how to enable this experimental component and try it out.
 
 
 ### Authorization and authentication 
 
-To ensure secure communication between Compass, Runtimes, and Application we provide you with several authentication and authorization options. To learn more, read [this](https://github.com/kyma-incubator/compass/blob/master/docs/architecture/authentication-and-authorization.md) document.
+To ensure secure communication between Compass, Runtimes, and Applications we provide you with several authentication and authorization options. To learn more, read [this](https://github.com/kyma-incubator/compass/blob/master/docs/architecture/authentication-and-authorization.md) document.
 
 ## Core and Supporting
 
-### Support for AsyncAPI 2.0 specification
+### Support for the AsyncAPI 2.0 specification
 
 Only three weeks after its official release, [AsyncAPI 2.0](https://twitter.com/AsyncAPISpec/status/1171831790887211011) is already a standard in Kyma. How did we manage to achieve this so fast? We have worked closely with the AsyncAPI community and actively contributed to their tooling. For details, have a look at the [AsyncAPI Converter](https://github.com/asyncapi/converter-go) and [AsyncAPI React](https://github.com/asyncapi/asyncapi-react) repositories maintained by Kyma developers.
 
@@ -106,7 +106,7 @@ You can also start exploring metrics right away, using our pre-configured Grafan
 
 ### Improved installation documentation 
 
-We want our documentation to be comprehensive, yet easy to follow and understand. That's why we constantly improve it, always with the community feedback in mind. Our [most recent discussions](https://kyma-community.slack.com/archives/CD2HJ0E78/p1568721087011100) turned out to be a great starting point for another successful implementation. [This](https://kyma-project.io/docs/1.6/root/kyma/#installation-install-kyma-on-a-cluster) installation document introduces a new structure including tabs accommodating instructions for a specific cloud provider.
+We want our documentation to be comprehensive, yet easy to follow and understand. That's why we constantly improve it, always with the community feedback in mind. Our [most recent discussions](https://kyma-community.slack.com/archives/CD2HJ0E78/p1568721087011100) turned out to be a great starting point for another successful implementation. Check out [this](https://kyma-project.io/docs/1.6/root/kyma/#installation-install-kyma-on-a-cluster) installation document to explore the new structure.
 
 ## Eventing
 
@@ -152,9 +152,9 @@ After a couple of months of hard work with development and integrations in the u
 See [this](https://svc-cat.io/docs/design/#service-catalog-design) document for more information about the new Service Catalog design. What is more, in this release we provided a migration job that handles managed Service Catalog data upgrade between 1.5 and 1.6 Kyma versions. For more information, read [this](https://svc-cat.io/docs/migration-apiserver-to-crds/) document.
 
 
-### GCP Service Broker as a primary addon
+### GCP Service Broker no longer in the preview mode
 
-After some time spent in the preview mode, the GCP Service Broker is now a primary addon. For details, see [this](https://kyma-project.io/docs/1.6/components/service-catalog#service-brokers-gcp-service-broker) document.
+After some time spent in the preview mode, the GCP Service Broker joins other production-ready addons that are provided in Kyma by default. For details, see [this](https://kyma-project.io/docs/1.6/components/service-catalog#service-brokers-gcp-service-broker) document.
 
 ## Logging
 
