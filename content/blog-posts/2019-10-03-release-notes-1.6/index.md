@@ -22,7 +22,7 @@ See the overview of all changes in this release:
 - [Compass](#compass) - Introducing Compass 
 - [Core and Supporting](#core-and-supporting) -  Support for AsyncAPI 2.0 specification, UI component restyled, support for more Gateway modes by Asset Store, metrics exposed for Asset Store and Headless CMS
 - [Documentation](#documentation) - Improved installation documentation
-- [Eventing](#eventing) - Knative Eventing Channel provisioners replaced with Channel CRD Controllers, Knative Eventing chart updated to 0.8 
+- [Eventing](#eventing) - Knative Eventing Channel Provisioners replaced with Channel CRD Controllers, Knative Eventing chart updated to 0.8 
 - [Hydroform](#hydroform) - Introducing Hydroform - Kubernetes provisioning 
 - [Serverless](#serverless) - Function Controller enhanced with new features, Knative Serving updated to 0.8.1 
 - [Service Management](#service-management) - Service Catalog switched to CRD implementation, GCP Service Broker as a primary addon
