@@ -29,7 +29,12 @@ export const Facebook: React.FunctionComponent<FacebookProps> = ({
     <meta property="og:type" content={type} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={image} />
+    <meta
+      property="og:image"
+      content={
+        "https://5d933ca4be33da000824d6ae--kyma-project.netlify.com/logo2.png"
+      }
+    />
     <meta property="og:image:alt" content={imageAlt ? imageAlt : description} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
