@@ -20,7 +20,7 @@ See the overview of all changes in this release:
 - [API Gateway](#api-gateway) - Brand new API Gateway
 - [Console](#console) - Simplified Logging UI,  Preloading micro frontends
 - [Compass](#compass) - Introducing Compass 
-- [Core and Supporting](#core-and-supporting) -  Support for AsyncAPI 2.0 specification, UI component restyled, support for more Gateway modes by Asset Store, metrics exposed for Asset Store and Headless CMS
+- [Core and Supporting](#core-and-supporting) -  Support for AsyncAPI 2.0 specification, AsyncAPI UI component restyled, support for more Gateway modes by Asset Store, metrics exposed for Asset Store and Headless CMS
 - [Documentation](#documentation) - Improved installation documentation
 - [Eventing](#eventing) - Knative Eventing Channel Provisioners replaced with Channel CRD Controllers, Knative Eventing chart updated to 0.8 
 - [Hydroform](#hydroform) - Introducing Hydroform - Kubernetes provisioning 
@@ -68,14 +68,16 @@ To ensure secure communication between Compass, Runtimes, and Application we pro
 
 Only three weeks after its official release, [AsyncAPI 2.0](https://twitter.com/AsyncAPISpec/status/1171831790887211011) is already a standard in Kyma. How did we manage to achieve this so fast? We have worked closely with the AsyncAPI community and actively contributed to their tooling. For details, have a look at the [AsyncAPI Converter](https://github.com/asyncapi/converter-go) and [AsyncAPI React](https://github.com/asyncapi/asyncapi-react) repositories maintained by Kyma developers.
 
-Although you can register any AsyncAPI version in Kyma, 2.0 is the only specification supported in the Kyma cluster. To make sure you are using the right version, we automatically convert your specification to 2.0. For example, upgrading from Kyma 1.5 to 1.6 means the cluster has already the new configuration for the Headless CMS component. As a result, the AsyncAPI specifications you registered before the upgrade will be automatically converted to the version 2.0. 
+Although you can register any AsyncAPI version in Kyma, 2.0 is the only specification supported in the Kyma cluster. To make sure you are using the right version, we automatically validate your specification and convert it to 2.0.  
+
+Upgrading from Kyma 1.5 to 1.6 means the cluster has already the new configuration for the Headless CMS component. This means, the AsyncAPI specifications you registered before the upgrade will be automatically converted to the version 2.0. 
 
 >**NOTE:** Your specification won’t be converted if version 1.0 is corrupted.
 
 To get even more insight into the topic, check our [demo](https://youtu.be/9tJOn6qRR2U?t=2283) presented during the Core Special Interest Group meeting and read the [documentation](https://kyma-project.io/docs/1.6/components/headless-cms/#details-cms-async-api-service).
 
 
-### UI component restyled
+### AsyncAPI UI component restyled
 
 We restyled the existing UI component to match SAP Fiori 3 and updated the component to exclusively support AsyncAPI 2.0. The expandable sections improve the overall user experience, making it easier to navigate through documents. 
 
@@ -120,7 +122,7 @@ In this release, we updated our bundled Knative Eventing chart to [Knative 0.8](
 
 ### Introducing Hydroform
 
-This release brings you [Hydroform](https://github.com/kyma-incubator/hydroform/blob/master/README.md ), an infrastructure SDK you can use to create and manage Kubernetes clusters provisioned on the chosen cloud provider. Currently, Hydroform supports Google Cloud Platform and Gardener, the latter using [Terraform provider for Gardener](https://github.com/kyma-incubator/terraform-provider-gardener) to ensure smooth cluster provisioning.
+This release brings you [Hydroform](https://github.com/kyma-incubator/hydroform/blob/master/README.md ), an infrastructure SDK you can use to create and manage Kubernetes clusters provisioned on the chosen cloud provider. The idea behind Hydroform is to provide an easy way of creating infrastructure. Having a common library used across products such as Kyma CLI or Compass significantly simplifies cluster provisioning and management. Currently, Hydroform supports Google Cloud Platform and Gardener, the latter using [Terraform provider for Gardener](https://github.com/kyma-incubator/terraform-provider-gardener) to ensure smooth cluster provisioning.
 
 ## Serverless
 
