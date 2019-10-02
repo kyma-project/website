@@ -101,6 +101,7 @@ export const rssFeed = {
           }
         }  
         `,
+        title: siteMetadata.description,
         output: `${
           siteMetadata.feedUrl.startsWith("/")
             ? siteMetadata.feedUrl
