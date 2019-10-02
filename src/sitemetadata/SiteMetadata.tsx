@@ -44,9 +44,9 @@ const SiteMetadata: React.FunctionComponent<
   const {
     site: { siteMetadata },
   } = useStaticQuery<{ site: { siteMetadata: SiteMetadataType } }>(query);
-  siteMetadata.siteUrl =
-    "https://5d945b50773fd800082b79dd--kyma-project.netlify.com/";
-  const host = "https://5d945b50773fd800082b79dd--kyma-project.netlify.com/";
+
+  const host =
+    process.env.GATSBY_SITE_URL || `127.0.0.1:${globalHistory.location.port}`;
   const image = `${host}${withPrefix("/logo.png")}`;
   const facebookImage = `${host}${withPrefix("/facebookLogo.png")}`;
 
