@@ -32,9 +32,8 @@ const getContent = async <T extends ContentGQL>(
   return result.data.allMarkdownRemark.edges.map((e: any) => e.node) as T[];
 };
 
-const sortDocsByOrder = (docs: DocsContentDocs[]) => {
-  return docs.sort(sortFnByProperty<DocsContentDocs>("order"));
-};
+const sortDocsByOrder = (docs: DocsContentDocs[]) =>
+  docs.sort(sortFnByProperty<DocsContentDocs>("order"));
 
 const sortDocsByType = (docs: DocsContentDocs[]): DocsContentDocs[] => {
   const docsTypes: string[] = [];

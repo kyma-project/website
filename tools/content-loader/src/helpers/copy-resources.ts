@@ -1,5 +1,5 @@
 import { join } from "path";
-import { stat, readdir, copy } from "fs-extra";
+import { copy } from "fs-extra";
 import to from "await-to-js";
 import { VError } from "verror";
 
@@ -18,14 +18,16 @@ export const copyResources = async (
     throw err;
   }
 
-  let files;
+  let files: string[] | undefined;
   [err, files] = await to(getFilesPaths(dir));
   if (err) {
     throw new VError(err, `while getting files paths`);
   }
+  if (!files || !files.length) {
+    return;
+  }
 
   files = files.filter(file => Boolean(regex.exec(file)));
-
   const copyingFiles = files.map(async file => {
     const newPath = join(output, file.replace(dir, ""));
     const [e, r] = await to(copy(file, newPath));

@@ -15,7 +15,7 @@ export const createSingleBlogPost = ({
 }: CreateSingleBlogPostArgs) => {
   const singleBlogPostTemplate: string = resolve(
     __dirname,
-    "../../../../src/templates/BlogPost.tsx",
+    "../../../../src/views/blog/single/index.tsx",
   );
 
   posts.map((post, index) => {
@@ -55,6 +55,7 @@ export const createSingleBlogPost = ({
       component: singleBlogPostTemplate,
       context: {
         slug,
+        post,
         assetsPath,
         previous,
         next,

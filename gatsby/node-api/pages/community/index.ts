@@ -30,9 +30,9 @@ const extractFn = (
   } = doc;
 
   if (docsGroup === type && topicId === id) {
-    let obj: DocsContentDocs = {
+    const obj: DocsContentDocs = {
       order: fileName,
-      title: title,
+      title,
       source: rawMarkdownBody,
     };
 

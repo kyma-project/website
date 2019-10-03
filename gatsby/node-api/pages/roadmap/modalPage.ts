@@ -1,33 +1,20 @@
-import { resolve } from "path";
-import {
-  generateCapabilitiesNavigation,
-  generateMapOfDisplayNameToId,
-} from "./helpers";
-import { CapabilityGQL } from "./types";
 import { CreatePageFn, CreateRedirectFn } from "../../../types";
 import { ROADMAP_PATH_PREFIX } from "../../../constants";
+import { createModalPage } from "../utils/createModalPage";
 import { Tickets } from "../../../../tools/content-loader/src/prepare-roadmap/types";
 
-export interface CreateModalPageArgs {
+import allTickets from "../../../../content/roadmap/tickets.json";
+
+export interface CreateRoadmapModalPageArgs {
   createPage: CreatePageFn;
   createRedirect: CreateRedirectFn;
-  capabilities: CapabilityGQL[];
 }
 
-const releases: Tickets = require("../../../../content/roadmap/tickets.json");
-
-export const createModalPage = ({
+export const createRoadmapModalPage = ({
   createPage,
   createRedirect,
-  capabilities,
-}: CreateModalPageArgs) => {
-  const roadmapTemplate: string = resolve(
-    __dirname,
-    "../../../../src/templates/Roadmap.tsx",
-  );
-
-  const capabilitiesNavigation = generateCapabilitiesNavigation(capabilities);
-  const ids = generateMapOfDisplayNameToId(capabilities);
+}: CreateRoadmapModalPageArgs) => {
+  const releases = allTickets as Tickets;
 
   Object.keys(releases).map(release => {
     const capabilities = releases[release];
@@ -44,13 +31,12 @@ export const createModalPage = ({
           toPath: `${path}/`,
         });
 
-        createPage({
+        createModalPage(createPage)({
           path: `${path}/`,
-          component: roadmapTemplate,
           context: {
-            capabilitiesNavigation,
-            ids,
-            ticket,
+            modalContext: {
+              ticket,
+            },
           },
         });
       });

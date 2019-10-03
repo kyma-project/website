@@ -10,28 +10,28 @@ import { DocsNavigation } from "../utils";
 const getDocsVersions = (versions: DocsGeneratedVersions): DocsVersions => {
   const versionsByType: DocsVersions = {};
 
-  const appendType = (
-    type: string,
-    versions: Array<DocsReleasesVersion | DocsBranchesVersion>,
-    versionsByType: DocsVersions,
-  ) => {
-    if (!versions || versions.length === 0) {
-      return;
-    }
-
-    const sortedVersions = versions
-      .map(version => version.name)
-      .sort(compareVersions)
-      .reverse();
-
-    versionsByType[type] = sortedVersions;
-  };
-
-  appendType("releases", versions.releases, versionsByType);
-  appendType("prereleases", versions.pre_releases, versionsByType);
-  appendType("branches", versions.branches, versionsByType);
+  appendDocsType("releases", versions.releases, versionsByType);
+  appendDocsType("prereleases", versions.pre_releases, versionsByType);
+  appendDocsType("branches", versions.branches, versionsByType);
 
   return versionsByType;
+};
+
+const appendDocsType = (
+  type: string,
+  versions: Array<DocsReleasesVersion | DocsBranchesVersion>,
+  versionsByType: DocsVersions,
+) => {
+  if (!versions || versions.length === 0) {
+    return;
+  }
+
+  const sortedVersions = versions
+    .map(version => version.name)
+    .sort(compareVersions)
+    .reverse();
+
+  versionsByType[type] = sortedVersions;
 };
 
 const sortGroupOfNavigation = (navigation: DocsNavigation): DocsNavigation => {

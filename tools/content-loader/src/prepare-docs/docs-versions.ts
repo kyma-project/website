@@ -51,8 +51,10 @@ export class DocsVersions {
   }
 
   private forReleases(releases?: Map<string, string>) {
-    const versions = [];
-    if (!releases) return versions;
+    const versions: DocsReleasesVersion[] = [];
+    if (!releases) {
+      return versions;
+    }
 
     releases.forEach((tag, name) => {
       versions.push({
@@ -65,7 +67,7 @@ export class DocsVersions {
   }
 
   private forBranches(branches?: Map<string, string>) {
-    const versions = [];
+    const versions: DocsBranchesVersion[] = [];
     if (!branches) return versions;
 
     branches.forEach((commit, branch) => {

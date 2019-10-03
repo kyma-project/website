@@ -1,7 +1,7 @@
 import { SiteMetadata } from "./types";
-const configSiteMetadata: SiteMetadata = require("../../config").siteMetadata;
+import configSiteMetadata from "../../config.json";
 
 export const siteMetadata: SiteMetadata = {
   twitterUsername: "kymaproject",
-  ...configSiteMetadata,
+  ...configSiteMetadata.siteMetadata,
 };

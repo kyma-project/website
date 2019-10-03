@@ -1,6 +1,11 @@
 import React from "react";
 import { DefaultLayout } from "../default";
 
-export const DocumentationLayout: React.FunctionComponent = ({ children }) => (
-  <DefaultLayout inDocsLayout={true}>{children}</DefaultLayout>
+export const DocumentationLayout: React.FunctionComponent<any> = ({
+  children,
+  ...pageContext
+}) => (
+  <DefaultLayout {...pageContext} inDocsLayout={true}>
+    {children}
+  </DefaultLayout>
 );
