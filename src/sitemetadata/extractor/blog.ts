@@ -1,15 +1,17 @@
 import { Post } from "@typings/blog";
 import { BlogPostMetadata } from "../SiteMetadata";
 
+const BLOG_ROOT_PATH = "/blog";
+
 function getPageTitle(uri: string, post: Post): string {
-  if (uri === "/blog") {
+  if (uri === BLOG_ROOT_PATH) {
     return "Blog";
   }
   return post.frontmatter.title;
 }
 
 function getPageDescription(uri: string, post: Post): string {
-  if (uri === "/blog") {
+  if (uri === BLOG_ROOT_PATH) {
     return "";
   }
 
@@ -22,7 +24,7 @@ function getBlogPostMetadata(
   uri: string,
   post: Post,
 ): BlogPostMetadata | undefined {
-  if (uri === "/blog") {
+  if (uri === BLOG_ROOT_PATH) {
     return;
   }
 
@@ -36,7 +38,7 @@ function getBlogPostMetadata(
 }
 
 function getBlogPostTags(uri: string, post: Post): string[] {
-  if (uri === "/blog") {
+  if (uri === BLOG_ROOT_PATH) {
     return [];
   }
 
