@@ -28,8 +28,13 @@ interface HeaderWrapperProps {
 }
 
 export const HeaderWrapper = styled.header`
+  > div {
+    display: flex;
+    justify-content: space-between;
+  }
+
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   position: relative;
   margin-bottom: ${(props: HeaderWrapperProps) =>
     props.horizontalBg ? "3vw" : ""};
@@ -135,6 +140,15 @@ export const HeaderLogo = styled.h1`
     ${media.phone`
       width: 140px;
     `};
+  }
+`;
+
+export const GithubButtonsWrapper = styled.section`
+  display: flex;
+  align-items: center;
+  & > span {
+    padding-left: 15px;
+    display: block;
   }
 `;
 
