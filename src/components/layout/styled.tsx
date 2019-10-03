@@ -143,7 +143,6 @@ export const HeaderLogo = styled.h1`
 
 /* Navigation */
 export const NavigationWrapper = styled.nav`
-  display: inline-block;
   width: auto;
   float: right;
   margin-top: 0;

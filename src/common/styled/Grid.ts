@@ -5,11 +5,10 @@ interface GridContainerProps {
   padding?: string;
 }
 
-const GridContainer = styled.div`
+const GridContainer = styled.div<GridContainerProps>`
   width: 1200px;
   max-width: 100%;
-  ${(props: GridContainerProps) =>
-    props.padding ? props.padding : "padding: 30px 30px 0 30px"};
+  ${props => (props.padding ? props.padding : "padding: 30px 30px 0 30px")};
   margin: 0 auto;
 `;
 

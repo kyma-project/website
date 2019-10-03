@@ -27,9 +27,23 @@ interface HeaderWrapperProps {
   horizontalBg?: boolean;
 }
 
-export const HeaderWrapper = styled.header`
+export const GithubButtonsWrapper = styled.section`
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  & > span {
+    padding-left: 15px;
+    display: block;
+  }
+`;
+
+export const HeaderWrapper = styled.header`
+  > div {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  display: flex;
+  flex-direction: row;
   position: relative;
   margin-bottom: ${(props: HeaderWrapperProps) =>
     props.horizontalBg ? "3vw" : ""};

@@ -108,7 +108,7 @@ class Navigation extends Component<{}, State> {
               </NavigationIntLink>
             </NavigationItem>
           ))}
-          {socialMedia.map((media, index) => (
+          {socialMedia.map(media => (
             <NavigationItem key={media.name}>
               <NavigationExtLink to={media.url}>
                 <Button.Light iconName={media.icon}>
