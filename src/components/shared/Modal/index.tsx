@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useModal } from "react-modal-hook";
+import { useLockBodyScroll, useToggle } from "react-use";
 
 import { sizes } from "@styled";
 
@@ -23,12 +24,15 @@ const Modal: React.FunctionComponent<ModalProps> = ({
   show = false,
   children,
 }) => {
+  const [locked, toggleLocked] = useToggle(false);
+  useLockBodyScroll(locked);
+
   const onOpen = () => {
     const element = document.querySelector(`html`);
     if (element) {
       element.style.overflowY = `hidden`;
     }
-
+    toggleLocked(true);
     onRequestOpen && onRequestOpen();
   };
 
@@ -37,6 +41,7 @@ const Modal: React.FunctionComponent<ModalProps> = ({
     if (element) {
       element.style.overflowY = `auto`;
     }
+    toggleLocked(false);
     hideModal();
     onRequestClose && onRequestClose();
   };
@@ -53,14 +58,11 @@ const Modal: React.FunctionComponent<ModalProps> = ({
     right: `inherit`,
     bottom: `inherit`,
     margin: `0 auto`,
-    width:
-      typeof window !== `undefined` && window.innerWidth > 900
-        ? `900px`
-        : `100vw`,
-    minWidth: `320px`,
+    width: "100%",
+    minWidth: `360px`,
     maxWidth: `900px`,
-    minHeight: `100%`,
-    maxHeight: `100vh`,
+    minHeight: `calc(100vh + 1px)`,
+    maxHeight: `calc(100vh + 1px)`,
     background: `none`,
     border: `none`,
     padding: `0`,

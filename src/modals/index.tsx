@@ -5,8 +5,6 @@
 
 import React from "react";
 
-import { useLockBodyScroll } from "@common/hooks";
-
 import { DocsSpecificationModal } from "./docs-specification";
 import { RoadmapModal } from "./roadmap";
 
@@ -47,7 +45,6 @@ interface Props {
   context: Record<string, any>;
 }
 
-const ModalComponent: React.FunctionComponent<Props> = ({ Modal, context }) => {
-  useLockBodyScroll();
-  return <Modal {...context} />;
-};
+const ModalComponent: React.FunctionComponent<Props> = ({ Modal, context }) => (
+  <Modal {...context} />
+);
