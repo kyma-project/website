@@ -38,10 +38,12 @@ export const LayoutWrapper: React.FunctionComponent<any> = ({
   const Layout = getProperLayout(path);
   const Modal = ModalWrapper(path, pageContext);
 
-  if (Modal) {
-    window.__GATSBY_IN_MODAL_PAGE = true;
-  } else {
-    window.__GATSBY_IN_MODAL_PAGE = false;
+  if (typeof window !== "undefined") {
+    if (Modal) {
+      window.__GATSBY_IN_MODAL_PAGE = true;
+    } else {
+      window.__GATSBY_IN_MODAL_PAGE = false;
+    }
   }
 
   return (
