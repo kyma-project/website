@@ -18,7 +18,7 @@ import prepareRoadmapContent from "../src/prepare-roadmap";
 const prepareDocsFn = async () => {
   const config: CoreConfig = {
     ...coreConfig,
-    organization: "tomekpapiernik",
+    organization: "mmitoraj",
     repository: docsConfig.repository,
   };
 

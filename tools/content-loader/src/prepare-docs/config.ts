@@ -7,7 +7,7 @@ export interface DocsConfig {
 }
 
 const config: DocsConfig = {
-  branches: ["issue-5305"],
+  branches: ["note"],
   // branches: process.env.APP_DOCS_BRANCHES
   //   ? process.env.APP_DOCS_BRANCHES.replace(/ /g, "").split(",")
   //   : ["master"],
