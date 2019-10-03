@@ -146,15 +146,17 @@ export const HeaderLogo = styled.h1`
 export const GithubButtonsWrapper = styled.section`
   display: flex;
   align-items: center;
-  & > span {
-    padding-left: 15px;
-    display: block;
+`;
+
+export const IFrameWrapper = styled.section`
+  padding-left: 20px;
+  & > iframe {
+    margin: 0;
   }
 `;
 
 /* Navigation */
 export const NavigationWrapper = styled.nav`
-  display: inline-block;
   width: auto;
   float: right;
   margin-top: 0;
