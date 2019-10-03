@@ -49,7 +49,16 @@ export const ModalHeaderWrapper = styled.header`
     border-radius: 0;
 
     > div {
-      padding: 62px 44px 24px;
+      padding: 72px 44px 24px;
+      border-radius: 0;
+    }
+  `};
+
+  ${media.smallPhone`
+    border-radius: 0;
+
+    > div {
+      padding: 72px 24px 24px;
       border-radius: 0;
     }
   `};
@@ -152,6 +161,11 @@ export const ModalContentWrapper = styled.div`
 
   ${media.phone`
     padding: 24px 44px 24px;
+    border-radius: 0;
+  `};
+
+  ${media.smallPhone`
+    padding: 24px 24px;
     border-radius: 0;
   `};
 `;
