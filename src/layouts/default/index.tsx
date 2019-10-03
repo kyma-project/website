@@ -1,6 +1,8 @@
 import React from "react";
 
-import SlidesBanner, { SlidesBannerProps } from "./components/SlidesBanner";
+import { SlidesBanner } from "./components/SlidesBanner";
+import { SlidesBannerProps } from "@typings/landingPage";
+
 import CookiesBanner from "./components/CookiesBanner";
 import BackToTop from "./components/BackToTop";
 import Header from "./components/Header";

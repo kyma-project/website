@@ -11,7 +11,7 @@ import { RoadmapModal } from "./roadmap";
 type ModalRegex = Array<[RegExp, React.ElementType<any>]>;
 const modalRegex: ModalRegex = [[/^\/roadmap/, RoadmapModal]];
 
-export function checkModal(path: string): React.ElementType<any> | null {
+export function getProperModal(path: string): React.ElementType<any> | null {
   for (const [regex, Component] of modalRegex) {
     if (regex.test(path)) {
       return Component;
@@ -29,7 +29,7 @@ export const ModalWrapper = (
     return null;
   }
 
-  const Modal = checkModal(path);
+  const Modal = getProperModal(path);
   if (!Modal) {
     return null;
   }

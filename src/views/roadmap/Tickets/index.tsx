@@ -33,11 +33,7 @@ export const Tickets: React.FunctionComponent = () => {
     />
   ));
 
-  return (
-    <div>
-      <TicketsWrapper>{releases}</TicketsWrapper>
-    </div>
-  );
+  return <TicketsWrapper>{releases}</TicketsWrapper>;
 };
 
 export default Tickets;

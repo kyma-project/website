@@ -16,7 +16,7 @@ export interface CreateRoadmapPages {
 
 export const createRoadmapPages = async ({
   graphql,
-  createPage: createP,
+  createPage: originalCreatePage,
   createRedirect,
 }: CreateRoadmapPages) => {
   const roadmapTemplate: string = resolve(
@@ -24,7 +24,11 @@ export const createRoadmapPages = async ({
     "../../../../src/views/roadmap/index.tsx",
   );
   const capabilities = await getCapabilities(graphql);
-  const createPage = createRoadmapPage(createP, roadmapTemplate, capabilities);
+  const createPage = createRoadmapPage(
+    originalCreatePage,
+    roadmapTemplate,
+    capabilities,
+  );
 
   createRoadmapRootPage({ createPage, createRedirect });
   createRoadmapModalPage({ createPage, createRedirect });

@@ -28,18 +28,20 @@ export const KeyFeaturesSvgWrap = styled.div`
   svg {
     max-width: 100%;
 
-    @media (min-width: 576px) {
+    ${media.smallPhone`
       & {
         justify-content: center;
         display: flex;
         flex-direction: column;
       }
-    }
+    `};
 
-    @media (min-width: 1024px) {
-      height: 23vw;
-      max-height: 330px;
-    }
+    ${media.tablet`
+      & {
+        height: 23vw;
+        max-height: 330px;
+      }
+    `};
   }
 `;
 

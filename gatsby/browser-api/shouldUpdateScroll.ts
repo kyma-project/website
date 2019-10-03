@@ -74,6 +74,6 @@ export function shouldUpdateScroll({
   const offset = getTargetOffset(location.hash);
 
   // __GATSBY_ROUTE_UPDATE is updated in root service
-  (window as any).__GATSBY_ROUTE_UPDATED = false;
+  window.__GATSBY_ROUTE_UPDATED = false;
   return offset !== null ? [0, offset] : true;
 }

@@ -2,7 +2,6 @@ import { DOCS_LATEST_VERSION } from "../../../constants";
 import { DocsContentItem } from "../utils";
 
 import fixLinksJSON from "../../../../content/docs/fix-links.json";
-const linksToRewrite = fixLinksJSON as any;
 
 const MD_LINKS_REGEX = /\[([^\[]+)\]\(([^\)]+)\)/g;
 const DOCS_LINKS_REGEX = /^\/(docs|components|root)\/(.*?)$/g;
@@ -49,7 +48,11 @@ export const rewrite = ({
 }) => {
   const v =
     version === DOCS_LATEST_VERSION || !version ? latestVersion : version;
-  if (!linksToRewrite[v]) return source;
+
+  const linksToRewrite: any = fixLinksJSON;
+  if (!linksToRewrite[v]) {
+    return source;
+  }
 
   return source.replace(MD_LINKS_REGEX, occurrence => {
     MD_LINKS_REGEX.lastIndex = 0;

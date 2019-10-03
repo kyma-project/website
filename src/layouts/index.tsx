@@ -21,7 +21,7 @@ const layoutRegex: LayoutRegex = [
   [/^\/community/, CommunityLayout],
 ];
 
-export function checkLayout(path: string): React.ElementType<any> {
+export function getProperLayout(path: string): React.ElementType<any> {
   for (const [regex, Component] of layoutRegex) {
     if (regex.test(path)) {
       return Component;
@@ -35,7 +35,7 @@ export const LayoutWrapper: React.FunctionComponent<any> = ({
   ...otherProps
 }) => {
   const { path, pageContext } = otherProps as any;
-  const Layout = checkLayout(path);
+  const Layout = getProperLayout(path);
   const Modal = ModalWrapper(path, pageContext);
 
   return (

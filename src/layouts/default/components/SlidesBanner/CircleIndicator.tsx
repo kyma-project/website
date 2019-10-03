@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Slide } from "./types";
+import { Slide } from "@typings/landingPage";
 
 import { Circle, CircleWrapper } from "./styled";
 

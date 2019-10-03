@@ -3,7 +3,7 @@ import { resolve } from "path";
 import { safeLoad } from "js-yaml";
 
 import { CreatePageFn, CreatePageFnArgs } from "../../../types";
-import { SlidesBannerProps } from "../../../../src/layouts/default/components/SlidesBanner";
+import { SlidesBannerProps } from "@typings/landingPage";
 
 export function extractSlidesBanner(): SlidesBannerProps {
   const path = resolve(__dirname, "../../../../content/banner/slides.yml");
