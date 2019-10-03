@@ -88,11 +88,11 @@ export interface Specification {
   id: string;
   assetPath: string;
   pageUrl: string;
-  githubUrl: string;
+  githubUrl?: string;
   info: {
     version: string;
     title: string;
-    description: string;
+    description?: string;
     [key: string]: any;
   };
   spec: any;

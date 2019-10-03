@@ -74,13 +74,15 @@ export const ModalHeader: React.FunctionComponent<ModalHeaderProps> = ({
             </ModalHeaderLinkButton>
           </Link.External>
         </ModalHeaderLink>
-        <ModalHeaderLink>
-          <Link.External to={specification.githubUrl}>
-            <ModalHeaderLinkButton>
-              <FormattedMessage id="docs.modal.viewInGitHub" />
-            </ModalHeaderLinkButton>
-          </Link.External>
-        </ModalHeaderLink>
+        {specification.githubUrl && (
+          <ModalHeaderLink>
+            <Link.External to={specification.githubUrl}>
+              <ModalHeaderLinkButton>
+                <FormattedMessage id="docs.modal.viewInGitHub" />
+              </ModalHeaderLinkButton>
+            </Link.External>
+          </ModalHeaderLink>
+        )}
       </ModalHeaderLinks>
     </div>
   </ModalHeaderWrapper>
