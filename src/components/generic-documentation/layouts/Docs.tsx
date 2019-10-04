@@ -104,8 +104,9 @@ export const DocsLayout: React.FunctionComponent<DocsLayoutProps> = ({
                 <Sticky>
                   {({ style }: any) => (
                     <StickyWrapperRightNav style={{ ...style, zIndex: 200 }}>
-                      <HeadersNavigation />
-                      <SpecificationList specifications={specifications} />
+                      <HeadersNavigation>
+                        <SpecificationList specifications={specifications} />
+                      </HeadersNavigation>
                     </StickyWrapperRightNav>
                   )}
                 </Sticky>

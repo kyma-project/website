@@ -1,18 +1,22 @@
-import styled from "@styled";
+import styled, { media } from "@styled";
 
 export const SpecificationsListWrapper = styled.ul`
   padding: 0;
-  margin: 0;
+  margin: 24px 0 0 0;
   list-style: none;
 `;
 
 export const SpecificationsListHeader = styled.h4`
   font-size: 16px;
-  color: #485766;
+  color: rgb(0, 115, 230);
   font-weight: normal;
   display: block;
   margin: 0 0 12px 0;
   padding: 0;
+
+  ${media.phone`
+    margin-left: 16px;
+  `};
 `;
 
 interface SpecificationsListItemProps {

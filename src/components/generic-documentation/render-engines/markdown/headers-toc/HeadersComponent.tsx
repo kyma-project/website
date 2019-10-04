@@ -17,7 +17,7 @@ export interface HeadersNavigationProps {
 
 export const HeadersNavigation: React.FunctionComponent<
   HeadersNavigationProps
-> = ({ enableSmoothScroll = false }) => {
+> = ({ enableSmoothScroll = false, children = null }) => {
   const { showMobileRightNav } = useContext(GenericDocsContext);
   const headersWrapperRef = useRef<HTMLDivElement>();
   const [locked, toggleLocked] = useToggle(false);
@@ -48,6 +48,7 @@ export const HeadersNavigation: React.FunctionComponent<
         <StyledHeadersNavigation className="dc-markdown__toc-wrapper">
           <RenderedHeader />
         </StyledHeadersNavigation>
+        {children}
       </HN>
     </HeadersNavigationsWrapper>
   );
