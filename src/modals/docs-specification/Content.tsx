@@ -7,8 +7,6 @@ import {
 } from "@components/generic-documentation";
 import { Specification } from "@typings/docs";
 
-import { ModalContentWrapper } from "./styled";
-
 interface Props {
   specification: Specification;
 }
@@ -26,11 +24,9 @@ export const ModalContent: React.FunctionComponent<Props> = ({
   ];
 
   return (
-    <ModalContentWrapper>
-      <GenericComponent
-        sources={sources}
-        layout={LayoutType.DOCS_SPECIFICATION}
-      />
-    </ModalContentWrapper>
+    <GenericComponent
+      sources={sources}
+      layout={LayoutType.DOCS_SPECIFICATION}
+    />
   );
 };

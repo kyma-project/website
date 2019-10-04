@@ -5,12 +5,19 @@ import { sizes } from "@styled";
 
 import Icon from "@components/shared/Icon";
 
-import { StyledModal, CloseButton } from "./styled";
+import {
+  StyledModal,
+  ContentWrapper,
+  ModalHeaderWrapper,
+  ModalContentWrapper,
+  CloseButton,
+} from "./styled";
 
 export interface ModalProps {
   openComponent: React.ReactNode;
   className?: string;
   show?: boolean;
+  header: React.ReactNode;
   onRequestOpen?: () => void;
   onRequestClose?: () => void;
 }
@@ -18,9 +25,10 @@ export interface ModalProps {
 const Modal: React.FunctionComponent<ModalProps> = ({
   openComponent,
   className = "",
+  show = false,
+  header,
   onRequestOpen,
   onRequestClose,
-  show = false,
   children,
 }) => {
   const onOpen = () => {
@@ -80,6 +88,17 @@ const Modal: React.FunctionComponent<ModalProps> = ({
         : `#fff`,
   };
 
+  const modalContent = (
+    <ContentWrapper className="modal__wrapper">
+      <ModalHeaderWrapper className="modal__header">
+        <div>{header}</div>
+      </ModalHeaderWrapper>
+      <ModalContentWrapper className="modal__content">
+        {children}
+      </ModalContentWrapper>
+    </ContentWrapper>
+  );
+
   const [showModal, hideModal] = useModal(
     ({ in: open, onExited }: { in: boolean; onExited: boolean }) => (
       <>
@@ -95,7 +114,7 @@ const Modal: React.FunctionComponent<ModalProps> = ({
             onClose();
           }}
         >
-          {children}
+          {modalContent}
           <CloseButton onClick={onClose}>
             <Icon iconName="times" iconPrefix="fas" />
           </CloseButton>
