@@ -7,16 +7,17 @@ import Link from "@components/shared/Link";
 import { Specification, SpecificationType } from "@typings/docs";
 
 import {
-  ModalHeaderWrapper,
+  ModalHeaderLinks,
+  ModalHeaderLink,
+  ModalHeaderLinkButton,
+} from "@components/shared/Modal/styled";
+import {
   ModalHeaderMeta,
   ModalHeaderMetaType,
   ModalHeaderMetaLicense,
   ModalHeaderTitle,
   ModalHeaderTitleVersion,
   ModalHeaderDescription,
-  ModalHeaderLinks,
-  ModalHeaderLink,
-  ModalHeaderLinkButton,
 } from "./styled";
 
 export interface ModalHeaderProps {
@@ -38,52 +39,47 @@ function displayType(type: SpecificationType): string {
 export const ModalHeader: React.FunctionComponent<ModalHeaderProps> = ({
   specification,
 }) => (
-  <ModalHeaderWrapper>
-    <div>
-      <ModalHeaderMeta>
-        <ModalHeaderMetaType>
-          {displayType(specification.type)}
-        </ModalHeaderMetaType>
-        {specification.info &&
-          specification.info.license &&
-          specification.info.license.name && (
-            <ModalHeaderMetaLicense>
-              {specification.info.license.name}
-            </ModalHeaderMetaLicense>
-          )}
-      </ModalHeaderMeta>
-      <ModalHeaderTitle>
-        <span>{specification.info.title}</span>
-        <ModalHeaderTitleVersion>
-          {specification.info.version}
-        </ModalHeaderTitleVersion>
-      </ModalHeaderTitle>
-      {specification.info.description && (
-        <ModalHeaderDescription>
-          {specification.info.description}
-        </ModalHeaderDescription>
-      )}
-      <ModalHeaderLinks>
+  <>
+    <ModalHeaderMeta>
+      <ModalHeaderMetaType>
+        {displayType(specification.type)}
+      </ModalHeaderMetaType>
+      {specification.info &&
+        specification.info.license &&
+        specification.info.license.name && (
+          <ModalHeaderMetaLicense>
+            {specification.info.license.name}
+          </ModalHeaderMetaLicense>
+        )}
+    </ModalHeaderMeta>
+    <ModalHeaderTitle>
+      <span>{specification.info.title}</span>
+      <ModalHeaderTitleVersion>
+        {specification.info.version}
+      </ModalHeaderTitleVersion>
+    </ModalHeaderTitle>
+    {specification.info.description && (
+      <ModalHeaderDescription>
+        {specification.info.description}
+      </ModalHeaderDescription>
+    )}
+    <ModalHeaderLinks>
+      <ModalHeaderLink>
+        <Link.External to={specification.assetPath}>
+          <ModalHeaderLinkButton iconName="cloud-download-alt" iconPrefix="fas">
+            <FormattedMessage id="docs.modal.downloadSpecification" />
+          </ModalHeaderLinkButton>
+        </Link.External>
+      </ModalHeaderLink>
+      {specification.githubUrl && (
         <ModalHeaderLink>
-          <Link.External to={specification.assetPath}>
-            <ModalHeaderLinkButton
-              iconName="cloud-download-alt"
-              iconPrefix="fas"
-            >
-              <FormattedMessage id="docs.modal.downloadSpecification" />
+          <Link.External to={specification.githubUrl}>
+            <ModalHeaderLinkButton>
+              <FormattedMessage id="docs.modal.viewInGitHub" />
             </ModalHeaderLinkButton>
           </Link.External>
         </ModalHeaderLink>
-        {specification.githubUrl && (
-          <ModalHeaderLink>
-            <Link.External to={specification.githubUrl}>
-              <ModalHeaderLinkButton>
-                <FormattedMessage id="docs.modal.viewInGitHub" />
-              </ModalHeaderLinkButton>
-            </Link.External>
-          </ModalHeaderLink>
-        )}
-      </ModalHeaderLinks>
-    </div>
-  </ModalHeaderWrapper>
+      )}
+    </ModalHeaderLinks>
+  </>
 );

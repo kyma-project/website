@@ -5,11 +5,9 @@ import { navigate } from "gatsby";
 import { ModalHeader } from "./Header";
 import { ModalContent } from "./Content";
 
-import { useScrollPosition } from "@common/hooks";
+import Modal from "@components/shared/Modal";
 
 import { DocsModalContext } from "@typings/docs";
-
-import { StyledModal, ContentWrapper } from "./styled";
 
 export const DocsSpecificationModal: React.FunctionComponent<
   DocsModalContext
@@ -60,23 +58,21 @@ export const DocsSpecificationModal: React.FunctionComponent<
     window.scrollTo(0, scrollPosition - 1);
   };
 
-  const content = (
-    <ContentWrapper>
-      <ModalHeader
-        specification={specification}
-        specifications={specifications}
-      />
-      <ModalContent specification={specification} />
-    </ContentWrapper>
+  const modalHeader = (
+    <ModalHeader
+      specification={specification}
+      specifications={specifications}
+    />
   );
 
   return (
-    <StyledModal
+    <Modal
       openComponent={null}
-      onRequestClose={getExitLocation}
+      header={modalHeader}
       show={true}
+      onRequestClose={getExitLocation}
     >
-      {content}
-    </StyledModal>
+      <ModalContent specification={specification} />
+    </Modal>
   );
 };

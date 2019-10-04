@@ -22,7 +22,7 @@ export const StylesOpenAPI = styled.div`
       width: 100%;
       max-width: 1460px;
       margin: 0 auto;
-      padding: 0 20px;
+      padding: 0;
     }
 
     .swagger-ui .opblock-tag-section {

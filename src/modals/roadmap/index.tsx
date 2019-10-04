@@ -6,9 +6,9 @@ import qs from "qs";
 import { ModalHeader } from "./Header";
 import { ModalContent } from "./Content";
 
-import { RoadmapModalContext } from "@typings/roadmap";
+import Modal from "@components/shared/Modal";
 
-import { StyledModal, ContentWrapper } from "./styled";
+import { RoadmapModalContext } from "@typings/roadmap";
 
 export const RoadmapModal: React.FunctionComponent<RoadmapModalContext> = ({
   ticket,
@@ -37,20 +37,16 @@ export const RoadmapModal: React.FunctionComponent<RoadmapModalContext> = ({
     navigate(`/roadmap/?${queryString}`);
   };
 
-  const content = (
-    <ContentWrapper>
-      <ModalHeader ticket={ticket} />
-      <ModalContent body={ticket.body} />
-    </ContentWrapper>
-  );
+  const modalHeader = <ModalHeader ticket={ticket} />;
 
   return (
-    <StyledModal
+    <Modal
       openComponent={null}
-      onRequestClose={getExitLocation}
+      header={modalHeader}
       show={true}
+      onRequestClose={getExitLocation}
     >
-      {content}
-    </StyledModal>
+      <ModalContent body={ticket.body} />
+    </Modal>
   );
 };
