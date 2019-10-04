@@ -128,7 +128,7 @@ This release brings you [Hydroform](https://github.com/kyma-incubator/hydroform/
 
 ### Function Controller enhanced with new features 
 
-The recent enhancements and fixes introduced to the [Function Controller](https://github.com/kyma-project/kyma/tree/1.6/components/function-controller) bring it even closer to become production-ready. 
+The recent enhancements and fixes introduced to the [Function Controller](https://github.com/kyma-project/kyma/tree/master/components/function-controller) bring it even closer to become production-ready. 
 
 ### Knative Serving updated to 0.8.1 
 
