@@ -43,8 +43,6 @@ export const SpecificationsListItem = styled.li<SpecificationsListItemProps>`
       height: 7px;
       background: rgb(229, 229, 229);
       border-radius: 100%;
-      -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
       transform: translateY(-50%);
       top: 50%;
       left: -4px;

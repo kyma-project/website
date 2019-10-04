@@ -9,7 +9,6 @@ const plugins = {
     authorizeOperationBtn: () => () => null,
     info: () => () => null,
     tags: () => () => null,
-    servers: () => () => null,
   },
 };
 

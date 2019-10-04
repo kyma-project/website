@@ -19,7 +19,7 @@ export interface CreateDocsPages {
 
 export const createDocsPages = async ({
   graphql,
-  createPage: createP,
+  createPage: createPageFn,
 }: CreateDocsPages) => {
   const preparedData = await prepareData({ graphql });
   if (!preparedData) {
@@ -45,7 +45,7 @@ export const createDocsPages = async ({
           !version || version === DOCS_LATEST_VERSION ? latestVersion : version
         }/${docsType}/${topic}/${DOCS_SPECIFICATIONS_PATH}`;
 
-        let fixedContent = content[docsType][topic] as DocsContentItem;
+        let fixedContent = content[docsType][topic];
         fixedContent = fixLinks({
           content: fixedContent,
           version,
@@ -71,7 +71,7 @@ export const createDocsPages = async ({
           specifications,
         };
 
-        const createPage = createDocsPage(createP, context);
+        const createPage = createDocsPage(createPageFn, context);
         createComponentDocsPage({ createPage, context });
         createModalDocsPage({ createPage, context });
       });
