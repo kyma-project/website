@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useContext } from "react";
+import React, { useRef, useContext } from "react";
 import { useLockBodyScroll, useToggle } from "react-use";
 
 import { plugins } from "@kyma-project/dc-markdown-render-engine";

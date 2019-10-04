@@ -41,6 +41,47 @@ const PLUGINS: Plugins = [
   replaceImagePathsMutationPlugin,
 ];
 
+function prepareSources(
+  pageContext?: DocsPageContext,
+  sources?: Sources,
+): Sources | undefined {
+  let serializedSources: Sources = [];
+  if (pageContext && pageContext.content && pageContext.assetsPath) {
+    serializedSources = serializer
+      .setDocsContent(pageContext.content)
+      .serialize(pageContext.assetsPath)
+      .getSources();
+  }
+  if (!pageContext && sources && sources.length) {
+    serializedSources = sources;
+  }
+
+  if (!serializedSources || !serializedSources.length) {
+    return;
+  }
+
+  return serializedSources;
+}
+
+function extractDataFromFirstSources(sources: Sources): [string, string] {
+  let temp = sources[0] as SourceWithOptions;
+  if (Array.isArray(temp)) {
+    temp = temp[0] as SourceWithOptions;
+  }
+  const firstSource = temp.source;
+
+  const title =
+    firstSource.data &&
+    firstSource.data.frontmatter &&
+    firstSource.data.frontmatter.title;
+  const type: string =
+    firstSource.data &&
+    firstSource.data.frontmatter &&
+    firstSource.data.frontmatter.type;
+
+  return [title, type];
+}
+
 function renderContent(
   type: LayoutType,
   renderers: Renderers,
@@ -85,41 +126,20 @@ export const GenericComponent: React.FunctionComponent<
   types.clear();
   setHideTitleHeader(false);
 
-  let serializedSources: Sources = [];
-  if (pageContext && pageContext.content && pageContext.assetsPath) {
-    serializedSources = serializer
-      .setDocsContent(pageContext.content)
-      .serialize(pageContext.assetsPath)
-      .getSources();
-  }
-  if (sources) {
-    serializedSources = sources;
-  }
-
-  if (!serializedSources || !serializedSources.length) {
+  const serializedSources: Sources | undefined = prepareSources(
+    pageContext,
+    sources,
+  );
+  if (!serializedSources) {
     return null;
   }
-
-  let tempSource = serializedSources[0] as SourceWithOptions;
-  if (Array.isArray(tempSource)) {
-    tempSource = tempSource[0] as SourceWithOptions;
-  }
-  const firstSource = tempSource.source;
-
-  const title =
-    firstSource.data &&
-    firstSource.data.frontmatter &&
-    firstSource.data.frontmatter.title;
-  const type: string =
-    firstSource.data &&
-    firstSource.data.frontmatter &&
-    firstSource.data.frontmatter.type;
+  const [title, type] = extractDataFromFirstSources(serializedSources);
 
   const RENDER_ENGINES: RenderEngines = [
     markdownRE(layout, pageContext && pageContext.specifications),
     openApiRE,
   ];
-  const renderers: Renderers = {
+  const RENDERERS: Renderers = {
     single: [MarkdownRenderer(serializedSources.length, { title, type })],
   };
 
@@ -130,7 +150,7 @@ export const GenericComponent: React.FunctionComponent<
         plugins={PLUGINS}
         renderEngines={RENDER_ENGINES}
       >
-        {renderContent(layout, renderers, {
+        {renderContent(layout, RENDERERS, {
           ...pageContext,
           sourcesLength: serializedSources.length,
           docsVersionSwitcher,

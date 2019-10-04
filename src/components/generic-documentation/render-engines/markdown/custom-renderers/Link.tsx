@@ -14,8 +14,8 @@ const getAssetName = (path: string): [string, string] => {
   const match = fileNameRegex.exec(path);
 
   if (match && match[2]) {
-    const splitedName = match[2].split("/");
-    const name = splitedName[splitedName.length - 1];
+    const splitName = match[2].split("/");
+    const name = splitName.reverse()[0];
     const extension = match[3];
 
     return [name, `${name}.${extension}`];

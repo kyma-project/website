@@ -25,6 +25,11 @@ export const StylesOpenAPI = styled.div`
       padding: 0;
     }
 
+    .swagger-ui .renderedMarkdown * {
+      font-size: 14px;
+      margin-top: 0;
+    }
+
     .swagger-ui .opblock-tag-section {
       display: -webkit-box;
       display: -ms-flexbox;
@@ -353,7 +358,7 @@ export const StylesOpenAPI = styled.div`
     .swagger-ui .tab li:first-of-type:after {
       position: absolute;
       top: 0;
-      right: 6px;
+      right: 3px !important;
       width: 1px;
       height: 100%;
       content: "";
@@ -419,6 +424,10 @@ export const StylesOpenAPI = styled.div`
       margin: 3px 0 0;
     }
 
+    .swagger-ui .responses-table {
+      margin-bottom: 0;
+    }
+
     .swagger-ui .responses-table .response > td {
       padding-bottom: 10px;
     }
@@ -474,7 +483,7 @@ export const StylesOpenAPI = styled.div`
       background: #41444e;
       font-family: Source Code Pro, monospace;
       font-weight: 600;
-      color: #fff;
+      color: inherit;
     }
 
     .swagger-ui .opblock-body pre span {
@@ -486,6 +495,7 @@ export const StylesOpenAPI = styled.div`
       padding: 30px 0;
       background: #fff;
       box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15);
+      display: none;
     }
 
     .swagger-ui .scheme-container .schemes {
@@ -1018,6 +1028,7 @@ export const StylesOpenAPI = styled.div`
       font-weight: 300;
       font-family: Source Code Pro, monospace;
       font-weight: 600;
+      margin-bottom: 0;
       color: #3b4151;
     }
 
