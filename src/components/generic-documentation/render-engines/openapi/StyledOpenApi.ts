@@ -1,4 +1,5 @@
 import styled from "@styled";
+import { customScrollBar } from "@styled/mixins";
 
 // Styles copied from  https://github.com/ostranme/swagger-ui-themes/blob/develop/themes/3.x/theme-outline.css
 export const StylesOpenAPI = styled.div`
@@ -28,6 +29,39 @@ export const StylesOpenAPI = styled.div`
     .swagger-ui .renderedMarkdown * {
       font-size: 14px;
       margin-top: 0;
+    }
+
+    .swagger-ui .highlight-code {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier,
+        monospace !important;
+      background: rgb(250, 250, 250);
+      border: 1px solid rgb(229, 229, 229);
+      border-radius: 5px;
+      white-space: nowrap;
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
+
+      > pre {
+        padding: 16px 16px 0 16px;
+        margin-bottom: 0 !important;
+        background: rgb(250, 250, 250) !important;
+        font-weight: 300 !important;
+
+        ${customScrollBar({
+          thumbBorderRadius: "0 4px 4px 0",
+          trackBorderRadius: "0 4px 4px 0",
+        })}
+
+        > code {
+          word-break: normal;
+          white-space: pre;
+          overflow-wrap: normal;
+
+          > div span:last-child {
+            padding-right: 16px;
+          }
+        }
+      }
     }
 
     .swagger-ui .opblock-tag-section {
@@ -487,15 +521,16 @@ export const StylesOpenAPI = styled.div`
     }
 
     .swagger-ui .opblock-body pre span {
-      color: #fff !important;
+      color: rgb(80, 161, 79) !important;
     }
 
     .swagger-ui .scheme-container {
       margin: 0 0 20px;
-      padding: 30px 0;
+      padding: 20px;
       background: #fff;
-      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15);
-      display: none;
+      border: 1px solid rgba(59, 65, 81, 0.3);
+      border-radius: 4px;
+      box-shadow: none;
     }
 
     .swagger-ui .scheme-container .schemes {
@@ -1260,6 +1295,10 @@ export const StylesOpenAPI = styled.div`
       border-bottom: 1px solid rgba(59, 65, 81, 0.2);
       font-family: Open Sans, sans-serif;
       color: #3b4151;
+    }
+
+    .swagger-ui .model tbody tr td {
+      border-bottom: none;
     }
 
     .swagger-ui .parameters-col_description p {
