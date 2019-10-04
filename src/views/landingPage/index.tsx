@@ -18,8 +18,8 @@ const LandingPageView: React.FunctionComponent<
   <>
     <Headline />
     <WhatIs />
-    <MakeSpecial />
     <KeyFeatures />
+    <MakeSpecial />
     <CommunityAndEarlyAdoptersWrapper>
       <Community />
       <EarlyAdopters earlyAdopters={earlyAdopters} />
