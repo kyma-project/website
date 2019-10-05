@@ -38,10 +38,10 @@ Replace these parameters with real values:
 - `{CONTENT}` is written in Markdown and/or HTML.
 
 > **NOTE:** The `{URL}` and `{LOGO}` fields are required. The rest is optional.
-
+>
 > **NOTE:** If you want point to case study written in external source (for example, as is mentioned, on your company blog), or if you only an early adopter, please provide only `{URL}` and `{LOGO}` fields.
 
-### Example 1:
+### Example 1
 
 ``` yaml
 ---
@@ -57,7 +57,7 @@ info:
 Kyma rocks! But Luigi sucks.
 ```
 
-### Example 2:
+### Example 2
 
 ``` yaml
 ---
@@ -66,7 +66,7 @@ logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg"
 ---
 ```
 
-### Example 3:
+### Example 3
 
 ``` yaml
 ---
