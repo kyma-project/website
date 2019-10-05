@@ -35,11 +35,9 @@ Replace these parameters with real values:
 - `{COMPANY}` is the name of your company.
 - `{LOCATION}` is the location of your company.
 - `{INDUSTRY}` is a name of industry to which your company belongs.
-- `{CONTENT}` is written in Markdown and/or HTML.
+- `{CONTENT}` is written in Markdown and/or HTML. It is a content of case study or feelings from early adopting Kyma in your business.
 
-> **NOTE:** The `{URL}` and `{LOGO}` fields are required. The rest is optional.
->
-> **NOTE:** If you want point to case study written in external source (for example, as is mentioned, on your company blog), or if you only an early adopter, please provide only `{URL}` and `{LOGO}` fields.
+> **NOTE:** If you want point to case study written in external source (for example, as is mentioned, on your company blog), please provide only `{URL}` and `{LOGO}` fields.
 
 ### Example 1
 
