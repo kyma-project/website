@@ -138,7 +138,7 @@ However, it is advised to download the image, put it into the folder where the `
 You can also use HTML tags to show and position images:
 
 ``` HTML
-<img src="{RELATIVE_PATH_OR_LINK}" >
+<img src="{RELATIVE_PATH_OR_LINK}" />
 ```
 
 See the example usage with mixed elements:
