@@ -30,7 +30,7 @@ info:
 Replace these parameters with real values:
 
 - `{URL}` is an url to your company website or case study written on your company blog.
-- `{LOGO}` is a path to logo of your company. It can be as relative path to svg provided with markdown file or path to external source.
+- `{LOGO}` is a path to logo of your company. It can be as relative path to svg provided with markdown file or path to external source. Extension of logo must be `svg`. Otherwise the site will not build properly.
 - `{TITLE}` is a title of case study.
 - `{COMPANY}` is the name of your company.
 - `{LOCATION}` is the location of your company.
@@ -75,7 +75,7 @@ logo: "./company.svg"
 
 ## Add an image to content
 
-To add the image to your blog post, copy the desired image to the folder with the `index.md` file and write:
+To add the image to content of your case study, copy the desired image to the folder with the `index.md` file and write:
 
 ``` markdown
 ![{ALT_TITLE}](./{IMAGE_FILENAME} "{TEXT_WHILE_HOVERING}")
