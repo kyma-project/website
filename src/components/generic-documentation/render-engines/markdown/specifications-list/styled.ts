@@ -7,7 +7,7 @@ export const SpecificationsListWrapper = styled.ul`
 `;
 
 export const SpecificationsListHeader = styled.h4`
-  font-size: 16px;
+  font-size: 14px;
   color: rgb(0, 115, 230);
   font-weight: normal;
   display: block;
