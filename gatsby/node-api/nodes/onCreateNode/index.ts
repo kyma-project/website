@@ -1,3 +1,4 @@
+export * from "./adopter";
 export * from "./blogPost";
 export * from "./docs";
 export * from "./community";

@@ -19,7 +19,7 @@ const createPages = async ({
   let createPage = createIntlPage(otherActions.createPage, createRedirect);
   createPage = addToContextSlidesBanner(createPage, extractSlidesBanner());
 
-  await createLandingPages({ createPage, createRedirect });
+  await createLandingPages({ graphql, createPage, createRedirect });
   await createPageNotFound({ createPage, createRedirect });
   await createBlogPages({ graphql, createPage, createRedirect });
   await createDocsPages({ graphql, createPage });

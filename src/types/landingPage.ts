@@ -8,6 +8,18 @@ export interface EarlyAdopter {
   link: string;
 }
 
+export interface Adopter {
+  url: string;
+  logo: string;
+  title?: string;
+  content?: string;
+  info?: {
+    company?: string;
+    location?: string;
+    industry?: string;
+  };
+}
+
 export interface Slide {
   text: string;
   url: string;

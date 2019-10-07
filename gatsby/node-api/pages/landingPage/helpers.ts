@@ -2,8 +2,12 @@ import { readFileSync } from "fs";
 import { resolve } from "path";
 import { safeLoad } from "js-yaml";
 
-import { EarlyAdopter } from "@typings/landingPage";
-import { CreatePageFn, CreatePageFnArgs } from "../../../types";
+import { EarlyAdopter, Adopter } from "@typings/landingPage";
+import {
+  CreatePageFn,
+  CreatePageFnArgs,
+  GraphQLFunction,
+} from "../../../types";
 
 export const createLandingPage = (
   createPage: CreatePageFn,
@@ -32,4 +36,42 @@ function getEarlyAdopters(): EarlyAdopter[] {
   const file = readFileSync(path, "utf8");
   const data = safeLoad(file) as { adopters: EarlyAdopter[] };
   return JSON.parse(JSON.stringify(data.adopters));
+}
+
+export async function getAdopters(graphql: GraphQLFunction) {
+  const result = await graphql(`
+    {
+      allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/adopters/" } }) {
+        edges {
+          node {
+            id
+            rawMarkdownBody
+            fields {
+              logo
+            }
+            frontmatter {
+              title
+              url
+              companyInfo {
+                company
+                location
+                industry
+              }
+            }
+          }
+        }
+      }
+    }
+  `);
+  if (result.errors) {
+    throw new Error(result.errors);
+  }
+
+  return result.data.allMarkdownRemark.edges
+    .map((e: any) => e.node)
+    .map((node: any) => ({
+      ...node,
+      logo: node.fields.logo,
+      content: node.rawMarkdownBody,
+    })) as Adopter[];
 }

@@ -1,4 +1,4 @@
 ---
 url: "https://twiggle.com/"
-logo: "sap"
+logo: "logo"
 ---

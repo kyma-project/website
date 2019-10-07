@@ -1,4 +1,4 @@
 ---
 url: "https://www.netconomy.net/"
-logo: "./logo.svg"
+logo: "logo"
 ---
