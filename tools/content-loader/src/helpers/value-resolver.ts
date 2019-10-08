@@ -46,7 +46,7 @@ interface ReplaceDTO {
   replaceValue: string;
 }
 
-export function* valueTplGenerator(s: string) {
+export function* valueTplMatchGenerator(s: string) {
   while (true) {
     let match = templateRegexp.exec(s);
     if (!match || match.length < 1) {
@@ -72,7 +72,7 @@ export const values = async (path: string, chartRepo: string) =>
     .reduce(merge);
 
 export const fixUrl = (url: string, values: any) =>
-  Array.from(valueTplGenerator(url))
+  Array.from(valueTplMatchGenerator(url))
     .map((v: SearchResult) => ({
       searchValue: v.match,
       replaceValue: get(values, v.value),

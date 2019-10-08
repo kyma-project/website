@@ -1,4 +1,4 @@
-import { parentDir, valueTplGenerator } from "./value-resolver";
+import { parentDir, valueTplMatchGenerator } from "./value-resolver";
 
 describe("parentDir", () => {
   const cases = [
@@ -71,7 +71,7 @@ describe("template regexp", () => {
   ];
   describe("matches", () => {
     test.each(cases)("%s", (url, expected) => {
-      const generator = valueTplGenerator(<string>url);
+      const generator = valueTplMatchGenerator(<string>url);
       expect(Array.from(generator)).toEqual(expected);
     });
   });
