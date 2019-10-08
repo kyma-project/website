@@ -1,6 +1,6 @@
 import { memoizeRead } from "./read-yaml";
 
-describe("produckt of memoizeLoad", () => {
+describe("product of memoizeLoad", () => {
   test("should reject load error", () => {
     expect(
       memoizeRead(p => {
