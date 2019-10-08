@@ -283,8 +283,6 @@ export class ClusterDocsTopicSerializer {
       }
 
       this.clusterDocsTopics.push(cdt);
-
-      //TODO check if mode is single when type is extended
       if (cdt.spec.sources.filter(isExtendedSrcType).length > 0) {
         const cdtValues = await values(file, source);
         this.clusterDocsTopicsValues.set(cdt, cdtValues);
