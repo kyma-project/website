@@ -11,9 +11,9 @@ export const readYaml = async (file: string) => {
   return safeLoad(data);
 };
 
-export type read = (path: string) => Promise<any>;
+export type Read = (path: string) => Promise<any>;
 
-export const memoizeRead = (f: read) => {
+export const memoizeRead = (f: Read) => {
   const cache: any = {};
   return async (path: string) => {
     const cachedResult = cache[path];
