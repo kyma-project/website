@@ -25,7 +25,7 @@ import {
   ORDER_LABEL,
   Source,
 } from "./types";
-import { join } from "path";
+import { join, basename } from "path";
 
 const isExtendedSrcType = (src: Source) =>
   ["openapi", "asyncapi", "odata"].includes(src.type);
@@ -100,7 +100,7 @@ export class ClusterDocsTopicSerializer {
       }
       const downloads: Promise<void>[] = [];
       configs[topic].specifications.forEach(s => {
-        const fileName = s.assetPath.split("/").reverse()[0];
+        const fileName = basename(s.assetPath);
         downloads.push(
           downloadResource(
             s.assetPath,
