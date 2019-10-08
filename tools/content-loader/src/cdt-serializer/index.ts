@@ -7,7 +7,12 @@ import {
   writeToYaml,
   writeToJson,
   copyResources,
+  values,
+  fixUrl,
+  downloadResource,
+  makeDir,
 } from "../helpers";
+
 import {
   ClusterDocsTopic,
   DocsConfigs,
@@ -18,7 +23,12 @@ import {
   GROUP_NAME_LABEL,
   GROUP_ORDER_LABEL,
   ORDER_LABEL,
+  Source,
 } from "./types";
+import { join } from "path";
+
+const isExtendedSrcType = (src: Source) =>
+  ["openapi", "asyncapi", "odata"].includes(src.type);
 
 interface Options {
   copyRegex?: string;
@@ -27,6 +37,7 @@ interface Options {
 
 export class ClusterDocsTopicSerializer {
   private clusterDocsTopics: ClusterDocsTopic[] = [];
+  private clusterDocsTopicsValues: Map<ClusterDocsTopic, any> = new Map();
   private docsVersion: string = "";
 
   do = async (source: string, output: string, options?: Options) => {
@@ -79,6 +90,31 @@ export class ClusterDocsTopicSerializer {
       );
       if (err) {
         throw new VError(err, `while copying content for ${output}/${topic}`);
+      }
+      [err] = await to(makeDir(join(output, topic, "specifications")));
+      if (err) {
+        throw new VError(
+          err,
+          `while creating specifications directory for ${output}/${topic}`,
+        );
+      }
+      const downloads: Promise<void>[] = [];
+      configs[topic].specifications.forEach(s => {
+        const fileName = s.assetPath.split("/").reverse()[0];
+        downloads.push(
+          downloadResource(
+            s.assetPath,
+            join(output, topic, "specifications", fileName),
+          ),
+        );
+        s.assetPath = fileName;
+      });
+      const [downloadErr] = await to(Promise.all(downloads));
+      if (downloadErr) {
+        throw new VError(
+          err,
+          `while downloading content for ${output}/${topic}`,
+        );
       }
 
       delete configs[topic].dir;
@@ -165,9 +201,22 @@ export class ClusterDocsTopicSerializer {
       dir = "docs/service-catalog/";
     }
 
+    const specifications = cdt.spec.sources
+      .filter(isExtendedSrcType)
+      .map(src => {
+        const values = this.clusterDocsTopicsValues.get(cdt);
+        const assetPath: string = fixUrl(src.url, values);
+        return {
+          id: src.name,
+          type: src.type,
+          assetPath: assetPath,
+        };
+      });
+
     const docsConfig: DocsConfig = {
       spec,
       dir,
+      specifications,
     };
     return docsConfig;
   };
@@ -229,8 +278,16 @@ export class ClusterDocsTopicSerializer {
         throw new VError(err, `while reading yaml ${file}`);
       }
 
-      if (cdt.kind && cdt.kind === CLUSTER_DOCS_TOPIC) {
-        this.clusterDocsTopics.push(cdt);
+      if (!cdt.kind || cdt.kind !== CLUSTER_DOCS_TOPIC) {
+        continue;
+      }
+
+      this.clusterDocsTopics.push(cdt);
+
+      //TODO check if mode is single when type is extended
+      if (cdt.spec.sources.filter(isExtendedSrcType).length > 0) {
+        const cdtValues = await values(file, source);
+        this.clusterDocsTopicsValues.set(cdt, cdtValues);
       }
     }
   };
