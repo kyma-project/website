@@ -8,22 +8,19 @@ import { WhatIs } from "./WhatIs";
 import { MakeSpecial } from "./MakeSpecial";
 import { KeyFeatures } from "./KeyFeatures";
 import { Community } from "./Community";
-import { EarlyAdopters } from "./EarlyAdopters";
-
-import { CommunityAndEarlyAdoptersWrapper } from "./styled";
+import { SocialMedia } from "./SocialMedia";
+import { Adopters } from "./Adopters";
 
 const LandingPageView: React.FunctionComponent<
   PageContext<LandingPageContext>
-> = ({ pageContext: { earlyAdopters } }) => (
+> = ({ pageContext: { adopters } }) => (
   <>
     <Headline />
     <WhatIs />
-    <MakeSpecial />
     <KeyFeatures />
-    <CommunityAndEarlyAdoptersWrapper>
-      <Community />
-      <EarlyAdopters earlyAdopters={earlyAdopters} />
-    </CommunityAndEarlyAdoptersWrapper>
+    <MakeSpecial />
+    <SocialMedia />
+    <Adopters adopters={adopters} />
   </>
 );
 

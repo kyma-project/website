@@ -1,9 +1,5 @@
 import { CreatePagesArgs } from "gatsby";
-import {
-  createIntlPage,
-  addToContextSlidesBanner,
-  extractSlidesBanner,
-} from "./utils";
+import { createIntlPage, addToContextSlidesBanner } from "./utils";
 
 import { createLandingPages } from "./landingPage";
 import { createPageNotFound } from "./404";
@@ -17,7 +13,7 @@ const createPages = async ({
   actions: { createRedirect, ...otherActions },
 }: CreatePagesArgs) => {
   let createPage = createIntlPage(otherActions.createPage, createRedirect);
-  createPage = addToContextSlidesBanner(createPage, extractSlidesBanner());
+  createPage = addToContextSlidesBanner(createPage);
 
   await createLandingPages({ graphql, createPage, createRedirect });
   await createPageNotFound({ createPage, createRedirect });

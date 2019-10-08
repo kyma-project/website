@@ -1,5 +1,5 @@
 export interface LandingPageContext {
-  earlyAdopters: EarlyAdopter[];
+  adopters: Adopter[];
 }
 
 export interface EarlyAdopter {
@@ -11,13 +11,7 @@ export interface EarlyAdopter {
 export interface Adopter {
   url: string;
   logo: string;
-  title?: string;
   content?: string;
-  info?: {
-    company?: string;
-    location?: string;
-    industry?: string;
-  };
 }
 
 export interface Slide {

@@ -46,7 +46,10 @@
     "sigLink": "Special Interest Group and Working Group",
     "linksHeader": "Talk to us!"
   },
-  "earlyAdopters": {
-    "headline": "Early adopters"
+  "social-media": {
+    "headline": "Social Media"
+  },
+  "adopters": {
+    "headline": "Used by"
   }
 }

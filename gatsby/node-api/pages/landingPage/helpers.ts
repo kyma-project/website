@@ -1,8 +1,4 @@
-import { readFileSync } from "fs";
-import { resolve } from "path";
-import { safeLoad } from "js-yaml";
-
-import { EarlyAdopter, Adopter } from "@typings/landingPage";
+import { Adopter } from "@typings/landingPage";
 import {
   CreatePageFn,
   CreatePageFnArgs,
@@ -12,33 +8,32 @@ import {
 export const createLandingPage = (
   createPage: CreatePageFn,
   component: string,
-): CreatePageFn => {
-  const earlyAdopters = getEarlyAdopters();
-
-  return (props: CreatePageFnArgs) => {
-    createPage({
-      ...props,
-      component,
-      context: {
-        ...props.context,
-        earlyAdopters,
-        horizontalHeaderBg: false,
-      },
-    });
-  };
+  adopters: Adopter[],
+): CreatePageFn => (props: CreatePageFnArgs) => {
+  createPage({
+    ...props,
+    component,
+    context: {
+      ...props.context,
+      adopters,
+      horizontalHeaderBg: false,
+    },
+  });
 };
 
-function getEarlyAdopters(): EarlyAdopter[] {
-  const path = resolve(
-    __dirname,
-    "../../../../content/early-adopters/early-adopters.yml",
-  );
-  const file = readFileSync(path, "utf8");
-  const data = safeLoad(file) as { adopters: EarlyAdopter[] };
-  return JSON.parse(JSON.stringify(data.adopters));
-}
+// function getEarlyAdopters(): EarlyAdopter[] {
+//   const path = resolve(
+//     __dirname,
+//     "../../../../content/early-adopters/early-adopters.yml",
+//   );
+//   const file = readFileSync(path, "utf8");
+//   const data = safeLoad(file) as { adopters: EarlyAdopter[] };
+//   return JSON.parse(JSON.stringify(data.adopters));
+// }
 
-export async function getAdopters(graphql: GraphQLFunction) {
+export async function getAdopters(
+  graphql: GraphQLFunction,
+): Promise<Adopter[]> {
   const result = await graphql(`
     {
       allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/adopters/" } }) {
@@ -47,16 +42,10 @@ export async function getAdopters(graphql: GraphQLFunction) {
             id
             rawMarkdownBody
             fields {
-              logo
+              assetsPath
             }
             frontmatter {
-              title
               url
-              companyInfo {
-                company
-                location
-                industry
-              }
             }
           }
         }
@@ -70,8 +59,8 @@ export async function getAdopters(graphql: GraphQLFunction) {
   return result.data.allMarkdownRemark.edges
     .map((e: any) => e.node)
     .map((node: any) => ({
-      ...node,
-      logo: node.fields.logo,
+      url: node.frontmatter.url,
+      logo: node.fields.assetsPath,
       content: node.rawMarkdownBody,
     })) as Adopter[];
 }

@@ -30,7 +30,7 @@ export const onCreateNode = async ({
       const { relativePath } = getNode(node.parent);
 
       if (relativePath.startsWith(ADOPTERS_DIR)) {
-        onCreateAdopterNode({ node, relativePath, createNodeField });
+        await onCreateAdopterNode({ node, relativePath, createNodeField });
       }
       if (relativePath.startsWith(BLOG_POST_DIR)) {
         onCreateBlogPostNode({ node, relativePath, createNodeField });
