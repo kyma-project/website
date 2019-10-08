@@ -205,11 +205,11 @@ export class ClusterDocsTopicSerializer {
       .filter(isExtendedSrcType)
       .map(src => {
         const values = this.clusterDocsTopicsValues.get(cdt);
-        const assetPath: string = fixUrl(src.url, values);
+        const assetPath: string = fixUrl(src.url, !values ? {} : values);
         return {
           id: src.name,
           type: src.type,
-          assetPath: assetPath,
+          assetPath,
         };
       });
 
