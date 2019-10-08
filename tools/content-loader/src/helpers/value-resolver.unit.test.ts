@@ -1,4 +1,49 @@
-import { parentDir, valueTplMatchGenerator } from "./value-resolver";
+import { parentDir, valueTplMatchGenerator, merge } from "./value-resolver";
+import to from "await-to-js";
+
+describe("merge", () => {
+  const cases: any[][] = [
+    [
+      {
+        // acc
+        a: "a",
+      },
+      {
+        // current
+        b: "b",
+      },
+      {
+        // expected
+        a: "a",
+        b: "b",
+      },
+    ],
+    [
+      {
+        // acc
+        test: "me",
+      },
+      {
+        // current
+        test: "passed",
+      },
+      {
+        // expected
+        test: "passed",
+      },
+    ],
+  ];
+  test.each(cases)(
+    "%s should merget to %s",
+    async (acc: any, current: any, expected: any) => {
+      const [err, actual] = await to(
+        merge(Promise.resolve(acc), Promise.resolve(current)),
+      );
+      expect(err).toBeNull();
+      expect(actual).toEqual(expected);
+    },
+  );
+});
 
 describe("parentDir", () => {
   const cases = [

@@ -56,7 +56,7 @@ export function* valueTplMatchGenerator(s: string) {
   }
 }
 
-const merge = async (acc: Promise<any>, current: Promise<any>) =>
+export const merge = async (acc: Promise<any>, current: Promise<any>) =>
   Promise.all([acc, current])
     .then(results => Object.assign(...results))
     .catch((e: Error) => {
