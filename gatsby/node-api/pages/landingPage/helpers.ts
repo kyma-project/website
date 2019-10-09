@@ -8,14 +8,14 @@ import {
 export const createLandingPage = (
   createPage: CreatePageFn,
   component: string,
-  adopters: Adopter[],
+  context: any,
 ): CreatePageFn => (props: CreatePageFnArgs) => {
   createPage({
     ...props,
     component,
     context: {
       ...props.context,
-      adopters,
+      ...context,
       horizontalHeaderBg: false,
     },
   });

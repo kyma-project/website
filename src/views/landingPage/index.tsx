@@ -13,13 +13,13 @@ import { Adopters } from "./Adopters";
 
 const LandingPageView: React.FunctionComponent<
   PageContext<LandingPageContext>
-> = ({ pageContext: { adopters } }) => (
+> = ({ pageContext: { adopters, lastBlogPost } }) => (
   <>
     <Headline />
     <WhatIs />
     <KeyFeatures />
     <MakeSpecial />
-    <SocialMedia />
+    <SocialMedia lastBlogPost={lastBlogPost} />
     <Adopters adopters={adopters} />
   </>
 );

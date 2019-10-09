@@ -21,51 +21,51 @@ import {
 
 const gt = getTranslation("landingPage.keyFeatures");
 
-export const KeyFeatures: React.FunctionComponent = () => {
-  const sections: string[] = [
-    "applicationConnector",
-    "serverless",
-    "serviceManagement",
-  ];
+enum Sections {
+  APPLICATION_CONNECTOR = "applicationConnector",
+  SERVERLESS = "serverless",
+  SERVICE_MANAGEMENT = "serviceManagement",
+}
 
-  const getIllustrationComponent = (sectionId: string) => {
+export const KeyFeatures: React.FunctionComponent = () => {
+  const getIllustrationComponent = (sectionId: Sections) => {
     switch (sectionId) {
-      case "applicationConnector":
+      case Sections.APPLICATION_CONNECTOR:
         return <Connectivity />;
-      case "serverless":
+      case Sections.SERVERLESS:
         return <TechIndependent />;
-      case "serviceManagement":
+      case Sections.SERVICE_MANAGEMENT:
         return <Extendable />;
       default:
         return null;
     }
   };
 
-  const getUrlForSection = (sectionId: string) => {
+  const getUrlForSection = (sectionId: Sections) => {
     switch (sectionId) {
-      case "applicationConnector":
+      case Sections.APPLICATION_CONNECTOR:
         return "/docs/components/application-connector";
-      case "serverless":
+      case Sections.SERVERLESS:
         return "/docs/components/serverless";
-      case "serviceManagement":
+      case Sections.SERVICE_MANAGEMENT:
         return "/docs/components/service-catalog";
       default:
         return "/docs";
     }
   };
 
-  const readMoreButton = (sectionId: string) => (
+  const readMoreButton = (sectionId: Sections) => (
     <KeyFeaturesLink to={getUrlForSection(sectionId)}>
       <FormattedMessage id={gt("readMoreLink")} />
     </KeyFeaturesLink>
   );
 
-  const createSection = (sectionId: string) => (
+  const createSection = (sectionId: Sections) => (
     <KeyFeaturesSection df={4} lg={4} md={12} key={sectionId}>
       <FormattedMessage id={gt(`${sectionId}.id`)}>
         {id => (
           <KeyFeaturesSvgWrap>
-            {getIllustrationComponent(id as string)}
+            {getIllustrationComponent(id as Sections)}
           </KeyFeaturesSvgWrap>
         )}
       </FormattedMessage>
@@ -96,7 +96,7 @@ export const KeyFeatures: React.FunctionComponent = () => {
               )}
             </FormattedMessage>
           </Grid.Unit>
-          {sections.map(section => createSection(section))}
+          {Object.values(Sections).map(section => createSection(section))}
           <div style={{ margin: "30px auto 0 auto" }}>
             <Link.Internal to="/docs/root/kyma/#overview-key-components">
               <Button.Emphasized>

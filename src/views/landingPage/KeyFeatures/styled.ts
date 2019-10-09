@@ -7,7 +7,7 @@ import Grid from "@styled/Grid";
 import { linkEffect } from "@styled/mixins";
 
 export const KeyFeaturesWrapper = styled.section`
-  margin: 50px 0;
+  margin: 0 0 72px 0;
 `;
 
 export const KeyFeaturesSection = styled(Grid.Unit)`
@@ -26,7 +26,7 @@ export const KeyFeaturesSvgWrap = styled.div`
   margin-bottom: 32px;
 
   svg {
-    max-width: 100%;
+    max-height: 230px;
 
     ${media.smallPhone`
       & {

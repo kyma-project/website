@@ -1,5 +1,8 @@
+import { Post } from "./blog";
+
 export interface LandingPageContext {
   adopters: Adopter[];
+  lastBlogPost: Post;
 }
 
 export interface EarlyAdopter {

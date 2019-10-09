@@ -49,3 +49,10 @@ export const getPosts = async (
     .map((e: any) => e.node)
     .filter((node: any) => !!node.fields.date) as PostGQL[];
 };
+
+export const getLastPost = async (
+  graphql: GraphQLFunction,
+): Promise<PostGQL> => {
+  const posts = await getPosts(graphql);
+  return posts[0];
+};

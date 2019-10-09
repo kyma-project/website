@@ -6,6 +6,7 @@ import {
   GraphQLFunction,
 } from "../../../types";
 import { createLandingPage, getAdopters } from "./helpers";
+import { getLastPost } from "../blog/helpers";
 
 export interface CreateLandingPagesArgs {
   graphql: GraphQLFunction;
@@ -19,15 +20,16 @@ export const createLandingPages = async ({
   createRedirect,
 }: CreateLandingPagesArgs) => {
   const adopters = await getAdopters(graphql);
+  const lastBlogPost = await getLastPost(graphql);
+
   const landingPageTemplate: string = resolve(
     __dirname,
     "../../../../src/views/landingPage/index.tsx",
   );
-  const createPage = createLandingPage(
-    createPageFn,
-    landingPageTemplate,
+  const createPage = createLandingPage(createPageFn, landingPageTemplate, {
     adopters,
-  );
+    lastBlogPost,
+  });
 
   createLandingPageRootPage({ createPage, createRedirect });
 };
