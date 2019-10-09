@@ -26,6 +26,7 @@ import {
   ORDER_LABEL,
   Source,
 } from "./types";
+import { async } from "q";
 
 const SPECIFICATIONS = "specifications";
 const ALLOWED_SOURCE_TYPES = ["openapi", "asyncapi", "odata"];
@@ -93,39 +94,52 @@ export class ClusterDocsTopicSerializer {
       if (err) {
         throw new VError(err, `while copying content for ${output}/${topic}`);
       }
-      [err] = await to(makeDir(join(output, topic, "specifications")));
-      if (err) {
-        throw new VError(
-          err,
-          `while creating specifications directory for ${output}/${topic}/${SPECIFICATIONS}`,
-        );
-      }
-      const downloads: Promise<void>[] = [];
-      configs[topic].specifications.forEach(s => {
-        const fileName = basename(s.assetPath);
-        downloads.push(
-          downloadAndSaveResource(
-            s.assetPath,
-            join(output, topic, SPECIFICATIONS, fileName),
-          ),
-        );
-        s.assetPath = fileName;
-      });
-      const [downloadErr] = await to(Promise.all(downloads));
-      if (downloadErr) {
-        throw new VError(
-          err,
-          `while downloading content for ${output}/${topic}`,
-        );
-      }
-
-      delete configs[topic].dir;
       [err] = await to(
-        writeToJson(`${output}/${topic}/docs.config.json`, configs[topic]),
+        this.prepareSpecifications(output, topic, configs[topic]),
       );
       if (err) {
-        throw new VError(err, `while copying config for ${output}/${topic}`);
+        throw new VError(
+          err,
+          `while preparing specifications for ${output}/${topic}`,
+        );
       }
+    }
+  };
+
+  private prepareSpecifications = async (
+    output: string,
+    topic: string,
+    docsConfig: DocsConfig,
+  ) => {
+    let [err] = await to(makeDir(join(output, topic, "specifications")));
+    if (err) {
+      throw new VError(
+        err,
+        `while creating specifications directory for ${output}/${topic}/${SPECIFICATIONS}`,
+      );
+    }
+    const downloads: Promise<void>[] = [];
+    docsConfig.specifications.forEach(s => {
+      const fileName = basename(s.assetPath);
+      downloads.push(
+        downloadAndSaveResource(
+          s.assetPath,
+          join(output, topic, SPECIFICATIONS, fileName),
+        ),
+      );
+      s.assetPath = fileName;
+    });
+    const [downloadErr] = await to(Promise.all(downloads));
+    if (downloadErr) {
+      throw new VError(err, `while downloading content for ${output}/${topic}`);
+    }
+
+    delete docsConfig.dir;
+    [err] = await to(
+      writeToJson(`${output}/${topic}/docs.config.json`, docsConfig),
+    );
+    if (err) {
+      throw new VError(err, `while copying config for ${output}/${topic}`);
     }
   };
 
