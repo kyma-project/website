@@ -1,4 +1,4 @@
-import { memoizeRead } from "./read-yaml";
+import { memoizeRead } from "./memoized-read";
 
 describe("product of memoizeLoad", () => {
   test("should reject load error", () => {

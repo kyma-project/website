@@ -1,6 +1,7 @@
 import { join, dirname, sep } from "path";
 import { statSync, readdirSync, existsSync } from "fs";
-import { memoizeRead, readYaml } from "./read-yaml";
+import { readYaml } from "./read-yaml";
+import { memoizeRead } from "./memoized-read";
 import { get } from "lodash";
 
 const VALUES_FILE_NAME = "values.yaml";
