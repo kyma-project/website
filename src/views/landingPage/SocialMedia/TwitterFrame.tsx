@@ -1,7 +1,7 @@
 import React from "react";
 import { TwitterTimelineEmbed } from "react-twitter-embed";
 
-import { TwitterFrameWrapper } from "./styled";
+import { TwitterFrameWrapper, Header } from "./styled";
 
 export const TwitterFrame: React.FunctionComponent = () => {
   const options = {
@@ -9,12 +9,15 @@ export const TwitterFrame: React.FunctionComponent = () => {
   };
 
   return (
-    <TwitterFrameWrapper>
-      <TwitterTimelineEmbed
-        sourceType="profile"
-        screenName="kymaproject"
-        options={options}
-      />
-    </TwitterFrameWrapper>
+    <>
+      <Header>Check our last tweets</Header>
+      <TwitterFrameWrapper>
+        <TwitterTimelineEmbed
+          sourceType="profile"
+          screenName="kymaproject"
+          options={options}
+        />
+      </TwitterFrameWrapper>
+    </>
   );
 };

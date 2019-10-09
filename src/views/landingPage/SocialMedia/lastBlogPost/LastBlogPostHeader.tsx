@@ -47,7 +47,7 @@ const LastBlogPostHeader: React.FunctionComponent<PostHeaderProps> = ({
   return (
     <LastBlogPostHeaderWrapper>
       <Link.Internal to={path}>
-        <H as="h2">{title}</H>
+        <H as="h4">{title}</H>
       </Link.Internal>
       <LastBlogPostMetadata>{metadata}</LastBlogPostMetadata>
     </LastBlogPostHeaderWrapper>

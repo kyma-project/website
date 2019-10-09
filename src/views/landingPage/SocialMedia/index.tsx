@@ -37,17 +37,17 @@ export const SocialMedia: React.FunctionComponent<Props> = ({
         <Grid.Unit df={12}>
           <Grid.Row>
             <Grid.Unit df={6}>
+              <TwitterFrame />
+            </Grid.Unit>
+            <Grid.Unit df={6}>
               <Grid.Row>
-                <Grid.Unit df={12}>
-                  <LastBlogPost {...lastBlogPost} />
-                </Grid.Unit>
                 <Grid.Unit df={12}>
                   <YouTubeFrame />
                 </Grid.Unit>
+                <Grid.Unit df={12}>
+                  <LastBlogPost {...lastBlogPost} />
+                </Grid.Unit>
               </Grid.Row>
-            </Grid.Unit>
-            <Grid.Unit df={6}>
-              <TwitterFrame />
             </Grid.Unit>
           </Grid.Row>
         </Grid.Unit>

@@ -17,7 +17,7 @@ export const LastBlogPostWrapper = styled.div`
 export const LastBlogPostHeaderWrapper = styled.header`
   margin: 0 0 16px 0;
 
-  h2 {
+  h4 {
     font-size: 28px;
     margin-bottom: 0px;
     color: rgb(72, 87, 102);

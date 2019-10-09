@@ -36,3 +36,10 @@ export const TwitterFrameWrapper = styled.div`
   border-radius: 5px;
   box-shadow: 0 1px 26px 0 rgba(137, 165, 199, 0.42);
 `;
+
+export const Header = styled.h3`
+  font-size: 28px;
+  margin-bottom: 0px;
+  color: rgb(72, 87, 102);
+  transition: color 0.2s ease-in-out;
+`;

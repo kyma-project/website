@@ -11,6 +11,7 @@ import LastBlogPostHeader from "./LastBlogPostHeader";
 import { Post } from "@typings/blog";
 
 import { LastBlogPostWrapper } from "./styled";
+import { Header } from "../styled";
 
 export const LastBlogPost: React.FunctionComponent<Post> = ({
   excerpt,
@@ -24,19 +25,22 @@ export const LastBlogPost: React.FunctionComponent<Post> = ({
   }
 
   return (
-    <LastBlogPostWrapper>
-      <LastBlogPostHeader
-        title={title}
-        author={author}
-        path={slug}
-        postInfo={postInfo}
-      />
-      <ReactMarkdown source={shortedContent} escapeHtml={false} />
-      <Link.Internal to={slug}>
-        <Button.Emphasized size="sm">
-          <FormattedMessage id="blog.readMoreButton" />
-        </Button.Emphasized>
-      </Link.Internal>
-    </LastBlogPostWrapper>
+    <>
+      <Header>Check our last post on blog</Header>
+      <LastBlogPostWrapper>
+        <LastBlogPostHeader
+          title={title}
+          author={author}
+          path={slug}
+          postInfo={postInfo}
+        />
+        <ReactMarkdown source={shortedContent} escapeHtml={false} />
+        <Link.Internal to={slug}>
+          <Button.Emphasized size="sm">
+            <FormattedMessage id="blog.readMoreButton" />
+          </Button.Emphasized>
+        </Link.Internal>
+      </LastBlogPostWrapper>
+    </>
   );
 };
