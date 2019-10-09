@@ -7,7 +7,7 @@ export const downloadAndSaveResource: (
 ) => Promise<void> = async (url, output) => {
   const writer = createWriteStream(output);
   const response: AxiosResponse = await axios({
-    url: url,
+    url,
     method: "GET",
     responseType: "stream",
   });

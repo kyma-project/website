@@ -15,7 +15,7 @@ export const parentDir = (p: string) => {
 };
 
 const extractValuePaths = (resourcePath: string, chartDir: string) => {
-  let result: string[] = [];
+  const result: string[] = [];
   let dirName = dirname(resourcePath);
   let shouldContinue = true;
   while (
@@ -49,7 +49,7 @@ interface ReplaceDTO {
 
 export function* valueTplMatchGenerator(s: string) {
   while (true) {
-    let match = templateRegexp.exec(s);
+    const match = templateRegexp.exec(s);
     if (!match || !match.length) {
       return;
     }
