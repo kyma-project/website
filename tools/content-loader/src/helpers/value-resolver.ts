@@ -72,11 +72,11 @@ export const values = async (path: string, chartRepo: string) =>
     .map(read)
     .reduce(merge);
 
-export const fixUrl = (url: string, values: any) =>
+export const fixUrl = (url: string, vals: any) =>
   Array.from(valueTplMatchGenerator(url))
     .map((v: SearchResult) => ({
       searchValue: v.match,
-      replaceValue: get(values, v.value),
+      replaceValue: get(vals, v.value),
     }))
     .reduceRight(
       (acc: string, current: ReplaceDTO) =>
