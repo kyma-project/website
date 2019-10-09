@@ -1,18 +1,11 @@
-import { join, dirname, sep } from "path";
+import { join, dirname } from "path";
 import { statSync, readdirSync, existsSync } from "fs";
 import { readYaml } from "./read-yaml";
 import { memoizeRead } from "./memoized-read";
 import { get } from "lodash";
+import parentDir from "./parent-dir";
 
 const VALUES_FILE_NAME = "values.yaml";
-
-export const parentDir = (p: string) => {
-  if (!p) {
-    return "";
-  }
-  const parent = p.substring(0, p.lastIndexOf(sep));
-  return parent ? parent : "";
-};
 
 const extractValuePaths = (resourcePath: string, chartDir: string) => {
   const result: string[] = [];
@@ -69,7 +62,7 @@ export const values = async (path: string, chartRepo: string) =>
     .map(read)
     .reduce(merge);
 
-export const fixUrl = (url: string, vals: any) =>
+export const fixSourceUrl = (url: string, vals: any) =>
   Array.from(valueTplMatchGenerator(url))
     .map((v: SearchResult) => ({
       searchValue: v.match,

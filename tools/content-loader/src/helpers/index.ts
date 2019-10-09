@@ -9,5 +9,5 @@ export * from "./read-file";
 export * from "./write-to-json";
 export * from "./write-to-yaml";
 export * from "./remove-html-comments";
-export { values, fixUrl } from "./value-resolver";
+export { values, fixSourceUrl as fixUrl } from "./helm-tpl-value-resolver";
 export * from "./download-resource";
