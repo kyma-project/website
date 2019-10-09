@@ -1,5 +1,6 @@
 import to from "await-to-js";
 import { VError } from "verror";
+import { join, basename } from "path";
 
 import {
   getFilesPaths,
@@ -25,9 +26,8 @@ import {
   ORDER_LABEL,
   Source,
 } from "./types";
-import { join, basename } from "path";
 
-const isExtendedSrcType = (src: Source) =>
+const isAllowedSrcType = (src: Source) =>
   ["openapi", "asyncapi", "odata"].includes(src.type);
 
 interface Options {
@@ -202,7 +202,7 @@ export class ClusterDocsTopicSerializer {
     }
 
     const specifications = cdt.spec.sources
-      .filter(isExtendedSrcType)
+      .filter(isAllowedSrcType)
       .map(src => {
         const values = this.clusterDocsTopicsValues.get(cdt);
         const assetPath: string = fixUrl(src.url, !values ? {} : values);
@@ -283,7 +283,7 @@ export class ClusterDocsTopicSerializer {
       }
 
       this.clusterDocsTopics.push(cdt);
-      if (cdt.spec.sources.filter(isExtendedSrcType).length > 0) {
+      if (cdt.spec.sources.filter(isAllowedSrcType).length > 0) {
         const cdtValues = await values(file, source);
         this.clusterDocsTopicsValues.set(cdt, cdtValues);
       }

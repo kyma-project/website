@@ -3,7 +3,7 @@ import { statSync, readdirSync, existsSync } from "fs";
 import { memoizeRead, readYaml } from "./read-yaml";
 import { get } from "lodash";
 
-const valuesFileName = "values.yaml";
+const VALUES_FILE_NAME = "values.yaml";
 
 export const parentDir = (p: string) => {
   if (!p) {
@@ -22,10 +22,10 @@ const extractValuePaths = (resourcePath: string, chartDir: string) => {
     statSync(dirName).isDirectory() &&
     shouldContinue
   ) {
-    if (dirName == chartDir) {
+    if (dirName === chartDir) {
       shouldContinue = false;
     }
-    const value = readdirSync(dirName).find(s => s == valuesFileName);
+    const value = readdirSync(dirName).find(s => s === VALUES_FILE_NAME);
     if (value) {
       result.push(join(dirName, value));
     }
@@ -49,7 +49,7 @@ interface ReplaceDTO {
 export function* valueTplMatchGenerator(s: string) {
   while (true) {
     let match = templateRegexp.exec(s);
-    if (!match || match.length < 1) {
+    if (!match || !match.length) {
       return;
     }
     yield { match: match[0], value: match[1] };
