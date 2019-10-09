@@ -74,12 +74,12 @@ function extractDataFromFirstSources(sources: Sources): [string, string] {
     firstSource.data &&
     firstSource.data.frontmatter &&
     firstSource.data.frontmatter.title;
-  const type: string =
+  const type =
     firstSource.data &&
     firstSource.data.frontmatter &&
     firstSource.data.frontmatter.type;
 
-  return [title, type];
+  return [title || "", type || ""];
 }
 
 function renderContent(
