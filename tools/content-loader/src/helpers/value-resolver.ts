@@ -60,9 +60,7 @@ export function* valueTplMatchGenerator(s: string) {
 export const merge = async (acc: Promise<any>, current: Promise<any>) =>
   Promise.all([acc, current])
     .then(results => Object.assign(...results))
-    .catch((e: Error) => {
-      return {};
-    });
+    .catch((e: Error) => ({}));
 
 const read = memoizeRead(readYaml);
 
