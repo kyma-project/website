@@ -1,7 +1,7 @@
 import { createWriteStream } from "fs";
 import axios, { AxiosResponse } from "axios";
 
-export const downloadResource: (
+export const downloadAndSaveResource: (
   url: string,
   output: string,
 ) => Promise<void> = async (url, output) => {

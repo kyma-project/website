@@ -10,7 +10,7 @@ import {
   copyResources,
   values,
   fixUrl,
-  downloadResource,
+  downloadAndSaveResource,
   makeDir,
 } from "../helpers";
 
@@ -27,8 +27,10 @@ import {
   Source,
 } from "./types";
 
+const SPECIFICATIONS = "specifications";
+const ALLOWED_SOURCE_TYPES = ["openapi", "asyncapi", "odata"];
 const isAllowedSrcType = (src: Source) =>
-  ["openapi", "asyncapi", "odata"].includes(src.type);
+  ALLOWED_SOURCE_TYPES.includes(src.type);
 
 interface Options {
   copyRegex?: string;
@@ -95,16 +97,16 @@ export class ClusterDocsTopicSerializer {
       if (err) {
         throw new VError(
           err,
-          `while creating specifications directory for ${output}/${topic}`,
+          `while creating specifications directory for ${output}/${topic}/${SPECIFICATIONS}`,
         );
       }
       const downloads: Promise<void>[] = [];
       configs[topic].specifications.forEach(s => {
         const fileName = basename(s.assetPath);
         downloads.push(
-          downloadResource(
+          downloadAndSaveResource(
             s.assetPath,
-            join(output, topic, "specifications", fileName),
+            join(output, topic, SPECIFICATIONS, fileName),
           ),
         );
         s.assetPath = fileName;
@@ -205,7 +207,7 @@ export class ClusterDocsTopicSerializer {
       .filter(isAllowedSrcType)
       .map(src => {
         const values = this.clusterDocsTopicsValues.get(cdt);
-        const assetPath: string = fixUrl(src.url, !values ? {} : values);
+        const assetPath: string = fixUrl(src.url, values || {});
         return {
           id: src.name,
           type: src.type,
