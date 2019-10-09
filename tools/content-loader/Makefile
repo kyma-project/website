@@ -2,7 +2,7 @@ clear-cache:
 	rm -rf tempDir tempDocsDir tempRoadmapDir
 
 resolve:
-	npm install --no-optional
+	npm install
 
 fetch-content:
 	npm run start

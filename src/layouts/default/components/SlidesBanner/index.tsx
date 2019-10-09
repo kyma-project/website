@@ -3,23 +3,21 @@ import React, { PureComponent } from "react";
 import CircleIndicator from "./CircleIndicator";
 import SlideContent from "./SlideContent";
 
-import { Slide } from "./types";
+import { SlidesBannerProps, Slide } from "@typings/landingPage";
 
 import { Wrapper, InnerWrapper, ContentWrapper } from "./styled";
 
 const DEFAULT_BANNER_DURATION = 5000;
-
-interface SlidesBannerProps {
-  bannerDuration: number;
-  slides: Slide[];
-}
 
 interface SlidesBannerState {
   slides: Slide[];
   currentSlide: number;
 }
 
-class SlidesBanner extends PureComponent<SlidesBannerProps, SlidesBannerState> {
+export class SlidesBanner extends PureComponent<
+  SlidesBannerProps,
+  SlidesBannerState
+> {
   slides?: Slide[];
   timer: any = null;
 
@@ -164,5 +162,3 @@ class SlidesBanner extends PureComponent<SlidesBannerProps, SlidesBannerState> {
     );
   }
 }
-
-export default SlidesBanner;

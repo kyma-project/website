@@ -12,15 +12,28 @@ export const getPosts = async (
       ) {
         edges {
           node {
+            id
+            rawMarkdownBody
+            excerpt(format: PLAIN)
             fields {
               slug
               assetsPath
+              date(formatString: "MMMM DD, YYYY")
               postInfo {
                 fileName
+                year
+                month
+                day
               }
             }
             frontmatter {
               title
+              author {
+                name
+              }
+              tags
+              type
+              releaseTag
               redirectFrom
             }
           }
@@ -32,7 +45,7 @@ export const getPosts = async (
     throw new Error(result.errors);
   }
 
-  return result.data.allMarkdownRemark.edges.map(
-    (e: any) => e.node,
-  ) as PostGQL[];
+  return result.data.allMarkdownRemark.edges
+    .map((e: any) => e.node)
+    .filter((node: any) => !!node.fields.date) as PostGQL[];
 };

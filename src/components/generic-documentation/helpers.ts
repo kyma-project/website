@@ -1,5 +1,5 @@
 import { DOCS_PATH_NAME } from "@common/constants";
-import { tokenize } from "@common/utils";
+import { toKebabCase } from "@common/utils";
 
 export const getDocsPath = (
   version: string,
@@ -21,9 +21,9 @@ export const getDocsPath = (
     return `/${DOCS_PATH_NAME}/${versionPathPart}`;
   }
 
-  return `/${DOCS_PATH_NAME}/${versionPathPart}${tokenize(type)}/${tokenize(
-    id,
-  )}/${hash ? `#${hash}` : ""}`;
+  return `/${DOCS_PATH_NAME}/${versionPathPart}${toKebabCase(
+    type,
+  )}/${toKebabCase(id)}/${hash ? `#${hash}` : ""}`;
 };
 
 export const getDocsPathLink = (version: string) => (content: {

@@ -3,7 +3,7 @@ import React from "react";
 import H from "@components/shared/H";
 import Link from "@components/shared/Link";
 
-import { tokenize } from "@common/utils";
+import { toKebabCase } from "@common/utils";
 
 interface HeadingProps {
   level: 1 | 2 | 3 | 4 | 5 | 6;
@@ -22,7 +22,7 @@ export const Heading: React.FunctionComponent<HeadingProps> = ({
   tabData,
 }) => {
   const formatString = (arg: string) =>
-    tokenize(arg)
+    toKebabCase(arg)
       .replace(/[^a-zA-Z0-9]/g, "-")
       .replace(/--+/g, "-")
       .replace(/-+$/g, "");
@@ -31,7 +31,7 @@ export const Heading: React.FunctionComponent<HeadingProps> = ({
   if (!children) {
     return null;
   }
-  const headingTokenized = tokenize((children as any[])[0].props
+  const headingTokenized = toKebabCase((children as any[])[0].props
     .value as string);
 
   let id;

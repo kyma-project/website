@@ -30,9 +30,9 @@ const extractFn = (
   } = doc;
 
   if (docsGroup === type && topicId === id) {
-    let obj: DocsContentDocs = {
+    const obj: DocsContentDocs = {
       order: fileName,
-      title: title,
+      title,
       source: rawMarkdownBody,
     };
 
@@ -84,14 +84,14 @@ export const createCommunityPages = async ({
 
     topicsKeys.map(topic => {
       const assetsPath = `/${ASSETS_DIR}${COMMUNITY_DIR}${topic}/${DOCS_DIR}${ASSETS_DIR}`;
-      let newContent = content[docsType][topic] as DocsContentItem;
+      const newContent = content[docsType][topic];
 
       const path = `/${COMMUNITY_PATH_PREFIX}/${
         topicsKeys.length > 1 ? `${docsType}/` : ""
       }${topic}`;
 
       createPage({
-        path: path,
+        path,
         component: communityTemplate,
         context: {
           content: newContent,

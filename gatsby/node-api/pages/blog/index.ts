@@ -1,4 +1,6 @@
 import { createSingleBlogPost } from "./singlePostPage";
+import { createRootPage } from "./rootPage";
+
 import { getPosts } from "./helpers";
 import {
   CreatePageFn,
@@ -19,5 +21,6 @@ export const createBlogPages = async ({
 }: CreateBlogPages) => {
   const posts = await getPosts(graphql);
 
+  createRootPage({ createPage, createRedirect, posts });
   createSingleBlogPost({ createPage, createRedirect, posts });
 };

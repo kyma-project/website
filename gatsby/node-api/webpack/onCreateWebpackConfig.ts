@@ -12,6 +12,7 @@ export const onCreateWebpackConfig = ({ actions }: CreateWebpackConfigArgs) => {
         "@static": resolve(__dirname, "../../../static"),
         "@styled": resolve(__dirname, "../../../src/common/styled"),
         "@root": resolve(__dirname, "../../../src/root"),
+        "@typings": resolve(__dirname, "../../../src/types"),
         "@views": resolve(__dirname, "../../../src/views"),
       },
     },

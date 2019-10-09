@@ -64,8 +64,9 @@ const animateScroll = (
   }
 };
 
-const scrollToLocation = (targetPos: number) => {
+const scrollToLocation = (targetPos: number, callback?: () => void) => {
   window.scrollTo(0, targetPos);
+  callback && callback();
 };
 
 const scrollToLocationSmooth = (
@@ -94,11 +95,11 @@ interface ScrollToAnchorProps {
   smooth?: boolean;
 }
 
-const scrollToAnchor = ({
+export const scrollToAnchor = ({
   target,
-  timeout = 750,
   callback = () => null,
   smooth = true,
+  timeout = 750,
 }: ScrollToAnchorProps) => (event?: any) => {
   if (event) {
     event.preventDefault();
@@ -108,7 +109,5 @@ const scrollToAnchor = ({
 
   smooth
     ? scrollToLocationSmooth(rootElement, targetOffset, timeout, callback)
-    : scrollToLocation(targetOffset);
+    : scrollToLocation(targetOffset, callback);
 };
-
-export default scrollToAnchor;

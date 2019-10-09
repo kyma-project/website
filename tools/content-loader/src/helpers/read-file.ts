@@ -9,8 +9,11 @@ export const readFile = async (file: string): Promise<string> => {
     throw err;
   }
   const [rfErr, data] = await to(rF(file));
-  if (rfErr || data == undefined) {
+  if (rfErr) {
     throw new VError(rfErr, `while reading file: ${file}`);
+  }
+  if (!data) {
+    return "";
   }
   return data.toString();
 };

@@ -48,6 +48,7 @@ const SiteMetadata: React.FunctionComponent<
   const host =
     process.env.GATSBY_SITE_URL || `127.0.0.1:${globalHistory.location.port}`;
   const image = `${host}${withPrefix("/logo.png")}`;
+  const facebookImage = `${host}${withPrefix("/facebookLogo.png")}`;
 
   let title = `${formatMessage({ id: "title" })} - ${formatMessage({
     id: "shortDescription",
@@ -115,7 +116,7 @@ const SiteMetadata: React.FunctionComponent<
         url={pageUrl ? pageUrl : siteMetadata.siteUrl}
         title={title}
         description={description}
-        image={image}
+        image={facebookImage}
         type={blogPostMetadata ? "article" : "website"}
       />
       <Twitter
