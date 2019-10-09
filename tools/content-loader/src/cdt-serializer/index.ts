@@ -103,6 +103,13 @@ export class ClusterDocsTopicSerializer {
           `while preparing specifications for ${output}/${topic}`,
         );
       }
+      delete configs[topic].dir;
+      [err] = await to(
+        writeToJson(`${output}/${topic}/docs.config.json`, configs[topic]),
+      );
+      if (err) {
+        throw new VError(err, `while copying config for ${output}/${topic}`);
+      }
     }
   };
 
@@ -132,14 +139,6 @@ export class ClusterDocsTopicSerializer {
     const [downloadErr] = await to(Promise.all(downloads));
     if (downloadErr) {
       throw new VError(err, `while downloading content for ${output}/${topic}`);
-    }
-
-    delete docsConfig.dir;
-    [err] = await to(
-      writeToJson(`${output}/${topic}/docs.config.json`, docsConfig),
-    );
-    if (err) {
-      throw new VError(err, `while copying config for ${output}/${topic}`);
     }
   };
 
