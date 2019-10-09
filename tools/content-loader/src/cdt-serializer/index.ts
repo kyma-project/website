@@ -298,10 +298,11 @@ export class ClusterDocsTopicSerializer {
       }
 
       this.clusterDocsTopics.push(cdt);
-      if (cdt.spec.sources.filter(isAllowedSrcType).length > 0) {
-        const cdtValues = await values(file, source);
-        this.clusterDocsTopicsValues.set(cdt, cdtValues);
+      if (!cdt.spec.sources.filter(isAllowedSrcType).length) {
+        continue;
       }
+      const cdtValues = await values(file, source);
+      this.clusterDocsTopicsValues.set(cdt, cdtValues);
     }
   };
 

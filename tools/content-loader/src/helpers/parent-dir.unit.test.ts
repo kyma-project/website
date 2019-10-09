@@ -1,4 +1,4 @@
-import parentDir from "./parent-dir";
+import { parentDir } from "./parent-dir";
 
 describe("parentDir", () => {
   const cases = [

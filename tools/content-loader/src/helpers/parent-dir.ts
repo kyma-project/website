@@ -1,6 +1,6 @@
 import { sep } from "path";
 
-export default (p: string) => {
+export const parentDir = (p: string) => {
   if (!p) {
     return "";
   }

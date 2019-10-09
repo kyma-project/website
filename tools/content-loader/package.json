@@ -15,7 +15,6 @@
     "@types/fs-extra": "^5.0.5",
     "@types/js-yaml": "^3.12.1",
     "@types/verror": "^1.10.3",
-    "await-to-js": "^2.1.1",
     "axios": "^0.19.0",
     "compare-versions": "^3.4.0",
     "front-matter": "^3.0.2",

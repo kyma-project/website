@@ -3,7 +3,7 @@ import { statSync, readdirSync, existsSync } from "fs";
 import { readYaml } from "./read-yaml";
 import { memoizeRead } from "./memoized-read";
 import { get } from "lodash";
-import parentDir from "./parent-dir";
+import { parentDir } from "./parent-dir";
 
 const VALUES_FILE_NAME = "values.yaml";
 
