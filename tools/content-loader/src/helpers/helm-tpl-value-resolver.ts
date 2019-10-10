@@ -1,7 +1,7 @@
 import { join, dirname } from "path";
 import { statSync, readdirSync, existsSync } from "fs";
 import { readYaml } from "./read-yaml";
-import { memoizeRead } from "./memoized-read";
+import { memoizeRead } from "./memoize-read";
 import { parentDir } from "./parent-dir";
 import { merge, get } from "lodash";
 
