@@ -24,9 +24,11 @@ See the overview of all changes in this release:
 - [Documentation](#documentation) - Improved installation documentation
 - [Eventing](#eventing) - Knative Eventing Channel Provisioners replaced with Channel CRD Controllers, Knative Eventing chart updated to 0.8 
 - [Hydroform](#hydroform) - Introducing Hydroform - Kubernetes provisioning 
+- [Logging](#serverless) - Added support for Fluent Bit
 - [Serverless](#serverless) - Function Controller enhanced with new features, Knative Serving updated to 0.8.1 
 - [Service Management](#service-management) - Service Catalog switched to the CRD implementation, GCP Service Broker no longer in the preview mode
-- [Logging](#serverless) - Added support for Fluent Bit
+- [Service Mesh](#service-mesh) - Istio updated to 1.2.7
+
 
 
 ## API Gateway 
@@ -124,6 +126,14 @@ In this release, we updated our bundled Knative Eventing chart to [Knative 0.8](
 
 This release brings you [Hydroform](https://github.com/kyma-incubator/hydroform/blob/master/README.md ), an infrastructure SDK you can use to create and manage Kubernetes clusters provisioned on the chosen cloud provider. The idea behind Hydroform is to provide an easy way of creating infrastructure. Having a common library used across products such as Kyma CLI or Compass significantly simplifies cluster provisioning and management. Currently, Hydroform supports Google Cloud Platform and Gardener, the latter using [Terraform provider for Gardener](https://github.com/kyma-incubator/terraform-provider-gardener) to ensure smooth cluster provisioning.
 
+
+## Logging
+
+### Added support for Fluent Bit 
+
+So far, Loki came with the default [Promtail](https://github.com/grafana/loki) log collector configuration. From this release, Kyma supports [Fluent Bit](https://fluentbit.io/) as a yet another log collector.
+
+
 ## Serverless
 
 ### Function Controller enhanced with new features 
@@ -156,9 +166,9 @@ See [this](https://svc-cat.io/docs/design/#service-catalog-design) document for 
 
 After some time spent in the preview mode, the GCP Service Broker joins other production-ready addons that are provided in Kyma by default. For details, see [this](https://kyma-project.io/docs/1.6/components/service-catalog#service-brokers-gcp-service-broker) document.
 
-## Logging
 
-### Added support for Fluent Bit 
+## Service Mesh
 
-So far, Loki came with the default [Promtail](https://github.com/grafana/loki) log collector configuration. From this release, Kyma supports [Fluent Bit](https://fluentbit.io/) as a yet another log collector.
+### Istio updated to 1.2.7 
 
+The new release comes with Istio updated to 1.2.7 which provides fixes for the https://istio.io/news/2019/istio-security-2019-005/ security vulnerability. 
