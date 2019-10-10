@@ -4,6 +4,7 @@ import { readYaml } from "./read-yaml";
 import { memoizeRead } from "./memoized-read";
 import { get } from "lodash";
 import { parentDir } from "./parent-dir";
+import { merge as mergeObjects } from "lodash";
 
 const VALUES_FILE_NAME = "values.yaml";
 
@@ -52,7 +53,7 @@ export function* valueTplMatchGenerator(s: string) {
 
 export const merge = async (acc: Promise<any>, current: Promise<any>) =>
   Promise.all([acc, current])
-    .then(results => Object.assign(...results))
+    .then(results => mergeObjects(...results))
     .catch((e: Error) => ({}));
 
 const read = memoizeRead(readYaml);

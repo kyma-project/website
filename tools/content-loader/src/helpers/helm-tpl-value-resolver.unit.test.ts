@@ -32,6 +32,41 @@ describe("merge", () => {
         test: "passed",
       },
     ],
+    [
+      {
+        // acc
+        test: {
+          a: {
+            b: {
+              c: 1,
+            },
+          },
+          b: 123,
+        },
+      },
+      {
+        // acc
+        test: {
+          a: {
+            b: {
+              d: 2,
+            },
+          },
+        },
+      },
+      {
+        // expected
+        test: {
+          a: {
+            b: {
+              d: 2,
+              c: 1,
+            },
+          },
+          b: 123,
+        },
+      },
+    ],
   ];
   test.each(cases)(
     "%s should merget to %s",
