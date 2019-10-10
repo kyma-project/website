@@ -1,4 +1,7 @@
-import { valueTplMatchGenerator, merge } from "./helm-tpl-value-resolver";
+import {
+  valueTplMatchGenerator,
+  mergeObjects,
+} from "./helm-tpl-value-resolver";
 import to from "await-to-js";
 
 describe("merge", () => {
@@ -72,7 +75,7 @@ describe("merge", () => {
     "%s should merget to %s",
     async (acc: any, current: any, expected: any) => {
       const [err, actual] = await to(
-        merge(Promise.resolve(acc), Promise.resolve(current)),
+        mergeObjects(Promise.resolve(acc), Promise.resolve(current)),
       );
       expect(err).toBeNull();
       expect(actual).toEqual(expected);

@@ -2,9 +2,8 @@ import { join, dirname } from "path";
 import { statSync, readdirSync, existsSync } from "fs";
 import { readYaml } from "./read-yaml";
 import { memoizeRead } from "./memoized-read";
-import { get } from "lodash";
 import { parentDir } from "./parent-dir";
-import { merge as mergeObjects } from "lodash";
+import { merge, get } from "lodash";
 
 const VALUES_FILE_NAME = "values.yaml";
 
@@ -51,9 +50,9 @@ export function* valueTplMatchGenerator(s: string) {
   }
 }
 
-export const merge = async (acc: Promise<any>, current: Promise<any>) =>
+export const mergeObjects = async (acc: Promise<any>, current: Promise<any>) =>
   Promise.all([acc, current])
-    .then(results => mergeObjects(...results))
+    .then(results => merge(...results))
     .catch((e: Error) => ({}));
 
 const read = memoizeRead(readYaml);
@@ -61,7 +60,7 @@ const read = memoizeRead(readYaml);
 export const values = async (path: string, chartRepo: string) =>
   extractValuePaths(path, chartRepo)
     .map(read)
-    .reduce(merge);
+    .reduce(mergeObjects);
 
 export const fixSourceUrl = (url: string, vals: any) =>
   Array.from(valueTplMatchGenerator(url))

@@ -216,10 +216,10 @@ export class ClusterDocsTopicSerializer {
       dir = "docs/service-catalog/";
     }
 
+    const values = this.clusterDocsTopicsValues.get(cdt);
     const specifications = cdt.spec.sources
       .filter(isAllowedSrcType)
       .map(src => {
-        const values = this.clusterDocsTopicsValues.get(cdt);
         const assetPath: string = fixUrl(src.url, values || {});
         return {
           id: src.name,
