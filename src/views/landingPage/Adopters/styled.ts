@@ -58,7 +58,7 @@ export const StyledAdoptersItem = styled.div`
     max-width: 240px;
     max-height: 60px;
     margin-bottom: 16px;
-    /* filter: grayscale(100%); */
+    filter: grayscale(100%);
     transition-duration: 300ms;
   }
 

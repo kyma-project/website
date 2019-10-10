@@ -17,7 +17,7 @@ const LandingPageView: React.FunctionComponent<
   <>
     <Headline />
     <WhatIs />
-    <KeyFeatures />
+    {/* <KeyFeatures /> */}
     <MakeSpecial />
     <SocialMedia lastBlogPost={lastBlogPost} />
     <Adopters adopters={adopters} />
