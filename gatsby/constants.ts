@@ -20,7 +20,7 @@ const DOCS_KYMA_ID = "kyma";
 const DOCS_SPECIFICATIONS_PATH = "specifications";
 
 const BLOG_POST_FILENAME_REGEX = /([0-9]+)\-([0-9]+)\-([0-9]+)\-(.+)\/index\.md$/;
-const DOCS_FILENAME_REGEX = /(\d+.\d+|master|openapi-cdts)\/(.+)\/docs\/(.+)\.md$/;
+const DOCS_FILENAME_REGEX = /(\d+.\d+|master)\/(.+)\/docs\/(.+)\.md$/;
 const COMMUNITY_FILENAME_REGEX = /community\/(.+)\/docs\/(.+)\.md$/;
 const ROADMAP_CAPABILITY_FILENAME_REGEX = /roadmap\/capabilities\/(.+)\.md$/;
 

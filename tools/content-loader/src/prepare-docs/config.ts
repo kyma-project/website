@@ -7,10 +7,9 @@ export interface DocsConfig {
 }
 
 const config: DocsConfig = {
-  branches: ["openapi-cdts"],
-  // branches: process.env.APP_DOCS_BRANCHES
-  //   ? process.env.APP_DOCS_BRANCHES.replace(/ /g, "").split(",")
-  //   : ["master"],
+  branches: process.env.APP_DOCS_BRANCHES
+    ? process.env.APP_DOCS_BRANCHES.replace(/ /g, "").split(",")
+    : ["master"],
   outputPath: process.env.APP_DOCS_OUTPUT || "docs",
   outputDocsVersion:
     process.env.APP_DOCS_VERSIONS_CONFIG_FILE || "versions.json",
