@@ -1,5 +1,6 @@
 import to from "await-to-js";
 import { VError } from "verror";
+import { join, basename } from "path";
 
 import {
   getFilesPaths,
@@ -7,7 +8,12 @@ import {
   writeToYaml,
   writeToJson,
   copyResources,
+  values,
+  fixUrl,
+  downloadAndSaveResource,
+  makeDir,
 } from "../helpers";
+
 import {
   ClusterDocsTopic,
   DocsConfigs,
@@ -18,7 +24,14 @@ import {
   GROUP_NAME_LABEL,
   GROUP_ORDER_LABEL,
   ORDER_LABEL,
+  Source,
 } from "./types";
+import { async } from "q";
+
+const SPECIFICATIONS = "specifications";
+const ALLOWED_SOURCE_TYPES = ["openapi", "asyncapi", "odata"];
+const isAllowedSrcType = (src: Source) =>
+  ALLOWED_SOURCE_TYPES.includes(src.type);
 
 interface Options {
   copyRegex?: string;
@@ -27,6 +40,7 @@ interface Options {
 
 export class ClusterDocsTopicSerializer {
   private clusterDocsTopics: ClusterDocsTopic[] = [];
+  private clusterDocsTopicsValues: Map<ClusterDocsTopic, any> = new Map();
   private docsVersion: string = "";
 
   do = async (source: string, output: string, options?: Options) => {
@@ -80,7 +94,15 @@ export class ClusterDocsTopicSerializer {
       if (err) {
         throw new VError(err, `while copying content for ${output}/${topic}`);
       }
-
+      [err] = await to(
+        this.prepareSpecifications(output, topic, configs[topic]),
+      );
+      if (err) {
+        throw new VError(
+          err,
+          `while preparing specifications for ${output}/${topic}`,
+        );
+      }
       delete configs[topic].dir;
       [err] = await to(
         writeToJson(`${output}/${topic}/docs.config.json`, configs[topic]),
@@ -88,6 +110,35 @@ export class ClusterDocsTopicSerializer {
       if (err) {
         throw new VError(err, `while copying config for ${output}/${topic}`);
       }
+    }
+  };
+
+  private prepareSpecifications = async (
+    output: string,
+    topic: string,
+    docsConfig: DocsConfig,
+  ) => {
+    let [err] = await to(makeDir(join(output, topic, "specifications")));
+    if (err) {
+      throw new VError(
+        err,
+        `while creating specifications directory for ${output}/${topic}/${SPECIFICATIONS}`,
+      );
+    }
+    const downloads: Promise<void>[] = [];
+    docsConfig.specifications.forEach(s => {
+      const fileName = basename(s.assetPath);
+      downloads.push(
+        downloadAndSaveResource(
+          s.assetPath,
+          join(output, topic, SPECIFICATIONS, fileName),
+        ),
+      );
+      s.assetPath = fileName;
+    });
+    const [downloadErr] = await to(Promise.all(downloads));
+    if (downloadErr) {
+      throw new VError(err, `while downloading content for ${output}/${topic}`);
     }
   };
 
@@ -165,9 +216,22 @@ export class ClusterDocsTopicSerializer {
       dir = "docs/service-catalog/";
     }
 
+    const values = this.clusterDocsTopicsValues.get(cdt);
+    const specifications = cdt.spec.sources
+      .filter(isAllowedSrcType)
+      .map(src => {
+        const assetPath: string = fixUrl(src.url, values || {});
+        return {
+          id: src.name,
+          type: src.type,
+          assetPath,
+        };
+      });
+
     const docsConfig: DocsConfig = {
       spec,
       dir,
+      specifications,
     };
     return docsConfig;
   };
@@ -229,9 +293,16 @@ export class ClusterDocsTopicSerializer {
         throw new VError(err, `while reading yaml ${file}`);
       }
 
-      if (cdt.kind && cdt.kind === CLUSTER_DOCS_TOPIC) {
-        this.clusterDocsTopics.push(cdt);
+      if (!cdt.kind || cdt.kind !== CLUSTER_DOCS_TOPIC) {
+        continue;
       }
+
+      this.clusterDocsTopics.push(cdt);
+      if (!cdt.spec.sources.filter(isAllowedSrcType).length) {
+        continue;
+      }
+      const cdtValues = await values(file, source);
+      this.clusterDocsTopicsValues.set(cdt, cdtValues);
     }
   };
 
