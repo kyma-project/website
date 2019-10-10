@@ -4,10 +4,11 @@ export const GROUP_NAME_LABEL: string = "cms.kyma-project.io/group-name";
 export const GROUP_ORDER_LABEL: string = "cms.kyma-project.io/group-order";
 export const ORDER_LABEL: string = "cms.kyma-project.io/order";
 
-export interface SpecificationItem {
+export interface Specification {
   type: string;
   id: string;
   assetPath: string;
+  githubUrl: string;
 }
 
 export interface ClusterDocsTopic {
@@ -50,7 +51,7 @@ export interface DocsConfigs {
 
 export interface DocsConfig {
   spec: DocsConfigSpec;
-  specifications: SpecificationItem[];
+  specifications: Specification[];
   dir?: string;
 }
 
