@@ -1,5 +1,4 @@
-# netlify-deploy-preview: clear-cache prepare-tools validate test prepare-content build prepare-functions
-netlify-deploy-preview: clear-cache prepare-tools validate test build prepare-functions
+netlify-deploy-preview: clear-cache prepare-tools validate test prepare-content build prepare-functions
 netlify-production: clear-cache prepare-tools validate test prepare-content build prepare-functions
 
 .PHONY: clear-cache
