@@ -14,7 +14,8 @@ export const createRoadmapModalPage = ({
   createPage,
   createRedirect,
 }: CreateRoadmapModalPageArgs) => {
-  const releases = allTickets as Tickets;
+  // this convert is intentional
+  const releases = (allTickets as any) as Tickets;
 
   Object.keys(releases).map(release => {
     const capabilities = releases[release];

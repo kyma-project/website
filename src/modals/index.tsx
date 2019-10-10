@@ -4,12 +4,15 @@
 //////////////////////////
 
 import React from "react";
-import { useLockBodyScroll } from "react-use";
 
+import { DocsSpecificationModal } from "./docs-specification";
 import { RoadmapModal } from "./roadmap";
 
 type ModalRegex = Array<[RegExp, React.ElementType<any>]>;
-const modalRegex: ModalRegex = [[/^\/roadmap/, RoadmapModal]];
+const modalRegex: ModalRegex = [
+  [/^\/docs\/(.*?)\/specifications/, DocsSpecificationModal],
+  [/^\/roadmap/, RoadmapModal],
+];
 
 export function getProperModal(path: string): React.ElementType<any> | null {
   for (const [regex, Component] of modalRegex) {
@@ -42,7 +45,6 @@ interface Props {
   context: Record<string, any>;
 }
 
-const ModalComponent: React.FunctionComponent<Props> = ({ Modal, context }) => {
-  useLockBodyScroll();
-  return <Modal {...context} />;
-};
+const ModalComponent: React.FunctionComponent<Props> = ({ Modal, context }) => (
+  <Modal {...context} />
+);

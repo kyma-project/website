@@ -1,16 +1,15 @@
-import { DocsPageContext } from "@components/generic-documentation/types";
+import { DocsPageContext } from "@typings/docs";
 
-function getPageTitle(uri: string, pageContext: DocsPageContext): string {
+function getPageTitle(pageContext: DocsPageContext): string {
   return `${pageContext.content.displayName} - Docs`;
 }
 
 export function extractDocsMetadata(
-  uri: string,
   pageContext: any,
 ): {
   pageTitle: string;
 } {
   return {
-    pageTitle: getPageTitle(uri, pageContext),
+    pageTitle: getPageTitle(pageContext),
   };
 }

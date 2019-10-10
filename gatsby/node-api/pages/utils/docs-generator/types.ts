@@ -1,3 +1,5 @@
+import { Specification } from "@typings/docs";
+
 export interface ContentGQL<T = any> {
   rawMarkdownBody: string;
   fields: {
@@ -32,6 +34,7 @@ export interface DocsContentItem {
   displayName: string;
   description: string;
   docs: DocsContentDocs[];
+  specifications: Specification[];
 }
 
 export interface DocsConfig {

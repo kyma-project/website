@@ -1,6 +1,5 @@
-import React, { useRef, useEffect, useContext } from "react";
-
-import { is } from "@styled";
+import React, { useRef, useContext } from "react";
+import { useLockBodyScroll, useToggle } from "react-use";
 
 import { plugins } from "@kyma-project/dc-markdown-render-engine";
 
@@ -18,41 +17,24 @@ export interface HeadersNavigationProps {
 
 export const HeadersNavigation: React.FunctionComponent<
   HeadersNavigationProps
-> = ({ enableSmoothScroll = false }) => {
+> = ({ enableSmoothScroll = false, children = null }) => {
   const { showMobileRightNav } = useContext(GenericDocsContext);
   const headersWrapperRef = useRef<HTMLDivElement>();
+  const [locked, toggleLocked] = useToggle(false);
+  useLockBodyScroll(locked);
 
-  useEffect(() => {
-    const html = document.querySelector(`html`);
-    const nav = headersWrapperRef.current;
+  const onMouseEnter = () => {
+    toggleLocked(true);
+  };
 
-    const onMouseOver = (element?: any) => (e: Event) => {
-      e.stopPropagation();
-      if (!element) {
-        return;
-      }
-
-      if (html) {
-        html.style.overflowY = `hidden`;
-      }
-
-      element.style.overflowY = `auto`;
-    };
-
-    const onMouseOverNav = onMouseOver(nav);
-    const onMouseOverGlobalWrapper = onMouseOver(html);
-
-    nav && nav.addEventListener("mouseover", onMouseOverNav);
-    html && html.addEventListener("mouseover", onMouseOverGlobalWrapper);
-
-    return () => {
-      nav && nav.removeEventListener("mouseover", onMouseOverNav);
-      html && html.addEventListener("mouseover", onMouseOverGlobalWrapper);
-    };
-  }, [headersWrapperRef]);
+  const onMouseLeave = () => {
+    toggleLocked(false);
+  };
 
   return (
     <HeadersNavigationsWrapper
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
       ref={headersWrapperRef as any}
       showMobileNav={showMobileRightNav}
       className="headers-navigation-wrapper"
@@ -63,9 +45,10 @@ export const HeadersNavigation: React.FunctionComponent<
         callback={scrollSpyCallback(headersWrapperRef)}
         offset={16}
       >
-        <StyledHeadersNavigation className="cms__toc-wrapper">
+        <StyledHeadersNavigation className="dc-markdown__toc-wrapper">
           <RenderedHeader />
         </StyledHeadersNavigation>
+        {children}
       </HN>
     </HeadersNavigationsWrapper>
   );

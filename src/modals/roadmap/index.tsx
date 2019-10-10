@@ -6,16 +6,17 @@ import qs from "qs";
 import { ModalHeader } from "./Header";
 import { ModalContent } from "./Content";
 
-import { Ticket } from "@typings/roadmap";
+import Modal from "@components/shared/Modal";
 
-import { StyledModal, ContentWrapper } from "./styled";
+import { RoadmapModalContext } from "@typings/roadmap";
 
-interface Props {
-  ticket: Ticket;
-}
-
-export const RoadmapModal: React.FunctionComponent<Props> = ({ ticket }) => {
+export const RoadmapModal: React.FunctionComponent<RoadmapModalContext> = ({
+  ticket,
+}) => {
   const { state } = useLocation();
+  if (!ticket) {
+    return null;
+  }
 
   const getExitLocation = () => {
     const condition = !!(
@@ -36,20 +37,16 @@ export const RoadmapModal: React.FunctionComponent<Props> = ({ ticket }) => {
     navigate(`/roadmap/?${queryString}`);
   };
 
-  const content = (
-    <ContentWrapper>
-      <ModalHeader ticket={ticket} />
-      <ModalContent body={ticket.body} />
-    </ContentWrapper>
-  );
+  const modalHeader = <ModalHeader ticket={ticket} />;
 
   return (
-    <StyledModal
+    <Modal
       openComponent={null}
-      onRequestClose={getExitLocation}
+      header={modalHeader}
       show={true}
+      onRequestClose={getExitLocation}
     >
-      {content}
-    </StyledModal>
+      <ModalContent body={ticket.body} />
+    </Modal>
   );
 };

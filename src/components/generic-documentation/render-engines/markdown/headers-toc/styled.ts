@@ -1,6 +1,5 @@
 import styled, { css, media } from "@styled";
 import { customScrollBar } from "@styled/mixins";
-import Icon from "@components/shared/Icon";
 
 const navNode = (multiple: number) => css`
   svg {
@@ -87,7 +86,7 @@ export const StyledHeadersNavigation = styled.div`
       margin: 0;
     }
 
-    .cms__toc-list-item {
+    .dc-markdown__toc-list-item {
       width: 100%;
       max-width: 100%;
       position: relative;
@@ -158,13 +157,13 @@ export const StyledHeadersNavigation = styled.div`
       }
     }
 
-    .cms__toc-list-item--active {
+    .dc-markdown__toc-list-item--active {
       > a {
         color: rgba(11, 116, 222, 1);
       }
     }
 
-    .cms__toc-list-item--level-1 {
+    .dc-markdown__toc-list-item--level-1 {
       ${navNode(0)}
       > a {
         font-size: 14px;
@@ -173,27 +172,27 @@ export const StyledHeadersNavigation = styled.div`
       }
     }
 
-    .cms__toc-list-item--level-2 {
+    .dc-markdown__toc-list-item--level-2 {
       ${navNode(1)}
     }
 
-    .cms__toc-list-item--level-3 {
+    .dc-markdown__toc-list-item--level-3 {
       ${navNode(2)}
     }
 
-    .cms__toc-list-item--level-4 {
+    .dc-markdown__toc-list-item--level-4 {
       ${navNode(3)}
     }
 
-    .cms__toc-list-item--level-5 {
+    .dc-markdown__toc-list-item--level-5 {
       ${navNode(4)}
     }
 
-    .cms__toc-list-item--level-6 {
+    .dc-markdown__toc-list-item--level-6 {
       ${navNode(5)}
     }
 
-    .cms__toc-list-item--level-doc-title {
+    .dc-markdown__toc-list-item--level-doc-title {
       ${navNode(0)}
       > a {
         font-size: 14px;
@@ -201,7 +200,7 @@ export const StyledHeadersNavigation = styled.div`
         padding-bottom: 6px;
       }
 
-      .cms__toc-list-item--level-1 {
+      .dc-markdown__toc-list-item--level-1 {
         ${navNode(1)}
         > a {
           font-size: 12px;
@@ -210,28 +209,28 @@ export const StyledHeadersNavigation = styled.div`
         }
       }
 
-      .cms__toc-list-item--level-2 {
+      .dc-markdown__toc-list-item--level-2 {
         ${navNode(2)}
       }
 
-      .cms__toc-list-item--level-3 {
+      .dc-markdown__toc-list-item--level-3 {
         ${navNode(3)}
       }
 
-      .cms__toc-list-item--level-4 {
+      .dc-markdown__toc-list-item--level-4 {
         ${navNode(4)}
       }
 
-      .cms__toc-list-item--level-5 {
+      .dc-markdown__toc-list-item--level-5 {
         ${navNode(5)}
       }
 
-      .cms__toc-list-item--level-6 {
+      .dc-markdown__toc-list-item--level-6 {
         ${navNode(6)}
       }
     }
 
-    .cms__toc-list-item--level-doc-type {
+    .dc-markdown__toc-list-item--level-doc-type {
       ${navNode(0)}
       > a {
         font-size: 14px;
@@ -243,7 +242,7 @@ export const StyledHeadersNavigation = styled.div`
         }
       }
 
-      .cms__toc-list-item--level-doc-title {
+      .dc-markdown__toc-list-item--level-doc-title {
         ${navNode(1)}
         > a {
           font-size: 12px;
@@ -252,37 +251,37 @@ export const StyledHeadersNavigation = styled.div`
         }
       }
 
-      .cms__toc-list-item--level-1 {
+      .dc-markdown__toc-list-item--level-1 {
         ${navNode(2)}
       }
 
-      .cms__toc-list-item--level-2 {
+      .dc-markdown__toc-list-item--level-2 {
         ${navNode(3)}
       }
 
-      .cms__toc-list-item--level-3 {
+      .dc-markdown__toc-list-item--level-3 {
         ${navNode(4)}
       }
 
-      .cms__toc-list-item--level-4 {
+      .dc-markdown__toc-list-item--level-4 {
         ${navNode(5)}
       }
 
-      .cms__toc-list-item--level-5 {
+      .dc-markdown__toc-list-item--level-5 {
         ${navNode(6)}
       }
 
-      .cms__toc-list-item--level-6 {
+      .dc-markdown__toc-list-item--level-6 {
         ${navNode(7)}
       }
     }
 
-    .cms__toc-list-item--show,
-    .cms__toc-list-item--show > ul {
+    .dc-markdown__toc-list-item--show,
+    .dc-markdown__toc-list-item--show > ul {
       display: block !important;
     }
 
-    .cms__toc-list-item--has-children > a:before {
+    .dc-markdown__toc-list-item--has-children > a:before {
       display: block;
     }
   }

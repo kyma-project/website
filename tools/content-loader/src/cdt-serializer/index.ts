@@ -9,7 +9,7 @@ import {
   writeToJson,
   copyResources,
   values,
-  fixUrl,
+  fixSourceUrl,
   downloadAndSaveResource,
   makeDir,
 } from "../helpers";
@@ -25,13 +25,10 @@ import {
   GROUP_ORDER_LABEL,
   ORDER_LABEL,
   Source,
+  Specification,
 } from "./types";
-import { async } from "q";
 
 const SPECIFICATIONS = "specifications";
-const ALLOWED_SOURCE_TYPES = ["openapi", "asyncapi", "odata"];
-const isAllowedSrcType = (src: Source) =>
-  ALLOWED_SOURCE_TYPES.includes(src.type);
 
 interface Options {
   copyRegex?: string;
@@ -44,7 +41,7 @@ export class ClusterDocsTopicSerializer {
   private docsVersion: string = "";
 
   do = async (source: string, output: string, options?: Options) => {
-    this.clearClusterDocsTopic();
+    this.clearValues();
 
     const { copyRegex, docsVersion } = options;
     if (docsVersion) {
@@ -94,6 +91,7 @@ export class ClusterDocsTopicSerializer {
       if (err) {
         throw new VError(err, `while copying content for ${output}/${topic}`);
       }
+
       [err] = await to(
         this.prepareSpecifications(output, topic, configs[topic]),
       );
@@ -103,6 +101,7 @@ export class ClusterDocsTopicSerializer {
           `while preparing specifications for ${output}/${topic}`,
         );
       }
+
       delete configs[topic].dir;
       [err] = await to(
         writeToJson(`${output}/${topic}/docs.config.json`, configs[topic]),
@@ -125,17 +124,19 @@ export class ClusterDocsTopicSerializer {
         `while creating specifications directory for ${output}/${topic}/${SPECIFICATIONS}`,
       );
     }
+
     const downloads: Promise<void>[] = [];
-    docsConfig.specifications.forEach(s => {
-      const fileName = basename(s.assetPath);
+    docsConfig.specifications.forEach(specification => {
+      const fileName = basename(specification.assetPath);
       downloads.push(
         downloadAndSaveResource(
-          s.assetPath,
+          specification.assetPath,
           join(output, topic, SPECIFICATIONS, fileName),
         ),
       );
-      s.assetPath = fileName;
+      specification.assetPath = fileName;
     });
+
     const [downloadErr] = await to(Promise.all(downloads));
     if (downloadErr) {
       throw new VError(err, `while downloading content for ${output}/${topic}`);
@@ -218,14 +219,17 @@ export class ClusterDocsTopicSerializer {
 
     const values = this.clusterDocsTopicsValues.get(cdt);
     const specifications = cdt.spec.sources
-      .filter(isAllowedSrcType)
+      .filter(this.isAllowedSrcType)
       .map(src => {
-        const assetPath: string = fixUrl(src.url, values || {});
+        const fixedUrl: string = fixSourceUrl(src.url, values || {});
+        const githubUrl: string = this.extractGithubUrl(fixedUrl);
+
         return {
           id: src.name,
           type: src.type,
-          assetPath,
-        };
+          assetPath: fixedUrl,
+          githubUrl,
+        } as Specification;
       });
 
     const docsConfig: DocsConfig = {
@@ -298,16 +302,44 @@ export class ClusterDocsTopicSerializer {
       }
 
       this.clusterDocsTopics.push(cdt);
-      if (!cdt.spec.sources.filter(isAllowedSrcType).length) {
+      if (!cdt.spec.sources.filter(this.isAllowedSrcType).length) {
         continue;
       }
+
       const cdtValues = await values(file, source);
       this.clusterDocsTopicsValues.set(cdt, cdtValues);
     }
   };
 
-  private clearClusterDocsTopic = (): void => {
+  private isAllowedSrcType = (src: Source) => {
+    const ALLOWED_SOURCE_TYPES = ["openapi", "asyncapi", "odata"];
+    return ALLOWED_SOURCE_TYPES.includes(src.type);
+  };
+
+  private extractGithubUrl = (url: string): string => {
+    const rawGithubUseContentSuffix = `https://raw.githubusercontent.com`;
+    if (!url.startsWith(rawGithubUseContentSuffix)) {
+      return "";
+    }
+
+    let processedUrl = url.replace(rawGithubUseContentSuffix, "");
+    const regExp: RegExp = /^\/(.*?)\/(.*?)\/(.*?)$/;
+
+    const matches = processedUrl.match(regExp);
+    if (!matches || matches.length < 4) {
+      return "";
+    }
+
+    const organization = matches[1];
+    const repository = matches[2];
+    const rest = matches[3];
+
+    return `https://github.com/${organization}/${repository}/blob/${rest}`;
+  };
+
+  private clearValues = (): void => {
     this.clusterDocsTopics = [];
+    this.clusterDocsTopicsValues = new Map();
   };
 }
 

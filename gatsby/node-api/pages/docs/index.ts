@@ -1,53 +1,16 @@
-import { resolve } from "path";
+import { createComponentDocsPage } from "./componentPage";
+import { createModalDocsPage } from "./modalPage";
 import { fixLinks } from "./fixLinks";
-import { getDocsVersions, sortGroupOfNavigation } from "./helpers";
-import {
-  docsGenerator,
-  DocsGeneratorReturnType,
-  getContent,
-  DocsContentDocs,
-  DocsContentItem,
-  DocsNavigation,
-} from "../utils";
-import { DocGQL } from "./types";
+import { createDocsPage, prepareData, sortGroupOfNavigation } from "./helpers";
+import { DocsContentItem, DocsNavigation } from "../utils";
 import {
   DOCS_DIR,
   ASSETS_DIR,
   DOCS_PATH_PREFIX,
   DOCS_LATEST_VERSION,
-  DOCS_ROOT_TYPE,
-  DOCS_KYMA_ID,
+  DOCS_SPECIFICATIONS_PATH,
 } from "../../../constants";
 import { CreatePageFn, GraphQLFunction } from "../../../types";
-
-const extractFn = (version: string) => (
-  doc: DocGQL,
-  docsGroup: string,
-  topicId: string,
-): DocsContentDocs | null => {
-  const {
-    rawMarkdownBody,
-    fields: {
-      docInfo: { id, type, version: v, fileName },
-    },
-    frontmatter: { title, type: docType },
-  } = doc;
-
-  if (version === v && docsGroup === type && topicId === id) {
-    const obj: DocsContentDocs = {
-      order: fileName,
-      title,
-      source: rawMarkdownBody,
-    };
-
-    if (docType) {
-      obj.type = docType;
-    }
-
-    return obj;
-  }
-  return null;
-};
 
 export interface CreateDocsPages {
   graphql: GraphQLFunction;
@@ -56,55 +19,16 @@ export interface CreateDocsPages {
 
 export const createDocsPages = async ({
   graphql,
-  createPage,
+  createPage: createPageFn,
 }: CreateDocsPages) => {
-  const docsTemplate: string = resolve(
-    __dirname,
-    "../../../../src/views/docs/index.tsx",
-  );
-
-  const versions = getDocsVersions(
-    require("../../../../content/docs/versions"),
-  );
-  if (Object.keys(versions).length === 0) {
-    console.error("No docs versions found");
+  const preparedData = await prepareData({ graphql });
+  if (!preparedData) {
     return;
   }
-  const latestVersion = versions.releases[0];
-
-  const docs = await getContent<DocGQL>(
-    graphql,
-    "/content/docs/",
-    `docInfo {
-      id
-      type
-      version
-      fileName
-    }`,
-  );
-
-  const docsArch: { [version: string]: DocsGeneratorReturnType } = {};
-  for (const versionType in versions) {
-    if (!versions.hasOwnProperty(versionType)) {
-      continue;
-    }
-    for (const version of versions[versionType]) {
-      docsArch[version] = docsGenerator<DocGQL>(
-        docs,
-        "docs",
-        extractFn(version),
-        version,
-      );
-    }
-  }
-
-  docsArch[DOCS_LATEST_VERSION] = JSON.parse(
-    JSON.stringify(docsArch[latestVersion]),
-  );
-  docsArch[""] = JSON.parse(JSON.stringify(docsArch[latestVersion]));
+  const { versions, latestVersion, docsArch } = preparedData;
 
   Object.keys(docsArch).map(version => {
-    const { content, navigation, manifest } = docsArch[version];
+    const { content, navigation } = docsArch[version];
     const sortedNavigation: DocsNavigation = sortGroupOfNavigation(navigation);
 
     Object.keys(content).map(docsType => {
@@ -114,48 +38,42 @@ export const createDocsPages = async ({
         const assetsPath = `/${ASSETS_DIR}${DOCS_DIR}${
           !version || version === DOCS_LATEST_VERSION ? latestVersion : version
         }/${topic}/${DOCS_DIR}${ASSETS_DIR}`;
+        const specificationsPath = `/${ASSETS_DIR}${DOCS_DIR}${
+          !version || version === DOCS_LATEST_VERSION ? latestVersion : version
+        }/${topic}/${DOCS_SPECIFICATIONS_PATH}`;
+        const modalUrlPrefix = `/${DOCS_PATH_PREFIX}/${
+          !version || version === DOCS_LATEST_VERSION ? latestVersion : version
+        }/${docsType}/${topic}/${DOCS_SPECIFICATIONS_PATH}`;
 
-        let newContent = content[docsType][topic] as DocsContentItem;
-        newContent = fixLinks({
-          content: newContent,
+        let fixedContent = content[docsType][topic];
+        fixedContent = fixLinks({
+          content: fixedContent,
           version,
           latestVersion,
         });
+        const specifications = fixedContent.specifications.map(
+          specification => ({
+            ...specification,
+            assetPath: `${specificationsPath}/${specification.assetPath}`,
+            pageUrl: `${modalUrlPrefix}/${specification.id}`,
+          }),
+        );
 
-        createPage({
-          path: `/${DOCS_PATH_PREFIX}/${
-            version ? `${version}/` : ""
-          }${docsType}/${topic}`,
-          component: docsTemplate,
-          context: {
-            version,
-            versions,
-            content: newContent,
-            navigation: sortedNavigation,
-            manifest: sortedNavigation,
-            assetsPath,
-            docsType,
-            topic,
-          },
-        });
+        const context = {
+          content: fixedContent,
+          navigation: sortedNavigation,
+          manifest: sortedNavigation,
+          versions,
+          version,
+          assetsPath,
+          docsType,
+          topic,
+          specifications,
+        };
 
-        // for root path: /docs -> /docs/root/kyma
-        if (DOCS_ROOT_TYPE === docsType && DOCS_KYMA_ID === topic) {
-          createPage({
-            path: `/${DOCS_PATH_PREFIX}/${version}`,
-            component: docsTemplate,
-            context: {
-              version,
-              versions,
-              content: newContent,
-              navigation: sortedNavigation,
-              manifest: sortedNavigation,
-              assetsPath,
-              docsType,
-              topic,
-            },
-          });
-        }
+        const createPage = createDocsPage(createPageFn, context);
+        createComponentDocsPage({ createPage, context });
+        createModalDocsPage({ createPage, context });
       });
     });
   });

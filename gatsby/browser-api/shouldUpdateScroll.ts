@@ -3,17 +3,23 @@ import { ShouldUpdateScrollArgs } from "gatsby";
 import { getTargetOffset } from "./helpers";
 
 interface LocationRegExp {
-  withoutPreviousLocation: RegExp;
+  modalPath: RegExp;
   currentLocation: RegExp;
   previousLocation: RegExp;
 }
 
 const modalLocationRegExp: LocationRegExp[] = [
+  // for docs-specification
+  {
+    modalPath: /^\/docs\/(.*?)\/specifications/,
+    currentLocation: /^((?!(\/docs\/(.*?)\/specifications)).)*$/,
+    previousLocation: /^\/docs\/(.*?)\/specifications/,
+  },
   // for roadmap
   {
-    withoutPreviousLocation: /\/roadmap\/[a-z]/,
-    currentLocation: /\/roadmap/,
-    previousLocation: /\/roadmap\/[a-z]/,
+    modalPath: /^\/roadmap\/[a-z]/,
+    currentLocation: /^\/roadmap/,
+    previousLocation: /^\/roadmap\/[a-z]/,
   },
 ];
 
@@ -32,7 +38,7 @@ function checkCorrectLocationForModal({
   }
 
   return modalLocationRegExp.some(loc => {
-    if (loc.withoutPreviousLocation.test(location.pathname)) {
+    if (loc.modalPath.test(location.pathname)) {
       const offset = getSavedScrollPosition(previousLocation);
       if (offset) {
         window.scrollTo(...offset);

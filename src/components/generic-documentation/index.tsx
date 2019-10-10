@@ -1,18 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import {
   DC,
   SourceWithOptions,
   Plugins,
   RenderEngines,
   Renderers,
+  Sources,
 } from "@kyma-project/documentation-component";
 import { plugins as markdownPlugins } from "@kyma-project/dc-markdown-render-engine";
 
-import { DocsPageContext } from "@components/generic-documentation/types";
+import { DocsPageContext } from "@typings/docs";
 
-import { markdownRE } from "./render-engines";
+import { markdownRE, openApiRE } from "./render-engines";
 import { MarkdownRenderer } from "./renderers";
-import { DocsLayout, CommunityLayout } from "./layouts";
+import {
+  DocsLayout,
+  DocsSpecificationLayout,
+  CommunityLayout,
+} from "./layouts";
 import { serializer } from "./serializer";
 import { replaceImagePathsMutationPlugin } from "./render-engines/markdown/plugins";
 import {
@@ -36,6 +41,47 @@ const PLUGINS: Plugins = [
   replaceImagePathsMutationPlugin,
 ];
 
+function prepareSources(
+  pageContext?: DocsPageContext,
+  sources?: Sources,
+): Sources | undefined {
+  let serializedSources: Sources = [];
+  if (pageContext && pageContext.content && pageContext.assetsPath) {
+    serializedSources = serializer
+      .setDocsContent(pageContext.content)
+      .serialize(pageContext.assetsPath)
+      .getSources();
+  }
+  if (!pageContext && sources && sources.length) {
+    serializedSources = sources;
+  }
+
+  if (!serializedSources || !serializedSources.length) {
+    return;
+  }
+
+  return serializedSources;
+}
+
+function extractDataFromFirstSources(sources: Sources): [string, string] {
+  let temp = sources[0] as SourceWithOptions;
+  if (Array.isArray(temp)) {
+    temp = temp[0] as SourceWithOptions;
+  }
+  const firstSource = temp.source;
+
+  const title =
+    firstSource.data &&
+    firstSource.data.frontmatter &&
+    firstSource.data.frontmatter.title;
+  const type =
+    firstSource.data &&
+    firstSource.data.frontmatter &&
+    firstSource.data.frontmatter.type;
+
+  return [title || "", type || ""];
+}
+
 function renderContent(
   type: LayoutType,
   renderers: Renderers,
@@ -44,6 +90,9 @@ function renderContent(
   switch (type) {
     case LayoutType.DOCS: {
       return <DocsLayout renderers={renderers} {...props} />;
+    }
+    case LayoutType.DOCS_SPECIFICATION: {
+      return <DocsSpecificationLayout />;
     }
     case LayoutType.COMMUNITY: {
       return <CommunityLayout renderers={renderers} {...props} />;
@@ -55,60 +104,55 @@ function renderContent(
 
 export enum LayoutType {
   DOCS = "docs",
+  DOCS_SPECIFICATION = "docs-specification",
   COMMUNITY = "community",
 }
 
 export interface GenericComponentProps {
-  pageContext: DocsPageContext;
+  pageContext?: DocsPageContext;
+  sources?: Sources;
   layout?: LayoutType;
   docsVersionSwitcher?: React.ReactNode;
 }
 
 export const GenericComponent: React.FunctionComponent<
   GenericComponentProps
-> = ({ pageContext, layout = LayoutType.DOCS, docsVersionSwitcher }) => {
+> = ({
+  pageContext,
+  sources,
+  layout = LayoutType.DOCS,
+  docsVersionSwitcher,
+}) => {
   types.clear();
   setHideTitleHeader(false);
 
-  const sources = serializer
-    .setDocsContent(pageContext.content)
-    .serialize(pageContext.assetsPath)
-    .getSources();
-
-  if (!sources || !sources.length) {
+  const serializedSources: Sources | undefined = prepareSources(
+    pageContext,
+    sources,
+  );
+  if (!serializedSources) {
     return null;
   }
+  const [title, type] = extractDataFromFirstSources(serializedSources);
 
-  let tempSource = sources[0] as SourceWithOptions;
-  if (Array.isArray(tempSource)) {
-    tempSource = tempSource[0] as SourceWithOptions;
-  }
-  const firstSource = tempSource.source;
-
-  const title =
-    firstSource.data &&
-    firstSource.data.frontmatter &&
-    firstSource.data.frontmatter.title;
-  const type: string =
-    firstSource.data &&
-    firstSource.data.frontmatter &&
-    firstSource.data.frontmatter.type;
-
-  const RENDER_ENGINES: RenderEngines = [markdownRE(layout)];
-  const renderers: Renderers = {
-    single: [MarkdownRenderer(sources.length, { title, type })],
+  const RENDER_ENGINES: RenderEngines = [
+    markdownRE(layout, pageContext && pageContext.specifications),
+    openApiRE,
+  ];
+  const RENDERERS: Renderers = {
+    single: [MarkdownRenderer(serializedSources.length, { title, type })],
   };
 
   return (
-    <GenericDocsProvider assetsPath={pageContext.assetsPath}>
+    <GenericDocsProvider assetsPath={pageContext && pageContext.assetsPath}>
       <DC.Provider
-        sources={sources}
+        sources={serializedSources}
         plugins={PLUGINS}
         renderEngines={RENDER_ENGINES}
       >
-        {renderContent(layout, renderers, {
+        {renderContent(layout, RENDERERS, {
           ...pageContext,
-          sourcesLength: sources.length,
+          sourcesLength: serializedSources.length,
           docsVersionSwitcher,
         })}
       </DC.Provider>

@@ -3,10 +3,7 @@ import { MutationPluginArgs } from "@kyma-project/documentation-component";
 const ASSETS_REGEXP = /(?=]\()]\(\s*(\.\/)?assets/g;
 const SRC_ATTR_REGEXP = /<img(.*?)src=("|')(.*?)("|')(.*?)>/gm;
 
-export function replaceImagePaths({
-  source,
-  options,
-}: MutationPluginArgs): string {
+export function replaceImagePaths({ source }: MutationPluginArgs): string {
   if (!source.data || !source.data.assetsPath) {
     return source.rawContent as string;
   }

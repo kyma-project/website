@@ -3,7 +3,12 @@ import { Content, Renderers } from "@kyma-project/documentation-component";
 import { StickyContainer, Sticky } from "react-sticky";
 
 import Grid from "@styled/Grid";
-import { DocsNavigation, DocsManifest, DocsContentItem } from "../types";
+import {
+  DocsNavigation,
+  DocsManifest,
+  DocsContentItem,
+  Specification,
+} from "@typings/docs";
 
 import {
   Navigation,
@@ -11,6 +16,7 @@ import {
   activeLinkChecker,
 } from "../render-engines/markdown/navigation";
 import { HeadersNavigation } from "../render-engines/markdown/headers-toc";
+import { SpecificationList } from "../render-engines/markdown/specifications-list";
 
 import { MobileNavButton } from "./components";
 
@@ -32,6 +38,7 @@ export interface DocsLayoutProps {
   content: DocsContentItem;
   sourcesLength: number;
   docsVersionSwitcher: React.ReactNode;
+  specifications?: Specification[];
 }
 
 export const DocsLayout: React.FunctionComponent<DocsLayoutProps> = ({
@@ -40,6 +47,7 @@ export const DocsLayout: React.FunctionComponent<DocsLayoutProps> = ({
   version,
   content: { id: topic, type, displayName },
   sourcesLength,
+  specifications,
   docsVersionSwitcher,
 }) => {
   const linkFn: linkSerializer = ({ group, id }) =>
@@ -96,7 +104,9 @@ export const DocsLayout: React.FunctionComponent<DocsLayoutProps> = ({
                 <Sticky>
                   {({ style }: any) => (
                     <StickyWrapperRightNav style={{ ...style, zIndex: 200 }}>
-                      <HeadersNavigation />
+                      <HeadersNavigation>
+                        <SpecificationList specifications={specifications} />
+                      </HeadersNavigation>
                     </StickyWrapperRightNav>
                   )}
                 </Sticky>

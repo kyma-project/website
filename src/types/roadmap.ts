@@ -3,6 +3,9 @@ export interface RoadmapPageContext {
   capabilities: Capability[];
   capabilitiesNavigation: NavigationItem[];
   ids: { [key: string]: CapabilityEnum };
+}
+
+export interface RoadmapModalContext {
   ticket: Ticket;
 }
 

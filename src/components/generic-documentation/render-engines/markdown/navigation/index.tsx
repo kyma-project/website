@@ -4,10 +4,7 @@ import Link from "@components/shared/Link";
 
 import { GenericDocsContext } from "../../../services";
 
-import {
-  DocsNavigation,
-  DocsNavigationTopic,
-} from "@components/generic-documentation/types";
+import { DocsNavigation, DocsNavigationTopic } from "@typings/docs";
 
 import {
   NavigationWrapper,

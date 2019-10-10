@@ -3,7 +3,7 @@ import { Content, Renderers } from "@kyma-project/documentation-component";
 import { StickyContainer, Sticky } from "react-sticky";
 
 import Grid from "@styled/Grid";
-import { DocsNavigation, DocsManifest, DocsContentItem } from "../types";
+import { DocsNavigation, DocsManifest, DocsContentItem } from "@typings/docs";
 
 import {
   Navigation,

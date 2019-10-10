@@ -9,7 +9,7 @@ import { RoadmapLayout } from "./roadmap";
 import { CommunityLayout } from "./community";
 
 import { ModalWrapper } from "../modals";
-import { SiteMetadataExtractor } from "./../sitemetadata";
+import { SiteMetadataExtractor } from "../sitemetadata";
 
 type LayoutRegex = Array<[RegExp, React.ElementType<any>]>;
 const layoutRegex: LayoutRegex = [
@@ -37,6 +37,14 @@ export const LayoutWrapper: React.FunctionComponent<any> = ({
   const { path, pageContext } = otherProps as any;
   const Layout = getProperLayout(path);
   const Modal = ModalWrapper(path, pageContext);
+
+  if (typeof window !== "undefined") {
+    if (Modal) {
+      window.__GATSBY_IN_MODAL_PAGE = true;
+    } else {
+      window.__GATSBY_IN_MODAL_PAGE = false;
+    }
+  }
 
   return (
     <>
