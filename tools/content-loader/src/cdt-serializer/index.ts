@@ -221,13 +221,13 @@ export class ClusterDocsTopicSerializer {
     const specifications = cdt.spec.sources
       .filter(this.isAllowedSrcType)
       .map(src => {
-        const assetPath: string = fixSourceUrl(src.url, values || {});
-        const githubUrl: string = this.extractGithubUrl(src.url);
+        const fixedUrl: string = fixSourceUrl(src.url, values || {});
+        const githubUrl: string = this.extractGithubUrl(fixedUrl);
 
         return {
           id: src.name,
           type: src.type,
-          assetPath,
+          assetPath: fixedUrl,
           githubUrl,
         } as Specification;
       });
@@ -334,7 +334,7 @@ export class ClusterDocsTopicSerializer {
     const repository = matches[2];
     const rest = matches[3];
 
-    return `https://github.com/${organization}/${repository}/blog/${rest}`;
+    return `https://github.com/${organization}/${repository}/blob/${rest}`;
   };
 
   private clearValues = (): void => {
