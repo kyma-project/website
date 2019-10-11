@@ -145,12 +145,22 @@ export const HeaderLogo = styled.h1`
 
 export const GithubButtonsWrapper = styled.section`
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
 `;
 
 export const IFrameWrapper = styled.section`
-  padding-left: 20px;
-  & > iframe {
+  position: absolute;
+  top: 110px;
+
+  ${media.tablet`
+  top: 110px;
+  `}
+  ${media.phone`
+  top: 95px;
+  `}
+
+  > iframe {
     margin: 0;
   }
 `;

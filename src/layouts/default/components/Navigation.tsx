@@ -78,7 +78,7 @@ class Navigation extends Component<{}, State> {
 
     const socialMedia = [
       resolveSocialMedia("slack"),
-      resolveSocialMedia("github"),
+      // resolveSocialMedia("github"),
     ];
 
     const menuVisible = !initial
