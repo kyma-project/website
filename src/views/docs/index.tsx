@@ -1,24 +1,27 @@
 import React from "react";
 
 import { PageContext } from "@common/types";
-import { DocsPageContext } from "@typings/docs";
 import {
   GenericComponent,
   LayoutType,
 } from "@components/generic-documentation";
 
+import { DocsPageContext } from "@typings/docs";
+import { PreviewPageContext } from "@typings/common";
+
 import { VersionSwitcher } from "./components";
 
-const DocsView: React.FunctionComponent<PageContext<DocsPageContext>> = ({
-  pageContext,
-}) => {
+const DocsView: React.FunctionComponent<
+  PageContext<DocsPageContext & PreviewPageContext>
+> = ({ pageContext }) => {
   const {
     version,
     versions,
     content: { id: topic, type: docsType },
+    inPreview,
   } = pageContext;
 
-  const docsVersionSwitcher = (
+  const docsVersionSwitcher = inPreview ? null : (
     <VersionSwitcher
       version={version}
       versions={versions}

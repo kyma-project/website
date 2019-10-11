@@ -3,6 +3,7 @@ import {
   createIntlPage,
   addToContextSlidesBanner,
   extractSlidesBanner,
+  createPreviewPage,
 } from "./utils";
 
 import { createLandingPages } from "./landingPage";
@@ -12,7 +13,9 @@ import { createDocsPages } from "./docs";
 import { createCommunityPages } from "./community";
 import { createRoadmapPages } from "./roadmap";
 
-const createPages = async ({
+import { BuildFor } from "../../../src/types/common";
+
+const createWebsitePages = async ({
   graphql,
   actions: { createRedirect, ...otherActions },
 }: CreatePagesArgs) => {
@@ -22,9 +25,59 @@ const createPages = async ({
   await createLandingPages({ graphql, createPage, createRedirect });
   await createPageNotFound({ createPage, createRedirect });
   await createBlogPages({ graphql, createPage, createRedirect });
-  await createDocsPages({ graphql, createPage });
-  await createCommunityPages({ graphql, createPage });
+  await createDocsPages({ graphql, createPage, buildFor: BuildFor.WEBSITE });
+  await createCommunityPages({
+    graphql,
+    createPage,
+    buildFor: BuildFor.WEBSITE,
+  });
   await createRoadmapPages({ graphql, createPage, createRedirect });
 };
 
-export { createPages };
+const createDocsPreviewPages = async ({
+  graphql,
+  actions: { createRedirect, ...otherActions },
+}: CreatePagesArgs) => {
+  let createPage = createIntlPage(otherActions.createPage, createRedirect);
+  createPage = createPreviewPage(createPage);
+
+  await createDocsPages({
+    graphql,
+    createPage,
+    buildFor: BuildFor.DOCS_PREVIEW,
+  });
+};
+
+const createCommunityPreviewPages = async ({
+  graphql,
+  actions: { createRedirect, ...otherActions },
+}: CreatePagesArgs) => {
+  let createPage = createIntlPage(otherActions.createPage, createRedirect);
+  createPage = createPreviewPage(createPage);
+
+  await createCommunityPages({
+    graphql,
+    createPage,
+    buildFor: BuildFor.COMMUNITY_PREVIEW,
+  });
+};
+
+export const createPages = async (createPagesArgs: CreatePagesArgs) => {
+  switch (process.env.BUILD_FOR) {
+    case BuildFor.WEBSITE: {
+      await createWebsitePages(createPagesArgs);
+      return;
+    }
+    case BuildFor.DOCS_PREVIEW: {
+      await createDocsPreviewPages(createPagesArgs);
+      return;
+    }
+    case BuildFor.COMMUNITY_PREVIEW: {
+      await createCommunityPreviewPages(createPagesArgs);
+      return;
+    }
+    default: {
+      await createWebsitePages(createPagesArgs);
+    }
+  }
+};

@@ -1,7 +1,7 @@
 import { resolve } from "path";
 import compareVersions from "compare-versions";
 
-import { DocsVersions, DocGQL } from "./types";
+import { DocsVersions, DocGQL, DocsPathsArgs, DocsPaths } from "./types";
 import {
   DocsGeneratedVersions,
   DocsBranchesVersion,
@@ -14,7 +14,13 @@ import {
   DocsContentDocs,
   DocsNavigation,
 } from "../utils";
-import { DOCS_LATEST_VERSION } from "../../../constants";
+import {
+  ASSETS_DIR,
+  DOCS_DIR,
+  DOCS_SPECIFICATIONS_PATH,
+  DOCS_PATH_PREFIX,
+  DOCS_LATEST_VERSION,
+} from "../../../constants";
 import {
   GraphQLFunction,
   CreatePageFn,
@@ -54,7 +60,7 @@ export const prepareData = async ({ graphql }: PrepareDataArgs) => {
     console.error("No docs versions found");
     return;
   }
-  const latestVersion = versions.releases[0];
+  const latestVersion = checkLatestVersion(versions);
 
   const docs = await getContent<DocGQL>(
     graphql,
@@ -103,6 +109,16 @@ const getDocsVersions = (versions: DocsGeneratedVersions): DocsVersions => {
   appendDocsType("branches", versions.branches, versionsByType);
 
   return versionsByType;
+};
+
+const checkLatestVersion = (versions: DocsVersions): string => {
+  if (versions.releases && versions.releases.length) {
+    return versions.releases[0];
+  }
+  if (versions.branches && versions.branches.length) {
+    return versions.branches[0];
+  }
+  return versions.prereleases[0];
 };
 
 const appendDocsType = (
@@ -173,4 +189,54 @@ export const sortGroupOfNavigation = (
   });
 
   return sortedNavigation;
+};
+
+export const prepareWebsitePaths = ({
+  version,
+  latestVersion,
+  docsType,
+  topic,
+}: DocsPathsArgs): DocsPaths => {
+  const v =
+    !version || version === DOCS_LATEST_VERSION ? latestVersion : version;
+
+  const assetsPath = `/${ASSETS_DIR}${DOCS_DIR}${v}/${topic}/${DOCS_DIR}${ASSETS_DIR}`;
+  const specificationsPath = `/${ASSETS_DIR}${DOCS_DIR}${v}/${topic}/${DOCS_SPECIFICATIONS_PATH}`;
+  const pagePath = `/${DOCS_PATH_PREFIX}/${
+    version ? `${version}/` : ""
+  }${docsType}/${topic}`;
+  const rootPagePath = `/${DOCS_PATH_PREFIX}/${version}`;
+  const modalUrlPrefix = `/${DOCS_PATH_PREFIX}/${v}/${docsType}/${topic}/${DOCS_SPECIFICATIONS_PATH}`;
+
+  return {
+    assetsPath,
+    specificationsPath,
+    pagePath,
+    rootPagePath,
+    modalUrlPrefix,
+  };
+};
+
+export const preparePreviewPaths = ({
+  version,
+  latestVersion,
+  docsType,
+  topic,
+}: DocsPathsArgs): DocsPaths => {
+  const v =
+    !version || version === DOCS_LATEST_VERSION ? latestVersion : version;
+
+  const assetsPath = `/${ASSETS_DIR}${DOCS_DIR}${v}/${topic}/${DOCS_DIR}${ASSETS_DIR}`;
+  const specificationsPath = `/${ASSETS_DIR}${DOCS_DIR}${v}/${topic}/${DOCS_SPECIFICATIONS_PATH}`;
+  const pagePath = `/${version ? `${version}/` : ""}${docsType}/${topic}`;
+  const rootPagePath = `/${version}`;
+  const modalUrlPrefix = `/${docsType}/${topic}/${DOCS_SPECIFICATIONS_PATH}`;
+
+  return {
+    assetsPath,
+    specificationsPath,
+    pagePath,
+    rootPagePath,
+    modalUrlPrefix,
+  };
 };

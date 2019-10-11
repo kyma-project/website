@@ -28,6 +28,7 @@ export interface CommunityLayoutProps {
   manifest: DocsManifest;
   content: DocsContentItem;
   sourcesLength: number;
+  inPreview?: boolean;
 }
 
 export const CommunityLayout: React.FunctionComponent<CommunityLayoutProps> = ({
@@ -35,9 +36,12 @@ export const CommunityLayout: React.FunctionComponent<CommunityLayoutProps> = ({
   navigation,
   content: { id: topic, type, displayName },
   sourcesLength,
+  inPreview,
 }) => {
   const linkFn: linkSerializer = ({ group, items, id }) =>
-    `/community/${items.length > 1 ? `${group}/` : ""}${id}`;
+    `/${!inPreview ? `community/` : ""}${
+      items.length > 1 ? `${group}/` : ""
+    }${id}`;
   const activeLinkFn: activeLinkChecker = ({ group, id }) =>
     topic === id && type === group;
 

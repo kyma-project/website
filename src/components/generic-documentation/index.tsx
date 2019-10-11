@@ -9,6 +9,7 @@ import {
 } from "@kyma-project/documentation-component";
 import { plugins as markdownPlugins } from "@kyma-project/dc-markdown-render-engine";
 
+import { PreviewPageContext } from "@typings/common";
 import { DocsPageContext } from "@typings/docs";
 
 import { markdownRE, openApiRE } from "./render-engines";
@@ -109,7 +110,7 @@ export enum LayoutType {
 }
 
 export interface GenericComponentProps {
-  pageContext?: DocsPageContext;
+  pageContext?: DocsPageContext & PreviewPageContext;
   sources?: Sources;
   layout?: LayoutType;
   docsVersionSwitcher?: React.ReactNode;
@@ -154,6 +155,7 @@ export const GenericComponent: React.FunctionComponent<
           ...pageContext,
           sourcesLength: serializedSources.length,
           docsVersionSwitcher,
+          inPreview: pageContext && pageContext.inPreview,
         })}
       </DC.Provider>
     </GenericDocsProvider>

@@ -1,10 +1,8 @@
 import { resolve } from "path";
 import to from "await-to-js";
-import { VError } from "verror";
 
-import { CoreConfig } from "../config";
+import { CoreConfig, PrepareFor } from "../config";
 import roadmapConfig, { RoadmapConfig } from "./config";
-import GitClient from "../github-client/git-client";
 
 import CapabilitiesFetcher from "./capabilities-fetcher";
 import TicketsFetcher from "./tickets-fetcher";
@@ -95,4 +93,9 @@ const prepareRoadmapContent = async (coreConfig: CoreConfig) => {
   }
 };
 
-export default prepareRoadmapContent;
+export default async (coreConfig: CoreConfig) => {
+  if (coreConfig.prepareFor === PrepareFor.WEBSITE) {
+    return prepareRoadmapContent(coreConfig);
+  }
+  return;
+};

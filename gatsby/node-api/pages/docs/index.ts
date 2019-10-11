@@ -1,8 +1,14 @@
 import { createComponentDocsPage } from "./componentPage";
 import { createModalDocsPage } from "./modalPage";
 import { fixLinks } from "./fixLinks";
-import { createDocsPage, prepareData, sortGroupOfNavigation } from "./helpers";
-import { DocsContentItem, DocsNavigation } from "../utils";
+import {
+  createDocsPage,
+  prepareData,
+  sortGroupOfNavigation,
+  prepareWebsitePaths,
+  preparePreviewPaths,
+} from "./helpers";
+import { DocsNavigation } from "../utils";
 import {
   DOCS_DIR,
   ASSETS_DIR,
@@ -12,15 +18,24 @@ import {
 } from "../../../constants";
 import { CreatePageFn, GraphQLFunction } from "../../../types";
 
+import { BuildFor } from "../../../../src/types/common";
+
 export interface CreateDocsPages {
   graphql: GraphQLFunction;
   createPage: CreatePageFn;
+  buildFor: BuildFor;
 }
 
 export const createDocsPages = async ({
   graphql,
   createPage: createPageFn,
+  buildFor,
 }: CreateDocsPages) => {
+  const preparePaths =
+    buildFor === BuildFor.DOCS_PREVIEW
+      ? preparePreviewPaths
+      : prepareWebsitePaths;
+
   const preparedData = await prepareData({ graphql });
   if (!preparedData) {
     return;
@@ -35,22 +50,27 @@ export const createDocsPages = async ({
       const topics = content[docsType];
 
       Object.keys(topics).map(topic => {
-        const assetsPath = `/${ASSETS_DIR}${DOCS_DIR}${
-          !version || version === DOCS_LATEST_VERSION ? latestVersion : version
-        }/${topic}/${DOCS_DIR}${ASSETS_DIR}`;
-        const specificationsPath = `/${ASSETS_DIR}${DOCS_DIR}${
-          !version || version === DOCS_LATEST_VERSION ? latestVersion : version
-        }/${topic}/${DOCS_SPECIFICATIONS_PATH}`;
-        const modalUrlPrefix = `/${DOCS_PATH_PREFIX}/${
-          !version || version === DOCS_LATEST_VERSION ? latestVersion : version
-        }/${docsType}/${topic}/${DOCS_SPECIFICATIONS_PATH}`;
+        const {
+          assetsPath,
+          specificationsPath,
+          modalUrlPrefix,
+          pagePath,
+          rootPagePath,
+        } = preparePaths({
+          version,
+          latestVersion: latestVersion || "",
+          docsType,
+          topic,
+        });
 
         let fixedContent = content[docsType][topic];
-        fixedContent = fixLinks({
-          content: fixedContent,
-          version,
-          latestVersion,
-        });
+        if (buildFor !== BuildFor.DOCS_PREVIEW) {
+          fixedContent = fixLinks({
+            content: fixedContent,
+            version,
+            latestVersion,
+          });
+        }
         const specifications = fixedContent.specifications.map(
           specification => ({
             ...specification,
@@ -72,7 +92,12 @@ export const createDocsPages = async ({
         };
 
         const createPage = createDocsPage(createPageFn, context);
-        createComponentDocsPage({ createPage, context });
+        createComponentDocsPage({
+          createPage,
+          context,
+          path: pagePath,
+          rootPath: rootPagePath,
+        });
         createModalDocsPage({ createPage, context });
       });
     });

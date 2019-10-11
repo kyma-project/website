@@ -10,13 +10,11 @@ import {
 
 interface CreatePagesForSpecificationsArgs {
   createPage: CreatePageFn;
-  path: string;
   specifications: Specification[];
 }
 
 const createPagesForSpecifications = ({
   createPage,
-  path,
   specifications,
 }: CreatePagesForSpecificationsArgs) => {
   if (!specifications || !specifications.length) {
@@ -43,24 +41,10 @@ export interface CreatDocsPageArgs {
 
 export const createModalDocsPage = ({
   createPage,
-  context: { version, docsType, topic, specifications },
+  context: { specifications },
 }: CreatDocsPageArgs) => {
-  const path = `/${DOCS_PATH_PREFIX}/${
-    version ? `${version}/` : ""
-  }${docsType}/${topic}/${DOCS_SPECIFICATIONS_PATH}`;
-
   createPagesForSpecifications({
     createPage,
-    path,
     specifications,
   });
-
-  if (DOCS_ROOT_TYPE === docsType && DOCS_KYMA_ID === topic) {
-    const rootPath = `/${DOCS_PATH_PREFIX}/${version}/${DOCS_SPECIFICATIONS_PATH}`;
-    createPagesForSpecifications({
-      createPage,
-      path: rootPath,
-      specifications,
-    });
-  }
 };

@@ -15,13 +15,13 @@ import prepareDocs from "../src/prepare-docs";
 import prepareCommunityContent from "../src/prepare-community";
 import prepareRoadmapContent from "../src/prepare-roadmap";
 
-const prepareDocsFn = async () => {
+const prepareDocsContentFn = async () => {
   const config: CoreConfig = {
     ...coreConfig,
     repository: docsConfig.repository,
   };
 
-  GitClient.withConfig(config, docsConfig.tempPath);
+  GitClient.withConfig(config, docsConfig.sourcePath);
   GitHubClient.withConfig(config);
 
   const [err] = await to(prepareDocs(config));
@@ -34,7 +34,7 @@ const prepareCommunityContentFn = async () => {
     repository: communityConfig.repository,
   };
 
-  GitClient.withConfig(config, communityConfig.tempPath);
+  GitClient.withConfig(config, communityConfig.sourcePath);
 
   const [err] = await to(prepareCommunityContent(config));
   if (err) throw err;
@@ -57,18 +57,21 @@ const prepareRoadmapContentFn = async () => {
 
 const main = async () => {
   const errors: Error[] = [];
+  let err: Error | null;
 
   if (!coreConfig.token) {
-    errors.push(new VError("APP_TOKEN is required"));
+    console.warn(
+      "APP_TOKEN is not defined. Token is not necessary, but is needed for more queries to GitHub API.",
+    );
   }
 
   if (!roadmapConfig.zenHubToken) {
-    throw new VError("APP_ZEN_HUB_TOKEN is required");
+    console.warn(
+      "APP_ZEN_HUB_TOKEN is not defined. Token is not necessary, but is needed for preparing content for Roadmap.",
+    );
   }
 
-  let err: Error | null;
-
-  [err] = await to(prepareDocsFn());
+  [err] = await to(prepareDocsContentFn());
   if (err) {
     errors.push(new VError(err, "while preparing documentation"));
   }

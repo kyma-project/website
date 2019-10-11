@@ -47,7 +47,16 @@ export class CopyDocs {
     }
   };
 
-  private do = async (source: string, output: string, version: string) => {
+  local = async ({ source, output }) => {
+    console.log(`Copying local documentation from branch`);
+
+    const [err] = await to(this.do(source, output));
+    if (err) {
+      throw new VError(err, `while copying local documentation to ${output}`);
+    }
+  };
+
+  private do = async (source: string, output: string, version?: string) => {
     const docsDir = `${source}/docs`;
     let err: Error | null;
 

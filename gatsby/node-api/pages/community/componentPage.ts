@@ -1,5 +1,5 @@
 import { CreatePageFn } from "../../../types";
-import { DOCS_ROOT_TYPE, DOCS_KYMA_ID } from "../../../constants";
+import { COMMUNITY_GET_STARTED_TYPE } from "../../../constants";
 
 export interface CreatDocsPageArgs {
   createPage: CreatePageFn;
@@ -8,7 +8,7 @@ export interface CreatDocsPageArgs {
   rootPath: string;
 }
 
-export const createComponentDocsPage = ({
+export const createComponentCommunityPage = ({
   createPage,
   context: { docsType, topic },
   path,
@@ -18,7 +18,10 @@ export const createComponentDocsPage = ({
     path,
   });
 
-  if (DOCS_ROOT_TYPE === docsType && DOCS_KYMA_ID === topic) {
+  if (
+    COMMUNITY_GET_STARTED_TYPE === docsType &&
+    COMMUNITY_GET_STARTED_TYPE === topic
+  ) {
     createPage({
       path: rootPath,
     });
