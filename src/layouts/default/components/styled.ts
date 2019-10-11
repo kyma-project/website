@@ -278,7 +278,6 @@ export const NavigationExtLink = styled(Link.External)`
   box-shadow: none;
 
   > button {
-    margin-left: 6px;
     padding: 0 12px;
     border: none;
 
