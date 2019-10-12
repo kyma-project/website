@@ -20,7 +20,7 @@ Use the following tools to set up the project:
 
 ### Install dependencies
 
-To install all dependencies, run this commands:
+To install all dependencies, run those commands:
 
 ```
 npm install
