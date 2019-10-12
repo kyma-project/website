@@ -55,5 +55,11 @@ export const plugins: Plugins = [
       whitelist: ["GOOGLE_CSE", "ALGOLIA_API_KEY", "ALGOLIA_INDEX_NAME"],
     },
   },
+  {
+    resolve: "gatsby-plugin-robots-txt",
+    options: {
+      policy: [{ userAgent: "*", allow: "/docs/latest", disallow: "/docs/" }],
+    },
+  },
   rssFeed,
 ];
