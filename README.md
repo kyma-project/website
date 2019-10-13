@@ -20,11 +20,10 @@ Use the following tools to set up the project:
 
 ### Install dependencies
 
-To install all dependencies, run those commands:
+To install all dependencies, run this command:
 
 ```
 npm install
-npm install --only=dev
 ```
 
 ### Launch the website locally

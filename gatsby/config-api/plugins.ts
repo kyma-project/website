@@ -58,7 +58,7 @@ export const plugins: Plugins = [
   {
     resolve: "gatsby-plugin-robots-txt",
     options: {
-      policy: [{ userAgent: "*", allow: "/docs/latest", disallow: "/docs/" }],
+      policy: [{ userAgent: "*", allow: "/docs/latest/", disallow: "/docs/" }],
     },
   },
   rssFeed,
