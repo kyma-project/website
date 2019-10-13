@@ -1199,6 +1199,13 @@ export const StylesOpenAPI = styled.div`
       transition: all 0.5s;
       border-radius: 4px;
       background: rgba(0, 0, 0, 0.05);
+      white-space: nowrap;
+      overflow-x: auto;
+
+      ${customScrollBar({
+        thumbBorderRadius: "0 0 4px 4px",
+        trackBorderRadius: "0 0 4px 4px",
+      })}
     }
 
     .swagger-ui section.models .model-container:hover {
