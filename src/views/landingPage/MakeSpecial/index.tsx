@@ -20,7 +20,8 @@ export const MakeSpecial: React.FunctionComponent = () => (
       <Grid.Row space={true} alignCenter={true}>
         <Grid.Unit df={6} lg={6} md={12}>
           <MakesSpecialSvgWrapper>
-            <MakesSpecialSvg />
+            {/* <MakesSpecialSvg /> */}
+            istio
           </MakesSpecialSvgWrapper>
         </Grid.Unit>
         <Grid.Unit df={6} lg={6} md={12}>
