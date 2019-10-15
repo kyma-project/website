@@ -6,11 +6,10 @@ import Link from "@components/shared/Link";
 import Paragraph from "@components/shared/Paragraph";
 import H from "@components/shared/H";
 
-import MakesSpecialSvg from "../assets/landing-page/MakesSpecial";
-
 import { FormattedMessage, getTranslation } from "@common/i18n";
 
-import { MakeSpecialWrapper, MakesSpecialSvgWrapper } from "./styled";
+import { MakeSpecialWrapper } from "./styled";
+import { Icons } from "./Icons";
 
 const gt = getTranslation("landingPage.makeSpecial");
 
@@ -19,10 +18,7 @@ export const MakeSpecial: React.FunctionComponent = () => (
     <Grid.Container as="section">
       <Grid.Row space={true} alignCenter={true}>
         <Grid.Unit df={6} lg={6} md={12}>
-          <MakesSpecialSvgWrapper>
-            {/* <MakesSpecialSvg /> */}
-            istio
-          </MakesSpecialSvgWrapper>
+          <Icons />
         </Grid.Unit>
         <Grid.Unit df={6} lg={6} md={12}>
           <FormattedMessage id={gt("headline")}>
