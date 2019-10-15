@@ -1,3 +1,4 @@
+const ADOPTERS_DIR = "adopters/";
 const BLOG_POST_DIR = "blog-posts/";
 const DOCS_DIR = "docs/";
 const COMMUNITY_DIR = "community/";
@@ -19,14 +20,17 @@ const DOCS_COMPONENTS_TYPE = "components";
 const DOCS_KYMA_ID = "kyma";
 const DOCS_SPECIFICATIONS_PATH = "specifications";
 
+const ADOPTER_FILENAME_REGEX = /adopters\/(.*?)\/index\.md$/;
 const BLOG_POST_FILENAME_REGEX = /([0-9]+)\-([0-9]+)\-([0-9]+)\-(.+)\/index\.md$/;
 const DOCS_FILENAME_REGEX = /(\d+.\d+|master)\/(.+)\/docs\/(.+)\.md$/;
 const COMMUNITY_FILENAME_REGEX = /community\/(.+)\/docs\/(.+)\.md$/;
 const ROADMAP_CAPABILITY_FILENAME_REGEX = /roadmap\/capabilities\/(.+)\.md$/;
 
 const POSTS_PER_PAGE = 8;
+const DOWNLOADED_LOGO_NAME = "downloaded__logo.svg";
 
 export {
+  ADOPTERS_DIR,
   BLOG_POST_DIR,
   DOCS_DIR,
   COMMUNITY_DIR,
@@ -43,9 +47,11 @@ export {
   DOCS_COMPONENTS_TYPE,
   DOCS_KYMA_ID,
   DOCS_SPECIFICATIONS_PATH,
+  ADOPTER_FILENAME_REGEX,
   BLOG_POST_FILENAME_REGEX,
   DOCS_FILENAME_REGEX,
   COMMUNITY_FILENAME_REGEX,
   ROADMAP_CAPABILITY_FILENAME_REGEX,
   POSTS_PER_PAGE,
+  DOWNLOADED_LOGO_NAME,
 };

@@ -75,6 +75,7 @@
     "prism-react-renderer": "^0.1.5",
     "qs": "^6.7.0",
     "react": "^16.8.6",
+    "react-alice-carousel": "^1.15.3",
     "react-cookie-banner": "^4.0.0",
     "react-copy-to-clipboard": "^5.0.1",
     "react-dom": "^16.8.6",
