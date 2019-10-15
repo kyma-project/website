@@ -45,8 +45,7 @@ export const ProductSVG = styled.div<ProductImageProps>`
   margin: 10px;
 `;
 
-export const ProductIconImg = styled.img<Omit<ProductImageProps, "icon">>`
-  width: ${props => (props.width ? props.width + "px" : "80px;")};
+export const ProductIconImg = styled.img`
   margin: 10px;
   padding: 0;
   height: 80px;

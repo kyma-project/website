@@ -1,5 +1,7 @@
 import React, { FC } from "react";
 import { MakesSpecialSvgWrapper, ProductSVG, ProductIconImg } from "./styled";
+
+import KubernetesPNG from "../assets/make-special/kubernetes.png";
 import IstioSVG from "../assets/make-special/istio.svg";
 import GrafanaSVG from "../assets/make-special/grafana.svg";
 import PrometheusSVG from "../assets/make-special/prometheus.svg";
@@ -10,6 +12,9 @@ import KialiSVG from "../assets/make-special/kiali.svg";
 import DexSVG from "../assets/make-special/dex.svg";
 import KnativeSVG from "../assets/make-special/knative.svg";
 import NatsSVG from "../assets/make-special/nats.svg";
+import MinioPNG from "../assets/make-special/minio.png";
+import OryPNG from "../assets/make-special/ory.png";
+import OpenServiceBrokerAPIPNG from "../assets/make-special/openServiceBrokerAPI.png";
 
 import Link from "@components/shared/Link";
 
@@ -30,6 +35,14 @@ function isSVGProps(arg: any): arg is Omit<ProjectsShapeBase, "src"> {
 }
 
 const usedProjects: ProjectsArrayType = [
+  {
+    to: "https://kubernetes.io",
+    src: KubernetesPNG,
+  },
+  {
+    to: "https://min.io",
+    src: MinioPNG,
+  },
   {
     to: "https://istio.io/",
     icon: IstioSVG,
@@ -66,6 +79,15 @@ const usedProjects: ProjectsArrayType = [
     to: "https://github.com/SAP/luigi",
     src: LuigiPNG,
     alt: "Luigi image",
+  },
+  {
+    to: "https://ory.sh",
+    src: OryPNG,
+  },
+  {
+    to: "https://www.openservicebrokerapi.org/",
+    src: OpenServiceBrokerAPIPNG,
+    width: 500,
   },
 ];
 

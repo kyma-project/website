@@ -21,7 +21,7 @@ const LandingPageView: React.FunctionComponent<
     <KeyFeatures />
     <MakeSpecial />
     <CommunityAndEarlyAdoptersWrapper>
-      <Community />
+      {/* <Community /> */}
       <EarlyAdopters earlyAdopters={earlyAdopters} />
     </CommunityAndEarlyAdoptersWrapper>
   </>
