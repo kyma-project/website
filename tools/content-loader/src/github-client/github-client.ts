@@ -12,7 +12,7 @@ import { CoreConfig } from "../config";
 
 export class GitHubClient {
   private config: CoreConfig;
-  private octokit: any;
+  private octokit: Octokit;
 
   constructor() {
     this.config = {} as CoreConfig;
