@@ -1,5 +1,6 @@
 ---
-url: "https://twiggle.com/"
+websiteUrl: "https://twiggle.com/"
+url: "/blog/2019/9/9/release-notes-15"
 logo: "./logo.svg"
 ---
 

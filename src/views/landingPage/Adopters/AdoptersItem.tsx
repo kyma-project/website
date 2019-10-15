@@ -9,12 +9,14 @@ import { Adopter } from "@typings/landingPage";
 import {
   StyledAdoptersItem,
   StyledAdoptersItemContent,
-  StyledAdoptersItemLink,
+  StyledAdoptersItemExtLink,
+  StyledAdoptersItemIntLink,
 } from "./styled";
 
 const gt = getTranslation("landingPage.keyFeatures");
 
 export const AdoptersItem: React.FunctionComponent<Adopter> = ({
+  websiteUrl,
   url,
   logo,
   content,
@@ -22,15 +24,19 @@ export const AdoptersItem: React.FunctionComponent<Adopter> = ({
   const handleOnDragStart = (e: React.DragEvent<HTMLDivElement>) =>
     e.preventDefault();
 
+  const BlogPostLink = url.startsWith("http")
+    ? StyledAdoptersItemExtLink
+    : StyledAdoptersItemIntLink;
+
   return (
     <StyledAdoptersItem onDragStart={handleOnDragStart}>
-      <Link.External to={url}>
+      <Link.External to={websiteUrl}>
         <img src={logo} />
       </Link.External>
       <StyledAdoptersItemContent>{content}</StyledAdoptersItemContent>
-      <StyledAdoptersItemLink to={url}>
+      <BlogPostLink to={url}>
         <FormattedMessage id={gt("readMoreLink")} />
-      </StyledAdoptersItemLink>
+      </BlogPostLink>
     </StyledAdoptersItem>
   );
 };

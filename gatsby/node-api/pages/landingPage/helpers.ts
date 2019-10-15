@@ -54,6 +54,7 @@ export async function getAdopters(
               assetsPath
             }
             frontmatter {
+              websiteUrl
               url
             }
           }
@@ -68,8 +69,16 @@ export async function getAdopters(
   return result.data.allMarkdownRemark.edges
     .map((e: any) => e.node)
     .map((node: any) => ({
+      websiteUrl: node.frontmatter.websiteUrl,
       url: node.frontmatter.url,
       logo: node.fields.assetsPath,
-      content: node.rawMarkdownBody,
+      content: stripRawMarkdownBody(node.rawMarkdownBody),
     })) as Adopter[];
+}
+
+function stripRawMarkdownBody(content: string): string {
+  if (content.length > 256) {
+    return `${content.substring(0, 253)}...`;
+  }
+  return content;
 }

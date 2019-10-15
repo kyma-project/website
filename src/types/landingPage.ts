@@ -10,6 +10,7 @@ export interface EarlyAdopter {
 }
 
 export interface Adopter {
+  websiteUrl: string;
   url: string;
   logo: string;
   content?: string;

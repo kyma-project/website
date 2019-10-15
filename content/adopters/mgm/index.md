@@ -1,4 +1,5 @@
 ---
+websiteUrl: "https://www.mgm-tp.com/en/"
 url: "https://www.mgm-tp.com/en/"
 logo: "./logo.svg"
 ---

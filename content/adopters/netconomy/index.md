@@ -1,4 +1,5 @@
 ---
+websiteUrl: "https://www.netconomy.net/"
 url: "https://www.netconomy.net/"
 logo: "./logo.svg"
 ---

@@ -168,6 +168,10 @@ export const StyledAdoptersItemContent = styled.div`
   font-size: 14px;
 `;
 
-export const StyledAdoptersItemLink = styled(Link.External)`
+export const StyledAdoptersItemExtLink = styled(Link.External)`
+  ${linkEffect}
+`;
+
+export const StyledAdoptersItemIntLink = styled(Link.Internal)`
   ${linkEffect}
 `;
