@@ -8,7 +8,7 @@
 
 This repository contains website source for [`kyma-project.io`](https://kyma-project.io). The website uses [GatsbyJS](https://www.gatsbyjs.org/) for static site generation and is deployed by [Netlify](https://www.netlify.com).
 
-> **NOTE:** The description of the application configuration, the project structure, the architecture, and other project-specific details are located in the [`docs`](./docs/README.md) directory.
+> **NOTE:** The project structure, the architecture, and other project-specific details are located in the [`docs`](./docs/README.md) directory.
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ Use the following tools to set up the project:
 
 To install all dependencies, run this command:
 
-```
+``` bash
 npm install
 ```
 
@@ -30,7 +30,7 @@ npm install
 
 Launch the development server with the hot reloading functionality that allows any change in files in the `src` folder to be immediately visible in the browser. Run the following command:
 
-```
+``` bash
 npm run develop
 ```
 
@@ -38,6 +38,30 @@ npm run develop
 
 To build a production-ready website, run the following command:
 
-```
+``` bash
 npm run build
+```
+
+### Run server with production-ready website
+
+To serve a production-ready website, run the following command:
+
+``` bash
+npm run serve
+```
+
+### Test website
+
+To run unit tests, run the following command:
+
+``` bash
+npm run test
+```
+
+### Validate website
+
+To validate website with linting, types etc, run the following command:
+
+``` bash
+make validate
 ```
