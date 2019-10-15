@@ -20,10 +20,17 @@ export const MakeSpecialWrapper = styled.section`
   `};
 `;
 
-export const MakesSpecialSvgWrapper = styled.div`
+export const MakesSpecialSvgWrapper = styled.section`
+  width: 500px;
   ${media.tablet`
     text-align: center;
+    width: unset;
   `};
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: row wrap;
 `;
 
 interface ProductImageProps {
@@ -40,16 +47,7 @@ export const ProductSVG = styled.div<ProductImageProps>`
 
 export const ProductIconImg = styled.img<Omit<ProductImageProps, "icon">>`
   width: ${props => (props.width ? props.width + "px" : "80px;")};
-  margin: 0;
+  margin: 10px;
   padding: 0;
   height: 80px;
-`;
-
-export const IconsRow = styled.section`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-flow: row wrap;
-
-  background-color: white;
 `;

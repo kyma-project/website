@@ -9,7 +9,7 @@ import H from "@components/shared/H";
 import { FormattedMessage, getTranslation } from "@common/i18n";
 
 import { MakeSpecialWrapper } from "./styled";
-import { Icons } from "./Icons";
+import { UsedProjectIcons } from "./UsedProjectIcons";
 
 const gt = getTranslation("landingPage.makeSpecial");
 
@@ -18,7 +18,7 @@ export const MakeSpecial: React.FunctionComponent = () => (
     <Grid.Container as="section">
       <Grid.Row space={true} alignCenter={true}>
         <Grid.Unit df={6} lg={6} md={12}>
-          <Icons />
+          <UsedProjectIcons />
         </Grid.Unit>
         <Grid.Unit df={6} lg={6} md={12}>
           <FormattedMessage id={gt("headline")}>
@@ -29,9 +29,9 @@ export const MakeSpecial: React.FunctionComponent = () => (
               {paragraph => <Paragraph>{paragraph}</Paragraph>}
             </FormattedMessage>
             <Link.Internal to="/docs">
-              <Button.Light>
+              <Button.Emphasized>
                 <FormattedMessage id={gt("readDocsButton")} />
-              </Button.Light>
+              </Button.Emphasized>
             </Link.Internal>
           </>
         </Grid.Unit>

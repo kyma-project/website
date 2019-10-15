@@ -1,10 +1,5 @@
 import React, { FC } from "react";
-import {
-  MakesSpecialSvgWrapper,
-  IconsRow,
-  ProductSVG,
-  ProductIconImg,
-} from "./styled";
+import { MakesSpecialSvgWrapper, ProductSVG, ProductIconImg } from "./styled";
 import IstioSVG from "../assets/make-special/istio.svg";
 import GrafanaSVG from "../assets/make-special/grafana.svg";
 import PrometheusSVG from "../assets/make-special/prometheus.svg";
@@ -22,17 +17,15 @@ interface ProjectsShapeBase {
   to: string;
   width?: number;
   alt?: string;
-}
-interface ProjectsImage extends ProjectsShapeBase {
   src: any;
-}
-
-interface ProjectsSVG extends ProjectsShapeBase {
   icon: any;
 }
-type ProjectsArrayType = Array<ProjectsImage | ProjectsSVG>;
 
-function isSVGProps(arg: any): arg is ProjectsSVG {
+type ProjectsArrayType = Array<
+  Omit<ProjectsShapeBase, "src"> | Omit<ProjectsShapeBase, "icon">
+>;
+
+function isSVGProps(arg: any): arg is Omit<ProjectsShapeBase, "src"> {
   return arg.icon !== undefined;
 }
 
@@ -76,18 +69,16 @@ const usedProjects: ProjectsArrayType = [
   },
 ];
 
-export const Icons: FC = () => (
+export const UsedProjectIcons: FC = () => (
   <MakesSpecialSvgWrapper>
-    <IconsRow>
-      {usedProjects.map(elem => (
-        <Link.External to={elem.to}>
-          {isSVGProps(elem) ? (
-            <ProductSVG icon={elem.icon} width={elem.width} />
-          ) : (
-            <ProductIconImg src={elem.src} alt={elem.alt} />
-          )}
-        </Link.External>
-      ))}
-    </IconsRow>
+    {usedProjects.map(elem => (
+      <Link.External to={elem.to} key={elem.to}>
+        {isSVGProps(elem) ? (
+          <ProductSVG icon={elem.icon} width={elem.width} />
+        ) : (
+          <ProductIconImg src={elem.src} alt={elem.alt} />
+        )}
+      </Link.External>
+    ))}
   </MakesSpecialSvgWrapper>
 );
