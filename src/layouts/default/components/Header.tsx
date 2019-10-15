@@ -18,9 +18,9 @@ interface HeaderProps {
 const Header: React.FunctionComponent<HeaderProps> = ({
   horizontalBg = false,
 }) => (
-  <HeaderWrapper horizontalBg={horizontalBg} id="headerwrapper">
+  <HeaderWrapper horizontalBg={horizontalBg}>
     <Grid.Container>
-      <GithubButtonsWrapper id="gh-wrapper">
+      <GithubButtonsWrapper>
         <Link.Internal to="/">
           <HeaderLogo horizontalBg={horizontalBg}>
             <Logo />

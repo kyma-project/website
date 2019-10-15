@@ -225,7 +225,7 @@ export const NavigationItem = styled.li`
       }
     }
 
-    :nth-child(n + 2):nth-last-child(n + 4) {
+    :nth-child(n + 2):nth-last-child(n + 3) {
       a {
         display: block;
         width: 100%;
@@ -238,9 +238,7 @@ export const NavigationItem = styled.li`
       padding: 0 18px;
       line-height: 46px;
       background-color: transparent;
-      -webkit-transition: background-color ease-out 0.2s;
       transition: background-color ease-out 0.2s;
-      -webkit-text-decoration: none;
       text-decoration: none;
       cursor: pointer;
       border: 2px solid #fff;
