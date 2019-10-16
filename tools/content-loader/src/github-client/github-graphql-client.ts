@@ -1,6 +1,6 @@
 import to from "await-to-js";
 import { VError } from "verror";
-import { exec } from "child_process";
+import { graphql } from "@octokit/graphql";
 
 import { CoreConfig } from "../config";
 
@@ -16,7 +16,7 @@ export class GitHubGraphQLClient {
     this.config = config;
 
     if (config.token) {
-      this.graphql = require("@octokit/graphql").defaults({
+      this.graphql = graphql.defaults({
         headers: {
           authorization: `token ${config.token}`,
         },
