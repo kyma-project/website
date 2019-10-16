@@ -27,7 +27,7 @@ export const WhatIs: React.FunctionComponent = () => (
             {paragraph => <Paragraph key="paragraphs.1">{paragraph}</Paragraph>}
           </FormattedMessage>
           {/* discuss what to do with this section */}
-          <Paragraph>
+          {/* <Paragraph>
             <FormattedMessage
               id={gt("XXXLutzBlogPost.paragraph")}
               values={{
@@ -46,7 +46,7 @@ export const WhatIs: React.FunctionComponent = () => (
             <Button.Emphasized>
               <FormattedMessage id={gt("installButton")} />
             </Button.Emphasized>
-          </Link.Internal>
+          </Link.Internal> */}
         </>
       </Grid.Unit>
       <Grid.Unit df={6} lg={6} md={12}>
