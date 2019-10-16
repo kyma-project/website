@@ -2,7 +2,7 @@ import React from "react";
 
 import Link from "@components/shared/Link";
 
-import { FormattedMessage, getTranslation } from "@common/i18n";
+import { FormattedMessage } from "@common/i18n";
 
 import { Adopter } from "@typings/landingPage";
 
@@ -12,8 +12,6 @@ import {
   StyledAdoptersItemExtLink,
   StyledAdoptersItemIntLink,
 } from "./styled";
-
-const gt = getTranslation("landingPage.keyFeatures");
 
 export const AdoptersItem: React.FunctionComponent<Adopter> = ({
   websiteUrl,
@@ -35,7 +33,7 @@ export const AdoptersItem: React.FunctionComponent<Adopter> = ({
       </Link.External>
       <StyledAdoptersItemContent>{content}</StyledAdoptersItemContent>
       <BlogPostLink to={url}>
-        <FormattedMessage id={gt("readMoreLink")} />
+        <FormattedMessage id="landingPage.adopters.readMoreLink" />
       </BlogPostLink>
     </StyledAdoptersItem>
   );

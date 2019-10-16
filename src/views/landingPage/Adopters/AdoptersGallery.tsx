@@ -7,11 +7,17 @@ import "react-alice-carousel/lib/alice-carousel.css";
 import Grid from "@styled/Grid";
 import Button from "@components/shared/Button";
 
+import { FormattedMessage } from "@common/i18n";
+
 import { AdoptersItem } from "./AdoptersItem";
 
 import { Adopter } from "@typings/landingPage";
 
-import { AdoptersGalleryWrapper, AliceCarouselWrapper } from "./styled";
+import {
+  AdoptersGalleryWrapper,
+  AliceCarouselWrapper,
+  AddYourCompanyButton,
+} from "./styled";
 
 interface Props {
   adopters: Adopter[];
@@ -61,41 +67,60 @@ export const AdoptersGallery: React.FunctionComponent<Props> = ({
 
   return (
     <AdoptersGalleryWrapper>
-      <Grid.Container>
-        <Grid.Row>
-          <Grid.Unit
-            df={1}
-            xs={0}
-            className="carousel-buttons-nav carousel-button-left"
-          >
-            <div>
-              <Button.Emphasized
-                onClick={slidePrev}
-                iconName="chevron-left"
-                iconPrefix="fas"
-              />
-            </div>
-          </Grid.Unit>
-          <Grid.Unit df={10} sm={12}>
-            <AliceCarouselWrapper>
-              <AliceCarousel {...aliceCarouselProps} ref={carouselRef} />
-            </AliceCarouselWrapper>
-          </Grid.Unit>
-          <Grid.Unit
-            df={1}
-            xs={0}
-            className="carousel-buttons-nav carousel-button-right"
-          >
-            <div>
-              <Button.Emphasized
-                onClick={slideNext}
-                iconName="chevron-right"
-                iconPrefix="fas"
-              />
-            </div>
-          </Grid.Unit>
-        </Grid.Row>
-      </Grid.Container>
+      <div>
+        <Grid.Container>
+          <Grid.Row>
+            <Grid.Unit
+              df={1}
+              xs={0}
+              className="carousel-buttons-nav carousel-button-left"
+            >
+              <div>
+                <Button.Emphasized
+                  onClick={slidePrev}
+                  className="carousel-button"
+                  iconName="chevron-left"
+                  iconPrefix="fas"
+                  size="sm"
+                />
+              </div>
+            </Grid.Unit>
+            <Grid.Unit df={10} sm={12}>
+              <AliceCarouselWrapper>
+                <AliceCarousel {...aliceCarouselProps} ref={carouselRef} />
+              </AliceCarouselWrapper>
+            </Grid.Unit>
+            <Grid.Unit
+              df={1}
+              xs={0}
+              className="carousel-buttons-nav carousel-button-right"
+            >
+              <div>
+                <Button.Emphasized
+                  onClick={slideNext}
+                  className="carousel-button"
+                  iconName="chevron-right"
+                  iconPrefix="fas"
+                  size="sm"
+                />
+              </div>
+            </Grid.Unit>
+          </Grid.Row>
+        </Grid.Container>
+      </div>
+      <div>
+        <Grid.Container>
+          <Grid.Row>
+            <Grid.Unit df={12}>
+              <AddYourCompanyButton>
+                <Button.Emphasized size="sm">
+                  <FormattedMessage id="landingPage.adopters.addYourCompany" />
+                </Button.Emphasized>
+              </AddYourCompanyButton>
+            </Grid.Unit>
+          </Grid.Row>
+        </Grid.Container>
+      </div>
     </AdoptersGalleryWrapper>
   );
 };

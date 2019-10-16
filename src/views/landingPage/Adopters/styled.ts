@@ -11,7 +11,7 @@ export const AdoptersWrapper = styled.div`
   background: url(${Bottom}) no-repeat;
   background-size: cover;
   background-position: top;
-  margin-bottom: -240px;
+  margin-bottom: -200px;
 
   min-height: 900px;
   z-index: 1;
@@ -51,8 +51,10 @@ export const AdoptersWrapper = styled.div`
 
 export const AdoptersGalleryWrapper = styled.div`
   &&&&& {
-    margin: 0;
-    display: flex;
+    > div {
+      margin: 0;
+      display: flex;
+    }
 
     ${Grid.Container} {
       padding: 0;
@@ -69,7 +71,7 @@ export const AdoptersGalleryWrapper = styled.div`
       margin: 0;
     }
 
-    button {
+    button.carousel-button {
       border: none;
       transition: all 0.3s;
 
@@ -151,14 +153,11 @@ export const StyledAdoptersItem = styled.div`
     max-width: 240px;
     max-height: 60px;
     margin-bottom: 16px;
-    filter: grayscale(100%);
-    transition-duration: 300ms;
   }
 
   &:hover {
     > a > img {
       cursor: pointer;
-      filter: none;
     }
   }
 `;
@@ -174,4 +173,12 @@ export const StyledAdoptersItemExtLink = styled(Link.External)`
 
 export const StyledAdoptersItemIntLink = styled(Link.Internal)`
   ${linkEffect}
+`;
+
+export const AddYourCompanyButton = styled.div`
+  margin-top: 16px;
+
+  button {
+    font-size: 16px;
+  }
 `;
