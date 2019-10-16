@@ -1,10 +1,10 @@
 {
-  "headline": "A flexible and easy way to \nconnect and extend enterprise applications in a cloud-native world",
+  "headline": "Extend your applications\nwith Kubernetes",
   "whatIs": {
     "headline": "What is Kyma?",
     "paragraphs": [
-      "Kyma is an open-source project designed natively on Kubernetes. It allows you to extend and customize cloud-based and on-premise enterprise applications in a quick and modern way, using serverless computing or microservice architecture.",
-      "Kyma provides a set of cloud-native components and services required to build modern, end-to-end user experience scenarios that follow a best-practices approach to performance, scalability, efficiency, and security. Use the familiar, idiomatic language and standardized patterns that Kyma offers to extend a single enterprise application or combine existing systems to create new functionalities."
+      "Kyma /kee-ma/ is a platform for extending applications through microservices and JavaScript code snippets called lambda functions. It provides CLI and UI through which you can connect your application with a Kubernetes cluster and expose the application's API or Events securely thanks to the Kyma's Application Connector.",
+      "You can create microservices or serverless functions which react to particular Events or calls to your application's API and implement the business logic you just created. You can always limit the time spent on coding and simply consume the in-built cloud services from the Service Catalog portfolio, exposed by open service brokers from such cloud providers as GCP, Azure, and AWS."
     ],
     "XXXLutzBlogPost": {
       "paragraph": "{link} Kyma experience by XXXLutz KG, one of the leading furniture retailers.",
@@ -13,9 +13,16 @@
     "installButton": "Install"
   },
   "makeSpecial": {
-    "headline": "What makes Kyma so special?",
-    "paragraph": "Major open-source and cloud-native projects, such as Istio, NATS, Kubeless, and Prometheus, constitute the cornerstone of Kyma. Its uniqueness, however, lies in the \"glue\" that holds these components together. Kyma collects those cutting-edge solutions in one place and combines them with the in-house developed features that allow you to connect and extend your enterprise applications easily and intuitively.",
-    "readDocsButton": "Read the Docs"
+    "monolithes": {
+      "headline": "Don't rewrite your monoliths",
+      "paragraph": "Rewriting monolithic applications where all components are interdependent is hard, costs a fortune, and in most cases is not needed. Kyma allows you to extend such applications with microservices and lambda functions that implement the exact business logic you require, without affecting your current framework. For example, you can use Kyma to connect your application to an external database and use it for storing only specific Event types coming from your application.",
+      "readDocsButton": "Read the Docs"
+    },
+    "rightTechnologies": {
+      "headline": "We picked the right technologies for you",
+      "paragraph": "We not only offer a development platform but also make sure it is properly configured, secured, and monitored. Kyma combines various open-source projects that handle authentication, logging, eventing, alerting, and tracing. We enhanced them with our in-house components and services for asset management, testing, and connectivity. We made sure all these components play well together and are up-to-date so you can only focus on writing and using new features.",
+      "readDocsButton": "Read the Docs"
+    }
   },
   "keyFeatures": {
     "headline": "Key features",

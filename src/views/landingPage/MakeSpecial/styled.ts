@@ -21,7 +21,7 @@ export const MakeSpecialWrapper = styled.section`
 `;
 
 export const MakesSpecialSvgWrapper = styled.section`
-  width: 500px;
+  /* width: 500px; */
   ${media.tablet`
     text-align: center;
     width: unset;
@@ -46,7 +46,7 @@ export const ProductSVG = styled.div<ProductImageProps>`
 `;
 
 export const ProductIconImg = styled.img`
+  max-width: 100%;
   margin: 10px;
-  padding: 0;
   height: 80px;
 `;

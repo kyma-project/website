@@ -26,6 +26,7 @@ export const WhatIs: React.FunctionComponent = () => (
           <FormattedMessage id={gt("paragraphs.1")}>
             {paragraph => <Paragraph key="paragraphs.1">{paragraph}</Paragraph>}
           </FormattedMessage>
+          {/* discuss what to do with this section */}
           <Paragraph>
             <FormattedMessage
               id={gt("XXXLutzBlogPost.paragraph")}

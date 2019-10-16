@@ -15,19 +15,19 @@ import NatsSVG from "../assets/make-special/nats.svg";
 import MinioPNG from "../assets/make-special/minio.png";
 import OryPNG from "../assets/make-special/ory.png";
 import OpenServiceBrokerAPIPNG from "../assets/make-special/openServiceBrokerAPI.png";
+import VeleroPNG from "../assets/make-special/velero.png";
 
 import Link from "@components/shared/Link";
 
 interface ProjectsShapeBase {
   to: string;
-  width?: number;
-  alt?: string;
   src: any;
   icon: any;
 }
 
 type ProjectsArrayType = Array<
-  Omit<ProjectsShapeBase, "src"> | Omit<ProjectsShapeBase, "icon">
+  | (Omit<ProjectsShapeBase, "src"> & { width?: number })
+  | (Omit<ProjectsShapeBase, "icon"> & { alt?: string })
 >;
 
 function isSVGProps(arg: any): arg is Omit<ProjectsShapeBase, "src"> {
@@ -85,9 +85,12 @@ const usedProjects: ProjectsArrayType = [
     src: OryPNG,
   },
   {
+    to: "https://velero.io/",
+    src: VeleroPNG,
+  },
+  {
     to: "https://www.openservicebrokerapi.org/",
     src: OpenServiceBrokerAPIPNG,
-    width: 500,
   },
 ];
 
