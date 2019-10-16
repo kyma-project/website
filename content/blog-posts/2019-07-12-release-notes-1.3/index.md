@@ -138,7 +138,7 @@ Upgrading Kyma to a new version is quick and really simple, and release 1.3 come
 
 ### Event delivery aligned with the CloudEvents specification
 
-Events delivered to the lambda or Serverless now have the context attributes propagated as HTTP headers. Those headers are aligned with the [CloudEvents specification 0.3](https://github.com/cloudevents/spec/blob/master/http-transport-binding.md#31-binary-content-mode). You can use a Cloud SDK in a language of your choice to write the logic of handling Event delivery. For example, [here](https://github.com/cloudevents/sdk-go) you can find an SDK for Go.
+Events delivered to the lambda or Serverless now have the context attributes propagated as HTTP headers. Those headers are aligned with the [CloudEvents specification 0.3](https://github.com/cloudevents/spec/blob/v0.3/http-transport-binding.md#31-binary-content-mode). You can use a Cloud SDK in a language of your choice to write the logic of handling Event delivery. For example, [here](https://github.com/cloudevents/sdk-go) you can find an SDK for Go.
 
 ### Kyma subscription cleanup
 
