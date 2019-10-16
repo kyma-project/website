@@ -1,0 +1,52 @@
+rules:
+  banner-text-length:
+    description: Text cannot be longer than 120 characters as it will display wrong in the UI.
+    given: $.slides[*]
+    severity: error
+    recommended: true
+    then:
+      field: text
+      function: length
+      functionOptions:
+        max: 120
+  banner-duration:
+    description: It is recommended to set 3-5 sec for banner duration otherwise people won't notice all slides. And yeah, remember, it must be integer value.
+    given: $
+    severity: warn
+    recommended: true
+    then:
+      field: bannerDuration
+      function: schema
+      functionOptions:
+        schema:
+          type: integer
+          minimum: 3000
+          maximum: 5000
+  banner-slides-required-fields:
+    description: You are missing one of required attributes from a slides object. Must have is text, endDate, startDate and url.
+    given: $
+    severity: error
+    recommended: true
+    then:
+      field: slides
+      function: schema
+      functionOptions:
+        schema:
+          type: array
+          items:
+            type: object
+            required:
+              - text
+              - endDate
+              - startDate
+              - url
+  banner-url-valid:
+    description: URL must point to a website over https
+    given: $.slides[*]
+    severity: error
+    recommended: true
+    then:
+      field: url
+      function: pattern
+      functionOptions:
+        match: ^(https:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$
