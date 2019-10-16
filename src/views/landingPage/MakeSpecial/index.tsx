@@ -1,8 +1,6 @@
 import React from "react";
 
 import Grid from "@styled/Grid";
-import Button from "@components/shared/Button";
-import Link from "@components/shared/Link";
 import Paragraph from "@components/shared/Paragraph";
 import H from "@components/shared/H";
 
