@@ -5,6 +5,7 @@ import AliceCarousel, {
 import "react-alice-carousel/lib/alice-carousel.css";
 
 import Grid from "@styled/Grid";
+import Link from "@components/shared/Link";
 import Button from "@components/shared/Button";
 
 import { FormattedMessage } from "@common/i18n";
@@ -113,9 +114,11 @@ export const AdoptersGallery: React.FunctionComponent<Props> = ({
           <Grid.Row>
             <Grid.Unit df={12}>
               <AddYourCompanyButton>
-                <Button.Emphasized size="sm">
-                  <FormattedMessage id="landingPage.adopters.addYourCompany" />
-                </Button.Emphasized>
+                <Link.External to="">
+                  <Button.Emphasized size="sm">
+                    <FormattedMessage id="landingPage.adopters.addYourCompany" />
+                  </Button.Emphasized>
+                </Link.External>
               </AddYourCompanyButton>
             </Grid.Unit>
           </Grid.Row>
