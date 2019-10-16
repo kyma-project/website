@@ -32,7 +32,6 @@ export const Community: React.FunctionComponent = () => {
     resolveSocialMedia("twitter"),
     resolveSocialMedia("slack"),
     resolveSocialMedia("linkedIn"),
-    resolveSocialMedia("stackOverflow"),
   ];
 
   return (

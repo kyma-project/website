@@ -1,5 +1,8 @@
+import { Post } from "@typings/blog";
+
 export interface LandingPageContext {
   adopters: Adopter[];
+  latestBlogPosts: Post[];
 }
 
 export interface Adopter {
@@ -19,4 +22,10 @@ export interface Slide {
 export interface SlidesBannerProps {
   bannerDuration: number;
   slides: Slide[];
+}
+
+export enum SocialMediaI18nTarget {
+  TWITTER = "twitter",
+  YOUTUBE = "youtube",
+  Blog_POST = "lastBlogPost",
 }

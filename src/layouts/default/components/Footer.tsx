@@ -31,7 +31,6 @@ const Footer: React.FunctionComponent = () => {
     resolveSocialMedia("slack"),
     resolveSocialMedia("linkedIn"),
     resolveSocialMedia("youTube"),
-    resolveSocialMedia("stackOverflow"),
   ];
 
   return (

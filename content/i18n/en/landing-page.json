@@ -54,5 +54,14 @@
     "paragraph": "Discover what our happy users have to say about their experience with Kyma.",
     "readMoreLink": "Read More",
     "addYourCompany": "Add your company"
+  },
+  "newsroom": {
+    "headline": "Newsroom",
+    "twitterHeader": "Tweets",
+    "twitterButton": "Check our Twitter",
+    "youtubeHeader": "YouTube channel",
+    "youtubeButton": "Check our videos",
+    "lastBlogPostHeader": "The Kyma blog",
+    "lastBlogPostButton": "Read more"
   }
 }
