@@ -39,8 +39,8 @@ interface ProductImageProps {
 }
 
 export const ProductSVG = styled.div<ProductImageProps>`
-  width: ${props => (props.width ? props.width + "px" : "80px;")};
-  height: 80px;
+  width: ${props => (props.width ? props.width + "px" : "70px;")};
+  height: 70px;
   background: url(${props => props.icon}) no-repeat;
   margin: 10px;
 `;
@@ -48,5 +48,5 @@ export const ProductSVG = styled.div<ProductImageProps>`
 export const ProductIconImg = styled.img`
   max-width: 100%;
   margin: 10px;
-  height: 80px;
+  height: 70px;
 `;
