@@ -3,7 +3,9 @@
   "whatIs": {
     "headline": "What is Kyma?",
     "paragraphs": [
-      "Kyma /kee-ma/ is a platform for extending applications through microservices and JavaScript code snippets called lambda functions. It provides CLI and UI through which you can connect your application with a Kubernetes cluster and expose the application's API or Events securely thanks to the Kyma's Application Connector.",
+      "Kyma ",
+      "/kee-ma/",
+      " is a platform for extending applications with serverless functions and microservices. It provides a selection of cloud-native projects glued together to make it easier to write extensions and manage them in the production environment.",
       "You can create microservices or serverless functions which react to particular Events or calls to your application's API and implement the business logic you just created. You can always limit the time spent on coding and simply consume the in-built cloud services from the Service Catalog portfolio, exposed by open service brokers from such cloud providers as GCP, Azure, and AWS."
     ],
     "XXXLutzBlogPost": {
@@ -13,15 +15,15 @@
     "installButton": "Install"
   },
   "makeSpecial": {
-    "monolithes": {
-      "headline": "Don't rewrite your monoliths",
-      "paragraph": "Rewriting monolithic applications where all components are interdependent is hard, costs a fortune, and in most cases is not needed. Kyma allows you to extend such applications with microservices and lambda functions that implement the exact business logic you require, without affecting your current framework. For example, you can use Kyma to connect your application to an external database and use it for storing only specific Event types coming from your application.",
-      "readDocsButton": "Read the Docs"
+    "extendEasily": {
+      "headline": "Extend easily",
+      "paragraph": "Don't waste time rewriting your monoliths but focus on their extensibility. Make sure your application exposes an API and is able to send Events. Use Kyma's UI or CLI to connect your application through the Application Connector, write extensions, and integrate them inside Kyma.",
+      "readDocsButton": "Read more"
     },
     "rightTechnologies": {
-      "headline": "We picked the right technologies for you",
-      "paragraph": "We not only offer a development platform but also make sure it is properly configured, secured, and monitored. Kyma combines various open-source projects that handle authentication, logging, eventing, alerting, and tracing. We enhanced them with our in-house components and services for asset management, testing, and connectivity. We made sure all these components play well together and are up-to-date so you can only focus on writing and using new features.",
-      "readDocsButton": "Read the Docs"
+      "headline": "Swiss Army Knife",
+      "paragraph": "Kyma not only offers a development platform but also makes sure it is properly configured, secured, and monitored. It combines various lightweight open-source projects that handle authentication, logging, eventing, alerting, tracing, and many other areas. We made sure all these components play well together and are up-to-date so you can only focus on writing code.",
+      "readDocsButton": "See all Kyma features"
     }
   },
   "keyFeatures": {

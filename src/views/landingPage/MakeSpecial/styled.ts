@@ -1,5 +1,5 @@
 import styled, { media } from "@styled";
-
+import Link from "@components/shared/Link";
 import Middle from "@static/img/middle.svg";
 
 export const MakeSpecialWrapper = styled.section`
@@ -49,4 +49,8 @@ export const ProductIconImg = styled.img`
   max-width: 100%;
   margin: 10px;
   height: 70px;
+`;
+
+export const CenteredLink = styled(Link.Internal)`
+  align-self: center;
 `;
