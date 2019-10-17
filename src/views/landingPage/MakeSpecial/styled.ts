@@ -6,7 +6,7 @@ export const MakeSpecialWrapper = styled.section`
   position: relative;
   /* background: url(${Middle}) no-repeat; */
   background-size: 100% 100%;
-  min-height: 670px;
+  min-height: 550px;
   z-index: 1;
   justify-content: center;
   flex-direction: column;
