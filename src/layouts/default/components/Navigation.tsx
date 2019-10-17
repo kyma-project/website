@@ -76,10 +76,7 @@ class Navigation extends Component<{}, State> {
   render() {
     const { mobileMenuVisible, isOnMobile, initial } = this.state;
 
-    const socialMedia = [
-      resolveSocialMedia("slack"),
-      resolveSocialMedia("github"),
-    ];
+    const slackMedia = resolveSocialMedia("slack");
 
     const menuVisible = !initial
       ? false
@@ -108,15 +105,14 @@ class Navigation extends Component<{}, State> {
               </NavigationIntLink>
             </NavigationItem>
           ))}
-          {socialMedia.map((media, index) => (
-            <NavigationItem key={media.name}>
-              <NavigationExtLink to={media.url}>
-                <Button.Light iconName={media.icon}>
-                  <span>{media.name}</span>
-                </Button.Light>
-              </NavigationExtLink>
-            </NavigationItem>
-          ))}
+          <NavigationItem>
+            <NavigationExtLink to={slackMedia.url}>
+              <Button.Light iconName={slackMedia.icon}>
+                <span>{slackMedia.name}</span>
+              </Button.Light>
+            </NavigationExtLink>
+          </NavigationItem>
+
           <NavigationItem key="search">
             {!isOnMobile ? <Search /> : null}
           </NavigationItem>

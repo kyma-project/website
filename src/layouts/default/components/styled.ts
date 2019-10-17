@@ -28,8 +28,13 @@ interface HeaderWrapperProps {
 }
 
 export const HeaderWrapper = styled.header`
+  > div {
+    display: flex;
+    justify-content: space-between;
+  }
+
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   position: relative;
   margin-bottom: ${(props: HeaderWrapperProps) =>
     props.horizontalBg ? "3vw" : ""};
@@ -138,9 +143,30 @@ export const HeaderLogo = styled.h1`
   }
 `;
 
+export const GithubButtonsWrapper = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+`;
+
+export const IFrameWrapper = styled.section`
+  position: absolute;
+  top: 110px;
+
+  ${media.tablet`
+  top: 110px;
+  `}
+  ${media.phone`
+  top: 95px;
+  `}
+
+  > iframe {
+    margin: 0;
+  }
+`;
+
 /* Navigation */
 export const NavigationWrapper = styled.nav`
-  display: inline-block;
   width: auto;
   float: right;
   margin-top: 0;
@@ -199,7 +225,7 @@ export const NavigationItem = styled.li`
       }
     }
 
-    :nth-child(n + 2):nth-last-child(n + 4) {
+    :nth-child(n + 2):nth-last-child(n + 3) {
       a {
         display: block;
         width: 100%;
@@ -212,9 +238,7 @@ export const NavigationItem = styled.li`
       padding: 0 18px;
       line-height: 46px;
       background-color: transparent;
-      -webkit-transition: background-color ease-out 0.2s;
       transition: background-color ease-out 0.2s;
-      -webkit-text-decoration: none;
       text-decoration: none;
       cursor: pointer;
       border: 2px solid #fff;
@@ -252,7 +276,6 @@ export const NavigationExtLink = styled(Link.External)`
   box-shadow: none;
 
   > button {
-    margin-left: 6px;
     padding: 0 12px;
     border: none;
 
