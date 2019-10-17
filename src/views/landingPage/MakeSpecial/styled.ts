@@ -11,7 +11,7 @@ export const MakeSpecialWrapper = styled.section`
   justify-content: center;
   flex-direction: column;
   display: flex;
-  margin-top: 3.5%;
+  margin-top: 1.5%;
   margin-bottom: 0;
   /* color: #fff; */
 
