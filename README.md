@@ -58,7 +58,7 @@ To run unit tests, run the following command:
 npm run test
 ```
 
-### Validate website
+### Validate the website
 
 To validate TypeScript types as well as document and code linting on the website, run the following command:
 
