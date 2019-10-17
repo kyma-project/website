@@ -12,11 +12,11 @@ export const MakeSpecialWrapper = styled.section`
   flex-direction: column;
   display: flex;
   margin-top: 1.5%;
-  margin-bottom: 0;
+  margin-bottom: 1.5%;
   /* color: #fff; */
 
   ${media.tablet`
-    padding: 50px 0 150px 0;
+    padding: 50px 0 50px 0;
   `};
 `;
 
