@@ -28,6 +28,7 @@ export const MakeSpecial: React.FunctionComponent = () => (
             <FormattedMessage id={gt("extendEasily.paragraph")}>
               {paragraph => <Paragraph>{paragraph}</Paragraph>}
             </FormattedMessage>
+            {/* make sure this link is correct !!!!!!!!!! */}
             <CenteredLink to="/docs">
               <Button.Emphasized>
                 <FormattedMessage id={gt("extendEasily.readDocsButton")} />
@@ -47,6 +48,7 @@ export const MakeSpecial: React.FunctionComponent = () => (
             <FormattedMessage id={gt("rightTechnologies.paragraph")}>
               {paragraph => <Paragraph>{paragraph}</Paragraph>}
             </FormattedMessage>
+            {/* make sure this link is correct !!!!!!!!!! */}
             <CenteredLink to="/docs">
               <Button.Emphasized>
                 <FormattedMessage id={gt("rightTechnologies.readDocsButton")} />
