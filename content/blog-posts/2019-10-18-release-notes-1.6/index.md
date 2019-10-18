@@ -21,7 +21,7 @@ See the overview of all changes in this release:
 - [Console](#console) - Simplified Logging UI, Preloading micro frontends
 - [Compass](#compass) - Introducing Compass 
 - [Core and Supporting](#core-and-supporting) -  Support for AsyncAPI 2.0 specification, AsyncAPI UI component restyled, support for more Gateway modes by Asset Store, metrics exposed for Asset Store and Headless CMS
-- [Documentation](#documentation) - Improved installation documentation
+- [Documentation](#documentation) - Improved installation documentation, added troubleshooting guide for Backup
 - [Eventing](#eventing) - Knative Eventing Channel Provisioners replaced with Channel CRD Controllers, Knative Eventing chart updated to 0.8 
 - [Hydroform](#hydroform) - Introducing Hydroform - Kubernetes provisioning 
 - [Logging](#serverless) - Added support for Fluent Bit
@@ -109,6 +109,10 @@ You can also start exploring metrics right away, using our pre-configured Grafan
 ### Improved installation documentation 
 
 We want our documentation to be comprehensive, yet easy to follow and understand. That's why we constantly improve it, always with the community feedback in mind. Our [most recent discussions](https://kyma-community.slack.com/archives/CD2HJ0E78/p1568721087011100) turned out to be a great starting point for another successful implementation. Check out [this](https://kyma-project.io/docs/1.6/root/kyma/#installation-install-kyma-on-a-cluster) installation document to explore the new structure.
+
+### Added troubleshooting guide for Backup
+
+We are aware of potential issues that may occur from time to time. That's why our troubleshooting guides are there to help you. If you experience problems with Eventing after you completed the restore process, read [this](https://kyma-project.io/docs/1.6/components/backup#troubleshooting-restore-troubleshooting-eventing-not-working) guide.
 
 ## Eventing
 
