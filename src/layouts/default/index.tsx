@@ -12,17 +12,15 @@ import { LayoutWrapper, Content } from "./styled";
 interface DefaultLayoutProps {
   horizontalHeaderBg?: boolean;
   inDocsLayout?: boolean;
-  slidesBanner: SlidesBannerProps;
 }
 
 export const DefaultLayout: React.FunctionComponent<DefaultLayoutProps> = ({
   horizontalHeaderBg = true,
   inDocsLayout = false,
-  slidesBanner,
   children,
 }) => (
   <LayoutWrapper>
-    <SlidesBanner {...slidesBanner} />
+    <SlidesBanner />
     <CookiesBanner />
     <BackToTop inDocsLayout={inDocsLayout} />
     <Header horizontalBg={horizontalHeaderBg} />
