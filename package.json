@@ -68,6 +68,7 @@
     "gatsby-plugin-typography": "^2.2.5",
     "gatsby-remark-embed-video": "^1.7.0",
     "gatsby-source-filesystem": "^2.1.5",
+    "gatsby-transformer-json": "^2.2.15",
     "gatsby-transformer-remark": "^2.2.5",
     "gatsby-transformer-yaml-full": "^0.2.0",
     "lodash.throttle": "^4.1.1",

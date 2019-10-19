@@ -4,7 +4,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import { SlidesBannerProps } from "@typings/landingPage";
 
 interface QueryShape {
-  allBannerYaml: {
+  allBannerJson: {
     nodes: SlidesBannerProps[];
   };
 }
@@ -12,7 +12,7 @@ interface QueryShape {
 export const SlidesBanner: FC = () => {
   const data = useStaticQuery<QueryShape>(graphql`
     {
-      allBannerYaml {
+      allBannerJson {
         nodes {
           bannerDuration
           slides {
@@ -28,8 +28,8 @@ export const SlidesBanner: FC = () => {
 
   return (
     <Banner
-      bannerDuration={data.allBannerYaml.nodes[0].bannerDuration}
-      slides={data.allBannerYaml.nodes[0].slides}
+      bannerDuration={data.allBannerJson.nodes[0].bannerDuration}
+      slides={data.allBannerJson.nodes[0].slides}
     />
   );
 };

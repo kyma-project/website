@@ -13,7 +13,8 @@ export const plugins: Plugins = [
   },
   "gatsby-plugin-lodash",
   "gatsby-plugin-typescript",
-  `gatsby-transformer-yaml-full`,
+  // `gatsby-transformer-yaml-full`,
+  `gatsby-transformer-json`,
   {
     resolve: "gatsby-source-filesystem",
     options: {
