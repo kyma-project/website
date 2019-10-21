@@ -1,6 +1,7 @@
 import styled, { media } from "@styled";
 import Link from "@components/shared/Link";
 import Middle from "@static/img/middle.svg";
+import Grid from "@styled/Grid";
 
 export const MakeSpecialWrapper = styled.section`
   position: relative;
@@ -53,4 +54,18 @@ export const ProductIconImg = styled.img`
 
 export const CenteredLink = styled(Link.Internal)`
   align-self: center;
+`;
+
+interface GridProps {
+  leftPadding?: number;
+  rightPadding?: number;
+}
+
+export const StyledGridUnit = styled(Grid.Unit)<GridProps>`
+  padding: 0
+    ${(pro: any) => (pro.rightPadding ? pro.rightPadding + "px" : "15px")} 0
+    ${(pro: any) => (pro.leftPadding ? pro.leftPadding + "px" : "15px")};
+  ${media.tablet`
+    padding: 0 15px;
+  `};
 `;

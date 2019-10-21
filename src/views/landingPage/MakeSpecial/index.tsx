@@ -7,16 +7,16 @@ import Button from "@components/shared/Button";
 
 import { FormattedMessage, getTranslation } from "@common/i18n";
 
-import { MakeSpecialWrapper, CenteredLink } from "./styled";
+import { MakeSpecialWrapper, CenteredLink, StyledGridUnit } from "./styled";
 import { UsedProjectIcons } from "./UsedProjectIcons";
 
 const gt = getTranslation("landingPage.makeSpecial");
 
 export const MakeSpecial: React.FunctionComponent = () => (
   <MakeSpecialWrapper>
-    <Grid.Container as="section">
-      <Grid.Row space={true} alignCenter={true}>
-        <Grid.Unit df={6} lg={6} md={12}>
+    <Grid.Container as="section" padding={"padding: 0 30px 0 30px"}>
+      <Grid.Row space={true}>
+        <StyledGridUnit df={6} lg={6} md={12} rightPadding={30}>
           <FormattedMessage id={gt("extend.headline")}>
             {headline => (
               <H as="h2" center={true}>
@@ -32,8 +32,8 @@ export const MakeSpecial: React.FunctionComponent = () => (
               <FormattedMessage id={gt("extend.readDocsButton")} />
             </Button.Emphasized>
           </CenteredLink>
-        </Grid.Unit>
-        <Grid.Unit df={6} lg={6} md={12}>
+        </StyledGridUnit>
+        <StyledGridUnit df={6} lg={6} md={12} leftPadding={30}>
           <FormattedMessage id={gt("rightTools.headline")}>
             {headline => (
               <H as="h2" center={true}>
@@ -49,7 +49,7 @@ export const MakeSpecial: React.FunctionComponent = () => (
               <FormattedMessage id={gt("rightTools.readDocsButton")} />
             </Button.Emphasized>
           </CenteredLink>
-        </Grid.Unit>
+        </StyledGridUnit>
       </Grid.Row>
       <UsedProjectIcons />
     </Grid.Container>

@@ -17,14 +17,14 @@ export const WhatIs: React.FunctionComponent = () => {
 
   useEffect(() => {
     const script = document.createElement("script");
+    const recordID = 276125;
     script.async = true;
-    script.src = "https://asciinema.org/a/276006.js";
-    script.id = "asciicast-276006";
+    script.src = `https://asciinema.org/a/${recordID}.js`;
+    script.id = `asciicast-${recordID}`;
 
-    script.setAttribute("data-theme", "solarized");
+    script.setAttribute("data-theme", "solarized-dark");
     script.setAttribute("data-rows", "20");
     script.setAttribute("data-cols", "75");
-    script.setAttribute("data-autoplay", "true");
     script.setAttribute("data-preload", "true");
 
     scriptRef.current && scriptRef.current.appendChild(script);
@@ -39,7 +39,7 @@ export const WhatIs: React.FunctionComponent = () => {
   return (
     <StyledGridContainer as="section">
       <Grid.Row space={true}>
-        <Grid.Unit df={6} lg={6} md={12}>
+        <Grid.Unit df={6} lg={6} md={12} noMargin={true}>
           <ParagraphWrapper>
             <FormattedMessage id={gt("paragraphs.0")}>
               {paragraph => <Paragraph inline={true}>{paragraph}</Paragraph>}
@@ -52,7 +52,7 @@ export const WhatIs: React.FunctionComponent = () => {
             </FormattedMessage>
           </ParagraphWrapper>
         </Grid.Unit>
-        <Grid.Unit df={6} lg={6} md={12} ref={scriptRef} />
+        <Grid.Unit df={6} lg={6} md={12} ref={scriptRef} noMargin={true} />
       </Grid.Row>
     </StyledGridContainer>
   );
