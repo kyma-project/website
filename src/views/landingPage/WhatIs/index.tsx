@@ -1,8 +1,7 @@
-import { useStaticQuery, graphql } from "gatsby";
 import React, { useEffect } from "react";
 import Grid from "@styled/Grid";
 import Paragraph from "@components/shared/Paragraph";
-import WhatIsSvg from "../assets/landing-page/WhatIs";
+
 import {
   ParagraphWrapper,
   StyledGridContainer,
@@ -22,10 +21,10 @@ export const WhatIs: React.FunctionComponent = () => {
       // tslint:disable-next-line: no-unused-expression
       new arg.Termynal("#termynal", {
         lineData: [
-          { type: "input", value: "pip install spacy" },
-          { value: "Are you sure you want to install 'spaCy'?" },
+          { type: "input", value: "kyma install" },
+          { value: "Are you sure you want to install 'Kyma'?" },
           { type: "input", typeDelay: 1000, prompt: "(y/n)", value: "y" },
-          { delay: 1000, value: "Installing spaCy..." },
+          { delay: 1000, value: "Installing kyma..." },
         ],
       });
     });

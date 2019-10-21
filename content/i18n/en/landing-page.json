@@ -5,23 +5,20 @@
     "paragraphs": [
       "Kyma ",
       "/kee-ma/",
-      " is a platform for extending applications with serverless functions and microservices. It provides a selection of cloud-native projects glued together to make it easier to write extensions and manage them in the production environment."
+      " is a platform for extending applications with serverless functions and microservices. It provides a selection of cloud-native projects glued together to easily write extensions and manage them in the production environment."
     ],
-    "XXXLutzBlogPost": {
-      "paragraph": "{link} Kyma experience by XXXLutz KG, one of the leading furniture retailers.",
-      "link": "Learn about"
-    },
+    
     "installButton": "Install"
   },
   "makeSpecial": {
     "extendEasily": {
-      "headline": "What you get",
-      "paragraph": "Don't waste time rewriting your monoliths but focus on their extensibility instead. Make sure your application exposes an API and is able to send Events to external services. Use Kyma's UI or CLI to connect your application through the Application Connector, write extensions, and integrate them inside Kyma.",
+      "headline": "Create extensions...",
+      "paragraph": "Don't waste time rewriting your monoliths but focus on their extensibility instead. Make sure your application exposes an API and is able to send events to external services. Use Kyma's UI or CLI to connect your application through the Application Connector, write extensions, and integrate them inside Kyma.",
       "readDocsButton": "Docs"
     },
     "rightTechnologies": {
-      "headline": "What's inside",
-      "paragraph": "Kyma not only offers a development platform but also makes sure it is properly configured, secured, and monitored. It combines various lightweight open-source projects for authentication, logging, eventing, alerting, tracing, and more. We ensured they are compatible and up-to-date so you can only focus on coding.",
+      "headline": "...with tools at hand",
+      "paragraph": "Kyma not only offers a development platform but also makes sure it is properly configured, secured, and monitored. It combines various lightweight open-source projects for authentication, logging, eventing, alerting, tracing, and more. We ensured they play well together so you can only focus on coding.",
       "readDocsButton": "Features"
     }
   },
