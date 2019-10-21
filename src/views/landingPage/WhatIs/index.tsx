@@ -20,7 +20,14 @@ export const WhatIs: React.FunctionComponent = () => {
   const loadTermynal = (): void => {
     loadJS().then((arg: any) => {
       // tslint:disable-next-line: no-unused-expression
-      new arg.Termynal("#termynal");
+      new arg.Termynal("#termynal", {
+        lineData: [
+          { type: "input", value: "pip install spacy" },
+          { value: "Are you sure you want to install 'spaCy'?" },
+          { type: "input", typeDelay: 1000, prompt: "(y/n)", value: "y" },
+          { delay: 1000, value: "Installing spaCy..." },
+        ],
+      });
     });
   };
 
@@ -54,30 +61,7 @@ export const WhatIs: React.FunctionComponent = () => {
         <Grid.Unit df={6} lg={6} md={12}>
           {/* <img src={kymaGif} /> */}
           {/* <WhatIsSvg /> */}
-          <div id="termynal" data-termynal={true}>
-            <span data-ty="input">pip install spacy</span>
-            <span data-ty="progress" />
-            <span data-ty={true}>Successfully installed spacy</span>
-            <span data-ty={true} />
-            <span data-ty="input">python -m spacy download en</span>
-            <span data-ty="progress" />
-            <span data-ty={true}>Installed model 'en'</span>
-            <span data-ty={true} />
-            <span data-ty="input">python</span>
-            <span data-ty="input" data-ty-prompt=">>>">
-              import spacy
-            </span>
-            <span data-ty="input" data-ty-prompt=">>>">
-              nlp = spacy.load('en')
-            </span>
-            <span data-ty="input" data-ty-prompt=">>>">
-              doc = nlp(u'Hello world')
-            </span>
-            <span data-ty="input" data-ty-prompt=">>>">
-              print([(w.text, w.pos_) for w in doc])
-            </span>
-            <span data-ty={true}>[('Hello', 'INTJ'), ('world', 'NOUN')]</span>
-          </div>
+          <div id="termynal" data-termynal={true} />
         </Grid.Unit>
       </Grid.Row>
     </StyledGridContainer>
