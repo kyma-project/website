@@ -11,14 +11,14 @@
     "installButton": "Install"
   },
   "makeSpecial": {
-    "extendEasily": {
+    "extend": {
       "headline": "Create extensions...",
-      "paragraph": "Don't waste time rewriting your monoliths but focus on their extensibility instead. Make sure your application exposes an API and is able to send events to external services. Use Kyma's UI or CLI to connect your application through the Application Connector, write extensions, and integrate them inside Kyma.",
+      "paragraph": "Don't waste time rewriting your monoliths but focus on their extensibility instead. Make sure your application exposes an API and is able to send events to Kyma. Use our Console UI or CLI to connect, extend, and integrate applications.",
       "readDocsButton": "Docs"
     },
-    "rightTechnologies": {
+    "rightTools": {
       "headline": "...with tools at hand",
-      "paragraph": "Kyma not only offers a development platform but also makes sure it is properly configured, secured, and monitored. It combines various lightweight open-source projects for authentication, logging, eventing, alerting, tracing, and more. We ensured they play well together so you can only focus on coding.",
+      "paragraph": "Kyma gives you a properly configured, monitored, and secured Kubernetes cluster. It combines various open-source projects for authentication, logging, eventing, alerting, tracing, and many more. We ensured they play well together so you can only focus on coding.",
       "readDocsButton": "Features"
     }
   },
