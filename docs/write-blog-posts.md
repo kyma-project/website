@@ -2,12 +2,13 @@
 
 Follow these steps to add a new post on the website:
 
-1. Create a new folder in the `content/blog-posts` folder with a name following the `{DATE}-{ADDRESS}` format.
-2. Create a file named `index.md` in the newly created directory.
-3. Prepare the content in a Markdown file.
-4. Make a pull request.
-5. Wait for the review.
-6. After the merge, the site rebuilds automatically and the blog post appears.
+1. Fork repository and create new branch in your forked repo.
+2. Create a new folder in the `content/blog-posts` folder with a name following the `{DATE}-{ADDRESS}` format.
+3. Create a file named `index.md` in the newly created directory.
+4. Prepare the content in a Markdown file.
+5. Make a pull request.
+6. Wait for the review.
+7. After the merge, the site rebuilds automatically and the blog post appears.
 
 The blog post should have the following format:
 
