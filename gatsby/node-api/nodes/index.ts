@@ -1,6 +1,5 @@
 import { CreateNodeArgs } from "gatsby";
 import {
-  ADOPTERS_DIR,
   BLOG_POST_DIR,
   DOCS_DIR,
   ROADMAP_CAPABILITIES_DIR,
@@ -9,7 +8,6 @@ import {
 } from "../../constants";
 
 import {
-  onCreateAdopterNode,
   onCreateBlogPostNode,
   onCreateDocsNode,
   onCreateCommunityNode,
@@ -29,9 +27,6 @@ export const onCreateNode = async ({
     case "MarkdownRemark": {
       const { relativePath } = getNode(node.parent);
 
-      if (relativePath.startsWith(ADOPTERS_DIR)) {
-        await onCreateAdopterNode({ node, relativePath, createNodeField });
-      }
       if (relativePath.startsWith(BLOG_POST_DIR)) {
         onCreateBlogPostNode({ node, relativePath, createNodeField });
       }

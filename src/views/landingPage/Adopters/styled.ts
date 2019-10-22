@@ -51,10 +51,8 @@ export const AdoptersWrapper = styled.div`
 
 export const AdoptersGalleryWrapper = styled.div`
   &&&&& {
-    > div {
-      margin: 0;
-      display: flex;
-    }
+    margin: 0;
+    display: flex;
 
     ${Grid.Container} {
       padding: 0;

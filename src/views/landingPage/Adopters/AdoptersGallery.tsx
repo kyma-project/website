@@ -5,10 +5,7 @@ import AliceCarousel, {
 import "react-alice-carousel/lib/alice-carousel.css";
 
 import Grid from "@styled/Grid";
-import Link from "@components/shared/Link";
 import Button from "@components/shared/Button";
-
-import { FormattedMessage } from "@common/i18n";
 
 import { AdoptersItem } from "./AdoptersItem";
 
@@ -68,62 +65,45 @@ export const AdoptersGallery: React.FunctionComponent<Props> = ({
 
   return (
     <AdoptersGalleryWrapper>
-      <div>
-        <Grid.Container>
-          <Grid.Row>
-            <Grid.Unit
-              df={1}
-              xs={0}
-              className="carousel-buttons-nav carousel-button-left"
-            >
-              <div>
-                <Button.Emphasized
-                  onClick={slidePrev}
-                  className="carousel-button"
-                  iconName="chevron-left"
-                  iconPrefix="fas"
-                  size="sm"
-                />
-              </div>
-            </Grid.Unit>
-            <Grid.Unit df={10} sm={12}>
-              <AliceCarouselWrapper>
-                <AliceCarousel {...aliceCarouselProps} ref={carouselRef} />
-              </AliceCarouselWrapper>
-            </Grid.Unit>
-            <Grid.Unit
-              df={1}
-              xs={0}
-              className="carousel-buttons-nav carousel-button-right"
-            >
-              <div>
-                <Button.Emphasized
-                  onClick={slideNext}
-                  className="carousel-button"
-                  iconName="chevron-right"
-                  iconPrefix="fas"
-                  size="sm"
-                />
-              </div>
-            </Grid.Unit>
-          </Grid.Row>
-        </Grid.Container>
-      </div>
-      <div>
-        <Grid.Container>
-          <Grid.Row>
-            <Grid.Unit df={12}>
-              <AddYourCompanyButton>
-                <Link.External to="">
-                  <Button.Emphasized size="sm">
-                    <FormattedMessage id="landingPage.adopters.addYourCompany" />
-                  </Button.Emphasized>
-                </Link.External>
-              </AddYourCompanyButton>
-            </Grid.Unit>
-          </Grid.Row>
-        </Grid.Container>
-      </div>
+      <Grid.Container>
+        <Grid.Row>
+          <Grid.Unit
+            df={1}
+            xs={0}
+            className="carousel-buttons-nav carousel-button-left"
+          >
+            <div>
+              <Button.Emphasized
+                onClick={slidePrev}
+                className="carousel-button"
+                iconName="chevron-left"
+                iconPrefix="fas"
+                size="sm"
+              />
+            </div>
+          </Grid.Unit>
+          <Grid.Unit df={10} sm={12}>
+            <AliceCarouselWrapper>
+              <AliceCarousel {...aliceCarouselProps} ref={carouselRef} />
+            </AliceCarouselWrapper>
+          </Grid.Unit>
+          <Grid.Unit
+            df={1}
+            xs={0}
+            className="carousel-buttons-nav carousel-button-right"
+          >
+            <div>
+              <Button.Emphasized
+                onClick={slideNext}
+                className="carousel-button"
+                iconName="chevron-right"
+                iconPrefix="fas"
+                size="sm"
+              />
+            </div>
+          </Grid.Unit>
+        </Grid.Row>
+      </Grid.Container>
     </AdoptersGalleryWrapper>
   );
 };

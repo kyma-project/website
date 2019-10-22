@@ -13,7 +13,7 @@ export interface Adopter {
   websiteUrl: string;
   url: string;
   logo: string;
-  content?: string;
+  content: string;
 }
 
 export interface Slide {

@@ -8,6 +8,7 @@ import {
   CreatePageFnArgs,
   GraphQLFunction,
 } from "../../../types";
+import { ASSETS_DIR, ADOPTERS_DIR } from "../../../constants";
 
 export const createLandingPage = (
   createPage: CreatePageFn,
@@ -43,42 +44,34 @@ function getEarlyAdopters(): EarlyAdopter[] {
 export async function getAdopters(
   graphql: GraphQLFunction,
 ): Promise<Adopter[]> {
-  const result = await graphql(`
-    {
-      allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/adopters/" } }) {
-        edges {
-          node {
-            id
-            rawMarkdownBody
-            fields {
-              assetsPath
-            }
-            frontmatter {
-              websiteUrl
-              url
-            }
-          }
-        }
-      }
-    }
-  `);
-  if (result.errors) {
-    throw new Error(result.errors);
-  }
-
-  return result.data.allMarkdownRemark.edges
-    .map((e: any) => e.node)
-    .map((node: any) => ({
-      websiteUrl: node.frontmatter.websiteUrl,
-      url: node.frontmatter.url,
-      logo: node.fields.assetsPath,
-      content: stripRawMarkdownBody(node.rawMarkdownBody),
-    })) as Adopter[];
+  const path = resolve(__dirname, "../../../../content/adopters/adopters.yaml");
+  const file = readFileSync(path, "utf8");
+  const data = safeLoad(file) as { adopters: Adopter[] };
+  const adopters = JSON.parse(JSON.stringify(data.adopters)) as Adopter[];
+  return adopters.map(adopter => ({
+    ...adopter,
+    logo: createLogoAssetPath(adopter.logo),
+    content: stripAdopterContent(adopter.content),
+  }));
 }
 
-function stripRawMarkdownBody(content: string): string {
-  if (content.length > 256) {
-    return `${content.substring(0, 253)}...`;
+function createLogoAssetPath(logo: string): string {
+  if (!logo) {
+    throw new Error(
+      "logo field must be provided in frontmatter object of case study.",
+    );
+  }
+
+  if (logo.startsWith("http")) {
+    return logo;
+  }
+
+  return resolve(`/${ASSETS_DIR}${ADOPTERS_DIR}${logo}`);
+}
+
+function stripAdopterContent(content: string): string {
+  if (content.length > 140) {
+    return `${content.substring(0, 137)}...`;
   }
   return content;
 }
