@@ -2,7 +2,7 @@
 
 Follow these steps to add a new post on the website:
 
-1. Fork repository and create new branch in your forked repo.
+1. Fork the `website` repository and create a new branch in your fork.
 2. Create a new folder in the `content/blog-posts` folder with a name following the `{DATE}-{ADDRESS}` format.
 3. Create a file named `index.md` in the newly created directory.
 4. Prepare the content in a Markdown file.
