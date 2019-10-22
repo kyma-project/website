@@ -26,7 +26,7 @@ Replace these parameters with real values:
 
 > **NOTE**: If you have a blog post in our blog, then `{URL}` should be as a relative link to appropriate blog post with `/blog` prefix, for example `/blog/2018/7/24/introduction-project-kyma/`.
 
-### Examples
+## Examples
 
 ``` yaml
 - websiteUrl: "https://company.com"
