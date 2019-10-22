@@ -15,3 +15,7 @@ url:
 logo: 
 content:
 ```
+
+<!-- 
+If you want provide logo with issue, please paste it here
+-->
