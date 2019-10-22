@@ -9,4 +9,3 @@ This directory contains the following documents that relate to the project:
 * [Internationalization](./internationalization.md) describes how to add translated content to the website.
 * [Write Blog Posts](./write-blog-posts.md) describes how to write blog posts.
 * [Add a new adopter](./add-adopter.md) describes how to add a new adopter to the **Used by** section on the website's landing page.
-
