@@ -3,6 +3,9 @@
 Follow these steps to add information on a new Kyma adopter to the **Used by** section on the website's landing page:
 
 1. Fork the `website` repository and create a new branch in your fork.
+
+   > **NOTE:** If you don't want to fork the repository, create an issue using the **Adopter request** [template](https://github.com/kyma-project/website/issues/new?template=adopter-request.md), and one of the [repository owners](../CODEOWNERS) will create a PR with your case study.
+
 2. Update the `adopters.yaml` file in the `content/adopters` folder with a new list item with your company's details.
 
    Each element of the list in the `adopters.yaml` file should have the following format:
