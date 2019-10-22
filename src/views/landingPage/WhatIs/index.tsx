@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import Grid from "@styled/Grid";
 import Paragraph from "@components/shared/Paragraph";
+import { UsedProjectIcons } from "./UsedProjectIcons";
 
 import {
   ParagraphWrapper,
@@ -51,6 +52,7 @@ export const WhatIs: React.FunctionComponent = () => {
               {paragraph => <Paragraph inline={true}>{paragraph}</Paragraph>}
             </FormattedMessage>
           </ParagraphWrapper>
+          <UsedProjectIcons />
         </Grid.Unit>
         <Grid.Unit df={6} lg={6} md={12} ref={scriptRef} noMargin={true} />
       </Grid.Row>

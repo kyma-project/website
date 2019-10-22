@@ -21,41 +21,6 @@ export const MakeSpecialWrapper = styled.section`
   `};
 `;
 
-export const MakesSpecialSvgWrapper = styled.section`
-  /* width: 500px; */
-  ${media.tablet`
-    text-align: center;
-    width: unset;
-  `};
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-flow: row wrap;
-`;
-
-interface ProductImageProps {
-  icon: any;
-  width?: number;
-}
-
-export const ProductSVG = styled.div<ProductImageProps>`
-  width: ${props => (props.width ? props.width + "px" : "70px;")};
-  height: 70px;
-  background: url(${props => props.icon}) no-repeat;
-  margin: 10px;
-`;
-
-export const ProductIconImg = styled.img`
-  max-width: 100%;
-  margin: 10px;
-  height: 70px;
-`;
-
-export const CenteredLink = styled(Link.Internal)`
-  align-self: center;
-`;
-
 interface GridProps {
   leftPadding?: number;
   rightPadding?: number;
@@ -68,4 +33,8 @@ export const StyledGridUnit = styled(Grid.Unit)<GridProps>`
   ${media.tablet`
     padding: 0 15px;
   `};
+`;
+
+export const CenteredLink = styled(Link.Internal)`
+  align-self: center;
 `;

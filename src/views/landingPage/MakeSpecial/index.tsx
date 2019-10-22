@@ -8,7 +8,6 @@ import Button from "@components/shared/Button";
 import { FormattedMessage, getTranslation } from "@common/i18n";
 
 import { MakeSpecialWrapper, CenteredLink, StyledGridUnit } from "./styled";
-import { UsedProjectIcons } from "./UsedProjectIcons";
 
 const gt = getTranslation("landingPage.makeSpecial");
 
@@ -51,7 +50,6 @@ export const MakeSpecial: React.FunctionComponent = () => (
           </CenteredLink>
         </StyledGridUnit>
       </Grid.Row>
-      <UsedProjectIcons />
     </Grid.Container>
   </MakeSpecialWrapper>
 );

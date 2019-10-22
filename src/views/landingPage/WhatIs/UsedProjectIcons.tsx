@@ -11,7 +11,6 @@ import KialiSVG from "../assets/make-special/kiali.svg";
 import DexSVG from "../assets/make-special/dex.svg";
 import KnativeSVG from "../assets/make-special/knative.svg";
 import NatsSVG from "../assets/make-special/nats.svg";
-import MinioPNG from "../assets/make-special/minio.png";
 import OryPNG from "../assets/make-special/ory.png";
 import VeleroPNG from "../assets/make-special/velero.png";
 
@@ -38,15 +37,11 @@ const usedProjects: ProjectsArrayType = [
     src: KubernetesPNG,
     alt: "Kubernetes logo",
   },
-  {
-    to: "https://min.io",
-    src: MinioPNG,
-    alt: "Minio logo",
-  },
+
   {
     to: "https://istio.io/",
     icon: IstioSVG,
-    width: 60,
+    width: 35,
   },
   {
     to: "https://grafana.com/",
@@ -74,8 +69,8 @@ const usedProjects: ProjectsArrayType = [
   {
     to: "https://cloud.google.com/knative/",
     icon: KnativeSVG,
+    width: 60,
   },
-
   {
     to: "https://ory.sh",
     src: OryPNG,
