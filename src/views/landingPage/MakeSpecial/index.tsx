@@ -4,7 +4,7 @@ import Grid from "@styled/Grid";
 import Paragraph from "@components/shared/Paragraph";
 import H from "@components/shared/H";
 import Button from "@components/shared/Button";
-
+import { UsedProjectIcons } from "../WhatIs/UsedProjectIcons";
 import { FormattedMessage, getTranslation } from "@common/i18n";
 
 import { MakeSpecialWrapper, CenteredLink, StyledGridUnit } from "./styled";
@@ -53,6 +53,7 @@ export const MakeSpecial: React.FunctionComponent = () => (
           </CenteredLink>
         </StyledGridUnit>
       </Grid.Row>
+      <UsedProjectIcons></UsedProjectIcons>
     </Grid.Container>
   </MakeSpecialWrapper>
 );

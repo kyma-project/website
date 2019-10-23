@@ -6,7 +6,7 @@ export const MakeSpecialWrapper = styled.section`
   position: relative;
 
   background-size: 100% 100%;
-  min-height: 450px;
+  min-height: 300px;
   z-index: 1;
   justify-content: center;
   flex-direction: column;

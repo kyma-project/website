@@ -13,6 +13,7 @@ import {
 } from "./styled";
 
 import { FormattedMessage, getTranslation } from "@common/i18n";
+import styled from "@styled";
 
 const gt = getTranslation("landingPage.whatIs");
 
@@ -55,15 +56,20 @@ export const WhatIs: React.FunctionComponent = () => {
               {paragraph => <Paragraph inline={true}>{paragraph}</Paragraph>}
             </FormattedMessage>
           </ParagraphWrapper>
-          <UsedProjectsCarousel />
+          {/* <UsedProjectsCarousel /> */}
           {/* <UsedProjectIcons /> */}
+          <Termynal />
         </Grid.Unit>
         <Grid.Unit df={6} lg={6} md={12}>
-          <ParagraphWrapper>
-            <Termynal />
-          </ParagraphWrapper>
+          <SvgWrapper>
+            <WhatIsSvg />
+          </SvgWrapper>
         </Grid.Unit>
       </Grid.Row>
     </StyledGridContainer>
   );
 };
+
+const SvgWrapper = styled.div`
+  margin-top: -50px;
+`;

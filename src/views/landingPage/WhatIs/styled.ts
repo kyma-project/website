@@ -23,7 +23,7 @@ export const MakesSpecialSvgWrapper = styled.section`
     width: unset;
   `};
 
-  padding-top: 10px;
+  padding-top: 30px;
   display: flex;
   justify-content: center;
   flex-flow: row wrap;
