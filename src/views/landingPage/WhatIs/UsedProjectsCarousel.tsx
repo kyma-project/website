@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { ProductSVG, ProductIconImg } from "./styled";
+import { ProductSVG, ProductIconImg, AliceCarouselWrapper } from "./styled";
 
 import KubernetesPNG from "../assets/make-special/kubernetes.png";
 import IstioSVG from "../assets/make-special/istio.svg";
@@ -106,15 +106,18 @@ const carouselData = usedProjects.map(elem => (
 ));
 
 export const UsedProjectsCarousel: FC = () => (
-  <AliceCarousel
-    responsive={responsive}
-    items={carouselData}
-    dotsDisabled={true}
-    autoPlay={true}
-    buttonsDisabled={true}
-    swipeDisabled={true}
-    keysControlDisabled={true}
-    stopAutoPlayOnHover={true}
-    autoPlayInterval={3000}
-  />
+  <AliceCarouselWrapper>
+    <AliceCarousel
+      responsive={responsive}
+      duration={700}
+      items={carouselData}
+      dotsDisabled={true}
+      autoPlay={true}
+      buttonsDisabled={true}
+      swipeDisabled={true}
+      keysControlDisabled={true}
+      stopAutoPlayOnHover={true}
+      autoPlayInterval={3000}
+    />
+  </AliceCarouselWrapper>
 );

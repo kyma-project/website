@@ -48,3 +48,37 @@ export const ProductIconImg = styled.img`
   margin: 10px;
   height: ${size};
 `;
+
+export const AliceCarouselWrapper = styled.div`
+  padding-top: 20px;
+  position: relative;
+  z-index: 1;
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    z-index: 2;
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 5px;
+    height: 100%;
+    z-index: 2;
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 1) 100%
+    );
+  }
+`;
