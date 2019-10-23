@@ -53,7 +53,7 @@ export const MakeSpecial: React.FunctionComponent = () => (
           </CenteredLink>
         </StyledGridUnit>
       </Grid.Row>
-      <UsedProjectIcons></UsedProjectIcons>
+      <UsedProjectIcons />
     </Grid.Container>
   </MakeSpecialWrapper>
 );

@@ -6,6 +6,8 @@
  * @license MIT
  */
 
+/* some tweaks has been made to accomodate terminal to our use case */
+
 :root {
   --color-bg: #252a33;
   --color-text: #eee;
