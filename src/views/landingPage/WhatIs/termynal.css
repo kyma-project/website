@@ -14,7 +14,7 @@
 
 [data-termynal] {
   margin: auto 10px auto 0;
-  /* width: 750px; */
+
   max-width: 100%;
   background: var(--color-bg);
   color: var(--color-text);
@@ -22,7 +22,7 @@
   font-family: "Fira Mono", Consolas, Menlo, Monaco, "Courier New", Courier,
     monospace;
   border-radius: 4px;
-  padding: 40px 45px 35px;
+  padding: 40px 40px 25px 40px;
   position: relative;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
