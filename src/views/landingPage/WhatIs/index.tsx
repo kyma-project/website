@@ -71,5 +71,6 @@ export const WhatIs: React.FunctionComponent = () => {
 };
 
 const SvgWrapper = styled.div`
-  margin-top: -50px;
+  margin-top: -60px;
+  /* margin-left: -20px; */
 `;

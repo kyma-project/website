@@ -24,6 +24,7 @@ export const MakesSpecialSvgWrapper = styled.section`
   `};
 
   padding-top: 30px;
+  padding-bottom: 30px;
   display: flex;
   justify-content: center;
   flex-flow: row wrap;
