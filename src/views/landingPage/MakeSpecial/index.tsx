@@ -10,7 +10,6 @@ import { FormattedMessage, getTranslation } from "@common/i18n";
 import { MakeSpecialWrapper, CenteredLink, StyledGridUnit } from "./styled";
 
 const gt = getTranslation("landingPage.makeSpecial");
-const sidePadding = 21;
 
 // yes, 21, it's so that "Docs" and "Features" buttons are aligned
 const sidePadding = 21;
