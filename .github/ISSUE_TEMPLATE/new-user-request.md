@@ -1,21 +1,28 @@
 ---
-name: A new user request
-about: "Add a new Kyma user to the 'Used by' section on the website's landing page"
+name: New user request
+about: Add a new Kyma user to the **Used by** section on the landing page
 ---
 
-<!-- 
-Thank you for your contribution. Before you submit the issue read the body of second point of [Add a new Kyma user](https://github.com/kyma-project/website/blob/master/docs/add-user.md) guideline.
+<!--
+Thank you for your contribution! Follow the comments for instructions or read this guideline for details: https://github.com/kyma-project/website/blob/master/docs/add-user.md. 
 -->
 
-**A new Kyma user**
+**websiteUrl:**
+<!--
+Add the URL to your company's website.
+-->
 
-``` yaml
-websiteUrl:
-url:
-logo: 
-content:
-```
+**url:**
+<!--
+Add the URL to your case study published either on your company's website or on our blog.
+-->
 
-<!-- 
-If you want provide logo with issue, please paste it here
+**logo:**
+<!--
+Add the path to your company's logo or paste the logo in this template.
+-->
+
+**content:**
+<!--
+Describe shortly your feelings about adopting Kyma in your company. Add only text with a maximum of 140 characters.
 -->
