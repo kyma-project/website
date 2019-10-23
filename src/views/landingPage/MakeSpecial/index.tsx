@@ -11,11 +11,14 @@ import { MakeSpecialWrapper, CenteredLink, StyledGridUnit } from "./styled";
 
 const gt = getTranslation("landingPage.makeSpecial");
 
+// yes, 21, it's so that "Docs" and "Features" buttons are aligned
+const sidePadding = 21;
+
 export const MakeSpecial: React.FunctionComponent = () => (
   <MakeSpecialWrapper>
     <Grid.Container as="section" padding={"padding: 0 30px 0 30px"}>
       <Grid.Row space={true}>
-        <StyledGridUnit df={6} lg={6} md={12} rightPadding={30}>
+        <StyledGridUnit df={6} lg={6} md={12} rightPadding={sidePadding}>
           <FormattedMessage id={gt("extend.headline")}>
             {headline => (
               <H as="h2" center={true}>
@@ -32,7 +35,7 @@ export const MakeSpecial: React.FunctionComponent = () => (
             </Button.Emphasized>
           </CenteredLink>
         </StyledGridUnit>
-        <StyledGridUnit df={6} lg={6} md={12} leftPadding={30}>
+        <StyledGridUnit df={6} lg={6} md={12} leftPadding={sidePadding}>
           <FormattedMessage id={gt("rightTools.headline")}>
             {headline => (
               <H as="h2" center={true}>
