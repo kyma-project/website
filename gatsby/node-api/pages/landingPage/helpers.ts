@@ -3,11 +3,7 @@ import { resolve } from "path";
 import { safeLoad } from "js-yaml";
 
 import { EarlyAdopter, Adopter } from "@typings/landingPage";
-import {
-  CreatePageFn,
-  CreatePageFnArgs,
-  GraphQLFunction,
-} from "../../../types";
+import { CreatePageFn, CreatePageFnArgs } from "../../../types";
 import { ASSETS_DIR, ADOPTERS_DIR } from "../../../constants";
 
 export const createLandingPage = (
@@ -41,13 +37,12 @@ function getEarlyAdopters(): EarlyAdopter[] {
   return JSON.parse(JSON.stringify(data.adopters));
 }
 
-export async function getAdopters(
-  graphql: GraphQLFunction,
-): Promise<Adopter[]> {
+export async function getAdopters(): Promise<Adopter[]> {
   const path = resolve(__dirname, "../../../../content/adopters/adopters.yaml");
   const file = readFileSync(path, "utf8");
   const data = safeLoad(file) as { adopters: Adopter[] };
   const adopters = JSON.parse(JSON.stringify(data.adopters)) as Adopter[];
+
   return adopters.map(adopter => ({
     ...adopter,
     logo: createLogoAssetPath(adopter.logo),

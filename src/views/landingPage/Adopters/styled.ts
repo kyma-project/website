@@ -173,7 +173,7 @@ export const StyledAdoptersItemIntLink = styled(Link.Internal)`
   ${linkEffect}
 `;
 
-export const AddYourCompanyButton = styled.div`
+export const AddYourCompanyWrapper = styled.div`
   margin-top: 16px;
 
   button {

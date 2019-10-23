@@ -20,7 +20,6 @@ const DOCS_COMPONENTS_TYPE = "components";
 const DOCS_KYMA_ID = "kyma";
 const DOCS_SPECIFICATIONS_PATH = "specifications";
 
-const ADOPTER_FILENAME_REGEX = /adopters\/(.*?)\/index\.md$/;
 const BLOG_POST_FILENAME_REGEX = /([0-9]+)\-([0-9]+)\-([0-9]+)\-(.+)\/index\.md$/;
 const DOCS_FILENAME_REGEX = /(\d+.\d+|master)\/(.+)\/docs\/(.+)\.md$/;
 const COMMUNITY_FILENAME_REGEX = /community\/(.+)\/docs\/(.+)\.md$/;
@@ -47,7 +46,6 @@ export {
   DOCS_COMPONENTS_TYPE,
   DOCS_KYMA_ID,
   DOCS_SPECIFICATIONS_PATH,
-  ADOPTER_FILENAME_REGEX,
   BLOG_POST_FILENAME_REGEX,
   DOCS_FILENAME_REGEX,
   COMMUNITY_FILENAME_REGEX,

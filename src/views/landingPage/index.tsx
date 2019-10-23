@@ -15,16 +15,12 @@ import { CommunityAndEarlyAdoptersWrapper } from "./styled";
 
 const LandingPageView: React.FunctionComponent<
   PageContext<LandingPageContext>
-> = ({ pageContext: { earlyAdopters, adopters } }) => (
+> = ({ pageContext: { adopters } }) => (
   <>
     <Headline />
     <WhatIs />
     <MakeSpecial />
     <KeyFeatures />
-    {/* <CommunityAndEarlyAdoptersWrapper>
-      <Community />
-      <EarlyAdopters earlyAdopters={earlyAdopters} />
-    </CommunityAndEarlyAdoptersWrapper> */}
     <Adopters adopters={adopters} />
   </>
 );

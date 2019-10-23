@@ -11,11 +11,7 @@ import { AdoptersItem } from "./AdoptersItem";
 
 import { Adopter } from "@typings/landingPage";
 
-import {
-  AdoptersGalleryWrapper,
-  AliceCarouselWrapper,
-  AddYourCompanyButton,
-} from "./styled";
+import { AdoptersGalleryWrapper, AliceCarouselWrapper } from "./styled";
 
 interface Props {
   adopters: Adopter[];

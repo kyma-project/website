@@ -18,8 +18,7 @@ export const createLandingPages = async ({
   createRedirect,
   graphql,
 }: CreateLandingPagesArgs) => {
-  const adopters = await getAdopters(graphql);
-
+  const adopters = await getAdopters();
   const landingPageTemplate: string = resolve(
     __dirname,
     "../../../../src/views/landingPage/index.tsx",

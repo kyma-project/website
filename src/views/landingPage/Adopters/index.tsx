@@ -12,7 +12,9 @@ import { FormattedMessage, getTranslation } from "@common/i18n";
 
 import { Adopter } from "@typings/landingPage";
 
-import { AdoptersWrapper, AddYourCompanyButton } from "./styled";
+import { AdoptersWrapper, AddYourCompanyWrapper } from "./styled";
+
+import config from "@config";
 
 interface Props {
   adopters: Adopter[];
@@ -38,13 +40,13 @@ export const Adopters: React.FunctionComponent<Props> = ({ adopters }) => (
           <AdoptersGallery adopters={adopters} />
         </Grid.Unit>
         <Grid.Unit df={12}>
-          <AddYourCompanyButton>
-            <Link.External to="">
+          <AddYourCompanyWrapper>
+            <Link.External to={config.links.ADD_KYMA_USER}>
               <Button.Emphasized size="sm">
                 <FormattedMessage id="landingPage.adopters.addYourCompany" />
               </Button.Emphasized>
             </Link.External>
-          </AddYourCompanyButton>
+          </AddYourCompanyWrapper>
         </Grid.Unit>
       </Grid.Row>
     </Grid.Container>
