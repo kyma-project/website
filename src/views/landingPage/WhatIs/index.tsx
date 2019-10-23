@@ -55,8 +55,8 @@ export const WhatIs: React.FunctionComponent = () => {
               {paragraph => <Paragraph inline={true}>{paragraph}</Paragraph>}
             </FormattedMessage>
           </ParagraphWrapper>
-          {/* <UsedProjectsCarousel /> */}
-          <UsedProjectIcons />
+          <UsedProjectsCarousel />
+          {/* <UsedProjectIcons /> */}
         </Grid.Unit>
         <Grid.Unit df={6} lg={6} md={12}>
           <ParagraphWrapper>
