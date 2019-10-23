@@ -50,7 +50,7 @@ export const ProductIconImg = styled.img`
 `;
 
 export const AliceCarouselWrapper = styled.div`
-  padding-top: 20px;
+  margin: auto 0;
   position: relative;
   z-index: 1;
   &:before {
