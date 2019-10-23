@@ -23,6 +23,7 @@ export const MakesSpecialSvgWrapper = styled.section`
     width: unset;
   `};
 
+  padding-top: 10px;
   display: flex;
   justify-content: center;
   flex-flow: row wrap;
@@ -33,7 +34,7 @@ interface ProductImageProps {
   width?: number;
 }
 
-const size = "50px";
+const size = "60px";
 
 export const ProductSVG = styled.div<ProductImageProps>`
   width: ${props => (props.width ? props.width + "px" : size)};

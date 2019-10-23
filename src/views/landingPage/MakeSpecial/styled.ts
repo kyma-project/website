@@ -1,11 +1,10 @@
 import styled, { media } from "@styled";
 import Link from "@components/shared/Link";
-import Middle from "@static/img/middle.svg";
 import Grid from "@styled/Grid";
 
 export const MakeSpecialWrapper = styled.section`
   position: relative;
-  /* background: url(${Middle}) no-repeat; */
+
   background-size: 100% 100%;
   min-height: 450px;
   z-index: 1;
@@ -14,7 +13,6 @@ export const MakeSpecialWrapper = styled.section`
   display: flex;
   margin-top: 0;
   margin-bottom: 1.5%;
-  /* color: #fff; */
 
   ${media.tablet`
     padding: 50px 0 50px 0;

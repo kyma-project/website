@@ -2,7 +2,8 @@ import React, { useEffect, useRef, FC } from "react";
 import Grid from "@styled/Grid";
 import Paragraph from "@components/shared/Paragraph";
 import { UsedProjectIcons } from "./UsedProjectIcons";
-
+import { UsedProjectsCarousel } from "./UsedProjectsCarousel";
+import WhatIsSvg from "../assets/landing-page/WhatIs";
 import { Termynal } from "./Termynal";
 
 import {
@@ -42,7 +43,7 @@ export const WhatIs: React.FunctionComponent = () => {
   return (
     <StyledGridContainer as="section">
       <Grid.Row space={true}>
-        <Grid.Unit df={6} lg={6} md={12} noMargin={true}>
+        <Grid.Unit df={6} lg={6} md={12}>
           <ParagraphWrapper>
             <FormattedMessage id={gt("paragraphs.0")}>
               {paragraph => <Paragraph inline={true}>{paragraph}</Paragraph>}
@@ -54,10 +55,13 @@ export const WhatIs: React.FunctionComponent = () => {
               {paragraph => <Paragraph inline={true}>{paragraph}</Paragraph>}
             </FormattedMessage>
           </ParagraphWrapper>
+          {/* <UsedProjectsCarousel /> */}
           <UsedProjectIcons />
         </Grid.Unit>
         <Grid.Unit df={6} lg={6} md={12}>
-          <Termynal />
+          <ParagraphWrapper>
+            <Termynal />
+          </ParagraphWrapper>
         </Grid.Unit>
       </Grid.Row>
     </StyledGridContainer>

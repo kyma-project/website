@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { MakesSpecialSvgWrapper, ProductSVG, ProductIconImg } from "./styled";
+import { ProductSVG, ProductIconImg } from "./styled";
 
 import KubernetesPNG from "../assets/make-special/kubernetes.png";
 import IstioSVG from "../assets/make-special/istio.svg";
@@ -15,6 +15,18 @@ import OryPNG from "../assets/make-special/ory.png";
 import VeleroPNG from "../assets/make-special/velero.png";
 
 import Link from "@components/shared/Link";
+
+import AliceCarousel from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css";
+
+const responsive = {
+  0: {
+    items: 6,
+  },
+  1024: {
+    items: 8,
+  },
+};
 
 interface ProjectsShapeBase {
   to: string;
@@ -83,7 +95,7 @@ const usedProjects: ProjectsArrayType = [
   },
 ];
 
-export const data = usedProjects.map(elem => (
+const carouselData = usedProjects.map(elem => (
   <Link.External to={elem.to} key={elem.to}>
     {isSVGProps(elem) ? (
       <ProductSVG icon={elem.icon} width={elem.width} />
@@ -93,16 +105,16 @@ export const data = usedProjects.map(elem => (
   </Link.External>
 ));
 
-export const UsedProjectIcons: FC = () => (
-  <MakesSpecialSvgWrapper>
-    {usedProjects.map(elem => (
-      <Link.External to={elem.to} key={elem.to}>
-        {isSVGProps(elem) ? (
-          <ProductSVG icon={elem.icon} width={elem.width} />
-        ) : (
-          <ProductIconImg src={elem.src} alt={elem.alt} />
-        )}
-      </Link.External>
-    ))}
-  </MakesSpecialSvgWrapper>
+export const UsedProjectsCarousel: FC = () => (
+  <AliceCarousel
+    responsive={responsive}
+    items={carouselData}
+    dotsDisabled={true}
+    autoPlay={true}
+    buttonsDisabled={true}
+    swipeDisabled={true}
+    keysControlDisabled={true}
+    stopAutoPlayOnHover={true}
+    autoPlayInterval={3000}
+  />
 );
