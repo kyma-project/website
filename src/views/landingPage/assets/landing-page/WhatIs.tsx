@@ -2,8 +2,6 @@ import React from "react";
 import styled from "@styled";
 
 const StyledSvg = styled.svg`
-  padding-left: 10px;
-
   #whatis-boat {
     transform-origin: 230px 400px;
     animation: what-is-boat 8s linear infinite;
