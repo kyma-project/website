@@ -32,7 +32,7 @@ Most GraphQL servers will automatically render a graphical UI to help developers
 
 On the left, you see the issued query. The right side shows the response from the GraphQL server. Click the screenshot to enlarge it. Notice how the query structure is mirrored by the response structure – and we got exactly what we asked for. We wanted to dive into the product category ‘brand_2’, get that category’s name (‘Toshiba’) and the product’s id and name.
 
-For these examples, I’ve used the [node.js based yoga](https://github.com/prisma/graphql-yoga/) project. It’s an excellent choice to get started and uses the widely used Apollo GraphQL server underneath.
+For these examples, I’ve used the node.js based [yoga](https://github.com/prisma/graphql-yoga/) project. It’s an excellent choice to get started and operates on the widely used Apollo GraphQL server underneath.
 
 ## Using GraphQL within Kyma
 We decided to modularize our GraphQL project via three sub-projects, each yielding a seperate docker image. For your convenience, docker images have been uploaded to [docker hub](https://hub.docker.com/r/hansamann/graphql-server) and these images are referenced from the default k8s resources which are part of these projects.
