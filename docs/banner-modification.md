@@ -7,7 +7,6 @@ bannerDuration: {BANNER_DURATION}
 slides:
   - text: {TEXT}
     url: {URL}
-    openInNewTab: {OPEN_IN_NEW_TAB}
     startDate: {START_DATE}
     endDate: {END_DATE}
 ```
