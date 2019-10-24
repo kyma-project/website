@@ -10,7 +10,7 @@ redirectFrom:
   - "/blog/2019-10-24-graphql-on-kyma"
 ---
 
-In 2012, GraphQL was released to the public by Facebook. While this is quite some time ago, the GraphQL community grew larger and stronger over the years. If you still have not heard about GraphQL, it is a query language and execution engine - and many who got in touch with GraphQL now question REST as the predominant API style. 
+In 2012, GraphQL was released to the public by Facebook. While this was quite some time ago, the GraphQL community grew larger and stronger over the years. If you still have not heard about GraphQL, it is a query language and execution engine - and many who got in touch with GraphQL now question REST as the predominant API style. 
 
 This guest post will give you a little introduction to GraphQL and then outline how we successfully prototyped a GraphQL integration with Kyma. 
 
