@@ -14,7 +14,7 @@ Add the URL to your company's website.
 
 **url:**
 <!--
-Add the URL to your case study published either on your company's website or on our blog.
+Add the URL to your case study published either on your company's website or on our blog. This field is optional.
 -->
 
 **logo:**
