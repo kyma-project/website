@@ -13,7 +13,7 @@ export const AdoptersWrapper = styled.div`
   background-position: top;
   margin-bottom: -200px;
 
-  min-height: 700px;
+  min-height: 860px;
   z-index: 1;
   justify-content: center;
   flex-direction: column;
@@ -158,7 +158,7 @@ export const StyledAdoptersItem = styled.div`
     height: 45px;
     max-width: 240px;
     max-height: 60px;
-    /* margin-bottom: 16px; */
+    margin-bottom: 16px;
   }
 
   &:hover {
