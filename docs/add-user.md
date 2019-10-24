@@ -20,7 +20,7 @@ Follow these steps to add information on a new Kyma user to the **Used by** sect
    Replace these parameters with real values:
 
    - `{WEBSITE_URL}` is a URL to your company's website.
-   - `{URL}` is a URL to your case study published either on your company's website or on our blog.
+   - `{URL}` is a URL to your case study published either on your company's website or on our blog. This field is optional.
    - `{LOGO}` is a path to your company's logo. It can be either a relative path to an image added under the `content/adopters/logos` folder in your PR or a path to an external source.
    - `{CONTENT}` is a short description of your feelings about adopting Kyma in your company. Add only text with a maximum of 140 characters.
 
@@ -37,7 +37,6 @@ Follow these steps to add information on a new Kyma user to the **Used by** sect
 
    ``` yaml
    - websiteUrl: "https://company.com"
-     url: "/blog/2020/1/1/kyma-rocks/"
      logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg"
      content: "Kyma rocks!"
    ```
