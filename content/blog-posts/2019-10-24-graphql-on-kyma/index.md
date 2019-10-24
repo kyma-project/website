@@ -30,7 +30,7 @@ Most GraphQL servers will automatically render a graphical UI to help developers
 
 ![A simple GraphQL Query](./example1.png)
 
-On the left, you see the issued query. The right side shows the response from the GraphQL server. Click the screenshot to enlarge. Notice how the query structure is mirrored by the response structure – and we got exactly what we asked for. We wanted to dive into the product category ‘brand_2’, get that categories name (‘Toshiba’) and the products’ id and name.
+On the left, you see the issued query. The right side shows the response from the GraphQL server. Click the screenshot to enlarge it. Notice how the query structure is mirrored by the response structure – and we got exactly what we asked for. We wanted to dive into the product category ‘brand_2’, get that category’s name (‘Toshiba’) and the product’s id and name.
 
 For these examples, I’ve used the [node.js based yoga](https://github.com/prisma/graphql-yoga/) project. It’s an excellent choice to get started and uses the widely used Apollo GraphQL server underneath.
 
