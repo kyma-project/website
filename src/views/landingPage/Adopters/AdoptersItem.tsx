@@ -15,14 +15,16 @@ import {
 
 export const AdoptersItem: React.FunctionComponent<Adopter> = ({
   websiteUrl,
-  url,
+  url = "",
   logo,
   content,
 }) => {
   const handleOnDragStart = (e: React.DragEvent<HTMLDivElement>) =>
     e.preventDefault();
 
-  const BlogPostLink = url.startsWith("http")
+  const BlogPostLink = !url
+    ? null
+    : url.startsWith("http")
     ? StyledAdoptersItemExtLink
     : StyledAdoptersItemIntLink;
 
@@ -32,9 +34,11 @@ export const AdoptersItem: React.FunctionComponent<Adopter> = ({
         <img src={logo} />
       </Link.External>
       <StyledAdoptersItemContent>{content}</StyledAdoptersItemContent>
-      <BlogPostLink to={url}>
-        <FormattedMessage id="landingPage.adopters.readMoreLink" />
-      </BlogPostLink>
+      {BlogPostLink && (
+        <BlogPostLink to={url}>
+          <FormattedMessage id="landingPage.adopters.readMoreLink" />
+        </BlogPostLink>
+      )}
     </StyledAdoptersItem>
   );
 };
