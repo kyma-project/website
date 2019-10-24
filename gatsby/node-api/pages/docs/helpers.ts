@@ -118,7 +118,7 @@ const checkLatestVersion = (versions: DocsVersions): string => {
   if (versions.branches && versions.branches.length) {
     return versions.branches[0];
   }
-  return versions.prereleases[0];
+  throw new Error("Cannot find latest version of docs!");
 };
 
 const appendDocsType = (

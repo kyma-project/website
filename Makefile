@@ -40,14 +40,14 @@ prepare-content-docs-preview:
 ifdef PREVIEW_SOURCE_DIR
 	./scripts/prepare-content.sh --prepare-for "docs-preview" --docs-src-dir $(PREVIEW_SOURCE_DIR) --docs-branches "preview"
 else
-	@echo "PREVIEW_SOURCE_DIR is not a recognized env!"
+	@echo "PREVIEW_SOURCE_DIR is a required env!"
 endif
 
 prepare-content-community-preview:
 ifdef PREVIEW_SOURCE_DIR
 	./scripts/prepare-content.sh --prepare-for "community-preview" --community-src-dir $(PREVIEW_SOURCE_DIR)
 else
-	@echo "PREVIEW_SOURCE_DIR is not a recognized env!"
+	@echo "PREVIEW_SOURCE_DIR is a required env!"
 endif
 
 build:
