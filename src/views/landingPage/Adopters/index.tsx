@@ -31,9 +31,9 @@ export const Adopters: React.FunctionComponent<Props> = ({ adopters }) => (
             <H as="h2" center={true}>
               <FormattedMessage id={gt("headline")} />
             </H>
-            <Paragraph>
+            {/* <Paragraph>
               <FormattedMessage id={gt("paragraph")} />
-            </Paragraph>
+            </Paragraph> */}
           </header>
         </Grid.Unit>
         <Grid.Unit df={12}>

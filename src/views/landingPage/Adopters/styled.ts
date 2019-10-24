@@ -13,7 +13,7 @@ export const AdoptersWrapper = styled.div`
   background-position: top;
   margin-bottom: -200px;
 
-  min-height: 900px;
+  min-height: 700px;
   z-index: 1;
   justify-content: center;
   flex-direction: column;
@@ -62,6 +62,14 @@ export const AdoptersGalleryWrapper = styled.div`
       justify-content: space-around;
       align-items: center;
       flex-flow: row nowrap;
+    }
+
+    ${Grid.Unit} {
+      margin: 0;
+    }
+
+    li {
+      margin: 0;
     }
 
     .carousel-buttons-nav {
@@ -150,7 +158,7 @@ export const StyledAdoptersItem = styled.div`
     height: 45px;
     max-width: 240px;
     max-height: 60px;
-    margin-bottom: 16px;
+    /* margin-bottom: 16px; */
   }
 
   &:hover {
@@ -174,7 +182,7 @@ export const StyledAdoptersItemIntLink = styled(Link.Internal)`
 `;
 
 export const AddYourCompanyWrapper = styled.div`
-  margin-top: 16px;
+  margin-top: 32px;
 
   button {
     font-size: 16px;

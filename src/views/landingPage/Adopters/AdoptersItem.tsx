@@ -31,10 +31,10 @@ export const AdoptersItem: React.FunctionComponent<Adopter> = ({
       <Link.External to={websiteUrl}>
         <img src={logo} />
       </Link.External>
-      <StyledAdoptersItemContent>{content}</StyledAdoptersItemContent>
+      {/* <StyledAdoptersItemContent>{content}</StyledAdoptersItemContent>
       <BlogPostLink to={url}>
         <FormattedMessage id="landingPage.adopters.readMoreLink" />
-      </BlogPostLink>
+      </BlogPostLink> */}
     </StyledAdoptersItem>
   );
 };
