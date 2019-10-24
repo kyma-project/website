@@ -46,7 +46,7 @@ Here's a quick overview with a description of each sub-project:
 If you follow the links above, you will get detailed instructions on how to run this on your own Kyma cluster and how to get started. 
 
 ## GraphQL, Quo Vadis?
-Using GraphQL is a no-brainer for new systems but can be equally benefitical for systems with multiple data backends or used for accessing legacy systems. For frontend-developers, GraphQL represents a powerful query tool that many would wish for (and many would ditch REST with the blink of an eye). The hard part is integrating GraphQL into a larger backend system, making it easy to install, to maintain and making sure it scales with many simultaneous requests. While our prototype showed how we can potentially integratee GraphQL, our main goal is still to have a discussion of the usefulness of GraphQL and how it could be best integrated into Kyma. 
+Using GraphQL is a no-brainer for new systems but can be equally beneficial for systems with multiple data backends or used for accessing legacy systems. For frontend developers, GraphQL represents a powerful query tool that many would wish for (and many would ditch REST in the blink of an eye). The hard part is integrating GraphQL into a larger backend system, making it easy to install and maintain, and making sure it scales with many simultaneous requests. While our prototype showed how we can potentially integrate GraphQL, our main goal is still to have a discussion of the usefulness of GraphQL and how it could best be integrated into Kyma. 
 
 I hope you did enjoy reading this quick intro to GraphQL on Kyma - as always please [let me know what you think](https://twitter.com/hansamann). 
 
