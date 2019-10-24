@@ -26,7 +26,7 @@ So, is GraphQL for you? Are you tired of responses that hold way too much data? 
 ## Just a quick example
 Too much text? Let's see a quick example. As I will later focus on how we integrated GraphQL with Kyma, I won't go into greater depth here. But please have a look at the [CX Labs Blog](https://cxlabs.sap.com/2019/05/15/graphql-on-kyma/) for more content and examples about GraphQL!
 
-Most GraphQL servers will automatically render a graphical UI to help developers get started with writing and developing queries – this UI is called GraphiQL – and I’ll use it to show you the first sample query.
+Most GraphQL servers will automatically render a graphical UI to help developers get started with writing and developing queries. This UI is called GraphiQL, and I’ll use it to show you the first sample query.
 
 ![A simple GraphQL Query](./example1.png)
 
