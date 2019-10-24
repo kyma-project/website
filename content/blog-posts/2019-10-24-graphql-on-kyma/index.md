@@ -24,7 +24,7 @@ GraphQL is quite different. First of all, GraphQL tries to “order” the data 
 So, is GraphQL for you? Are you tired of responses that hold way too much data? And sometimes not the data you need, so you need to make n+1 calls to get at it? Do you need to access many APIs from different systems? Do you do all this from tiny IoT or mobile clients? GraphQL is for you. GraphQL is for all modern clients out there – from single page web apps on your smartphone to IoT devices. 
 
 ## Just a quick example
-Too much text? Let's see a quick example. As I will later focus on how we integrated GraphQL with Kyma, I'll not go into greater depth here. But please have a look at the [CX Labs Blog for more content and exampels about GraphQL](https://cxlabs.sap.com/2019/05/15/graphql-on-kyma/)!
+Too much text? Let's see a quick example. As I will later focus on how we integrated GraphQL with Kyma, I won't go into greater depth here. But please have a look at the [CX Labs Blog](https://cxlabs.sap.com/2019/05/15/graphql-on-kyma/) for more content and examples about GraphQL!
 
 Most GraphQL servers will automatically render a graphical UI to help developers get started with writing and developing queries – this UI is called GraphiQL – and I’ll use it to show you the first sample query.
 
