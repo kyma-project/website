@@ -30,9 +30,6 @@
     "radix": true,
     "react-hooks-nesting": "error",
     "no-var-before-return": true,
-    "no-unnecessary-type-annotation": {
-      "options": { "check-return-type": true }
-    },
     "jsx-self-close": true,
     "no-unnecessary-else": true,
     "no-static-this": true,

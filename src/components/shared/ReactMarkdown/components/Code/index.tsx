@@ -81,10 +81,9 @@ export const Code: React.FunctionComponent<CodeProps> = ({
             <pre className={className} style={style}>
               <code>
                 {tokens.map((line: any, i: number) => (
-                  <div {...getLineProps({ line, key: i })}>
+                  <div {...getLineProps({ line, key: i })} key={i}>
                     {line.map((token: any, key: number) => {
                       const tokenProps = getTokenProps({ token, key });
-
                       return !(
                         tokenProps.className.includes("plain") &&
                         !tokenProps.children

@@ -17,17 +17,19 @@ function getTypes(sources: Source[]): [string[], { [key: string]: number }] {
 
   sources.map(s => {
     const data = s.data;
-    if (data && data.frontmatter) {
-      const { title, type } = data.frontmatter;
-      const t = type ? type : title;
-
-      if (numberOfTypes[t]) {
-        numberOfTypes[type]++;
-      } else {
-        numberOfTypes[t] = 1;
-      }
-      types.add(t);
+    if (!(data && data.frontmatter)) {
+      return;
     }
+
+    const { title, type } = data.frontmatter;
+    const t = type ? type : title;
+
+    if (numberOfTypes[t]) {
+      numberOfTypes[type]++;
+    } else {
+      numberOfTypes[t] = 1;
+    }
+    types.add(t);
   });
   return [Array.from(types), numberOfTypes];
 }
@@ -74,17 +76,19 @@ export const postProcessingHeaders = (
 
   headers.map(h => {
     const data = h.source && h.source.data;
-    if (data && data.frontmatter) {
-      const { title, type } = data.frontmatter;
-      const t = type ? type : title;
+    if (!(data && data.frontmatter)) {
+      return;
+    }
 
-      const ph = processedHeaders.find(p => p.title === t);
-      if (ph && ph.children) {
-        h.parent = ph;
-        ph.children.push(h);
-      } else {
-        processedHeaders.push(h);
-      }
+    const { title, type } = data.frontmatter;
+    const t = type ? type : title;
+
+    const ph = processedHeaders.find(p => p.title === t);
+    if (ph && ph.children) {
+      h.parent = ph;
+      ph.children.push(h);
+    } else {
+      processedHeaders.push(h);
     }
   });
 

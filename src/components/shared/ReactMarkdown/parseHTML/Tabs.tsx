@@ -19,53 +19,56 @@ export const tabs = (headingPrefix: string) => ({
     node.attribs.hasOwnProperty("tabs"),
   processNode: (node: any) => {
     const children = node.children.map((child: any) => {
-      if (child.type === "tag" && child.name === "details" && child.children) {
-        return child.children.map((childDetails: any) => {
-          if (
+      if (
+        !(child.type === "tag" && child.name === "details" && child.children)
+      ) {
+        return;
+      }
+      return child.children.map((childDetails: any) => {
+        if (
+          !(
             childDetails.type === "tag" &&
             childDetails.name === "summary" &&
             childDetails.children.length === 1 &&
             childDetails.children[0].type === "text" &&
             childDetails.next &&
             childDetails.next.data
-          ) {
-            const summary = childDetails.children[0].data;
-            const source = childDetails.next.data
-              .replace(
-                blockquoteRegex,
-                (blockquote: string) => `${blockquote}\n`,
-              )
-              .replace(
-                orderedListRegex,
-                (listElement: string) => `\n${listElement}\n`,
-              );
+          )
+        ) {
+          return;
+        }
+        const summary = childDetails.children[0].data;
+        const source = childDetails.next.data
+          .replace(blockquoteRegex, (blockquote: string) => `${blockquote}\n`)
+          .replace(
+            orderedListRegex,
+            (listElement: string) => `\n${listElement}\n`,
+          );
 
-            const trimmedSummary = toKebabCase(summary);
-            const tabData = {
-              group: toKebabCase(
-                node.attribs.hasOwnProperty("name") && !!node.attribs.name
-                  ? node.attribs.name
-                  : "",
-              ),
-              tab: trimmedSummary,
-            };
+        const trimmedSummary = toKebabCase(summary);
+        const tabData = {
+          group: toKebabCase(
+            node.attribs.hasOwnProperty("name") && !!node.attribs.name
+              ? node.attribs.name
+              : "",
+          ),
+          tab: trimmedSummary,
+        };
 
-            return (
-              <Tab
-                key={trimmedSummary}
-                label={summary}
-                labelID={toKebabCase(summary)}
-              >
-                <ReactMarkdown
-                  tabData={tabData}
-                  source={source}
-                  headingPrefix={headingPrefix}
-                />
-              </Tab>
-            );
-          }
-        });
-      }
+        return (
+          <Tab
+            key={trimmedSummary}
+            label={summary}
+            labelID={toKebabCase(summary)}
+          >
+            <ReactMarkdown
+              tabData={tabData}
+              source={source}
+              headingPrefix={headingPrefix}
+            />
+          </Tab>
+        );
+      });
     });
 
     return [<Tabs key={tabsCounter++}>{children}</Tabs>];

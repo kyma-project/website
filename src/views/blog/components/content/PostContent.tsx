@@ -19,16 +19,14 @@ export const PostContent: React.FunctionComponent<PostContentProps> = ({
   assetsPath = "",
   metadata,
 }) => {
-  if (metadata.type) {
-    if (metadata.type === PostTypeRelease) {
-      return (
-        <ReleaseTemplate
-          markdown={markdown}
-          releaseTag={metadata.releaseTag}
-          assetsPath={assetsPath}
-        />
-      );
-    }
+  if (metadata.type && metadata.type === PostTypeRelease) {
+    return (
+      <ReleaseTemplate
+        markdown={markdown}
+        releaseTag={metadata.releaseTag}
+        assetsPath={assetsPath}
+      />
+    );
   }
 
   return <DefaultTemplate markdown={markdown} assetsPath={assetsPath} />;

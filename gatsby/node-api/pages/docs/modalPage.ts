@@ -57,7 +57,6 @@ export const createModalDocsPage = ({
 
   if (DOCS_ROOT_TYPE === docsType && DOCS_KYMA_ID === topic) {
     const rootPath = `/${DOCS_PATH_PREFIX}/${version}/${DOCS_SPECIFICATIONS_PATH}`;
-
     createPagesForSpecifications({
       createPage,
       path: rootPath,
