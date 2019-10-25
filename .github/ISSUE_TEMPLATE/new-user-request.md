@@ -24,5 +24,5 @@ Add the path to your company's logo or paste the logo in this template.
 
 **content:**
 <!--
-Describe shortly your feelings about adopting Kyma in your company. Add only text with a maximum of 140 characters.
+Describe shortly your feelings about adopting Kyma in your company. Add only text with a maximum of 144 characters.
 -->
