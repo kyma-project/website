@@ -48,6 +48,7 @@
   },
   "landingPage": {
     "ids": {
+      "newsroom": "newsroom",
       "usedBy": "used-by"
     }
   },

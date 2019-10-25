@@ -11,10 +11,10 @@ import { LastBlogPosts } from "./LastBlogPosts";
 import { YouTubeFrame } from "./YouTubeFrame";
 import { TwitterFrame } from "./TwitterFrame";
 
-import { SocialMediaI18nTarget } from "@typings/landingPage";
+import { NewsroomI18nTarget } from "@typings/landingPage";
 import { Post } from "@typings/blog";
 
-import { SocialMediaWrapper } from "./styled";
+import { NewsroomWrapper } from "./styled";
 
 import config from "@config";
 
@@ -22,10 +22,10 @@ interface Props {
   latestBlogPosts: Post[];
 }
 
-export const SocialMedia: React.FunctionComponent<Props> = ({
+export const Newsroom: React.FunctionComponent<Props> = ({
   latestBlogPosts,
 }) => (
-  <SocialMediaWrapper>
+  <NewsroomWrapper id={config.landingPage.ids.newsroom}>
     <Grid.Container as="section">
       <Grid.Row>
         <Grid.Unit df={12}>
@@ -35,7 +35,7 @@ export const SocialMedia: React.FunctionComponent<Props> = ({
         </Grid.Unit>
         <Grid.Unit df={4} md={6} sm={12} className="newsroom-twitter">
           <Card
-            i18nTarget={SocialMediaI18nTarget.TWITTER}
+            i18nTarget={NewsroomI18nTarget.TWITTER}
             iconName={config.socialMedia.twitter.icon}
             link={config.socialMedia.twitter.url}
           >
@@ -46,7 +46,7 @@ export const SocialMedia: React.FunctionComponent<Props> = ({
         </Grid.Unit>
         <Grid.Unit df={4} md={6} sm={12} className="newsroom-blog-posts">
           <Card
-            i18nTarget={SocialMediaI18nTarget.Blog_POST}
+            i18nTarget={NewsroomI18nTarget.Blog_POST}
             iconName="rss"
             iconPrefix="fas"
             link="/blog"
@@ -56,7 +56,7 @@ export const SocialMedia: React.FunctionComponent<Props> = ({
         </Grid.Unit>
         <Grid.Unit df={4} md={12} sm={12} className="newsroom-youtube">
           <Card
-            i18nTarget={SocialMediaI18nTarget.YOUTUBE}
+            i18nTarget={NewsroomI18nTarget.YOUTUBE}
             iconName={config.socialMedia.youTube.icon}
             link={config.socialMedia.youTube.url}
           >
@@ -65,5 +65,5 @@ export const SocialMedia: React.FunctionComponent<Props> = ({
         </Grid.Unit>
       </Grid.Row>
     </Grid.Container>
-  </SocialMediaWrapper>
+  </NewsroomWrapper>
 );

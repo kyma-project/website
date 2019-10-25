@@ -11,7 +11,7 @@ export const TwitterFrame: React.FunctionComponent<Props> = ({
   twitterUsername,
 }) => {
   const options = {
-    tweetLimit: 1,
+    tweetLimit: 2,
   };
 
   return (

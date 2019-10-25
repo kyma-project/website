@@ -1,22 +1,21 @@
 import styled, { media } from "@styled";
+import { customScrollBar } from "@styled/mixins";
 
-import Middle from "@static/img/middle.svg";
 import IconsBackground from "@static/img/icons-bg.svg";
 
-export const SocialMediaWrapper = styled.section`
+export const NewsroomWrapper = styled.section`
   position: relative;
-  padding: 144px 0 72px 0;
   background-size: 100% 100%;
   z-index: 1;
   justify-content: center;
   flex-direction: column;
   display: flex;
   margin-top: 3.5%;
-  margin-bottom: 0;
+  margin-bottom: 3.5%;
 
-  ${media.tablet`
-    padding: 50px 0 150px 0;
-  `};
+  ${media.phone`
+    margin-bottom: 7.5%;
+ `};
 
   .newsroom-twitter {
     .newsroom-card-content {
@@ -108,6 +107,13 @@ export const TwitterFrameWrapper = styled.div`
     position: relative;
     width: 100%;
     height: 100%;
+    max-height: 420px;
+    overflow-y: auto;
+
+    ${customScrollBar({
+      thumbBorderRadius: "0 4px 0 0",
+      trackBorderRadius: "4px",
+    })}
 
     div {
       height: 100%;

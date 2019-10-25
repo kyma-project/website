@@ -7,7 +7,7 @@ import { Headline } from "./Headline";
 import { WhatIs } from "./WhatIs";
 import { MakeSpecial } from "./MakeSpecial";
 import { Adopters } from "./Adopters";
-import { SocialMedia } from "./SocialMedia";
+import { Newsroom } from "./Newsroom";
 
 const LandingPageView: React.FunctionComponent<
   PageContext<LandingPageContext>
@@ -16,8 +16,8 @@ const LandingPageView: React.FunctionComponent<
     <Headline />
     <WhatIs />
     <MakeSpecial />
+    <Newsroom latestBlogPosts={latestBlogPosts} />
     <Adopters adopters={adopters} />
-    <SocialMedia latestBlogPosts={latestBlogPosts} />
   </>
 );
 

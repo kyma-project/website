@@ -5,7 +5,7 @@ import Button from "@components/shared/Button";
 import LinkTypes from "@components/shared/Link";
 import { FormattedMessage } from "@common/i18n";
 
-import { SocialMediaI18nTarget } from "@typings/landingPage";
+import { NewsroomI18nTarget } from "@typings/landingPage";
 
 import {
   CardHeader,
@@ -16,7 +16,7 @@ import {
 } from "./styled";
 
 interface Props {
-  i18nTarget: SocialMediaI18nTarget;
+  i18nTarget: NewsroomI18nTarget;
   iconName: string;
   iconPrefix?: string;
   link: string;
@@ -36,14 +36,12 @@ export const Card: React.FunctionComponent<Props> = ({
   return (
     <>
       <CardHeader>
-        <Link to={link}>
-          <h3>
-            <CardHeaderIconWrapper>
-              <Icon iconName={iconName} iconPrefix={iconPrefix} />
-            </CardHeaderIconWrapper>
-            <FormattedMessage id={`landingPage.newsroom.${i18nTarget}Header`} />
-          </h3>
-        </Link>
+        <h3>
+          <CardHeaderIconWrapper>
+            <Icon iconName={iconName} iconPrefix={iconPrefix} />
+          </CardHeaderIconWrapper>
+          <FormattedMessage id={`landingPage.newsroom.${i18nTarget}Header`} />
+        </h3>
       </CardHeader>
       <CardContentWrapper className="newsroom-card-wrapper">
         <div>

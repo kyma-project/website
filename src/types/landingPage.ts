@@ -24,7 +24,7 @@ export interface SlidesBannerProps {
   slides: Slide[];
 }
 
-export enum SocialMediaI18nTarget {
+export enum NewsroomI18nTarget {
   TWITTER = "twitter",
   YOUTUBE = "youtube",
   Blog_POST = "lastBlogPost",
