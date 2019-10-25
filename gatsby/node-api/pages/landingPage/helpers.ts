@@ -2,7 +2,7 @@ import { readFileSync } from "fs";
 import { resolve } from "path";
 import { safeLoad } from "js-yaml";
 
-import { EarlyAdopter, Adopter } from "@typings/landingPage";
+import { Adopter } from "@typings/landingPage";
 import { CreatePageFn, CreatePageFnArgs } from "../../../types";
 import { ASSETS_DIR, ADOPTERS_DIR } from "../../../constants";
 
@@ -10,32 +10,17 @@ export const createLandingPage = (
   createPage: CreatePageFn,
   component: string,
   context: any,
-): CreatePageFn => {
-  const earlyAdopters = getEarlyAdopters();
-
-  return (props: CreatePageFnArgs) => {
-    createPage({
-      ...props,
-      component,
-      context: {
-        ...props.context,
-        ...context,
-        earlyAdopters,
-        horizontalHeaderBg: false,
-      },
-    });
-  };
+): CreatePageFn => (props: CreatePageFnArgs) => {
+  createPage({
+    ...props,
+    component,
+    context: {
+      ...props.context,
+      ...context,
+      horizontalHeaderBg: false,
+    },
+  });
 };
-
-function getEarlyAdopters(): EarlyAdopter[] {
-  const path = resolve(
-    __dirname,
-    "../../../../content/early-adopters/early-adopters.yml",
-  );
-  const file = readFileSync(path, "utf8");
-  const data = safeLoad(file) as { adopters: EarlyAdopter[] };
-  return JSON.parse(JSON.stringify(data.adopters));
-}
 
 export async function getAdopters(): Promise<Adopter[]> {
   const path = resolve(__dirname, "../../../../content/adopters/adopters.yaml");
@@ -65,8 +50,8 @@ function createLogoAssetPath(logo: string): string {
 }
 
 function stripAdopterContent(content: string): string {
-  if (content.length > 140) {
-    return `${content.substring(0, 137)}...`;
+  if (content.length > 144) {
+    return `${content.substring(0, 141)}...`;
   }
   return content;
 }

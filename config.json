@@ -51,6 +51,11 @@
     "GOOGLE_SITE_VERIFICATION": "qHt6OkQ1MXU5a4ZLlkLLPRB35ZOu_upyScm2O9Jf8PY",
     "ADD_KYMA_USER": "https://github.com/kyma-project/website/blob/master/docs/add-user.md"
   },
+  "landingPage": {
+    "ids": {
+      "usedBy": "used-by"
+    }
+  },
   "i18n": {
     "en": {
       "path": "en",
