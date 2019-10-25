@@ -6,7 +6,7 @@ Follow these steps to add information on a new Kyma user to the **Used by** sect
 
    > **NOTE:** If you don't want to fork the repository, create an issue using the **New user request** [template](https://github.com/kyma-project/website/issues/new?template=new-user-request.md), and one of the [repository owners](../CODEOWNERS) will add it to the website for you.
 
-2. Update the `adopters.yaml` file in the `content/adopters` folder with a new list item containing your company's details.
+2. Update the [`adopters.yaml`](/content/adopters/adopters.yaml) file in the `content/adopters` folder with a new list item containing your company's details.
 
    Each element of the list in the `adopters.yaml` file should have the following format:
 
