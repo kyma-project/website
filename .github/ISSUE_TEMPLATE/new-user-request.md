@@ -4,7 +4,7 @@ about: Add a new Kyma user to the **Used by** section on the landing page
 ---
 
 <!--
-Thank you for your contribution! Follow the comments for instructions or read this guideline for details: 
+Thank you for your contribution! Follow the comments for instructions or read this guideline for details: https://github.com/kyma-project/website/blob/master/docs/add-user.md.
 -->
 
 **websiteUrl:**

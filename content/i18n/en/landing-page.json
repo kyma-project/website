@@ -48,5 +48,11 @@
   },
   "earlyAdopters": {
     "headline": "Early adopters"
+  },
+  "adopters": {
+    "headline": "Used by",
+    "paragraph": "Discover what our happy users have to say about their experience with Kyma.",
+    "readMoreLink": "Read More",
+    "addYourCompany": "Add your company"
   }
 }

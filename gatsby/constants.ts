@@ -1,3 +1,4 @@
+const ADOPTERS_DIR = "adopters/";
 const BLOG_POST_DIR = "blog-posts/";
 const DOCS_DIR = "docs/";
 const COMMUNITY_DIR = "community/";
@@ -25,8 +26,10 @@ const COMMUNITY_FILENAME_REGEX = /community\/(.+)\/docs\/(.+)\.md$/;
 const ROADMAP_CAPABILITY_FILENAME_REGEX = /roadmap\/capabilities\/(.+)\.md$/;
 
 const POSTS_PER_PAGE = 8;
+const DOWNLOADED_LOGO_NAME = "downloaded__logo.svg";
 
 export {
+  ADOPTERS_DIR,
   BLOG_POST_DIR,
   DOCS_DIR,
   COMMUNITY_DIR,
@@ -48,4 +51,5 @@ export {
   COMMUNITY_FILENAME_REGEX,
   ROADMAP_CAPABILITY_FILENAME_REGEX,
   POSTS_PER_PAGE,
+  DOWNLOADED_LOGO_NAME,
 };
