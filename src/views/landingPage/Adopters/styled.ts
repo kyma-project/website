@@ -81,10 +81,6 @@ export const AdoptersGalleryWrapper = styled.div`
       border: none;
       transition: all 0.3s;
 
-      ${media.phone`
-        display: none;
-      `}
-
       &:hover {
         background: #fff;
         box-shadow: 0 1px 26px 0 rgba(137, 165, 199, 0.42);

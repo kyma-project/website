@@ -107,7 +107,7 @@ export const AdoptersGallery: React.FunctionComponent<Props> = ({
 }) => {
   const [state, setState] = useState<State>({
     carouselProps: aliceCarouselProps,
-    hideNav: false,
+    hideNav: true,
   });
   const { width } = useWindowSize();
   const carouselRef: React.RefObject<AliceCarousel> = useRef<AliceCarousel>(
@@ -174,12 +174,11 @@ export const AdoptersGallery: React.FunctionComponent<Props> = ({
         <Grid.Row>
           <Grid.Unit
             df={1}
-            xs={0}
             className="carousel-buttons-nav carousel-button-left"
           >
             {leftNavButton}
           </Grid.Unit>
-          <Grid.Unit df={10} sm={12}>
+          <Grid.Unit df={10}>
             <AliceCarouselWrapper>
               <AliceCarousel {...state.carouselProps} ref={carouselRef}>
                 {adoptersList}
@@ -188,7 +187,6 @@ export const AdoptersGallery: React.FunctionComponent<Props> = ({
           </Grid.Unit>
           <Grid.Unit
             df={1}
-            xs={0}
             className="carousel-buttons-nav carousel-button-right"
           >
             {rightNavButton}
