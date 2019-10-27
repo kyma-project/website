@@ -49,7 +49,7 @@ const animateScroll = (
   // eslint-disable-next-line no-param-reassign
   element.scrollTop = easeInOutSine(nextTime, position, stepSize, duration);
 
-  if (!nextTime < duration) {
+  if (!(nextTime < duration)) {
     callback && callback();
     return;
   }

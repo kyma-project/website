@@ -35,7 +35,7 @@ export const tabs = (headingPrefix: string) => ({
             childDetails.next.data
           )
         ) {
-          return;
+          return null;
         }
         const summary = childDetails.children[0].data;
         const source = childDetails.next.data
