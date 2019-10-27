@@ -8,6 +8,7 @@
     "jsx": "react",
     "strict": true,
     "noImplicitAny": true,
+    "noImplicitReturns": true,
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,

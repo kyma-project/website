@@ -56,6 +56,7 @@ function checkCorrectLocationForModal({
       }
       return true;
     }
+    return false;
   });
 }
 
