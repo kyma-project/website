@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FunctionComponent } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   IconPrefix,
@@ -13,7 +13,7 @@ export interface IconProps {
   [key: string]: any;
 }
 
-const Icon: React.StatelessComponent<IconProps> = ({
+const Icon: FunctionComponent<IconProps> = ({
   iconName,
   iconPrefix = "fab",
   className = "",
