@@ -51,6 +51,7 @@ const animateScroll = (
 
   if (!nextTime < duration) {
     callback && callback();
+    return;
   }
 
   setTimeout(() => {
