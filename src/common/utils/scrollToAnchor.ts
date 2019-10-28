@@ -49,19 +49,20 @@ const animateScroll = (
   // eslint-disable-next-line no-param-reassign
   element.scrollTop = easeInOutSine(nextTime, position, stepSize, duration);
 
-  if (nextTime < duration) {
-    setTimeout(() => {
-      animateScroll(element, nextTime, {
-        position,
-        stepSize,
-        increment,
-        duration,
-        callback,
-      });
-    }, increment);
-  } else {
+  if (!(nextTime < duration)) {
     callback && callback();
+    return;
   }
+
+  setTimeout(() => {
+    animateScroll(element, nextTime, {
+      position,
+      stepSize,
+      increment,
+      duration,
+      callback,
+    });
+  }, increment);
 };
 
 const scrollToLocation = (targetPos: number, callback?: () => void) => {
@@ -69,7 +70,7 @@ const scrollToLocation = (targetPos: number, callback?: () => void) => {
   callback && callback();
 };
 
-const scrollToLocationSmooth = (
+const scrollToLocationSmooth = async (
   element: any,
   targetPos: number,
   duration: number,

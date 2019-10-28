@@ -100,17 +100,19 @@ const createRedirects = ({
     toPath: localizedPath,
   });
 
-  if (isDefaultLang) {
-    createRedirect({
-      fromPath: `/${i18nConfig[lang].path}${localizedPath}`,
-      redirectInBrowser: true,
-      toPath: localizedPath,
-    });
-
-    createRedirect({
-      fromPath: `/${i18nConfig[lang].path}${localizedPath}.html`,
-      redirectInBrowser: true,
-      toPath: localizedPath,
-    });
+  if (!isDefaultLang) {
+    return;
   }
+
+  createRedirect({
+    fromPath: `/${i18nConfig[lang].path}${localizedPath}`,
+    redirectInBrowser: true,
+    toPath: localizedPath,
+  });
+
+  createRedirect({
+    fromPath: `/${i18nConfig[lang].path}${localizedPath}.html`,
+    redirectInBrowser: true,
+    toPath: localizedPath,
+  });
 };

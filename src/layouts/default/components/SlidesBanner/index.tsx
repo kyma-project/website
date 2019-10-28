@@ -89,6 +89,7 @@ export class SlidesBanner extends PureComponent<
       }
       return new Date(`${splitDate[1]}/${splitDate[0]}/${splitDate[2]}`);
     }
+    return false;
   };
 
   timerFunc = () =>

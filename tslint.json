@@ -2,6 +2,7 @@
   "defaultSeverity": "error",
   "extends": [
     "tslint:recommended",
+    "tslint-consistent-codestyle",
     "tslint-react",
     "tslint-react-hooks",
     "tslint-config-prettier"
@@ -27,9 +28,22 @@
     "use-isnan": true,
     "no-debugger": true,
     "radix": true,
-    "react-hooks-nesting": "error"
+    "react-hooks-nesting": "error",
+    "no-var-before-return": true,
+    "jsx-self-close": true,
+    "no-unnecessary-else": true,
+    "no-static-this": true,
+    "no-collapsible-if": true,
+    "early-exit": {
+      "options": { "max-length": 7, "ignore-constructor": true }
+    },
+    "no-empty": { "options": ["allow-empty-catch"], "severity": "error" },
+    "promise-function-async": true,
+    "no-invalid-template-strings": true,
+    "await-promise": true,
+    "no-string-throw": true,
+    "deprecation": true
   },
-  "jsRules": {},
   "linterOptions": {
     "exclude": ["*/node_modules/**/*"]
   },

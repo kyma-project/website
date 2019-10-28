@@ -93,10 +93,9 @@
     "typography": "^0.16.18"
   },
   "devDependencies": {
+    "@babel/preset-typescript": "^7.3.3",
     "@octokit/graphql": "^4.2.2",
     "@octokit/rest": "^16.33.1",
-    "@types/verror": "^1.10.3",
-    "@babel/preset-typescript": "^7.3.3",
     "@types/aws-lambda": "^8.10.24",
     "@types/fs-extra": "^8.0.0",
     "@types/jest": "^24.0.18",
@@ -112,8 +111,10 @@
     "@types/react-sticky": "^6.0.3",
     "@types/styled-components": "^4.1.6",
     "@types/typography": "^0.16.2",
-    "babel-preset-gatsby": "^0.1.6",
+    "@types/verror": "^1.10.3",
+    "await-to-js": "^2.1.1",
     "axios": "^0.19.0",
+    "babel-preset-gatsby": "^0.1.6",
     "compare-versions": "^3.5.1",
     "front-matter": "^3.0.2",
     "fs-extra": "^8.1.0",
@@ -128,19 +129,19 @@
     "lodash": "^4.17.15",
     "markdownlint-cli": "^0.17.0",
     "prettier": "^1.15.2",
+    "safe-buffer": "5.2.0",
     "source-map-explorer": "^2.0.1",
     "ts-jest": "^24.1.0",
     "ts-node": "^8.4.1",
     "tslib": "^1.10.0",
     "tslint": "^5.20.0",
     "tslint-config-prettier": "^1.17.0",
-    "tslint-react": "^3.6.0",
+    "tslint-consistent-codestyle": "^1.16.0",
+    "tslint-react": "^4.1.0",
     "tslint-react-hooks": "^2.1.0",
     "typescript": "^3.6.4",
     "utility-types": "^3.7.0",
-    "safe-buffer": "5.2.0",
-    "verror": "^1.10.0",
-    "await-to-js": "^2.1.1"
+    "verror": "^1.10.0"
   },
   "bugs": {
     "url": "https://github.com/kyma-project/website/issues"

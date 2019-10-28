@@ -1,4 +1,4 @@
-import React, { ReactType } from "react";
+import React, { ElementType } from "react";
 import RM, { ReactMarkdownProps, NodeType } from "react-markdown";
 
 import parseHtml from "./parseHTML";
@@ -11,7 +11,7 @@ import {
 
 let globalAssetsPath = "";
 
-type Renderers = { [key in NodeType | "parsedHtml"]: ReactType };
+type Renderers = { [key in NodeType | "parsedHtml"]: ElementType };
 
 interface ReactMarkdownAdditionalProps {
   headingPrefix?: string;

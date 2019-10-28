@@ -23,13 +23,11 @@ export class DocsSerializer {
     if (!considerAsGroup) {
       return this.sources;
     }
-
-    const sources: Sources = [
+    return [
       {
         sources: this.sources,
       },
     ];
-    return sources;
   }
 
   private serializeMarkdownFiles(assetsPath: string): void {

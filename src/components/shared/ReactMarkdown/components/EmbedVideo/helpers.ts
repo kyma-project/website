@@ -18,8 +18,7 @@ export function embedVideoHTML(
 
     const videoService = getVideoService(videoId.service);
     const url = createUrl(videoId.id, videoService, options);
-    const iframe = createIframe(url, videoService, options);
-    return iframe;
+    return createIframe(url, videoService, options);
   } catch (e) {
     return `<p style="color: red">Error: ${e.message}</p>`;
   }

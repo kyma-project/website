@@ -104,22 +104,26 @@ export const createCommunityPages = async ({
       });
 
       if (
-        COMMUNITY_GET_STARTED_TYPE === docsType &&
-        COMMUNITY_GET_STARTED_TYPE === topic
+        !(
+          COMMUNITY_GET_STARTED_TYPE === docsType &&
+          COMMUNITY_GET_STARTED_TYPE === topic
+        )
       ) {
-        createPage({
-          path: `/${COMMUNITY_PATH_PREFIX}`,
-          component: communityTemplate,
-          context: {
-            content: newContent,
-            navigation,
-            manifest,
-            assetsPath,
-            docsType,
-            topic,
-          },
-        });
+        return;
       }
+
+      createPage({
+        path: `/${COMMUNITY_PATH_PREFIX}`,
+        component: communityTemplate,
+        context: {
+          content: newContent,
+          navigation,
+          manifest,
+          assetsPath,
+          docsType,
+          topic,
+        },
+      });
     });
   });
 };

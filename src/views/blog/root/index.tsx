@@ -32,6 +32,7 @@ const BlogView: React.FunctionComponent<PageContext<BlogPageContext>> = ({
     </StyledLink>
     {posts.map((post: Post) => (
       <PostPage
+        key={post.id}
         {...post}
         markdown={post.excerpt || post.rawMarkdownBody}
         readMore={true}
