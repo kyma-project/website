@@ -1,20 +1,17 @@
 import styled, { media } from "@styled";
-
-import Middle from "@static/img/middle.svg";
 import Grid from "@styled/Grid";
 
 export const MakeSpecialWrapper = styled.section`
   position: relative;
-  /* background: url(${Middle}) no-repeat; */
+
   background-size: 100% 100%;
   min-height: 350px;
   z-index: 1;
   justify-content: center;
   flex-direction: column;
   display: flex;
-  margin-top: 0;
+  margin-top: 3.5%;
   margin-bottom: 1.5%;
-  /* color: #fff; */
 
   ${media.tablet`
     padding: 30px 0 50px 0;
