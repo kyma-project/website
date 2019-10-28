@@ -36,14 +36,9 @@
       "shortName": "YouTube",
       "url": "https://www.youtube.com/channel/UC8Q8bBtYe9gQN-dQ-_L8JvQ",
       "icon": "youtube"
-    },
-    "stackOverflow": {
-      "name": "StackOverflow",
-      "shortName": "Stack",
-      "url": "https://stackoverflow.com/questions/tagged/kyma",
-      "icon": "stack-overflow"
     }
   },
+  "youtubeVideos": ["wJzVWFGkiKk", "NI4cOWO9HnA"],
   "links": {
     "KYMA_REPOSITORY_LINK": "https://github.com/kyma-project/kyma",
     "SAP_PRIVACY_LINK": "https://www.sap.com/corporate/en/legal/privacy.html",
@@ -53,6 +48,7 @@
   },
   "landingPage": {
     "ids": {
+      "newsroom": "newsroom",
       "usedBy": "used-by"
     }
   },

@@ -6,17 +6,17 @@ import { LandingPageContext } from "@typings/landingPage";
 import { Headline } from "./Headline";
 import { WhatIs } from "./WhatIs";
 import { MakeSpecial } from "./MakeSpecial";
-import { KeyFeatures } from "./KeyFeatures";
 import { Adopters } from "./Adopters";
+import { Newsroom } from "./Newsroom";
 
 const LandingPageView: React.FunctionComponent<
   PageContext<LandingPageContext>
-> = ({ pageContext: { adopters } }) => (
+> = ({ pageContext: { adopters, latestBlogPosts } }) => (
   <>
     <Headline />
     <WhatIs />
     <MakeSpecial />
-    <KeyFeatures />
+    <Newsroom latestBlogPosts={latestBlogPosts} />
     <Adopters adopters={adopters} />
   </>
 );

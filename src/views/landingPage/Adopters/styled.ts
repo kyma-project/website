@@ -81,10 +81,6 @@ export const AdoptersGalleryWrapper = styled.div`
       border: none;
       transition: all 0.3s;
 
-      ${media.phone`
-        display: none;
-      `}
-
       &:hover {
         background: #fff;
         box-shadow: 0 1px 26px 0 rgba(137, 165, 199, 0.42);
@@ -98,17 +94,34 @@ export const AdoptersGalleryWrapper = styled.div`
         margin-right: 0;
         transition: all 0.3s;
       }
+
+      ${media.smallPhone`
+        padding: 0 8px;
+        line-height: 32px;
+
+        > svg {
+          width: 14px;
+        }
+      `}
     }
 
     .carousel-button-left {
       svg {
         right: 2px;
+
+        ${media.smallPhone`
+          right: 1px;
+        `}
       }
     }
 
     .carousel-button-right {
       svg {
         left: 2px;
+
+        ${media.smallPhone`
+          left: 1px;
+        `}
       }
     }
   }
