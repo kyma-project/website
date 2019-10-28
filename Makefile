@@ -1,22 +1,23 @@
-.PHONY: 
-	netlify-deploy-preview 
-	netlify-production 
-	netlify-docs-preview 
-	netlify-community-preview 
-	clear-cache
-	resolve
-	validate 
-	test 
-	prepare-content-website 
-	prepare-content-docs-preview 
-	prepare-content-community-preview 
-	build
+.PHONY: netlify-deploy-preview \
+	netlify-production \
+	netlify-docs-preview \
+	netlify-community-preview \
+	clear-cache \
+	resolve \
+	validate \
+	test \
+	prepare-content-website \
+	prepare-content-docs-preview \
+	prepare-content-community-preview \
+	build-prod \
+	build-docs-preview \
+	build-community-preview \
 	prepare-functions
 
-netlify-deploy-preview: clear-cache validate test prepare-content-website build prepare-functions
-netlify-production: clear-cache prepare-content-website build prepare-functions
-netlify-docs-preview: clear-cache resolve prepare-content-docs-preview build
-netlify-community-preview: clear-cache resolve prepare-content-community-preview build
+netlify-deploy-preview: clear-cache validate test prepare-content-website build-prod prepare-functions
+netlify-production: clear-cache prepare-content-website build-prod prepare-functions
+netlify-docs-preview: clear-cache resolve prepare-content-docs-preview build-docs-preview
+netlify-community-preview: clear-cache resolve prepare-content-community-preview build-community-preview
 
 clear-cache:
 	make -C "./tools/content-loader" clear-cache
@@ -50,8 +51,14 @@ else
 	@echo "PREVIEW_SOURCE_DIR is a required env!"
 endif
 
-build:
+build-prod:
 	npm run build:prod
 
+build-docs-preview:
+	npm run build:preview:docs
+
+build-community-preview:
+	npm run build:preview:community
+
 prepare-functions:
-	npm run build:functions
+	npm run build:functions 

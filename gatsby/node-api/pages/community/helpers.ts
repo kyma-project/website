@@ -69,20 +69,21 @@ const extractFn = (
     frontmatter: { title, type: docType },
   } = doc;
 
-  if (docsGroup === type && topicId === id) {
-    const obj: DocsContentDocs = {
-      order: fileName,
-      title,
-      source: rawMarkdownBody,
-    };
-
-    if (docType) {
-      obj.type = docType;
-    }
-
-    return obj;
+  if (!(docsGroup === type && topicId === id)) {
+    return null;
   }
-  return null;
+
+  const obj: DocsContentDocs = {
+    order: fileName,
+    title,
+    source: rawMarkdownBody,
+  };
+
+  if (docType) {
+    obj.type = docType;
+  }
+
+  return obj;
 };
 
 export const prepareWebsitePaths = ({

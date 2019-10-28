@@ -21,10 +21,14 @@
     "k8s"
   ],
   "scripts": {
-    "start": "npm run clean && npm run develop",
-    "develop": "gatsby develop --port 5000",
-    "build": "npm run clean && gatsby build",
-    "build:prod": "npm run clean && GATSBY_SITE_URL='https://kyma-project.io' gatsby build",
+    "start": "npm run clean && npm run develop:website",
+    "develop": "BUILD_FOR='website' gatsby develop --port 5000",
+    "develop:preview:docs": "BUILD_FOR='docs-preview' gatsby develop --port 5000",
+    "develop:preview:community": "BUILD_FOR='community-preview' gatsby develop --port 5000",
+    "build": "npm run clean && BUILD_FOR='website' gatsby build",
+    "build:prod": "npm run clean && BUILD_FOR='website' GATSBY_SITE_URL='https://kyma-project.io' gatsby build",
+    "build:preview:docs": "npm run clean && BUILD_FOR='docs-preview' gatsby build",
+    "build:preview:community": "npm run clean && BUILD_FOR='community-preview' gatsby build",
     "serve": "gatsby serve",
     "serve:out": "gatsby serve -H 0.0.0.0",
     "clean": "gatsby clean",

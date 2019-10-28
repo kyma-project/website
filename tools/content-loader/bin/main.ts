@@ -57,7 +57,7 @@ const prepareRoadmapContentFn = async () => {
 
 const main = async () => {
   const errors: Error[] = [];
-  let err: Error | null;
+  let err: Error | null = null;
 
   if (!coreConfig.token) {
     console.warn(
