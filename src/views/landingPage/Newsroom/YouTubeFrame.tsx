@@ -15,7 +15,7 @@ export const YouTubeFrame: React.FunctionComponent<Props> = ({
   }
 
   const list = videos.map(video => (
-    <YouTubeFrameItem>
+    <YouTubeFrameItem key={video}>
       <YouTube videoId={video} />
     </YouTubeFrameItem>
   ));

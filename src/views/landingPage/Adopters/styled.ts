@@ -94,17 +94,30 @@ export const AdoptersGalleryWrapper = styled.div`
         margin-right: 0;
         transition: all 0.3s;
       }
+
+      ${media.smallPhone`
+        padding: 0 8px;
+        line-height: 32px;
+      `}
     }
 
     .carousel-button-left {
       svg {
         right: 2px;
+
+        ${media.smallPhone`
+          right: 1px;
+        `}
       }
     }
 
     .carousel-button-right {
       svg {
         left: 2px;
+
+        ${media.smallPhone`
+          left: 1px;
+        `}
       }
     }
   }
