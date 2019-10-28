@@ -98,6 +98,10 @@ export const AdoptersGalleryWrapper = styled.div`
       ${media.smallPhone`
         padding: 0 8px;
         line-height: 32px;
+
+        > svg {
+          width: 14px;
+        }
       `}
     }
 
