@@ -30,6 +30,35 @@ The Kyma community collaborates through Special Interest Groups and Working Grou
 
 We're on [Twitter](https://twitter.com/kymaproject) and [LinkedIn](https://www.linkedin.com/company/kyma-project/). Stay tuned for the news and spread the good word about Kyma among your followers.
 
+<center>
+<ul>
+<li>
+<a href="https://google.com" target="_blank">
+<div>hello</div>
+<span>xd</span>
+</a>
+</li>
+<li>
+<a href="https://google.com" target="_blank">
+<div>hello</div>
+<span>xd</span>
+</a>
+</li>
+<li>
+<a href="https://google.com" target="_blank">
+<div>hello</div>
+<span>xd</span>
+</a>
+</li>
+<li>
+<a href="https://google.com" target="_blank">
+<div>hello</div>
+<span>xd</span>
+</a>
+</li>
+</ul>
+</center>
+
 ## YouTube
 
 Subscribe to our [YouTube channel](https://www.youtube.com/channel/UC8Q8bBtYe9gQN-dQ-_L8JvQ) to see all recordings from SIGs and WGs meetings. You will also find there some other interesting videos, such as Kyma in non-English, Kyma Capabilities Demos, SIG Core meetings, and many more.

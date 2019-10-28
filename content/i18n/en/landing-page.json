@@ -1,21 +1,25 @@
 {
-  "headline": "A flexible and easy way to \nconnect and extend enterprise applications in a cloud-native world",
+  "headline": "Extend your applications\nwith Kubernetes",
   "whatIs": {
     "headline": "What is Kyma?",
     "paragraphs": [
-      "Kyma is an open-source project designed natively on Kubernetes. It allows you to extend and customize cloud-based and on-premise enterprise applications in a quick and modern way, using serverless computing or microservice architecture.",
-      "Kyma provides a set of cloud-native components and services required to build modern, end-to-end user experience scenarios that follow a best-practices approach to performance, scalability, efficiency, and security. Use the familiar, idiomatic language and standardized patterns that Kyma offers to extend a single enterprise application or combine existing systems to create new functionalities."
+      "Kyma ",
+      "/kee-ma/",
+      " is a platform for extending applications with serverless functions and microservices. It provides a selection of cloud-native projects glued together to easily write extensions and manage them in the production environment."
     ],
-    "XXXLutzBlogPost": {
-      "paragraph": "{link} Kyma experience by XXXLutz KG, one of the leading furniture retailers.",
-      "link": "Learn about"
-    },
     "installButton": "Install"
   },
   "makeSpecial": {
-    "headline": "What makes Kyma so special?",
-    "paragraph": "Major open-source and cloud-native projects, such as Istio, NATS, Kubeless, and Prometheus, constitute the cornerstone of Kyma. Its uniqueness, however, lies in the \"glue\" that holds these components together. Kyma collects those cutting-edge solutions in one place and combines them with the in-house developed features that allow you to connect and extend your enterprise applications easily and intuitively.",
-    "readDocsButton": "Read the Docs"
+    "extend": {
+      "headline": "Create extensions...",
+      "paragraph": "Don't waste time rewriting your monoliths but focus on their extensibility instead. Make sure your application exposes an API and is able to send events to Kyma. Use our Console UI or CLI to connect, extend, and integrate applications.",
+      "readDocsButton": "Overview"
+    },
+    "rightTools": {
+      "headline": "...with tools at hand",
+      "paragraph": "Kyma gives you a properly configured, monitored, and secured Kubernetes cluster. It combines various open-source projects for authentication, logging, eventing, alerting, tracing, and many more. We ensured they play well together so you can only focus on coding.",
+      "readDocsButton": "Components"
+    }
   },
   "keyFeatures": {
     "headline": "Key features",

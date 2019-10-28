@@ -4,7 +4,7 @@ export const HeadlineWrapper = styled.h2`
   font-size: 40px;
   font-weight: 600;
   line-height: 1.2;
-  margin-top: 40px;
+  margin-top: 70px;
 
   br {
     display: none;
