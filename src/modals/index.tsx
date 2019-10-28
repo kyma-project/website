@@ -10,7 +10,7 @@ import { RoadmapModal } from "./roadmap";
 
 type ModalRegex = Array<[RegExp, React.ElementType<any>]>;
 const modalRegex: ModalRegex = [
-  [/^\/docs\/(.*?)\/specifications/, DocsSpecificationModal],
+  [/^\/(.*?)\/specifications/, DocsSpecificationModal],
   [/^\/roadmap/, RoadmapModal],
 ];
 

@@ -8,3 +8,15 @@ export type CommunityGQL = ContentGQL<{
     fileName: string;
   };
 }>;
+
+export interface CommunityPathsArgs {
+  topicsKeys: string[];
+  docsType: string;
+  topic: string;
+}
+
+export interface CommunityPaths {
+  assetsPath: string;
+  pagePath: string;
+  rootPagePath: string;
+}

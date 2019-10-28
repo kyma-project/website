@@ -4,7 +4,7 @@
   "description": "Content loader for kyma-project.io",
   "main": "bin/main.ts",
   "scripts": {
-    "start": "ts-node bin/main.ts"
+    "start": "../../node_modules/.bin/ts-node bin/main.ts"
   },
   "author": "The Kyma project authors",
   "license": "Apache-2.0"

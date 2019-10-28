@@ -1,5 +1,5 @@
 clear-cache:
-	rm -rf tempDir tempDocsDir tempRoadmapDir
+	rm -rf tempDir tempDocsDir tempCommunityDir tempRoadmapDir
 
 fetch-content:
 	npm run start

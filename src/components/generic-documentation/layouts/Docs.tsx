@@ -39,6 +39,7 @@ export interface DocsLayoutProps {
   sourcesLength: number;
   docsVersionSwitcher: React.ReactNode;
   specifications?: Specification[];
+  inPreview?: boolean;
 }
 
 export const DocsLayout: React.FunctionComponent<DocsLayoutProps> = ({
@@ -49,9 +50,12 @@ export const DocsLayout: React.FunctionComponent<DocsLayoutProps> = ({
   sourcesLength,
   specifications,
   docsVersionSwitcher,
+  inPreview,
 }) => {
   const linkFn: linkSerializer = ({ group, id }) =>
-    `/docs/${version ? `${version}/` : ""}${group}/${id}`;
+    `/${!inPreview ? `docs/` : ""}${
+      version ? `${version}/` : ""
+    }${group}/${id}`;
   const activeLinkFn: activeLinkChecker = ({ group, id }) =>
     topic === id && type === group;
 

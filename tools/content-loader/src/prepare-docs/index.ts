@@ -1,10 +1,9 @@
 import { resolve } from "path";
-import { mkdirs } from "fs-extra";
 import to from "await-to-js";
 import { VError } from "verror";
 
-import { CoreConfig } from "../config";
-import docsConfig, { DocsConfig } from "./config";
+import { CoreConfig, PrepareFor } from "../config";
+import docsConfig from "./config";
 import GitClient from "../github-client/git-client";
 import CheckingDocs from "./branches-checking";
 import CopyDocs from "./copy-docs";
@@ -15,7 +14,7 @@ const prepareDocs = async (coreConfig: CoreConfig) => {
   const configBranches = docsConfig.branches;
   const outputPath = resolve(docsConfig.outputPath);
   const outputDocsVersion = resolve(docsConfig.outputDocsVersion);
-  const tempPath = resolve(docsConfig.tempPath);
+  const sourcePath = resolve(docsConfig.sourcePath);
 
   let err: Error | null;
   let result;
@@ -42,7 +41,7 @@ const prepareDocs = async (coreConfig: CoreConfig) => {
     throw err;
   }
 
-  [err] = await to(makeDir(tempPath, true));
+  [err] = await to(makeDir(sourcePath, true));
   if (err) {
     throw err;
   }
@@ -59,7 +58,7 @@ const prepareDocs = async (coreConfig: CoreConfig) => {
   [err] = await to(
     CopyDocs.releases({
       releases,
-      source: tempPath,
+      source: sourcePath,
       output: outputPath,
     }),
   );
@@ -70,7 +69,7 @@ const prepareDocs = async (coreConfig: CoreConfig) => {
   [err] = await to(
     CopyDocs.releases({
       releases: prereleases,
-      source: tempPath,
+      source: sourcePath,
       output: outputPath,
     }),
   );
@@ -81,7 +80,7 @@ const prepareDocs = async (coreConfig: CoreConfig) => {
   [err] = await to(
     CopyDocs.branches({
       branches,
-      source: tempPath,
+      source: sourcePath,
       output: outputPath,
     }),
   );
@@ -105,4 +104,56 @@ const prepareDocs = async (coreConfig: CoreConfig) => {
   }
 };
 
-export default prepareDocs;
+const preparePreviewDocs = async () => {
+  const branchName = docsConfig.branches[0];
+
+  let outputPath = resolve(docsConfig.outputPath);
+  if (!outputPath.endsWith(branchName)) {
+    outputPath = outputPath.endsWith("/")
+      ? `${outputPath}${branchName}`
+      : `${outputPath}/${branchName}`;
+  }
+  const sourcePath = resolve(docsConfig.sourcePath);
+  const outputDocsVersion = resolve(docsConfig.outputDocsVersion);
+
+  let [err] = await to(makeDir(outputPath));
+  if (err) {
+    throw err;
+  }
+
+  [err] = await to(
+    CopyDocs.local({
+      source: sourcePath,
+      output: outputPath,
+    }),
+  );
+  if (err) {
+    throw err;
+  }
+
+  // :(
+  const branches = new Map<string, string>([[branchName, ""]]);
+
+  console.log(`Generating documentation versions file to ${outputDocsVersion}`);
+  [err] = await to(
+    DocsVersions.generate(
+      {
+        branches,
+      },
+      outputDocsVersion,
+    ),
+  );
+  if (err) {
+    throw err;
+  }
+};
+
+export default async (coreConfig: CoreConfig) => {
+  if (coreConfig.prepareFor === PrepareFor.DOCS_PREVIEW) {
+    return preparePreviewDocs();
+  }
+  if (coreConfig.prepareFor === PrepareFor.WEBSITE) {
+    return prepareDocs(coreConfig);
+  }
+  return;
+};

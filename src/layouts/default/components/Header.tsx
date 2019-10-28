@@ -12,11 +12,13 @@ import { GithubButtons } from "./GithubButtons";
 
 interface HeaderProps {
   horizontalBg?: boolean;
+  hiddenNav: boolean;
   search?: boolean;
 }
 
 const Header: React.FunctionComponent<HeaderProps> = ({
   horizontalBg = false,
+  hiddenNav,
 }) => (
   <HeaderWrapper horizontalBg={horizontalBg}>
     <Grid.Container>
@@ -28,7 +30,7 @@ const Header: React.FunctionComponent<HeaderProps> = ({
         </Link.Internal>
         <GithubButtons />
       </GithubButtonsWrapper>
-      <Navigation />
+      {hiddenNav ? null : <Navigation />}
     </Grid.Container>
   </HeaderWrapper>
 );
