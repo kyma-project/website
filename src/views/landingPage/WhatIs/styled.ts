@@ -17,11 +17,12 @@ export const SpellingOfText = styled.pre`
 
 export const YoutubeWrapper = styled.section`
   padding: 20px 0;
+
   ${media.phone`
     padding: 20px 0 0 0;
   `}
   & iframe {
     width: 100%;
-    /* height: 100%; */
+    border-radius: 5px;
   }
 `;
