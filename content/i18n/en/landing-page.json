@@ -17,7 +17,7 @@
     },
     "rightTools": {
       "headline": "...with tools at hand",
-      "paragraph": "Kyma gives you a properly configured, monitored, and secured Kubernetes cluster. It combines various open-source projects for authentication, logging, eventing, alerting, tracing, and many more. We ensured they play well together so you can only focus on coding.",
+      "paragraph": "Kyma gives you a fully configured, monitored, and secured Kubernetes cluster. It combines various open-source projects for authentication, logging, eventing, alerting, tracing, and many more. We ensured they play well together so you can only focus on coding.",
       "readDocsButton": "Components"
     }
   },
