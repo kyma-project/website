@@ -17,7 +17,7 @@ import Button from "@components/shared/Button";
 import { FormattedMessage, getTranslation } from "@common/i18n";
 
 const gt = getTranslation("landingPage.whatIs");
-const installDoc = `/docs/#overview-in-a-nutshell`;
+const installDoc = `docs/root/kyma#installation-installation`;
 
 export const WhatIs: React.FunctionComponent = () => (
   <StyledGridContainer as="section">

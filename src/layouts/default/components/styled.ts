@@ -9,6 +9,7 @@ import { linkEffect } from "@styled/mixins";
 
 import Header from "@static/img/header.svg";
 import HorizontalHeader from "@static/img/blog-header.svg";
+import HeaderNoGreen from "./assets//blog-header-kyma_w_green.svg";
 import Footer from "@static/img/footer.svg";
 
 /* Layout */
@@ -42,15 +43,22 @@ export const HeaderWrapper = styled.header`
   &:before {
     content: " ";
     background: url(${(props: HeaderWrapperProps) =>
-        props.horizontalBg ? HorizontalHeader : Header})
+        props.horizontalBg ? HorizontalHeader : HeaderNoGreen})
       no-repeat;
     background-size: ${(props: HeaderWrapperProps) =>
-      props.horizontalBg ? "" : "100% 35vw"};
-    min-height: 35vw;
+      props.horizontalBg ? "" : "100%"};
+    min-height: 20vh;
     display: block;
     width: 100%;
     position: absolute;
     z-index: -1;
+  }
+
+  @media (min-width: 60em) {
+    &:before {
+      top: ${(props: HeaderWrapperProps) =>
+        props.horizontalBg ? "-7vw" : "-2px"};
+    }
   }
 
   @media (max-width: 1000px) {
@@ -71,22 +79,32 @@ export const HeaderWrapper = styled.header`
   @media (max-width: 575px) {
     &:before {
       top: ${(props: HeaderWrapperProps) =>
-        props.horizontalBg ? "-5vw" : "0"};
+        props.horizontalBg ? "-5vw" : "-12vw"};
     }
   }
+
+  @media (max-width: 450px) {
+    &:before {
+      min-height: ${(props: HeaderWrapperProps) =>
+        props.horizontalBg ? "43vw" : "60vw"};
+    }
+  }
+
   @media (max-width: 376px) {
     &:before {
       min-height: ${(props: HeaderWrapperProps) =>
         props.horizontalBg ? "43vw" : "68vw"};
     }
   }
+
   @media (min-width: 1400px) {
     ${(props: HeaderWrapperProps) =>
       !props.horizontalBg
         ? `
       &:before {
-        background-size: 100% 500px;
+        background-size: 100%;
         min-height: 500px;
+        top: -50px;
       }
     `
         : `
@@ -96,6 +114,25 @@ export const HeaderWrapper = styled.header`
       }
     `}
   }
+
+  @media (min-width: 1700px) {
+    ${(props: HeaderWrapperProps) =>
+      !props.horizontalBg
+        ? `
+      &:before {
+        background-size: 100%;
+        min-height: 500px;
+        top: -5vw;
+      }
+    `
+        : `
+      &:before {
+        top: -5vw;
+        min-height: 35vw;
+      }
+    `}
+  }
+
   @media (min-width: 2000px) {
     ${(props: HeaderWrapperProps) =>
       props.horizontalBg
@@ -105,8 +142,31 @@ export const HeaderWrapper = styled.header`
         min-height: 35vw;
       }
     `
-        : ""}
+        : `
+      &:before {
+        top: -4.5vw;
+        min-height: 35vw;
+      }
+    `}
   }
+
+  @media (min-width: 2300px) {
+    ${(props: HeaderWrapperProps) =>
+      props.horizontalBg
+        ? `
+      &:before {
+        top: -7vw;
+        min-height: 35vw;
+      }
+    `
+        : `
+      &:before {
+        top: -5.5vw;
+        min-height: 35vw;
+      }
+    `}
+  }
+
   @media (min-width: 2700px) {
     ${(props: HeaderWrapperProps) =>
       props.horizontalBg
@@ -116,7 +176,12 @@ export const HeaderWrapper = styled.header`
         min-height: 35vw;
       }
     `
-        : ""}
+        : `
+      &:before {
+        top: -6.5vw;
+        min-height: 35vw;
+      }
+    `}
   }
 `;
 
@@ -134,8 +199,7 @@ export const HeaderLogo = styled.h1`
     max-height: 101px;
     width: 173px;
     max-height: 61px;
-    fill: ${(props: HeaderLogoProps) =>
-      props.horizontalBg ? "#fff" : "#0b74de"};
+    fill: ${(props: HeaderLogoProps) => (props.horizontalBg ? "#fff" : "#fff")};
 
     ${media.phone`
       width: 140px;
