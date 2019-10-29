@@ -36,7 +36,7 @@ export const WhatIs: React.FunctionComponent = () => (
         </ParagraphWrapper>
         <Termynal />
         <CenteredLink to={installDoc}>
-          <Button.Emphasized>
+          <Button.Emphasized size="sm">
             <FormattedMessage id={gt("installButton")} />
           </Button.Emphasized>
         </CenteredLink>

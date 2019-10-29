@@ -7,7 +7,7 @@ import Paragraph from "@components/shared/Paragraph";
 
 import { linkEffect } from "@styled/mixins";
 
-import LandingPageHeader from "./assets/LandingPageHeader.svg";
+import LandingPageHeader from "./assets/HeaderLangindPage.svg";
 import HorizontalHeader from "@static/img/blog-header.svg";
 import Footer from "@static/img/footer.svg";
 

@@ -14,7 +14,7 @@ export const TermynalStyles = styled.div`
  */
 
   /* @kyma-team: we made small changes to it to accomodate to our use */
-  margin: 10px 0 15px 0;
+  margin: 4px 0 15px 0;
 
   [data-termynal] {
     max-width: 100%;
