@@ -7,7 +7,8 @@ import Paragraph from "@components/shared/Paragraph";
 
 import { linkEffect } from "@styled/mixins";
 
-import LandingPageHeader from "./assets/HeaderLangindPage.svg";
+// import Header from "./assets/BiggerLandingPageHeader.svg";
+import Header from "./assets/HeaderLandingPage.svg";
 import HorizontalHeader from "@static/img/blog-header.svg";
 import Footer from "@static/img/footer.svg";
 
@@ -40,9 +41,10 @@ export const HeaderWrapper = styled.header`
     props.horizontalBg ? "3vw" : ""};
 
   &:before {
+    transform: scale(1, 0.9);
     content: " ";
     background: url(${(props: HeaderWrapperProps) =>
-        props.horizontalBg ? HorizontalHeader : LandingPageHeader})
+        props.horizontalBg ? HorizontalHeader : Header})
       no-repeat;
     background-size: ${(props: HeaderWrapperProps) =>
       props.horizontalBg ? "" : "100% 35vw"};
@@ -53,12 +55,18 @@ export const HeaderWrapper = styled.header`
     z-index: -1;
   }
 
+  @media (max-width: 1200px) {
+    &:before {
+      ${(props: HeaderWrapperProps) => !props.horizontalBg && "top: -8vw"};
+    }
+  }
+
   @media (max-width: 1000px) {
     &:before {
       top: ${(props: HeaderWrapperProps) => css`
-        ${props.horizontalBg ? "-12vw" : "0"};
-        background-size: cover;
-        background-position: center center;
+        ${props.horizontalBg ? "-12vw" : "-7vw"};
+        /* background-size: cover; */
+        background-position: top right;
       `};
     }
   }
@@ -71,13 +79,17 @@ export const HeaderWrapper = styled.header`
   @media (max-width: 575px) {
     &:before {
       top: ${(props: HeaderWrapperProps) =>
-        props.horizontalBg ? "-5vw" : "0"};
+        props.horizontalBg ? "-5vw" : "-4vw"};
+      background-size: 125% 35vw;
+      top: -4.5vw;
     }
   }
   @media (max-width: 376px) {
     &:before {
       min-height: ${(props: HeaderWrapperProps) =>
         props.horizontalBg ? "43vw" : "68vw"};
+      background-size: 120% 40vw;
+      top: -8.5vw;
     }
   }
   @media (min-width: 1400px) {
@@ -85,7 +97,9 @@ export const HeaderWrapper = styled.header`
       !props.horizontalBg
         ? `
       &:before {
-        background-size: 100%;
+        background-size: 100% 500px;
+        min-height: 500px;
+        top: -7vw;
       }
     `
         : `
@@ -95,6 +109,20 @@ export const HeaderWrapper = styled.header`
       }
     `}
   }
+
+  @media (min-width: 1700px) {
+    ${(props: HeaderWrapperProps) =>
+      !props.horizontalBg
+        ? `
+      &:before {
+        
+        
+        top: -4vw;
+      }
+    `
+        : ``}
+  }
+
   @media (min-width: 2000px) {
     ${(props: HeaderWrapperProps) =>
       props.horizontalBg
@@ -104,7 +132,11 @@ export const HeaderWrapper = styled.header`
         min-height: 35vw;
       }
     `
-        : ""}
+        : `
+      &:before {
+        top: -2vw;
+      }
+    `}
   }
   @media (min-width: 2700px) {
     ${(props: HeaderWrapperProps) =>
