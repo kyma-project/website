@@ -55,7 +55,7 @@ Some time ago, the Helm Broker was moved to the [separate repository](https://gi
 
 ### Support TLS certificate hot reload
 
-Starting with this release, you don't have to manually restart Applications to make them work with new TLS certificates. From now on, the IAM Kubeconfig Service provides `kubeconfig` configurations for users who have updated their certificates, and the API Server Proxy accepts requests that are made using `kubectl` with the new `kubeconfig`.
+Starting with this release, you don't have to manually restart Applications to make them work with new TLS certificates. Starting with Kyma 1.7, the IAM Kubeconfig Service provides `kubeconfig` configurations for users who have updated their certificates, and the API Server Proxy accepts requests that are made using `kubectl` with the new `kubeconfig`.
 
 
 ## CLI
