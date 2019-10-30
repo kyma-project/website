@@ -9,7 +9,7 @@
     ],
     "installButton": "Install"
   },
-  "makeSpecial": {
+  "extensionsAndTools": {
     "extend": {
       "headline": "Create extensions...",
       "paragraph": "Don't waste time rewriting your monoliths but focus on their extensibility instead. Make sure your application exposes an API and is able to send events to Kyma. Use our Console UI or CLI to connect, extend, and integrate applications.",

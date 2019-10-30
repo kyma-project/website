@@ -7,7 +7,6 @@ import Paragraph from "@components/shared/Paragraph";
 
 import { linkEffect } from "@styled/mixins";
 
-// import Header from "./assets/BiggerLandingPageHeader.svg";
 import Header from "./assets/HeaderLandingPage.svg";
 import HorizontalHeader from "@static/img/blog-header.svg";
 import Footer from "@static/img/footer.svg";

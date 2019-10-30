@@ -9,17 +9,17 @@ import { FormattedMessage, getTranslation } from "@common/i18n";
 
 import { UsedProjectIcons } from "./UsedProjectIcons";
 
-import { MakeSpecialWrapper, StyledGridUnit } from "./styled";
+import { ExtensionsAndToolsWrapper, StyledGridUnit } from "./styled";
 
 import { CenteredLink } from "../styled";
 
-const gt = getTranslation("landingPage.makeSpecial");
+const gt = getTranslation("landingPage.extensionsAndTools");
 
 // yes, 21, it's so that "Docs" and "Features" buttons are aligned
 const sidePadding = 21;
 
 export const ExtensionsAndTools: React.FunctionComponent = () => (
-  <MakeSpecialWrapper>
+  <ExtensionsAndToolsWrapper>
     <Grid.Container as="section" padding={"padding: 0 30px 0 30px"}>
       <Grid.Row space={true}>
         <StyledGridUnit df={6} lg={6} md={12} rightPadding={sidePadding}>
@@ -59,5 +59,5 @@ export const ExtensionsAndTools: React.FunctionComponent = () => (
       </Grid.Row>
       <UsedProjectIcons />
     </Grid.Container>
-  </MakeSpecialWrapper>
+  </ExtensionsAndToolsWrapper>
 );

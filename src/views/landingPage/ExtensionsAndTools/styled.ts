@@ -1,7 +1,7 @@
 import styled, { media } from "@styled";
 import Grid from "@styled/Grid";
 
-export const MakeSpecialWrapper = styled.section`
+export const ExtensionsAndToolsWrapper = styled.section`
   position: relative;
 
   background-size: 100% 100%;
