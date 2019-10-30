@@ -15,7 +15,7 @@ Not much time has passed since the last stop in Munich, and yet we're already la
 <!-- overview -->
 
 See the overview of all changes in this release:
-- [Compass](#compass) - Runtime Agent enhancements, Runtime Provisioner first implementation, Tenant Mapping Handler for requests validation, Scenarios view in the Console
+- [Compass](#compass) - Runtime Agent enhancements, Runtime Provisioner first implementation, Tenant Mapping Handler for requests validation, **Scenarios** view in the Console
 - [Service Management](#service-management) - Helm Broker v1.0.0 officially released
 - [Security](#security) - Support TLS certificate hot reload
 - [CLI](#cli) - Commands for provisioning Kubernetes clusters on GCP and Gardener
