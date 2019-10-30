@@ -39,7 +39,7 @@ Starting with this release, the [Tenant Mapping Handler](https://github.com/kyma
 
 ### Scenarios view available in the Console
 
-A new **Scenarios** view in the Compass Console shows Applications and Runtimes connected to a specific scenario. It allows you to manage Applications and Runtimes in a given scenario.
+A new **Scenarios** view in the Compass Console shows Applications and Runtimes connected to a specific [scenario](https://kyma-project.io/docs/1.7/components/compass/#architecture-basic-architecture-scenarios). It allows you to manage Applications and Runtimes in a given scenario.
 
 ![Details view](./details-view.png)
 
