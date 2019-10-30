@@ -6,6 +6,6 @@ adopters:
   - websiteUrl: "https://www.netconomy.net/"
     logo: "./logos/netconomy.svg"
     content: "Kyma allows us to extend the SAP CX platform with independently deployable services, this helps us to offer an even better customer experience"
- - websiteUrl: "https://www.accenture.com/us-en/services/interactive-index"
+  - websiteUrl: "https://www.accenture.com/us-en/services/interactive-index"
     logo: "./logos/accenture.svg"
     content: "Kyma's microservice architecture enables us to implement modern digital transformations and personalized customer experiences fast with low risk"
