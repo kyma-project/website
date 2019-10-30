@@ -1,9 +1,9 @@
 import React from "react";
+import Youtube from "react-youtube";
 import Grid from "@styled/Grid";
 import Paragraph from "@components/shared/Paragraph";
-import Youtube from "react-youtube";
 import { Termynal } from "./Termynal/Termynal";
-
+import config from "@config";
 import {
   ParagraphWrapper,
   StyledGridContainer,
@@ -22,7 +22,7 @@ const installDoc = `docs/root/kyma#installation-installation`;
 export const WhatIs: React.FunctionComponent = () => (
   <StyledGridContainer as="section">
     <Grid.Row space={true}>
-      <Grid.Unit df={6} lg={6} md={12} noMargin={true}>
+      <Grid.Unit df={6} lg={6} md={12} withoutMargin={true}>
         <ParagraphWrapper>
           <FormattedMessage id={gt("paragraphs.0")}>
             {paragraph => <Paragraph inline={true}>{paragraph}</Paragraph>}
@@ -35,15 +35,15 @@ export const WhatIs: React.FunctionComponent = () => (
           </FormattedMessage>
         </ParagraphWrapper>
         <Termynal />
-        <CenteredLink to={installDoc}>
+        <CenteredLink to={config.links.DOCS_INSTALLATION}>
           <Button.Emphasized size="sm">
             <FormattedMessage id={gt("installButton")} />
           </Button.Emphasized>
         </CenteredLink>
       </Grid.Unit>
-      <Grid.Unit df={6} lg={6} md={12} noMargin={true}>
+      <Grid.Unit df={6} lg={6} md={12} withoutMargin={true}>
         <YoutubeWrapper>
-          <Youtube videoId={"kP7mSELIxXw"} />
+          <Youtube videoId={config.quickWalkthroughYoutubeVideo} />
         </YoutubeWrapper>
       </Grid.Unit>
     </Grid.Row>
