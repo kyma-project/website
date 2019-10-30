@@ -73,7 +73,7 @@ export const HeaderWrapper = styled.header`
   @media (max-width: 750px) {
     &:before {
       top: ${(props: HeaderWrapperProps) =>
-        props.horizontalBg ? "-7vw" : "0"};
+        props.horizontalBg ? "-7vw" : "-7vw"};
     }
   }
   @media (max-width: 575px) {
@@ -92,6 +92,20 @@ export const HeaderWrapper = styled.header`
       top: -8.5vw;
     }
   }
+
+  @media (min-width: 1200px) {
+    ${(props: HeaderWrapperProps) =>
+      !props.horizontalBg
+        ? `
+      &:before {
+        background-size: 100% 500px;
+        min-height: 500px;
+        top: -10vw;
+      }
+    `
+        : ``}
+  }
+
   @media (min-width: 1400px) {
     ${(props: HeaderWrapperProps) =>
       !props.horizontalBg
@@ -99,7 +113,7 @@ export const HeaderWrapper = styled.header`
       &:before {
         background-size: 100% 500px;
         min-height: 500px;
-        top: -7vw;
+        top: -6.9vw;
       }
     `
         : `
