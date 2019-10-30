@@ -31,11 +31,11 @@ The second addition to the Runtime Agent involves labeling Runtimes. After a suc
 
 ### Runtime Provisioner first implementation
 
-The first implementation of the [Runtime Provisioner](https://kyma-project.io/docs/components/compass/#architecture-components-runtime-provisioner) is here. We have un-mocked the provisioning part of the API – it is now possible to provision clusters on GCP and Gardener projects using GCP credentials.
+The first implementation of the [Runtime Provisioner](https://kyma-project.io/docs/1.7/components/compass/#architecture-components-runtime-provisioner) is here. We have unmocked the provisioning part of the API – it is now possible to provision clusters on GCP and Gardener projects using GCP credentials.
 
 ### Tenant Mapping Handler for requests validation
 
-Starting with this release, the [Tenant Mapping Handler](https://github.com/kyma-incubator/compass/blob/master/docs/architecture/authentication-and-authorization.md#tenant-mapping-handler) validates requests incoming to the Director. It modifies those requests by assigning them to tenants and scopes. The authenticated users and systems can work only in the context of a given tenant and with given scopes.
+Starting with this release, the [Tenant Mapping Handler](https://github.com/kyma-incubator/compass/blob/master/docs/architecture/authentication-and-authorization.md#tenant-mapping-handler) validates requests coming to the Director. It modifies those requests by assigning them to tenants and scopes. The authenticated users and systems can work only in the context of a given tenant and with given scopes.
 
 ### Scenarios view available in the Console
 
@@ -46,16 +46,16 @@ A new **Scenarios** view in the Compass Console shows Applications and Runtimes 
 
 ## Service Management
 
-### Helm Broker v1.0.0 officially released!
+### Helm Broker v1.0.0 officially released
 
-Some time ago, the Helm Broker was moved to the [separate repository](https://github.com/kyma-project/helm-broker). As the next step, we created a whole new release process for it, which is based on the Kubernetes release process. From now on, the Helm Broker will be released after every important feature implementation.
+Some time ago, the Helm Broker was moved to the [separate repository](https://github.com/kyma-project/helm-broker). As the next step, we created a whole new release process for it, based on the Kubernetes release process. From now on, the Helm Broker will be released after every important feature implementation.
 
 
 ## Security
 
-### Support TLS certificate hot reload
+### Support for TLS certificate hot reload
 
-Starting with this release, you don't have to manually restart Applications to make them work with new TLS certificates. Starting with Kyma 1.7, the IAM Kubeconfig Service provides `kubeconfig` configurations for users who have updated their certificates, and the API Server Proxy accepts requests that are made using `kubectl` with the new `kubeconfig`.
+Starting with this release, you don't have to manually restart Applications to make them work with new TLS certificates. The IAM Kubeconfig Service now provides `kubeconfig` configurations for users who have updated their certificates, and the API Server Proxy accepts requests that are made using `kubectl` with the new `kubeconfig` file.
 
 
 ## CLI
