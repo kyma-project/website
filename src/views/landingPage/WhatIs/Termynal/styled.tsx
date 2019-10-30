@@ -14,7 +14,7 @@ export const TermynalStyles = styled.div`
  */
 
   /* @kyma-team: we made small changes to it to accomodate to our use */
-  margin: 4px 0 15px 0;
+  margin: 4px 0 10px 0;
 
   [data-termynal] {
     max-width: 100%;
@@ -24,7 +24,7 @@ export const TermynalStyles = styled.div`
     font-family: "Fira Mono", Consolas, Menlo, Monaco, "Courier New", Courier,
       monospace;
     border-radius: 4px;
-    padding: 45px 45px 25px;
+    padding: 33px 45px 20px;
     position: relative;
     box-sizing: border-box;
   }
@@ -32,8 +32,8 @@ export const TermynalStyles = styled.div`
   [data-termynal]:before {
     content: "";
     position: absolute;
-    top: 15px;
-    left: 15px;
+    top: 13px;
+    left: 13px;
     display: inline-block;
     width: 13px;
     height: 13px;
