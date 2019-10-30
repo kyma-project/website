@@ -53,7 +53,7 @@ interface GridUnitProps {
   sm?: GridUnits;
   xs?: GridUnits;
   withoutPadding?: boolean;
-  noMargin?: boolean;
+  withoutMargin?: boolean;
 }
 
 const gridUnitStyles = {
@@ -119,7 +119,7 @@ const GridUnit = styled.div`
   display: flex;
   flex-direction: column;
   ${(props: GridUnitProps) =>
-    props.noMargin ? "margin: 0;" : "margin-bottom: 15px;"}
+    props.withoutMargin ? "margin: 0;" : "margin-bottom: 15px;"}
   ${(props: GridUnitProps) => props.withoutPadding && "padding: 0;"}
   ${(props: GridUnitProps) => props.df && gridUnitStyles[props.df]}
 

@@ -86,8 +86,8 @@ export const HeaderWrapper = styled.header`
     &:before {
       top: ${(props: HeaderWrapperProps) =>
         props.horizontalBg ? "-5vw" : "-4vw"};
-      ${(pro: HeaderWrapperProps) =>
-        !pro.horizontalBg &&
+      ${(props: HeaderWrapperProps) =>
+        !props.horizontalBg &&
         css`
           background-size: 125% 35vw;
           top: -4.5vw;
@@ -98,8 +98,8 @@ export const HeaderWrapper = styled.header`
     &:before {
       min-height: ${(props: HeaderWrapperProps) =>
         props.horizontalBg ? "43vw" : "68vw"};
-      ${(pro: HeaderWrapperProps) =>
-        !pro.horizontalBg &&
+      ${(props: HeaderWrapperProps) =>
+        !props.horizontalBg &&
         css`
           background-size: 120% 40vw;
           top: -8.5vw;

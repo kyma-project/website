@@ -10,8 +10,8 @@ import { FormattedMessage, getTranslation } from "@common/i18n";
 import { UsedProjectIcons } from "./UsedProjectIcons";
 
 import { ExtensionsAndToolsWrapper, StyledGridUnit } from "./styled";
-
 import { CenteredLink } from "../styled";
+import config from "@config";
 
 const gt = getTranslation("landingPage.extensionsAndTools");
 
@@ -33,26 +33,26 @@ export const ExtensionsAndTools: React.FunctionComponent = () => (
           <FormattedMessage id={gt("extend.paragraph")}>
             {paragraph => <Paragraph justify={true}>{paragraph}</Paragraph>}
           </FormattedMessage>
-          <CenteredLink to="/docs/#overview-in-a-nutshell">
+          <CenteredLink to={config.links.DOCS_OVERVIEW_NUTSHELL}>
             <Button.Emphasized>
               <FormattedMessage id={gt("extend.readDocsButton")} />
             </Button.Emphasized>
           </CenteredLink>
         </StyledGridUnit>
         <StyledGridUnit df={6} lg={6} md={12} leftPadding={sidePadding}>
-          <FormattedMessage id={gt("rightTools.headline")}>
+          <FormattedMessage id={gt("tools.headline")}>
             {headline => (
               <H as="h2" center={true}>
                 {headline}
               </H>
             )}
           </FormattedMessage>
-          <FormattedMessage id={gt("rightTools.paragraph")}>
+          <FormattedMessage id={gt("tools.paragraph")}>
             {paragraph => <Paragraph justify={true}>{paragraph}</Paragraph>}
           </FormattedMessage>
-          <CenteredLink to="/docs/#details-components">
+          <CenteredLink to={config.links.DOCS_DETAILS_COMPONENTS}>
             <Button.Emphasized>
-              <FormattedMessage id={gt("rightTools.readDocsButton")} />
+              <FormattedMessage id={gt("tools.readDocsButton")} />
             </Button.Emphasized>
           </CenteredLink>
         </StyledGridUnit>

@@ -25,14 +25,14 @@ interface GridProps {
 
 export const StyledGridUnit = styled(Grid.Unit)<GridProps>`
   padding: 0
-    ${(pro: any) => (pro.rightPadding ? pro.rightPadding + "px" : "15px")} 0
-    ${(pro: any) => (pro.leftPadding ? pro.leftPadding + "px" : "15px")};
+    ${props => (props.rightPadding ? props.rightPadding + "px" : "15px")} 0
+    ${props => (props.leftPadding ? props.leftPadding + "px" : "15px")};
   ${media.tablet`
     padding: 0 15px;
   `};
 `;
 
-export const MakesSpecialSvgWrapper = styled.section`
+export const SvgWrapper = styled.section`
   padding: 30px 0;
   ${media.tablet`
     text-align: center;
@@ -44,7 +44,7 @@ export const MakesSpecialSvgWrapper = styled.section`
   flex-flow: row wrap;
 `;
 
-export const ProductIcon = styled.img`
+export const ProjectIcon = styled.img`
   max-width: 100%;
   margin: 10px;
   height: 70px;

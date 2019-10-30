@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { MakesSpecialSvgWrapper, ProductIcon } from "./styled";
+import { SvgWrapper, ProjectIcon } from "./styled";
 
 import KubernetesPNG from "../assets/make-special/kubernetes.png";
 import IstioSVG from "../assets/make-special/istio.svg";
@@ -43,7 +43,7 @@ const usedProjects: ProjectsShape[] = [
     src: PrometheusSVG,
     alt: "Prometheus logo",
   },
-  { to: "https://www.jaegertracing.io/", src: JeagerSVG, alt: "Jeager logo" },
+  { to: "https://www.jaegertracing.io/", src: JeagerSVG, alt: "Jaeger logo" },
   {
     to: "https://grafana.com/loki",
     src: LokiPNG,
@@ -78,11 +78,11 @@ const usedProjects: ProjectsShape[] = [
 ];
 
 export const UsedProjectIcons: FC = () => (
-  <MakesSpecialSvgWrapper>
+  <SvgWrapper>
     {usedProjects.map(({ src, to, alt }) => (
       <Link.External to={to} key={to}>
-        <ProductIcon src={src} alt={alt} />
+        <ProjectIcon src={src} alt={alt} />
       </Link.External>
     ))}
-  </MakesSpecialSvgWrapper>
+  </SvgWrapper>
 );
