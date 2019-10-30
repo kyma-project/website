@@ -10,7 +10,7 @@ redirectFrom:
   - "/blog/release-notes-17"
 ---
 
-Not much time has passed since the last stop in Munich, and yet we're already landing in India with the brand new Kyma 1.7 New Delhi release. There's no wonder we're moving around the globe so fast as the main focus in this release was put in extending Compass functionalities. Apart from that, the Helm Broker becomes more independent as a separate component, and there are also CLI and Security enhancements. Read on to learn more about the new features of Kyma 1.7.
+Not much time has passed since the last stop in Munich, and yet we're already landing in India with the brand new Kyma 1.7 New Delhi release. There's no wonder we're moving around the globe so fast as the main focus in this release was put on extending Compass functionalities. Apart from that, the Helm Broker becomes more independent as a separate component, and there are also CLI and Security enhancements. Read on to learn more about the new features in Kyma 1.7.
 
 <!-- overview -->
 
