@@ -114,7 +114,7 @@ export const HeaderWrapper = styled.header`
             &:before {
               background-size: 100% 500px;
               min-height: 500px;
-              top: -10vw;
+              top: -9.6vw;
             }
           `
         : ``}
@@ -127,7 +127,7 @@ export const HeaderWrapper = styled.header`
             &:before {
               background-size: 100% 500px;
               min-height: 500px;
-              top: -6.9vw;
+              top: -7vw;
             }
           `
         : css`
@@ -143,7 +143,7 @@ export const HeaderWrapper = styled.header`
       !props.horizontalBg
         ? css`
             &:before {
-              top: -4vw;
+              top: -3vw;
             }
           `
         : ``}
