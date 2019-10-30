@@ -40,7 +40,8 @@ export const HeaderWrapper = styled.header`
     props.horizontalBg ? "3vw" : ""};
 
   &:before {
-    transform: scale(1, 0.9);
+    ${(props: HeaderWrapperProps) =>
+      props.horizontalBg ? "" : "transform: scale(1, 0.9);"}
     content: " ";
     background: url(${(props: HeaderWrapperProps) =>
         props.horizontalBg ? HorizontalHeader : Header})
@@ -56,17 +57,23 @@ export const HeaderWrapper = styled.header`
 
   @media (max-width: 1200px) {
     &:before {
-      ${(props: HeaderWrapperProps) => !props.horizontalBg && "top: -8vw"};
+      ${(props: HeaderWrapperProps) =>
+        !props.horizontalBg &&
+        css`
+          top: -8vw;
+        `};
     }
   }
 
   @media (max-width: 1000px) {
     &:before {
-      top: ${(props: HeaderWrapperProps) => css`
+      top: ${(props: HeaderWrapperProps) => `
         ${props.horizontalBg ? "-12vw" : "-7vw"};
-        /* background-size: cover; */
-        background-position: top right;
       `};
+      background-position: ${(props: HeaderWrapperProps) =>
+        props.horizontalBg ? "center center" : "top right;"};
+      background-size: ${(props: HeaderWrapperProps) =>
+        props.horizontalBg ? "cover" : ""};
     }
   }
   @media (max-width: 750px) {
@@ -79,87 +86,93 @@ export const HeaderWrapper = styled.header`
     &:before {
       top: ${(props: HeaderWrapperProps) =>
         props.horizontalBg ? "-5vw" : "-4vw"};
-      background-size: 125% 35vw;
-      top: -4.5vw;
+      ${(pro: HeaderWrapperProps) =>
+        !pro.horizontalBg &&
+        css`
+          background-size: 125% 35vw;
+          top: -4.5vw;
+        `}
     }
   }
   @media (max-width: 376px) {
     &:before {
       min-height: ${(props: HeaderWrapperProps) =>
         props.horizontalBg ? "43vw" : "68vw"};
-      background-size: 120% 40vw;
-      top: -8.5vw;
+      ${(pro: HeaderWrapperProps) =>
+        !pro.horizontalBg &&
+        css`
+          background-size: 120% 40vw;
+          top: -8.5vw;
+        `}
     }
   }
 
   @media (min-width: 1200px) {
     ${(props: HeaderWrapperProps) =>
       !props.horizontalBg
-        ? `
-      &:before {
-        background-size: 100% 500px;
-        min-height: 500px;
-        top: -10vw;
-      }
-    `
+        ? css`
+            &:before {
+              background-size: 100% 500px;
+              min-height: 500px;
+              top: -10vw;
+            }
+          `
         : ``}
   }
 
   @media (min-width: 1400px) {
     ${(props: HeaderWrapperProps) =>
       !props.horizontalBg
-        ? `
-      &:before {
-        background-size: 100% 500px;
-        min-height: 500px;
-        top: -6.9vw;
-      }
-    `
-        : `
-      &:before {
-        top: -5vw;
-        min-height: 35vw;
-      }
-    `}
+        ? css`
+            &:before {
+              background-size: 100% 500px;
+              min-height: 500px;
+              top: -6.9vw;
+            }
+          `
+        : css`
+            &:before {
+              top: -5vw;
+              min-height: 35vw;
+            }
+          `}
   }
 
   @media (min-width: 1700px) {
     ${(props: HeaderWrapperProps) =>
       !props.horizontalBg
-        ? `
-      &:before {
-        
-        
-        top: -4vw;
-      }
-    `
+        ? css`
+            &:before {
+              top: -4vw;
+            }
+          `
         : ``}
   }
 
   @media (min-width: 2000px) {
     ${(props: HeaderWrapperProps) =>
       props.horizontalBg
-        ? `
-      &:before {
-        top: -7vw;
-        min-height: 35vw;
-      }
-    `
-        : `
-      &:before {
-        top: -2vw;
-      }
-    `}
+        ? css`
+            &:before {
+              top: -7vw;
+              min-height: 35vw;
+            }
+          `
+        : css`
+            &:before {
+              top: -2vw;
+            }
+          `}
   }
   @media (min-width: 2700px) {
     ${(props: HeaderWrapperProps) =>
       props.horizontalBg
-        ? `
-      &:before {
-        top: -9vw;
-        min-height: 35vw;
-      }
-    `
+        ? css`
+            &:before {
+              top: -9vw;
+              min-height: 35vw;
+            }
+          `
         : ""}
   }
 `;
