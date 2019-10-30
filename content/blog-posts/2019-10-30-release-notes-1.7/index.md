@@ -17,7 +17,7 @@ Not much time has passed since the last stop in Munich, and yet we're already la
 See the overview of all changes in this release:
 - [Compass](#compass) - Runtime Agent enhancements, Runtime Provisioner first implementation, Tenant Mapping Handler for requests validation, **Scenarios** view in the Console
 - [Service Management](#service-management) - Helm Broker v1.0.0 officially released
-- [Security](#security) - Support TLS certificate hot reload
+- [Security](#security) - Support for TLS certificate hot reload
 - [CLI](#cli) - Commands for provisioning Kubernetes clusters on GCP and Gardener
 
 
@@ -27,7 +27,7 @@ See the overview of all changes in this release:
 
 Compass Runtime Agent now uses Application names as custom resource names. This affects the way Applications are listed in the Kyma Console. No more pesky IDs - entries are named exactly the same as in the Compass Console!
 
-The second addition to the Runtime Agent involves labelling Runtimes. After successful connection, the Runtime Agent updates the Director with information on exposed endpoints of the Runtime, such as Event Service URL or Console URL.
+The second addition to the Runtime Agent involves labeling Runtimes. After a successful connection, the Runtime Agent updates the Director with information on exposed endpoints of the Runtime, such as Event Service URL or Console URL.
 
 ### Runtime Provisioner first implementation
 
@@ -35,7 +35,7 @@ The first implementation of the [Runtime Provisioner](https://kyma-project.io/do
 
 ### Tenant Mapping Handler for requests validation
 
-Since this release, the [Tenant Mapping Handler](https://github.com/kyma-incubator/compass/blob/master/docs/architecture/authentication-and-authorization.md#tenant-mapping-handler) validates requests that are coming to the Director. It modifies those requests by assigning them to tenants and scope. The authenticated users and systems can work only in the context of a given tenant and with given scopes.
+Starting with this release, the [Tenant Mapping Handler](https://github.com/kyma-incubator/compass/blob/master/docs/architecture/authentication-and-authorization.md#tenant-mapping-handler) validates requests incoming to the Director. It modifies those requests by assigning them to tenants and scopes. The authenticated users and systems can work only in the context of a given tenant and with given scopes.
 
 ### Scenarios view available in the Console
 
@@ -48,18 +48,18 @@ A new **Scenarios** view in the Compass Console shows Applications and Runtimes 
 
 ### Helm Broker v1.0.0 officially released!
 
-Some time ago, the Helm Broker was moved to the [separate repository](https://github.com/kyma-project/helm-broker). As the next step, we created a whole new release process for it, which is based on the Kubernetes release process. From now on, the Helm Broker will be released after implementation of every important feature.
+Some time ago, the Helm Broker was moved to the [separate repository](https://github.com/kyma-project/helm-broker). As the next step, we created a whole new release process for it, which is based on the Kubernetes release process. From now on, the Helm Broker will be released after every important feature implementation.
 
 
 ## Security
 
 ### Support TLS certificate hot reload
 
-Since this release, you don't have to manually restart applications to make them work with new TLS certificates. From now on, the IAM Kubeconfig Service provides KUBECONFIG configurations for users who have updated their certificates, and the API server proxy accepts requests that are made using `kubectl` with the new KUBECONFIG.
+Starting with this release, you don't have to manually restart Applications to make them work with new TLS certificates. From now on, the IAM Kubeconfig Service provides `kubeconfig` configurations for users who have updated their certificates, and the API Server Proxy accepts requests that are made using `kubectl` with the new `kubeconfig`.
 
 
 ## CLI
 
 ### Commands for provisioning Kubernetes clusters on GCP and Gardener
 
-We integrated the new [Hydroform](https://github.com/kyma-incubator/hydroform) library into the CLI. It allows you to provision Kubernetes clusters on GCP and Gardener in a convenient way. The command syntax is not stable yet due to ongoing process of  extending the provisioning logic to support more providers.
+We integrated the new [Hydroform](https://github.com/kyma-incubator/hydroform) library into the Kyma CLI. It allows for provisioning Kubernetes clusters on GCP and Gardener in a convenient way. Bear in mind that the command syntax is not stable yet due to the ongoing process of extending the provisioning logic to support more providers.
