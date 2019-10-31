@@ -14,7 +14,11 @@ export const TermynalStyles = styled.div`
  */
 
   /* @kyma-team: we made small changes to it to accomodate to our use */
+
   margin: 4px 0 10px 0;
+  @media (max-width: 1025px) {
+    margin: 10px 0 15px;
+  }
 
   [data-termynal] {
     max-width: 100%;
@@ -25,6 +29,9 @@ export const TermynalStyles = styled.div`
       monospace;
     border-radius: 4px;
     padding: 33px 45px 20px;
+    @media (max-width: 1025px) {
+      padding: 40px 45px 25px;
+    }
     position: relative;
     box-sizing: border-box;
   }
