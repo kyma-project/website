@@ -23,8 +23,6 @@ export const YoutubeWrapper = styled.section`
   `}
 
   > div {
-    box-shadow: 0 1px 26px 0 rgba(137, 165, 199, 0.42);
-
     position: relative;
     height: 0;
     overflow: hidden;
@@ -32,7 +30,6 @@ export const YoutubeWrapper = styled.section`
     padding-bottom: 56.25%;
     > iframe {
       border-radius: 3px;
-      /* border: 1px solid black; */
       position: absolute;
       top: 0;
       left: 0;
