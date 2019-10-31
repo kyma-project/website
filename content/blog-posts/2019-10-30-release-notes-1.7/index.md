@@ -69,7 +69,7 @@ We integrated the new [Hydroform](https://github.com/kyma-incubator/hydroform) l
 
 ### Known issues
 
-- [Default label preset for disabling Istio side-car injection is broken](https://github.com/kyma-project/console/issues/1352).
+- [Default label preset for disabling Istio side-car injection is broken](https://github.com/kyma-project/console/issues/1352)
     - In order to disable Istio side-car injection in your new Namespace, label it manually with the `istio-injection=disabled` label.
 
 ## Backup
