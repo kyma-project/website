@@ -20,6 +20,7 @@ See the overview of all changes in this release:
 - [Security](#security) - Support for TLS certificate hot reload
 - [CLI](#cli) - Commands for provisioning Kubernetes clusters on GCP and Gardener
 
+>**CAUTION:** Read about known issues for [Console](#console) and [Backup](#backup).
 
 ## Compass
 
@@ -76,4 +77,4 @@ We integrated the new [Hydroform](https://github.com/kyma-incubator/hydroform) l
 ### Known issues
 
 - [Eventing not working](https://github.com/kyma-project/kyma/issues/5942)
-    - See [this](https://kyma-project.io/docs/1.7/components/backup#troubleshooting-restore-troubleshooting-eventing-not-working) troubleshooting section to fix this issue.
+    - See [this](https://kyma-project.io/docs/1.7/components/backup#troubleshooting-restore-troubleshooting-eventing-not-working) troubleshooting section to fix the issue.
