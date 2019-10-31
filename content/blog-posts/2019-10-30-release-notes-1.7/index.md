@@ -63,3 +63,17 @@ Starting with this release, you don't have to manually restart Applications to m
 ### Commands for provisioning Kubernetes clusters on GCP and Gardener
 
 We integrated the new [Hydroform](https://github.com/kyma-incubator/hydroform) library into the Kyma CLI. It allows for provisioning Kubernetes clusters on GCP and Gardener in a convenient way. Bear in mind that the command syntax is not stable yet due to the ongoing process of extending the provisioning logic to support more providers.
+
+## Console
+
+### Known issues
+
+- [Default label preset for disabling Istio side-car injection is broken](https://github.com/kyma-project/console/issues/1352).
+    - In order to disable Istio side-car injection in your new Namespace, label it manually with the `istio-injection=disabled` label.
+
+## Backup
+
+### Known issues
+
+- [Eventing not working](https://github.com/kyma-project/kyma/issues/5942)
+    - See [this](https://kyma-project.io/docs/1.7/components/backup#troubleshooting-restore-troubleshooting-eventing-not-working) troubleshooting section to fix this issue.
