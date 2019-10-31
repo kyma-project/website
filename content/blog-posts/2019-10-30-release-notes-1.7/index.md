@@ -69,12 +69,10 @@ We integrated the new [Hydroform](https://github.com/kyma-incubator/hydroform) l
 
 ### Known issues
 
-- Default label preset for disabling Istio side-car injection is broken
-    - In order to disable Istio side-car injection in your new Namespace, label it manually with the `istio-injection=disabled` label. For more details, see [this](https://github.com/kyma-project/console/issues/1352) issue.
+The default label preset for disabling Istio side-car injection is [broken](https://github.com/kyma-project/console/issues/1352). In order to disable Istio side-car injection in a new Namespace, label it manually with the `istio-injection=disabled` label.
 
 ## Backup
 
 ### Known issues
 
-- Backup restore for Event Bus fails
-    - Read [this](https://kyma-project.io/docs/1.7/components/backup#troubleshooting-restore-troubleshooting-eventing-not-working) troubleshooting section for a workaround. For more details, see [this](https://github.com/kyma-project/kyma/issues/5942) issue.
+Backup restore for the Event Bus fails. See the details in [this](https://github.com/kyma-project/kyma/issues/5942) issue and read the [troubleshooting](https://kyma-project.io/docs/1.7/components/backup#troubleshooting-restore-troubleshooting-eventing-not-working) document for a workaround. 
