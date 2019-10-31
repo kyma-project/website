@@ -2,11 +2,8 @@
   "headline": "Extend your applications\nwith Kubernetes",
   "whatIs": {
     "headline": "What is Kyma?",
-    "paragraphs": [
-      "Kyma ",
-      "/kee-ma/",
-      " is a platform for extending applications with serverless functions and microservices. It provides a selection of cloud-native projects glued together to simplify the creation and management of extensions."
-    ],
+    "paragraph": "Kyma {spelling} is a platform for extending applications with serverless functions and microservices. It provides a selection of cloud-native projects glued together to simplify the creation and management of extensions.",
+    "spelling":"/kee-ma/",
     "installButton": "Install"
   },
   "extensionsAndTools": {
@@ -61,11 +58,11 @@
   },
   "newsroom": {
     "headline": "Newsroom",
-    "twitterHeader": "Tweets",
-    "twitterButton": "Check our Twitter",
-    "youtubeHeader": "YouTube channel",
-    "youtubeButton": "Check our videos",
+    "twitterHeader": "Twitter",
+    "twitterButton": "Check our tweets",
+    "youtubeHeader": "YouTube",
+    "youtubeButton": "Watch our videos",
     "lastBlogPostHeader": "Kyma blog",
-    "lastBlogPostButton": "Read more"
+    "lastBlogPostButton": "Read our posts"
   }
 }

@@ -10,29 +10,33 @@ import {
   SpellingOfText,
   YoutubeWrapper,
 } from "./styled";
-
 import { CenteredLink } from "../styled";
 import Button from "@components/shared/Button";
 
-import { FormattedMessage, getTranslation } from "@common/i18n";
+import {
+  FormattedMessage,
+  getTranslation,
+  injectIntl,
+  FunctionComponentIntl,
+} from "@common/i18n";
 
 const gt = getTranslation("landingPage.whatIs");
-const installDoc = `docs/root/kyma#installation-installation`;
 
-export const WhatIs: React.FunctionComponent = () => (
+const WhatIsRaw: FunctionComponentIntl = ({ formatMessage }) => (
   <StyledGridContainer as="section">
     <Grid.Row space={true}>
       <Grid.Unit df={6} lg={6} md={12} withoutMargin={true}>
         <ParagraphWrapper>
-          <FormattedMessage id={gt("paragraphs.0")}>
-            {paragraph => <Paragraph inline={true}>{paragraph}</Paragraph>}
-          </FormattedMessage>
-          <FormattedMessage id={gt("paragraphs.1")}>
-            {paragraph => <SpellingOfText>{paragraph}</SpellingOfText>}
-          </FormattedMessage>
-          <FormattedMessage id={gt("paragraphs.2")}>
-            {paragraph => <Paragraph inline={true}>{paragraph}</Paragraph>}
-          </FormattedMessage>
+          <FormattedMessage
+            id={gt("paragraph")}
+            values={{
+              spelling: (
+                <SpellingOfText>
+                  {formatMessage({ id: "whatIs.spelling" })}
+                </SpellingOfText>
+              ),
+            }}
+          />
         </ParagraphWrapper>
         <Termynal />
         <CenteredLink to={config.links.DOCS_INSTALLATION}>
@@ -49,3 +53,5 @@ export const WhatIs: React.FunctionComponent = () => (
     </Grid.Row>
   </StyledGridContainer>
 );
+
+export const WhatIs = injectIntl("landingPage")(WhatIsRaw);

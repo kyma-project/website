@@ -23,6 +23,8 @@ export const YoutubeWrapper = styled.section`
   `}
 
   > div {
+    box-shadow: 0 1px 26px 0 rgba(137, 165, 199, 0.42);
+
     position: relative;
     height: 0;
     overflow: hidden;
