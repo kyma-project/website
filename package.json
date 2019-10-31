@@ -21,7 +21,7 @@
     "k8s"
   ],
   "scripts": {
-    "start": "npm run clean && npm run develop:website",
+    "start": "npm run clean && npm run develop",
     "develop": "BUILD_FOR='website' gatsby develop --port 5000",
     "develop:preview:docs": "BUILD_FOR='docs-preview' gatsby develop --port 5000",
     "develop:preview:community": "BUILD_FOR='community-preview' gatsby develop --port 5000",

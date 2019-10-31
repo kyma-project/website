@@ -7,6 +7,7 @@ import Paragraph from "@components/shared/Paragraph";
 
 import { linkEffect } from "@styled/mixins";
 
+import MobileHeader from "./assets/HeaderForMobile.svg";
 import Header from "./assets/HeaderLandingPage.svg";
 import HorizontalHeader from "@static/img/blog-header.svg";
 import Footer from "@static/img/footer.svg";
@@ -85,25 +86,13 @@ export const HeaderWrapper = styled.header`
   @media (max-width: 575px) {
     &:before {
       top: ${(props: HeaderWrapperProps) =>
-        props.horizontalBg ? "-5vw" : "-4vw"};
-      ${(props: HeaderWrapperProps) =>
-        !props.horizontalBg &&
-        css`
-          background-size: 125% 35vw;
-          top: -4.5vw;
-        `}
+        props.horizontalBg ? "-5vw" : "0"};
     }
   }
   @media (max-width: 376px) {
     &:before {
       min-height: ${(props: HeaderWrapperProps) =>
         props.horizontalBg ? "43vw" : "68vw"};
-      ${(props: HeaderWrapperProps) =>
-        !props.horizontalBg &&
-        css`
-          background-size: 120% 40vw;
-          top: -8.5vw;
-        `}
     }
   }
 
@@ -143,7 +132,7 @@ export const HeaderWrapper = styled.header`
       !props.horizontalBg
         ? css`
             &:before {
-              top: -3vw;
+              top: -4vw;
             }
           `
         : ``}
@@ -160,7 +149,9 @@ export const HeaderWrapper = styled.header`
           `
         : css`
             &:before {
-              top: -2vw;
+              top: -7vw;
+              min-height: 35vw;
+              background-size: 100% 35vw;
             }
           `}
   }
@@ -170,10 +161,24 @@ export const HeaderWrapper = styled.header`
         ? css`
             &:before {
               top: -9vw;
-              min-height: 35vw;
             }
           `
         : ""}
+  }
+
+  /* we are using different header for mobile view, so that it looks nicer */
+  @media (max-width: 575px) {
+    &:before {
+      ${(props: HeaderWrapperProps) =>
+        !props.horizontalBg &&
+        css`
+          background: url(${MobileHeader}) no-repeat;
+          background-size: cover;
+          background-position: center center;
+          transform: none;
+          min-height: 68vw;
+        `};
+    }
   }
 `;
 
