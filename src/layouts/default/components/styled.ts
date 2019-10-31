@@ -7,7 +7,8 @@ import Paragraph from "@components/shared/Paragraph";
 
 import { linkEffect } from "@styled/mixins";
 
-import Header from "@static/img/header.svg";
+import MobileHeader from "./assets/HeaderForMobile.svg";
+import Header from "./assets/HeaderLandingPage.svg";
 import HorizontalHeader from "@static/img/blog-header.svg";
 import Footer from "@static/img/footer.svg";
 
@@ -40,6 +41,8 @@ export const HeaderWrapper = styled.header`
     props.horizontalBg ? "3vw" : ""};
 
   &:before {
+    ${(props: HeaderWrapperProps) =>
+      props.horizontalBg ? "" : "transform: scale(1, 0.9);"}
     content: " ";
     background: url(${(props: HeaderWrapperProps) =>
         props.horizontalBg ? HorizontalHeader : Header})
@@ -53,19 +56,31 @@ export const HeaderWrapper = styled.header`
     z-index: -1;
   }
 
+  @media (max-width: 1200px) {
+    &:before {
+      ${(props: HeaderWrapperProps) =>
+        !props.horizontalBg &&
+        css`
+          top: -8vw;
+        `};
+    }
+  }
+
   @media (max-width: 1000px) {
     &:before {
-      top: ${(props: HeaderWrapperProps) => css`
-        ${props.horizontalBg ? "-12vw" : "0"};
-        background-size: cover;
-        background-position: center center;
+      top: ${(props: HeaderWrapperProps) => `
+        ${props.horizontalBg ? "-12vw" : "-7vw"};
       `};
+      background-position: ${(props: HeaderWrapperProps) =>
+        props.horizontalBg ? "center center" : "top right;"};
+      background-size: ${(props: HeaderWrapperProps) =>
+        props.horizontalBg ? "cover" : ""};
     }
   }
   @media (max-width: 750px) {
     &:before {
       top: ${(props: HeaderWrapperProps) =>
-        props.horizontalBg ? "-7vw" : "0"};
+        props.horizontalBg ? "-7vw" : "-7vw"};
     }
   }
   @media (max-width: 575px) {
@@ -80,43 +95,90 @@ export const HeaderWrapper = styled.header`
         props.horizontalBg ? "43vw" : "68vw"};
     }
   }
+
+  @media (min-width: 1200px) {
+    ${(props: HeaderWrapperProps) =>
+      !props.horizontalBg
+        ? css`
+            &:before {
+              background-size: 100% 500px;
+              min-height: 500px;
+              top: -9.6vw;
+            }
+          `
+        : ``}
+  }
+
   @media (min-width: 1400px) {
     ${(props: HeaderWrapperProps) =>
       !props.horizontalBg
-        ? `
-      &:before {
-        background-size: 100% 500px;
-        min-height: 500px;
-      }
-    `
-        : `
-      &:before {
-        top: -5vw;
-        min-height: 35vw;
-      }
-    `}
+        ? css`
+            &:before {
+              background-size: 100% 500px;
+              min-height: 500px;
+              top: -7vw;
+            }
+          `
+        : css`
+            &:before {
+              top: -5vw;
+              min-height: 35vw;
+            }
+          `}
   }
+
+  @media (min-width: 1700px) {
+    ${(props: HeaderWrapperProps) =>
+      !props.horizontalBg
+        ? css`
+            &:before {
+              top: -4vw;
+            }
+          `
+        : ``}
+  }
+
   @media (min-width: 2000px) {
     ${(props: HeaderWrapperProps) =>
       props.horizontalBg
-        ? `
-      &:before {
-        top: -7vw;
-        min-height: 35vw;
-      }
-    `
-        : ""}
+        ? css`
+            &:before {
+              top: -7vw;
+              min-height: 35vw;
+            }
+          `
+        : css`
+            &:before {
+              top: -7vw;
+              min-height: 35vw;
+              background-size: 100% 35vw;
+            }
+          `}
   }
   @media (min-width: 2700px) {
     ${(props: HeaderWrapperProps) =>
       props.horizontalBg
-        ? `
-      &:before {
-        top: -9vw;
-        min-height: 35vw;
-      }
-    `
+        ? css`
+            &:before {
+              top: -9vw;
+            }
+          `
         : ""}
+  }
+
+  /* we are using different header for mobile view, so that it looks nicer */
+  @media (max-width: 575px) {
+    &:before {
+      ${(props: HeaderWrapperProps) =>
+        !props.horizontalBg &&
+        css`
+          background: url(${MobileHeader}) no-repeat;
+          background-size: cover;
+          background-position: center center;
+          transform: none;
+          min-height: 68vw;
+        `};
+    }
   }
 `;
 

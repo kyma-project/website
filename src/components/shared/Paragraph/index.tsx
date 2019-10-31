@@ -1,3 +1,11 @@
 import styled from "@styled";
 
-export default styled.p``;
+interface ParagraphProps {
+  inline?: boolean;
+  justify?: boolean;
+}
+
+export default styled.p<ParagraphProps>`
+  ${props => props.justify && "text-align: justify;"};
+  display: ${props => (props.inline ? "inline" : "block")};
+`;

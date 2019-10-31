@@ -28,11 +28,18 @@ export async function getAdopters(): Promise<Adopter[]> {
   const data = safeLoad(file) as { adopters: Adopter[] };
   const adopters = JSON.parse(JSON.stringify(data.adopters)) as Adopter[];
 
-  return adopters.map(adopter => ({
-    ...adopter,
-    logo: createLogoAssetPath(adopter.logo),
-    content: stripAdopterContent(adopter.content),
-  }));
+  return adopters.map(adopter => {
+    if (!adopter.websiteUrl) {
+      throw new Error(
+        "websiteUrl field must be provided in frontmatter object of case study.",
+      );
+    }
+    return {
+      ...adopter,
+      logo: createLogoAssetPath(adopter.logo),
+      content: stripAdopterContent(adopter.content),
+    };
+  });
 }
 
 function createLogoAssetPath(logo: string): string {

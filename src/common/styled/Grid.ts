@@ -33,7 +33,7 @@ const GridRow = styled.div`
   ${props =>
     props.direction &&
     `
-    direction: ${props.direction}
+    direction: ${props.direction};
     `}
 
   ${props =>
@@ -53,14 +53,8 @@ interface GridUnitProps {
   sm?: GridUnits;
   xs?: GridUnits;
   withoutPadding?: boolean;
+  withoutMargin?: boolean;
 }
-
-const defaultStyle = `
-    padding: 0 15px;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 15px;
-`;
 
 const gridUnitStyles = {
   0: `
@@ -121,7 +115,11 @@ const gridUnitStyles = {
 };
 
 const GridUnit = styled.div`
-  ${defaultStyle}
+  padding: 0 15px;
+  display: flex;
+  flex-direction: column;
+  ${(props: GridUnitProps) =>
+    props.withoutMargin ? "margin: 0;" : "margin-bottom: 15px;"}
   ${(props: GridUnitProps) => props.withoutPadding && "padding: 0;"}
   ${(props: GridUnitProps) => props.df && gridUnitStyles[props.df]}
 

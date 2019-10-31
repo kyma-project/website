@@ -38,13 +38,17 @@
       "icon": "youtube"
     }
   },
-  "youtubeVideos": ["wJzVWFGkiKk", "NI4cOWO9HnA"],
+  "newsroomYoutubeVideos": ["wJzVWFGkiKk", "NI4cOWO9HnA"],
+  "quickWalkthroughYoutubeVideo": "kP7mSELIxXw",
   "links": {
     "KYMA_REPOSITORY_LINK": "https://github.com/kyma-project/kyma",
     "SAP_PRIVACY_LINK": "https://www.sap.com/corporate/en/legal/privacy.html",
     "SIG_LINK": "https://github.com/kyma-project/community/blob/master/sig-and-wg/README.md",
     "GOOGLE_SITE_VERIFICATION": "qHt6OkQ1MXU5a4ZLlkLLPRB35ZOu_upyScm2O9Jf8PY",
-    "ADD_KYMA_USER": "https://github.com/kyma-project/website/blob/master/docs/add-user.md"
+    "ADD_KYMA_USER": "https://github.com/kyma-project/website/blob/master/docs/add-user.md",
+    "DOCS_OVERVIEW_NUTSHELL": "/docs/#overview-in-a-nutshell",
+    "DOCS_DETAILS_COMPONENTS": "/docs/#details-components",
+    "DOCS_INSTALLATION": "/docs/root/kyma#installation-installation"
   },
   "landingPage": {
     "ids": {

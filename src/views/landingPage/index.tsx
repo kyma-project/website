@@ -5,7 +5,7 @@ import { LandingPageContext } from "@typings/landingPage";
 
 import { Headline } from "./Headline";
 import { WhatIs } from "./WhatIs";
-import { MakeSpecial } from "./MakeSpecial";
+import { ExtensionsAndTools } from "./ExtensionsAndTools";
 import { Adopters } from "./Adopters";
 import { Newsroom } from "./Newsroom";
 
@@ -15,7 +15,7 @@ const LandingPageView: React.FunctionComponent<
   <>
     <Headline />
     <WhatIs />
-    <MakeSpecial />
+    <ExtensionsAndTools />
     <Newsroom latestBlogPosts={latestBlogPosts} />
     <Adopters adopters={adopters} />
   </>

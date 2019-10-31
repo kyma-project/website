@@ -60,7 +60,7 @@ export const Newsroom: React.FunctionComponent<Props> = ({
             iconName={config.socialMedia.youTube.icon}
             link={config.socialMedia.youTube.url}
           >
-            <YouTubeFrame videos={config.youtubeVideos} />
+            <YouTubeFrame videos={config.newsroomYoutubeVideos} />
           </Card>
         </Grid.Unit>
       </Grid.Row>

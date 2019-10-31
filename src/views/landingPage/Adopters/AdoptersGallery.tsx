@@ -141,7 +141,7 @@ export const AdoptersGallery: React.FunctionComponent<Props> = ({
   };
 
   const adoptersList = adopters.map(adopter => (
-    <AdoptersItem key={adopter.url} {...adopter} />
+    <AdoptersItem key={adopter.websiteUrl} {...adopter} />
   ));
 
   const leftNavButton = state.hideNav ? null : (
