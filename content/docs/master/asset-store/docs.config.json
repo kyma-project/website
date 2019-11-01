@@ -1,0 +1,31 @@
+{
+  "spec":{
+    "id":"asset-store",
+    "displayName":"Asset Store",
+    "description":"Overall documentation for Asset Store",
+    "type":"Components"
+  },
+  "specifications": [
+    {
+      "type": "openapi",
+      "id": "asset-metadata-service-openapi",
+      "assetPath": "asset-metadata-service-openapi.yaml",
+      "githubUrl": "https://github.com/kyma-project/kyma/blob/master/docs/asset-store/assets/asset-metadata-service-openapi.yaml"
+    },
+    {
+      "type": "openapi",
+      "id": "asset-upload-service-openapi",
+      "assetPath": "asset-upload-service-openapi.yaml"
+    },
+    {
+      "type": "openapi",
+      "id": "mutation-service",
+      "assetPath": "mutation-service.yaml"
+    },
+    {
+      "type": "openapi",
+      "id": "validation-service",
+      "assetPath": "validation-service.yaml"
+    }
+  ]
+}
