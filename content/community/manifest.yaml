@@ -2,9 +2,6 @@ spec:
   get-started:
     - displayName: Get started
       id: get-started
-  contributing:
-    - displayName: Contributing
-      id: contributing
   guidelines:
     - displayName: Content
       id: content

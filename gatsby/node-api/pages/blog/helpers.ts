@@ -3,6 +3,7 @@ import { GraphQLFunction } from "../../../types";
 
 export const getPosts = async (
   graphql: GraphQLFunction,
+  size?: number,
 ): Promise<PostGQL[]> => {
   const result = await graphql(`
     {
@@ -45,15 +46,9 @@ export const getPosts = async (
     throw new Error(result.errors);
   }
 
-  return result.data.allMarkdownRemark.edges
+  const posts = result.data.allMarkdownRemark.edges
     .map((e: any) => e.node)
     .filter((node: any) => !!node.fields.date) as PostGQL[];
-};
 
-export const getNPosts = async (
-  graphql: GraphQLFunction,
-  size: number,
-): Promise<PostGQL[]> => {
-  const posts = await getPosts(graphql);
-  return posts.slice(0, size);
+  return size ? posts.slice(0, size) : posts;
 };
