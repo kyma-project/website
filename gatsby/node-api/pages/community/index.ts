@@ -4,6 +4,7 @@ import {
   prepareData,
   prepareWebsitePaths,
   preparePreviewPaths,
+  addCommunityPrefixInInternalLinks,
 } from "./helpers";
 import { CreatePageFn, GraphQLFunction } from "../../../types";
 
@@ -37,8 +38,13 @@ export const createCommunityPages = async ({
         topic,
       });
 
+      let sources = content[docsType][topic];
+      if (buildFor !== BuildFor.COMMUNITY_PREVIEW) {
+        sources = addCommunityPrefixInInternalLinks(sources);
+      }
+
       const context = {
-        content: content[docsType][topic],
+        content: sources,
         navigation,
         manifest,
         assetsPath,

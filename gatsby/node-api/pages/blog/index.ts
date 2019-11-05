@@ -12,14 +12,18 @@ export interface CreateBlogPages {
   graphql: GraphQLFunction;
   createPage: CreatePageFn;
   createRedirect: CreateRedirectFn;
+  options?: {
+    numberOfLatestPosts?: number;
+  };
 }
 
 export const createBlogPages = async ({
   graphql,
   createPage,
   createRedirect,
+  options,
 }: CreateBlogPages) => {
-  const posts = await getPosts(graphql);
+  const posts = await getPosts(graphql, options && options.numberOfLatestPosts);
 
   createRootPage({ createPage, createRedirect, posts });
   createSingleBlogPost({ createPage, createRedirect, posts });

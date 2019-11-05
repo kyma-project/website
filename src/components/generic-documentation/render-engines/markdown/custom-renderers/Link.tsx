@@ -81,9 +81,6 @@ export const Link: React.FunctionComponent<LinkProps> = ({
     );
   }
 
-  if (layout === LayoutType.COMMUNITY) {
-    href = `community/${href.startsWith("/") ? href.substring(1) : href}`;
-  }
   return (
     <L.Internal to={href} underline={true}>
       {children}

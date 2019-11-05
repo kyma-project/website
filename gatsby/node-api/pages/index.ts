@@ -43,7 +43,12 @@ const createWebsitePreviewPages = async ({
 
   await createLandingPages({ graphql, createPage, createRedirect });
   await createPageNotFound({ createPage, createRedirect });
-  await createBlogPages({ graphql, createPage, createRedirect });
+  await createBlogPages({
+    graphql,
+    createPage,
+    createRedirect,
+    options: { numberOfLatestPosts: 4 },
+  });
   await createDocsPages({ graphql, createPage, buildFor: BuildFor.WEBSITE });
   await createCommunityPages({
     graphql,
