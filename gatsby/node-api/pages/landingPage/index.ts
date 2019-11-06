@@ -6,7 +6,7 @@ import {
   CreateRedirectFn,
 } from "../../../types";
 import { createLandingPage, getAdopters } from "./helpers";
-import { getNPosts } from "../blog/helpers";
+import { getPosts } from "../blog/helpers";
 
 export interface CreateLandingPagesArgs {
   graphql: GraphQLFunction;
@@ -20,7 +20,7 @@ export const createLandingPages = async ({
   createRedirect,
 }: CreateLandingPagesArgs) => {
   const adopters = await getAdopters();
-  const latestBlogPosts = await getNPosts(graphql, 4);
+  const latestBlogPosts = await getPosts(graphql, 4);
   const context = {
     adopters,
     latestBlogPosts,

@@ -10,14 +10,15 @@
 	prepare-content-docs-preview \
 	prepare-content-community-preview \
 	build-prod \
+	build-website-preview \
 	build-docs-preview \
 	build-community-preview \
 	prepare-functions
 
-netlify-deploy-preview: clear-cache validate test prepare-content-website build-prod prepare-functions
 netlify-production: clear-cache prepare-content-website build-prod prepare-functions
-netlify-docs-preview: clear-cache resolve prepare-content-docs-preview build-docs-preview
-netlify-community-preview: clear-cache resolve prepare-content-community-preview build-community-preview
+netlify-deploy-preview: validate test build-website-preview
+netlify-docs-preview: resolve prepare-content-docs-preview build-docs-preview
+netlify-community-preview: resolve prepare-content-community-preview build-community-preview
 
 clear-cache:
 	make -C "./tools/content-loader" clear-cache
@@ -28,8 +29,8 @@ resolve:
 validate:
 	npm run conflict-check
 	npm run lint-check
-	npm run markdownlint
 	npm run type-check
+	npm run markdownlint
 
 test:
 	npm run test
@@ -53,6 +54,9 @@ endif
 
 build-prod:
 	npm run build:prod
+
+build-website-preview:
+	npm run build:preview
 
 build-docs-preview:
 	npm run build:preview:docs

@@ -12,6 +12,7 @@ export interface PreviewPageContext {
 
 export enum BuildFor {
   WEBSITE = "website",
+  WEBSITE_PREVIEW = "website-preview",
   DOCS_PREVIEW = "docs-preview",
   COMMUNITY_PREVIEW = "community-preview",
 }

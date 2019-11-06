@@ -34,6 +34,30 @@ const createWebsitePages = async ({
   await createRoadmapPages({ graphql, createPage, createRedirect });
 };
 
+const createWebsitePreviewPages = async ({
+  graphql,
+  actions: { createRedirect, ...otherActions },
+}: CreatePagesArgs) => {
+  let createPage = createIntlPage(otherActions.createPage, createRedirect);
+  createPage = addToContextSlidesBanner(createPage, extractSlidesBanner());
+
+  await createLandingPages({ graphql, createPage, createRedirect });
+  await createPageNotFound({ createPage, createRedirect });
+  await createBlogPages({
+    graphql,
+    createPage,
+    createRedirect,
+    options: { numberOfLatestPosts: 4 },
+  });
+  await createDocsPages({ graphql, createPage, buildFor: BuildFor.WEBSITE });
+  await createCommunityPages({
+    graphql,
+    createPage,
+    buildFor: BuildFor.WEBSITE,
+  });
+  await createRoadmapPages({ graphql, createPage, createRedirect });
+};
+
 const createDocsPreviewPages = async ({
   graphql,
   actions: { createRedirect, ...otherActions },
@@ -66,6 +90,10 @@ export const createPages = async (createPagesArgs: CreatePagesArgs) => {
   switch (process.env.BUILD_FOR) {
     case BuildFor.WEBSITE: {
       await createWebsitePages(createPagesArgs);
+      return;
+    }
+    case BuildFor.WEBSITE_PREVIEW: {
+      await createWebsitePreviewPages(createPagesArgs);
       return;
     }
     case BuildFor.DOCS_PREVIEW: {

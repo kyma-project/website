@@ -5,6 +5,7 @@ import {
   DocsGeneratorReturnType,
   getContent,
   DocsContentDocs,
+  DocsContentItem,
 } from "../utils";
 import {
   DOCS_DIR,
@@ -118,4 +119,43 @@ export const preparePreviewPaths = ({
     pagePath,
     rootPagePath,
   };
+};
+
+export const addCommunityPrefixInInternalLinks = (
+  content: DocsContentItem,
+): DocsContentItem => {
+  const MD_LINKS_REGEX = /\[([^\[]+)\]\(([^\)]+)\)/g;
+
+  content.docs = content.docs.map(doc => ({
+    ...doc,
+    source: doc.source.replace(MD_LINKS_REGEX, occurrence => {
+      MD_LINKS_REGEX.lastIndex = 0;
+      const href = MD_LINKS_REGEX.exec(occurrence);
+
+      if (!href || !href[2]) {
+        return occurrence;
+      }
+
+      const h = href[2];
+
+      if (
+        h.startsWith("http") ||
+        h.startsWith("./assets") ||
+        h.startsWith("assets") ||
+        h.startsWith("#")
+      ) {
+        return occurrence;
+      }
+
+      occurrence = occurrence.replace(h, oldHref =>
+        oldHref.startsWith("/")
+          ? `/community${oldHref}`
+          : `/community/${oldHref}`,
+      );
+
+      return occurrence;
+    }),
+  }));
+
+  return content;
 };

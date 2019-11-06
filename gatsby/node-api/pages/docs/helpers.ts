@@ -26,6 +26,7 @@ import {
   CreatePageFn,
   CreatePageFnArgs,
 } from "../../../types";
+import { BuildFor } from "../../../../src/types/common";
 
 export const createDocsPage = (
   createPage: CreatePageFn,
@@ -50,9 +51,10 @@ export const createDocsPage = (
 
 interface PrepareDataArgs {
   graphql: GraphQLFunction;
+  buildFor: BuildFor;
 }
 
-export const prepareData = async ({ graphql }: PrepareDataArgs) => {
+export const prepareData = async ({ graphql, buildFor }: PrepareDataArgs) => {
   const versions = getDocsVersions(
     require("../../../../content/docs/versions"),
   );
@@ -60,7 +62,7 @@ export const prepareData = async ({ graphql }: PrepareDataArgs) => {
     console.error("No docs versions found");
     return;
   }
-  const latestVersion = checkLatestVersion(versions);
+  const latestVersion = getLatestVersion(versions);
 
   const docs = await getContent<DocGQL>(
     graphql,
@@ -72,8 +74,23 @@ export const prepareData = async ({ graphql }: PrepareDataArgs) => {
       fileName
     }`,
   );
-
   const docsArch: { [version: string]: DocsGeneratorReturnType } = {};
+
+  if (buildFor === BuildFor.DOCS_PREVIEW) {
+    docsArch[""] = docsGenerator<DocGQL>(
+      docs,
+      "docs",
+      extractDocsFn(latestVersion),
+      latestVersion,
+    );
+
+    return {
+      versions,
+      latestVersion,
+      docsArch,
+    };
+  }
+
   for (const versionType in versions) {
     if (!versions.hasOwnProperty(versionType)) {
       continue;
@@ -111,7 +128,7 @@ const getDocsVersions = (versions: DocsGeneratedVersions): DocsVersions => {
   return versionsByType;
 };
 
-const checkLatestVersion = (versions: DocsVersions): string => {
+const getLatestVersion = (versions: DocsVersions): string => {
   if (versions.releases && versions.releases.length) {
     return versions.releases[0];
   }

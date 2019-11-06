@@ -9,15 +9,7 @@ import {
   preparePreviewPaths,
 } from "./helpers";
 import { DocsNavigation } from "../utils";
-import {
-  DOCS_DIR,
-  ASSETS_DIR,
-  DOCS_PATH_PREFIX,
-  DOCS_LATEST_VERSION,
-  DOCS_SPECIFICATIONS_PATH,
-} from "../../../constants";
 import { CreatePageFn, GraphQLFunction } from "../../../types";
-
 import { BuildFor } from "../../../../src/types/common";
 
 export interface CreateDocsPages {
@@ -36,7 +28,7 @@ export const createDocsPages = async ({
       ? preparePreviewPaths
       : prepareWebsitePaths;
 
-  const preparedData = await prepareData({ graphql });
+  const preparedData = await prepareData({ graphql, buildFor });
   if (!preparedData) {
     return;
   }
