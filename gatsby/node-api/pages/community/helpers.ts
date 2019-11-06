@@ -141,7 +141,8 @@ export const addCommunityPrefixInInternalLinks = (
       if (
         h.startsWith("http") ||
         h.startsWith("./assets") ||
-        h.startsWith("assets")
+        h.startsWith("assets") ||
+        h.startsWith("#")
       ) {
         return occurrence;
       }
