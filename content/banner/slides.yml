@@ -1,6 +1,10 @@
 bannerDuration: 5000
 slides:
-  - text: "Don't miss the session by Lukasz Gornicki at ASC on October 17 at 14:00PST"
-    url: "https://asc2019.sched.com/event/TUmg/specifications-in-the-core-of-the-extensibility-lukasz-gornicki-sap"
-    startDate: "13/10/2019"
-    endDate: "17/10/2019"
+  - text: "Our own, Mateusz Szostok has two sessions at KubeCon around K8s Service Catalog"
+    url: "https://kccncna19.sched.com/event/UaiQ/intro-to-sig-service-catalog-jonathan-berkhahn-ibm-mateusz-szostok-sap"
+    startDate: "13/11/2019"
+    endDate: "21/11/2019"
+  - text: "Mateusz Szostok, Piotr Kopczynski, Pawel Kosiec and Lukasz Gornicki have several talks at San Diego Cloud Native Computing Meetup"
+    url: "https://www.meetup.com/San-Diego-Cloud-Native-Computing-Meetup/events/265108857/"
+    startDate: "13/11/2019"
+    endDate: "26/11/2019"
