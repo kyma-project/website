@@ -26,7 +26,7 @@ See the overview of all changes in this release:
 - [Service Mesh](#service-mesh) - Istio upgraded to 1.3.5
 
 
->**CAUTION:** Read about [Known Issues](#known-issues) section for information about problems with Kyma instances installed on Gardener-provisioned clusters.
+>**CAUTION:** Read the [Known Issues](#known-issues) section for information about problems with Kyma instances installed on Gardener-provisioned clusters.
 
 
 ## CLI
