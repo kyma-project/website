@@ -31,7 +31,7 @@ See the overview of all changes in this release:
 
 ## CLI
 
-### More user friendly testing with the CLI
+### More user-friendly testing with the CLI
 
 To make testing Kyma more user-friendly, the `kyma test run` command now supports a `watch` option that gives you a better look at the currently running test suite which is useful not only for manually triggered tests but also for CI pipelines. This information includes the number of tests that already ran, the number of remaining tests and a counter of tests that succeeded, failed or were skipped. Additionally, the new a `kyma test logs` command allows you to get the logs of all executed tests.
 
@@ -82,7 +82,7 @@ This release we have added possibility to delegate user authentication to SAP Cl
 
 ### Monitoring API Server Proxy
 
-In this release we have started working on monitoring of the API Server Proxy. For now we enabled Golang metrics with visualization using Grafana dashboards. We will continue working on the feature in the upcoming release.
+In this release, we have started working on monitoring of the API Server Proxy. For now we enabled Golang metrics with visualization using Grafana dashboards. We will continue working on the feature in the upcoming release.
 
 ### Monitoring OAuth2 controllers
 
@@ -108,7 +108,7 @@ Starting from this release, deleting a ServiceInstance removes all corresponding
 
 ### Istio upgraded to 1.3.5
 
-Kyma 1.8 is running on Istio 1.3.5! After a long journey we have finally managed to upgrade from 1.2.7. Upgraded Istio comes with fixes in the Secret Discovery Service which resolve some of the stability issues.  
+Kyma 1.8 is running on Istio 1.3.5! After a long journey, we have finally managed to upgrade from 1.2.7. Upgraded Istio comes with fixes in the Secret Discovery Service which resolve some of the stability issues.  
 
 Additionally, we introduced a major improvement in the Istio Gateway definition by splitting it into multiple, separate gateways. With this change, Kyma Core can be installed and accessed without dependencies to any other charts. Prior to this change, if a chart that contained a dependency, such as the Application Connector, was not installed, the communication with the cluster failed with code `503` errors. This was caused by the act that the single gateway contained host definitions for all charts, even those that were not installed. This is yet another great step we make towards a more modular Kyma.
 
