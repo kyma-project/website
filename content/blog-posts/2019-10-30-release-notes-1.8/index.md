@@ -10,7 +10,7 @@ redirectFrom:
   - "/blog/release-notes-18"
 ---
 
-With winter right around the corner, we're taking a Nordic stop at our exciting one-city one-release journey. Like clockwork, four weeks after visiting New Dehli, we're calling at a port in Oslo to take in the views and feel Kyma 1.8-infused Hygge. With enhanced Compass Provisioner, improvements to the CLI, Istio upgrade, and more, Kyma 1.8 Oslo is as solid as a Norwegian biathlete. Read on to learn more about the new features in Kyma 1.8.
+With winter right around the corner, we're taking a Nordic stop at our exciting one-city one-release journey. Like clockwork, four weeks after visiting New Dehli, we're calling at a port in Oslo to take in the views and feel Kyma 1.8-infused hygge. With enhanced Compass Provisioner, improvements to the CLI, Istio upgrade, and more, Kyma 1.8 Oslo is as solid as a Norwegian biathlete. Read on to learn more about the new features in Kyma 1.8.
 
 
 <!-- overview -->
@@ -33,18 +33,18 @@ See the overview of all changes in this release:
 
 ### More user-friendly testing with the CLI
 
-To make testing Kyma more user-friendly, the `kyma test run` command now supports a `watch` option that gives you a better look at the currently running test suite which is useful not only for manually triggered tests but also for CI pipelines. This information includes the number of tests that already ran, the number of remaining tests and a counter of tests that succeeded, failed or were skipped. Additionally, the new a `kyma test logs` command allows you to get the logs of all executed tests.
+To make testing Kyma more user-friendly, the `kyma test run` command now supports a `watch` option that gives you a better look at the currently running test suite which is useful not only for manually triggered tests but also for CI pipelines. The output includes the number of tests that already ran, the number of remaining tests and a counter of tests that succeeded, failed or were skipped. Additionally, the new `kyma test logs` command allows you to get the logs of all executed tests.
 
 ### Decoupled provision command
 
-The Terraform-based `kyma provision gke` and `kyma provision gardener` commands are now decoupled from any any cloud provider-specific dependencies and rely only on Terraform dependencies. This change lays groundwork for adding support for Azure AKS in the near future.
+The Terraform-based `kyma provision gcp` and `kyma provision gardener` commands are now decoupled from any cloud provider-specific dependencies and rely only on Terraform dependencies. This change lays the groundwork for adding support for Azure AKS in the near future.
 
 
 ## Compass
 
 ### Runtime Provisioner supports Gardener on Azure and AWS
 
-The capabilities of the [Runtime Provisioner](https://kyma-project.io/docs/1.7/components/compass/#architecture-components-runtime-provisioner) were extended - we've added support for provisioning Gardener clusters on Azure and AWS. Due to broadening capabilities of the Provisioner, we also changed the API a bit - cluster config is now passed in a more generic way, which allows for easier integration with a variety of Hyperscalers.
+The capabilities of the [Runtime Provisioner](https://kyma-project.io/docs/1.7/components/compass/#architecture-components-runtime-provisioner) were extended - we've added support for provisioning Gardener clusters on Azure and AWS. Due to broadening capabilities of the Provisioner, we also changed the API a bit - the cluster config is now passed in a more generic way, which allows for easier integration with various Hyperscalers.
 
 ### Connect with Remote Application from Cockpit
 
@@ -59,7 +59,7 @@ The Scenario Details view has been fixed and doesn't crash anymore.
 
 ### Fixes, fixes, fixes
 
-In Kyma 1.8 the Console received two important fixes. One improves the performance of the **Namespace** view which now uses websockets which makes for a smoother experience and reduces cluster load.
+In Kyma 1.8 the Console received two important fixes. One improves the performance of the **Namespace** view which now uses websockets, allowing for a smoother experience and reduced cluster load.
 We also worked to fix Deployment editing through the UI and we're happy to announce that you can edit Deployments through the Console to your heart's content, crash-free!
 
 
@@ -71,7 +71,7 @@ We tweaked and provided many minor improvements in Application Connector's docum
 
 ### Runtime Provisioner examples
 
-First iteration of the Provisioner examples is here! We have created a few tutorials that will guide you through the whole process of cluster actions - from provisioning to cluster deletion and cleanup of Runtime data.
+The first iteration of Provisioner examples is here! We have created a few tutorials that will guide you through the whole process of cluster actions - from provisioning to cluster deletion and cleanup of Runtime data.
 
 
 ## Security
@@ -100,7 +100,7 @@ We fixed a memory leak in the publishing component of the Event Bus that could c
 
 ### Service Catalog with cascading ServiceBinding deletion
 
-Starting from this release, deleting a ServiceInstance removes all corresponding ServiceBindings. As a result, the user does not need to delete ServiceBindings manually.
+Starting from this release, deleting a ServiceInstance removes all corresponding ServiceBindings. As a result, you don't need to delete ServiceBindings manually.
 
 
 
@@ -110,10 +110,10 @@ Starting from this release, deleting a ServiceInstance removes all corresponding
 
 Kyma 1.8 is running on Istio 1.3.5! After a long journey, we have finally managed to upgrade from 1.2.7. Upgraded Istio comes with fixes in the Secret Discovery Service which resolve some of the stability issues.  
 
-Additionally, we introduced a major improvement in the Istio Gateway definition by splitting it into multiple, separate gateways. With this change, Kyma Core can be installed and accessed without dependencies to any other charts. Prior to this change, if a chart that contained a dependency, such as the Application Connector, was not installed, the communication with the cluster failed with code `503` errors. This was caused by the act that the single gateway contained host definitions for all charts, even those that were not installed. This is yet another great step we make towards a more modular Kyma.
+Additionally, we introduced a major improvement in the Istio Gateway definition by splitting it into multiple, separate gateways. With this change, you can install and access Kyma Core without depending on any other charts. Prior to this change, if a chart that contained a dependency, such as the Application Connector, was not installed, the communication with the cluster failed with code `503` errors. This was caused by the single gateway containing host definitions for all charts, even those that were not installed. This is yet another great step we make towards a more modular Kyma.
 
 ## Known Issues
 
-### Problems with Kyma running on Gardener
+### Issues with Kyma running on Gardener
 
 We have identified problems with Kyma instances installed on clusters provisioned through Gardener. The root cause of these problems seems to be Istio, namely the networking and RBAC elements of our service mesh. We're actively working to resolve these problems. Use [this](https://github.com/kyma-project/kyma/issues/6330) GitHub issue to track our progress.
