@@ -10,7 +10,7 @@ redirectFrom:
   - "/blog/release-notes-18"
 ---
 
-With winter right around the corner, we're taking a Nordic stop at our exciting one-city one-release journey. Like clockwork, four weeks after visiting New Dehli, we're calling at a port in Oslo to take in the views and feel Kyma 1.8-infused *hygge*. With enhanced Compass Provisioner, improvements to the CLI, Istio upgrade, and more, Kyma 1.8 Oslo is as solid as a Norwegian biathlete. Read on to learn more about the new features in Kyma 1.8.
+With winter right around the corner, we're taking a Nordic stop at our exciting one-city one-release journey. Like clockwork, four weeks after visiting New Delhi, we're calling at a port in Oslo to take in the views and feel Kyma 1.8-infused *hygge*. With enhanced Compass Provisioner, improvements to the CLI, Istio upgrade, and more, Kyma 1.8 Oslo is as solid as a Norwegian biathlete. Read on to learn more about the new features in Kyma 1.8.
 
 
 <!-- overview -->
