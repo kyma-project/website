@@ -46,9 +46,9 @@ The Terraform-based `kyma provision gcp` and `kyma provision gardener` commands 
 
 The capabilities of the [Runtime Provisioner](https://kyma-project.io/docs/1.8/components/compass/#architecture-components-runtime-provisioner) were extended - we've added support for provisioning Gardener clusters on Azure and AWS. Due to broadening capabilities of the Provisioner, we also changed the API a bit - the cluster config is now passed in a more generic way, which allows for easier integration with various Hyperscalers.
 
-### Connect with Remote Application from Cockpit
+### Connect with Applications from Cockpit
 
-Connecting with Remote Applications now doesn't require using the CLI. You can get the connection token by clicking **Connect** on the Application Details page.
+Connecting with Applications now doesn't require using the CLI. You can get the connection token by clicking **Connect** on the Application Details page.
 
 ### Fixed Scenario Details view
 
@@ -74,13 +74,11 @@ We tweaked and provided many minor improvements in Application Connector's docum
 The first iteration of Provisioner examples is here! We have created a few tutorials that will guide you through the whole process of cluster actions - from provisioning to cluster deletion and cleanup of Runtime data. See the new tutorials [here](https://kyma-project.io/docs/1.8/components/security/#tutorials-update-tls-certificate).
 
 
-
-
 ## Security
 
 ### XSUAA connector in Kyma
 
-This release we have added possibility to delegate user authentication to SAP Cloud Platform XSUAA. To allow this, Dex now supports a new type of connector, called `xsuaa`. Our documentation shows how to configure an XSUAA connector for Dex. For more details, read [this](https://kyma-project.io/docs/components/compass/#tutorials-tutorials) document.
+This release we have added the possibility to delegate user authentication to SAP Cloud Platform XSUAA. To allow this, Dex now supports a new type of connector, called `xsuaa`. Our documentation shows how to configure an XSUAA connector for Dex. For more details, read [this](https://kyma-project.io/docs/components/compass/#tutorials-tutorials) document.
 
 ### Monitoring API Server Proxy
 
@@ -105,7 +103,6 @@ We fixed a memory leak in the publishing component of the Event Bus that could c
 Starting from this release, deleting a ServiceInstance removes all corresponding ServiceBindings. As a result, you don't need to delete ServiceBindings manually.
 
 
-
 ## Service mesh
 
 ### Istio upgraded to 1.3.5
@@ -113,6 +110,7 @@ Starting from this release, deleting a ServiceInstance removes all corresponding
 Kyma 1.8 is running on Istio 1.3.5! After a long journey, we have finally managed to upgrade from 1.2.7. Upgraded Istio comes with fixes in the Secret Discovery Service which resolve some of the stability issues.
 
 Additionally, we introduced a major improvement in the Istio Gateway definition by splitting it into multiple, separate gateways. With this change, you can install and access Kyma Core without depending on any other charts. Prior to this change, if a chart that contained a dependency, such as the Application Connector, was not installed, the communication with the cluster failed with code `503` errors. This was caused by the single gateway containing host definitions for all charts, even those that were not installed. This is yet another great step we make towards a more modular Kyma.
+
 
 ## Known Issues
 
