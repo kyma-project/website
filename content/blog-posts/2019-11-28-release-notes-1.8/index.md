@@ -16,7 +16,7 @@ With winter right around the corner, we're taking a Nordic stop at our exciting 
 <!-- overview -->
 
 See the overview of all changes in this release:
-- [CLI](#cli) - More user friendly testing with the CLI, `provision` command with less dependencies
+- [CLI](#cli) - More user-friendly testing with the CLI, `provision` command with fewer dependencies
 - [Compass](#compass) - Runtime provisioner supports Gardener on Azure and AWS, connecting with Remote Applications from Cockpit, Scenario Details view fixed
 - [Console](#console) - Websockets in **Namespaces** view for improved performance, fixed Deployment editing
 - [Documentation](#documentation) - Application Connector documentation revisited, comprehensive examples for the Runtime Provisioner
