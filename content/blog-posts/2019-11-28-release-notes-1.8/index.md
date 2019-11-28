@@ -59,7 +59,7 @@ The Scenario Details view has been fixed and doesn't crash anymore.
 
 ### Fixes, fixes, fixes
 
-In Kyma 1.8 the Console received two important fixes. One improves the performance of the **Namespace** view which now uses websockets, allowing for a smoother experience and reduced cluster load.
+In Kyma 1.8 the Console received two important fixes. One improves the performance of the **Namespaces** view which now uses websockets, allowing for a smoother experience and reduced cluster load.
 We also worked to fix Deployment editing through the UI and we're happy to announce that you can edit Deployments through the Console to your heart's content, crash-free!
 
 
