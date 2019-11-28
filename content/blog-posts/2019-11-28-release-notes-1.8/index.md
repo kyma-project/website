@@ -78,7 +78,7 @@ The first iteration of Provisioner examples is here! We have created a few tutor
 
 ### XSUAA connector in Kyma
 
-This release we have added the possibility to delegate user authentication to SAP Cloud Platform XSUAA. To allow this, Dex now supports a new type of connector, called `xsuaa`. Our documentation shows how to configure an XSUAA connector for Dex. For more details, read [this](https://kyma-project.io/docs/components/compass/#tutorials-tutorials) document.
+This release we have added the possibility to delegate user authentication to SAP Cloud Platform XSUAA. To allow this, Dex now supports a new type of connector, called `xsuaa`. Our documentation shows how to configure an XSUAA connector for Dex. For more details, read [this](https://kyma-project.io/docs/1.8/components/compass/#tutorials-tutorials) document.
 
 ### Monitoring API Server Proxy
 
