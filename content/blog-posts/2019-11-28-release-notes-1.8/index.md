@@ -71,14 +71,14 @@ We tweaked and provided many minor improvements in Application Connector's docum
 
 ### Runtime Provisioner examples
 
-The first iteration of Provisioner examples is here! We have created a few tutorials that will guide you through the whole process of cluster actions - from provisioning to cluster deletion and cleanup of Runtime data. See the new tutorials [here](https://kyma-project.io/docs/1.8/components/security/#tutorials-update-tls-certificate).
+The first iteration of Provisioner examples is here! We have created a few tutorials that will guide you through the whole process of cluster actions - from provisioning to cluster deletion and cleanup of Runtime data. See the new tutorials [here](https://kyma-project.io/docs/1.8/components/compass/#tutorials-tutorials).
 
 
 ## Security
 
 ### XSUAA connector in Kyma
 
-This release we have added the possibility to delegate user authentication to SAP Cloud Platform XSUAA. To allow this, Dex now supports a new type of connector, called `xsuaa`. Our documentation shows how to configure an XSUAA connector for Dex. For more details, read [this](https://kyma-project.io/docs/1.8/components/compass/#tutorials-tutorials) document.
+This release we have added the possibility to delegate user authentication to SAP Cloud Platform XSUAA. To allow this, Dex now supports a new type of connector, called `xsuaa`. Our documentation shows how to configure an XSUAA connector for Dex. For more details, read [this](https://kyma-project.io/docs/1.8/components/security/#tutorials-add-an-identity-provider-to-dex) document.
 
 ### Monitoring API Server Proxy
 
