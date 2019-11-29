@@ -44,8 +44,8 @@ Authentication is enabled by default, and you can change JWKs URI using the **Lo
 We did a lot of great enhancements to the Kyma Service Catalog:
 
 - Support for &quot;namespaced&quot; service catalogs. This means a possibility to register brokers for specific Namespaces only. The Catalog has an additional Brokers view in the Environment context. The view lists Service Brokers registered only for a given Namespace.
-  - [Here](/docs/0.5/components/service-catalog#getting-started-getting-started) you can view a new getting started guide about brokers registration.
-  - [Here](/docs/0.5/components/service-catalog#architecture-architecture) you can find an architecture diagram for the Namespace catalog.
+  - [Here](/docs/components/service-catalog#getting-started-getting-started) you can view a new getting started guide about brokers registration.
+  - [Here](/docs/components/service-catalog#architecture-architecture) you can find an architecture diagram for the Namespace catalog.
   
   - The instance list and details views now work on web-sockets. This significantly improves the user experience because all changes to the instance, and most important its status, are updated in real-time in the view without the need for a page refresh. If you are interested in how we managed to accomplish that on a GraphQL layer with Istio and token verification, feel free to contact us on [Slack](http://slack.kyma-project.io).
 
@@ -67,7 +67,7 @@ We did a lot of great enhancements to the Kyma Service Catalog:
   
   - The UI supports the ServiceBinding creation if the owner of the service class specified a custom schema for binding creation.
   - The cleanup of resources got improved. When you decide to delete some Credentials, the related application bindings are also deleted.
-- [Helm Broker](/docs/0.5/components/service-brokers#configuration-configure-helm-broker) supports many bundle repositories.
+- [Helm Broker](/docs/components/service-brokers#configuration-configure-helm-broker) supports many bundle repositories.
 - The new [**bundles**](https://github.com/kyma-project/bundles) repository enables Kyma to install addons such as brokers, showcases and local services.
 
   - It contains bundles which the Helm Broker uses. It allows you to choose a set of bundles and configure the Helm Broker. You can also define your own bundles.
@@ -77,7 +77,7 @@ We did a lot of great enhancements to the Kyma Service Catalog:
 
 As eventing is one of the core principles Kyma is built on, we enhanced the functionality further:
 
-- It is now possible for developers to change their subscriptions and fix any typos or wrong configurations. It allows avoiding a situation where, for example, specifying a wrong URL causes wrong Event type to be updated. Click [here](/docs/0.5/components/event-bus#details-subscription-updates) to see how this can be done.
+- It is now possible for developers to change their subscriptions and fix any typos or wrong configurations. It allows avoiding a situation where, for example, specifying a wrong URL causes wrong Event type to be updated. Click [here](/docs/components/event-bus#details-subscription-updates) to see how this can be done.
 
 - A bug, which caused that it was impossible to create two subscriptions with same name in different Namespaces, has been fixed.
 - Kyma now enables a developer to understand better how to leverage tracing for handling problems in the Event flow.
@@ -107,16 +107,16 @@ After deleting the sub-validator Pod, Kubernetes recreates it automatically, and
 
 We constantly work on improving the security of Kyma:
 
-- Documentation is now available on how to [update TLS certificates](/docs/0.5/components/security#details-update-tls-certificate).
-- The static user password for administrators is generated during installation and stored in the secret admin-user in the `kyma-system` Namespace. You can add further static users by providing your own Kubernetes secrets. Use this [link](/docs/0.5/components/security#details-manage-static-users-in-dex) to learn more.
+- Documentation is now available on how to [update TLS certificates](/docs/components/security#details-update-tls-certificate).
+- The static user password for administrators is generated during installation and stored in the secret admin-user in the `kyma-system` Namespace. You can add further static users by providing your own Kubernetes secrets. Use this [link](/docs/components/security#details-manage-static-users-in-dex) to learn more.
 
 ## Service Mesh
 
-Istio is now installed from official Istio charts. Istio customization was externalized into a separate component: [istio-patch](/docs/0.5/components/service-mesh#details-istio-patch). As a result, Kyma can be installed on top of an existing [Istio installation](/docs/0.5/root/kyma#installation-installation-with-custom-istio-deployment) (in the supported version).
+Istio is now installed from official Istio charts. Istio customization was externalized into a separate component: [istio-patch](/docs/components/service-mesh#details-istio-patch). As a result, Kyma can be installed on top of an existing [Istio installation](/docs/root/kyma#installation-installation-with-custom-istio-deployment) (in the supported version).
 
 ## Installation
 
-The installation documentation was reorganized and grouped under [Installation](/docs/0.5/root/kyma#installation-installation).
+The installation documentation was reorganized and grouped under [Installation](/docs/root/kyma#installation-installation).
 
 ## Monitoring
 
@@ -143,11 +143,11 @@ Kyma was extended with Persistence Layer for logging based on OK Log.
 
 ## Tracing
 
-The Tracing UI is now linked from within the Kyma Console UI to make it easier to access the tracing information. Furthermore, it is now possible to compare two traces to track the process. You can get an answer to the question: &quot;Why did something unexpected happened?&quot; You can find more details [here](/docs/0.5/components/tracing#details-trace-comparison).
+The Tracing UI is now linked from within the Kyma Console UI to make it easier to access the tracing information. Furthermore, it is now possible to compare two traces to track the process. You can get an answer to the question: &quot;Why did something unexpected happened?&quot; You can find more details [here](/docs/components/tracing#details-trace-comparison).
 
 ## Console
 
-- You can extend the Console to add custom micro front-ends either for a single environment or for cluster-wide administration. More details can be found [here](/docs/0.5/components/console#details-ui-extensibility).
+- You can extend the Console to add custom micro front-ends either for a single environment or for cluster-wide administration. More details can be found [here](/docs/components/console#details-ui-extensibility).
 
 ![](./console_1.png) 
 

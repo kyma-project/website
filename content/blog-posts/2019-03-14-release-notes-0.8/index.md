@@ -48,7 +48,7 @@ The new `GetInfo` endpoint returns information about the cluster. Use it to get 
 
 ### Certificate management
 
-We added new functionalities centered around certificate management, such as signing certificates for Applications and Kyma clusters, [renewing certificates](/docs/0.8/components/application-connector/#tutorials-renew-the-client-certificate), and [certificate revocation](/docs/0.8/components/application-connector/#tutorials-revoke-the-client-certificate).
+We added new functionalities centered around certificate management, such as signing certificates for Applications and Kyma clusters, [renewing certificates](/docs/components/application-connector/#tutorials-renew-the-client-certificate), and [certificate revocation](/docs/components/application-connector/#tutorials-revoke-the-client-certificate).
 
 ### Proxy Service renaming
 
@@ -63,7 +63,7 @@ If you upgrade Kyma 0.7 to version 0.8, you must manually update the IP address 
 
 ### New cluster-wide resources added
 
-We added two new cluster-wide resources, ClusterAsset and ClusterBucket. These resources allow you to fully use the Asset Store and build solutions using it. Read [this document](/docs/0.8/components/asset-store/#custom-resource-clusterasset) for more information.
+We added two new cluster-wide resources, ClusterAsset and ClusterBucket. These resources allow you to fully use the Asset Store and build solutions using it. Read [this document](/docs/components/asset-store/#custom-resource-clusterasset) for more information.
 
 ### Package filtering
 
@@ -71,7 +71,7 @@ Assets now allow you to specify which folders should the Asset Store process usi
 
 ### Upload service
 
-The newly introduced upload service enables easy integration for components that dynamically create and publish packages. By default, the service is configured to be accessible only from within the cluster. You can use the Upload Service to temporarily publish files that need to be referenced in assets. For details, read [this](/docs/0.8/components/asset-store#details-asset-upload-service ) document.
+The newly introduced upload service enables easy integration for components that dynamically create and publish packages. By default, the service is configured to be accessible only from within the cluster. You can use the Upload Service to temporarily publish files that need to be referenced in assets. For details, read [this](/docs/components/asset-store#details-asset-upload-service ) document.
 
 ### Minio monitoring
 
@@ -82,7 +82,7 @@ The Asset Store uses Minio as its backend, with a standalone setup on local depl
 
 ### Backup and restore feature added
 
-We implemented an [Ark](https://github.com/heptio/velero/)-based backup functionality in Kyma, allowing you to create manual and scheduled backups. Read our [documentation](/docs/0.8/components/backup/) to learn how to configure backups, restore your cluster from backup, and set backup retention period.
+We implemented an [Ark](https://github.com/heptio/velero/)-based backup functionality in Kyma, allowing you to create manual and scheduled backups. Read our [documentation](/docs/components/backup/) to learn how to configure backups, restore your cluster from backup, and set backup retention period.
 
 ### E2E tests for backup and restore
 
@@ -90,7 +90,7 @@ We added a new pipeline to Prow which allows testing the backup and restore feat
 
 ### Known issues
 
-Currently, the backup and restore feature doesn't cover all components. As a workaround, add the outstanding components to Ark configuration manually as described in the [documentation](/docs/0.8/components/backup/#details-back-up-a-kyma-cluster).
+Currently, the backup and restore feature doesn't cover all components. As a workaround, add the outstanding components to Ark configuration manually as described in the [documentation](/docs/components/backup/#details-back-up-a-kyma-cluster).
 
 
 ## Console
@@ -160,7 +160,7 @@ In this release, we replaced OK Log with a new logging solution - Loki. Dubbed t
 
 ### Kyma-developer role
 
-We introduced a new cluster-wide role suited for developers working with Kyma. The **kyma-developer** role has fewer privileges than the existing **kyma-admin** role but allows for more access than the existing, Namespace-specific **kyma-reader** role. Assign the new role to any developer that develop solutions in your cluster. Read [this](/docs/0.8/components/security/#tutorials-manage-static-users-in-dex-bind-a-user-to-a-role-or-a-clusterrole) document for more information.
+We introduced a new cluster-wide role suited for developers working with Kyma. The **kyma-developer** role has fewer privileges than the existing **kyma-admin** role but allows for more access than the existing, Namespace-specific **kyma-reader** role. Assign the new role to any developer that develop solutions in your cluster. Read [this](/docs/components/security/#tutorials-manage-static-users-in-dex-bind-a-user-to-a-role-or-a-clusterrole) document for more information.
 
 ### Shorter ID token TTL
 
@@ -182,7 +182,7 @@ Functions are logging their source code and `package.json` content before they a
 
 ### Define the URLs of the repositories that hold your bundles in the Helm Broker
 
-You can now instantly update the URLs of your bundles repositories in the Helm Broker, with no need to restart. For more information, read [this](/docs/0.8/components/helm-broker#configuration-configure-helm-broker-add-a-new-bundle-repository) document.
+You can now instantly update the URLs of your bundles repositories in the Helm Broker, with no need to restart. For more information, read [this](/docs/components/helm-broker#configuration-configure-helm-broker-add-a-new-bundle-repository) document.
 
 
 ## kyma-project.io

@@ -41,7 +41,7 @@ Read about known issues for [Velero](#known-issues).
 
 ## API Gateway
 
-Making friends in the open-source world is natural. Collaboration with our friend, ORY, in the 1.4 release bore fruit, and Kyma got its very own OAuth2 server. Our new component consists of three elements from ORY: Hydra OAuth2 server, Oathkeeper proxy, and Oathkeeper Maester controller. By default, the solution is now installed with every Kyma deployment. We worked closely with ORY developers to make their solution Kubernetes-native. We achieved that by creating the Maester controller and contributing it to the ORY stack. This controller allows for convenient management of Access Rules through custom resources. Check out and test the Kyma-ORY integration and follow its development closely as we're still in the development phase. Read [this](https://kyma-project.io/blog/2019/7/31/kyma-collaboration-with-ory/) blog post to see where we're heading. Also, read the [**Security**](https://kyma-project.io/docs/1.4/components/security/#details-oauth2-and-openid-connect-server) documentation to get more details on the current state of the integration.
+Making friends in the open-source world is natural. Collaboration with our friend, ORY, in the 1.4 release bore fruit, and Kyma got its very own OAuth2 server. Our new component consists of three elements from ORY: Hydra OAuth2 server, Oathkeeper proxy, and Oathkeeper Maester controller. By default, the solution is now installed with every Kyma deployment. We worked closely with ORY developers to make their solution Kubernetes-native. We achieved that by creating the Maester controller and contributing it to the ORY stack. This controller allows for convenient management of Access Rules through custom resources. Check out and test the Kyma-ORY integration and follow its development closely as we're still in the development phase. Read [this](/blog/2019/7/31/kyma-collaboration-with-ory/) blog post to see where we're heading. Also, read the [**Security**](/docs/components/security/#details-oauth2-and-openid-connect-server) documentation to get more details on the current state of the integration.
 
 ## Application Connector
 
@@ -57,7 +57,7 @@ The backup component, Velero, is now upgraded to its latest stable version 1.0.0
 
 ### Installation and setup
 
-We improved and simplified the installation and setup process for Velero. Read the [documentation](https://kyma-project.io/docs/1.4/components/backup/#installation-install-velero) and see how easy it is now to set up Velero either before or after installing Kyma.
+We improved and simplified the installation and setup process for Velero. Read the [documentation](/docs/components/backup/#installation-install-velero) and see how easy it is now to set up Velero either before or after installing Kyma.
 
 ### Creating backups
 
@@ -73,7 +73,7 @@ All backup and restore integration tests are fixed and pass.
 
 ### Backups on Azure
 
-The backup functionality was successfully introduced on Azure (AKS). Follow the steps from the [installation](https://kyma-project.io/docs/1.4/components/backup/#installation-install-velero) guide to set up Velero on Azure.
+The backup functionality was successfully introduced on Azure (AKS). Follow the steps from the [installation](/docs/components/backup/#installation-install-velero) guide to set up Velero on Azure.
 
 ### Plugins
 
@@ -106,7 +106,7 @@ It basically means that at the moment we have 4 different views that render docu
 
 - Documentation component project
 
-As mentioned in the [previous release notes](https://kyma-project.io/blog/2019/7/12/release-notes-13/#documentation-component), we have one single project in which we maintain the Documentation component and just reuse it in different applications. We already introduced it in the Console UI Documentation view in the last release. In the 1.4 release, it was integrated into the Console UI Catalog and Instances views. In a few days, you will see this component being used on [kyma-project.io](https://kyma-project.io/).
+As mentioned in the [previous release notes](/blog/2019/7/12/release-notes-13/#documentation-component), we have one single project in which we maintain the Documentation component and just reuse it in different applications. We already introduced it in the Console UI Documentation view in the last release. In the 1.4 release, it was integrated into the Console UI Catalog and Instances views. In a few days, you will see this component being used on [kyma-project.io](https://kyma-project.io/).
 
 - Improved look and feel
 
@@ -146,7 +146,7 @@ data:
   global.cmsAsyncAPIService.enabled: "true"
 ```
 
-After you override the value, you can create a DocsTopic resource using [this](https://kyma-project.io/docs/1.4/components/headless-cms/#custom-resource-docs-topic-sample-custom-resource) example. The example contains a reference to the official Slack AsyncAPI spec provided in version 1.2. After you go through the steps for the happy path, create a new DocsTopic using an invalid spec. You can use the [invalid AsyncAPI spec](https://raw.githubusercontent.com/kyma-project/kyma/release-1.4/components/cms-services/pkg/endpoint/asyncapi/v1/testdata/invalid.json) we used for testing.
+After you override the value, you can create a DocsTopic resource using [this](/docs/components/headless-cms/#custom-resource-docs-topic-sample-custom-resource) example. The example contains a reference to the official Slack AsyncAPI spec provided in version 1.2. After you go through the steps for the happy path, create a new DocsTopic using an invalid spec. You can use the [invalid AsyncAPI spec](https://raw.githubusercontent.com/kyma-project/kyma/release-1.4/components/cms-services/pkg/endpoint/asyncapi/v1/testdata/invalid.json) we used for testing.
 
 ### Parameters object in the Headless CMS supported in the Console UI
 
@@ -186,7 +186,7 @@ We added an integrated authentication strategy to the Kiali dashboard to enable 
 
 ### Documentation
 
-[Kiali](https://kyma-project.io/docs/1.4/components/kiali) is now documented in the Kyma Docs.
+[Kiali](/docs/components/kiali) is now documented in the Kyma Docs.
 
 ## Knative
 
@@ -220,7 +220,7 @@ As the Google Cloud Platform (GCP) Service Broker is being deprecated by Google,
 
 ### Helm Broker supports addons exposed by Git
 
-Starting from this release, you can expose your addons not only through HTTPS serves but also using Git. To do so, simply place your addons directly in a Git directory and follow the necessary addon repository structure. Read [this](https://kyma-project.io/docs/1.4/components/helm-broker/#details-create-addons-repository) document to learn more.
+Starting from this release, you can expose your addons not only through HTTPS serves but also using Git. To do so, simply place your addons directly in a Git directory and follow the necessary addon repository structure. Read [this](/docs/components/helm-broker/#details-create-addons-repository) document to learn more.
 
 ## Service Mesh
 

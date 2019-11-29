@@ -50,11 +50,11 @@ We have increased the default memory limit for the Application Registry payload 
 
 ### API secured with client certificates
 
-Application Proxy allows you to secure APIs with generated client certificates. When you register an API with a client certificate, the Application Registry generates a ready-to-use certificate and key pair for this API to secure it. You can use the generated pair or replace it with your own certificate and key. For details, see [this](/docs/0.7/components/application-connector#tutorials-register-a-secured-api) document.
+Application Proxy allows you to secure APIs with generated client certificates. When you register an API with a client certificate, the Application Registry generates a ready-to-use certificate and key pair for this API to secure it. You can use the generated pair or replace it with your own certificate and key. For details, see [this](/docs/components/application-connector#tutorials-register-a-secured-api) document.
 
 ### Known issues
 
-If you run Kyma on Minikube, you must expose the Nginx Ingress Controller on the dedicated NodePort. However, URLs returned from the Connector Service do not include the value for this port. To fix it, update URLs manually using the information in [this](/docs/0.7/components/application-connector#api-application-registry) guide.
+If you run Kyma on Minikube, you must expose the Nginx Ingress Controller on the dedicated NodePort. However, URLs returned from the Connector Service do not include the value for this port. To fix it, update URLs manually using the information in [this](/docs/components/application-connector#api-application-registry) guide.
 
 ## Asset Store
 
@@ -70,7 +70,7 @@ This version of the Asset Store brings you the following features included in th
 * Providing custom mutation services for assets to modify them before uploading them to the storage.
 
 
-In the coming releases, we plan to address the remaining features from the proposal. If you are interested in contributing, feel free to contact us on [Slack](http://slack.kyma-project.io). Meanwhile, read [this](/docs/0.7/components/asset-store#overview-overview) document to find out more about the Asset Store component.
+In the coming releases, we plan to address the remaining features from the proposal. If you are interested in contributing, feel free to contact us on [Slack](http://slack.kyma-project.io). Meanwhile, read [this](/docs/components/asset-store#overview-overview) document to find out more about the Asset Store component.
 
 ### Known issues
 
@@ -118,7 +118,7 @@ You can now deploy Kyma using Kubernetes v1.11.5, to enjoy improved stability an
 
 ### Kyma on AKS
 
-You can now smoothly deploy Kyma on an AKS cluster, using a chosen release version or even a particular commit. [Install](/docs/0.7/root/kyma#installation-install-kyma-on-an-aks-cluster) Kyma on a cluster using a proprietary installer based on a Kubernetes operator. If you want to try out Kyma on a cluster without assigning the cluster to a domain you own, you can use `xip.io` which provides a wildcard DNS for any IP address. For details, see [this guide](/docs/0.7/root/kyma#installation-install-kyma-on-an-aks-cluster-with-wildcard-dns).
+You can now smoothly deploy Kyma on an AKS cluster, using a chosen release version or even a particular commit. [Install](/docs/root/kyma#installation-install-kyma-on-an-aks-cluster) Kyma on a cluster using a proprietary installer based on a Kubernetes operator. If you want to try out Kyma on a cluster without assigning the cluster to a domain you own, you can use `xip.io` which provides a wildcard DNS for any IP address. For details, see [this guide](/docs/root/kyma#installation-install-kyma-on-an-aks-cluster-with-wildcard-dns).
 
 
 ### kyma-default ResourceQuota removed  
@@ -139,17 +139,17 @@ The Prometheus Operator module used to be required in any Kyma setup. To increas
 
 ###  UI API Layer security model
 
-We have switched from a custom Istio RBAC implementation based on Envoy to Kubernetes RBAC. The reason was to avoid difficulties of developing and maintaining the LUA filters for Envoy. Additionally, the current implementation uses Go, which makes it more lightweight and flexible. Read the [documentation](/docs/0.7/components/security#details-graphql) to learn the details on securing resources in GraphQL using queries, mutations, and subscriptions.
+We have switched from a custom Istio RBAC implementation based on Envoy to Kubernetes RBAC. The reason was to avoid difficulties of developing and maintaining the LUA filters for Envoy. Additionally, the current implementation uses Go, which makes it more lightweight and flexible. Read the [documentation](/docs/components/security#details-graphql) to learn the details on securing resources in GraphQL using queries, mutations, and subscriptions.
 
 ## Service Catalog
 
 ### Azure Service Broker runtime bundling and installation
 
-Kyma allows you to integrate with the Azure Service Broker in an easy way, and to use the vast range of Service Classes it provides. Each Service Class is comprehensively described in the [documentation](https://github.com/kyma-project/addons/tree/master/addons/azure-service-broker-0.0.1/docs). Read more about the Azure Service Broker [here](https://kyma-project.io/docs/0.7/components/helm-broker/#overview-azure-broker).
+Kyma allows you to integrate with the Azure Service Broker in an easy way, and to use the vast range of Service Classes it provides. Each Service Class is comprehensively described in the [documentation](https://github.com/kyma-project/addons/tree/master/addons/azure-service-broker-0.0.1/docs). Read more about the Azure Service Broker [here](https://kyma-project.io/docs/components/helm-broker/#overview-azure-broker).
 
 ### One-time provisioning for Helm Broker
 
-The Helm Broker now supports the `provisionOnlyOnce` flag which defines that the bundle should be provisioned only once for a given Namespace. We have also added this flag to the Azure Service Broker and the GCP Service Broker bundle configurations. For details, read [this](/docs/0.7/components/helm-broker#configuration-binding-bundles) document.
+The Helm Broker now supports the `provisionOnlyOnce` flag which defines that the bundle should be provisioned only once for a given Namespace. We have also added this flag to the Azure Service Broker and the GCP Service Broker bundle configurations. For details, read [this](/docs/components/helm-broker#configuration-binding-bundles) document.
 
 ## Service Catalog standalone installation
 
