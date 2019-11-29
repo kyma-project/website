@@ -28,8 +28,11 @@ export const AdoptersItem: React.FunctionComponent<Adopter> = ({
     ? StyledAdoptersItemExtLink
     : StyledAdoptersItemIntLink;
 
+  // to have SAP's icons look good
+  const isSapUrl = websiteUrl.toLowerCase().includes("sap");
+
   return (
-    <StyledAdoptersItem onDragStart={handleOnDragStart}>
+    <StyledAdoptersItem onDragStart={handleOnDragStart} isSap={isSapUrl}>
       <Link.External to={websiteUrl}>
         <img src={logo} />
       </Link.External>

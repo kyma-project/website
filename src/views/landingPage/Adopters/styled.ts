@@ -162,7 +162,11 @@ export const AliceCarouselWrapper = styled.div`
   }
 `;
 
-export const StyledAdoptersItem = styled.div`
+interface ItemProps {
+  isSap: boolean;
+}
+
+export const StyledAdoptersItem = styled.div<ItemProps>`
   margin: 0 32px;
   text-align: center;
 
@@ -173,7 +177,7 @@ export const StyledAdoptersItem = styled.div`
 
     > img {
       width: 100%;
-      height: 45px;
+      height: ${props => (props.isSap ? "45px" : "60px")};
       max-width: 240px;
       max-height: 60px;
     }
