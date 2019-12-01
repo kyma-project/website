@@ -44,13 +44,13 @@ Read about a known issue for [Observability](#known-issues).
 
 From the very beginning of the Kyma project, the Application Connector has been exposed using the NGINX Ingress. After the recent changes in Istio 1.x which included support for client certificates, we decided to migrate to Istio as did the rest of Kyma components. We are proud to announce that the migration is complete and we are already benefiting from a number of advantages including easier maintenance and a smaller number of components in the implementation.
 
-Read [this](/docs/1.2/components/application-connector/#architecture-architecture) document to learn more about the role Istio plays in the Application Connector.
+Read [this](/docs/components/application-connector/#architecture-architecture) document to learn more about the role Istio plays in the Application Connector.
 
 ### Custom headers and query parameters in authentication requests
 
 To facilitate the integration of APIs that require sending additional headers and query parameters with every request to an external system, we allow the developers to provide a custom list of the headers and query parameters when registering an API in the Application Registry. The Proxy service reads this configuration and enriches each call from an API to an external service with the required items.
 
-Read [this](/docs/1.2/components/application-connector/#tutorials-register-a-secured-api-specify-custom-headers-and-query-parameters-for-authentication-requests) document to learn more.
+Read [this](/docs/components/application-connector/#tutorials-register-a-secured-api-specify-custom-headers-and-query-parameters-for-authentication-requests) document to learn more.
 
 ## Console
 
@@ -66,17 +66,17 @@ Users can now configure more of the important Namespace options when they create
 
 ### Kyma available on GCP Marketplace
 
-Deploying on GKE is now easier than ever as you can get a fully functional Kyma deployment with `http://xip.io/` straight from the GCP Marketplace. Follow [this link](https://console.cloud.google.com/marketplace/details/sap-public/kyma) to find Kyma on the Marketplace, read [this](/docs/1.2/root/kyma/#installation-install-kyma-on-a-cluster) document to get detailed installation instructions, and watch [this video](https://www.youtube.com/watch?v=hxVhQqI1B5A) for a detailed walkthrough. Enjoy!
+Deploying on GKE is now easier than ever as you can get a fully functional Kyma deployment with `http://xip.io/` straight from the GCP Marketplace. Follow [this link](https://console.cloud.google.com/marketplace/details/sap-public/kyma) to find Kyma on the Marketplace, read [this](/docs/root/kyma/#installation-install-kyma-on-a-cluster) document to get detailed installation instructions, and watch [this video](https://www.youtube.com/watch?v=hxVhQqI1B5A) for a detailed walkthrough. Enjoy!
 
 ### Platform-agnostic local deployments with Kyma CLI
 
 Our very own [Kyma CLI](https://github.com/kyma-project/cli) graduated from the Incubator and became an integral part of Kyma with the 1.2 release. From now on you can use simple `kyma` commands to easily deploy Kyma on your local machine, no matter what OS you're running - all you have to do is install our proprietary CLI tool. The local installation flow is now updated to use the CLI and we are retiring the old installation approach that used custom scripts.
 
-To experience the convenience the Kyma CLI brings to the table, follow [our documentation](/docs/1.2/root/kyma/#installation-install-kyma-locally) to install Kyma on your machine.
+To experience the convenience the Kyma CLI brings to the table, follow [our documentation](/docs/root/kyma/#installation-install-kyma-locally) to install Kyma on your machine.
 
 ### Simpler cluster installation
 
-The existing cluster installation flows were significantly simplified. The `sed` commands and the cluster configuration template file are now gone in favor of a set of `kubectl` calls. Now you simply set up your cluster, apply the desired configuration with `kubectl`, and wait for the magic to happen. For more details, see the [installation documentation](/docs/1.2/root/kyma/#installation-installation).
+The existing cluster installation flows were significantly simplified. The `sed` commands and the cluster configuration template file are now gone in favor of a set of `kubectl` calls. Now you simply set up your cluster, apply the desired configuration with `kubectl`, and wait for the magic to happen. For more details, see the [installation documentation](/docs/root/kyma/#installation-installation).
 
 ## Documentation
 
@@ -86,15 +86,15 @@ After preparing a set of generic configuration documents in the last release, th
 
 ### Troubleshooting guides
 
-As we interact with the community, we take note of recurring issues and misunderstandings that affect different components. We decide to gather these cases under the **Troubleshooting** documentation type to help the users deal with the most common issues easily. The troubleshooting documents are now available for the [Service Mesh](/docs/1.2/components/service-mesh/#troubleshooting-troubleshooting) and the general [Kyma](/docs/1.2/root/kyma/#troubleshooting-troubleshooting-overview) topic.
+As we interact with the community, we take note of recurring issues and misunderstandings that affect different components. We decide to gather these cases under the **Troubleshooting** documentation type to help the users deal with the most common issues easily. The troubleshooting documents are now available for the [Service Mesh](/docs/components/service-mesh/#troubleshooting-troubleshooting) and the general [Kyma](/docs/root/kyma/#troubleshooting-troubleshooting-overview) topic.
 
 ### Markdown documents in Headless CMS
 
-If you've ever had any doubts regarding what the structure of a Markdown document processed by Headless CMS should look like, we come with a solution. See the [document](/docs/1.2/components/headless-cms/#details-markdown-documents) describing the required metadata and content of a Markdown file.
+If you've ever had any doubts regarding what the structure of a Markdown document processed by Headless CMS should look like, we come with a solution. See the [document](/docs/components/headless-cms/#details-markdown-documents) describing the required metadata and content of a Markdown file.
 
 ### How to modify the Documentation view in the Console UI
 
-We prepared a tutorial that shows how to adjust the Documentation view in the Console UI. Based on it, you create a new Prometheus documentation section that contains Concepts and Guides topics and a set of Markdown subdocuments. [Try it](/docs/1.2/components/headless-cms/#tutorial-add-new-documents-to-the-documentation-view-in-the-console-ui) on your own.
+We prepared a tutorial that shows how to adjust the Documentation view in the Console UI. Based on it, you create a new Prometheus documentation section that contains Concepts and Guides topics and a set of Markdown subdocuments. [Try it](/docs/components/headless-cms/#tutorial-add-new-documents-to-the-documentation-view-in-the-console-ui) on your own.
 
 ### Testing bundle with sample documentation
 

@@ -43,11 +43,11 @@ In this release, we optimized the memory consumption for the Application Operato
 
 ### OData support in documentation
 
-You can now read the updated Application Connector documentation that includes information on the supported APIs, including the support for [OData API registration](/docs/1.1/components/application-connector/#overview-overview-supported-apis).
+You can now read the updated Application Connector documentation that includes information on the supported APIs, including the support for [OData API registration](/docs/components/application-connector/#overview-overview-supported-apis).
 
 ### New Event Service endpoint
 
-We enriched the Event Service with the new `/{application}/v1/events/subscribed` endpoint that only returns information on the subscribed Events. This endpoint is perfect for your system optimization as the connected application no longer needs to send Events that are not used by any lambda or service. [Read more](/docs/1.1/components/application-connector/#api-event-service) about the endpoint and learn how you can use it to fetch Events.
+We enriched the Event Service with the new `/{application}/v1/events/subscribed` endpoint that only returns information on the subscribed Events. This endpoint is perfect for your system optimization as the connected application no longer needs to send Events that are not used by any lambda or service. [Read more](/docs/components/application-connector/#api-event-service) about the endpoint and learn how you can use it to fetch Events.
 
 
 ## Console
@@ -67,12 +67,12 @@ We added the `SYSTEM` badge to the system Namespaces. Thanks to it, you can easi
 
 ### Minio Gateway mode
 
-The [Asset Store](/docs/1.1/components/asset-store) that ensures asset management in Kyma uses [Minio](https://min.io/) as a back-end solution. As stated in our documentation, we recommend that you use Minio in its Gateway mode for your production environment. This means you should use Minio as a gateway to Google Cloud Storage (GCS).
+The [Asset Store](/docs/components/asset-store) that ensures asset management in Kyma uses [Minio](https://min.io/) as a back-end solution. As stated in our documentation, we recommend that you use Minio in its Gateway mode for your production environment. This means you should use Minio as a gateway to Google Cloud Storage (GCS).
 
 In this release, we focused on preparing an easy switch from the standalone mode to the Gateway mode by:
 - Making sure your data is seamlessly recreated after the switch.
 - Improving the stability of the Asset Store with Minio in the Gateway mode.
-- Providing clear documentation on how to [switch to GCS](/docs/1.1/components/asset-store/#tutorials-set-minio-to-the-google-cloud-storage-gateway-mode).
+- Providing clear documentation on how to [switch to GCS](/docs/components/asset-store/#tutorials-set-minio-to-the-google-cloud-storage-gateway-mode).
 - Integrating the Minio Gateway mode with our testing pipeline. This way, we can now test any new functionality against the Minio Gateway mode pointing to GCS.
 
 
@@ -83,14 +83,14 @@ In this release, we focused on preparing an easy switch from the standalone mode
 In 1.1, we focused on creating configuration documents and simplifying the existing installation documents.
 
 Configuration improvements:
-- An [overview](/docs/1.1/root/kyma/#configuration-overview) document explaining what you can configure in Kyma and how you can do it before and after installation
-- Improved documents on selected [component installation](/docs/1.1/root/kyma/#configuration-custom-component-installation) and chart values [overrides](/docs/1.1/root/kyma/#configuration-helm-overrides-for-kyma-installation)
+- An [overview](/docs/root/kyma/#configuration-overview) document explaining what you can configure in Kyma and how you can do it before and after installation
+- Improved documents on selected [component installation](/docs/root/kyma/#configuration-custom-component-installation) and chart values [overrides](/docs/root/kyma/#configuration-helm-overrides-for-kyma-installation)
 - A [template](https://github.com/kyma-project/community/blob/master/guidelines/templates/resources/configuration.md) for the **Configuration** document type that provides technical details about configuration of a Kyma component's chart or sub-chart
-- A set of configuration documents for the [Asset Store](/docs/1.1/components/asset-store/#configuration-configuration) specifying the configurable parameters from the `values.yaml` charts and sub-charts that you can override. You can expect more of such documents for other Kyma components to come in the upcoming releases
+- A set of configuration documents for the [Asset Store](/docs/components/asset-store/#configuration-configuration) specifying the configurable parameters from the `values.yaml` charts and sub-charts that you can override. You can expect more of such documents for other Kyma components to come in the upcoming releases
 
 Installation improvements:
-- A simplified [cluster installation](/docs/1.1/root/kyma/#installation-install-kyma-on-a-cluster) document explaining how you can quickly deploy Kyma on a cluster with a wildcard DNS provided by `xip.io`
-- A unified [local installation](/docs/1.1/root/kyma/#installation-install-kyma-locally) flow
+- A simplified [cluster installation](/docs/root/kyma/#installation-install-kyma-on-a-cluster) document explaining how you can quickly deploy Kyma on a cluster with a wildcard DNS provided by `xip.io`
+- A unified [local installation](/docs/root/kyma/#installation-install-kyma-locally) flow
 
 
 ## Eventing
@@ -116,7 +116,7 @@ There are two new dashboards available in Grafana:
 ### Octopus in Kyma
 
 As part of productivity improvements in Kyma, we replaced Helm tests with the Octopus test runner. Kyma components now use Octopus as a testing framework to run tests defined as Docker images on a running cluster.
-Read more about [testing](/docs/1.1/root/kyma/#details-testing-kyma) in Kyma, [Octopus](https://github.com/kyma-incubator/octopus/blob/master/README.md) itself, and the benefits it brings to the Kyma testing process.
+Read more about [testing](/docs/root/kyma/#details-testing-kyma) in Kyma, [Octopus](https://github.com/kyma-incubator/octopus/blob/master/README.md) itself, and the benefits it brings to the Kyma testing process.
 
 
 ## Service Management
@@ -131,11 +131,11 @@ Aiming to improve your user experience, we split the Catalog UI view into **Add-
 
 ### AWS Service Broker add-on
 
-As part of our constant efforts to improve your experience on third-party Service Brokers in Kyma, we extended our Service Catalog with Amazon offerings. The new [AWS Service Broker](/docs/1.1/components/service-catalog/#service-brokers-aws-service-broker) is available for you as an add-on, extending the existing GCP and Azure Service Brokers add-on family.
+As part of our constant efforts to improve your experience on third-party Service Brokers in Kyma, we extended our Service Catalog with Amazon offerings. The new [AWS Service Broker](/docs/components/service-catalog/#service-brokers-aws-service-broker) is available for you as an add-on, extending the existing GCP and Azure Service Brokers add-on family.
 
 ### Documentation support for add-ons
 
-The Helm Broker creates Service Class documentation from an add-on which appears in the **Add-Ons** Catalog UI view. [Read](https://kyma-project.io/docs/1.1/components/helm-broker#details-create-a-bundle-docs-directory) how to add documentation to your add-on. If your add-on extends the Service Catalog UI, [read](/docs/1.1/components/helm-broker#details-service-classes-documentation-provided-by-bundles) how to provide documentation for those new Service Classes.
+The Helm Broker creates Service Class documentation from an add-on which appears in the **Add-Ons** Catalog UI view. [Read](/docs/components/helm-broker#details-create-a-bundle-docs-directory) how to add documentation to your add-on. If your add-on extends the Service Catalog UI, [read](/docs/components/helm-broker#details-service-classes-documentation-provided-by-bundles) how to provide documentation for those new Service Classes.
 
 ### "Provision only once" APIs and Events
 

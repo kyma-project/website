@@ -34,11 +34,11 @@ See the overview of all changes in this release:
 
 ### Fetching API specification secured with Basic Auth or OAuth
 
-Application Connector supports a variety of authentication methods to allow users to register secured APIs. Now you can also register APIs with a specification URL that requires authentication as the Application Connector can use credentials to fetch the API specification. The supported authentication methods for fetching API specifications are Basic Auth and OAuth. Read [this](https://kyma-project.io/docs/1.3/components/application-connector/#tutorials-register-a-service) document to learn more.   
+Application Connector supports a variety of authentication methods to allow users to register secured APIs. Now you can also register APIs with a specification URL that requires authentication as the Application Connector can use credentials to fetch the API specification. The supported authentication methods for fetching API specifications are Basic Auth and OAuth. Read [this](/docs/components/application-connector/#tutorials-register-a-service) document to learn more.   
 
 ### Automatic generation of the root Certificate Authority (CA)
 
-Application Connector serves as a certificate authority that issues client certificates for external systems. Users can provide their own certificates and keys to be used as the root CA. In order to improve security and reduce configuration effort, we automated the certificate and key generation process. From now on, if the user doesn't provide a custom certificate-key pair, the certificate and key are generated automatically. Read [this](https://kyma-project.io/docs/1.3/components/application-connector/#details-application-connector-certificates) document for more information. To learn how the automated certificate generation affects the upgrade process and how to preserve your certificate and key, read the [migration guide](https://github.com/kyma-project/kyma/blob/release-1.3/docs/migration-guides/1.2-1.3.md).
+Application Connector serves as a certificate authority that issues client certificates for external systems. Users can provide their own certificates and keys to be used as the root CA. In order to improve security and reduce configuration effort, we automated the certificate and key generation process. From now on, if the user doesn't provide a custom certificate-key pair, the certificate and key are generated automatically. Read [this](/docs/components/application-connector/#details-application-connector-certificates) document for more information. To learn how the automated certificate generation affects the upgrade process and how to preserve your certificate and key, read the [migration guide](https://github.com/kyma-project/kyma/blob/release-1.3/docs/migration-guides/1.2-1.3.md).
 
 ### Additional headers and query parameters stored in a secured way
 
@@ -61,7 +61,7 @@ The list of APIs contains up-to-date data with no need of refreshing the page. A
 
 ### Hide irrelevant navigation nodes
 
-In case you find some navigation nodes in the Console irrelevant, you can simply ignore them by defining a list of specific navigation nodes or even whole categories that should not show up in the Console UI navigation. Read [this](https://kyma-project.io/docs/1.3/components/console/#configuration-console-chart) document to learn more.
+In case you find some navigation nodes in the Console irrelevant, you can simply ignore them by defining a list of specific navigation nodes or even whole categories that should not show up in the Console UI navigation. Read [this](/docs/components/console/#configuration-console-chart) document to learn more.
 
 ### DevX improvements for the Lambda view
 
@@ -92,9 +92,9 @@ Our next step is to officially release this component and use it in other Kyma C
 
 ### Service Catalog migration from "API Server" to "CRD only"
 
-Now you can configure Kyma to use the experimental "CRD only" mode of our Service Catalog. Read [this](https://kyma-project.io/docs/1.3/components/service-catalog/#details-experimental-features) document to learn how to activate this feature. Moreover, the new mode contains a migration tool that migrates data for you. To learn more about the migration process, read [this](https://github.com/kyma-incubator/service-catalog/blob/crds-migration/docs/migration-apiserver-to-crds.md) document.
+Now you can configure Kyma to use the experimental "CRD only" mode of our Service Catalog. Read [this](/docs/components/service-catalog/#details-experimental-features) document to learn how to activate this feature. Moreover, the new mode contains a migration tool that migrates data for you. To learn more about the migration process, read [this](https://github.com/kyma-incubator/service-catalog/blob/crds-migration/docs/migration-apiserver-to-crds.md) document.
 
->**NOTE:** Before you start the migration, make sure that you performed a full [backup](https://kyma-project.io/docs/1.3/components/backup/) of your cluster. You should also test the procedure on a testing environment first.
+>**NOTE:** Before you start the migration, make sure that you performed a full [backup](/docs/components/backup/) of your cluster. You should also test the procedure on a testing environment first.
 
 
 ## Kyma CLI
@@ -131,7 +131,7 @@ If you need to add troubleshooting documentation to your component, our content 
 
 ### Upgrade process documentation
 
-Upgrading Kyma to a new version is quick and really simple, and release 1.3 comes with documentation to back this claim. Follow the procedure described in the [Upgrade Kyma](https://kyma-project.io/docs/1.3/root/kyma/#installation-update-kyma) document to quickly migrate to a newer release.
+Upgrading Kyma to a new version is quick and really simple, and release 1.3 comes with documentation to back this claim. Follow the procedure described in the [Upgrade Kyma](/docs/root/kyma/#installation-update-kyma) document to quickly migrate to a newer release.
 
 
 ## Eventing
@@ -151,7 +151,7 @@ Certain properties which are no longer applicable after Knative migration have b
 
 With this release, it is possible to expose an API with authentication disabled on certain paths. It is useful for scenarios in which an API hosts public assets, such as schemas or login endpoints.
 
-To allow disabling authentication on selected paths, there is a new **triggerRule** field in the Api CRD, which contains the `excludedPaths` object that represents the paths on which authentication should be disabled. The rest of the service's paths remain secured, meaning that the authentication is enabled. You can specify a matching method for paths using `exact`,`prefix`,`suffix` and `regex`. Read [this](https://kyma-project.io/docs/1.3/components/api-gateway/#custom-resource-custom-resource) document for more details.
+To allow disabling authentication on selected paths, there is a new **triggerRule** field in the Api CRD, which contains the `excludedPaths` object that represents the paths on which authentication should be disabled. The rest of the service's paths remain secured, meaning that the authentication is enabled. You can specify a matching method for paths using `exact`,`prefix`,`suffix` and `regex`. Read [this](/docs/components/api-gateway/#custom-resource-custom-resource) document for more details.
 
 ### Known issues
 

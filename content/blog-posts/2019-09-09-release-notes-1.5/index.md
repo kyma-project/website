@@ -33,11 +33,11 @@ In the 1.5 release, we made sure that Kyma is compatible with Kubernetes 1.15. N
 
 ### Kubernetes-native client registration with the Hydra Maester controller
 
-Our collaboration with ORY that started in the previous release continues with new contribution and functionality. This time around, we created the Hydra Maester controller which makes registering OAuth2 clients a fully Kubernetes-native process. The controller listens for instances of the `oauth2clients.hydra.ory.sh` custom resource (CR) and registers clients through the Hydra API using the data contained in the CR. Credentials of the registered client are then saved in a Kubernetes Secret. Follow [this](https://github.com/ory/hydra-maester) link to visit the ORY Hydra Maester repository and read [this](https://kyma-project.io/docs/1.5/components/security/#details-o-auth2-and-open-id-connect-server) document to learn more about the ORY stack implementation in Kyma.
+Our collaboration with ORY that started in the previous release continues with new contribution and functionality. This time around, we created the Hydra Maester controller which makes registering OAuth2 clients a fully Kubernetes-native process. The controller listens for instances of the `oauth2clients.hydra.ory.sh` custom resource (CR) and registers clients through the Hydra API using the data contained in the CR. Credentials of the registered client are then saved in a Kubernetes Secret. Follow [this](https://github.com/ory/hydra-maester) link to visit the ORY Hydra Maester repository and read [this](/docs/components/security/#details-o-auth2-and-open-id-connect-server) document to learn more about the ORY stack implementation in Kyma.
 
 ### New API Gateway controller in the Incubator
 
-Another fruit of the Kyma-ORY collaboration, the API Gateway controller (name subject to change!), is available in the Kyma Incubator. This controller listens for instances of the `gate.gateway.kyma-project.io` CR, manages Istio authentication policies and Oathkeeper rules, and allows you to expose services secured with JWT or OAuth access tokens. Even though this controller is still in the early stages of development and cannot replace the existing Kyma API Gateway, you can install it with your Kyma deployment by uncommenting the appropriate entry on the component list before installing Kyma 1.5. Go to [this](https://github.com/kyma-incubator/api-gateway) Incubator repository to learn more about the controller and read [this](https://kyma-project.io/docs/1.5/root/kyma/#configuration-custom-component-installation) document to learn more about installing selected components.
+Another fruit of the Kyma-ORY collaboration, the API Gateway controller (name subject to change!), is available in the Kyma Incubator. This controller listens for instances of the `gate.gateway.kyma-project.io` CR, manages Istio authentication policies and Oathkeeper rules, and allows you to expose services secured with JWT or OAuth access tokens. Even though this controller is still in the early stages of development and cannot replace the existing Kyma API Gateway, you can install it with your Kyma deployment by uncommenting the appropriate entry on the component list before installing Kyma 1.5. Go to [this](https://github.com/kyma-incubator/api-gateway) Incubator repository to learn more about the controller and read [this](/docs/root/kyma/#configuration-custom-component-installation) document to learn more about installing selected components.
 
 ## Application Connector
 
@@ -62,9 +62,9 @@ In previous Kyma versions, it was only possible to configure cluster-wide addons
 Based on the existing [`monitoring-custom-metrics`](https://github.com/kyma-project/examples/tree/master/monitoring-custom-metrics) Kyma example and its `cpu_temperature_celsius` custom metric, we have created unified monitoring tutorials. Thanks to them you can see how Kyma applies monitoring tools to manage application metrics. More specifically, these tutorials show how you can observe the custom metric's changing values, create a Grafana dashboard for the metric, and set up a corresponding alerting rule for it.
 
 Follow these links to see the improved monitoring tutorials:
-- [Observe application metrics](https://kyma-project.io/docs/1.5/components/monitoring/#tutorials-observe-application-metrics)
-- [Create a Grafana dashboard](https://kyma-project.io/docs/1.5/components/monitoring/#tutorials-create-a-grafana-dashboard)
-- [Define alerting rules](https://kyma-project.io/docs/1.5/components/monitoring/#tutorials-define-alerting-rules)
+- [Observe application metrics](/docs/components/monitoring/#tutorials-observe-application-metrics)
+- [Create a Grafana dashboard](/docs/components/monitoring/#tutorials-create-a-grafana-dashboard)
+- [Define alerting rules](/docs/components/monitoring/#tutorials-define-alerting-rules)
 
 ### Telepresence guide
 
@@ -72,17 +72,17 @@ We know how difficult of a task developing and debugging locally can be. That is
 
 ### Troubleshooting guides for the Application Connector
 
-We provided a set of [troubleshooting guides](https://kyma-project.io/docs/1.5/components/application-connector/#troubleshooting-troubleshooting) that will help you to resolve the most common issues you may encounter when interacting with such components as the Application Gateway, Application Registry, and Connector Service.
+We provided a set of [troubleshooting guides](/docs/components/application-connector/#troubleshooting-troubleshooting) that will help you to resolve the most common issues you may encounter when interacting with such components as the Application Gateway, Application Registry, and Connector Service.
 
 ## Service Management
 
 ### Separate repository for the Helm Broker
 
-The Helm Broker now has its own [separate repository](https://github.com/kyma-project/helm-broker) in the `kyma-project` organization. We have not changed the location of the related documentation so you can still read about the Helm Broker [here](https://kyma-project.io/docs/components/helm-broker/).
+The Helm Broker now has its own [separate repository](https://github.com/kyma-project/helm-broker) in the `kyma-project` organization. We have not changed the location of the related documentation so you can still read about the Helm Broker [here](/docs/components/helm-broker/).
 
 ### Support authentication methods for addons configurations
 
-Starting from the 1.5 release, we support fetching addons from repositories that require authentication. You can now pass credentials in a secure way using templates in your repository's URL. For more information, read [this](https://kyma-project.io/docs/1.5/components/helm-broker/#details-create-addons-repository-authorization) document.  
+Starting from the 1.5 release, we support fetching addons from repositories that require authentication. You can now pass credentials in a secure way using templates in your repository's URL. For more information, read [this](/docs/components/helm-broker/#details-create-addons-repository-authorization) document.  
 
 ## Serverless
 
