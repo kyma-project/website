@@ -18,7 +18,7 @@ export const AdoptersItem: React.FunctionComponent<Adopter> = ({
   url = "",
   logo,
   content,
-  verticalPadding,
+  cssProperties,
 }) => {
   const handleOnDragStart = (e: React.DragEvent<HTMLDivElement>) =>
     e.preventDefault();
@@ -32,7 +32,7 @@ export const AdoptersItem: React.FunctionComponent<Adopter> = ({
   return (
     <StyledAdoptersItem
       onDragStart={handleOnDragStart}
-      verticalPadding={verticalPadding}
+      cssProperties={cssProperties}
     >
       <Link.External to={websiteUrl}>
         <img src={logo} />

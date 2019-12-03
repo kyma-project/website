@@ -1,3 +1,4 @@
+import { CSSProp } from "styled-components";
 import styled, { media } from "@styled";
 import { linkEffect } from "@styled/mixins";
 
@@ -163,11 +164,11 @@ export const AliceCarouselWrapper = styled.div`
 `;
 
 interface ItemProps {
-  verticalPadding?: string;
+  cssProperties?: CSSProp;
 }
 
 const ImgHeight = "60px";
-export const StyledAdoptersItem = styled.div<ItemProps>`
+export const StyledAdoptersItem = styled.div`
   margin: 0 32px;
   text-align: center;
   > a {
@@ -180,8 +181,7 @@ export const StyledAdoptersItem = styled.div<ItemProps>`
       height: ${ImgHeight};
       max-width: 240px;
       max-height: ${ImgHeight};
-      ${props =>
-        props.verticalPadding && `padding: ${props.verticalPadding} 0`};
+      ${(props: ItemProps) => props.cssProperties};
     }
   }
 

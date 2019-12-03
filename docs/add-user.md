@@ -15,7 +15,9 @@ Follow these steps to add information on a new Kyma user to the **Used by** sect
      url: { URL }
      logo: { LOGO }
      content: { CONTENT }
-     verticalPadding: { VERTICAL_PADDING }
+     cssProperties:
+        {CSS_PROPERTY}: {CSS_VALUE}
+        ...
    ```
 
    Replace these parameters with real values:
@@ -24,7 +26,7 @@ Follow these steps to add information on a new Kyma user to the **Used by** sect
    - `{URL}` is a URL to your case study published either on your company's website or on our blog. This field is optional.
    - `{LOGO}` is a path to your company's logo. It can be either a relative path to an image added under the `content/adopters/logos` folder in your PR or a path to an external source.
    - `{CONTENT}` is a short description of your feelings about adopting Kyma in your company. Add only text with a maximum of 144 characters.
-   - `{VERTICAL_PADDING}` is [padding](https://developer.mozilla.org/en-US/docs/Web/CSS/padding) on the top and bottom of the logo image, added to make logo smaller. This field is optional.
+   - `{CSS_PROPERTY}` and `{CSS_VALUE}` are property/value pair. See [that](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Properties_Reference) and [that](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units) documents for reference. This field is optional - if not used remove the `cssProperties` key.
 
    > **NOTE:** If your case study is a post on our blog, `{URL}` should be a relative link to the appropriate post with the `/blog` prefix. For example, add `/blog/2018/7/24/introduction-project-kyma/`.
 
@@ -35,7 +37,8 @@ Follow these steps to add information on a new Kyma user to the **Used by** sect
      url: "https://company.com/blog/kyma-rocks"
      logo: "./logos/company.svg"
      content: "Kyma rocks!"
-     verticalPadding: "10px"
+     cssProperties:
+       padding: 10px 0
    ```
 
    ```yaml
