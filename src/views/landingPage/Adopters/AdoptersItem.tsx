@@ -28,8 +28,8 @@ export const AdoptersItem: React.FunctionComponent<Adopter> = ({
     ? StyledAdoptersItemExtLink
     : StyledAdoptersItemIntLink;
 
-  // to have SAP's icons look good
-  const isSapUrl = websiteUrl.toLowerCase().includes("sap");
+  // special case of styling for SAP icon
+  const isSapUrl = websiteUrl.toLowerCase().includes("sap.com");
 
   return (
     <StyledAdoptersItem onDragStart={handleOnDragStart} isSap={isSapUrl}>
