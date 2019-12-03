@@ -21,9 +21,13 @@ import {
   DocsConfigSpec,
   DocsConfig,
   CLUSTER_DOCS_TOPIC,
-  GROUP_NAME_LABEL,
-  GROUP_ORDER_LABEL,
-  ORDER_LABEL,
+  CLUSTER_ASSET_GROUP,
+  CMS_GROUP_NAME_LABEL,
+  RAFTER_GROUP_NAME_LABEL,
+  CMS_GROUP_ORDER_LABEL,
+  RAFTER_GROUP_ORDER_LABEL,
+  CMS_ORDER_LABEL,
+  RAFTER_ORDER_LABEL,
   Source,
   Specification,
 } from "./types";
@@ -194,7 +198,9 @@ export class ClusterDocsTopicSerializer {
   };
 
   private prepareDocsConfig = (cdt: ClusterDocsTopic): DocsConfig => {
-    const groupName: string = cdt.metadata.labels[GROUP_NAME_LABEL];
+    const groupName: string =
+      cdt.metadata.labels[RAFTER_GROUP_NAME_LABEL] ||
+      cdt.metadata.labels[CMS_GROUP_NAME_LABEL];
     const spec: DocsConfigSpec = {
       id: cdt.metadata.name,
       displayName: cdt.spec.displayName,
@@ -244,10 +250,20 @@ export class ClusterDocsTopicSerializer {
     groupName: string,
   ): ClusterDocsTopic[] =>
     this.clusterDocsTopics
-      .filter(cdt => cdt.metadata.labels[GROUP_NAME_LABEL] === groupName)
+      .filter(
+        cdt =>
+          cdt.metadata.labels[RAFTER_GROUP_NAME_LABEL] === groupName ||
+          cdt.metadata.labels[CMS_GROUP_NAME_LABEL] === groupName,
+      )
       .sort((a, b) =>
-        Number(a.metadata.labels[ORDER_LABEL]) >
-        Number(b.metadata.labels[ORDER_LABEL])
+        Number(
+          a.metadata.labels[RAFTER_ORDER_LABEL] ||
+            a.metadata.labels[CMS_ORDER_LABEL],
+        ) >
+        Number(
+          b.metadata.labels[RAFTER_ORDER_LABEL] ||
+            b.metadata.labels[CMS_ORDER_LABEL],
+        )
           ? 1
           : -1,
       );
@@ -257,10 +273,15 @@ export class ClusterDocsTopicSerializer {
     const order: { [group: string]: number } = {};
 
     this.clusterDocsTopics.map(cdt => {
-      const groupName = cdt.metadata.labels[GROUP_NAME_LABEL];
+      const groupName =
+        cdt.metadata.labels[RAFTER_GROUP_NAME_LABEL] ||
+        cdt.metadata.labels[CMS_GROUP_NAME_LABEL];
       groupNames.add(groupName);
       if (!order[groupName]) {
-        order[groupName] = Number(cdt.metadata.labels[GROUP_ORDER_LABEL]);
+        order[groupName] = Number(
+          cdt.metadata.labels[RAFTER_GROUP_ORDER_LABEL] ||
+            cdt.metadata.labels[CMS_GROUP_ORDER_LABEL],
+        );
       }
     });
 
@@ -287,7 +308,7 @@ export class ClusterDocsTopicSerializer {
       throw new VError(err, `while getting files paths for clusterDocsTopics`);
     }
 
-    const cdtRegex = /(cdt\.(yaml|yml))$/;
+    const cdtRegex = /(cdt|cag\.(yaml|yml))$/;
     files = files.filter(file => Boolean(cdtRegex.exec(file)));
 
     for (const file of files) {
@@ -297,7 +318,10 @@ export class ClusterDocsTopicSerializer {
         throw new VError(err, `while reading yaml ${file}`);
       }
 
-      if (!cdt.kind || cdt.kind !== CLUSTER_DOCS_TOPIC) {
+      if (
+        !cdt.kind ||
+        !(cdt.kind === CLUSTER_DOCS_TOPIC || cdt.kind === CLUSTER_ASSET_GROUP)
+      ) {
         continue;
       }
 
