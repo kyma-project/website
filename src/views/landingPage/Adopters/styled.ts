@@ -1,4 +1,4 @@
-import { CSSProp } from "styled-components";
+import { Adopter } from "./../../../types/landingPage";
 import styled, { media } from "@styled";
 import { linkEffect } from "@styled/mixins";
 
@@ -164,7 +164,7 @@ export const AliceCarouselWrapper = styled.div`
 `;
 
 interface ItemProps {
-  cssProperties?: CSSProp;
+  cssProperties?: Adopter["cssProperties"];
 }
 
 const ImgHeight = "60px";
