@@ -166,10 +166,10 @@ interface ItemProps {
   isSap: boolean;
 }
 
+const ImgHeight = "60px";
 export const StyledAdoptersItem = styled.div<ItemProps>`
   margin: 0 32px;
   text-align: center;
-
   > a {
     margin-bottom: 16px;
     display: block;
@@ -177,9 +177,10 @@ export const StyledAdoptersItem = styled.div<ItemProps>`
 
     > img {
       width: 100%;
-      height: ${props => (props.isSap ? "45px" : "60px")};
+      height: ${ImgHeight};
       max-width: 240px;
-      max-height: 60px;
+      max-height: ${ImgHeight};
+      ${props => props.isSap && "padding: 8px 0"};
     }
   }
 
