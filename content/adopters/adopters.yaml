@@ -3,6 +3,7 @@ adopters:
     url: "https://blogs.sap.com/2019/10/05/making-development-of-extensions-easier-sap-cloud-platform-extension-factory/"
     logo: "./logos/sap.svg"
     content: "The SAP Cloud Platform Extension Factory, Kyma runtime will provide developers with the open source project Kyma"
+    verticalPadding: 8px
   - websiteUrl: "https://netconomy.net/"
     logo: "./logos/netconomy.svg"
     content: "Kyma allows us to extend the SAP CX platform with independently deployable services, this helps us to offer an even better customer experience"

@@ -18,6 +18,7 @@ export const AdoptersItem: React.FunctionComponent<Adopter> = ({
   url = "",
   logo,
   content,
+  verticalPadding,
 }) => {
   const handleOnDragStart = (e: React.DragEvent<HTMLDivElement>) =>
     e.preventDefault();
@@ -28,11 +29,11 @@ export const AdoptersItem: React.FunctionComponent<Adopter> = ({
     ? StyledAdoptersItemExtLink
     : StyledAdoptersItemIntLink;
 
-  // special case of styling for SAP icon
-  const isSapUrl = websiteUrl.toLowerCase().includes("sap.com");
-
   return (
-    <StyledAdoptersItem onDragStart={handleOnDragStart} isSap={isSapUrl}>
+    <StyledAdoptersItem
+      onDragStart={handleOnDragStart}
+      verticalPadding={verticalPadding}
+    >
       <Link.External to={websiteUrl}>
         <img src={logo} />
       </Link.External>

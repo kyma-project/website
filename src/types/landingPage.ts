@@ -8,6 +8,7 @@ export interface LandingPageContext {
 export interface Adopter {
   websiteUrl: string;
   url?: string;
+  verticalPadding?: string;
   logo: string;
   content: string;
 }

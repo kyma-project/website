@@ -163,7 +163,7 @@ export const AliceCarouselWrapper = styled.div`
 `;
 
 interface ItemProps {
-  isSap: boolean;
+  verticalPadding?: string;
 }
 
 const ImgHeight = "60px";
@@ -180,7 +180,8 @@ export const StyledAdoptersItem = styled.div<ItemProps>`
       height: ${ImgHeight};
       max-width: 240px;
       max-height: ${ImgHeight};
-      ${props => props.isSap && "padding: 8px 0"};
+      ${props =>
+        props.verticalPadding && `padding: ${props.verticalPadding} 0`};
     }
   }
 
