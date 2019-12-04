@@ -1,3 +1,4 @@
+import { Adopter } from "./../../../types/landingPage";
 import styled, { media } from "@styled";
 import { linkEffect } from "@styled/mixins";
 
@@ -162,10 +163,14 @@ export const AliceCarouselWrapper = styled.div`
   }
 `;
 
+interface ItemProps {
+  cssProperties?: Adopter["cssProperties"];
+}
+
+const ImgHeight = "60px";
 export const StyledAdoptersItem = styled.div`
   margin: 0 32px;
   text-align: center;
-
   > a {
     margin-bottom: 16px;
     display: block;
@@ -173,9 +178,10 @@ export const StyledAdoptersItem = styled.div`
 
     > img {
       width: 100%;
-      height: 45px;
+      height: ${ImgHeight};
       max-width: 240px;
-      max-height: 60px;
+      max-height: ${ImgHeight};
+      ${(props: ItemProps) => props.cssProperties};
     }
   }
 

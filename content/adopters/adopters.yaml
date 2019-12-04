@@ -1,11 +1,16 @@
 adopters:
-  - websiteUrl: "https://www.sap.com/index.html"
+  - websiteUrl: "https://sap.com/index.html"
     url: "https://blogs.sap.com/2019/10/05/making-development-of-extensions-easier-sap-cloud-platform-extension-factory/"
     logo: "./logos/sap.svg"
     content: "The SAP Cloud Platform Extension Factory, Kyma runtime will provide developers with the open source project Kyma"
-  - websiteUrl: "https://www.netconomy.net/"
+    cssProperties:
+      padding: 8px 0
+  - websiteUrl: "https://netconomy.net/"
     logo: "./logos/netconomy.svg"
     content: "Kyma allows us to extend the SAP CX platform with independently deployable services, this helps us to offer an even better customer experience"
-  - websiteUrl: "https://www.accenture.com/us-en/services/interactive-index"
+  - websiteUrl: "https://accenture.com/us-en/services/interactive-index"
     logo: "./logos/accenture.svg"
     content: "Kyma's microservice architecture enables us to implement modern digital transformations and personalized customer experiences fast with low risk"
+  - websiteUrl: "https://lights.digital/"
+    logo: "./logos/digital_lights.svg"
+    content: "Kyma provides us with the necessary tools to evolve our customers' existing SAP CX solutions in a flexible way and with minimum risk."

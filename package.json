@@ -56,7 +56,6 @@
     "@kyma-project/dc-open-api-render-engine": "0.3.0",
     "@kyma-project/documentation-component": "0.3.0",
     "@rooks/use-timeout": "^3.3.0",
-    "@types/react-youtube": "^7.6.2",
     "babel-plugin-styled-components": "^1.10.0",
     "constate": "^1.0.0",
     "gatsby": "^2.13.28",
