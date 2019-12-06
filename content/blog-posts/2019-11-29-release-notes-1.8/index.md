@@ -24,9 +24,8 @@ See the overview of all changes in this release:
 - [Security](#security) - XSUAA connector in Kyma, monitoring for API Server Proxy and OAuth2 controllers
 - [Service Management](#service-management) - Service Catalog with cascading ServiceBinding deletion
 - [Service Mesh](#service-mesh) - Istio upgraded to 1.3.5
-
-
->**CAUTION:** Read the [Known Issues](#known-issues) section for information about problems with Kyma instances installed on Gardener-provisioned clusters. 
+- [Monitoring](#monitoring) - Prometheus PVC increased to 10GB 
+- [Known Issues](#known-issues) - Information about problems with Kyma instances installed on Gardener-provisioned clusters. 
 
 >**CAUTION:** Before you upgrade to Kyma 1.8, read the [migration guide](https://github.com/kyma-project/kyma/blob/release-1.8/docs/migration-guides/1.7-1.8.md) which steps necessary to increase Persistent Volume Claims for Prometheus.
 
