@@ -24,9 +24,10 @@ See the overview of all changes in this release:
 - [Security](#security) - XSUAA connector in Kyma, monitoring for API Server Proxy and OAuth2 controllers
 - [Service Management](#service-management) - Service Catalog with cascading ServiceBinding deletion
 - [Service Mesh](#service-mesh) - Istio upgraded to 1.3.5
+- [Monitoring](#monitoring) - Prometheus PVC increased to 10GB 
+- [Known Issues](#known-issues) - Information about problems with Kyma instances installed on Gardener-provisioned clusters. 
 
-
->**CAUTION:** Read the [Known Issues](#known-issues) section for information about problems with Kyma instances installed on Gardener-provisioned clusters.
+>**CAUTION:** Before you upgrade to Kyma 1.8, read the [migration guide](https://github.com/kyma-project/kyma/blob/release-1.8/docs/migration-guides/1.7-1.8.md) which includes steps necessary to increase Persistent Volume Claims for Prometheus.
 
 
 ## CLI
@@ -110,6 +111,10 @@ Starting from this release, deleting a ServiceInstance removes all corresponding
 Kyma 1.8 is running on Istio 1.3.5! After a long journey, we have finally managed to upgrade from 1.2.7. Upgraded Istio comes with fixes in the Secret Discovery Service which resolve some of the stability issues.
 
 Additionally, we introduced a major improvement in the Istio Gateway definition by splitting it into multiple, separate gateways. With this change, you can install and access Kyma Core without depending on any other charts. Prior to this change, if a chart that contained a dependency, such as the Application Connector, was not installed, the communication with the cluster failed with code `503` errors. This was caused by the single gateway containing host definitions for all charts, even those that were not installed. This is yet another great step we make towards a more modular Kyma.
+
+## Monitoring
+
+We have increased the size of Persistent Volume Claims (PVC) for Prometheus to 10GB to prevent it from running out of disk space. For details, read the [migration guide](https://github.com/kyma-project/kyma/blob/release-1.8/docs/migration-guides/1.7-1.8.md).
 
 
 ## Known Issues
