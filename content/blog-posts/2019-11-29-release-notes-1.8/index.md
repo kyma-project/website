@@ -25,7 +25,7 @@ See the overview of all changes in this release:
 - [Service Management](#service-management) - Service Catalog with cascading ServiceBinding deletion
 - [Service Mesh](#service-mesh) - Istio upgraded to 1.3.5
 - [Known issues](#known-issues) - Information about problems with Kyma instances installed on Gardener-provisioned clusters. 
-- [Migrations and updates](#migrations-and-updates) - Prometheus PVC increased to 10GB
+- [Migrations and upgrades](#migrations-and-upgrades) - Prometheus PVC increased to 10GB
 
 
 
