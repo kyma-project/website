@@ -24,10 +24,9 @@ See the overview of all changes in this release:
 - [Security](#security) - XSUAA connector in Kyma, monitoring for API Server Proxy and OAuth2 controllers
 - [Service Management](#service-management) - Service Catalog with cascading ServiceBinding deletion
 - [Service Mesh](#service-mesh) - Istio upgraded to 1.3.5
-- [Monitoring](#monitoring) - Prometheus PVC increased to 10GB 
-- [Known Issues](#known-issues) - Information about problems with Kyma instances installed on Gardener-provisioned clusters. 
+- [Known issues](#known-issues) - Information about problems with Kyma instances installed on Gardener-provisioned clusters. 
+- [Migrations and upgrades](#migrations-and-upgrades) - Prometheus PVC increased to 10GB
 
->**CAUTION:** Before you upgrade to Kyma 1.8, read the [migration guide](https://github.com/kyma-project/kyma/blob/release-1.8/docs/migration-guides/1.7-1.8.md) which includes steps necessary to increase Persistent Volume Claims for Prometheus.
 
 
 ## CLI
@@ -112,13 +111,14 @@ Kyma 1.8 is running on Istio 1.3.5! After a long journey, we have finally manage
 
 Additionally, we introduced a major improvement in the Istio Gateway definition by splitting it into multiple, separate gateways. With this change, you can install and access Kyma Core without depending on any other charts. Prior to this change, if a chart that contained a dependency, such as the Application Connector, was not installed, the communication with the cluster failed with code `503` errors. This was caused by the single gateway containing host definitions for all charts, even those that were not installed. This is yet another great step we make towards a more modular Kyma.
 
-## Monitoring
-
-We have increased the size of Persistent Volume Claims (PVC) for Prometheus to 10GB to prevent it from running out of disk space. For details, read the [migration guide](https://github.com/kyma-project/kyma/blob/release-1.8/docs/migration-guides/1.7-1.8.md).
 
 
-## Known Issues
+## Known issues
 
 ### Issues with Kyma running on Gardener
 
 We have identified problems with Kyma instances installed on clusters provisioned through Gardener. The root cause of these problems seems to be Istio, namely the networking and RBAC elements of our service mesh. We're actively working to resolve these problems. Use [this](https://github.com/kyma-project/kyma/issues/6330) GitHub issue to track our progress.
+
+## Migrations and upgrades
+
+We have increased the size of Persistent Volume Claims (PVC) for Prometheus to 10GB to prevent it from running out of disk space. For details, read the [migration guide](https://github.com/kyma-project/kyma/blob/release-1.8/docs/migration-guides/1.7-1.8.md).
