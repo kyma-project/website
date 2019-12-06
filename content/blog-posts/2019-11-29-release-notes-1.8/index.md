@@ -27,7 +27,7 @@ See the overview of all changes in this release:
 - [Monitoring](#monitoring) - Prometheus PVC increased to 10GB 
 - [Known Issues](#known-issues) - Information about problems with Kyma instances installed on Gardener-provisioned clusters. 
 
->**CAUTION:** Before you upgrade to Kyma 1.8, read the [migration guide](https://github.com/kyma-project/kyma/blob/release-1.8/docs/migration-guides/1.7-1.8.md) which steps necessary to increase Persistent Volume Claims for Prometheus.
+>**CAUTION:** Before you upgrade to Kyma 1.8, read the [migration guide](https://github.com/kyma-project/kyma/blob/release-1.8/docs/migration-guides/1.7-1.8.md) which includes steps necessary to increase Persistent Volume Claims for Prometheus.
 
 
 ## CLI
