@@ -227,7 +227,11 @@ export class ClusterDocsTopicSerializer {
     const specifications = cdt.spec.sources
       .filter(this.isAllowedSrcType)
       .map(src => {
-        const fixedUrl: string = fixSourceUrl(src.url, values || {});
+        // TODO: Investigate why code search for values in master branch in last release sources
+        const fixedUrl: string = fixSourceUrl(src.url, values || {}).replace(
+          "undefined",
+          "master",
+        );
         const githubUrl: string = this.extractGithubUrl(fixedUrl);
 
         return {
