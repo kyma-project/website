@@ -47,7 +47,7 @@ The configuration options are as follows:
 | **APP_ROADMAP_TICKETS_OUTPUT**          | **YES**  | `roadmap/tickets.json`   | Path for storing the tickets results                              |
 | **APP_ROADMAP_LABELS**                  | **YES**  | `["Epic"]`               | Labels for tickets                                                |
 | **APP_ROADMAP_NON_CATEGORIZED_ISSUES**  | **YES**  | `Future`                 | Release name for non-categorized issues                           |
-| **APP_ZENHUB_URL_PREFIX**               | **YES**  | `https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues` | Prefix for a ZenHub issue URL |
+| **APP_ZENHUB_URL_PREFIX**               | **YES**  | `https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues` | Prefix to a ZenHub issue URL |
 
 ### Docker
 
