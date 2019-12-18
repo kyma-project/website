@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Content loader prepares content for the **Docs** and **Roadmap** section on the `kyma-project.io` website. It uses GitHub API to detect new releases in the `kyma` repository and documentation changes under [`kyma/docs`](https://github.com/kyma-project/kyma/tree/master/docs) merged to the `master` branch. Once detected, it prepares the content for the **Docs** and **Roadmap** sections and publishes it on the website.
+The Content Loader prepares content for the **Docs** and **Roadmap** sections on the `kyma-project.io` website. It uses GitHub API to detect new releases in the `kyma` repository and documentation changes under [`kyma/docs`](https://github.com/kyma-project/kyma/tree/master/docs) merged to the `master` branch. Once detected, it prepares content for the **Docs** and **Roadmap** sections and publishes it on the website.
 
 ## Prerequisites
 
@@ -18,7 +18,7 @@ To install all dependencies, run this command:
 npm install
 ```
 
-To fetch documentation with the default configuratiom, run this command:
+To fetch documentation with the default configuration, run this command:
 
 ``` bash
 npm start
