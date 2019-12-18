@@ -54,7 +54,7 @@ We identified the type-ahead search as a first candidate to be moved to Kyma. Ty
     
 For general search and navigation functionality the platform uses a third party search and merchandising cloud product. Every time the SAP Commerce platform creates a data feed exporting all product information to this third party cloud the same data feed is also pushed to our index service.This service analyzes the data feed, retrieves and aggregates all necessary other data from the search & merchandize cloud and then builds its own search index to be used by the query service.As soon as the index creation is finished the query service is informed using a Kyma event. The query service then downloads the new index and swaps the index it uses to serve API consumers without at runtime. The amount of pods that the query service uses is scaled automatically by number of requests hitting the system. The connection between SAP Commerce and the Kyma cluster is managed by the built-in Kyma Application Connector, which ensures secure and stable connectivity between the two systems.
 
-![](suggest_kyma.png)
+![](./suggest_kyma.png)
 **Figure 1: Type-ahead search in Kyma**  
 
 ## Learnings
