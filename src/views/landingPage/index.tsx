@@ -9,9 +9,9 @@ import { ExtensionsAndTools } from "./ExtensionsAndTools";
 import { Adopters } from "./Adopters";
 import { Newsroom } from "./Newsroom";
 
-const LandingPageView: React.FunctionComponent<
-  PageContext<LandingPageContext>
-> = ({ pageContext: { adopters, latestBlogPosts } }) => (
+const LandingPageView: React.FunctionComponent<PageContext<
+  LandingPageContext
+>> = ({ pageContext: { adopters, latestBlogPosts } }) => (
   <>
     <Headline />
     <WhatIs />

@@ -23,9 +23,8 @@ interface ReactMarkdownAdditionalProps {
   };
 }
 
-const ReactMarkdown: React.FunctionComponent<
-  ReactMarkdownProps & ReactMarkdownAdditionalProps
-> = ({
+const ReactMarkdown: React.FunctionComponent<ReactMarkdownProps &
+  ReactMarkdownAdditionalProps> = ({
   source,
   escapeHtml = false,
   headingPrefix = "",

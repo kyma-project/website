@@ -11,9 +11,9 @@ import { PreviewPageContext } from "@typings/common";
 
 import { VersionSwitcher } from "./components";
 
-const DocsView: React.FunctionComponent<
-  PageContext<DocsPageContext & PreviewPageContext>
-> = ({ pageContext }) => {
+const DocsView: React.FunctionComponent<PageContext<
+  DocsPageContext & PreviewPageContext
+>> = ({ pageContext }) => {
   const {
     version,
     versions,

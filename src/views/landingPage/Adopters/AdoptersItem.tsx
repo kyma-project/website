@@ -23,7 +23,7 @@ export const AdoptersItem: React.FunctionComponent<Adopter> = ({
   const handleOnDragStart = (e: React.DragEvent<HTMLDivElement>) =>
     e.preventDefault();
 
-  const BlogPostLink = !url
+  const BlogPostLink: any = !url
     ? null
     : url.startsWith("http")
     ? StyledAdoptersItemExtLink

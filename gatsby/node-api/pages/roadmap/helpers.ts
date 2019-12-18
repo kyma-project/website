@@ -61,9 +61,11 @@ export const getCapabilities = async (
     throw new Error(result.errors);
   }
 
-  return sortCapabilities(result.data.allMarkdownRemark.edges.map(
-    (e: any) => e.node,
-  ) as CapabilityGQL[]);
+  return sortCapabilities(
+    result.data.allMarkdownRemark.edges.map(
+      (e: any) => e.node,
+    ) as CapabilityGQL[],
+  );
 };
 
 const sortCapabilities = (capabilities: CapabilityGQL[]): CapabilityGQL[] =>
