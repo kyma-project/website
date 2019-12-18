@@ -31,6 +31,7 @@ Our client’s business has been growing enormously in the last five years. This
 -   Deployments, although were fully automated, still became riskier as for any change, no matter how small, the complete application had to be deployed.
 -   Scaling the system with load requirements became quite hard and expensive.
 -   In general, development progress was significantly slower and features became more costly to build.  
+
 All these points are well-known downsides of large monolithic applications. In addition, we noticed that over time it became very tough and expensive to experiment. Even the smallest feature trials had to wait for a long time to be integrated, tested and deployed at the next deployment date. This is when we knew we needed to change something.
 
 ## The best of both worlds
