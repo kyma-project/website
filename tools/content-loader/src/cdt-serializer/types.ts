@@ -1,8 +1,15 @@
 export const CLUSTER_DOCS_TOPIC: string = "ClusterDocsTopic";
+export const CLUSTER_ASSET_GROUP: string = "ClusterAssetGroup";
 
-export const GROUP_NAME_LABEL: string = "cms.kyma-project.io/group-name";
-export const GROUP_ORDER_LABEL: string = "cms.kyma-project.io/group-order";
-export const ORDER_LABEL: string = "cms.kyma-project.io/order";
+export const CMS_GROUP_NAME_LABEL: string = "cms.kyma-project.io/group-name";
+export const CMS_GROUP_ORDER_LABEL: string = "cms.kyma-project.io/group-order";
+export const CMS_ORDER_LABEL: string = "cms.kyma-project.io/order";
+
+export const RAFTER_GROUP_NAME_LABEL: string =
+  "rafter.kyma-project.io/group-name";
+export const RAFTER_GROUP_ORDER_LABEL: string =
+  "rafter.kyma-project.io/group-order";
+export const RAFTER_ORDER_LABEL: string = "rafter.kyma-project.io/order";
 
 export interface Specification {
   type: string;
