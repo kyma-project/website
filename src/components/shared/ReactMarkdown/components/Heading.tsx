@@ -31,8 +31,9 @@ export const Heading: React.FunctionComponent<HeadingProps> = ({
   if (!children) {
     return null;
   }
-  const headingTokenized = toKebabCase((children as any[])[0].props
-    .value as string);
+  const headingTokenized = toKebabCase(
+    (children as any[])[0].props.value as string,
+  );
 
   let id;
 

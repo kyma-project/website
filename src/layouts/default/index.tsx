@@ -17,9 +17,8 @@ interface DefaultLayoutProps {
   slidesBanner?: SlidesBannerProps;
 }
 
-export const DefaultLayout: React.FunctionComponent<
-  DefaultLayoutProps & PreviewPageContext
-> = ({
+export const DefaultLayout: React.FunctionComponent<DefaultLayoutProps &
+  PreviewPageContext> = ({
   horizontalHeaderBg = true,
   inDocsLayout = false,
   slidesBanner,

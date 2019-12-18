@@ -116,9 +116,7 @@ export interface GenericComponentProps {
   docsVersionSwitcher?: React.ReactNode;
 }
 
-export const GenericComponent: React.FunctionComponent<
-  GenericComponentProps
-> = ({
+export const GenericComponent: React.FunctionComponent<GenericComponentProps> = ({
   pageContext,
   sources,
   layout = LayoutType.DOCS,

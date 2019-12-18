@@ -6,8 +6,9 @@ interface FormattedMessageProps {
   prefix?: string;
 }
 
-const FormattedMessage: React.FunctionComponent<
-  FM.Props & FormattedMessageProps
-> = ({ className, prefix = "", ...props }) => <FM {...props} />;
+const FormattedMessage: React.FunctionComponent<FM.Props &
+  FormattedMessageProps> = ({ className, prefix = "", ...props }) => (
+  <FM {...props} />
+);
 
 export default FormattedMessage;

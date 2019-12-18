@@ -38,7 +38,7 @@ const aliceCarouselProps: AliceCarouselProps = {
   dotsDisabled: true,
   autoPlay: true,
   stopAutoPlayOnHover: true,
-  mouseDragEnabled: true,
+  mouseTrackingEnabled: true,
 };
 
 const disableCarouselScrolling = (
@@ -86,7 +86,7 @@ const disableCarouselScrolling = (
       duration: 0,
       autoPlayInterval: 0,
       autoPlay: false,
-      mouseDragEnabled: false,
+      mouseTrackingEnabled: false,
       infinite: false,
     },
     hideNav: true,

@@ -227,7 +227,11 @@ export class ClusterDocsTopicSerializer {
     const specifications = cdt.spec.sources
       .filter(this.isAllowedSrcType)
       .map(src => {
-        const fixedUrl: string = fixSourceUrl(src.url, values || {});
+        // TODO: Investigate why code search for values in master branch in last release sources
+        const fixedUrl: string = fixSourceUrl(src.url, values || {}).replace(
+          "undefined",
+          "master",
+        );
         const githubUrl: string = this.extractGithubUrl(fixedUrl);
 
         return {
@@ -308,7 +312,7 @@ export class ClusterDocsTopicSerializer {
       throw new VError(err, `while getting files paths for clusterDocsTopics`);
     }
 
-    const cdtRegex = /(cdt|cag\.(yaml|yml))$/;
+    const cdtRegex = /((cdt|cag)\.(yaml|yml))$/;
     files = files.filter(file => Boolean(cdtRegex.exec(file)));
 
     for (const file of files) {

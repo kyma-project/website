@@ -21,9 +21,9 @@ interface LinkProps extends GatsbyLinkProps<{}> {
   underline?: boolean;
 }
 
-const External: React.FunctionComponent<
-  LinkProps & { externalIcon?: boolean }
-> = ({
+const External: React.FunctionComponent<LinkProps & {
+  externalIcon?: boolean;
+}> = ({
   to,
   className,
   children,
@@ -44,9 +44,8 @@ const External: React.FunctionComponent<
   </ExternalLink>
 );
 
-const Internal: React.FunctionComponent<
-  LinkProps & InjectedIntlProps & { intl: { locale: KeysOfi18nConfig } }
-> = ({
+const Internal: React.FunctionComponent<LinkProps &
+  InjectedIntlProps & { intl: { locale: KeysOfi18nConfig } }> = ({
   to = "",
   intl: { locale },
   className,

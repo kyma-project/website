@@ -30,9 +30,8 @@ interface SiteMetadataProps {
   blogPostMetadata?: BlogPostMetadata;
 }
 
-const SiteMetadata: React.FunctionComponent<
-  SiteMetadataProps & IntlInterface
-> = ({
+const SiteMetadata: React.FunctionComponent<SiteMetadataProps &
+  IntlInterface> = ({
   pageUrl = "",
   pageTitle = "",
   pageDescription = "",

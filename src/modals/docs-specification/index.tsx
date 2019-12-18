@@ -9,9 +9,10 @@ import Modal from "@components/shared/Modal";
 
 import { DocsModalContext } from "@typings/docs";
 
-export const DocsSpecificationModal: React.FunctionComponent<
-  DocsModalContext
-> = ({ specification, specifications }) => {
+export const DocsSpecificationModal: React.FunctionComponent<DocsModalContext> = ({
+  specification,
+  specifications,
+}) => {
   const { pathname, state } = useLocation();
 
   useEffect(() => {
