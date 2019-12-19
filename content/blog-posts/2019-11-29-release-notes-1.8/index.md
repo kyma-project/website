@@ -24,7 +24,7 @@ See the overview of all changes in this release:
 - [Security](#security) - XSUAA connector in Kyma, monitoring for API Server Proxy and OAuth2 controllers
 - [Service Management](#service-management) - Service Catalog with cascading ServiceBinding deletion
 - [Service Mesh](#service-mesh) - Istio upgraded to 1.3.5
-- [Known issues](#known-issues) - Information about problems with Kyma instances installed on Gardener-provisioned clusters. 
+- [Known issues](#known-issues) - Information about problems with Kyma instances installed on Gardener-provisioned clusters.
 - [Migrations and upgrades](#migrations-and-upgrades) - Prometheus PVC increased to 10GB
 
 
@@ -44,7 +44,7 @@ The Terraform-based `kyma provision gcp` and `kyma provision gardener` commands 
 
 ### Runtime Provisioner supports Gardener on Azure and AWS
 
-The capabilities of the [Runtime Provisioner](https://kyma-project.io/docs/1.8/components/compass/#architecture-components-runtime-provisioner) were extended - we've added support for provisioning Gardener clusters on Azure and AWS. Due to broadening capabilities of the Provisioner, we also changed the API a bit - the cluster config is now passed in a more generic way, which allows for easier integration with various Hyperscalers.
+The capabilities of the [Runtime Provisioner](https://kyma-project.io/docs/1.8/components/compass/#runtime-provisioner) were extended - we've added support for provisioning Gardener clusters on Azure and AWS. Due to broadening capabilities of the Provisioner, we also changed the API a bit - the cluster config is now passed in a more generic way, which allows for easier integration with various Hyperscalers.
 
 ### Connect with Applications from Cockpit
 
