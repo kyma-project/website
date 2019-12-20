@@ -74,7 +74,7 @@ In the coming releases, we plan to address the remaining features from the propo
 
 ### Known issues
 
-Switching Asset Store to recommended production mode, with Minio Gateway under the hood and Google Cloud Storage support, requires additional manual configuration. This is because for this release the Minio setup must support our legacy solution and default **content** bucket setup. The problem is caused by the limitation of Google Cloud Storage which requires the bucket name to be globally unique. For details and configuration steps read [this](https://github.com/kyma-project/kyma/blob/master/resources/assetstore/README.md) document.
+Switching Asset Store to recommended production mode, with Minio Gateway under the hood and Google Cloud Storage support, requires additional manual configuration. This is because for this release the Minio setup must support our legacy solution and default **content** bucket setup. The problem is caused by the limitation of Google Cloud Storage which requires the bucket name to be globally unique. For details and configuration steps read [this](https://github.com/kyma-project/kyma/blob/release-0.7/resources/assetstore/README.md) document.
 
 ## Console
 
