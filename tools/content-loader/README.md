@@ -2,7 +2,13 @@
 
 ## Overview
 
-The Content Loader prepares content for the **Docs** and **Roadmap** sections on the `kyma-project.io` website. It uses GitHub API to detect new releases in the `kyma` repository and documentation changes under [`kyma/docs`](https://github.com/kyma-project/kyma/tree/master/docs) merged to the `master` branch. Once detected, it prepares content for the **Docs** and **Roadmap** sections and publishes it on the website.
+The Content Loader prepares content for the **Docs**, **Community**, and **Roadmap** sections on the `kyma-project.io` website. It uses GitHub API to detect:
+
+- new releases in the `kyma` repository,
+- documentation changes under [`kyma/docs`](https://github.com/kyma-project/kyma/tree/master/docs),
+- documentation changes in the `community` repository,
+- documentation changes in files with the `epic` label
+merged to the `master` branch. Once detected, it prepares content for the **Docs**, **Community**, and **Roadmap** sections and publishes it on the website.
 
 ## Prerequisites
 
@@ -48,21 +54,3 @@ The configuration options are as follows:
 | **APP_ROADMAP_LABELS**                  | **YES**  | `["Epic"]`               | Labels for tickets                                                |
 | **APP_ROADMAP_NON_CATEGORIZED_ISSUES**  | **YES**  | `Future`                 | Release name for non-categorized issues                           |
 | **APP_ZENHUB_URL_PREFIX**               | **YES**  | `https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues` | Prefix to a ZenHub issue URL |
-
-### Docker
-
-To build an image, run this command:
-
-``` bash
-docker build -t website-content-loader .
-```
-
-Use this command to run the image:
-
-``` bash
-docker run --rm -v {absolutePathToOutputDir}:/app/documentation -e APP_DOCS_OUTPUT=/app/documentation -e APP_DOCS_VERSIONS_CONFIG_FILE=/app/documentation/versions.json website-content-loader
-```
-
-Replace values in curly braces with proper details, where:
-
-- `{absolutePathToOutputDir}` is the absolute path to the output directory.
