@@ -4,12 +4,12 @@
 
 The Content Loader prepares content for the **Docs**, **Community**, and **Roadmap** sections on the `kyma-project.io` website. It uses GitHub API to detect:
 
-- new releases in the `kyma` repository,
-- documentation changes under [`kyma/docs`](https://github.com/kyma-project/kyma/tree/master/docs),
-- documentation changes in the `community` repository,
-- documentation changes in files with the `epic` label
+- new releases in the `kyma` repository merged to the `master` branch,
+- documentation changes under [`kyma/docs`](https://github.com/kyma-project/kyma/tree/master/docs) merged to the `master` branch,
+- documentation changes in the `community` repository merged to the `master` branch,
+- GuHub issues with the `epic` label.
 
-merged to the `master` branch. Once detected, the Content Loader prepares content for the **Docs**, **Community**, and **Roadmap** sections and publishes it on the website.
+Once detected, the Content Loader prepares content for the **Docs**, **Community**, and **Roadmap** sections and publishes it on the website.
 
 ## Prerequisites
 
