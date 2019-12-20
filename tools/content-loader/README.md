@@ -9,7 +9,7 @@ The Content Loader prepares content for the **Docs**, **Community**, and **Roadm
 - documentation changes in the `community` repository,
 - documentation changes in files with the `epic` label
 
-merged to the `master` branch. Once detected, it prepares content for the **Docs**, **Community**, and **Roadmap** sections and publishes it on the website.
+merged to the `master` branch. Once detected, the Content Loader prepares content for the **Docs**, **Community**, and **Roadmap** sections and publishes it on the website.
 
 ## Prerequisites
 
