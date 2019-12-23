@@ -89,6 +89,7 @@ fetch() {
     APP_ROADMAP_TICKETS_OUTPUT="${CONTENT_DIR}/roadmap/tickets.json" \
     APP_TOKEN="${BOT_GITHUB_TOKEN}" \
     APP_ZEN_HUB_TOKEN="${BOT_ZENHUB_TOKEN}" \
+    APP_DOCS_RELEASE_NUMBER="3" \
     make -C "./tools/content-loader" fetch-content
 }
 

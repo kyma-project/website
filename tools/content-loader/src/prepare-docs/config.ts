@@ -4,6 +4,7 @@ export interface DocsConfig {
   outputDocsVersion: string;
   sourcePath: string;
   repository: string;
+  numberOfProcessedReleases: number;
 }
 
 const config: DocsConfig = {
@@ -15,6 +16,7 @@ const config: DocsConfig = {
     process.env.APP_DOCS_VERSIONS_CONFIG_FILE || "versions.json",
   sourcePath: process.env.APP_DOCS_SOURCE_DIR || "tempDocsDir",
   repository: process.env.APP_DOCS_REPOSITORY || "kyma",
+  numberOfProcessedReleases: Number(process.env.APP_DOCS_RELEASE_NUMBER) || 3,
 };
 
 export default config;
