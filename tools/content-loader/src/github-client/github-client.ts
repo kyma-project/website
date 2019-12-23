@@ -21,9 +21,14 @@ export class GitHubClient {
 
   withConfig = (config: CoreConfig) => {
     this.config = config;
-    this.octokit = new Octokit({
-      ...(!!config.token && { type: "token", token: config.token }),
-    });
+    if (!!config.token) {
+      this.octokit = new Octokit({
+        type: "token",
+        token: config.token,
+      });
+    } else {
+      this.octokit = new Octokit();
+    }
   };
 
   getReleases = async () => {

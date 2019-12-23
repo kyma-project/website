@@ -43,13 +43,14 @@ The configuration options are as follows:
 | **APP_DOCS_OUTPUT**                     | **YES**  | `docs`                   | Path for storing the documentation results                        |
 | **APP_DOCS_VERSIONS_CONFIG_FILE**       | **YES**  | `versions.json`          | Path to the website documentation configuration                   |
 | **APP_DOCS_TEMP_DIR**                   | **YES**  | `tempDocsDir`            | Path for storing temporary data for documentation                 |
+| **APP_DOCS_RELEASE_NUMBER**             | **NO**   | `3`                      | Number of latest releases to be shown                             |
 | **APP_COMMUNITY_OUTPUT**                | **YES**  | `community`              | Path for storing the community content results                    |
 | **APP_COMMUNITY_REPOSITORY**            | **YES**  | `community`              | Repository with the community content                             |
-| **APP_COMMUNITY_TEMP_DIR**              | **YES**  | `tempCommunityDir`       | Path for storing temporary data for the community content             |
+| **APP_COMMUNITY_TEMP_DIR**              | **YES**  | `tempCommunityDir`       | Path for storing temporary data for the community content         |
 | **APP_ROADMAP_REPOSITORY**              | **YES**  | `community`              | Repository with capabilities descriptions                         |
 | **APP_ROADMAP_OUTPUT**                  | **YES**  | `roadmap`                | Path for storing the roadmap content results                      |
-| **APP_ROADMAP_TEMP_DIR**                | **YES**  | `tempRoadmapDir`         | Path for storing temporary data for the roadmap content               |
-| **APP_ROADMAP_CAPABILITIES_DIR**        | **YES**  | `capabilities`           | Capabilities location in the `community` repository                 |
+| **APP_ROADMAP_TEMP_DIR**                | **YES**  | `tempRoadmapDir`         | Path for storing temporary data for the roadmap content           |
+| **APP_ROADMAP_CAPABILITIES_DIR**        | **YES**  | `capabilities`           | Capabilities location in the `community` repository               |
 | **APP_ROADMAP_CAPABILITIES_OUTPUT**     | **YES**  | `roadmap/capabilities`   | Path for storing the capabilities results                         |
 | **APP_ROADMAP_TICKETS_OUTPUT**          | **YES**  | `roadmap/tickets.json`   | Path for storing the tickets results                              |
 | **APP_ROADMAP_LABELS**                  | **YES**  | `["Epic"]`               | Labels for tickets                                                |
