@@ -27,12 +27,8 @@ export class TicketsProcessor {
   }
 
   sortReleases() {
-    this.filteredReleases = this.releases.sort((a, b) =>
-      a.displayName > b.displayName
-        ? 1
-        : b.displayName > a.displayName
-        ? -1
-        : 0,
+    this.filteredReleases = this.filteredReleases.sort((a, b) =>
+      a.displayName.localeCompare(b.displayName, undefined, { numeric: true }),
     );
 
     return this;
@@ -113,6 +109,10 @@ export class TicketsProcessor {
 
   returnReleases(): Release[] {
     return this.releases;
+  }
+
+  returnFilteredReleases(): Release[] {
+    return this.filteredReleases;
   }
 
   returnReleasesWithNumber(): ReleaseWithNumber[] {
