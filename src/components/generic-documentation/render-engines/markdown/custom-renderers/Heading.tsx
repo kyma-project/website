@@ -23,7 +23,9 @@ export const Heading: React.FunctionComponent<HeadingProps> = ({
   children,
 }) => {
   const tabData = useContext(TabContext);
-  const tabDataExists = tabData && Object.keys(tabData).length;
+  // https://github.com/diegohaz/constate library return _NP_ (not null) if provider is not provided in context
+  const tabDataExists =
+    tabData && (tabData as any) !== "_NP_" && Object.keys(tabData).length;
 
   if (!children) {
     return null;
@@ -37,9 +39,6 @@ export const Heading: React.FunctionComponent<HeadingProps> = ({
     )
     .map(child => child.props && child.props.value)
     .join(" ");
-  if (!heading) {
-    return null;
-  }
 
   if (!heading) {
     return null;
@@ -54,6 +53,7 @@ export const Heading: React.FunctionComponent<HeadingProps> = ({
       heading = `${heading}-1`;
     }
   }
+
   heading = removeMarkdownSyntax(heading);
   headings.add(heading);
   heading = toKebabCase(heading) || "";
