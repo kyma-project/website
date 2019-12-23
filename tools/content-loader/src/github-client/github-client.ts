@@ -16,7 +16,7 @@ export class GitHubClient {
 
   constructor() {
     this.config = {} as CoreConfig;
-    this.octokit = null;
+    this.octokit = new Octokit();
   }
 
   withConfig = (config: CoreConfig) => {

@@ -35,6 +35,11 @@ export class ReleaseFetcher {
   getReleaseName(release: ReposGetReleaseResponse) {
     const fullName = release.name ? release.name : release.tag_name;
     const result = fullName.match(/^v?[0-9]+.[0-9]+/);
+
+    if (!result) {
+      return "";
+    }
+
     return result.length ? result[0] : "";
   }
 
@@ -44,7 +49,10 @@ export class ReleaseFetcher {
     );
   }
 
-  groupBy(array: any[], fn) {
+  groupBy(
+    array: any[],
+    fn: (arg: ReposGetReleaseResponse) => string,
+  ): Map<string, any> {
     return array.reduce((prv, curr) => {
       const key = fn(curr);
       let values = prv.get(key);
@@ -59,7 +67,7 @@ export class ReleaseFetcher {
     }, new Map());
   }
 
-  getNewestReleases(groupedReleases) {
+  getNewestReleases(groupedReleases: Map<string, ReposGetReleaseResponse[]>) {
     const result = new Map<string, ReposGetReleaseResponse>();
 
     groupedReleases.forEach((value, key) => {
@@ -77,7 +85,10 @@ export class ReleaseFetcher {
     return result;
   }
 
-  filterReleased(prereleases, releases) {
+  filterReleased(
+    prereleases: Map<string, ReposGetReleaseResponse>,
+    releases: Map<string, ReposGetReleaseResponse>,
+  ) {
     const result = new Map<string, ReposGetReleaseResponse>();
 
     prereleases.forEach((value, key) => {
@@ -94,8 +105,6 @@ export class ReleaseFetcher {
     num?: number,
   ): Map<string, string> {
     const result = new Map<string, string>();
-
-    console.log(releases.keys());
 
     releases.forEach((release, key) => {
       result.set(key, release.tag_name);
