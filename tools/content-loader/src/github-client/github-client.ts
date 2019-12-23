@@ -23,11 +23,8 @@ export class GitHubClient {
     this.config = config;
     if (!!config.token) {
       this.octokit = new Octokit({
-        type: "token",
-        token: config.token,
+        auth: config.token,
       });
-    } else {
-      this.octokit = new Octokit();
     }
   };
 
