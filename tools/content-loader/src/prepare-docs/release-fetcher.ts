@@ -5,7 +5,6 @@ import {
 } from "@octokit/rest";
 
 import GitHubClient from "../github-client/github-client";
-import { DocsReleasesVersion } from "./docs-versions";
 
 export class ReleaseFetcher {
   async get() {
@@ -90,14 +89,19 @@ export class ReleaseFetcher {
     return result;
   }
 
-  extractTags(releases) {
+  extractTags(
+    releases: Map<string, ReposGetReleaseResponse>,
+    num?: number,
+  ): Map<string, string> {
     const result = new Map<string, string>();
+
+    console.log(releases.keys());
 
     releases.forEach((release, key) => {
       result.set(key, release.tag_name);
     });
 
-    return result;
+    return new Map([...result.entries()].slice(0, num));
   }
 }
 

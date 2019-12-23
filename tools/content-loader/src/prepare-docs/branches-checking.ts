@@ -45,7 +45,7 @@ export class BranchesChecking {
     );
 
     return {
-      releases: ReleaseFetcher.extractTags(newestReleases),
+      releases: ReleaseFetcher.extractTags(newestReleases, 3),
       prereleases: ReleaseFetcher.extractTags(filteredPrereleases),
     };
   };
