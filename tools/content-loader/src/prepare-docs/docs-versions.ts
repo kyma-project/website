@@ -1,12 +1,4 @@
-import { writeJSON } from "fs-extra";
 import to from "await-to-js";
-import { VError } from "verror";
-import {
-  ReposListReleasesResponse,
-  ReposGetReleaseResponse,
-  ReposGetBranchResponse,
-  ReposListTagsResponse,
-} from "@octokit/rest";
 
 import { writeToJson } from "../helpers";
 

@@ -16,17 +16,14 @@ export class GitHubClient {
 
   constructor() {
     this.config = {} as CoreConfig;
-    this.octokit = null;
+    this.octokit = new Octokit();
   }
 
   withConfig = (config: CoreConfig) => {
     this.config = config;
-    this.octokit = new Octokit();
-
-    if (config.token) {
-      this.octokit.authenticate({
-        type: "token",
-        token: config.token,
+    if (!!config.token) {
+      this.octokit = new Octokit({
+        auth: config.token,
       });
     }
   };

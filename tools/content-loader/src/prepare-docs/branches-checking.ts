@@ -6,7 +6,7 @@ import ReleaseFetcher from "./release-fetcher";
 import TagsFetcher from "./tag-fetcher";
 
 export class BranchesChecking {
-  releases = async () => {
+  releases = async (numberOfReleases: number) => {
     let err: Error | null;
 
     let allReleases;
@@ -45,7 +45,7 @@ export class BranchesChecking {
     );
 
     return {
-      releases: ReleaseFetcher.extractTags(newestReleases),
+      releases: ReleaseFetcher.extractTags(newestReleases, numberOfReleases),
       prereleases: ReleaseFetcher.extractTags(filteredPrereleases),
     };
   };

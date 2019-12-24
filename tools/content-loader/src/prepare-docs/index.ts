@@ -18,7 +18,9 @@ const prepareDocs = async (coreConfig: CoreConfig) => {
 
   let err: Error | null;
   let result;
-  [err, result] = await to(CheckingDocs.releases());
+  [err, result] = await to(
+    CheckingDocs.releases(docsConfig.numberOfProcessedReleases),
+  );
   if (err) {
     throw new VError(err, `while checking releases`);
   }
