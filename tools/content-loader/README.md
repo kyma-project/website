@@ -43,7 +43,7 @@ The configuration options are as follows:
 | **APP_DOCS_OUTPUT**                     | **YES**  | `docs`                   | Path for storing the documentation results                        |
 | **APP_DOCS_VERSIONS_CONFIG_FILE**       | **YES**  | `versions.json`          | Path to the website documentation configuration                   |
 | **APP_DOCS_TEMP_DIR**                   | **YES**  | `tempDocsDir`            | Path for storing temporary data for documentation                 |
-| **APP_DOCS_RELEASE_NUMBER**             | **NO**   | `3`                      | Number of latest releases to be shown                             |
+| **APP_DOCS_RELEASE_NUMBER**             | **NO**   | `3`                      | Number of the latest releases to be shown on the website          |
 | **APP_COMMUNITY_OUTPUT**                | **YES**  | `community`              | Path for storing the community content results                    |
 | **APP_COMMUNITY_REPOSITORY**            | **YES**  | `community`              | Repository with the community content                             |
 | **APP_COMMUNITY_TEMP_DIR**              | **YES**  | `tempCommunityDir`       | Path for storing temporary data for the community content         |
