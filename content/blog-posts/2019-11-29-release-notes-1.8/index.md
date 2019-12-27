@@ -44,7 +44,7 @@ The Terraform-based `kyma provision gcp` and `kyma provision gardener` commands 
 
 ### Runtime Provisioner supports Gardener on Azure and AWS
 
-The capabilities of the [Runtime Provisioner](https://kyma-project.io/docs/1.8/components/compass/#runtime-provisioner) were extended - we've added support for provisioning Gardener clusters on Azure and AWS. Due to broadening capabilities of the Provisioner, we also changed the API a bit - the cluster config is now passed in a more generic way, which allows for easier integration with various Hyperscalers.
+The capabilities of the [Runtime Provisioner](https://kyma-project.io/docs/1.8/components/compass/#architecture-components-runtime-provisioner) were extended - we've added support for provisioning Gardener clusters on Azure and AWS. Due to broadening capabilities of the Provisioner, we also changed the API a bit - the cluster config is now passed in a more generic way, which allows for easier integration with various Hyperscalers.
 
 ### Connect with Applications from Cockpit
 
