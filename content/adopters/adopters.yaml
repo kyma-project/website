@@ -6,6 +6,7 @@ adopters:
     cssProperties:
       padding: 8px 0
   - websiteUrl: "https://netconomy.net/"
+    url: "https://kyma-project.io/blog/2019/12/20/netconomy-use-case"
     logo: "./logos/netconomy.svg"
     content: "Kyma allows us to extend the SAP CX platform with independently deployable services, this helps us to offer an even better customer experience"
   - websiteUrl: "https://accenture.com/us-en/services/interactive-index"
