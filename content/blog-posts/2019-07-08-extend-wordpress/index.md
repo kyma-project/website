@@ -44,7 +44,7 @@ Let's implement and deploy our example. I will use:
 Based on the above list, you can expect a long installation process but I will use a Kyma operator that will do everything for me. All you need is a Google account and a Google Cloud Platform (GCP) project. If you don't have it yet, create one and Google will give a 12-month free trial with $300 credit to run your cluster.
 
 ## Prepare the GKE cluster with Kyma
-Follow the [installation guide](https://kyma-project.io/docs/1.2/root/kyma/#installation-install-kyma-on-a-cluster) for GKE or just execute the following commands, replacing placeholders with proper values:
+Follow the [installation guide](https://github.com/kyma-project/kyma/blob/release-1.2/docs/kyma/04-03-cluster-installation.md) for GKE or just execute the following commands, replacing placeholders with proper values:
 
 ```bash
 # Set ENV variables. See sample values in comments:
@@ -80,7 +80,7 @@ done
 
 > **NOTE:** Follow steps in this section only if you installed Kyma from the instructions in this blog post. If you followed the official Kyma documentation, skip this section as the installation steps cover adding a self-signed certificate and accessing the cluster.
 
-The simple installation guide we followed uses a self-signed certificate and an `xip.io` domain. Such a certificate will be rejected by your browser so you have to set it as trusted. 
+The simple installation guide we followed uses a self-signed certificate and an `xip.io` domain. Such a certificate will be rejected by your browser so you have to set it as trusted.
 ```bash
 # When the installation finishes, add a Kyma self-signed certificate to the trusted certificates (MacOS):
 tmpfile=$(mktemp /tmp/temp-cert.XXXXXX) \
@@ -104,7 +104,7 @@ console.1.2.3.4.xip.io
 User admin@kyma.cx, password:
 Eca23NyShqwK
 ```
-You can now open the Kyma Console URL in the browser and log in with the provided credentials. 
+You can now open the Kyma Console URL in the browser and log in with the provided credentials.
 
 ![Kyma Console](./console.png)
 
@@ -120,7 +120,7 @@ kubectl -n wordpress apply -f https://raw.githubusercontent.com/kyma-project/web
 
 Wait a few seconds for WordPress to start. You can check the status in the **Deployments** section.
 
-When the status of all deployments is `RUNNING`, navigate to [https://wordpress.1.2.3.4.xip.io]() replacing the `1.2.3.4` IP with the one for your cluster. Then complete the installation wizard. 
+When the status of all deployments is `RUNNING`, navigate to [https://wordpress.1.2.3.4.xip.io]() replacing the `1.2.3.4` IP with the one for your cluster. Then complete the installation wizard.
 
 ## Kyma plugin for WordPress
 
@@ -129,7 +129,7 @@ Download the following plugins:
 - [Basic Auth](https://github.com/WP-API/Basic-Auth/archive/master.zip) - for more details go to this [GitHub repository](https://github.com/WP-API/Basic-Auth)
 - [Kyma Connector](https://github.com/kyma-incubator/wordpress-connector/archive/master.zip) - for more details go to this [GitHub repository](https://github.com/kyma-incubator/wordpress-connector)
 In the left navigation, go to **Plugins** -> **Add New** -> **Upload Plugin**. Choose the Basic Auth and Kyma Connector plugins from your disk to install and activate them.
-Go to **Settings** -> **Kyma Connector**, uncheck the **Verify SSL** option (you need it because the default Kyma installation uses self-signed certificates), provide the username and password you created during the installation, and save your changes. 
+Go to **Settings** -> **Kyma Connector**, uncheck the **Verify SSL** option (you need it because the default Kyma installation uses self-signed certificates), provide the username and password you created during the installation, and save your changes.
 
 ![Kyma Connector](./kyma-connector.png)
 
@@ -166,7 +166,7 @@ kubectl -n kyma-integration \
 
 # Enable WordPress Events and APIs in the default Namespace
 
-The Kyma Application connectivity can expose APIs and Events (Async API) of Applications in the Service Catalog. To show WordPress in the Service Catalog, first, you need to bind the Application to a selected Namespace. Go to **Applications**, select the `wordpress` Application, press **Create Binding** and select the `default` Namespace. Now go to the `default` Namespace and open the Catalog - you should see WordPress API in the **Services** tab. Open it and have a look at API console and Events specification. We will react on `comment.post.v1` event and interact with `/wp/v2/comments/{id}` API. To make them available in the `default` Namespace click the **Add once** button and create an instance of the WordPress Service Class. Behind the scenes, the Application Connector creates the Application Gateway (a kind of proxy) that forwards requests from bounded services or functions to the WordPress instance. 
+The Kyma Application connectivity can expose APIs and Events (Async API) of Applications in the Service Catalog. To show WordPress in the Service Catalog, first, you need to bind the Application to a selected Namespace. Go to **Applications**, select the `wordpress` Application, press **Create Binding** and select the `default` Namespace. Now go to the `default` Namespace and open the Catalog - you should see WordPress API in the **Services** tab. Open it and have a look at API console and Events specification. We will react on `comment.post.v1` event and interact with `/wp/v2/comments/{id}` API. To make them available in the `default` Namespace click the **Add once** button and create an instance of the WordPress Service Class. Behind the scenes, the Application Connector creates the Application Gateway (a kind of proxy) that forwards requests from bounded services or functions to the WordPress instance.
 
 ![Add WordPress Instance](./add-wordpress-instance.png)
 
@@ -188,7 +188,7 @@ module.exports = {
         let score = result.comparative;
         if (score>0.2) {
             status = "approved"
-        } 
+        }
         updateComment(comment.id, status, comment.content.raw, score);
     }
 };
@@ -215,7 +215,7 @@ In the **Dependencies** section, add:
   }
 }
 ```
-Press **Select Function Trigger**, choose your function which is the `comment.post` Event, and save the function. The trigger is available because you have the WordPress service instance in the `default` Namespace. 
+Press **Select Function Trigger**, choose your function which is the `comment.post` Event, and save the function. The trigger is available because you have the WordPress service instance in the `default` Namespace.
 
 # Binding
 
@@ -244,9 +244,9 @@ Your code runs using Istio Service Mesh with network secured by mutual TLS. You 
 
 # Summary
 Why should you try Kyma? If you start a new project on Kubernetes, you will get carefully selected and best tools from the Cloud Native Landscape, which are already configured and integrated. If you want to move only a part of your project to the cloud and you have to keep legacy applications around, Kyma will help you to build extensions for them using modern tools on top of Kubernetes.
-Also when you start a new project with a goal that the final solution should be extendable and customizable, considering Kyma to address these challenges from day one would offer benefits. 
-Please remember that Kyma is an open-source project which is actively developed (~80 contributors and ~600 GitHub stars) with the support from such a big company as SAP. 
+Also when you start a new project with a goal that the final solution should be extendable and customizable, considering Kyma to address these challenges from day one would offer benefits.
+Please remember that Kyma is an open-source project which is actively developed (~80 contributors and ~600 GitHub stars) with the support from such a big company as SAP.
 
 # Next steps
 
-In the next blog post, I will show you how to use services from cloud providers using the Open Service Broker API. 
+In the next blog post, I will show you how to use services from cloud providers using the Open Service Broker API.
