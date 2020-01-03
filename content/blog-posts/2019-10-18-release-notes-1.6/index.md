@@ -62,7 +62,7 @@ Compass is a central, multi-tenant system that allows you to connect Application
 
 ### Authorization and authentication
 
-To ensure secure communication between Compass, Runtimes, and Applications we provide you with several authentication and authorization options. To learn more, read [this](https://github.com/kyma-incubator/compass/blob/master/docs/architecture/authentication-and-authorization.md) document.
+To ensure secure communication between Compass, Runtimes, and Applications we provide you with several authentication and authorization options. To learn more, read [this](https://github.com/kyma-incubator/compass/blob/master/docs/compass/03-01-security.md) document.
 
 ## Core and Supporting
 
