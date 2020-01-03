@@ -36,7 +36,7 @@ The first implementation of the [Runtime Provisioner](https://kyma-project.io/do
 
 ### Tenant Mapping Handler for requests validation
 
-Starting with this release, the [Tenant Mapping Handler](https://github.com/kyma-incubator/compass/blob/master/docs/architecture/authentication-and-authorization.md#tenant-mapping-handler) validates requests coming to the Director. It modifies those requests by assigning them to tenants and scopes. The authenticated users and systems can work only in the context of a given tenant and with given scopes.
+Starting with this release, the [Tenant Mapping Handler](https://github.com/kyma-incubator/compass/blob/master/docs/compass/03-01-security.md#tenant-mapping-handler) validates requests coming to the Director. It modifies those requests by assigning them to tenants and scopes. The authenticated users and systems can work only in the context of a given tenant and with given scopes.
 
 ### Scenarios view available in the Console
 
