@@ -30,7 +30,7 @@ See the overview of all changes in this release:
 
 ## Application Connector
 
-Starting from this release, we support additional headers and query parameters in OAuth token calls. Now you can customize the flow in an easy and native way. Check the Application Connector [documentation](https://kyma-project.io/docs/1.9/components/application-connector/#tutorials-register-a-secured-api-register-an-o-auth-secured-api) to find the tutorial and examples.
+Starting from this release, we support additional headers and query parameters in OAuth token calls. Now you can customize the flow in an easy way. Check the Application Connector [documentation](https://kyma-project.io/docs/1.9/components/application-connector/#tutorials-register-a-secured-api-register-an-o-auth-secured-api) to find the tutorial and examples.
 
 ## CLI
 
@@ -50,7 +50,7 @@ Also, the `cleanupRuntimeData` mutation does not only return a cryptic operation
 
 When you create a scenario and then assign Applications and Runtimes to it, the first registered Runtime is nominated as the default eventing system. That information is spread over all Applications and can be consumed by external Applications that start to send events.
 
-However, the Compass scenario Administrator still can decide that another Runtime from a given scenario should play the role of the default Eventing System. Changing the Runtime adjusts Applications automatically.
+However, the Compass scenario Administrator still can decide that another Runtime from a given scenario should play the role of the default eventing system. Changing the Runtime adjusts Applications automatically.
 
 ### Application Templates API
 
@@ -127,7 +127,7 @@ If the ServiceBroker CR is deleted before the removal of the corresponding Servi
 
 ### Backup & Rafter
 
-Due to some issues with Velero, right after restoring Kyma you need to follow some additional manual steps related to [Rafter](https://kyma-project.io/docs/1.9/components/rafter/):
+Due to some issues with Velero, right after restoring Kyma you need to follow some additional manual steps related to Rafter:
 
 1. Remove the cluster-wide default bucket:
 
