@@ -17,13 +17,13 @@ Bonjour à tous! Welcome to Paris where we land surrounded by breathtaking archi
 See the overview of all changes in this release:
 
 - [Application Connector](#application-connector) - New custom request headers and query parameters for APIs secured with OAuth
-- [Rafter](#rafter) - Asset Store and Headless CMS refactored and merged to create Rafter
 - [CLI](#cli) - Support for cluster provisioning on Microsoft Azure
 - [Compass](#compass) - Provisioner enhanced, Application Templates added, redesigned list view in the Compass UI, and more
 - [Console](#console) - Improved Addons Configuration view
 - [Eventing](#eventing) - Knative Eventing Mesh available for testing purposes
 - [Installation & Documentation](#installation-documentation) - Gardener provisioning based on Kyma CLI documented
 - [Monitoring](#monitoring) - Adjustments and upgrade to the latest version
+- [Rafter](#rafter) - Asset Store and Headless CMS refactored and merged to create Rafter
 - [Service Management](#service-management) - Changes in the deletion process of the ServiceBroker custom resource
 - [Known issues](#known-issues) - Workarounds for backup issues with Ratfer and problems with logging components
 - [Migrations and upgrades](#migrations-and-upgrades) - Rafter-related scripts and guidelines for the 1.8.0 - 1.9.0 upgrade
@@ -31,19 +31,6 @@ See the overview of all changes in this release:
 ## Application Connector
 
 Starting from this release, we support additional headers and query parameters in OAuth token calls. Now you can customize the flow in an easy and native way. Check the Application Connector [documentation](https://kyma-project.io/docs/1.9/components/application-connector/#tutorials-register-a-secured-api-register-an-o-auth-secured-api) to find the tutorial and examples.
-
-## Rafter
-
-In the last two months, we focused on refactoring the Asset Store and Headless CMS components. Our goals were to:
-
-- Optimize those components for resources consumption,
-- Move those components to a separate repository as they do not depend on Kyma. As a result, we aimed to have an independent project with its own release cycles that is open for the wider community.
-
-During the refactoring, we noticed that after a few months of developing and making changes in the Headless CMS, that had been built on top of the Asset Store, it was generic enough to become a part of the Asset Store. We renamed a DocsTopic custom resource (CR) to an AssetGroup CR which allowed us to have a single controller manager instead of two. The final result was that we merged those two components into one under a new name [Rafter](https://github.com/kyma-project/rafter/).
-
-Due to the fact that we use [MinIO](https://min.io/) as a backend for Rafter, we get an S3-like files/assets store managed with [CRs](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/).
-
-This release introduces Rafter in Kyma. For more details, read the [documentation](https://kyma-project.io/docs/1.9/components/rafter/). To make sure the switch is seamless, we prepared automated migration for your convenience. For more details, see the [Migrations and upgrades](#migrations-and-upgrades) section.
 
 ## CLI
 
@@ -116,6 +103,19 @@ As the official Prometheus Operator has changed a lot structure-wise recently, w
   - data retention size - `7GB`.
   
   Still, these settings can be changed during installation.
+
+## Rafter
+
+In the last two months, we focused on refactoring the Asset Store and Headless CMS components. Our goals were to:
+
+- Optimize those components for resources consumption,
+- Move those components to a separate repository as they do not depend on Kyma. As a result, we aimed to have an independent project with its own release cycles that is open for the wider community.
+
+During the refactoring, we noticed that after a few months of developing and making changes in the Headless CMS, that had been built on top of the Asset Store, it was generic enough to become a part of the Asset Store. We renamed a DocsTopic custom resource (CR) to an AssetGroup CR which allowed us to have a single controller manager instead of two. The final result was that we merged those two components into one under a new name [Rafter](https://github.com/kyma-project/rafter/).
+
+Due to the fact that we use [MinIO](https://min.io/) as a backend for Rafter, we get an S3-like files/assets store managed with [CRs](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/).
+
+This release introduces Rafter in Kyma. For more details, read the [documentation](https://kyma-project.io/docs/1.9/components/rafter/). To make sure the switch is seamless, we prepared automated migration for your convenience. For more details, see the [Migrations and upgrades](#migrations-and-upgrades) section.
 
 ## Service Management  
 
