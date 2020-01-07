@@ -165,8 +165,8 @@ As mentioned in the [Rafter](#rafter) section, the Asset Store and Headless CMS 
 
 To guarantee the necessary data duplication and fulfill the need to run all components during the upgrade, make sure your cluster has enough resources. The migration scripts are available [here](https://github.com/kyma-project/kyma/tree/release-1.9/resources/rafter/templates).
 
-Also, old CustomResourceDefinitions (CRDs) are not removed automatically during the upgrade process. Leaving the CRDs does not influence the upgrade. These CRDs will be removed with 1.10 release. However, you can remove them manually anytime using this command:
-
-```bash
-kubectl delete crd clusterdocstopics.cms.kyma-project.io && kubectl delete crd docstopics.cms.kyma-project.io && kubectl delete crd clusterbuckets.assetstore.kyma-project.io && kubectl delete crd buckets.assetstore.kyma-project.io && kubectl delete crd clusterassets.assetstore.kyma-project.io && kubectl delete crd assets.assetstore.kyma-project.io
-```
+>**NOTE:** Old CustomResourceDefinitions (CRDs) are not removed automatically during the upgrade process. Leaving the CRDs does not influence the upgrade. These CRDs will be removed with 1.10 release. However, you can remove them manually anytime using this command:
+>
+>```bash
+>kubectl delete crd clusterdocstopics.cms.kyma-project.io && kubectl delete crd docstopics.cms.kyma-project.io && kubectl delete crd clusterbuckets.assetstore.kyma-project.io && kubectl delete crd buckets.assetstore.kyma-project.io && kubectl delete crd clusterassets.assetstore.kyma-project.io && kubectl delete crd assets.assetstore.kyma-project.io
+>```
