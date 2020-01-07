@@ -10,29 +10,29 @@ redirectFrom:
   - "/blog/release-notes-19"
 ---
 
-Bonjour à tous! Welcome to Paris where we land surrounded by breathtaking architecture and renowned galleries. A little bit intimidated by the cultural capital of Europe, we stopped by to proudly exhibit Kyma 1.9 with its new features. This release we focused on Compass functionalities, monitoring updates, or new request headers and query parameters in the Application Connector. We also did some merging and renaming to create Rafter - a standalone project for managing assets through custom resources - and integrate it in Kyma. Read the full release notes for the complete list of improvements offered by the 1.9 release. Voilà!
+Bonjour à tous! Welcome to Paris where we land surrounded by breathtaking architecture and renowned galleries. Slightly intimidated by the beauty of the cultural capital of Europe, we stopped to proudly exhibit Kyma 1.9 with its new features. This release we focused on Compass functionalities, monitoring updates, and new request headers and query parameters in the Application Connector. We also worked on creating Rafter - a standalone project for managing assets through custom resources - and integrated it in Kyma. Read the full release notes for the complete list of improvements offered by the 1.9 release. Voilà!
 
 <!-- overview -->
 
 See the overview of all changes in this release:
 
 - [Application Connector](#application-connector) - New custom request headers and query parameters for APIs secured with OAuth
-- [Asset Store aka Rafter](#asset-store-aka-rafter) - Asset Store and Headless CMS refactored and merged into Rafter
-- [CLI](#cli) - Support for Azure
-- [Compass](#compass) - Provisioner enhanced, Application Templates added, API Director playground prepared to try out, list view in the Compass UI redesigned, and more
+- [Rafter](#rafter) - Asset Store and Headless CMS refactored and merged to create Rafter
+- [CLI](#cli) - Support for cluster provisioning on Microsoft Azure
+- [Compass](#compass) - Provisioner enhanced, Application Templates added, redesigned list view in the Compass UI, and more
 - [Console](#console) - Improved Addons Configuration view
-- [Eventing](#eventing) - Knative Eventing mesh available for testing purposes
-- [Installation & Documentation](#installation-&-documentation) - Gardener provisioning based on Kyma CLI documented
-- [Monitoring](#monitoring) - Adjustments and update to the latest version
+- [Eventing](#eventing) - Knative Eventing Mesh available for testing purposes
+- [Installation & Documentation](#installation-documentation) - Gardener provisioning based on Kyma CLI documented
+- [Monitoring](#monitoring) - Adjustments and upgrade to the latest version
 - [Service Management](#service-management) - Changes in the deletion process of the ServiceBroker custom resource
-- [Known issues](#known-issues) - Workarounds for issues with backup and Ratfer, and logging components
+- [Known issues](#known-issues) - Workarounds for backup issues with Ratfer and problems with logging components
 - [Migrations and upgrades](#migrations-and-upgrades) - Rafter-related scripts and guidelines for the 1.8.0 - 1.9.0 upgrade
 
 ## Application Connector
 
-Starting from this release, we support additional headers and query parameters in OAuth token calls. Now you can customize the flow in an easy and native way. Check the Application Connector [documentation](https://github.com/kyma-project/kyma/blob/release-1.9/docs/application-connector/08-04-register-secured-api.md#register-an-oauth-secured-api) to find the tutorial and examples.
+Starting from this release, we support additional headers and query parameters in OAuth token calls. Now you can customize the flow in an easy and native way. Check the Application Connector [documentation](https://kyma-project.io/docs/1.9/components/application-connector/#tutorials-register-a-secured-api-register-an-o-auth-secured-api) to find the tutorial and examples.
 
-## Asset Store aka Rafter
+## Rafter
 
 In the last two months, we focused on refactoring the Asset Store and Headless CMS components. Our goals were to:
 
@@ -43,35 +43,31 @@ During the refactoring, we noticed that after a few months of developing and mak
 
 Due to the fact that we use [MinIO](https://min.io/) as a backend for Rafter, we get an S3-like files/assets store managed with [CRs](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/).
 
-This release introduces Rafter in Kyma. For more details, read the [documentation](https://github.com/kyma-project/kyma/tree/release-1.9/docs/rafter). To make sure the switch is seamless, we prepared automated migration for your convenience. For more details, see the [Migrations and upgrades](#migrations-and-upgrades) section.
+This release introduces Rafter in Kyma. For more details, read the [documentation](https://kyma-project.io/docs/1.9/components/rafter/). To make sure the switch is seamless, we prepared automated migration for your convenience. For more details, see the [Migrations and upgrades](#migrations-and-upgrades) section.
 
 ## CLI
 
 ### Azure support
 
-Finally, you can provision a Kubernetes cluster on Azure basing on AKS. It follows the same command pattern as Google Cloud Platform basing on GKE. Give it a try and run `kyma provision azure`.
+Finally, you can provision a Kubernetes cluster on Azure basing on AKS. It follows the same command pattern as Google Cloud Platform basing on GKE. Give it a try and run `kyma provision azure`. See [this](https://github.com/kyma-project/cli/blob/master/docs/gen-docs/kyma_provision_azure.md) document for more details.
 
 ## Compass
 
 ### Provisioner
 
-It is now possible to install Kyma on provisioned clusters. After cluster creation is finished, the Provisioner will attempt to install a basic Kyma deployment. At this point, the supported environment for the installation is Gardener with Azure or GCP credentials.
+You can now install Kyma on clusters provisioned through the Provisioner. After cluster creation is finished, the Provisioner installs a basic Kyma deployment. You can provision clusters in the Gardener environment using Azure or GCP credentials.
 
 Also, the `cleanupRuntimeData` mutation does not only return a cryptic operation ID but also provides a status. You get information on whether your request input has errors or if the data was deleted successfully. You only need one call to get detailed knowledge of the clean-up result.
 
 ### Runtime eventing configuration available for Applications in the same scenario  
 
-When you create a scenario and then assign Applications and Runtimes to it, the first registered Runtime is nominated as the default Eventing System. That information is spread over all Applications and can be consumed by External Applications that start to send events.
+When you create a scenario and then assign Applications and Runtimes to it, the first registered Runtime is nominated as the default eventing system. That information is spread over all Applications and can be consumed by external Applications that start to send events.
 
 However, the Compass scenario Administrator still can decide that another Runtime from a given scenario should play the role of the default Eventing System. Changing the Runtime adjusts Applications automatically.
 
 ### Application Templates API
 
 Now you can preconfigure Application input with Application Templates. It allows you to easily create similar Applications by defining placeholders and filling in the static configuration data.
-
-### Play with Director API
-
-Visit the Director API GraphQL playground and try out the Director API! We have prepared API documentation along with examples that you can access there.
 
 ### Harmonization of list views in the Compass UI
 
@@ -87,21 +83,21 @@ Kyma 1.9 also introduces improvements to the Compass Director API. Now the mutat
 
 ### Redesigned Addons Configuration  
 
-We redesigned the Addons Configuration view. Now, with the recent changes, you can see a more detailed status of each addon that you configured via addon repositories.
+We redesigned the Addons Configuration view. Now you get a more detailed status of each addon that you configured through addon repositories.
 
 ![Status information](./status-info.png)
 
 ## Eventing
 
-### Knative Eventing mesh (Alpha)
+### Knative Eventing Mesh (Alpha)
 
-In this release, we introduced a new Knative Eventing mesh as an alpha feature which you can use for testing purposes only. It leverages Knative Eventing components to build an eventing mesh that provides event routing and pub/sub capabilities. This mesh layer abstracts the underlying messaging system and allows you to configure different persistence for each Namespace. The new Eventing Mesh runs in parallel with the existing Event Bus. The Kyma Event Bus still supports sending Events to the regular eventing endpoint, while a separate Kyma endpoint handles sending Events to the new Knative Eventing Mesh. Read more about it [here](https://github.com/kyma-project/kyma/blob/release-1.9/docs/event-bus/03-04-knative-eventing-mesh.md).
+In this release, we introduced Knative Eventing Mesh as an alpha feature which you can use for testing purposes only. It leverages Knative Eventing components to build an eventing mesh that provides event routing and pub/sub capabilities. This mesh layer abstracts the underlying messaging system and allows you to configure different persistence for each Namespace. The new Eventing Mesh runs in parallel with the existing Event Bus. The Kyma Event Bus still supports sending Events to the regular eventing endpoint, while a separate Kyma endpoint handles sending Events to the new Knative Eventing Mesh. Read more about it [here](https://kyma-project.io/docs/1.9/components/event-bus/#details-knative-eventing-mesh-alpha).
 
 ## Installation & documentation
 
 ### Gardener provisioning based on Kyma CLI documented
 
-After having the feature of provisioning a Gardener cluster via CLI introduced the last release, we documented it officially now. The instructions for provisioning a Gardener cluster on GCP or Azure is now based on Kyma CLI. Check it out in [this](https://github.com/kyma-project/kyma/blob/master/docs/kyma/04-04-cluster-installation.md#prepare-the-cluster) document under the **Gardener** tab.
+After introducing Gardener cluster provisioning through the Kyma CLI in the previous release, in this release, we added the official documentation for this feature. The instructions for provisioning a Gardener cluster on GCP or Azure are now based on Kyma CLI. Check it out in [this](https://kyma-project.io/docs/1.9/root/kyma/#installation-install-kyma-on-a-cluster-prepare-the-cluster) document under the **Gardener** tab.
 
 ## Monitoring
 
@@ -131,7 +127,7 @@ If the ServiceBroker CR is deleted before the removal of the corresponding Servi
 
 ### Backup & Rafter
 
-Due to some issues with Velero, right after restoring Kyma you need to follow some additional manual steps related to [Rafter](https://github.com/kyma-project/kyma/blob/release-1.9/docs/rafter/01-01-rafter.md):
+Due to some issues with Velero, right after restoring Kyma you need to follow some additional manual steps related to [Rafter](https://kyma-project.io/docs/1.9/components/rafter/):
 
 1. Remove the cluster-wide default bucket:
 
@@ -139,7 +135,7 @@ Due to some issues with Velero, right after restoring Kyma you need to follow so
    kubectl delete clusterbuckets.rafter.kyma-project.io --selector='rafter.kyma-project.io/access=public
    ```
 
-2. Remove buckets from the namespaces where you use them:
+2. Remove buckets from the Namespaces where you use them:
 
    ```bash
    kubectl delete buckets.rafter.kyma-project.io --selector='rafter.kyma-project.io/access=public' --namespace=default
@@ -147,24 +143,30 @@ Due to some issues with Velero, right after restoring Kyma you need to follow so
 
 ### Logging
 
-The Promtail Pod gets stuck in the CrashLoopBackoff phase. The reason is that the content of the `positions.yaml` file used by Promtail gets corrupted on the last line. You should see the following error message: `caller=main.go:56 msg="error creating promtail" error="yaml: line 107: could not find expected ':'`. A temporary workaround for the issue is as follows:
+The Promtail Pod gets stuck in the CrashLoopBackoff phase. The reason is that the content of the `positions.yaml` file used by Promtail gets corrupted on the last line. You should see the following error message:
 
-1. Create a simple Pod which runs on the same Node as the problematic Promtail Pod and mounts the `/run/promtail` folder on hostPath.
-2. Exec into the Pod and delete the last line of the `/run/promtail/positions.yaml` file.
+```text
+caller=main.go:56 msg="error creating promtail" error="yaml: line 107: could not find expected ':'"
+```
+
+A temporary workaround for the issue is as follows:
+
+1. Create a Pod which runs on the same Node as the problematic Promtail Pod and mounts the `/run/promtail` folder on hostPath.
+2. Modify the Pod definition by deleting the last line of the `/run/promtail/positions.yaml` file.
 3. Delete the crashing Pod.
 
 ## Migrations and upgrades
 
-As mentioned in the [Asset Store aka Rafter](#asset-store-aka-rafter) section, the Asset Store and Headless CMS components are replaced with a new one - Rafter. The most visible change is that DocsTopic and ClusterDocsTopic [CRs](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) are removed and replaced with AssetGroup and ClusterAssetGroup [CRs](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/). When migrating from Kyma 1.8.0 to 1.9.0 we automatically:
+As mentioned in the [Rafter](#rafter) section, the Asset Store and Headless CMS components are replaced with a new one - Rafter. The most visible change is that DocsTopic and ClusterDocsTopic CRs are removed and replaced with AssetGroup and ClusterAssetGroup CRs. When migrating from Kyma 1.8.0 to 1.9.0 we automatically:
 
-- Duplicate all the files from system buckets (used by the Upload Service) in a new MinIO instance to assure the recovery of assets created by the Application Registry,
+- Duplicate all files from system buckets (used by the Upload Service) in a new MinIO instance to assure the recovery of assets created by the Application Registry,
 - Duplicate all old resources in the new component, under the new name and API groups,
 - Remove the Asset Store and Headless CMS components after successful migration.
 
 To guarantee the necessary data duplication and fulfill the need to run all components during the upgrade, make sure your cluster has enough resources. The migration scripts are available [here](https://github.com/kyma-project/kyma/tree/release-1.9/resources/rafter/templates).
 
->**NOTE:** Old CustomResourceDefinitions (CRDs) are not removed automatically during the upgrade process. Leaving the CRDs does not influence the upgrade. However, you can remove them using this script:
->
->```bash
->kubectl delete crd clusterdocstopics.cms.kyma-project.io && kubectl delete crd docstopics.cms.kyma-project.io && kubectl delete crd clusterbuckets.assetstore.kyma-project.io && kubectl delete crd buckets.assetstore.kyma-project.io && kubectl delete crd clusterassets.assetstore.kyma-project.io && kubectl delete crd assets.assetstore.kyma-project.io
->```
+Also, old CustomResourceDefinitions (CRDs) are not removed automatically during the upgrade process. Leaving the CRDs does not influence the upgrade. These CRDs will be removed with 1.10 release. However, you can remove them manually anytime using this command:
+
+```bash
+kubectl delete crd clusterdocstopics.cms.kyma-project.io && kubectl delete crd docstopics.cms.kyma-project.io && kubectl delete crd clusterbuckets.assetstore.kyma-project.io && kubectl delete crd buckets.assetstore.kyma-project.io && kubectl delete crd clusterassets.assetstore.kyma-project.io && kubectl delete crd assets.assetstore.kyma-project.io
+```
