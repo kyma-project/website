@@ -10,7 +10,7 @@ redirectFrom:
   - "/blog/release-notes-19"
 ---
 
-Bonjour à tous! Welcome to Paris where we land surrounded by breathtaking architecture and renowned galleries. Slightly intimidated by the beauty of the cultural capital of Europe, we stopped to proudly exhibit Kyma 1.9 with its new features. This release we focused on Compass functionalities, monitoring updates, and new request headers and query parameters in the Application Connector. We also worked on creating Rafter - a standalone project for managing assets through custom resources - and integrated it in Kyma. Read the full release notes for the complete list of improvements offered by the 1.9 release. Voilà!
+Bonjour à tous! Welcome to Paris where we land surrounded by breathtaking architecture and renowned galleries. Slightly intimidated by the beauty of the cultural capital of Europe, we stopped to proudly exhibit Kyma 1.9 with its new features. In this release we focused on Compass functionalities, monitoring updates, and new request headers and query parameters in the Application Connector. We also worked on creating Rafter - a standalone project for managing assets through custom resources - and integrated it in Kyma. Read the full release notes for the complete list of improvements offered by the 1.9 release. Voilà!
 
 <!-- overview -->
 
@@ -25,7 +25,7 @@ See the overview of all changes in this release:
 - [Monitoring](#monitoring) - Adjustments and upgrade to the latest version
 - [Rafter](#rafter) - Asset Store and Headless CMS refactored and merged to create Rafter
 - [Service Management](#service-management) - Changes in the deletion process of the ServiceBroker custom resource
-- [Known issues](#known-issues) - Workarounds for backup issues with Ratfer and problems with logging components
+- [Known issues](#known-issues) - Workarounds for backup issues with Ratfer, issues with custom metrics for Rafter services, problems with logging components
 - [Migrations and upgrades](#migrations-and-upgrades) - Rafter-related scripts and guidelines for the 1.8.0 - 1.9.0 upgrade
 
 ## Application Connector
@@ -98,9 +98,9 @@ As the official Prometheus Operator has changed a lot structure-wise recently, w
 - All custom Grafana dashboards are now deployed by dedicated ConfigMaps and moved to the Kyma components they belong to, being installed along with a particular component
 - The Prometheus operator component got removed and was merged into the monitoring component
 - The following default settings have adjusted values:
-  - memory limit - `4GB`,
-  - data retention time - `2d`,
-  - data retention size - `7GB`.
+  - memory limit - `4GB`
+  - data retention time - `2d`
+  - data retention size - `7GB`
   
   Still, these settings can be changed during installation.
 
@@ -140,6 +140,9 @@ Due to some issues with Velero, right after restoring Kyma you need to follow so
    ```bash
    kubectl delete buckets.rafter.kyma-project.io --selector='rafter.kyma-project.io/access=public' --namespace=default
    ```
+### Custom metrics for Rafter services
+
+Following the migration from Asset Store and Headless CMS to Rafter, custom metrics for Rafter services do not show on Grafana dashboards due to renaming issues. We are planning to fix it in the next release.
 
 ### Logging
 
