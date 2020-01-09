@@ -14,7 +14,7 @@ Read the story of how we tackled integration testing in Kyma.
 
 <!-- overview -->
 
-In Kubernetes, you often come across projects that are true mosaics of cloud-native applications. In such a microservice architecture, we do not meet too many free-standing services - most of them have many dependencies that may not be that obvious at a first glance. Structurally, they usually consist of a number of Helm charts that you can roughly divide into these two categories:
+In Kubernetes, you often come across projects that are true mosaics of cloud-native applications. In such a microservice architecture, we do not meet too many free-standing services - most of them have many dependencies that may not be that obvious at a first glance. Structurally, such projects usually consist of a number of Helm charts that you can roughly divide into these two categories:
 
 - Charts of well-known open-source products, such as Istio or Jaeger, that provide service communication, tracing, and many other features that you use along with the "Don't reinvent the wheel" rule.   
 - Charts with in-house components, such as Kubernetes controllers and microservices exposing REST or GraphQL APIs, that you develop to fill in the gaps not addressed yet by the external projects.
