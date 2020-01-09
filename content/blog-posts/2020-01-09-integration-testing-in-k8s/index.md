@@ -21,7 +21,7 @@ When you think of Kyma, its modularity almost instantly comes into mind. No wond
 
 All things combined, we get a project that is a true mosaic of cloud-native applications. In such a microservice architecture, we do not meet too many free-standing services - most of them have many dependencies that may not be that obvious at a first glance. The same is in our case where all our components depend on the properly configured Istio. Upgrading it would be a nightmare without a set of automated integration tests that create a Kubernetes cluster and run integration tests on it to check resource dependencies, provide consistent deployment order, and ensure all pieces of our puzzle fit together at all times.
 
-When thinking about proper integration tests for Kyma, we also wanted to meet the needs of both developers and users. For this reason, we needed a setup in which you can deploy integration tests on both Minikube and GKE. This way, we could run the tests locally to allow developers to validate their work easily and on the spot, and execute tests on GKE to assure Kyma users can use it in their production environment safely.
+When thinking about proper integration tests for Kyma, we also wanted to meet the needs of both developers and users. For this reason, we needed a setup in which you can deploy integration tests on any Kubernetes cluster. This way, we could run the tests locally to allow developers to validate their work easily and on the spot, and execute tests on clusters provisioned on cloud providers to assure users can use Kyma in their production environment safely.
 
 ## Helm tests and related issues
 
@@ -125,7 +125,7 @@ In ClusterTestSuite, you are able to define which tests you want to execute. You
 
 2. **Automatic retries on failed tests**
 
-At one point, we had huge problems with flaky tests in Kyma. To merge a PR, all 22 tests had to pass on Minikube and GKE. If every test fails in only 2% of executions, the probability that all 22 tests pass is only 64%. Executing tests takes less than around 20 minutes, but when you add the time required for creating a cluster and provisioning Kyma, it doubles. You can imagine the frustration of developers who have to retrigger the whole Prow job because of a failure of one test that is totally not connected to the changes introduced in their PR. By introducing retries through the **maxRetries** parameter we didn't solve the issues with flaky tests completely, but we managed to reduce the number of situations in which retriggering a Prow job was required.
+At one point, we had huge problems with flaky tests in Kyma. To merge a PR, all 22 tests had to pass on a given Kubernetes cluster. If every test fails in only 2% of executions, the probability that all 22 tests pass is only 64%. Executing tests takes less than around 20 minutes, but when you add the time required for creating a cluster and provisioning Kyma, it doubles. You can imagine the frustration of developers who have to retrigger the whole Prow job because of a failure of one test that is totally not connected to the changes introduced in their PR. By introducing retries through the **maxRetries** parameter we didn't solve the issues with flaky tests completely, but we managed to reduce the number of situations in which retriggering a Prow job was required.
 
 3. **Running tests multiple times**
 
