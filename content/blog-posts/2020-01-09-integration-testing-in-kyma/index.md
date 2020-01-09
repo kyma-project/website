@@ -16,12 +16,12 @@ Read the story of how we tackled integration testing in Kyma.
 
 When you think of Kyma, its modularity almost instantly comes into mind. No wonder, as structurally Kyma consists of a number of Helm charts that you can roughly divide into these two categories:
 
-- Charts of well-known open-source products, such as Istio or Jaeger, that provide service communication and tracing features (and many more) that we integrated into Kyma along with the "Don't reinvent the wheel" rule.   
-- Charts with components developed by our teams, such as Event Bus or Rafter. These are for example Kubernetes controllers and microservices exposing REST or GrapqQL API, the main purpose of which is to fill in the gaps not addressed by the external projects integrated into Kyma.
+- Charts of well-known open-source products, such as Istio or Jaeger, that provide service communication, tracing, and many other features that we integrated into Kyma along with the "Don't reinvent the wheel" rule.   
+- Charts with components developed by our teams, such as Event Bus or Rafter. These are for example Kubernetes controllers and microservices exposing REST or GraphQL API, the main purpose of which is to fill in the gaps not addressed by the external projects integrated into Kyma.
 
 All things combined, we get a project that is a true mosaic of cloud-native applications. In such a microservice architecture, we do not meet too many free-standing services - most of them have many dependencies that may not be that obvious at a first glance. The same is in our case where all our components depend on the properly configured Istio. Upgrading it would be a nightmare without a set of automated integration tests that create a Kubernetes cluster and run integration tests on it to check resource dependencies, provide consistent deployment order, and ensure all pieces of our puzzle fit together at all times.
 
-When thinking about proper integration tests for Kyma, we also wanted to meed the needs of both developers and users. For this, we needed two separate setups of integration tests that we could deploy on both Minikube and GKE. This way, we could have one setup that runs integration tests locally and allows developers to validate their work easily and on the spot, and the other one that executes tests on GKE and assures Kyma users can use it in their production setup safely.
+When thinking about proper integration tests for Kyma, we also wanted to meet the needs of both developers and users. For this reason, we needed a setup in which you can deploy integration tests on both Minikube and GKE. This way, we could run the tests locally to allow developers to validate their work easily and on the spot, and execute tests on GKE to assure Kyma users can use it in their production environment safely.
 
 ## Helm tests and related issues
 
@@ -34,7 +34,7 @@ As our project grew, however, we came across a few obstacles that painfully hind
 - Testing the whole suite of integration tests took ages so we needed an easy way of selecting tests we want to run.
 - The number of flaky tests increased and we wanted to ensure they are automatically retried.
 - We needed a way of verifying the tests' stability and detecting flaky tests.
-- We wanted to run tests concurrently to have control over CPU and memory consumption on clusters.
+- We wanted to run tests concurrently to reduce the overall testing time.
 
 At that point, we decided we need a more powerful tool. Since we couldn't find a project that would serve all our needs, we decided to develop one on our own.
 
@@ -107,9 +107,11 @@ status:
 With Octopus, all test preparation steps come down to creating:
 
 1. Test in the language of your choice (yes, Octopus is language-agnostic).
-2. Dockerfile that defines the component image that you later build and push to a public registry, such as Docker Hub or Google Container Registry (GCR).
-3. TestDefinition which specifies the image to use and commands to run. You can automate this part by creating a testing script that you run in this step - we did it in our case by creating the [`testing.sh`](https://github.com/kyma-project/kyma/blob/master/installation/scripts/testing.sh) script that already creates the ClusterTestSuite.
-4. ClusterTestSuite that specifies which tests to run on the cluster, and how you want to run them. In our case, the ClusterTestSuite is also executed as part of jobs run by Prow, our continuous integration tool.
+2. Dockerfile that defines the component image you later build and push to a public registry, such as Docker Hub or Google Container Registry (GCR).
+3. TestDefinition which specifies the image to use and commands to run.
+4. ClusterTestSuite that specifies which tests to run on the cluster, and how you want to run them.
+
+In Kyma, we created integration jobs in the continuous integration tool called Prow. These Prow jobs are run before and after merging any changes to the `master` branch. Upon triggering, the Prow job runs the `testing.sh` script which creates the ClusterTestSuite, builds a cluster, and runs all integration tests on it.
 
 ## Features & benefits
 
@@ -123,7 +125,7 @@ In ClusterTestSuite, you are able to define which tests you want to execute. You
 
 2. **Automatic retries on failed tests**
 
-At one point, we had huge problems with flaky tests in Kyma. To merge a PR, all 22 tests had to pass on Minikube and GKE. If every test fails in only 2% of executions, the probability that all 22 tests pass is only 64%. Executing tests takes less than 20 minutes, but when you add the time required for creating a cluster and provisioning Kyma, it sums up to 50 minutes. You can imagine the frustration of developers who have to retrigger the whole Prow job because of a failure of one test that is totally not connected to the changes introduced in their PR. By introducing retries through the **maxRetries** parameter, we could reduce the number of situations in which retriggering a Prow job was required.
+At one point, we had huge problems with flaky tests in Kyma. To merge a PR, all 22 tests had to pass on Minikube and GKE. If every test fails in only 2% of executions, the probability that all 22 tests pass is only 64%. Executing tests takes less than around 20 minutes, but when you add the time required for creating a cluster and provisioning Kyma, it doubles. You can imagine the frustration of developers who have to retrigger the whole Prow job because of a failure of one test that is totally not connected to the changes introduced in their PR. By introducing retries through the **maxRetries** parameter we didn't solve the issues with flaky tests completely, but we managed to reduce the number of situations in which retriggering a Prow job was required.
 
 3. **Running tests multiple times**
 
@@ -131,7 +133,7 @@ You can easily specify in a ClusterTestSuite how many times every test should be
 
 4. **Full support for concurrent testing**
 
-You can define in the ClusterTestSuite how many tests can be executed at the same time by adding the **concurrency** field. In our integration Prow jobs, we define the ClusterTestSuite with **concurrency** set to `5`. All tests are executed in 21 minutes, but if they were executed without concurrency, they would take twice as long. The reason is that a smaller number of tests running at the same time consumes less CPU and memory on the cluster, thus speeding the whole process up. Thanks to concurrency, we are saving time and money, developers have faster feedback, and clusters created for executing tests are removed faster.
+You can define in the ClusterTestSuite how many tests can be executed at the same time by adding the **concurrency** field. In our integration Prow jobs, we define the ClusterTestSuite with **concurrency** set to `5`. All tests are executed in around 20 minutes, but if they were executed without sequentially, they would take twice as long. Thanks to concurrency, we are saving time and money, developers have faster feedback, and clusters created for executing tests are removed faster.
 
 You can also specify on the TestDefinition level if you want to execute the given test from running concurrently as part of the ClusterTestSuite (**disableConcurrency**). That feature might be useful in cases when you don't want to run a test with dependencies on other tests from the suite.
 
@@ -144,8 +146,7 @@ Octopus gave us much more insight into test definitions and results than we had 
 - **CLI** - We integrated Octopus with Kyma Command Line Interface (CLI). This means that you can use simple commands to get test definitions (`kyma test definitions`), run tests with selected flags (`kyma test run --concurrency=5 --max-retries=1`), or watch tests execution status (`watch kyma test status`).
 
 Take a look at Kyma CLI in action:
-
-[![asciicast](https://asciinema.org/a/287696.svg)](https://asciinema.org/a/287696)
+![CLI](./cli.svg)
 
 - **Dashboards** - We used information available in the **status** field of the ClusterTestSuite to visualize test details on Prow dashboards. On the below example, you can see at a glance all details of the `post-master-kyma-gke-integration` Prow job that builds our artifacts on a GKE cluster after each merge to the `master` branch.
 
