@@ -14,18 +14,18 @@ Read the story of how we tackled integration testing in Kyma.
 
 <!-- overview -->
 
-When you think of Kyma, its modularity almost instantly comes into mind. No wonder, as structurally Kyma consists of a number of Helm charts that you can roughly divide into these two categories:
+In Kubernetes, you often come across projects that are true mosaics of cloud-native applications. In such a microservice architecture, we do not meet too many free-standing services - most of them have many dependencies that may not be that obvious at a first glance. Structurally, they usually consist of a number of Helm charts that you can roughly divide into these two categories:
 
-- Charts of well-known open-source products, such as Istio or Jaeger, that provide service communication, tracing, and many other features that we integrated into Kyma along with the "Don't reinvent the wheel" rule.   
-- Charts with components developed by our teams, such as Event Bus or Rafter. These are for example Kubernetes controllers and microservices exposing REST or GraphQL API, the main purpose of which is to fill in the gaps not addressed by the external projects integrated into Kyma.
+- Charts of well-known open-source products, such as Istio or Jaeger, that provide service communication, tracing, and many other features that you use along with the "Don't reinvent the wheel" rule.   
+- Charts with in-house components, such as Kubernetes controllers and microservices exposing REST or GraphQL APIs, that you develop to fill in the gaps not addressed yet by the external projects.
 
-All things combined, we get a project that is a true mosaic of cloud-native applications. In such a microservice architecture, we do not meet too many free-standing services - most of them have many dependencies that may not be that obvious at a first glance. The same is in our case where all our components depend on the properly configured Istio. Upgrading it would be a nightmare without a set of automated integration tests that create a Kubernetes cluster and run integration tests on it to check resource dependencies, provide consistent deployment order, and ensure all pieces of our puzzle fit together at all times.
+This mixture creates a web of dependencies. For example, imagine a situation in which all your components depend on the properly configured Istio. Upgrading it would be a nightmare without a set of automated integration tests that create a Kubernetes cluster and run integration tests on it to check resource dependencies, provide consistent deployment order, and ensure all pieces of our puzzle fit together at all times.
 
-When thinking about proper integration tests for Kyma, we also wanted to meet the needs of both developers and users. For this reason, we needed a setup in which you can deploy integration tests on any Kubernetes cluster. This way, we could run the tests locally to allow developers to validate their work easily and on the spot, and execute tests on clusters provisioned on cloud providers to assure users can use Kyma in their production environment safely.
+When thinking about a proper integration tests tool for your project, you also want to have an all-purpose solution that meets the needs of both developers and users. You want to deploy integration tests on any Kubernetes cluster - locally to allow developers or system administrators to validate their work easily and on the spot, and on clusters provisioned on cloud providers to assure users can use your application safely in their production environment.
 
 ## Helm tests and related issues
 
-When we started working on Kyma, we defined integration tests as [**Helm tests**](https://helm.sh/docs/topics/chart_tests/). In this approach, a test is a Kubernetes job with the `helm.sh/hook: test` annotation. You place the test under the `templates` directory of the given Helm chart. These types of tests take the rendered templates and deploy them to a real Kubernetes cluster.
+When we started working on Kyma, we had all those things in mind. We decided to define integration tests as [**Helm tests**](https://helm.sh/docs/topics/chart_tests/). In this approach, a test is a Kubernetes job with the `helm.sh/hook: test` annotation. You place the test under the `templates` directory of the given Helm chart. These types of tests take the rendered templates and deploy them to a real Kubernetes cluster.
 
 The reason why we took this testing path was quite simple - we use Helm extensively in our project and the Helm in-built tool for testing was a natural choice. Also, writing Helm tests turned out to be quite easy.
 
