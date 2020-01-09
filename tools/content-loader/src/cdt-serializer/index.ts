@@ -48,6 +48,7 @@ export class ClusterDocsTopicSerializer {
     this.clearValues();
 
     const { copyRegex, docsVersion } = options;
+
     if (docsVersion) {
       this.docsVersion = docsVersion;
     }
@@ -224,14 +225,11 @@ export class ClusterDocsTopicSerializer {
     }
 
     const values = this.clusterDocsTopicsValues.get(cdt);
+
     const specifications = cdt.spec.sources
       .filter(this.isAllowedSrcType)
       .map(src => {
-        // TODO: Investigate why code search for values in master branch in last release sources
-        const fixedUrl: string = fixSourceUrl(src.url, values || {}).replace(
-          "undefined",
-          "master",
-        );
+        const fixedUrl: string = fixSourceUrl(src.url, values || {});
         const githubUrl: string = this.extractGithubUrl(fixedUrl);
 
         return {

@@ -1,7 +1,6 @@
 import { join, dirname } from "path";
 import { statSync, readdirSync, existsSync } from "fs";
 import { readYaml } from "./read-yaml";
-import { memoizeRead } from "./memoize-read";
 import { parentDir } from "./parent-dir";
 import { merge, get } from "lodash";
 
@@ -55,11 +54,9 @@ export const mergeObjects = async (acc: Promise<any>, current: Promise<any>) =>
     .then(results => merge(...results))
     .catch((e: Error) => ({}));
 
-const read = memoizeRead(readYaml);
-
 export const values = async (path: string, chartRepo: string) =>
   extractValuePaths(path, chartRepo)
-    .map(read)
+    .map(readYaml)
     .reduce(mergeObjects);
 
 export const fixSourceUrl = (url: string, vals: any) =>

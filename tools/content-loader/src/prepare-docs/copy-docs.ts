@@ -60,7 +60,6 @@ export class CopyDocs {
     console.log(`Copy documentation to ${output}`);
 
     [err] = await to(this.copy(source, output, version));
-
     if (err) {
       throw new VError(err, `while copying documentation to ${output}`);
     }
