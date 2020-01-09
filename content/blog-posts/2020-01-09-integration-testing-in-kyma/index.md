@@ -143,11 +143,7 @@ Octopus gave us much more insight into test definitions and results than we had 
 
 Take a look at Kyma CLI in action:
 
-<p align="center">
-<a href="https://asciinema.org/a/287696">
-<img src="./docs/kyma/assets/withoutprov4.gif" style="max-width:100%;">
-</a>
-</p>
+[![asciicast](https://asciinema.org/a/287696.svg)](https://asciinema.org/a/287696)
 
 - **Dashboards** - We used information available in the **status** field of the ClusterTestSuite to visualize test details on Prow dashboards. On the below example, you can see at a glance all details of the `post-master-kyma-gke-integration` Prow job that builds our artifacts on a GKE cluster after each merge to the `master` branch.
 
@@ -158,7 +154,7 @@ Take a look at Kyma CLI in action:
 As much as we love Octopus and appreciate how it did the trick for us, we know it is not perfect (yet). We already have a few ideas in mind that would improve it even more. For example, we would like to introduce validation for both ClusterTestSuite and TestDefinition custom resources and add new fields that:
 - Define the maximal duration of the ClusterTestSuite after which test executions are interrupted and marked as failed. (**suiteTimeout**)
 - Indicate that a test should not be executed. (**skip**)
-- Define the maximal duration of a test, after which it is terminated and marked as failed. (**timeout**)
+- Specify the maximal duration of a test, after which it is terminated and marked as failed. (**timeout**)
 
 We track all our ideas for enhancement as GitHub issues so you can easily refer to them for details.
 
