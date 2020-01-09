@@ -1,5 +1,5 @@
 ---
-title: "Integration testing in Kyma"
+title: "Integration testing in Kubernetes"
 author:
   name: "Adam Szecowka and Karolina Zydek"
 tags:
@@ -7,7 +7,7 @@ tags:
   - octopus
   - helm-tests
 redirectFrom:
-  - "/blog/2020-01-09-integration-testing-in-kyma"
+  - "/blog/2020-01-09-integration-testing-in-k8s"
 ---
 
 Read the story of how we tackled integration testing in Kyma.
@@ -145,8 +145,7 @@ Octopus gave us much more insight into test definitions and results than we had 
 
 - **CLI** - We integrated Octopus with Kyma Command Line Interface (CLI). This means that you can use simple commands to get test definitions (`kyma test definitions`), run tests with selected flags (`kyma test run --concurrency=5 --max-retries=1`), or watch tests execution status (`watch kyma test status`).
 
-Take a look at Kyma CLI in action:
-![CLI](./cli.svg)
+Take a look at Kyma CLI in action [here](https://asciinema.org/a/287696).
 
 - **Dashboards** - We used information available in the **status** field of the ClusterTestSuite to visualize test details on Prow dashboards. On the below example, you can see at a glance all details of the `post-master-kyma-gke-integration` Prow job that builds our artifacts on a GKE cluster after each merge to the `master` branch.
 
