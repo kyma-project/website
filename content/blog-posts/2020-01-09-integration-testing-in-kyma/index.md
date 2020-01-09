@@ -15,6 +15,7 @@ Read the story of how we tackled integration testing in Kyma.
 <!-- overview -->
 
 When you think of Kyma, its modularity almost instantly comes into mind. No wonder, as structurally Kyma consists of a number of Helm charts that you can roughly divide into these two categories:
+
 - Charts of well-known open-source products, such as Istio or Jaeger, that provide service communication and tracing features (and many more) that we integrated into Kyma along with the "Don't reinvent the wheel" rule.   
 - Charts with components developed by our teams, such as Event Bus or Rafter. These are for example Kubernetes controllers and microservices exposing REST or GrapqQL API, the main purpose of which is to fill in the gaps not addressed by the external projects integrated into Kyma.
 
@@ -104,7 +105,8 @@ status:
   ```
 
 With Octopus, all test preparation steps come down to creating:
-1. Test or application in the language of your choice (yes, Octopus is language-agnostic).
+
+1. Test in the language of your choice (yes, Octopus is language-agnostic).
 2. Dockerfile that defines the component image that you later build and push to a public registry, such as Docker Hub or Google Container Registry (GCR).
 3. TestDefinition which specifies the image to use and commands to run. You can automate this part by creating a testing script that you run in this step - we did it in our case by creating the [`testing.sh`](https://github.com/kyma-project/kyma/blob/master/installation/scripts/testing.sh) script that already creates the ClusterTestSuite.
 4. ClusterTestSuite that specifies which tests to run on the cluster, and how you want to run them. In our case, the ClusterTestSuite is also executed as part of jobs run by Prow, our continuous integration tool.
@@ -152,6 +154,7 @@ Take a look at Kyma CLI in action:
 ## Room for improvement
 
 As much as we love Octopus and appreciate how it did the trick for us, we know it is not perfect (yet). We already have a few ideas in mind that would improve it even more. For example, we would like to introduce validation for both ClusterTestSuite and TestDefinition custom resources and add new fields that:
+
 - Define the maximal duration of the ClusterTestSuite after which test executions are interrupted and marked as failed. (**suiteTimeout**)
 - Indicate that a test should not be executed. (**skip**)
 - Specify the maximal duration of a test, after which it is terminated and marked as failed. (**timeout**)
@@ -159,6 +162,7 @@ As much as we love Octopus and appreciate how it did the trick for us, we know i
 We track all our ideas for enhancement as GitHub issues so you can easily refer to them for details.
 
 As an open-source project, we always welcome external contributions. So if you only wish, you can help us in many ways:
+
 - [Pick](https://github.com/kyma-incubator/octopus/issues) one of the existing issues and try to propose a solution for it in a pull request.
 - [Add](https://github.com/kyma-incubator/octopus/issues/new/choose) your own issue with ideas for improving Octopus.
 - [Star](https://github.com/kyma-incubator/octopus) Octopus to support us in our attempt to fill in the apparent gap in the [Awesome Kubernetes]((https://github.com/ramitsurana/awesome-kubernetes#testing) family of testing projects, where we believe Octopus could take pride of place.
