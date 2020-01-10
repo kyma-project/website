@@ -10,7 +10,7 @@ redirectFrom:
   - "/blog/2020-01-09-integration-testing-in-k8s"
 ---
 
-In Kubernetes, you often come across projects that are true mosaics of cloud-native applications. In such a microservice architecture, we do not meet too many free-standing services - most of them have dependencies which are not that obvious at a first glance. Integrating such pieces and checking if they all work together may be a daunting challenge.
+In Kubernetes, you often come across projects that are true mosaics of cloud-native applications. In such a microservice architecture, we don't meet too many free-standing services - most of them have dependencies which aren't that obvious at a first glance. Integrating such pieces and checking if they all work together may be a daunting challenge.
 
 <!-- overview -->
 
@@ -121,7 +121,7 @@ However, the benefits that Octopus gave us were massive and just the ones we exp
 
 1. **Selective testing**
 
-   In ClusterTestSuite, you are able to define which tests you want to execute. You can select them by providing the **labels** expression, or by listing TestDefinition names. If you do not list any, all tests are run by default. Selective testing is particularly helpful in a situation when you have 50 TestDefinitions on your cluster but in the course of development, you want to check only the tests for the component you are working on. Thanks to selective testing, you can get feedback on your changes almost immediately.
+   In ClusterTestSuite, you are able to define which tests you want to execute. You can select them by providing the **labels** expression, or by listing TestDefinition names. If you don't list any, all tests are run by default. Selective testing is particularly helpful in a situation when you have 50 TestDefinitions on your cluster but in the course of development, you want to check only the tests for the component you are working on. Thanks to selective testing, you can get feedback on your changes almost immediately.
 
 2. **Automatic retries on failed tests**
 
@@ -156,7 +156,7 @@ However, the benefits that Octopus gave us were massive and just the ones we exp
 As much as we love Octopus and appreciate how it did the trick for us, we realize it is not perfect (yet). We already have a few ideas in mind that would improve it even more. For example, we would like to introduce validation for both ClusterTestSuite and TestDefinition custom resources and add new fields that:
 
 - Define the maximum duration of the ClusterTestSuite after which test executions are interrupted and marked as failed. (**suiteTimeout**)
-- Indicate that a test should not be executed. (**skip**)
+- Indicate that a test shouldn't be executed. (**skip**)
 - Specify the maximum duration of a test, after which it is terminated and marked as failed. (**timeout**)
 
 We track all our ideas for enhancement as [GitHub issues](https://github.com/kyma-incubator/octopus/issues) so you can easily refer to them for details.
