@@ -10,7 +10,7 @@ redirectFrom:
   - "/blog/2020-01-09-integration-testing-in-k8s"
 ---
 
-In Kubernetes, you often come across projects that are true mosaics of cloud-native applications. In such a microservice architecture, we do not meet too many free-standing services - most of them have dependencies which may not be that obvious at a first glance. Integrating such pieces and checking if they all work together may be a daunting challenge.
+In Kubernetes, you often come across projects that are true mosaics of cloud-native applications. In such a microservice architecture, we do not meet too many free-standing services - most of them have dependencies which are not that obvious at a first glance. Integrating such pieces and checking if they all work together may be a daunting challenge.
 
 <!-- overview -->
 
