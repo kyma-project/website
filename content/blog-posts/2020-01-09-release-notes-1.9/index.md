@@ -185,5 +185,5 @@ To guarantee the necessary data duplication and fulfil the need to run all compo
 As we modified the Tiller Deployment by adding a new environment variable that sets the [Tiller revisions limit](#finite-number-of-revisions-in-tiller), apply the new Tiller resource before performing the upgrade:
 
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/kyma-project/kyma/$KYMA_VERSION/installation/resources/tiller.yaml
+kubectl apply -f https://raw.githubusercontent.com/kyma-project/kyma/1.9.0/installation/resources/tiller.yaml
 ```
