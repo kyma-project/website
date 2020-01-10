@@ -87,11 +87,7 @@ We restyled the existing UI component to match SAP Fiori 3 and updated the compo
 
 ### Support for more Gateway modes by Asset Store
 
-One of the most important features of Asset Store is multi-cloud storage support. Now you can easily save your assets to Azure Blob, AWS S3, or Alibaba Object Storage Service. Read the following tutorials to learn how to set Minio to the desired Gateway mode:
-
-* [Set Minio to the Azure Blob Gateway mode](https://kyma-project.io/docs/components/asset-store#tutorials-set-minio-to-the-azure-blob-storage-gateway-mode)
-* [Set Minio to the AWS S3 Gateway mode](https://kyma-project.io/docs/components/asset-store#tutorials-set-minio-to-the-aws-s-3-gateway-mode)
-* [Set Minio to the Alibaba OSS Gateway mode](https://kyma-project.io/docs/components/asset-store#tutorials-set-minio-to-the-alibaba-oss-gateway-mode)
+One of the most important features of Asset Store is multi-cloud storage support. Now you can easily save your assets to Azure Blob, AWS S3, or Alibaba Object Storage Service. Read [this](https://kyma-project.io/docs/components/rafter/#tutorials-set-min-io-to-gateway-mode tutorial) to learn how to set Minio to the desired Gateway mode.
 
 Additionally, the automated pipeline makes sure the cooperation between Asset Store and Azure Blob remains stable after each change introduced to the component. This means that from now on we regularly test Asset Store with not only Google Cloud Storage but also Azure Blob.
 
