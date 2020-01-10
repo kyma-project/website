@@ -108,7 +108,7 @@ We want our documentation to be comprehensive, yet easy to follow and understand
 
 ### Added troubleshooting guide for Backup
 
-We are aware of potential issues that may occur from time to time. That's why our troubleshooting guides are there to help you. If you experience problems with Eventing after you completed the restore process, read [this](https://kyma-project.io/docs/components/backup/#troubleshooting-restore-troubleshooting-eventing-not-working) guide.
+We are aware of potential issues that may occur from time to time. That's why our troubleshooting guides are there to help you. If you experience problems with Eventing after you completed the restore process, read [this](https://kyma-project.io/docs/components/backup/#troubleshooting-restore-troubleshooting-eventing-does-not-work) guide.
 
 ## Eventing
 
