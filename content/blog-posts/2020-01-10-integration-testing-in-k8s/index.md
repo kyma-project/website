@@ -1,5 +1,5 @@
 ---
-title: "Integration testing in Kubernetes"
+title: "How we approached integration testing in Kubernetes, and why we stopped using Helm tests"
 author:
   name: "Adam Szecowka and Karolina Zydek"
 tags:
@@ -14,35 +14,36 @@ In Kubernetes, you often come across projects that are true mosaics of cloud-nat
 
 <!-- overview -->
 
-The structure of such projects usually consists of a number of Helm charts that you can roughly divide into these two categories:
+The structure of such projects usually consists of a number of Helm charts that you can roughly divide into these categories:
 
-- Charts of well-known open-source products, such as Istio or Jaeger, that provide service communication, tracing, and many other features that you use along with the "Don't reinvent the wheel" rule.   
-- Charts with in-house components, such as Kubernetes controllers and microservices exposing REST or GraphQL APIs, that you develop to fill in the gaps not addressed yet by the external projects.
+- Charts of well-known open-source products, such as Istio or Jaeger that provide service communication, tracing, and many other features you use along with the "Don't reinvent the wheel" rule.   
+- Charts with in-house components, such as Kubernetes controllers and microservices exposing REST or GraphQL APIs, that you develop to fill in the gaps not addressed yet by the external projects but required for your application to work.
+- Charts with full-blown solutions that can perfectly work on their own.
 
-This mixture creates a web of dependencies. For example, imagine a situation in which all your components depend on the properly configured Istio. Upgrading it would be a nightmare without a set of automated integration tests that create a Kubernetes cluster and run integration tests on it to check resource dependencies, provide consistent deployment order, and ensure all pieces of our puzzle fit together at all times.
+Such a mixture creates a web of dependencies. For example, imagine a situation in which all your components depend on the properly configured Istio. Upgrading it would be a nightmare without a set of automated integration tests that create a Kubernetes cluster, deploy your suite of services on it, and run integration tests to check resource dependencies, provide consistent deployment order, and ensure all pieces of our puzzle fit together at all times.
 
 When thinking about a proper integration tests tool for your project, you also want to have an all-purpose solution that meets the needs of both developers and users. You want to deploy integration tests on any Kubernetes cluster - locally to allow developers or system administrators to validate their work easily and immediately, and on clusters provisioned on cloud providers to assure users can use your application safely in their production environment.
 
 ## Helm tests and related issues
 
-When we started working on Kyma, we had all those things in mind. We decided to define integration tests as [**Helm tests**](https://helm.sh/docs/topics/chart_tests/). In this approach, a test is a Kubernetes job with the `helm.sh/hook: test` annotation. You place the test under the `templates` directory of the given Helm chart. These types of tests take the rendered templates and deploy them to a real Kubernetes cluster.
+When we started working on Kyma, we had all those things in mind. We decided to define integration tests as [**Helm tests**](https://helm.sh/docs/topics/chart_tests/). In this approach, a test is a [Kubernetes Job](https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/) with the `helm.sh/hook: test` annotation. You place the test under the `templates` directory of the given Helm chart. Helm creates such tests in a Kubernetes cluster just like it does with other resources.
 
 The reason why we took this testing path was quite simple - we use Helm extensively in our project and the Helm in-built tool for testing was a natural choice. Also, writing Helm tests turned out to be quite easy.
 
-As our project grew, however, we came across a few obstacles that painfully hindered work of our developers, and that we couldn't easily address with Helm tests at that time:
+As our project grew, however, we came across a few obstacles that painfully hindered our work, and that we couldn't easily address with Helm tests at that time:
 
 - Testing the whole suite of integration tests took ages so we needed an easy way of selecting tests we want to run.
 - The number of flaky tests increased and we wanted to ensure they are automatically retried.
 - We needed a way of verifying the tests' stability and detecting flaky tests.
 - We wanted to run tests concurrently to reduce the overall testing time.
 
-At that point, we decided we need a more powerful tool. Since we couldn't find a project that would serve all our needs, we decided to develop one on our own.
+At that point, we decided we need a more powerful tool. Since we couldn't find a project that would serve all our needs, we developed one on our own.
 
 ## The rise of Octopus
 
 This is how [**Octopus**](https://github.com/kyma-incubator/octopus/blob/master/README.md) was born. In short, Octopus is a Kubernetes controller which operates on two customer resources called [**TestDefinition**](https://github.com/kyma-incubator/octopus/blob/master/docs/crd-test-definition.md) and [**ClusterTestSuite**](https://github.com/kyma-incubator/octopus/blob/master/docs/crd-cluster-test-suite.md).
 
-TestDefinition, as its very name indicates, defines a test for a given component. In the simplest scenario, you have to provide a Pod template that specifies the image you want to use to build the container with your component and define what command your test should execute:
+TestDefinition, as its very name indicates, defines a test for a single component or a cross-component scenario. In the simplest scenario, you have to provide a Pod template that specifies the image with the test:
 
 ```
 ---
@@ -62,7 +63,7 @@ spec:
             - "pwd"
 ```
 
-ClusterTestSuite, on the other hand, defines which tests to run on a cluster and how to do that. Creation of a ClusterTestSuite triggers test execution. In the below example, we define that we want to run all tests with the `component=backend` label and we specify that every test should be executed once (`count=1`). If a test from the suite fails, we will retry it once (`maxRetries=1`). Moreover, tests can be executed concurrently, in the maximum number of two at a time (`concurrency=2`).
+ClusterTestSuite, on the other hand, defines which tests to run on a cluster and how to do that. In the below example, we define that we want to run all tests with the `component=service-catalog` label and we specify that every test should be executed once (`count=1`). If a test from the suite fails, we will retry it once (`maxRetries=1`). Moreover, tests can be executed concurrently, in the maximum number of two at a time (`concurrency=2`).
 
 ```
 apiVersion: testing.kyma-project.io/v1alpha1
@@ -77,7 +78,7 @@ spec:
   concurrency: 2
   selectors:
     matchLabelExpressions:
-      - component=backend
+      - component=service-catalog
 ```
 
 When Octopus notices a new ClusterTestSuite, it calculates which tests should be executed, and then schedules them according to the test suite specification. All information about the status of test execution is stored in the suite **status** field. This status informs you which tests will be executed, which of them are already executed, which succeeded and which failed, which tests were retried, and how much time all tests and every single one took. See this example:
@@ -107,15 +108,14 @@ status:
 With Octopus, all test preparation steps come down to creating:
 
 1. Test in the language of your choice (yes, Octopus is language-agnostic).
-2. Dockerfile that defines the component image you later build and push to a public registry, such as Docker Hub or Google Container Registry (GCR).
-3. TestDefinition which specifies the image to use and commands to run.
-4. ClusterTestSuite that specifies which tests to run on the cluster, and how you want to run them.
+2. TestDefinition which specifies the image to use and commands to run.
+3. ClusterTestSuite that specifies which tests to run on the cluster, and how you want to run them.
 
-In Kyma, we created integration jobs in the continuous integration tool called Prow. These Prow jobs are run before and after merging any changes to the `master` branch. Upon triggering, the Prow job runs the `testing.sh` script which creates the ClusterTestSuite, builds a cluster, and runs all integration tests on it.
+In Kyma, we created integration jobs in the continuous integration tool called [Prow](https://github.com/kyma-project/test-infra/blob/master/prow/README.md). These Prow jobs are run before and after merging any changes to the `master` branch. Upon triggering, the Prow job runs the [`testing.sh`](https://github.com/kyma-project/kyma/blob/master/installation/scripts/testing.sh) script which creates the ClusterTestSuite, builds a cluster, and runs all integration tests on it.
 
 ## Features & benefits
 
-Migration from Helm tests to Octopus was a smooth one and came down to minor modifications in job definitions, such as changing them to the `TestDefinition` kind and removing the Helm annotation from them.
+Migration from Helm tests to Octopus was a smooth one and came down to minor modifications in Job definitions, such as changing them to the `TestDefinition` kind and removing the Helm annotation from them.
 
 However, the benefits that Octopus gave us were massive and just the ones we expected:
 
@@ -125,7 +125,7 @@ However, the benefits that Octopus gave us were massive and just the ones we exp
 
 2. **Automatic retries on failed tests**
 
-   At one point, we had huge problems with flaky tests in Kyma. To merge a pull request, all 22 tests had to pass on a given Kubernetes cluster. If every test fails in only 2% of executions, the probability that all 22 tests pass is only 64%. Executing tests takes no longer than 20 minutes, but when you add the time required for creating a cluster and provisioning Kyma, the overall time doubles. You can imagine the frustration of developers who have to retrigger the whole Prow job because of a failure of one test that is totally not connected with the changes introduced in their pull requests. By introducing retries through the **maxRetries** parameter we didn't solve the issues with flaky tests completely, but we managed to reduce the number of situations in which retriggering a Prow job was required.
+   At one point, we had huge problems with flaky tests in Kyma. To merge a pull request, all 22 tests had to pass on a given Kubernetes cluster. If every test fails in only 2% of executions, the probability that all 22 tests pass is only 64%. Executing tests takes no longer than 20 minutes, but when you add the time required for creating a cluster and provisioning Kyma, the overall time doubles. You can imagine the frustration of developers who had to retrigger the whole Prow job because of a failure of one test that was totally not connected with the changes introduced in their pull requests. By introducing retries through the **maxRetries** parameter we didn't solve the issues with flaky tests completely, but we managed to reduce the number of situations in which retriggering a Prow job was required.
 
 3. **Running tests multiple times**
 
@@ -133,7 +133,7 @@ However, the benefits that Octopus gave us were massive and just the ones we exp
 
 4. **Full support for concurrent testing**
 
-   You can define in the ClusterTestSuite how many tests can be executed at the same time by adding the **concurrency** field. In our integration Prow jobs, we define the ClusterTestSuite with **concurrency** set to `5`. All tests are executed in around 20 minutes, but if they were executed sequentially, they would take twice as long. Thanks to concurrency, we are saving time and money, developers have immediate feedback, and clusters created for executing tests are removed faster.
+   You can define in the ClusterTestSuite how many tests can be executed at the same time by adding the **concurrency** field. In our integration Prow jobs, we define the ClusterTestSuite with **concurrency** set to `5`. All tests are executed in around 20 minutes, but if they were executed one after another, they would take twice as long. Thanks to concurrency, we are saving time and money, developers have immediate feedback, and clusters created for executing tests are removed faster.
 
    You can also specify on the TestDefinition level if you want to execute the given test from running concurrently as part of the ClusterTestSuite (**disableConcurrency**). That feature might be useful in cases when you don't want to run a test with dependencies on other tests from the suite.
 
@@ -159,12 +159,14 @@ As much as we love Octopus and appreciate how it did the trick for us, we realiz
 - Indicate that a test should not be executed. (**skip**)
 - Specify the maximum duration of a test, after which it is terminated and marked as failed. (**timeout**)
 
-We track all our ideas for enhancement as GitHub issues so you can easily refer to them for details.
+We track all our ideas for enhancement as [GitHub issues](https://github.com/kyma-incubator/octopus/issues) so you can easily refer to them for details.
 
 As an open-source project, we always welcome external contributions. So if you only wish, you can help us in many ways:
 
 - [Pick](https://github.com/kyma-incubator/octopus/issues) one of the existing issues and try to propose a solution for it in a pull request.
 - [Add](https://github.com/kyma-incubator/octopus/issues/new/choose) your own issue with ideas for improving Octopus.
 - [Star](https://github.com/kyma-incubator/octopus) Octopus to support us in our attempt to join the [Awesome Kubernetes](https://github.com/ramitsurana/awesome-kubernetes#testing) family of testing projects, where we believe Octopus could take pride of place.
+
+If you have any questions or want to find out more about us, contact us on the [`#octopus`](https://kyma-community.slack.com/archives/CGDKAE7J5) Slack channel or visit our [website](http://slack.kyma-project.io/).
 
 But first of all, [test Octopus](https://github.com/kyma-incubator/octopus) on your own and see if it does the trick for you as well.
