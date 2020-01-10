@@ -88,7 +88,7 @@ After introducing Gardener cluster provisioning through the Kyma CLI in the prev
 
 ### Finite number of revisions in Tiller
 
-Until now, Tiller kept an infinite number of revisions. This resulted at times in Helm not being able to upgrade charts after many retries. Setting a limit to the number of revisions, resolved these issues. Another advantage of keeping only a few revisions is lower memory consumption for controllers listening on ConfigMap resources and fewer resources for Kubernetes to manage.
+Until now, Tiller kept an infinite number of revisions. This resulted at times in Helm not being able to upgrade charts after many retries. Setting a limit to the number of revisions resolved these issues. Another advantage of keeping only a few revisions is lower memory consumption for controllers listening on ConfigMap resources and fewer resources for Kubernetes to manage.
 
 ## Monitoring
 
