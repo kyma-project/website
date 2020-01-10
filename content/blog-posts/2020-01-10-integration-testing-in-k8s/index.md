@@ -10,11 +10,11 @@ redirectFrom:
   - "/blog/2020-01-09-integration-testing-in-k8s"
 ---
 
-In Kubernetes, you often come across projects that are true mosaics of cloud-native applications. In such a microservice architecture, we do not meet too many free-standing services - most of them have dependencies that may not be that obvious at a first glance.
+In Kubernetes, you often come across projects that are true mosaics of cloud-native applications. In such a microservice architecture, we do not meet too many free-standing services - most of them have dependencies which may not be that obvious at a first glance. Integrating such pieces and checking if they all work together may be a daunting challenge.
 
 <!-- overview -->
 
-The structure of such projects usually consists of a number of Helm charts that you can roughly divide into these categories:
+The structure of Kubernetes projects usually consists of a number of Helm charts that you can roughly divide into these categories:
 
 - Charts of well-known open-source products, such as Istio or Jaeger that provide service communication, tracing, and many other features you use along with the "Don't reinvent the wheel" rule.   
 - Charts with in-house components, such as Kubernetes controllers and microservices exposing REST or GraphQL APIs, that you develop to fill in the gaps not addressed yet by the external projects but required for your application to work.
