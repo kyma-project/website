@@ -94,7 +94,7 @@ Additionally, the automated pipeline makes sure the cooperation between Asset St
 
 ### Metrics for Asset Store and Headless CMS
 
-In preparation for the 1.6 release, we invested a lot of time and effort to expose metrics defined for controllers and services. You can now use the [Asset Store](https://kyma-project.io/docs/1.6/components/asset-store/#metrics-metrics) and [Headless CMS](https://kyma-project.io/docs/1.6/components/headless-cms/#metrics-metrics) metrics to [define dashboards](https://kyma-project.io/docs/components/monitoring/#tutorials-create-a-grafana-dashboard) and [configure alerting rules](https://kyma-project.io/docs/components/monitoring/#tutorials-define-alerting-rules).
+In preparation for the 1.6 release, we invested a lot of time and effort to expose metrics defined for controllers and services. You can now use the Asset Store and Headless CMS metrics to [define dashboards](https://kyma-project.io/docs/components/monitoring/#tutorials-create-a-grafana-dashboard) and [configure alerting rules](https://kyma-project.io/docs/components/monitoring/#tutorials-define-alerting-rules).
 
 You can also start exploring metrics right away, using our pre-configured Grafana dashboards.
 
@@ -108,7 +108,7 @@ We want our documentation to be comprehensive, yet easy to follow and understand
 
 ### Added troubleshooting guide for Backup
 
-We are aware of potential issues that may occur from time to time. That's why our troubleshooting guides are there to help you. If you experience problems with Eventing after you completed the restore process, read [this](https://kyma-project.io/docs/1.6/components/backup/#troubleshooting-restore-troubleshooting-eventing-not-working) guide.
+We are aware of potential issues that may occur from time to time. That's why our troubleshooting guides are there to help you. If you experience problems with Eventing after you completed the restore process, read [this](https://kyma-project.io/docs/components/backup/#troubleshooting-restore-troubleshooting-eventing-not-working) guide.
 
 ## Eventing
 
