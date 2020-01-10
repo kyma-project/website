@@ -180,7 +180,7 @@ To guarantee the necessary data duplication and fulfil the need to run all compo
 >kubectl delete crd clusterdocstopics.cms.kyma-project.io && kubectl delete crd docstopics.cms.kyma-project.io && kubectl delete crd clusterbuckets.assetstore.kyma-project.io && kubectl delete crd buckets.assetstore.kyma-project.io && kubectl delete crd clusterassets.assetstore.kyma-project.io && kubectl delete crd assets.assetstore.kyma-project.io
 >```
 
-### Tillers
+### Tiller
 
 As we modified the Tiller Deployment by adding a new environment variable that sets the Tiller revisions limit, you should apply the new Tiller resource before performing the upgrade:
 
