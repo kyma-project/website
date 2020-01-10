@@ -21,7 +21,7 @@ See the overview of all changes in this release:
 - [Compass](#compass) - Provisioner enhanced, Application Templates added, redesigned list view in the Compass UI, and more
 - [Console](#console) - Improved Addons Configuration view
 - [Eventing](#eventing) - Knative Eventing Mesh available for testing purposes
-- [Installation & Documentation](#installation-documentation) - Gardener provisioning based on Kyma CLI documented, a finite number of revisions set in Tiller
+- [Installation & Documentation](#installation-documentation) - Gardener provisioning based on Kyma CLI documented, finite number of revisions set in Tiller
 - [Monitoring](#monitoring) - Adjustments and upgrade to the latest version
 - [Rafter](#rafter) - Asset Store and Headless CMS refactored and merged to create Rafter
 - [Service Management](#service-management) - Changes in the deletion process of the ServiceBroker custom resource
@@ -86,9 +86,9 @@ In this release, we introduced Knative Eventing Mesh as an alpha feature which y
 
 After introducing Gardener cluster provisioning through the Kyma CLI in the previous release, in this release, we added the official documentation for this feature. The instructions for provisioning a Gardener cluster on GCP or Azure are now based on Kyma CLI. Check it out in [this](https://kyma-project.io/docs/1.9/root/kyma/#installation-install-kyma-on-a-cluster-prepare-the-cluster) document under the **Gardener** tab.
 
-### Tiller now keeps a finite number of revisions
+### Finite number of revisions in Tiller
 
-Up until now, Tiller kept an infinite number of revisions. This resulted at times in Helm not being able to upgrade charts after many retries. Setting a limit to the number of revisions, resolved these issues. Another advantages of keeping only a few revisions is lower memory consumption for controllers listening on ConfigMap resources and simply fewer resources for Kubernetes to manage.
+Until now, Tiller kept an infinite number of revisions. This resulted at times in Helm not being able to upgrade charts after many retries. Setting a limit to the number of revisions, resolved these issues. Another advantage of keeping only a few revisions is lower memory consumption for controllers listening on ConfigMap resources and fewer resources for Kubernetes to manage.
 
 ## Monitoring
 
@@ -182,7 +182,7 @@ To guarantee the necessary data duplication and fulfil the need to run all compo
 
 ### Tiller
 
-As we modified the Tiller Deployment by adding a new environment variable that sets the Tiller revisions limit, you should apply the new Tiller resource before performing the upgrade:
+As we modified the Tiller Deployment by adding a new environment variable that sets the [Tiller revisions limit](#finite-number-of-revisions-in-tiller), apply the new Tiller resource before performing the upgrade:
 
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/kyma-project/kyma/$KYMA_VERSION/installation/resources/tiller.yaml
