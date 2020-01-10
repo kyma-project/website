@@ -21,7 +21,7 @@ The structure of such projects usually consists of a number of Helm charts that 
 
 This mixture creates a web of dependencies. For example, imagine a situation in which all your components depend on the properly configured Istio. Upgrading it would be a nightmare without a set of automated integration tests that create a Kubernetes cluster and run integration tests on it to check resource dependencies, provide consistent deployment order, and ensure all pieces of our puzzle fit together at all times.
 
-When thinking about a proper integration tests tool for your project, you also want to have an all-purpose solution that meets the needs of both developers and users. You want to deploy integration tests on any Kubernetes cluster - locally to allow developers or system administrators to validate their work easily and on the spot, and on clusters provisioned on cloud providers to assure users can use your application safely in their production environment.
+When thinking about a proper integration tests tool for your project, you also want to have an all-purpose solution that meets the needs of both developers and users. You want to deploy integration tests on any Kubernetes cluster - locally to allow developers or system administrators to validate their work easily and immediately, and on clusters provisioned on cloud providers to assure users can use your application safely in their production environment.
 
 ## Helm tests and related issues
 
@@ -121,43 +121,43 @@ However, the benefits that Octopus gave us were massive and just the ones we exp
 
 1. **Selective testing**
 
-In ClusterTestSuite, you are able to define which tests you want to execute. You can select them by providing the **labels** expression, or by listing TestDefinition names. If you do not list any, all tests are run by default. Selective testing is particularly helpful in a situation when you have 50 TestDefinitions on your cluster but in the course of development, you want to check only the tests for the component you are working on. Thanks to selective testing, you can get feedback on your changes almost immediately.
+   In ClusterTestSuite, you are able to define which tests you want to execute. You can select them by providing the **labels** expression, or by listing TestDefinition names. If you do not list any, all tests are run by default. Selective testing is particularly helpful in a situation when you have 50 TestDefinitions on your cluster but in the course of development, you want to check only the tests for the component you are working on. Thanks to selective testing, you can get feedback on your changes almost immediately.
 
 2. **Automatic retries on failed tests**
 
-At one point, we had huge problems with flaky tests in Kyma. To merge a PR, all 22 tests had to pass on a given Kubernetes cluster. If every test fails in only 2% of executions, the probability that all 22 tests pass is only 64%. Executing tests takes less than around 20 minutes, but when you add the time required for creating a cluster and provisioning Kyma, it doubles. You can imagine the frustration of developers who have to retrigger the whole Prow job because of a failure of one test that is totally not connected to the changes introduced in their PR. By introducing retries through the **maxRetries** parameter we didn't solve the issues with flaky tests completely, but we managed to reduce the number of situations in which retriggering a Prow job was required.
+   At one point, we had huge problems with flaky tests in Kyma. To merge a pull request, all 22 tests had to pass on a given Kubernetes cluster. If every test fails in only 2% of executions, the probability that all 22 tests pass is only 64%. Executing tests takes no longer than 20 minutes, but when you add the time required for creating a cluster and provisioning Kyma, the overall time doubles. You can imagine the frustration of developers who have to retrigger the whole Prow job because of a failure of one test that is totally not connected with the changes introduced in their pull requests. By introducing retries through the **maxRetries** parameter we didn't solve the issues with flaky tests completely, but we managed to reduce the number of situations in which retriggering a Prow job was required.
 
 3. **Running tests multiple times**
 
-You can easily specify in a ClusterTestSuite how many times every test should be executed, by adding the **count** field. That can be particularly useful to detect flaky tests or ensure that a newly created test is stable.
+   You can easily specify in a ClusterTestSuite how many times every test should be executed, by adding the **count** field. That can be particularly useful to detect flaky tests or ensure that a newly created test is stable.
 
 4. **Full support for concurrent testing**
 
-You can define in the ClusterTestSuite how many tests can be executed at the same time by adding the **concurrency** field. In our integration Prow jobs, we define the ClusterTestSuite with **concurrency** set to `5`. All tests are executed in around 20 minutes, but if they were executed sequentially, they would take twice as long. Thanks to concurrency, we are saving time and money, developers have immediate feedback, and clusters created for executing tests are removed faster.
+   You can define in the ClusterTestSuite how many tests can be executed at the same time by adding the **concurrency** field. In our integration Prow jobs, we define the ClusterTestSuite with **concurrency** set to `5`. All tests are executed in around 20 minutes, but if they were executed sequentially, they would take twice as long. Thanks to concurrency, we are saving time and money, developers have immediate feedback, and clusters created for executing tests are removed faster.
 
-You can also specify on the TestDefinition level if you want to execute the given test from running concurrently as part of the ClusterTestSuite (**disableConcurrency**). That feature might be useful in cases when you don't want to run a test with dependencies on other tests from the suite.
+   You can also specify on the TestDefinition level if you want to execute the given test from running concurrently as part of the ClusterTestSuite (**disableConcurrency**). That feature might be useful in cases when you don't want to run a test with dependencies on other tests from the suite.
 
-In general, the concurrency level which you define depends on the size of your cluster. Every Pod consumes some amount of CPU and memory, and we need to take into account those two parameters when defining the concurrency level.
+   In general, the concurrency level which you define depends on the size of your cluster. Every Pod consumes some amount of CPU and memory, and we need to take those two parameters into account when defining the concurrency level.
 
 5. **Visibility**
 
-Octopus gave us much more insight into test definitions and results than we had with Helm tests. After executing the ClusterTestSuite, you can easily analyze how much time each test from the suite takes and identify the problematic ones.
+   Octopus gave us much more insight into test definitions and results than we had with Helm tests. After executing the ClusterTestSuite, you can easily analyze how much time each test from the suite takes and identify the problematic ones.
 
-- **CLI** - We integrated Octopus with Kyma Command Line Interface (CLI). This means that you can use simple commands to get test definitions (`kyma test definitions`), run tests with selected flags (`kyma test run --concurrency=5 --max-retries=1`), or watch tests execution status (`watch kyma test status`).
+   - **CLI** - We integrated Octopus with Kyma Command Line Interface (CLI). This means that you can use simple commands to get test definitions (`kyma test definitions`), run tests with selected flags (`kyma test run --concurrency=5 --max-retries=1`), or watch tests execution status (`watch kyma test status`).
 
     [Here](https://asciinema.org/a/287696) you can take a look at Kyma CLI in action.
 
-- **Dashboards** - We used information available in the **status** field of the ClusterTestSuite to visualize test details on Prow dashboards. On the below example, you can see at a glance all details of the `post-master-kyma-gke-integration` Prow job that builds our artifacts on a GKE cluster after each merge to the `master` branch.
+   - **Dashboards** - We used information available in the **status** field of the ClusterTestSuite to visualize test details on Prow dashboards. On the below example, you can see at a glance all details of the `post-master-kyma-gke-integration` Prow job that builds our artifacts on a GKE cluster after each merge to the `master` branch.
 
-![Testing time](./test-status.png)
+   ![Testing time](./test-status.png)
 
 ## Room for improvement
 
-As much as we love Octopus and appreciate how it did the trick for us, we know it is not perfect (yet). We already have a few ideas in mind that would improve it even more. For example, we would like to introduce validation for both ClusterTestSuite and TestDefinition custom resources and add new fields that:
+As much as we love Octopus and appreciate how it did the trick for us, we realize it is not perfect (yet). We already have a few ideas in mind that would improve it even more. For example, we would like to introduce validation for both ClusterTestSuite and TestDefinition custom resources and add new fields that:
 
-- Define the maximal duration of the ClusterTestSuite after which test executions are interrupted and marked as failed. (**suiteTimeout**)
+- Define the maximum duration of the ClusterTestSuite after which test executions are interrupted and marked as failed. (**suiteTimeout**)
 - Indicate that a test should not be executed. (**skip**)
-- Specify the maximal duration of a test, after which it is terminated and marked as failed. (**timeout**)
+- Specify the maximum duration of a test, after which it is terminated and marked as failed. (**timeout**)
 
 We track all our ideas for enhancement as GitHub issues so you can easily refer to them for details.
 
@@ -165,6 +165,6 @@ As an open-source project, we always welcome external contributions. So if you o
 
 - [Pick](https://github.com/kyma-incubator/octopus/issues) one of the existing issues and try to propose a solution for it in a pull request.
 - [Add](https://github.com/kyma-incubator/octopus/issues/new/choose) your own issue with ideas for improving Octopus.
-- [Star](https://github.com/kyma-incubator/octopus) Octopus to support us in our attempt to fill in the gap in the [Awesome Kubernetes](https://github.com/ramitsurana/awesome-kubernetes#testing) family of testing projects, where we believe Octopus could take pride of place.
+- [Star](https://github.com/kyma-incubator/octopus) Octopus to support us in our attempt to join the [Awesome Kubernetes](https://github.com/ramitsurana/awesome-kubernetes#testing) family of testing projects, where we believe Octopus could take pride of place.
 
 But first of all, [test Octopus](https://github.com/kyma-incubator/octopus) on your own and see if it does the trick for you as well.
