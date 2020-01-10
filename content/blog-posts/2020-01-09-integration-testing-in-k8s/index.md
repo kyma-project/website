@@ -10,11 +10,11 @@ redirectFrom:
   - "/blog/2020-01-09-integration-testing-in-k8s"
 ---
 
-Read the story of how we tackled integration testing in Kyma.
+In Kubernetes, you often come across projects that are true mosaics of cloud-native applications. In such a microservice architecture, we do not meet too many free-standing services - most of them have dependencies that may not be that obvious at a first glance.
 
 <!-- overview -->
 
-In Kubernetes, you often come across projects that are true mosaics of cloud-native applications. In such a microservice architecture, we do not meet too many free-standing services - most of them have many dependencies that may not be that obvious at a first glance. Structurally, such projects usually consist of a number of Helm charts that you can roughly divide into these two categories:
+The structure of such projects usually consists of a number of Helm charts that you can roughly divide into these two categories:
 
 - Charts of well-known open-source products, such as Istio or Jaeger, that provide service communication, tracing, and many other features that you use along with the "Don't reinvent the wheel" rule.   
 - Charts with in-house components, such as Kubernetes controllers and microservices exposing REST or GraphQL APIs, that you develop to fill in the gaps not addressed yet by the external projects.
@@ -133,7 +133,7 @@ You can easily specify in a ClusterTestSuite how many times every test should be
 
 4. **Full support for concurrent testing**
 
-You can define in the ClusterTestSuite how many tests can be executed at the same time by adding the **concurrency** field. In our integration Prow jobs, we define the ClusterTestSuite with **concurrency** set to `5`. All tests are executed in around 20 minutes, but if they were executed without sequentially, they would take twice as long. Thanks to concurrency, we are saving time and money, developers have faster feedback, and clusters created for executing tests are removed faster.
+You can define in the ClusterTestSuite how many tests can be executed at the same time by adding the **concurrency** field. In our integration Prow jobs, we define the ClusterTestSuite with **concurrency** set to `5`. All tests are executed in around 20 minutes, but if they were executed sequentially, they would take twice as long. Thanks to concurrency, we are saving time and money, developers have immediate feedback, and clusters created for executing tests are removed faster.
 
 You can also specify on the TestDefinition level if you want to execute the given test from running concurrently as part of the ClusterTestSuite (**disableConcurrency**). That feature might be useful in cases when you don't want to run a test with dependencies on other tests from the suite.
 
@@ -141,11 +141,11 @@ In general, the concurrency level which you define depends on the size of your c
 
 5. **Visibility**
 
-Octopus gave us much more insight into test definitions and results than we had with Helm tests. After executing the ClusterTestSuite, you can easily analyze how much time each test from the suite takes, and identify the problematic ones.
+Octopus gave us much more insight into test definitions and results than we had with Helm tests. After executing the ClusterTestSuite, you can easily analyze how much time each test from the suite takes and identify the problematic ones.
 
 - **CLI** - We integrated Octopus with Kyma Command Line Interface (CLI). This means that you can use simple commands to get test definitions (`kyma test definitions`), run tests with selected flags (`kyma test run --concurrency=5 --max-retries=1`), or watch tests execution status (`watch kyma test status`).
 
-[Here](https://asciinema.org/a/287696) you can take a look at Kyma CLI in action.
+    [Here](https://asciinema.org/a/287696) you can take a look at Kyma CLI in action.
 
 - **Dashboards** - We used information available in the **status** field of the ClusterTestSuite to visualize test details on Prow dashboards. On the below example, you can see at a glance all details of the `post-master-kyma-gke-integration` Prow job that builds our artifacts on a GKE cluster after each merge to the `master` branch.
 
@@ -165,6 +165,6 @@ As an open-source project, we always welcome external contributions. So if you o
 
 - [Pick](https://github.com/kyma-incubator/octopus/issues) one of the existing issues and try to propose a solution for it in a pull request.
 - [Add](https://github.com/kyma-incubator/octopus/issues/new/choose) your own issue with ideas for improving Octopus.
-- [Star](https://github.com/kyma-incubator/octopus) Octopus to support us in our attempt to fill in the apparent gap in the [Awesome Kubernetes](https://github.com/ramitsurana/awesome-kubernetes#testing) family of testing projects, where we believe Octopus could take pride of place.
+- [Star](https://github.com/kyma-incubator/octopus) Octopus to support us in our attempt to fill in the gap in the [Awesome Kubernetes](https://github.com/ramitsurana/awesome-kubernetes#testing) family of testing projects, where we believe Octopus could take pride of place.
 
 But first of all, [test Octopus](https://github.com/kyma-incubator/octopus) on your own and see if it does the trick for you as well.
