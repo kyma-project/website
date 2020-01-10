@@ -21,12 +21,12 @@ See the overview of all changes in this release:
 - [Compass](#compass) - Provisioner enhanced, Application Templates added, redesigned list view in the Compass UI, and more
 - [Console](#console) - Improved Addons Configuration view
 - [Eventing](#eventing) - Knative Eventing Mesh available for testing purposes
-- [Installation & Documentation](#installation-documentation) - Gardener provisioning based on Kyma CLI documented
+- [Installation & Documentation](#installation-documentation) - Gardener provisioning based on Kyma CLI documented, finite number of revisions set in Tiller
 - [Monitoring](#monitoring) - Adjustments and upgrade to the latest version
 - [Rafter](#rafter) - Asset Store and Headless CMS refactored and merged to create Rafter
 - [Service Management](#service-management) - Changes in the deletion process of the ServiceBroker custom resource
 - [Known issues](#known-issues) - Workarounds for backup issues with Ratfer, issues with custom metrics for Rafter services, problems with logging components
-- [Migrations and upgrades](#migrations-and-upgrades) - Rafter-related scripts and guidelines for the 1.8.0 - 1.9.0 upgrade
+- [Migrations and upgrades](#migrations-and-upgrades) - Rafter-related scripts and guidelines for the 1.8.0 - 1.9.0 upgrade, new Tiller resource to apply before the upgrade
 
 ## Application Connector
 
@@ -46,7 +46,7 @@ You can now install Kyma on clusters provisioned through the Provisioner. After 
 
 Also, the `cleanupRuntimeData` mutation does not only return a cryptic operation ID but also provides a status. You get information on whether your request input has errors or if the data was deleted successfully. You only need one call to get detailed knowledge of the clean-up result.
 
-### Runtime eventing configuration available for Applications in the same scenario  
+### Runtime eventing configuration available for Applications in the same scenario 
 
 When you create a scenario and then assign Applications and Runtimes to it, the first registered Runtime is nominated as the default eventing system. That information is spread over all Applications and can be consumed by external Applications that start to send events.
 
@@ -86,6 +86,10 @@ In this release, we introduced Knative Eventing Mesh as an alpha feature which y
 
 After introducing Gardener cluster provisioning through the Kyma CLI in the previous release, in this release, we added the official documentation for this feature. The instructions for provisioning a Gardener cluster on GCP or Azure are now based on Kyma CLI. Check it out in [this](https://kyma-project.io/docs/1.9/root/kyma/#installation-install-kyma-on-a-cluster-prepare-the-cluster) document under the **Gardener** tab.
 
+### Finite number of revisions in Tiller
+
+Until now, Tiller kept an infinite number of revisions. This resulted at times in Helm not being able to upgrade charts after many retries. Setting a limit to the number of revisions resolved these issues. Another advantage of keeping only a few revisions is lower memory consumption for controllers listening on ConfigMap resources and fewer resources for Kubernetes to manage.
+
 ## Monitoring
 
 ### Full revamp of the monitoring component
@@ -101,7 +105,7 @@ As the official Prometheus Operator has changed a lot structure-wise recently, w
   - memory limit - `4GB`
   - data retention time - `2d`
   - data retention size - `7GB`
-  
+
   Still, these settings can be changed during installation.
 
 ## Rafter
@@ -117,7 +121,7 @@ Due to the fact that we use [MinIO](https://min.io/) as a backend for Rafter, we
 
 This release introduces Rafter in Kyma. For more details, read the [documentation](https://kyma-project.io/docs/1.9/components/rafter/). To make sure the switch is seamless, we prepared automated migration for your convenience. For more details, see the [Migrations and upgrades](#migrations-and-upgrades) section.
 
-## Service Management  
+## Service Management 
 
 ### ApplicationBroker doesn't delete the ServiceBroker custom resource (CR) if the user still has ServiceInstances created using this broker  
 
@@ -132,7 +136,7 @@ Due to some issues with Velero, right after restoring Kyma you need to follow so
 1. Remove the cluster-wide default bucket:
 
    ```bash
-   kubectl delete clusterbuckets.rafter.kyma-project.io --selector='rafter.kyma-project.io/access=public
+   kubectl delete clusterbuckets.rafter.kyma-project.io --selector='rafter.kyma-project.io/access=public'
    ```
 
 2. Remove buckets from the Namespaces where you use them:
@@ -160,16 +164,26 @@ A temporary workaround for the issue is as follows:
 
 ## Migrations and upgrades
 
+### Rafter clean-up
+
 As mentioned in the [Rafter](#rafter) section, the Asset Store and Headless CMS components are replaced with a new one - Rafter. The most visible change is that DocsTopic and ClusterDocsTopic CRs are removed and replaced with AssetGroup and ClusterAssetGroup CRs. When migrating from Kyma 1.8.0 to 1.9.0 we automatically:
 
 - Duplicate all files from system buckets (used by the Upload Service) in a new MinIO instance to assure the recovery of assets created by the Application Registry,
 - Duplicate all old resources in the new component, under the new name and API groups,
 - Remove the Asset Store and Headless CMS components after successful migration.
 
-To guarantee the necessary data duplication and fulfill the need to run all components during the upgrade, make sure your cluster has enough resources. The migration scripts are available [here](https://github.com/kyma-project/kyma/tree/release-1.9/resources/rafter/templates).
+To guarantee the necessary data duplication and fulfil the need to run all components during the upgrade, make sure your cluster has enough resources. The migration scripts are available [here](https://github.com/kyma-project/kyma/tree/release-1.9/resources/rafter/templates).
 
 >**NOTE:** Old CustomResourceDefinitions (CRDs) are not removed automatically during the upgrade process. Leaving the CRDs does not influence the upgrade. These CRDs will be removed with 1.10 release. However, you can remove them manually anytime using this command:
 >
 >```bash
 >kubectl delete crd clusterdocstopics.cms.kyma-project.io && kubectl delete crd docstopics.cms.kyma-project.io && kubectl delete crd clusterbuckets.assetstore.kyma-project.io && kubectl delete crd buckets.assetstore.kyma-project.io && kubectl delete crd clusterassets.assetstore.kyma-project.io && kubectl delete crd assets.assetstore.kyma-project.io
 >```
+
+### Tiller
+
+As we modified the Tiller Deployment by adding a new environment variable that sets the [Tiller revisions limit](#finite-number-of-revisions-in-tiller), apply the new Tiller resource before performing the upgrade:
+
+```bash
+kubectl apply -f https://raw.githubusercontent.com/kyma-project/kyma/1.9.0/installation/resources/tiller.yaml
+```
