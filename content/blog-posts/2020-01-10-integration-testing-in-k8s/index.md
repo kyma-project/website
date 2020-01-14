@@ -165,7 +165,7 @@ As an open-source project, we always welcome external contributions. So if you o
 
 - [Pick](https://github.com/kyma-incubator/octopus/issues) one of the existing issues and try to propose a solution for it in a pull request.
 - [Add](https://github.com/kyma-incubator/octopus/issues/new/choose) your own issue with ideas for improving Octopus.
-- [Star](https://github.com/kyma-incubator/octopus) Octopus to support us in our attempt to join the [awesome Kubernetes](https://github.com/ramitsurana/awesome-kubernetes#testing) family of testing projects, where we believe Octopus could take pride of place.
+- [Star](https://github.com/kyma-incubator/octopus) Octopus to support us in the attempt to join the [awesome Kubernetes](https://github.com/ramitsurana/awesome-kubernetes#testing) family of testing projects, where we believe Octopus could take pride of place.
 
 If you have any questions or want to find out more about us, contact us on the [`#octopus`](http://slack.kyma-project.io/) Slack channel or visit our [website](https://kyma-project.io/).
 
