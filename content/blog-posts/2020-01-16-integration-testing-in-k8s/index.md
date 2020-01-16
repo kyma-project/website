@@ -10,23 +10,23 @@ redirectFrom:
   - "/blog/2020-01-16-integration-testing-in-k8s"
 ---
 
-In Kubernetes, you often come across projects that are true mosaics of cloud-native applications. In such a microservice architecture, we don't meet too many stand-alone services - most of them have dependencies that aren't immediately obvious. Integrating such pieces and checking if they all work together may be a daunting challenge.
+In Kubernetes, you often come across projects that are true mosaics of cloud-native applications. We don't meet too many stand-alone services in such a microservice architecture, as most of them have dependencies that aren't immediately obvious. Integrating such pieces and checking if they all work together may be a daunting challenge.
 
 <!-- overview -->
 
-The structure of Kubernetes projects usually consists of a number of Helm charts that you can roughly divide into these categories:
+Kubernetes projects usually consist of a number of Helm charts that you can roughly divide into these categories:
 
 - Charts of well-known open-source products, such as Istio or Jaeger, that provide service communication, tracing, and many other features you use along with the "Don't reinvent the wheel" rule  
 - Charts with in-house components, such as Kubernetes controllers and microservices exposing REST or GraphQL APIs, that you develop to fill in the gaps not addressed yet by the external projects but required for your application to work
 - Charts with full-blown solutions that can perfectly work on their own
 
-Such a mixture creates a web of dependencies. For example, imagine a situation in which all your components depend on the properly configured Istio. Upgrading it would be a nightmare without a set of automated integration tests that create a Kubernetes cluster, deploy your suite of services on it, and run integration tests to check resource dependencies, provide consistent deployment order, and ensure all pieces of your puzzle fit together at all times.
+Such a mixture creates a web of dependencies. For example, imagine a situation in which all your components depend on the properly configured Istio. Upgrading it would be a nightmare without a set of automated integration tests. Such tests create a Kubernetes cluster, deploy your suite of services on it, and run integration tests. This allows you to check resource dependencies, provide consistent deployment order, and ensure all pieces of your puzzle fit together at all times.
 
 When thinking about a proper integration testing tool for your project, you also want to have an all-purpose solution that meets the needs of both developers and users. You want to deploy integration tests on any Kubernetes cluster - locally to allow developers or system administrators to validate their work easily and immediately, and on clusters provisioned on cloud providers to assure users can use your application safely in their production environment.
 
-## Helm tests and related issues
+## Helm tests & related issues
 
-When we started working on Kyma, we had all those things in mind. We decided to define integration tests as [**Helm tests**](https://helm.sh/docs/topics/chart_tests/). In this approach, a test is a [Kubernetes Job](https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/) with the `helm.sh/hook: test` annotation. You place the test under the `templates` directory of the given Helm chart. Helm creates such a test in a Kubernetes cluster just like it does with any other resource.
+When we started to work on Kyma, we had all those things in mind. We decided to define integration tests as [**Helm tests**](https://helm.sh/docs/topics/chart_tests/). In this approach, a test is a [Kubernetes Job](https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/) with the `helm.sh/hook: test` annotation. You place the test under the `templates` directory of the given Helm chart. Helm creates such a test in a Kubernetes cluster just like it does with any other resource.
 
 The reason why we took this testing path was quite simple - we used Helm extensively in our project and the Helm in-built tool for testing was a natural choice. Also, writing Helm tests turned out to be quite easy.
 
@@ -121,9 +121,9 @@ However, the benefits that Octopus gave us were massive and just the ones we exp
 
 1. **Selective testing**
 
-   In the ClusterTestSuite, you can define which tests you want to execute. You can select them by providing the **labels** expression or listing TestDefinition names. If you don't list any, Octopus will run all tests by default. Selective testing is particularly helpful in a situation when you have 50 TestDefinitions on your cluster, but in the course of development you want to check only the tests for the component you are working on. Thanks to selective testing, you can get feedback on your changes almost immediately.
+   In the ClusterTestSuite, you can define which tests you want to execute. You can select them by providing the **labels** expression or listing TestDefinition names. If you don't list any, Octopus will run all tests by default. Selective testing is particularly helpful in a situation when you have 50 TestDefinitions on your cluster, but you want to check only the tests for the component you are working on. Thanks to selective testing, you can get feedback on your changes almost immediately.
 
-2. **Automatic retries on failed tests**
+2. **Automatic retries of failed tests**
 
    At one point, we had huge problems with flaky tests in Kyma. To merge a pull request, all 22 tests had to pass on a given Kubernetes cluster. If every test fails in only 2% of executions, the probability that all 22 tests pass is only 64%. Executing tests takes no longer than 20 minutes, but when you add the time required for creating a cluster and provisioning Kyma, the overall time doubles. You can imagine the frustration of developers who had to retrigger the whole Prow job because of a failure of one test that was totally not connected with the changes introduced in their pull requests. By introducing retries through the **maxRetries** parameter, we didn't solve the issues with flaky tests completely, but we managed to reduce the number of situations in which retriggering a Prow job was required.
 
@@ -137,7 +137,7 @@ However, the benefits that Octopus gave us were massive and just the ones we exp
 
    You can also specify on the TestDefinition level if you want to exclude the given test from running concurrently as part of the ClusterTestSuite (**disableConcurrency**). That feature might be useful in cases when you don't want to run a test with dependencies on other tests from the suite.
 
-   In general, the concurrency level which you define depends on the size of your cluster. Every Pod consumes some amount of CPU and memory, and we need to take those two parameters into account when defining the concurrency level.
+   In general, the concurrency level which you define depends on the size of your cluster. Every Pod consumes some amount of CPU and memory, and you need to take those two parameters into account when defining the concurrency level.
 
 5. **Visibility**
 
