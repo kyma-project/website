@@ -26,11 +26,11 @@ When thinking about a proper integration testing tool for your project, you also
 
 ## Helm tests & related issues
 
-When we started to work on Kyma, we had all those things in mind. We decided to define integration tests as [**Helm tests**](https://helm.sh/docs/topics/chart_tests/). In this approach, a test is a [Kubernetes Job](https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/) with the `helm.sh/hook: test` annotation. You place the test under the `templates` directory of the given Helm chart. Helm creates such a test in a Kubernetes cluster just like it does with any other resource.
+When we started to work on Kyma, we had all those things in mind. We decided to define integration tests as [**Helm tests**](https://helm.sh/docs/topics/chart_tests/). In this approach, a test is a [Kubernetes Job](https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/) with the `helm.sh/hook: test` annotation. You place the test under the `templates` directory of the given Helm chart. Helm creates such a test in a Kubernetes cluster, just like it does with any other resource.
 
-The reason why we took this testing path was quite simple - we used Helm extensively in our project and the Helm in-built tool for testing was a natural choice. Also, writing Helm tests turned out to be quite easy.
+The reason why we took this testing path was quite simple - we used Helm extensively in our project, and the Helm in-built tool for testing was a natural choice. Also, writing Helm tests turned out to be quite easy.
 
-As our project grew, we came across a few obstacles that painfully hindered our work but couldn't be easily addressed with Helm tests at that time:
+As our project grew, we came across a few obstacles that painfully hindered our work and couldn't be easily addressed with Helm tests at that time:
 
 - Running the whole suite of integration tests took ages, so we needed an easy way of selecting tests we want to run.
 - The number of flaky tests increased, and we wanted to ensure they are automatically rerun.
@@ -46,7 +46,6 @@ This is how [Octopus](https://github.com/kyma-incubator/octopus/blob/master/READ
 TestDefinition, as its very name indicates, defines a test for a single component or a cross-component scenario. In the simplest scenario, you have to provide a Pod template that specifies the image with the test:
 
 ```
----
 apiVersion: testing.kyma-project.io/v1alpha1
 kind: TestDefinition
 metadata:
@@ -109,15 +108,13 @@ With Octopus, all test preparation steps come down to creating:
 
 1. Test in the language of your choice (yes, Octopus is language-agnostic).
 2. TestDefinition that specifies the image to use and commands to run.
-3. ClusterTestSuite that specifies which tests to run on a cluster, and how you want to run them.
+3. ClusterTestSuite that defines which tests to run on a cluster, and how you want to run them.
 
 In Kyma, we created integration jobs in the continuous integration tool called [Prow](https://github.com/kyma-project/test-infra/blob/master/prow/README.md). These Prow jobs are run before and after merging any changes to the `master` branch. Upon triggering, a Prow job runs the [`testing.sh`](https://github.com/kyma-project/kyma/blob/master/installation/scripts/testing.sh) script that creates a ClusterTestSuite, builds a cluster, and runs all integration tests on it.
 
 ## Features & benefits
 
-Migration from Helm tests to Octopus went smoothly and came down to minor modifications in Job definitions, such as changing them to the `TestDefinition` kind and removing the Helm annotation from them.
-
-However, the benefits that Octopus gave us were massive and just the ones we expected:
+Migration from Helm tests to Octopus went smoothly and came down to minor modifications in Job definitions, such as changing them to the `TestDefinition` kind and removing the Helm annotation from them. However, the benefits that Octopus gave us were massive and just the ones we expected:
 
 1. **Selective testing**
 
@@ -125,7 +122,7 @@ However, the benefits that Octopus gave us were massive and just the ones we exp
 
 2. **Automatic retries of failed tests**
 
-   At one point, we had huge problems with flaky tests in Kyma. To merge a pull request, all 22 tests had to pass on a given Kubernetes cluster. If every test fails in only 2% of executions, the probability that all 22 tests pass is only 64%. Executing tests takes no longer than 20 minutes, but when you add the time required for creating a cluster and provisioning Kyma, the overall time doubles. You can imagine the frustration of developers who had to retrigger the whole Prow job because of a failure of one test that was totally not connected with the changes introduced in their pull requests. By introducing retries through the **maxRetries** parameter, we didn't solve the issues with flaky tests completely, but we managed to reduce the number of situations in which retriggering a Prow job was required.
+   At one point, we had huge problems with flaky tests in Kyma. To merge a pull request, all 22 tests had to pass on a given Kubernetes cluster. If every test fails in only 2% of executions, the probability that all 22 tests pass is only 64%. Executing tests takes no longer than 20 minutes, but when you add the time required for creating a cluster and provisioning Kyma, the overall time doubles. You can imagine the frustration of developers who had to retrigger the whole Prow job because of a failure of one test that was totally not connected with the changes included in their pull requests. By introducing retries through the **maxRetries** parameter, we didn't solve the issues with flaky tests completely, but we managed to reduce the number of situations in which retriggering a Prow job was required.
 
 3. **Running tests multiple times**
 
@@ -161,7 +158,7 @@ As much as we love Octopus and appreciate how it did the trick for us, we realiz
 
 We track all our ideas for enhancement as [GitHub issues](https://github.com/kyma-incubator/octopus/issues), so you can easily refer to them for details.
 
-As an open-source project, we always welcome external contributions. So if you only wish, you can help us in many ways:
+As an open-source project, we always welcome external contributions. If you only wish, you can help us in many ways:
 
 - [Pick](https://github.com/kyma-incubator/octopus/issues) one of the existing issues, and try to propose a solution for it in a pull request.
 - [Add](https://github.com/kyma-incubator/octopus/issues/new/choose) your own issue with ideas for improving Octopus.
