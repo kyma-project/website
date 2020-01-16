@@ -41,7 +41,7 @@ At that point, we decided we need a more powerful tool. Since we couldn't find a
 
 ## The rise of Octopus
 
-This is how [Octopus](https://github.com/kyma-incubator/octopus/blob/master/README.md) was born. In short, Octopus is a Kubernetes controller which operates on two customer resources called [TestDefinition](https://github.com/kyma-incubator/octopus/blob/master/docs/crd-test-definition.md) and [ClusterTestSuite](https://github.com/kyma-incubator/octopus/blob/master/docs/crd-cluster-test-suite.md).
+This is how [Octopus](https://github.com/kyma-incubator/octopus/blob/master/README.md) was born. In short, Octopus is a Kubernetes controller which operates on two custom resources called [TestDefinition](https://github.com/kyma-incubator/octopus/blob/master/docs/crd-test-definition.md) and [ClusterTestSuite](https://github.com/kyma-incubator/octopus/blob/master/docs/crd-cluster-test-suite.md).
 
 TestDefinition, as its very name indicates, defines a test for a single component or a cross-component scenario. In the simplest scenario, you have to provide a Pod template that specifies the image with the test:
 
