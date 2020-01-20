@@ -28,7 +28,7 @@ When thinking about a proper integration testing tool for your project, you also
 
 When we started to work on Kyma, we had all those things in mind. We decided to define integration tests as [**Helm tests**](https://helm.sh/docs/topics/chart_tests/). In this approach, a test is a [Kubernetes Job](https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/) with the `helm.sh/hook: test` annotation. You place the test under the `templates` directory of the given Helm chart. Helm creates such a test in a Kubernetes cluster, just like it does with any other resource.
 
-The reason why we took this testing path was quite simple - we used Helm extensively in our project, and the Helm in-built tool for testing was a natural choice. Also, writing Helm tests turned out to be quite easy.
+The reason why we took this testing path was quite simple - we used Helm extensively in our project, and the Helm's built-in tool for testing was a natural choice. Also, writing Helm tests turned out to be quite easy.
 
 As our project grew, we came across a few obstacles that painfully hindered our work and couldn't be easily addressed with Helm tests at that time:
 
@@ -144,17 +144,17 @@ Migration from Helm tests to Octopus went smoothly and came down to minor modifi
 
     [Here](https://asciinema.org/a/287696) you can take a look at Kyma CLI in action.
 
-   - **Dashboards** - We used information available in the **status** field of the ClusterTestSuite to visualize test details on Prow dashboards. In the below example, you can clearly see all details of the `post-master-kyma-gke-integration` Prow job that builds our artifacts on a GKE cluster after every merge to the `master` branch.
+   - **Dashboards** - We used the information available in the **status** field of the ClusterTestSuite to visualize test details on Prow dashboards. In the below example, you can clearly see all details of the `post-master-kyma-gke-integration` Prow job that builds our artifacts on a GKE cluster after every merge to the `master` branch.
 
    ![Testing time](./test-status.png)
 
 ## Room for improvement
 
-As much as we love Octopus and appreciate how it did the trick for us, we realize it is not perfect (yet). We already have a few ideas in mind that would improve it even more. For example, we would like to introduce validation for both ClusterTestSuite and TestDefinition custom resources and add new fields that:
+As much as we love Octopus and appreciate how it did the trick for us, we realize it's not perfect (yet). We already have a few ideas in mind that would improve it even more. For example, we would like to introduce validation for both ClusterTestSuite and TestDefinition custom resources and add new fields that:
 
-- Define the maximum duration for a ClusterTestSuite, after which test executions are interrupted and marked as failed. (**suiteTimeout**)
-- Indicate that a test shouldn't be executed. (**skip**)
-- Specify the maximum duration for a test, after which it is terminated and marked as failed. (**timeout**)
+- Define the maximum duration for a ClusterTestSuite, after which test executions are interrupted and marked as failed (**suiteTimeout**).
+- Indicate that a test shouldn't be executed (**skip**).
+- Specify the maximum duration for a test, after which it is terminated and marked as failed (**timeout**).
 
 We track all our ideas for enhancement as [GitHub issues](https://github.com/kyma-incubator/octopus/issues), so you can easily refer to them for details.
 
