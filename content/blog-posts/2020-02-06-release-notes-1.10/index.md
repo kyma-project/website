@@ -109,7 +109,7 @@ The fact that Knative Eventing Mesh has many moving parts creates the need for i
 
 ### Native Gardener DNS support
 
-The `xip-patch` component that is installed with the default Kyma setup now offers full Gardener DNS support. This refers to use cases when you have a Gardener cluster and install Kyma with its default configuration on it, without any custom overrides. The `xip-patch` component automatically recognizes your Gardener environment, creates custom resources that Gardener first reads and then in response:
+The `xip-patch` component that is installed with the default Kyma setup now offers full Gardener DNS support. This refers to use cases when you have a Gardener cluster and install Kyma with its default configuration on it, without any custom overrides. `xip-patch` automatically recognizes your Gardener environment, creates custom resources that Gardener first reads and then in response:
 - Assigns a domain to your cluster.
 - Generates a corresponding wildcard certificate for the generated domain.
 - Configures the Gardener-based DNS entry for your domain.
