@@ -32,7 +32,7 @@ See the overview of all changes in this release:
 
 ## Migrations and upgrades
 
-As mentioned in the [Service Mesh](#service-mesh) section, Istio has been upgraded to 1.4.3 which requires a new version of Tiller. Before upgrading to Kyma 1.10, you must upgrade Tiller using the `tiller.yaml` file from the Kyma GitHub release artifacts. Once you have Tiller upgraded, you can proceed with the Kyma upgrade.
+As mentioned in the [Service Mesh section](#service-mesh), Istio has been upgraded to 1.4.3 which requires a new version of Tiller. Before upgrading to Kyma 1.10, you must upgrade Tiller using the `tiller.yaml` file from the Kyma GitHub release artifacts. Once you have Tiller upgraded, you can proceed with the Kyma upgrade.
 
 ## Known issues 
 
