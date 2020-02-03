@@ -70,7 +70,7 @@ The new functionality was introduced in the Runtime Provisioner's API. Starting 
 
 With the new set of features for the Runtime Provisioner comes the automatic connection establishment – newly Provisioned Runtimes will have their Agents supplied with all necessary information to create and maintain a connection with the Director.
 
-### Register applications from templates
+### Applications registration from templates
 
 It is now possible to register new applications using predefined templates. In this case, all you need to do is select a template and fill in values for all placeholders that a given template requires.
 
@@ -78,7 +78,7 @@ It is now possible to register new applications using predefined templates. In t
 
 ## Console
 
-###  Create Access Rules for your APIs from the Console UI
+###  Creation of Access Rules for your APIs from the Console UI
 
 Kyma comes with a built-in API Gateway Controller that allows you to define API Rules for your services. With this release, it is now possible to define those API Rules from the Console UI.
 
@@ -116,7 +116,7 @@ The `xip-patch` component that is installed with the default Kyma setup now offe
 
 All of those steps are now done in an automated fashion, without any manual configuration required on your end.
 
-### Install components from remote locations
+### Installation of components from remote locations
 
 The Kyma Installer has a new feature allowing you to install your components from remote locations that are either GitHub repositories or HTTP servers. Previously, in order to install a new component using Installer, you had to build the Installer on your own. Currently, the Installation CR contains the `source.url` field that allows you to specify the remote location of your Helm chart. The Installer tries to fetch sources from this location three times before the installation or upgrade fails. To learn more, see our [docs](https://kyma-project.io/docs/root/kyma/#configuration-install-components-from-user-defined-ur-ls).
 
