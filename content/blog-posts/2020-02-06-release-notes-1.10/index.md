@@ -64,7 +64,7 @@ With the 1.10 release, the default flow no longer requires manual registration o
 
 ### Custom configuration of Runtimes
 
-The new functionality was introduced in the Runtime Provisioner's API. Starting from this release, you can specify which components you want to be installed on your Runtime. The Runtime Provisioner's API now accepts a list of components (with override values) that are passed on to the Kyma Installer. This is used to create the Installation CR and should contain only components that are already available in Kyma.
+The new functionality was introduced in the Runtime Provisioner's API. Starting from this release, you can specify which components you want to have installed on your Runtime. The Runtime Provisioner's API now accepts a list of components (with override values) that are passed on to the Kyma Installer. This is used to create the Installation CR and should contain only components that are already available in Kyma.
 
 ### Automatic Runtime-Director connection
 
