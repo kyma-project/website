@@ -10,11 +10,11 @@ redirectFrom:
   - "/blog/release-notes-110"
 ---
 
-The journey all the way from Paris 1.9 to Quebec 1.10 turned out to be quite extensive but rewarding for the Kyma crew. We reached Quebec with recharged batteries, leveling them up to Kubernetes 1.16, Istio 1.4.3, Minikube 1.6, and Velero 1.2. We created production profiles for Istio and Ory, made a few tweaks in Compass, and introduced native DNS support for Kyma provisioned on Gardener clusters. Finally, we managed to add such optional features as the API Rules view in the Console UI or the new Knative Kafka channel for event forwarding. For this news and many more, read the full story behind Kyma 1.10 Quebec.
+The journey all the way from Paris 1.9 to Quebec 1.10 turned out to be quite extensive but rewarding for the Kyma crew. We reached Quebec with recharged batteries, leveling them up to Kubernetes 1.16, Istio 1.4.3, Minikube 1.6, and Velero 1.2. We created production profiles for Istio and Ory, made a few tweaks in Compass, and introduced native DNS support for Kyma provisioned on Gardener clusters. Finally, we managed to add a few optional features, such as the API Rules view in the Console UI or the new Knative Kafka channel for event forwarding. For this news and many more, read the full story behind Kyma 1.10 Quebec.
 
 <!-- overview -->
 
->**CAUTION:** Before upgrading your Kyma deployment to 1.10, you must upgrade Tiller. Read the [**Migrations and upgrades**](#migrations-and-upgrades) section carefully for more details. If you upgrade to a newer release without performing the steps described in that section, you can compromise the functionality of your cluster or make it unusable.
+>**CAUTION:** Before upgrading your Kyma deployment to 1.10, you must upgrade Tiller. Read the [**Migrations and upgrades**](#migrations-and-upgrades) section carefully for more details. If you upgrade to a newer release without performing the steps described in that section, you may compromise the functionality of your cluster or make it unusable.
 
 See the overview of all changes in this release:
 
@@ -22,8 +22,8 @@ See the overview of all changes in this release:
 - [Known issues](#known-issues) - Monitoring-related issues with AKS metrics
 - [Backup](#backup) - Updated Velero and improved Azure support
 - [CLI](#cli) - Support for Minikube 1.6, removal of the `uninstall` command
-- [Compass](#compass) - Automatic Runtime registration in the Director, custom configuration of Runtimes, automatic Runtime-Director connection, new templates for application registration
-- [Console](#console) - Possibility to create access rules for APIs from the Console UI
+- [Compass](#compass) - Automatic Runtime registration in the Director, custom configuration of Runtimes, automatic Runtime-Director connection, new templates for Application registration
+- [Console](#console) - Possibility to create Access Rules for APIs from the Console UI
 - [Eventing](#eventing) - Knative Kafka Channel integration, new Grafana dashboards for the Knative Eventing Mesh
 - [Installation](#installation) - Native Gardener DNS support, installation of components from remote locations, Kubernetes 1.16 compatibility
 - [Logging](#logging) - Support for Fluent Bit as the new log collector
@@ -38,33 +38,33 @@ As mentioned in the [Service Mesh section](#service-mesh), Istio has been upgrad
 
 ### AKS metrics
 
-Current Monitoring deployment does not allow Prometheus to scrape metrics, such as CPU, memory, and Network, from kubelet on AKS. As a consequence, metrics are not displayed in Grafana. To solve this problem, you need to apply the patch for the `monitoring-kubelet` ServiceMonitor. For detailed instructions, see [this](https://github.com/kyma-project/kyma/issues/6846) issue.
+Current Monitoring deployment does not allow Prometheus to scrape metrics, such as CPU, memory, and Network, from the kubelet on AKS. As a consequence, metrics are not displayed in Grafana. To solve this problem, you need to apply the patch for the `monitoring-kubelet` ServiceMonitor. For detailed instructions, see [this](https://github.com/kyma-project/kyma/issues/6846) issue.
 
 ## Backup
 
 ### Updated Velero and improved Azure support
 
-In order to overcome issues related to AKS-based environments, we updated the Velero version to 1.2. The purpose of the upgrade was to ensure that the backup and restore procedure works smoothly on AKS clusters.
+To resolve issues related to AKS-based environments, we updated the Velero version to 1.2. The purpose of the upgrade was to ensure that the backup and restore procedure works smoothly on AKS clusters.
 
 ## CLI
 
 ### Support for Minikube 1.6
 
-CLI and Kyma got tested with the latest Minikube version 1.6 that has now become the officially supported version. 
+CLI and Kyma were tested with the latest Minikube version 1.6 that has now become the officially supported version. 
 
 ### Uninstall command removed
 
-The `uninstall` command was one of the first commands available in Kyma CLI. It was based on a very simple implementation that turned out to work unreliably. We plan to redesign it but due to other priorities at the moment, we decided to remove the command for now and restore it only when this feature is stabilized.
+The `uninstall` command was one of the first commands available in the Kyma CLI. It was based on a very simple implementation that turned out to work unreliably. We plan to redesign it but due to other priorities at the moment, we decided to remove the command for now and restore it only when this feature is stabilized.
 
 ## Compass
 
 ### Runtime Provisioner registers Runtimes in the Director
 
-With the 1.10 release, the default flow no longer requires manual registration of Runtimes in the Director – it is now done automatically by the Runtime Provisioner when it receives the request for Runtime provisioning. Minor API changes are present here – the mutation now requires input parameters for the Runtime registration.
+With the 1.10 release, the default flow no longer requires manual registration of Runtimes in the Director – it is now done automatically by the Runtime Provisioner when it receives the request for Runtime provisioning. It also introduced a few minor API changes – the mutation now requires input parameters for the Runtime registration.
 
 ### Custom configuration of Runtimes
 
-The new functionality was introduced in the Runtime Provisioner's API. Starting from this release, you can specify which components you would like to install on your Runtime. The Runtime Provisioner's API now accepts a list of components (with override values) that are passed to the Kyma Installer. This is used to create the Installation CR and should contain only components that are already available in Kyma.
+The new functionality was introduced in the Runtime Provisioner's API. Starting from this release, you can specify which components you want to be installed on your Runtime. The Runtime Provisioner's API now accepts a list of components (with override values) that are passed on to the Kyma Installer. This is used to create the Installation CR and should contain only components that are already available in Kyma.
 
 ### Automatic Runtime-Director connection
 
@@ -72,7 +72,7 @@ The features for the Runtime Provisioner now include establishing the automatic 
 
 ### Applications registration from templates
 
-It is now possible to register new applications using predefined templates. In this case, all you need to do is select a template and fill in values for all placeholders that a given template requires.
+It is now possible to register new Applications using predefined templates. In this case, all you need to do is select a template and fill in the values for all placeholders that a given template requires.
 
 ![Application template](./application-template.png)
 
@@ -118,11 +118,11 @@ These steps are now performed automatically, without any manual configuration re
 
 ### Installation of components from remote locations
 
-The Kyma Installer has a new feature allowing you to install your components from remote locations that are either GitHub repositories or HTTP servers. Previously, in order to install a new component using Installer, you had to build the Installer on your own. Currently, the Installation CR contains the **source.url** field that allows you to specify the remote location of your Helm chart. The Installer tries to fetch sources from this location three times before the installation or upgrade fails. To learn more, see our [docs](https://kyma-project.io/docs/root/kyma/#configuration-install-components-from-user-defined-ur-ls).
+The Kyma Installer has a new feature which allows you to install your components from remote locations that are either GitHub repositories or HTTP servers. Previously, in order to install a new component using Installer, you had to build the Installer on your own. Currently, the Installation CR contains the **source.url** field in which you can specify the remote location of your Helm chart. The Installer tries to fetch sources from this location three times before the installation or upgrade fails. To learn more, see our [docs](https://kyma-project.io/docs/root/kyma/#configuration-install-components-from-user-defined-ur-ls).
 
 ### Kubernetes 1.16 compatibility
 
-Kubernetes 1.16 provides new features but also drops support for old API versions. During this release, we migrated the Kubernetes API versions used by Kyma to the latest ones to meet the compatibility requirements. Thanks to this, it is now possible to install Kyma on Kubernetes 1.16.
+Kubernetes 1.16 provides new features but also drops support for old API versions. In this release, we migrated the Kubernetes API versions used by Kyma to the latest ones to meet the compatibility requirements. Thanks to this, it is now possible to install Kyma on Kubernetes 1.16.
 
 ## Logging
 
@@ -134,7 +134,7 @@ To enable more integrations with external logging systems, the Promtail log coll
 
 ### ServiceInstance created but not visible
 
-If your ServiceInstance creation was successful and yet the release is marked as `FAILED` on the releases list when running the `helm list` command, it means that there is an error on the Helm's side that was not passed to the Helm Broker. To get the error details, check Tiller's logs.
+If your ServiceInstance creation was successful and yet the release is marked as `FAILED` on the releases list when running the `helm list` command, it means that there is an error on the Helm's side that was not passed on to the Helm Broker. To get the error details, check Tiller's logs.
 
 ### Helm Broker blocks deleting (Cluster)ServiceBrokers with dependencies
 
@@ -148,8 +148,8 @@ The latest release comes with a new version of Istio 1.4.3. This change has affe
 
 ### Production profile for Istio
 
-The default cluster configuration provides Istio that is good enough for playground purposes but not sufficient for a production-grade workload. This release comes with the production profile for Istio which increases application scalability (updated HPA) and provides higher CPU and memory limits/requests for the Istio control plane components. These changes improve the overall Istio components' performance and stability. The production profile configuration is optional, not enabled by default. To learn more about the profile, read our [docs](https://kyma-project.io/docs/components/service-mesh/#configuration-service-mesh-production-profile).
+The default cluster configuration provides Istio that is good enough for playground purposes but not sufficient for a production-grade workload. This release comes with the production profile for Istio which increases Application scalability (updated HPA) and provides higher CPU and memory limits/requests for the Istio control plane components. These changes improve the overall Istio components' performance and stability. The production profile configuration is optional, not enabled by default. To learn more about the profile, read our [docs](https://kyma-project.io/docs/components/service-mesh/#configuration-service-mesh-production-profile).
 
 ### Production profile for Ory
 
-The latest release also ships with the production profile for Ory. This involves increased CPU requests for the Oathkeeper and an automatically deployed PostgreSQL database in which Hydra stores data. This profile isn't enabled by default. Currently, if you enable the production profile during the Kyma upgrade, you will need to manually synchronize clients in Hydra. We will be working on this synchronization mode in the upcoming release.  
+The latest release also ships with the production profile for Ory. This involves increased CPU requests for the Oathkeeper and an automatically deployed PostgreSQL database in which Hydra stores data. This profile isn't enabled by default. Currently, if you enable the production profile during the Kyma upgrade, you will need to manually synchronize clients in Hydra. We will be working on this synchronization mode during the next release cycle.  
