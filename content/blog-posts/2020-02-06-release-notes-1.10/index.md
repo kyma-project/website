@@ -10,7 +10,7 @@ redirectFrom:
   - "/blog/release-notes-110"
 ---
 
-The journey all the way from Paris 1.9 to Quebec 1.10 turned out to be quite extensive but rewarding for the Kyma crew. We reached Quebec with recharged batteries, leveling them up to Kubernetes 1.16, Istio 1.4.3, Minikube 1.6, and Velero 1.2. We created production profiles for Istio and Ory, made a few tweaks in Compass, and introduced native DNS support for Kyma provisioned on Gardener clusters. Finally, we managed to add a few optional features, such as the API Rules view in the Console UI or the new Knative Kafka channel for event forwarding. For this news and many more, read the full story behind Kyma 1.10 Quebec.
+The journey all the way from Paris 1.9 to Quebec 1.10 turned out to be quite extensive but rewarding for the Kyma crew. We reached Quebec with recharged batteries, leveling them up to Kubernetes 1.16, Istio 1.4.3, Minikube 1.6, and Velero 1.2. We created production profiles for Istio and ORY, made a few tweaks in Compass, and introduced native DNS support for Kyma provisioned on Gardener clusters. Finally, we managed to add a few optional features, such as the API Rules view in the Console UI or the new Knative Kafka channel for event forwarding. For this news and many more, read the full story behind Kyma 1.10 Quebec.
 
 <!-- overview -->
 
@@ -27,8 +27,8 @@ See the overview of all changes in this release:
 - [Eventing](#eventing) - Knative Kafka Channel integration, new Grafana dashboards for the Knative Eventing Mesh
 - [Installation](#installation) - Native Gardener DNS support, installation of components from remote locations, Kubernetes 1.16 compatibility
 - [Logging](#logging) - Support for Fluent Bit as the new log collector
-- [Service Management](#service-management) - ServiceInstance created but not visible, Helm Broker blocks deleting (Cluster)ServiceBrokers with dependencies
-- [Service Mesh](#service-mesh) - Istio upgraded to 1.4.3, production profile for Istio, production profile for Ory
+- [Service Management](#service-management) - Possible failed status for created ServiceInstances, Helm Broker blocks deleting (Cluster)ServiceBrokers with dependencies
+- [Service Mesh](#service-mesh) - Istio upgraded to 1.4.3, production profile for Istio, production profile for ORY
 
 ## Migrations and upgrades
 
@@ -132,7 +132,7 @@ To enable more integrations with external logging systems, the Promtail log coll
 
 ## Service Management
 
-### ServiceInstance created but not visible
+### Possible failed status for created ServiceInstances
 
 If your ServiceInstance creation was successful and yet the release is marked as `FAILED` on the releases list when running the `helm list` command, it means that there is an error on the Helm's side that was not passed on to the Helm Broker. To get the error details, check Tiller's logs.
 
@@ -150,6 +150,6 @@ The latest release comes with a new version of Istio 1.4.3. This change has affe
 
 The default cluster configuration provides Istio that is good enough for playground purposes but not sufficient for a production-grade workload. This release comes with the production profile for Istio which increases Application scalability (updated HPA) and provides higher CPU and memory limits/requests for the Istio control plane components. These changes improve the overall Istio components' performance and stability. The production profile configuration is optional, not enabled by default. To learn more about the profile, read our [docs](https://kyma-project.io/docs/components/service-mesh/#configuration-service-mesh-production-profile).
 
-### Production profile for Ory
+### Production profile for ORY
 
-The latest release also ships with the production profile for Ory. This involves increased CPU requests for the Oathkeeper and an automatically deployed PostgreSQL database in which Hydra stores data. This profile isn't enabled by default. Currently, if you enable the production profile during the Kyma upgrade, you will need to manually synchronize clients in Hydra. We will be working on this synchronization mode during the next release cycle.  
+The latest release also ships with the production profile for ORY. This involves increased CPU requests for the Oathkeeper and an automatically deployed PostgreSQL database in which Hydra stores data. This profile isn't enabled by default. Currently, if you enable the production profile during the Kyma upgrade, you will need to manually synchronize clients in Hydra. We will be working on this synchronization mode during the next release cycle.  
