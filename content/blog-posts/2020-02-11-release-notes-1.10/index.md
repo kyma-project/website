@@ -14,11 +14,10 @@ The journey all the way from Paris 1.9 to Quebec 1.10 turned out to be quite ext
 
 <!-- overview -->
 
->**CAUTION:** Before upgrading your Kyma deployment to 1.10, you must upgrade Tiller. Read the [**Migrations and upgrades**](#migrations-and-upgrades) section carefully for more details. If you upgrade to a newer release without performing the steps described in that section, you may compromise the functionality of your cluster or make it unusable.
+>**CAUTION:** Before upgrading your Kyma deployment to 1.10, you must upgrade Tiller. Follow the [Migration Guide](#migrations-and-upgrades) for details. If you upgrade to a newer release without performing the steps described in the migration guide, you can compromise the functionality of your cluster or make it unusable.
 
 See the overview of all changes in this release:
 
-- [Migrations and upgrades](#migrations-and-upgrades) - Tiller upgrade required before upgrading Kyma to 1.10
 - [Known issues](#known-issues) - Monitoring-related issues with AKS metrics
 - [Backup](#backup) - Updated Velero and improved Azure support
 - [CLI](#cli) - Support for Minikube 1.6, removal of the `uninstall` command
@@ -29,10 +28,6 @@ See the overview of all changes in this release:
 - [Logging](#logging) - Support for Fluent Bit as the new log collector
 - [Service Management](#service-management) - Possible failed status for created ServiceInstances, Helm Broker blocks deleting (Cluster)ServiceBrokers with dependencies
 - [Service Mesh](#service-mesh) - Istio upgraded to 1.4.3, production profile for Istio, production profile for ORY
-
-## Migrations and upgrades
-
-As mentioned in the [Service Mesh section](#service-mesh), Istio has been upgraded to 1.4.3 which requires a new version of Tiller. Before upgrading to Kyma 1.10, you must upgrade Tiller using the `tiller.yaml` file from the Kyma GitHub release artifacts. Once you have Tiller upgraded, you can proceed with the Kyma upgrade.
 
 ## Known issues 
 
