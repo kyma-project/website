@@ -14,7 +14,7 @@ The journey all the way from Paris 1.9 to Quebec 1.10 turned out to be quite ext
 
 <!-- overview -->
 
->**CAUTION:** Before upgrading your Kyma deployment to 1.10, you must upgrade Tiller. Follow the [Migration Guide](#migrations-and-upgrades) for details. If you upgrade to a newer release without performing the steps described in the migration guide, you can compromise the functionality of your cluster or make it unusable.
+>**CAUTION:** Before upgrading your Kyma deployment to 1.10, you must upgrade Tiller. Follow the [Migration Guide](https://github.com/kyma-project/kyma/blob/release-1.10/docs/migration-guides/1.9-1.10.md) for details. If you upgrade to the new release without performing the steps described in the migration guide, you can compromise the functionality of your cluster or make it unusable.
 
 See the overview of all changes in this release:
 
