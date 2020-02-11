@@ -29,7 +29,7 @@ See the overview of all changes in this release:
 - [Service Management](#service-management) - Possible failed status for created ServiceInstances, Helm Broker blocks deleting (Cluster)ServiceBrokers with dependencies
 - [Service Mesh](#service-mesh) - Istio upgraded to 1.4.3, production profile for Istio, production profile for ORY
 
-## Known issues 
+## Known issues
 
 ### AKS metrics
 
@@ -45,7 +45,7 @@ To resolve issues related to AKS-based environments, we updated the Velero versi
 
 ### Support for Minikube 1.6
 
-CLI and Kyma were tested with the latest Minikube version 1.6 that has now become the officially supported version. 
+CLI and Kyma were tested with the latest Minikube version 1.6 that has now become the officially supported version.
 
 ### Uninstall command removed
 
