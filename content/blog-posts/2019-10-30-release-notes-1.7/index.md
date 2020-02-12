@@ -32,7 +32,7 @@ The second addition to the Runtime Agent involves labeling Runtimes. After a suc
 
 ### Runtime Provisioner first implementation
 
-The first implementation of the [Runtime Provisioner](https://kyma-project.io/docs/1.7/components/compass#architecture-components-runtime-provisioner) is here. We have unmocked the provisioning part of the API – it is now possible to provision clusters on GCP and Gardener projects using GCP credentials.
+The first implementation of the [Runtime Provisioner](https://kyma-project.io/docs/components/compass#architecture-components-runtime-provisioner) is here. We have unmocked the provisioning part of the API – it is now possible to provision clusters on GCP and Gardener projects using GCP credentials.
 
 ### Tenant Mapping Handler for requests validation
 
@@ -40,7 +40,7 @@ Starting with this release, the [Tenant Mapping Handler](https://github.com/kyma
 
 ### Scenarios view available in the Console
 
-A new **Scenarios** view in the Compass Console shows Applications and Runtimes connected to a specific [scenario](https://kyma-project.io/docs/1.7/components/compass#architecture-basic-architecture-scenarios). It allows you to manage Applications and Runtimes in a given scenario.
+A new **Scenarios** view in the Compass Console shows Applications and Runtimes connected to a specific [scenario](https://kyma-project.io/docs/components/compass#architecture-basic-architecture-scenarios). It allows you to manage Applications and Runtimes in a given scenario.
 
 ![Details view](./details-view.png)
 
