@@ -150,7 +150,7 @@ To test it out, enable these charts before installing Kyma:
 - `function-controller-init` 
 - `function-controller` 
 
-Refer to the documentation to learn more about [Serverless v2](https://kyma-project.io/docs/components/serverless-v2/), and [create a test lambda](https://kyma-project.io/docs/components/serverless-v2/#tutorials-create-a-lambda) on your own. 
+Refer to the documentation to learn more about [Serverless v2](https://kyma-project.io/docs/components/serverless-v2/) and [create a test lambda](https://kyma-project.io/docs/components/serverless-v2/#tutorials-create-a-lambda) on your own. 
 
 ### Play with lambdas 
 
