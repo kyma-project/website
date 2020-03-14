@@ -10,26 +10,27 @@ redirectFrom:
   - "/blog/release-notes-111"
 ---
 
-<!--- The journey all the way from Paris 1.9 to Quebec 1.10 turned out to be quite extensive but rewarding for the Kyma crew. We reached Quebec with recharged batteries, leveling them up to Kubernetes 1.16, Istio 1.4.3, Minikube 1.6, and Velero 1.2. We created production profiles for Istio and ORY, made a few tweaks in Compass, and introduced native DNS support for Kyma provisioned on Gardener clusters. Finally, we managed to add a few optional features, such as the API Rules view in the Console UI or the new Knative Kafka channel for event forwarding. For this news and many more, read the full story behind Kyma 1.10 Quebec. --->
+A nice little intro will appear here. 
 
 <!-- overview -->
 
-<!--- >**CAUTION:** Before upgrading your Kyma deployment to 1.10, you must upgrade Tiller. Follow the [Migration Guide](https://github.com/kyma-project/kyma/blob/release-1.10/docs/migration-guides/1.9-1.10.md) for details. If you upgrade to the new release without performing the steps described in the migration guide, you can compromise the functionality of your cluster or make it unusable. ---> 
+**CAUTION:** Before upgrading your Kyma deployment to 1.11, check if any migration steps must be performed. Follow the [Migration Guide](https://github.com/kyma-project/kyma/blob/release-1.11/docs/migration-guides/1.10-1.11.md) for details. If you upgrade to the new release without performing the steps described in the migration guide, you can compromise the functionality of your cluster or make it unusable.
 
 See the overview of all changes in this release:
 
-<!---
-- [Known issues](#known-issues) - Monitoring-related issues with AKS metrics
-- [Backup](#backup) - Updated Velero and improved Azure support
-- [CLI](#cli) - Support for Minikube 1.6, removal of the `uninstall` command
-- [Compass](#compass) - Automatic Runtime registration in the Director, custom configuration of Runtimes, automatic Runtime-Director connection, new templates for Application registration
-- [Console](#console) - Possibility to create Access Rules for APIs from the Console UI
-- [Eventing](#eventing) - Knative Kafka Channel integration, new Grafana dashboards for the Knative Eventing Mesh
-- [Installation](#installation) - Native Gardener DNS support, installation of components from remote locations, Kubernetes 1.16 compatibility
-- [Logging](#logging) - Support for Fluent Bit as the new log collector
-- [Service Management](#service-management) - Possible failed status for created ServiceInstances, Helm Broker blocks deleting (Cluster)ServiceBrokers with dependencies
-- [Service Mesh](#service-mesh) - Istio upgraded to 1.4.3, production profile for Istio, production profile for ORY
---->
+- [Known issues](#known-issues) - _?_
+- [Backup](#backup) - _?_
+- [Security](#security) - support for Gardener TLS certificate renewal, API Server Proxy and IAM kubeconfig service removed from the Helm core release, support for OAuth2 ORY/Hydra server GCP Proxy, automatic migration of OAuth2 clients to PostgreSQL database, API Server Proxy authorization check removed, Namespace-admin group renamed, Helm Secret-generating jobs replaced by Init Containers, custom resources access restrictions
+- [Service Mesh](#service-mesh) -  Istio upgrade, distroless images, installation refactor, and installation customization, Istio init removal
+- [CLI](#cli) - Upgrade required, externalization of AKS Terraform template into a module, Gardener provisioning support
+- [Logging](#logging) -  Stable Loki version
+- [Monitoring](#monitoring) - Stable memory footprint, improved configuration profiles
+- [Installation](#installation) - New retry mechanism in Kyma installer, integration pipelines running on Kubernetess 1.15 and 1.16
+- [Serverless](#serverless) - Experimental Function Controller (Serverless v2) and playing with lambdas
+- [Application Connector](#application-connector) - NGINX controller removed
+- [Compass](#compass) -  Runtime Agent fetching cluster metrics, Hyperscaler Account Pool as a new functionality in Kyma Environment Broker, Connectivity Adapter returning wrong URLs fixed
+- [Console](#console) - Storage for currently authenticated user changed to sessionStorage, security vulnerabilities fixed
+- [Eventing](#eventing) - Migration to new Knative Eventing Mesh, Knative Eventing foundation layer upgrade
 
 ## Security 
 
@@ -47,11 +48,11 @@ The Cloud SQL is a provider-supplied and maintained database, which requires a s
 
 > **NOTE:** When using any kind of custom database (gcloud or self-maintained), it is important to provide the hydra.hydra.config.secrets variables. Otherwise, a random Secret will be generated. This Secret needs to be common for all Hydra instances using the same instance of the chosen database. 
 
-### Automatic migration of Oauth2 clients to PostgreSQL database 
+### Automatic migration of OAuth2 clients to PostgreSQL database 
 
 Kyma features a preconfigured PostgreSQL database, used to store Oauth2 client data. The database is installed by default and does not require manual configuration. All the client data registered by the Hydra Maester is migrated to the database as part of the update process. If you notice missing or inconsistent data, delete the Hydra Maester Pod to force reconciliation. 
 
-### API Server Proxy authorization check removal 
+### API Server Proxy authorization check removed
 
 SubjectAccessReview (SAR) is a mechanism in Kubernetes designed to verify user permissions, which is done by calling the API Server and verifying if the user has the desired access to the called resources. Until now, the API Server Proxy made such a check for each call to the kubernetes API Server, which increased the duration of those calls. This has been removed to increase the response times of the API Server Proxy. Note that Kubernetes API Server is still verifying user permissions. 
 
@@ -91,7 +92,7 @@ The `istio-init` and `istio` charts have been merged to make the installation fa
 
 ## CLI 
 
-### Upgrade Required 
+### Upgrade required 
 
 In 1.11, we introduced changes to the Kyma installation process to avoid issues during Kyma upgrade. We ensured compliance with the most recent  Kyma  CLI version, but older CLI versions do not support this change.  
 
@@ -101,23 +102,23 @@ Make sure you upgrade CLI to the most recent version before installing Kyma. For
 
 With this release, the provisioning library located in Hydroform supports Terraform modules. As the first candidate, the full AKS Terraform manifest got externalized into a [Terraform module](https://github.com/kyma-incubator/terraform-modules) so that this can be maintained without touching the code. 
 
-### Gardener Provision Support 
+### Gardener provisioning support 
 
 Just recently, Gardener removed support for older Shoot Spec versions, which means you could not use the Kyma CLI to provision Gardener clusters. We provided support for the newest Spec version to ensure you can still use the CLI to provision clusters on Azure, GCP, and AWS. 
 
 ## Logging 
 
-### Stable Loki Version 
+### Stable loki version 
 
 We upgraded Loki, our logging solution, from a beta version to the stable version 1.3.0. 
 
 ## Monitoring 
  
-### Stable Memory Footprint 
+### Stable memory footprint 
 
 In order to ensure stable memory footprint, we used Grafana Dashboards and Alert Rules to check the actual use of metrics collected by ServiceMonitors deployed in Kyma. All metrics in use were whitelisted as part of the ServiceMonitor definitions. A lower number of metrics and Prometheus Timeseries brought in reduced, stable, and predictable memory footprint. 
 
-### Improved Configuration Profiles 
+### Improved configuration profiles 
 
 To ensure stable performance, we introduced the following changes to Monitoring: 
 
@@ -170,7 +171,7 @@ Since all NGINX-related functionality was migrated to the Istio-related services
 
 ### Runtime Agent fetches cluster metrics 
 
-Runtime Agent now fetches cluster metrics. This addition also enables FluentBit to react to the metrics that are fetched. The values logged are available for used resources such as memory, CPU, and storage. 
+Runtime Agent now fetches cluster metrics. This addition also enables FluentBit to react to the the fetched metrics as well as logs. The values are logged for available and used resources such as memory, CPU, and storage. 
 
 ### Hyperscaler Account Pool (HAP)
 
