@@ -18,7 +18,7 @@ There's a saying that all roads lead to Rome. We don't know about all, but ours 
 
 See the overview of all changes in this release:
 
-- [Security](#security) - support for Gardener TLS certificate renewal, API Server Proxy and IAM kubeconfig service removed from the Helm core release, support for OAuth2 ORY/Hydra server GCP Proxy, automatic migration of OAuth2 clients to PostgreSQL database, API Server Proxy authorization check removed, Namespace-admin group renamed, Helm Secret-generating jobs replaced by Init Containers, custom resources access restrictions
+- [Security](#security) - Support for Gardener TLS certificate renewal, API Server Proxy and IAM kubeconfig service removed from the Helm core release, support for OAuth2 ORY/Hydra server GCP Proxy, automatic migration of OAuth2 clients to PostgreSQL database, API Server Proxy authorization check removed, Namespace-admin group renamed, Helm Secret-generating jobs replaced by Init Containers, custom resources access restrictions
 - [Service Mesh](#service-mesh) -  Istio upgrade, distroless images, installation refactor, and installation customization, Istio init removal
 - [CLI](#cli) - Upgrade required, externalization of AKS Terraform template into a module, Gardener provisioning support
 - [Logging](#logging) -  Stable Loki version
