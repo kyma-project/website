@@ -10,7 +10,7 @@ redirectFrom:
   - "/blog/release-notes-111"
 ---
 
-There's a saying that all roads lead to Rome. We don't know about all, but ours certainly does, with the release of Kyma 1.11. And just like this beautiful city, this release has lots to offer. The Roman emperor Augustus said: “I found Rome a city of bricks and left it a city of marble.” We, too, strive to make Kyma even better with each release. We introduced many security improvements, stabilized logging and monitoring, added a new retry mechanism in the Kyma installer and an experimental Function Controller, and we squashed a few pesky bugs — and these are just some of the changes. Read on to learn more about new functionalities, improvements and changes that we introduce in Kyma 1.11.
+There's a saying that all roads lead to Rome. We don't know about all, but ours certainly does, with the release of Kyma 1.11. And just like this beautiful city, this release has lots to offer. The Roman emperor Augustus said: “I found Rome a city of bricks and left it a city of marble.” We, too, strive to make Kyma even better with each release. We introduced many security improvements, stabilized logging and monitoring, added a new retry mechanism in the Kyma installer and an experimental Function Controller, and we squashed a few pesky bugs — and these are just some of the changes. Read on to learn more about new functionality, improvements, and changes that we introduce in Kyma 1.11.
 
 <!-- overview -->
 
