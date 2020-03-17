@@ -106,7 +106,7 @@ Just recently, Gardener removed support for older Shoot Spec versions, which mea
 
 ## Logging 
 
-### Stable loki version 
+### Stable Loki version 
 
 We upgraded Loki, our logging solution, from a beta version to the stable version 1.3.0. 
 
