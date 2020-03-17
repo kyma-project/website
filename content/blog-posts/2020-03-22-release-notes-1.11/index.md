@@ -186,9 +186,8 @@ We squashed that pesky bug that caused the Connectivity Adapter to return wrong 
 Storage which used to persist user information for the currently authenticated user was changed from local to sessionStorage. This improves security as your authentication data is stored only until you log out or close the browser window or tab. 
 
 ### Security vulnerabilities fixed 
- 
-<!--- This needs some love --->
-We applied security headers for the Log UI  - CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N 6.5 (Medium) - [#1609](https://github.com/kyma-project/console/pull/1609) 
+
+We applied HTTP security headers for the Log UI  - CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N 6.5 (Medium) - [#1609](https://github.com/kyma-project/console/pull/1609).
 
 ## Eventing 
 
