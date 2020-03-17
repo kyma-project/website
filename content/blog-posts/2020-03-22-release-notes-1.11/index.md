@@ -14,7 +14,7 @@ There's a saying that all roads lead to Rome. We don't know about all, but ours 
 
 <!-- overview -->
 
-**CAUTION:** Before upgrading your Kyma deployment to 1.11, check if any migration steps must be performed. Follow the [Migration Guide](https://github.com/kyma-project/kyma/blob/release-1.11/docs/migration-guides/1.10-1.11.md) for details. If you upgrade to the new release without performing the steps described in the migration guide, you can compromise the functionality of your cluster or make it unusable.
+> **CAUTION:** Before upgrading your Kyma deployment to 1.11, check if any migration steps must be performed. Follow the [Migration Guide](https://github.com/kyma-project/kyma/blob/release-1.11/docs/migration-guides/1.10-1.11.md) for details. If you upgrade to the new release without performing the steps described in the migration guide, you can compromise the functionality of your cluster or make it unusable.
 
 See the overview of all changes in this release:
 
