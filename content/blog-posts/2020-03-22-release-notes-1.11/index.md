@@ -225,10 +225,3 @@ You can also define an authentication method per package.
 API packages introduce a change also from the API consumer's standpoint. When browsing Applications in Service Catalog, they will see additional navigation controllers allowing them to select a specific package for an Application. 
 
 ![additional-navigation-controllers](api-packages-04-additional-navigation-contorllers.png)
-
-
-
-
-
-
-
