@@ -206,22 +206,22 @@ We upgraded the underlying Knative Eventing foundation layer to version 0.12 to 
 
 ### API packages introduced
 
-Kyma 1.11 comes with a beta feature **API Packages**. This feature can be enabled with a dedicated override `global.enableAPIPackages: "true"` and makes sense only if you have Compass installed in your Kyma Runtime. 
+Kyma 1.11 comes with a new **API Packages** feature in beta. This feature can be enabled with a dedicated override `global.enableAPIPackages: "true"` and makes sense only if you have Compass installed in your Kyma Runtime. 
 
 With this setup, you see a completely new UI for Applications. This view fetches data from the Compass module that is installed in your Runtime. 
 
 With the new UI, you can define Applications through Compass. You can define APIs and organize them in packages.
 
-![define-api-packages](api-packages-01-define-apis.png)
+![define-api-packages](./api-packages-01-define-apis.png)
 
 API packages allow you to bundle APIs together. Build groups of APIs (also Async APIs) if you think they make sense together. For example, consumers could build a scenario using APIs belonging to a single package.
 
-![bundle-api-packages](api-packages-02-bundle-api-packages.png)
+![bundle-api-packages](./api-packages-02-bundle-api-packages.png)
 
 You can also define an authentication method per package.
 
-![define-auth-method-per-package](api-packages-03-auth-method-per-package.png)
+![define-auth-method-per-package](./api-packages-03-auth-method-per-package.png)
 
 API packages introduce a change also from the API consumer's standpoint. When browsing Applications in Service Catalog, they will see additional navigation controllers allowing them to select a specific package for an Application. 
 
-![additional-navigation-controllers](api-packages-04-additional-navigation-contorllers.png)
+![additional-navigation-controllers](./api-packages-04-additional-navigation-contorllers.png)
