@@ -210,7 +210,7 @@ Kyma 1.11 comes with a beta feature **API Packages**. This feature can be enable
 
 With this setup, you see a completely new UI for Applications. This view fetches data from the Compass module that is installed in your Runtime. 
 
-With the new UI you can define Applications through Compass. You can define APIs and organize them in packages.
+With the new UI, you can define Applications through Compass. You can define APIs and organize them in packages.
 
 ![define-api-packages](api-packages-01-define-apis.png)
 
