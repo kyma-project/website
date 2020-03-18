@@ -206,7 +206,7 @@ We upgraded the underlying Knative Eventing foundation layer to version 0.12 to 
 
 ### API packages introduced
 
-Kyma 1.11 comes with a new **API Packages** feature in beta. This feature can be enabled with a dedicated override `global.enableAPIPackages: "true"` and makes sense only if you have Compass installed in your Kyma Runtime. 
+Kyma 1.11 comes with a new beta feature called **API Packages**. This feature can be enabled with a dedicated override `global.enableAPIPackages: "true"` and makes sense only if you have Compass installed in your Kyma Runtime. 
 
 With this setup, you see a completely new UI for Applications. This view fetches data from the Compass module that is installed in your Runtime. 
 
