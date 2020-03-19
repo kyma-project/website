@@ -79,13 +79,14 @@ In order to address security concerns and reduce the potential attack surface, a
 
 ### Istio installation refactor 
 
-* Istio installation customization
+
+* **Istio installation customization**
 
 Istio installation can be customized with an installation override. This allows you to easily change the Istio configuration used in Kyma installation. The user-provided configurations are merged with the defaults. See the [documentation](https://kyma-project.io/docs/1.11/components/service-mesh/#configuration-service-mesh-production-profile-system-requirements) for the details and usage example. 
 
 > **NOTE:** This feature deprecates the old way of configuring Istio with Helm overrides. 
 
-* Istio init removal
+* **Istio init removal**
 
 The `istio-init` and `istio` charts have been merged to make the installation faster and less error-prone.
 
