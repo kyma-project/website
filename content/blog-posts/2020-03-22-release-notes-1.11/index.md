@@ -43,13 +43,13 @@ Helm core release is an umbrella release for multiple components. This leads to 
 
 ### OAuth2 ORY/Hydra server GCP Proxy support 
 
-The Cloud SQL is a provider-supplied and maintained database, which requires a special proxy deployment in order to provide a secured connection. In Kyma, we provide a pre-installed [deployment](https://github.com/rimusz/charts/tree/master/stable/gcloud-sqlproxy) of the proxy, which is ready to use and requires only a set of input parameters in order to connect to the chosen database. Find all configuration options [here](https://kyma-project.io/docs/components/security/#configuration-o-auth2-server-profiles). 
+The Cloud SQL is a provider-supplied and maintained database, which requires a special proxy deployment in order to provide a secured connection. In Kyma, we provide a pre-installed [deployment](https://github.com/rimusz/charts/tree/master/stable/gcloud-sqlproxy) of the proxy, which is ready to use and requires only a set of input parameters in order to connect to the chosen database. Find all configuration options [here](https://kyma-project.io/docs/1.11/components/security/#configuration-o-auth2-server-profiles). 
 
 > **NOTE:** When using any kind of custom database (gcloud or self-maintained), it is important to provide the hydra.hydra.config.secrets variables. Otherwise, a random Secret will be generated. This Secret needs to be common for all Hydra instances using the same instance of the chosen database. 
 
 ### Automatic migration of OAuth2 clients to PostgreSQL database 
 
-Kyma features a preconfigured PostgreSQL database used to store Oauth2 client data. The database is installed by default and does not require manual configuration. All the client data registered by the Hydra Maester is migrated to the database as part of the update process. If you notice missing or inconsistent data, delete the Hydra Maester Pod to force reconciliation. 
+Kyma features a [preconfigured PostgreSQL](https://github.com/helm/charts/tree/master/stable/postgresql) database used to store Oauth2 client data. The database is installed by default and does not require manual configuration. All the client data registered by the Hydra Maester is migrated to the database as part of the update process. If you notice missing or inconsistent data, delete the Hydra Maester Pod to force reconciliation. 
 
 ### API Server Proxy authorization check removed
 
@@ -81,7 +81,7 @@ In order to satisfy security concerns and reduce the potential attack surface, a
 
 #### Istio installation customization
 
-Istio installation can be customized with an installation override. This allows you to easily change the Istio configuration used in the Kyma installation. The user-provided configurations are merged with the defaults.  See the [documentation](https://kyma-project.io/docs/components/service-mesh/#configuration-service-mesh-production-profile-system-requirements) for the details and usage example. 
+Istio installation can be customized with an installation override. This allows you to easily change the Istio configuration used in the Kyma installation. The user-provided configurations are merged with the defaults. See the [documentation](https://kyma-project.io/docs/1.11/components/service-mesh/#configuration-service-mesh-production-profile-system-requirements) for the details and usage example. 
 
 > **NOTE:** This feature deprecates the old way of configuring Istio with Helm overrides. 
 
@@ -95,7 +95,7 @@ The `istio-init` and `istio` charts have been merged to make the installation fa
 
 In 1.11, we introduced changes to the Kyma installation process to avoid issues during Kyma upgrade. We ensured compliance with the most recent Kyma CLI version, but older CLI versions do not support this change.  
 
-Make sure you upgrade CLI to the most recent version before installing Kyma. For more information, read the [migration guide](https://github.com/kyma-project/kyma/blob/master/docs/migration-guides/1.10-1.11.md#cli). 
+Make sure you upgrade CLI to the most recent version before installing Kyma. For more information, read the [migration guide](https://github.com/kyma-project/kyma/blob/release-1.11/docs/migration-guides/1.10-1.11.md#cli). 
 
 ### Externalization of AKS Terraform template into a module 
 
@@ -125,13 +125,13 @@ To ensure stable performance, we introduced the following changes to Monitoring:
 - Production profile with a retention time of 30 days.  
 - Local profile allowing you to deploy Kyma with Monitoring locally on Minikube. This configuration includes a very low retention time and a very low memory limit. 
 
-For more information, refer to the [documentation](https://kyma-project.io/docs/master/components/monitoring/#configuration-monitoring-profiles). 
+For more information, refer to the [documentation](https://kyma-project.io/docs/1.11/components/monitoring/#configuration-monitoring-profiles). 
 
 ## Installation 
 
 ### New retry mechanism in Kyma installer 
 
-The new retry mechanism ensures that, instead of the whole installation, a single component is retried, and if the retries are not successful, the installation is stopped. Previously, it would be retried until successful. By default, there are 5 retries with increasing time between them. For more information, refer to the [documentation](https://kyma-project.io/docs/master/root/kyma/#installation-details-retry-policy). 
+The new retry mechanism ensures that, instead of the whole installation, a single component is retried, and if the retries are not successful, the installation is stopped. Previously, it would be retried until successful. By default, there are 5 retries with increasing time between them. For more information, refer to the [documentation](https://kyma-project.io/docs/1.11/root/kyma/#installation-details-retry-policy). 
 
 ### Integration pipelines now run on Kubernetess 1.15 and 1.16 
 
@@ -149,14 +149,14 @@ To test it out, enable these charts before installing Kyma:
 - `function-controller-init` 
 - `function-controller` 
 
-Refer to the documentation to learn more about [Serverless v2](https://kyma-project.io/docs/components/serverless-v2/) and [create a test lambda](https://kyma-project.io/docs/components/serverless-v2/#tutorials-create-a-lambda) on your own. 
+Refer to the documentation to learn more about [Serverless v2](https://kyma-project.io/docs/1.11/components/serverless-v2/) and [create a test lambda](https://kyma-project.io/docs/1.11/components/serverless-v2/#tutorials-create-a-lambda) on your own. 
 
 ### Play with lambdas 
 
 Once you have enabled the Serverless v2 charts and have a sample lambda in place, you can play with it a bit: 
 
-- [Expose](https://kyma-project.io/docs/components/serverless-v2/#tutorials-expose-the-lambda-with-an-api-rule) it to an external endpoint through an API Rule. 
-- [Bind](https://kyma-project.io/docs/components/serverless-v2/#tutorials-bind-a-service-instance-to-a-lambda) it to a Service Instance. 
+- [Expose](https://kyma-project.io/docs/1.11/components/serverless-v2/#tutorials-expose-the-lambda-with-an-api-rule) it to an external endpoint through an API Rule. 
+- [Bind](https://kyma-project.io/docs/1.11/components/serverless-v2/#tutorials-bind-a-service-instance-to-a-lambda) it to a Service Instance. 
 
 Use the reference tutorials to test these scenarios. 
 

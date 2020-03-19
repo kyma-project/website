@@ -38,6 +38,12 @@ files:
     config:
       white-list-external:
         - https://github.com/kyma-project/kyma/blob/release-1.11/docs/migration-guides/1.10-1.11.md
-        - https://kyma-project.io/docs/components/serverless-v2/
-        - https://kyma-project.io/docs/components/serverless-v2/#tutorials-expose-the-lambda-with-an-api-rule
-        - https://kyma-project.io/docs/components/serverless-v2/#tutorials-bind-a-service-instance-to-a-lambda
+        - https://github.com/kyma-project/kyma/blob/release-1.11/docs/migration-guides/1.10-1.11.md#cli
+        - https://kyma-project.io/docs/1.11/components/security/#configuration-o-auth2-server-profiles
+        - https://kyma-project.io/docs/1.11/components/service-mesh/#configuration-service-mesh-production-profile-system-requirements
+        - https://kyma-project.io/docs/1.11/components/monitoring/#configuration-monitoring-profiles
+        - https://kyma-project.io/docs/1.11/root/kyma/#installation-details-retry-policy
+        - https://kyma-project.io/docs/1.11/components/serverless-v2/
+        - https://kyma-project.io/docs/1.11/components/serverless-v2/#tutorials-create-a-lambda
+        - https://kyma-project.io/docs/1.11/components/serverless-v2/#tutorials-expose-the-lambda-with-an-api-rule
+        - https://kyma-project.io/docs/1.11/components/serverless-v2/#tutorials-bind-a-service-instance-to-a-lambda
