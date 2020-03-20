@@ -47,3 +47,4 @@ files:
         - https://kyma-project.io/docs/1.11/components/serverless-v2/#tutorials-create-a-lambda
         - https://kyma-project.io/docs/1.11/components/serverless-v2/#tutorials-expose-the-lambda-with-an-api-rule
         - https://kyma-project.io/docs/1.11/components/serverless-v2/#tutorials-bind-a-service-instance-to-a-lambda
+        - https://kyma-project.io/docs/1.11/components/knative-eventing-mesh/

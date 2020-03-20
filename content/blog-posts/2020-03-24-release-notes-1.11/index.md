@@ -194,7 +194,7 @@ We applied HTTP security headers for the Log UI, which solves the CVSS:3.0/AV:N/
 
 ### Migration to new Knative Eventing Mesh 
 
-With Kyma 1.11, we migrated the underlying eventing solution to the new Knative Eventing Mesh. As a result, all your Kyma Subscriptions were converted to Knative Triggers to ensure a seamless eventing experience.  
+With Kyma 1.11, we migrated the underlying eventing solution to the new [Knative Eventing Mesh](https://kyma-project.io/docs/1.11/components/knative-eventing-mesh/). As a result, all your Kyma Subscriptions were converted to Knative Triggers to ensure a seamless eventing experience.  
 
 This migration has no negative impact on any existing connectors. You can still use the old eventing endpoints to publish the events your Application sends. The old eventing endpoints convert your request to a valid CloudEvent in version 1.0 and redirect this request to the new Eventing Mesh. 
 
