@@ -222,6 +222,6 @@ You can also define an authentication method per package.
 
 ![define-auth-method-per-package](./api-packages-03-auth-method-per-package.png)
 
-API packages introduce a change also from the API consumer's standpoint. When browsing through Applications in Service Catalog, they will see additional navigation controls allowing them to select a specific package for an Application. 
+API packages introduce a change also from the API consumers' standpoint. When browsing through Applications in Service Catalog, they will see additional navigation controls allowing them to select a specific package for an Application. 
 
 ![additional-navigation-controllers](./api-packages-04-additional-navigation-contorllers.png)
