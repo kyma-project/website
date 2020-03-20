@@ -24,7 +24,7 @@ See the overview of all changes in this release:
 - [Logging](#logging) - Stable Loki version
 - [Monitoring](#monitoring) - Stable memory footprint, improved configuration profiles
 - [Installation](#installation) - New retry mechanism in Kyma installer, integration pipelines running on Kubernetes 1.15 and 1.16
-- [Serverless](#serverless) - Experimental Function Controller (Serverless v2) and with a few options to play with lambdas
+- [Serverless](#serverless) - Experimental Function Controller (Serverless v2) with a few options to play with lambdas
 - [Application Connector](#application-connector) - NGINX controller removed
 - [Compass](#compass) - Runtime Agent fetching cluster metrics, Hyperscaler Account Pool as a new functionality in Kyma Environment Broker, Connectivity Adapter returning wrong URLs fixed
 - [Console](#console) - Storage for currently authenticated user changed to sessionStorage, security vulnerabilities fixed
@@ -39,7 +39,7 @@ Gardener supports TLS certificate renewal, and from now on this feature is enabl
 
 ### API Server Proxy and IAM kubeconfig service removed from Helm core release 
 
-Helm core release is an umbrella release for multiple components. This leads to problems with Helm maintenance when, for example, installation or upgrade fails. To simplify the Helm core release installation and avoid potential operational issues, we removed the API Server and IAM Kubeconfig service Helm charts from the release core. They are now a separate chart on the installation CR list, and they are installed after the `core` chart.
+Helm core release is an umbrella release for multiple components. This leads to problems with Helm maintenance when, for example, installation or upgrade fails. To simplify the Helm core release installation and avoid potential operational issues, we removed the API Server and IAM Kubeconfig service Helm charts from the release core. They are now separate charts on the installation CR list, and they are installed after the `core` chart.
 
 ### OAuth2 ORY/Hydra server GCP Proxy support 
 
@@ -78,7 +78,6 @@ Istio has been upgraded to 1.4.6 to provide the newest set of features and secur
 In order to address security concerns and reduce the potential attack surface, all images used by Istio have been changed from Debian-based to [distroless](https://istio.io/docs/ops/configuration/security/harden-docker-images/). The smaller image size also positively affects the overall performance of the Service Mesh.
 
 ### Istio installation refactor 
-
 
 * **Istio installation customization**
 
@@ -122,7 +121,7 @@ In order to ensure a stable memory footprint, we used Grafana Dashboards and Ale
 
 To ensure stable performance, we introduced the following changes to Monitoring: 
 
-- Reduced memory limit for the default configuration.
+- Reduced memory limit for the default configuration
 - Production profile with a retention time of 30 days
 - Local profile allowing you to deploy Kyma with Monitoring locally on Minikube. This configuration includes a very low retention time and a very low memory limit.
 
