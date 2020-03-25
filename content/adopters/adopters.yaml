@@ -21,3 +21,7 @@ adopters:
   - websiteUrl: "https://www.arithnea.de/"
     logo: "./logos/arithnea.svg"
     content: "Kyma supports us with tools to create a unique customer experience with SAP CX - one that is even more efficient, flexible, and at low risk."
+  - websiteUrl: "https://www.arineo.com/"
+    url: "https://arineo.com/de/customer-experience/177-iot-with-sap"
+    logo: "./logos/arineo.svg"  
+    content: "Kyma solves our clients’ need for a flexible and reusable SAP Commerce extension mechanism. It allows them to offer an extraordinary CX."
