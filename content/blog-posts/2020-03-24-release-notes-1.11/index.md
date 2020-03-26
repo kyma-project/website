@@ -204,7 +204,7 @@ We upgraded the underlying Knative Eventing foundation layer to version 0.12 to 
 
 ## API Packages (beta)
 
-### API packages introduced
+### API Packages introduced
 
 Kyma 1.11 comes with a new beta feature called **API Packages**. This feature can be enabled with a dedicated override `global.enableAPIPackages: "true"` and makes sense only if you have Compass installed in your Kyma Runtime. 
 
