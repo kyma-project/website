@@ -34,7 +34,7 @@ files:
     config:
       white-list-external:
         - https://www.linkedin.com/company/kyma-project
-  - path: ./website/content/blog-posts/2020-03-24-release-notes-1.11/index.md
+  - path: ./website/content/blog-posts/2020-03-31-release-notes-1.11/index.md
     config:
       white-list-external:
         - https://github.com/kyma-project/kyma/blob/release-1.11/docs/migration-guides/1.10-1.11.md
