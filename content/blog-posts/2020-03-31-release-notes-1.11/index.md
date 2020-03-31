@@ -141,7 +141,7 @@ In the previous release, we updated the Kubernetes API versions used by Kyma res
 
 ### Experimental Function Controller 
 
-We introduced the experimental Function Controller that will soon replace the existing Kubeless-based serverless functionality in Kyma. The Function Controller (also known as Serverless v2) relies on [Knative Serving](https://knative.dev/docs/serving/) for deploying and managing lambdas, and [Tekton Pipelines](https://github.com/tektoncd/pipeline) for creating Docker images. The Function Controller allows you to create lambdas in all Namespaces, on clusters with both trusted and self-signed certificates. 
+We introduced the experimental Function Controller that will soon replace the existing Kubeless-based serverless functionality in Kyma. The Function Controller (also known as Serverless v2) relies on [Knative Serving](https://knative.dev/docs/serving/) for deploying and managing lambdas, and [Tekton Pipelines](https://github.com/tektoncd/pipeline) for creating Docker images. The Function Controller allows you to create lambdas in all Namespaces, on clusters with both trusted and self-signed certificates.
 
 To test it out, enable these charts before installing Kyma: 
 
