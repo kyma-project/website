@@ -137,6 +137,10 @@ The new retry mechanism ensures that a single component is retried instead of th
 
 In the previous release, we updated the Kubernetes API versions used by Kyma resources to the latest ones. We now moved a step further by updating the reference platforms for our testing pipelines. Starting from this release, all our integration pipelines automatically test Kyma on Kubernetes in either version 1.15 or 1.16, depending on the cloud provider. These are also the recommended Kubernetes versions for Kyma installation. 
 
+### Cluster provisioning on Gardener
+
+
+
 ## Serverless 
 
 ### Experimental Function Controller 
