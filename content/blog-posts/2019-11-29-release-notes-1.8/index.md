@@ -44,7 +44,7 @@ The Terraform-based `kyma provision gcp` and `kyma provision gardener` commands 
 
 ### Runtime Provisioner supports Gardener on Azure and AWS
 
-The capabilities of the [Runtime Provisioner](https://kyma-project.io/docs/1.8/components/compass/#architecture-components-runtime-provisioner) were extended - we've added support for provisioning Gardener clusters on Azure and AWS. Due to broadening capabilities of the Provisioner, we also changed the API a bit - the cluster config is now passed in a more generic way, which allows for easier integration with various Hyperscalers.
+The capabilities of the [Runtime Provisioner](https://github.com/kyma-project/kyma/blob/release-1.8/docs/compass/02-01-components.md#runtime-provisioner) were extended - we've added support for provisioning Gardener clusters on Azure and AWS. Due to broadening capabilities of the Provisioner, we also changed the API a bit - the cluster config is now passed in a more generic way, which allows for easier integration with various Hyperscalers.
 
 ### Connect with Applications from Cockpit
 
@@ -71,14 +71,14 @@ We tweaked and provided many minor improvements in Application Connector's docum
 
 ### Runtime Provisioner examples
 
-The first iteration of Provisioner examples is here! We have created a few tutorials that will guide you through the whole process of cluster actions - from provisioning to cluster deletion and cleanup of Runtime data. See the new tutorials [here](https://kyma-project.io/docs/1.8/components/compass/#tutorials-tutorials).
+The first iteration of Provisioner examples is here! We have created a few tutorials that will guide you through the whole process of cluster actions - from provisioning to cluster deletion and cleanup of Runtime data. See the new tutorials [here](https://github.com/kyma-project/kyma/tree/release-1.8/docs/compass).
 
 
 ## Security
 
 ### XSUAA connector in Kyma
 
-This release we have added the possibility to delegate user authentication to SAP Cloud Platform XSUAA. To allow this, Dex now supports a new type of connector, called `xsuaa`. Our documentation shows how to configure an XSUAA connector for Dex. For more details, read [this](https://kyma-project.io/docs/1.8/components/security/#tutorials-add-an-identity-provider-to-dex) document.
+This release we have added the possibility to delegate user authentication to SAP Cloud Platform XSUAA. To allow this, Dex now supports a new type of connector, called `xsuaa`. Our documentation shows how to configure an XSUAA connector for Dex. For more details, read [this](https://github.com/kyma-project/kyma/blob/release-1.8/docs/security/08-03-add-connector.md) document.
 
 ### Monitoring API Server Proxy
 
