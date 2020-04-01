@@ -10,7 +10,7 @@ redirectFrom:
   - "/blog/release-notes-110"
 ---
 
-The journey all the way from Paris 1.9 to Quebec 1.10 turned out to be quite extensive but rewarding for the Kyma crew. We reached Quebec with recharged batteries, leveling them up to Kubernetes 1.16, Istio 1.4.3, Minikube 1.6, and Velero 1.2. We created production profiles for Istio and ORY, made a few tweaks in Compass, and introduced native DNS support for Kyma provisioned on Gardener clusters. Finally, we managed to add a few optional features, such as the API Rules view in the Console UI or the new Knative Kafka channel for event forwarding. For this news and many more, read the full story behind Kyma 1.10 Quebec.
+The journey all the way from Paris 1.9 to Quebec 1.10 turned out to be quite extensive but rewarding for the Kyma crew. We reached Quebec with recharged batteries, leveling them up to Kubernetes 1.16, Istio 1.4.3, Minikube 1.6, and Velero 1.2. We created production profiles for Istio and ORY, made a few tweaks in Compass, and introduced native DNS support for Kyma provisioned on Gardener clusters. Finally, we managed to add a few optional features, such as the API Rules view in the Console UI or the new Knative Kafka channel for event forwarding. For more details, read the full story behind Kyma 1.10 Quebec.
 
 <!-- overview -->
 
