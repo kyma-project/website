@@ -18,6 +18,7 @@ There's a saying that all roads lead to Rome. We don't know about all, but ours 
 
 See the overview of all changes in this release:
 
+- [Known issues](#known-issues) - Certificates for cluster provisioning handled by Gardener
 - [Security](#security) - Support for Gardener TLS certificate renewal, API Server Proxy and IAM kubeconfig service removed from the Helm core release, support for OAuth2 ORY/Hydra server GCP Proxy, automatic migration of OAuth2 clients to PostgreSQL database, API Server Proxy authorization check removed, Namespace-admin group renamed, Helm Secret-generating jobs replaced by init containers, custom resources access restrictions
 - [Service Mesh](#service-mesh) - Istio upgrade, distroless images, and installation refactor
 - [CLI](#cli) - Upgrade required, externalization of AKS Terraform template into a module, Gardener provisioning support
@@ -30,6 +31,15 @@ See the overview of all changes in this release:
 - [Console](#console) - Storage for currently authenticated user changed to sessionStorage, security vulnerabilities fixed
 - [Eventing](#eventing) - Migration to new Knative Eventing Mesh, Knative Eventing foundation layer upgrade
 - [API Packages (beta)](#api-packages-beta) - API packages introduced
+
+## Known Issues
+
+### Certificates for cluster provisioning handled by Gardener
+
+We have unified the way Gardener handles certificates required for cluster provisioning. Before 1.11, `apiserver-proxy` still had certificates issued under the xip.io domain with a self-signed certificate, whereas Gardener already managed other certificates. To simplify certificate management, we unified this approach to allow Gardener to manage all certificates. We have also modified TLS certificate handling to ensure Kyma components react to the TLS rotation Gardener provides. 
+Bear in mind that the domain for which you request the certificate is subject to character restrictions. This means that if the domain name in the cluster override exceeds 54 characters, installation will fail with an error.
+To avoid any potential issues with the upgrade, make sure your existing cluster domain name does not exceed 54 characters. If it does, you need to create a new cluster with a shorter domain name. 
+For details, read the [Migration Guide](https://github.com/kyma-project/kyma/blob/release-1.11/docs/migration-guides/1.10-1.11.md).
 
 ## Security 
 
@@ -95,7 +105,7 @@ The `istio-init` and `istio` charts have been merged to make the installation fa
 
 In 1.11, we introduced changes to the Kyma installation process to avoid issues during Kyma upgrade. We ensured compliance with the most recent Kyma CLI version, but older CLI versions do not support this change.  
 
-Make sure you upgrade CLI to the most recent version before installing Kyma. For more information, read the [migration guide](https://github.com/kyma-project/kyma/blob/release-1.11/docs/migration-guides/1.10-1.11.md#cli). 
+Make sure you upgrade CLI to the most recent version before installing Kyma. For more information, read the [Migration Guide](https://github.com/kyma-project/kyma/blob/release-1.11/docs/migration-guides/1.10-1.11.md#cli). 
 
 ### Externalization of AKS Terraform template into a module 
 
@@ -136,10 +146,6 @@ The new retry mechanism ensures that a single component is retried instead of th
 ### Integration pipelines now run on Kubernetess 1.15 and 1.16 
 
 In the previous release, we updated the Kubernetes API versions used by Kyma resources to the latest ones. We now moved a step further by updating the reference platforms for our testing pipelines. Starting from this release, all our integration pipelines automatically test Kyma on Kubernetes in either version 1.15 or 1.16, depending on the cloud provider. These are also the recommended Kubernetes versions for Kyma installation. 
-
-### Cluster provisioning on Gardener
-
-
 
 ## Serverless 
 
