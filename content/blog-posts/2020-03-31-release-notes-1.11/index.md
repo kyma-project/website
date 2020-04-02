@@ -18,7 +18,7 @@ There's a saying that all roads lead to Rome. We don't know about all, but ours 
 
 See the overview of all changes in this release:
 
-- [Known issues](#known-issues) - Certificates for cluster provisioning handled by Gardener
+- [Known issues](#known-issues) - Certificates for cluster provisioning handled by Gardener, Eventing does not work properly after Kyma upgrade
 - [Security](#security) - Support for Gardener TLS certificate renewal, API Server Proxy and IAM kubeconfig service removed from the Helm core release, support for OAuth2 ORY/Hydra server GCP Proxy, automatic migration of OAuth2 clients to PostgreSQL database, API Server Proxy authorization check removed, Namespace-admin group renamed, Helm Secret-generating jobs replaced by init containers, custom resources access restrictions
 - [Service Mesh](#service-mesh) - Istio upgrade, distroless images, and installation refactor
 - [CLI](#cli) - Upgrade required, externalization of AKS Terraform template into a module, Gardener provisioning support
@@ -40,6 +40,10 @@ We have unified the way Gardener handles certificates required for cluster provi
 Bear in mind that the domain for which you request the certificate is subject to character restrictions. This means that if the domain name in the cluster override exceeds 54 characters, installation will fail with an error.
 To avoid any potential issues with the upgrade, make sure your existing cluster domain name does not exceed 54 characters. If it does, you need to create a new cluster with a shorter domain name. 
 For details, read the [Migration Guide](https://github.com/kyma-project/kyma/blob/release-1.11/docs/migration-guides/1.10-1.11.md).
+
+## Eventing does not work properly after upgrade
+
+Even when you managed to successfully upgrade Kyma, you still may encounter issues with event processing. This is caused by the Subscriptions not being removed and recreated properly. To resolve this issue, follow the steps in the [Migration Guide](https://github.com/kyma-project/kyma/blob/release-1.11/docs/migration-guides/1.10-1.11.md).
 
 ## Security 
 
