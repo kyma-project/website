@@ -43,7 +43,7 @@ For details, read the [Migration Guide](https://github.com/kyma-project/kyma/blo
 
 ## Event processing fails after Kyma upgrade
 
-After Kyma upgrade, there can be issues with event processing that are caused by Subscriptions not being removed and recreated properly. To resolve this issue, follow the steps in the [Migration Guide](https://github.com/kyma-project/kyma/blob/release-1.11/docs/migration-guides/1.10-1.11.md).
+After the Kyma upgrade, there can be issues with event processing that are caused by Subscriptions not being removed and recreated properly. To resolve this issue, follow the steps in the [Migration Guide](https://github.com/kyma-project/kyma/blob/release-1.11/docs/migration-guides/1.10-1.11.md).
 
 ## Security 
 
