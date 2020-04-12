@@ -41,7 +41,7 @@ Bear in mind that the domain for which you request the certificate is subject to
 To avoid any potential issues with the upgrade, make sure your existing cluster domain name does not exceed 54 characters. If it does, you need to create a new cluster with a shorter domain name. 
 For details, read the [Migration Guide](https://github.com/kyma-project/kyma/blob/release-1.11/docs/migration-guides/1.10-1.11.md).
 
-## Event processing fails after Kyma upgrade
+### Event processing fails after Kyma upgrade
 
 After the Kyma upgrade, there can be issues with event processing that are caused by Subscriptions not being removed and recreated properly. To resolve this issue, follow the steps in the [Migration Guide](https://github.com/kyma-project/kyma/blob/release-1.11/docs/migration-guides/1.10-1.11.md).
 
