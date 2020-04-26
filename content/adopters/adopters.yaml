@@ -25,3 +25,6 @@ adopters:
     url: "https://arineo.com/de/customer-experience/177-iot-with-sap"
     logo: "./logos/arineo.svg"  
     content: "Kyma solves our clients’ need for a flexible and reusable SAP Commerce extension mechanism. It allows them to deliver extraordinary customer experience."
+  - websiteUrl: "https://neteleven.de/"
+    logo: "./logos/neteleven.svg"  
+    content: "Kyma is the way to enhance SAP Commerce platforms with cloud native functionality to get the best of both worlds."
