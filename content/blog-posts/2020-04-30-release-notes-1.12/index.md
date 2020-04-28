@@ -10,7 +10,7 @@ redirectFrom:
   - "/blog/release-notes-112"
 ---
 
-Even though the current situation calls for some stay-at-home time, it does not make us lose our sense of adventure. To reach 1.12, Kyma embarked on a long but satisfying journey from Rome all the way to Santiago de Chile, using the time well to provide you with some brand new features. Join us in this adventure, and while getting a glimpse of the majestic Andes surrounding the city, discover the features: expose your services through API Gateway v2, explore new functionality and UI enhancements Serverless offers, enjoy the set of new features brought in by Compass, and play with brand new Kiali and Tracing implementation. For more details, read the full story behind Kyma 1.12 Santiago.
+Even though the current situation calls for some stay-at-home time, we don't lose our sense of adventure. The Kyma ship leaves Rome and embarks on a long but satisfying journey all the way to Santiago de Chile, using the time well to provide you with some brand new features. Join us in this adventure, and once you get a glimpse of the majestic Andes surrounding the city learn what 1.12 offers you: exposing your services through API Gateway v2, refurbished Serverless with shiny new functionality and UI enhancements, a fresh set of features brought in by Compass, brand new Kiali and Tracing. For more details, read the full story behind Kyma 1.12 Santiago.
 
 <!-- overview -->
 
@@ -32,21 +32,21 @@ See the overview of all changes in this release:
 
 ### Migration from API Gateway v1 to API Gateway v2
 
-With this release, we completely removed API Gateway v1 and made API Gateway v2 the sole way to expose your services. To make the transition smooth and easy for you, we added the [API Gateway migrator](https://github.com/kyma-project/kyma/blob/master/components/api-gateway-migrator/README.md#api-gateway-migrator) job that automatically migrates old Api custom resources to APIRules. Although the migration is fully automatic, some Api CRs may be too complex for it to handle. To make sure all your services are exposed using APIRules, follow the [migration guide](https://github.com/kyma-project/kyma/blob/master/docs/migration-guides/1.11-1.12.md#service-mesh).
+With this release, we removed API Gateway v1 and made API Gateway v2 the only way to expose your services. To simplify the transition process, we introduced the [API Gateway migrator](https://github.com/kyma-project/kyma/blob/master/components/api-gateway-migrator/README.md#api-gateway-migrator) job that automatically migrates Api custom resources to new APIRules. Although the migration process is fully automatic, some Api CRs may be too complex for it to handle. To make sure all your services are exposed using APIRules, follow the [migration guide](https://github.com/kyma-project/kyma/blob/master/docs/migration-guides/1.11-1.12.md#service-mesh).
 
 ### Istio upgrade
 
-We have upgraded Istio from 1.4.6 to 1.4.7 release which provides fixes to security vulnerablities. To learn more, read [this](https://istio.io/news/releases/1.4.x/announcing-1.4.7/) document.
+We have upgraded Istio from release 1.4.6 to 1.4.7 to ensure fixed security vulnerablities. To learn more, read [this](https://istio.io/news/releases/1.4.x/announcing-1.4.7/) document.
 
 ### Removed Destination Rule for Istio ingress gateway 
 
-In this release we removed the DestinationRule for `istio-ingressgateway` service located in the `istio-system` Namespace. The DestinationRule allowed sidecars to use **PERMISSIVE** mode when making internal requests to `istio-ingressgateway` using FQDN. You can still use it for local (Minikube) installations. 
+In this release we removed the DestinationRule for the `istio-ingressgateway` service located in the `istio-system` Namespace. The DestinationRule allowed sidecars to use **PERMISSIVE** mode when making internal requests to `istio-ingressgateway` using FQDN. You can still use DestinanationRule in your local (Minikube) installations. 
 
 ## Installation
 
 ### Tiller upgrade to version 2.16.6
 
-With this release we upgraded Tiller to version 2.16.6 which contains a fix for issue with fetching `metrics.k8s.io` resources. In most cases, [this error](https://github.com/helm/helm/issues/6361 ) caused the installation or upgrade of a given component to fail. With new, more stable version, no such error was yet observed.
+We upgraded Tiller to version 2.16.6 that contains a fix for issue with fetching `metrics.k8s.io` resources. In most cases, [this error](https://github.com/helm/helm/issues/6361 ) caused the installation or upgrade of a given component to fail. With new, more stable version, no such error was yet observed.
 
 ## Eventing
 
@@ -56,13 +56,13 @@ With 1.12, we removed Event Bus component, allowing Knative Eventing Mesh to han
 
 ### Documentation updates
 
-You can now the Eventing Mesh [processes events](https://kyma-project.io/docs/master/components/knative-eventing-mesh/#details-event-processing-and-delivery). If you are interested in setting Kafka as your default Channel implementation, read this [tutorial](https://kyma-project.io/docs/master/components/knative-eventing-mesh/#tutorials-configure-the-kafka-channel).
+With Event Bus removed, we focused on improving Knative Eventing Mesh. This means providing you with additional documentation on [event processing and delivery](https://kyma-project.io/docs/master/components/knative-eventing-mesh/#details-event-processing-and-delivery). If you are interested in setting Kafka as your default Channel implementation, read this [tutorial](https://kyma-project.io/docs/master/components/knative-eventing-mesh/#tutorials-configure-the-kafka-channel).
 
 ## Compass
 
 ###  Provisioning of custom components 
 
-With the recent addition to the Kyma Installer, you can now define the source URL of a component that you want to install. The Runtime Provisioner now fully supports this feature allowing you to include external components that should be deployed to provisioned clusters. 
+With the recent addition to the Kyma Installer you can define the source URL of a component that you want to install. The Runtime Provisioner now fully supports this feature allowing you to include external components that should be deployed to provisioned clusters. 
 
 ### On-demand revision of Kyma installed on provisioned clusters 
 
@@ -74,7 +74,7 @@ We implemented the first version of [upgrade API](https://github.com/kyma-incuba
 
 >**NOTE:** If the migration guide includes any additional instructions, make sure to apply them manually. 
 
-### Automatic status update for Applications and Runtimes in Compass Director 
+### Automatic status update for Applications and runtimes in Compass Director 
 
 When a paired Application or Runtime communicates with the Director API for the first time, the Director automatically sets their status to **CONNECTED**. This operation does not prevent you and Integration System from managing Application and Runtime status if they wish to do so. 
 
@@ -86,7 +86,7 @@ The [Automatic Scenario Assignment (ASA)](https://github.com/kyma-incubator/comp
 
 ### Improved browsing of APIs within packages 
 
-With 1.11 release introduced API packages to allow the Applications the registration of APIs grouped in packages. This way, customers could instantiate entire packages and access multiple APIs at once. Now, with 1.12, browsing APIs within package in Service Catalog UI is even simpler. In case a package holds multiple APIs, you can find them quickly using a dedicated drop-down component with a search feature. 
+In 1.11 release we introduced API packages to allow the Applications to register of APIs grouped in packages. This way, customers could instantiate entire packages and access multiple APIs at once. Now, with 1.12, browsing APIs within package in Service Catalog UI is even simpler. In case a package holds multiple APIs, you can find them quickly using a dedicated drop-down component with a search feature. 
 
 ![get-images](./api-packages-get-image.png)
 
@@ -98,7 +98,7 @@ For 1.12, we took the chance and upgraded the Kiali component to leverage the ne
 
 ### Jaeger renamed to Tracing 
 
-The Jaeger component also received new name and a full makeover. The new,  **Tracing** component features the most recent Jaeger-Operator and brings in features and fixes. As the BadgerDB persistence was causing more problems then satisfaction due to issues with data retention and memory consumption higher than expected, we switched back to the in-memory-based deployment model. Additionally, we ensured that you can use the Installer to configure deployment strategies available in Jaeger-Operator. This all allows you to switch back to a BadgerDB based deployment or even switch to a production scenario based on Elastic Search. 
+The Jaeger component also received new name and a full makeover. The new,  **Tracing** component features the most recent Jaeger-Operator and brings in features and fixes. As the BadgerDB persistence was causing more problems then satisfaction due to issues with data retention and memory consumption higher than expected, we switched back to the in-memory-based deployment model. Additionally, we ensured that you can use the Installer overrides to configure deployment strategies available in Jaeger-Operator. This all allows you to switch back to a BadgerDB based deployment or even switch to a production scenario based on Elastic Search. 
 
 
 ## Monitoring
