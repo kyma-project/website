@@ -77,7 +77,6 @@ We implemented the first version of [upgrade API](https://github.com/kyma-incuba
 ### Automatic status update for Applications and Runtimes in Compass Director 
 
 When a paired Application or Runtime communicates with the Director API for the first time, the Director automatically sets their status to **CONNECTED**. This operation does not prevent you or the Integration System from managing Application and Runtime status on your own.
-### Automatic Scenario Assignment in Compass Director 
 
 ### Automatic Scenario Assignment in Compass Director 
 
@@ -89,7 +88,7 @@ The [Automatic Scenario Assignment (ASA)](https://github.com/kyma-incubator/comp
 
 In 1.11 release we introduced API packages to allow the Applications to register of APIs grouped in packages. This way, you could instantiate entire packages and access multiple APIs at once. Now, with 1.12, browsing APIs within package in Service Catalog UI is even simpler. In case a package holds multiple APIs, you can find them quickly using a dedicated drop-down component with a search feature. 
 
-![get-images](./api-packages-get-image.png)
+![api-packages](./api-packages.png)
 
 ## Observability
 
