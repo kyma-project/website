@@ -110,7 +110,7 @@ As mentioned in the last release notes, we switched to a new version of Serverle
 
 ### Backend
 
-Serverless is now based on a new [Function custom resource (CR)](https://kyma-project.io/docs/1.12/components/serverless/#custom-resource-function) that provides you with full control over resource management (including scale-to-zero), replacing at the same time the previous Function sizes management. We also switched to the Node.js 12 Runtime and improved the [resource processing flow](https://kyma-project.io/docs/1.12/components/serverless/#details-function-processing) in which the Function's image is built in a separate phase, helping the Functions to run more smoothly. 
+Serverless is now based on a new [Function custom resource (CR)](https://kyma-project.io/docs/1.12/components/serverless/#custom-resource-function) that provides you with full control over resource management, replacing at the same time the previous Function sizes management. We also switched to the Node.js 12 Runtime and improved the [resource processing flow](https://kyma-project.io/docs/1.12/components/serverless/#details-function-processing) in which the Function's image is built in a separate phase, helping the Functions to run more smoothly. 
 
 ### Frontend
 
@@ -124,7 +124,7 @@ Changes in the Console UI include:
 
 ![Diff preview](./diff.png) 
 
-- New **Resources and replicas** section in which you can manage requests and limits for the Function's resources and scale the Function to zero. 
+- New **Resources and replicas** section in which you can manage requests and limits for the Function's resources. 
 
 ![Resources and replicas](./resources-and-replicas.png) 
 
