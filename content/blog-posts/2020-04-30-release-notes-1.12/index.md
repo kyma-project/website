@@ -31,7 +31,7 @@ See the overview of all changes in this release:
 
 ### Migration from API Gateway v1 to API Gateway v2
 
-With this release we removed API Gateway v1 and made API Gateway v2 the only way to expose your services. To simplify the transition process, we introduced the [API Gateway migrator](https://github.com/kyma-project/kyma/blob/master/components/api-gateway-migrator/README.md#api-gateway-migrator) job that automatically migrates Api CRs to APIRule CRs. Although we automated the migration process, some Api CRs may still be too complex for it to handle. To make sure all your services are exposed using API Rules, follow the instructions in the [migration guide](https://github.com/kyma-project/kyma/blob/1.12/docs/migration-guides/1.11-1.12.md#service-mesh).
+With this release we removed API Gateway v1 and made API Gateway v2 the only way to expose your services. To simplify the transition process, we introduced the [API Gateway migrator](https://github.com/kyma-project/kyma/blob/master/components/api-gateway-migrator/README.md#api-gateway-migrator) job that automatically migrates Api CRs to APIRule CRs. Although we automated the migration process, some Api CRs may be too complex to handle them automatically. To make sure all your services are exposed using API Rules, follow the instructions in the [migration guide](https://github.com/kyma-project/kyma/blob/1.12/docs/migration-guides/1.11-1.12.md#service-mesh).
 
 ### Istio upgrade
 
@@ -39,7 +39,7 @@ We upgraded Istio from version 1.4.6 to 1.4.7 to introduce fixes for security vu
 
 ### Removed DestinationRule for Istio Ingress Gateway 
 
-In this release we removed the DestinationRule CR for the `istio-ingressgateway` service located in the `istio-system` Namespace. Destination Rule allowed sidecars to use **PERMISSIVE** mode when making internal requests to `istio-ingressgateway` using a fully qualified domain name (FQDN). You can still use Destination Rules in your local (Minikube) installations. 
+In this release, we removed the DestinationRule CR for the `istio-ingressgateway` service located in the `istio-system` Namespace. Destination Rule allowed sidecars to use **PERMISSIVE** mode when making internal requests to `istio-ingressgateway` using a fully qualified domain name (FQDN). You can still use Destination Rules in your local (Minikube) installations. 
 
 ## Installation
 
@@ -83,7 +83,7 @@ The [Automatic Scenario Assignment (ASA)](https://github.com/kyma-incubator/comp
 
 ### Improved browsing of APIs within packages 
 
-In the 1.11 release we introduced API packages to allow the Applications to register APIs grouped in packages. This way, you could instantiate entire packages and access multiple APIs at once. We now simplified browsing APIs within a package even further in the Service Catalog UI. If a package holds multiple APIs, you can find them quickly using a dedicated drop-down component with a search feature. 
+In the 1.11 release, we introduced API packages to allow the Applications to register APIs grouped in packages. This way, you could instantiate entire packages and access multiple APIs at once. We now simplified browsing APIs within a package even further in the Service Catalog UI. If a package holds multiple APIs, you can find them quickly using a dedicated drop-down component with a search feature. 
 
 ![api-packages](./api-packages.png)
 
