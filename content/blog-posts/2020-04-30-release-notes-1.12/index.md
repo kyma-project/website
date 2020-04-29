@@ -20,18 +20,17 @@ See the overview of all changes in this release:
 - [Service Mesh](#service-mesh) - Migration from API Gateway v1 to API Gateway v2, Istio upgrade, removed DestinationRule for Istio Ingress Gateway 
 - [Installation](#installation) - Tiller upgrade to version 2.16.6
 - [Eventing](#eventing) - Event Bus removed, documentation updates
-- [Compass](#compass) - Provisioning of custom components, on-demand revision of the Kyma version on provisioned clusters, upgrades in Compass Provisioner, automatic status update for Applications and Runtimes in Compass Director, Automatic Scenario Assignment in Compass Director 
-- [Console](#console) -  Improved browsing of APIs within packages 
+- [Compass](#compass) - Provisioning of custom components, on-demand revision of the Kyma version on provisioned clusters, upgrades in the Runtime Provisioner, automatic status update for Applications and Runtimes in the Director, Automatic Scenario Assignment in the Director 
+- [Console](#console) - Improved browsing of APIs within packages 
 - [Observability](#observability) - Brand new Kiali, Jaeger is now Tracing
 - [Monitoring](#monitoring) - Monitoring upgrade
 - [Serverless](#serverless) - Backend and frontend improvements, documentation updates
-
 
 ## Service Mesh 
 
 ### Migration from API Gateway v1 to API Gateway v2
 
-With this release we removed API Gateway v1 and made API Gateway v2 the only way to expose your services. To simplify the transition process, we introduced the [API Gateway migrator](https://github.com/kyma-project/kyma/blob/master/components/api-gateway-migrator/README.md#api-gateway-migrator) job that automatically migrates Api CRs to APIRule CRs. Although we automated the migration process, some Api CRs may be too complex to handle them automatically. To make sure all your services are exposed using API Rules, follow the instructions in the [migration guide](https://github.com/kyma-project/kyma/blob/1.12/docs/migration-guides/1.11-1.12.md#service-mesh).
+With this release, we removed API Gateway v1 and made API Gateway v2 the only way to expose your services. To simplify the transition process, we introduced the [API Gateway migrator](https://github.com/kyma-project/kyma/blob/master/components/api-gateway-migrator/README.md#api-gateway-migrator) job that automatically migrates Api CRs to APIRule CRs. Although we automated the migration process, some Api CRs may be too complex to handle them automatically. To make sure all your services are exposed using API Rules, follow the instructions in the [migration guide](https://github.com/kyma-project/kyma/blob/release-1.12/docs/migration-guides/1.11-1.12.md#service-mesh).
 
 ### Istio upgrade
 
@@ -45,13 +44,13 @@ In this release, we removed the DestinationRule CR for the `istio-ingressgateway
 
 ### Tiller upgrade to version 2.16.6
 
-We upgraded Tiller to version 2.16.6 that contains a fix for the issue with fetching `metrics.k8s.io` resources. In most cases, [this error](https://github.com/helm/helm/issues/6361 ) caused the installation or upgrade of a given component to fail. With the new, more stable version, no such error has been observed so far.
+We upgraded Tiller to version 2.16.6 that contains a fix for the issue with fetching `metrics.k8s.io` resources. In most cases, [this error](https://github.com/helm/helm/issues/6361) caused the installation or upgrade of a given component to fail. With the new, more stable version, no such error has been observed so far.
 
 ## Eventing
 
 ### Event Bus removed
 
-With 1.12, we removed Event Bus component, allowing Knative Eventing Mesh to handle event processing and delivery.
+With 1.12, we removed the Event Bus component, allowing Knative Eventing Mesh to handle event processing and delivery.
 
 ### Documentation updates
 
@@ -65,17 +64,17 @@ With the recent addition to the Kyma Installer, you can define the source URL of
 
 ### On-demand revision of the Kyma version on provisioned clusters 
 
-From now on, you can specify a version of the Kyma Installer to be deployed on a provisioned cluster. This can help you to debug, track, or fix issues both during development and in an production-ready environment.
+From now on, you can specify a version of the Kyma Installer to be deployed on a provisioned cluster. This can help you to debug, track, or fix issues both during development and in the production-ready environment.
 
-### Upgrades in Compass Provisioner 
+### Upgrades in the Runtime Provisioner 
 
-In this release, we introduced the first version of [GraphQL API](https://github.com/kyma-incubator/compass/blob/master/docs/internal/runtime-upgrade.md) the Runtime Provisioner uses to upgrade a Kyma Runtime. Though simple, the API allows you to upgrade an existing Runtime to the new Kyma version and replace the existing configuration with the one passed with the upgrade mutation. We also included a rollback option, but it may still require additional actions on the cluster. 
+In this release, we introduced the first version of [GraphQL API](https://github.com/kyma-incubator/compass/blob/master/docs/internal/runtime-upgrade.md) the Runtime Provisioner uses to upgrade a Kyma Runtime. Though simple, the API allows you to upgrade the existing Runtime to the new Kyma version and replace the existing configuration with the one passed with the upgrade mutation. We also included a rollback option, but it may still require additional actions on the cluster. 
 
-### Automatic status update for Applications and Runtimes in Compass Director 
+### Automatic status update for Applications and Runtimes in the Director 
 
-When a paired Application or Runtime communicates with the Director API for the first time, the Director automatically sets its status to **CONNECTED**. This operation does not prevent you or the integration system from managing Application and Runtime statuses on your own.
+When a paired Application or Runtime communicates with the Director API for the first time, the Director automatically sets its status to **CONNECTED**. This operation does not prevent you or the Integration System from managing Application and Runtime statuses on your own.
 
-### Automatic Scenario Assignment in Compass Director 
+### Automatic Scenario Assignment in the Director 
 
 The [Automatic Scenario Assignment (ASA)](https://github.com/kyma-incubator/compass/blob/master/docs/compass/03-03-automatic-scenario-assignment.md) feature allows you to define a condition that specifies when a Scenario is automatically assigned to a Runtime. For example, you can specify a label that adds a given Scenario to each Runtime created by a given user, company, or any other entity. 
 
@@ -83,7 +82,7 @@ The [Automatic Scenario Assignment (ASA)](https://github.com/kyma-incubator/comp
 
 ### Improved browsing of APIs within packages 
 
-In the 1.11 release, we introduced API packages to allow the Applications to register APIs grouped in packages. This way, you could instantiate entire packages and access multiple APIs at once. We now simplified browsing APIs within a package even further in the Service Catalog UI. If a package holds multiple APIs, you can find them quickly using a dedicated drop-down component with a search feature. 
+In the 1.11 release, we introduced API packages to allow the Applications to register APIs grouped in packages. This way, you could instantiate entire packages and access multiple APIs at once. We now simplified browsing APIs within a package even further in the Service Catalog UI. If a package holds multiple APIs, you can find them quickly using a dedicated drop-down list with a search feature. 
 
 ![api-packages](./api-packages.png)
 
@@ -95,7 +94,7 @@ For 1.12, we took the chance and upgraded the Kiali component to leverage the ne
 
 ### Jaeger renamed to Tracing 
 
-The Jaeger component also received a full makeover and a new name. The new, **Tracing** component is based on the most recent Jaeger Operator and brings in new features and fixes. As the BadgerDB persistence was causing more problems then satisfaction due to issues with data retention and memory consumption higher than expected, we switched back to the in-memory-based deployment model. Additionally, we ensured that you can use the Installer overrides to configure deployment strategies available in Jaeger Operator. All this allows you to switch back to a BadgerDB-based deployment or even introduce a production scenario based on Elastic Search. 
+The Jaeger component also received a full makeover and a new name. The new **Tracing** component is based on the most recent Jaeger Operator and brings in new features and fixes. As the BadgerDB persistence was causing more problems then satisfaction due to issues with data retention and memory consumption higher than expected, we switched back to the in-memory-based deployment model. Additionally, we ensured that you can use the Installer overrides to configure deployment strategies available in Jaeger Operator. All this allows you to switch back to a BadgerDB-based deployment or even introduce a production scenario based on Elastic Search. 
 
 
 ## Monitoring
