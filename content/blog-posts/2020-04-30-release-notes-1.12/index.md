@@ -17,7 +17,7 @@ Even though the current situation calls for some stay-at-home time, we don't los
 
 See the overview of all changes in this release:
 
-- [Service Mesh](#service-mesh) - Migration from API Gateway v1 to API Gateway v2, Istio upgrade, removed DestinationRule for Istio Ingress Gateway 
+- [Service Mesh](#service-mesh) - Migration from API Gateway v1 to API Gateway v2, Istio upgrade, removed DestinationRule CR for Istio Ingress Gateway 
 - [Installation](#installation) - Tiller upgrade to version 2.16.6
 - [Eventing](#eventing) - Event Bus removed, documentation updates
 - [Compass](#compass) - Provisioning of custom components, on-demand revision of the Kyma version on provisioned clusters, upgrades in the Runtime Provisioner, automatic status update for Applications and Runtimes in the Director, Automatic Scenario Assignment in the Director 
@@ -38,7 +38,7 @@ We upgraded Istio from version 1.4.6 to 1.4.7 to introduce fixes for security vu
 
 ### Removed DestinationRule for Istio Ingress Gateway 
 
-In this release, we removed the DestinationRule CR for the `istio-ingressgateway` service located in the `istio-system` Namespace. Destination Rule allowed sidecars to use **PERMISSIVE** mode when making internal requests to `istio-ingressgateway` using a fully qualified domain name (FQDN). You can still use Destination Rules in your local (Minikube) installations. 
+In this release, we removed the DestinationRule CR for the `istio-ingressgateway` service located in the `istio-system` Namespace. Destination Rules allowed sidecars to use **PERMISSIVE** mode when making internal requests to `istio-ingressgateway` using a fully qualified domain name (FQDN). You can still use Destination Rules in your local (Minikube) installations. 
 
 ## Installation
 
