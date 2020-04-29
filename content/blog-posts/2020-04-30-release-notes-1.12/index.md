@@ -40,7 +40,7 @@ We upgraded Istio from version 1.4.6 to 1.4.7 to introduce fixes for security vu
 
 ### Removed DestinationRule for Istio Ingress Gateway 
 
-In this release we removed the DestinationRule custom resource for the `istio-ingressgateway` service located in the `istio-system` Namespace. The DestinationRule allowed sidecars to use **PERMISSIVE** mode when making internal requests to `istio-ingressgateway` using a fully qualified domain name (FQDN). You can still use DestinationRule in your local (Minikube) installations. 
+In this release we removed the DestinationRule custom resource for the `istio-ingressgateway` service located in the `istio-system` Namespace. Destination Rule allowed sidecars to use **PERMISSIVE** mode when making internal requests to `istio-ingressgateway` using a fully qualified domain name (FQDN). You can still use Destination Rules in your local (Minikube) installations. 
 
 ## Installation
 
