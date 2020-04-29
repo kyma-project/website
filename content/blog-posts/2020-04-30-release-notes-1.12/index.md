@@ -10,7 +10,7 @@ redirectFrom:
   - "/blog/release-notes-112"
 ---
 
-Even though the current situation calls for some stay-at-home time, we don't lose our sense of adventure. The Kyma ship leaves Rome and embarks on a long but satisfying journey all the way to Santiago de Chile, using the time well to provide you with some brand new features. Join us in this adventure, and once you get a glimpse of the majestic Andes surrounding the city, explore what Kyma 1.12 has to offer: exposing services through API Gateway v2, refurbished Serverless enriched with UI improvements, a fresh set of features brought in by Compass, all that topped off with brand new Kiali and Tracing. For more details, read the full story behind Kyma 1.12 Santiago.
+Even though the current situation calls for some stay-at-home time, we don't lose our sense of adventure. The Kyma ship leaves Rome and embarks on a long, exciting journey all the way to Santiago de Chile, using the time well to deliver a set of new features. Join us in celebration, and once you get a glimpse of the majestic Andes surrounding the city, explore what Kyma 1.12 has to offer: exposing services through API Gateway v2, refurbished Serverless enriched with UI improvements, a fresh set of features brought in by Compass, all that topped off with brand new Kiali and Tracing. For more details, read the full story behind Kyma 1.12 Santiago.
 
 <!-- overview -->
 
