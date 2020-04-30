@@ -36,7 +36,7 @@ Starting from this release, we support additional headers and query parameters i
 
 ### Azure support
 
-Finally, you can provision a Kubernetes cluster on Azure basing on AKS. It follows the same command pattern as Google Cloud Platform basing on GKE. Give it a try and run `kyma provision azure`. See [this](https://github.com/kyma-project/cli/blob/master/docs/gen-docs/kyma_provision_azure.md) document for more details.
+Finally, you can provision a Kubernetes cluster on Azure basing on AKS. It follows the same command pattern as Google Cloud Platform basing on GKE. Give it a try and run `kyma provision azure`. See [this](https://github.com/kyma-project/cli/blob/master/docs/gen-docs/kyma_provision_gardener_az.md) document for more details.
 
 ## Compass
 
