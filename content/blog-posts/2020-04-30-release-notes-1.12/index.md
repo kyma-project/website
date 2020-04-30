@@ -1,7 +1,7 @@
 ---
 title: "Kyma 1.12 Santiago"
 author:
-  name: "Barbara Czyz, Technical Writer @Kyma"
+  name: "Barbara Czyż, Technical Writer @Kyma"
 tags:
   - release-notes
 type: release
@@ -17,8 +17,8 @@ Even though the current situation calls for some stay-at-home time, we don't los
 
 See the overview of all changes in this release:
 
-- [Service Mesh](#service-mesh) - Migration from API Gateway v1 to API Gateway v2, Istio upgrade, removed DestinationRule CR for Istio Ingress Gateway 
-- [Installation](#installation) - Tiller upgrade to version 2.16.6
+- [Service Mesh](#service-mesh) - Migration from API Gateway v1 to API Gateway v2, Istio upgrade, DestinationRule CR for Istio Ingress Gateway removed
+- [Installation](#installation) - Tiller upgraded to version 2.16.6
 - [Eventing](#eventing) - Event Bus removed, documentation updates
 - [Compass](#compass) - Provisioning of custom components, on-demand revision of the Kyma version on provisioned clusters, upgrades in the Runtime Provisioner, automatic status update for Applications and Runtimes in the Director, Automatic Scenario Assignment in the Director 
 - [Console](#console) - Improved browsing of APIs within packages 
@@ -36,15 +36,15 @@ With this release, we removed API Gateway v1 and made API Gateway v2 the only wa
 
 We upgraded Istio from version 1.4.6 to 1.4.7 to introduce fixes for security vulnerablities. To learn more, read [this](https://istio.io/news/releases/1.4.x/announcing-1.4.7/) document.
 
-### Removed DestinationRule for Istio Ingress Gateway 
+### DestinationRule for Istio Ingress Gateway removed
 
-In this release, we removed the DestinationRule CR for the `istio-ingressgateway` service located in the `istio-system` Namespace. Destination Rules allowed sidecars to use **PERMISSIVE** mode when making internal requests to `istio-ingressgateway` using a fully qualified domain name (FQDN). You can still use Destination Rules in your local (Minikube) installations. 
+In this release, we removed the DestinationRule CR for the `istio-ingressgateway` service located in the `istio-system` Namespace. Destination Rules allowed sidecars to use the **PERMISSIVE** mode when making internal requests to `istio-ingressgateway` using a fully qualified domain name (FQDN). You can still use Destination Rules in your local (Minikube) installations. 
 
 ## Installation
 
-### Tiller upgrade to version 2.16.6
+### Tiller upgraded to version 2.16.6
 
-We upgraded Tiller to version 2.16.6 that contains a fix for the issue with fetching `metrics.k8s.io` resources. In most cases, [this error](https://github.com/helm/helm/issues/6361) caused the installation or upgrade of a given component to fail. With the new, more stable version, no such error has been observed so far.
+We upgraded Tiller to version 2.16.6 that contains a fix for the issue with fetching the `metrics.k8s.io` resources. In most cases, [this error](https://github.com/helm/helm/issues/6361) caused the installation or upgrade of a given component to fail. With the new, more stable version, no such error has been observed.
 
 ## Eventing
 
@@ -72,7 +72,7 @@ In this release, we introduced the first version of [GraphQL API](https://github
 
 ### Automatic status update for Applications and Runtimes in the Director 
 
-When a paired Application or Runtime communicates with the Director API for the first time, the Director automatically sets its status to **CONNECTED**. This operation does not prevent you or the Integration System from managing Application and Runtime statuses on your own.
+When a paired Application or Runtime communicates with the Director API for the first time, the Director automatically sets its status to **CONNECTED**. This operation does not prevent you or the Integration System from managing Application and Runtime status on your own.
 
 ### Automatic Scenario Assignment in the Director 
 
@@ -90,11 +90,11 @@ In the 1.11 release, we introduced API packages to allow the Applications to reg
 
 ### Brand new Kiali 
 
-For 1.12, we took the chance and upgraded the Kiali component to leverage the newest Kiali Operator, making it possible for you to configure all options in a convenient way using the Installer overrides. Although we had to rewrite the component implementation, these changes do not affect you in any way as the user.
+For 1.12, we took the chance and upgraded the Kiali component to leverage the newest Kiali Operator, making it possible for you to configure all options in a convenient way using the Installer overrides. Although we had to rewrite the component implementation, these changes do not affect you as the user in any way .
 
 ### Jaeger renamed to Tracing 
 
-The Jaeger component also received a full makeover and a new name. The new **Tracing** component is based on the most recent Jaeger Operator and brings in new features and fixes. As the BadgerDB persistence was causing more problems then satisfaction due to issues with data retention and memory consumption higher than expected, we switched back to the in-memory-based deployment model. Additionally, we ensured that you can use the Installer overrides to configure deployment strategies available in Jaeger Operator. All this allows you to switch back to a BadgerDB-based deployment or even introduce a production scenario based on Elastic Search. 
+The Jaeger component also received a full makeover and a new name. The new **Tracing** component is based on the most recent Jaeger Operator and brings in new features and fixes. As the BadgerDB persistence caused more problems then satisfaction due to issues with data retention and memory consumption higher than expected, we switched back to the in-memory-based deployment model. Additionally, we ensured that you can use the Installer overrides to configure deployment strategies available in the Jaeger Operator. All this allows you to switch back to a BadgerDB-based deployment or even introduce a production scenario based on Elastic Search. 
 
 
 ## Monitoring
@@ -105,7 +105,7 @@ We updated the monitoring stack to the latest versions of Prometheus and Grafana
 
 ## Serverless
 
-As mentioned in the last release notes, we switched to a new version of Serverless that relies on [Knative Serving](https://knative.dev/docs/serving/) for deploying and managing Functions, and [Kubernetes Jobs](https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/) for creating Docker images. For this reason, backend, frontend, and documentation of Serverless have received full makeovers. 
+As mentioned in the previous release notes, we switched to a new version of Serverless that relies on [Knative Serving](https://knative.dev/docs/serving/) for deploying and managing Functions and [Kubernetes Jobs](https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/) for creating Docker images. For this reason, backend, frontend, and documentation of Serverless have received full makeovers. 
 
 ### Backend
 
