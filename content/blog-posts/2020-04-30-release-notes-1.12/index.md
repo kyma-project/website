@@ -105,11 +105,11 @@ We updated the monitoring stack to the latest versions of Prometheus and Grafana
 
 ## Serverless
 
-As mentioned in the last release notes, we switched to a new version of Serverless that relies on [Knative Serving](https://knative.dev/docs/serving/) for deploying and managing Functions and [Kubernetes Jobs](https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/) for creating Docker images. For this reason, backend, frontend, and documentation of Serverless have received full makeovers. 
+As mentioned in the last release notes, we switched to a new version of Serverless that relies on [Knative Serving](https://knative.dev/docs/serving/) for deploying and managing Functions, and [Kubernetes Jobs](https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/) for creating Docker images. For this reason, backend, frontend, and documentation of Serverless have received full makeovers. 
 
 ### Backend
 
-Serverless is now based on a new [Function custom resource (CR)](https://kyma-project.io/docs/1.12/components/serverless/#custom-resource-function) that provides you with full control over resource management, replacing at the same time the previous Function sizes management. We also switched to the Node.js 12 Runtime and improved the [resource processing flow](https://kyma-project.io/docs/1.12/components/serverless/#details-function-processing) in which the Function's image is built in a separate phase, helping the Functions to run more smoothly. 
+Serverless is now based on a new [Function (CR)](https://kyma-project.io/docs/1.12/components/serverless/#custom-resource-function) that provides you with full control over resource management, replacing at the same time the previous Function sizes management. We also switched to the Node.js 12 Runtime and improved the [resource processing flow](https://kyma-project.io/docs/1.12/components/serverless/#details-function-processing) in which the Function's image is built in a separate phase, helping the Functions to run more smoothly. 
 
 ### Frontend
 
