@@ -28,3 +28,7 @@ adopters:
   - websiteUrl: "https://neteleven.de/"
     logo: "./logos/neteleven.svg"  
     content: "Kyma is the way to enhance SAP Commerce platforms with cloud native functionality to get the best of both worlds."
+  - websiteUrl: "https://www.dotsource.de/"
+    url: "https://www.dotsource.de/sap-c4hana/"
+    logo: "./logos/dotsource.svg"  
+    content: "Kyma allows us to extend our SAP CX solutions with scalable and decoupled microservices which keeps them neat and updatable." 
