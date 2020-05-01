@@ -28,7 +28,7 @@ export default createGlobalStyle`
     overflow-x: hidden;
   }
 
-  body{
+  body {
     position: relative;
   }
 
@@ -40,7 +40,7 @@ export default createGlobalStyle`
     display: none;
   }
 
-  .overlay{
+  .overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -48,5 +48,14 @@ export default createGlobalStyle`
     height: 100%;
     z-index: 10;
     background-color: rgba(0,0,0,0.5); /*dim the background*/
+  }
+
+  .lazyload {
+    opacity: 0;
+  }
+
+  .lazyloading {
+    opacity: 1;
+    transition: opacity 300ms;
   }
 `;

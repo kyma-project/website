@@ -74,6 +74,7 @@
     "gatsby-remark-embed-video": "^1.7.0",
     "gatsby-source-filesystem": "^2.1.5",
     "gatsby-transformer-remark": "^2.2.5",
+    "lazysizes": "^5.2.0",
     "lodash.throttle": "^4.1.1",
     "netlify-lambda": "^1.4.5",
     "node-fetch": "^2.5.0",
