@@ -1,52 +1,35 @@
 import React from "react";
 
-import { FormattedMessage } from "@common/i18n";
-
-import Link from "@components/shared/Link";
-import Button from "@components/shared/Button";
-
 import PostHeader from "@views/blog/components/PostHeader";
-import { PostContent } from "@views/blog/components/content/PostContent";
-import { PostFooter } from "@views/blog/components/PostFooter";
+import PostContent from "@views/blog/components/content/PostContent";
+import PostFooter from "@views/blog/components/PostFooter";
 
-import { PostPageContext, Post } from "@typings/blog";
+import { PageContext } from "@typings/common";
+import { PostPageContext } from "@typings/blog";
 
 import { PostWrapper, PostContentWrapper } from "./styled";
 
-interface PostPageProps extends Post, Omit<PostPageContext, "post"> {
-  markdown: string;
-  readMore?: boolean;
-}
+const Post: React.FunctionComponent<PageContext<PostPageContext> & {
+  content: React.ReactNode;
+}> = ({ pageContext, content }) => {
+  const frontmatter = pageContext.frontmatter;
+  const fields = pageContext.fields;
 
-export const PostPage: React.FunctionComponent<PostPageProps> = ({
-  frontmatter: { title, author, tags = [] },
-  frontmatter,
-  fields: { slug, postInfo },
-  markdown,
-  assetsPath = "",
-  previous,
-  next,
-  readMore = false,
-}) => (
-  <PostWrapper>
-    <PostHeader title={title} author={author} path={slug} postInfo={postInfo} />
-    <PostContentWrapper>
-      <PostContent
-        markdown={markdown}
-        metadata={frontmatter}
-        assetsPath={assetsPath}
+  return (
+    <PostWrapper>
+      <PostHeader
+        title={frontmatter.title}
+        author={frontmatter.author}
+        path={fields.slug}
+        postInfo={fields.postInfo}
+        readingTime={pageContext.readingTime}
       />
-    </PostContentWrapper>
-    {readMore && (
-      <Link.Internal to={slug}>
-        <Button.Emphasized size="sm">
-          <FormattedMessage id="blog.readMoreButton" />
-        </Button.Emphasized>
-      </Link.Internal>
-    )}
-    <PostFooter tags={tags} />
-    {/* {!readMore && (
-        <PrevNextSection next={next} previous={previous} />
-      )} */}
-  </PostWrapper>
-);
+      <PostContentWrapper>
+        <PostContent content={content} metadata={frontmatter} />
+      </PostContentWrapper>
+      <PostFooter tags={frontmatter.tags || []} />
+    </PostWrapper>
+  );
+};
+
+export default Post;

@@ -1,4 +1,5 @@
 import React from "react";
+import readingTimeLib from "reading-time";
 
 import Link from "@components/shared/Link";
 import H from "@components/shared/H";
@@ -19,6 +20,7 @@ interface PostHeaderProps extends IntlInterface {
   author: PostMetaDataAuthor;
   postInfo: PostFieldsInfo;
   path: string;
+  readingTime: ReturnType<typeof readingTimeLib>;
 }
 
 const gt = getTranslation("blog");
@@ -29,6 +31,7 @@ const PostHeader: React.FunctionComponent<PostHeaderProps> = ({
   postInfo: { year, month, day },
   path,
   formatMessage,
+  readingTime,
 }) => {
   const date = `${formatMessage({
     id: `months.${month}.name`,
@@ -40,6 +43,7 @@ const PostHeader: React.FunctionComponent<PostHeaderProps> = ({
       values={{
         author: name,
         date,
+        minutes: Math.ceil(readingTime.minutes),
       }}
     />
   );

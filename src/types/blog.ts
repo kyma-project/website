@@ -1,3 +1,5 @@
+import readingTime from "reading-time";
+
 export interface BlogPageContext {
   posts: Post[];
 }
@@ -5,13 +7,13 @@ export interface BlogPageContext {
 export interface Post {
   id: string;
   excerpt?: string;
-  rawMarkdownBody: string;
+  content: string;
   fields: PostFields;
   frontmatter: PostMetaData;
+  readingTime: ReturnType<typeof readingTime>;
 }
 
-export interface PostPageContext {
-  post: Post;
+export interface PostPageContext extends Post {
   previous?: Post;
   next?: Post;
   assetsPath?: string;

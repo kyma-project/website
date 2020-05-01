@@ -6,7 +6,7 @@ import { DefaultLayout } from "../default";
 
 async function loadSwagger(): Promise<void> {
   // @ts-ignore
-  return import("swagger-ui-dist").then(() => null);
+  return import("swagger-ui-dist").then(() => void 0);
 }
 
 export const DocumentationLayout: React.FunctionComponent<any> = ({

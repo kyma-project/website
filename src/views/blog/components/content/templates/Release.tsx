@@ -11,14 +11,13 @@ import config from "@config";
 import { ReleaseButtonsWrapper } from "../styled";
 
 interface ReleaseTemplatePostProps {
-  markdown: string;
-  assetsPath: string;
+  content: React.ReactNode;
   releaseTag?: string;
 }
 
 const ReleaseTemplatePost: React.FunctionComponent<
   ReleaseTemplatePostProps
-> = ({ markdown, assetsPath, releaseTag }) => (
+> = ({ content, releaseTag }) => (
   <>
     {releaseTag && (
       <ReleaseButtonsWrapper>
@@ -36,11 +35,7 @@ const ReleaseTemplatePost: React.FunctionComponent<
         </Link.External>
       </ReleaseButtonsWrapper>
     )}
-    <ReactMarkdown
-      source={markdown}
-      escapeHtml={false}
-      assetsPath={assetsPath}
-    />
+    {content}
   </>
 );
 

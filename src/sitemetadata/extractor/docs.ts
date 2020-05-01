@@ -5,7 +5,7 @@ function getPageTitle(pageContext: DocsPageContext): string {
 }
 
 export function extractDocsMetadata(
-  pageContext: any,
+  pageContext: DocsPageContext,
 ): {
   pageTitle: string;
 } {

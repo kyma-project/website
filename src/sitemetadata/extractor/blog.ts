@@ -1,34 +1,36 @@
-import { Post } from "@typings/blog";
+import { Post, PostPageContext } from "@typings/blog";
 import { BlogPostMetadata } from "../SiteMetadata";
 
 const BLOG_ROOT_PATH = "/blog";
 
-function getPageTitle(uri: string, post: Post): string {
+function getPageTitle(uri: string, context: PostPageContext): string {
   if (uri === BLOG_ROOT_PATH) {
     return "Blog";
   }
-  return post.frontmatter.title;
+  return context.frontmatter.title;
 }
 
-function getPageDescription(uri: string, post: Post): string {
+function getPageDescription(uri: string, context: PostPageContext): string {
   if (uri === BLOG_ROOT_PATH) {
     return "";
   }
 
-  return `${post.rawMarkdownBody
+  return `${context.content
     .replace(/<(?:.|\n)*?>/gm, "")
     .substring(0, 297)}...`;
 }
 
 function getBlogPostMetadata(
   uri: string,
-  post: Post,
+  context: PostPageContext,
 ): BlogPostMetadata | undefined {
   if (uri === BLOG_ROOT_PATH) {
     return;
   }
 
-  const { frontmatter, fields } = post;
+  const fields = context.fields;
+  const frontmatter = context.frontmatter;
+
   return {
     author: frontmatter.author.name,
     datePublish: fields.date,
@@ -37,18 +39,17 @@ function getBlogPostMetadata(
   };
 }
 
-function getBlogPostTags(uri: string, post: Post): string[] {
+function getBlogPostTags(uri: string, context: PostPageContext): string[] {
   if (uri === BLOG_ROOT_PATH) {
     return [];
   }
 
-  const tags = post && post.frontmatter && post.frontmatter.tags;
-  return tags || [];
+  return context.frontmatter?.tags || [];
 }
 
 export function extractBlogMetadata(
   uri: string,
-  pageContext: any,
+  pageContext: PostPageContext,
 ): {
   pageTitle: string;
   description: string;
@@ -56,9 +57,9 @@ export function extractBlogMetadata(
   tags?: string[];
 } {
   return {
-    pageTitle: getPageTitle(uri, pageContext.post),
-    description: getPageDescription(uri, pageContext.post),
-    blogPostMetadata: getBlogPostMetadata(uri, pageContext.post),
-    tags: getBlogPostTags(uri, pageContext.post),
+    pageTitle: getPageTitle(uri, pageContext),
+    description: getPageDescription(uri, pageContext),
+    blogPostMetadata: getBlogPostMetadata(uri, pageContext),
+    tags: getBlogPostTags(uri, pageContext),
   };
 }

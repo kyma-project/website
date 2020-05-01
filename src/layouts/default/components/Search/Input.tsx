@@ -100,7 +100,7 @@ const Input: React.FunctionComponent<Props & IntlInterface> = ({
           ref={inputEl}
         />
       </form>
-      <Tooltip content={tooltipContent} placement="bottom">
+      <Tooltip html={tooltipContent} position="bottom">
         <Icon iconName="question-circle" iconPrefix="fas" />
       </Tooltip>
       <Icon

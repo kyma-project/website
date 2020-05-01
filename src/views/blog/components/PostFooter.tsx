@@ -12,7 +12,7 @@ interface PostFooterProps {
 
 const gt = getTranslation("blog");
 
-export const PostFooter: React.FunctionComponent<PostFooterProps> = ({
+const PostFooter: React.FunctionComponent<PostFooterProps> = ({
   tags = [],
 }) => (
   <PostFooterWrapper>
@@ -31,3 +31,5 @@ export const PostFooter: React.FunctionComponent<PostFooterProps> = ({
     </PostTagsWrapper>
   </PostFooterWrapper>
 );
+
+export default PostFooter;

@@ -1,10 +1,16 @@
 {
   "siteMetadata": {},
   "tags": "Tags",
-  "postMetadata": "{author} on {date}",
+  "postMetadata": "{author} on {date}, {minutes} min. read",
   "downloadButton": "Download {version}",
   "changesInButton": "Changes in {version}",
   "readMoreButton": "Read more",
   "previousPostButton": "Previous",
-  "nextPostButton": "Next"
+  "nextPostButton": "Next",
+  "share": { 
+    "facebook": "Share on Facebook",
+    "twitter": "Share on Twitter",
+    "linkedin": "Share on LinkedIn",
+    "reddit": "Share on Reddit"
+  }
 }

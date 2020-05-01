@@ -1,3 +1,4 @@
+import readingTime from "reading-time";
 import { PostGQL } from "./types";
 import { GraphQLFunction } from "../../../types";
 
@@ -47,7 +48,11 @@ export const getPosts = async (
   }
 
   const posts = result.data.allMarkdownRemark.edges
-    .map((e: any) => e.node)
+    .map((e: any) => ({
+      ...e.node,
+      content: e.node.rawMarkdownBody,
+      readingTime: readingTime(e.node.rawMarkdownBody),
+    }))
     .filter((node: any) => !!node.fields.date) as PostGQL[];
 
   return size ? posts.slice(0, size) : posts;

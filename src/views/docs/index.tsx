@@ -30,11 +30,15 @@ const DocsView: React.FunctionComponent<PageContext<
     />
   );
 
+  const additionalProps = {
+    docsVersionSwitcher,
+  };
+
   return (
     <GenericComponent
       pageContext={pageContext}
       layout={LayoutType.DOCS}
-      docsVersionSwitcher={docsVersionSwitcher}
+      additionalProps={additionalProps}
     />
   );
 };

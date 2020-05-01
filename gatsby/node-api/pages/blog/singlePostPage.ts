@@ -54,8 +54,8 @@ export const createSingleBlogPost = ({
       path: slug,
       component: singleBlogPostTemplate,
       context: {
+        ...post,
         slug,
-        post,
         assetsPath,
         previous,
         next,

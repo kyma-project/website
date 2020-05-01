@@ -11,6 +11,7 @@ import { plugins as markdownPlugins } from "@kyma-project/dc-markdown-render-eng
 
 import { PreviewPageContext } from "@typings/common";
 import { DocsPageContext } from "@typings/docs";
+import { PostPageContext } from "@typings/blog";
 
 import { markdownRE, openApiRE } from "./render-engines";
 import { MarkdownRenderer } from "./renderers";
@@ -18,6 +19,7 @@ import {
   DocsLayout,
   DocsSpecificationLayout,
   CommunityLayout,
+  BlogPostLayout,
 } from "./layouts";
 import { serializer } from "./serializer";
 import { replaceImagePathsMutationPlugin } from "./render-engines/markdown/plugins";
@@ -28,30 +30,23 @@ import {
 import { GenericDocsProvider } from "./services";
 import { types, setHideTitleHeader } from "./constants";
 
-const PLUGINS: Plugins = [
-  markdownPlugins.frontmatterMutationPlugin,
-  markdownPlugins.replaceAllLessThanCharsMutationPlugin,
-  {
-    plugin: markdownPlugins.headersExtractorPlugin,
-    options: {
-      headerPrefix: headingPrefix,
-      customFirstNode,
-    },
-  },
-  markdownPlugins.tabsMutationPlugin,
-  replaceImagePathsMutationPlugin,
-];
-
 function prepareSources(
-  pageContext?: DocsPageContext,
+  pageContext?: DocsPageContext | PostPageContext,
   sources?: Sources,
 ): Sources | undefined {
+  serializer.clear();
+
   let serializedSources: Sources = [];
-  if (pageContext && pageContext.content && pageContext.assetsPath) {
-    serializedSources = serializer
-      .setDocsContent(pageContext.content)
-      .serialize(pageContext.assetsPath)
-      .getSources();
+  if (pageContext && pageContext.assetsPath) {
+    if (typeof pageContext.content === "string") {
+      serializedSources = serializer
+        .serializeBlogPost(pageContext.content, pageContext.assetsPath)
+        .getSources();
+    } else {
+      serializedSources = serializer
+        .serializeDocs(pageContext.content, pageContext.assetsPath)
+        .getSources();
+    }
   }
   if (!pageContext && sources && sources.length) {
     serializedSources = sources;
@@ -65,22 +60,13 @@ function prepareSources(
 }
 
 function extractDataFromFirstSources(sources: Sources): [string, string] {
-  let temp = sources[0] as SourceWithOptions;
-  if (Array.isArray(temp)) {
-    temp = temp[0] as SourceWithOptions;
+  let source = sources[0] as SourceWithOptions;
+  if (Array.isArray(source)) {
+    source = source[0] as SourceWithOptions;
   }
-  const firstSource = temp.source;
+  const frontmatter = source.source.data?.frontmatter || {};
 
-  const title =
-    firstSource.data &&
-    firstSource.data.frontmatter &&
-    firstSource.data.frontmatter.title;
-  const type =
-    firstSource.data &&
-    firstSource.data.frontmatter &&
-    firstSource.data.frontmatter.type;
-
-  return [title || "", type || ""];
+  return [frontmatter.title || "", frontmatter.type || ""];
 }
 
 function renderContent(
@@ -98,29 +84,79 @@ function renderContent(
     case LayoutType.COMMUNITY: {
       return <CommunityLayout renderers={renderers} {...props} />;
     }
+    case LayoutType.BLOG_POST: {
+      return <BlogPostLayout renderers={renderers} {...props} />;
+    }
     default:
       return null;
   }
+}
+
+function getPlugins(layout: LayoutType): Plugins {
+  let headersExtractorOptions = {};
+  if (DOCS_LAYOUTS.includes(layout)) {
+    headersExtractorOptions = {
+      headerPrefix: headingPrefix,
+      customFirstNode,
+    };
+  } else {
+    headersExtractorOptions = {
+      headerPrefix: headingPrefix,
+    };
+  }
+
+  return [
+    markdownPlugins.frontmatterMutationPlugin,
+    markdownPlugins.replaceAllLessThanCharsMutationPlugin,
+    {
+      plugin: markdownPlugins.headersExtractorPlugin,
+      options: headersExtractorOptions,
+    },
+    markdownPlugins.tabsMutationPlugin,
+    replaceImagePathsMutationPlugin(layout),
+  ];
+}
+
+function getRenderEngines(
+  layout: LayoutType,
+  pageContext?: PageContext,
+): RenderEngines {
+  if (DOCS_LAYOUTS.includes(layout)) {
+    return [
+      markdownRE(layout, (pageContext as DocsPageContext)?.specifications),
+      openApiRE,
+    ];
+  }
+
+  return [markdownRE(layout)];
 }
 
 export enum LayoutType {
   DOCS = "docs",
   DOCS_SPECIFICATION = "docs-specification",
   COMMUNITY = "community",
+  BLOG_POST = "blog-post",
 }
 
+export const DOCS_LAYOUTS = [
+  LayoutType.DOCS,
+  LayoutType.DOCS_SPECIFICATION,
+  LayoutType.COMMUNITY,
+];
+
+type PageContext = (DocsPageContext & PreviewPageContext) | PostPageContext;
 export interface GenericComponentProps {
-  pageContext?: DocsPageContext & PreviewPageContext;
+  pageContext?: PageContext;
   sources?: Sources;
   layout?: LayoutType;
-  docsVersionSwitcher?: React.ReactNode;
+  additionalProps?: any;
 }
 
 export const GenericComponent: React.FunctionComponent<GenericComponentProps> = ({
   pageContext,
   sources,
   layout = LayoutType.DOCS,
-  docsVersionSwitcher,
+  additionalProps,
 }) => {
   types.clear();
   setHideTitleHeader(false);
@@ -132,13 +168,16 @@ export const GenericComponent: React.FunctionComponent<GenericComponentProps> = 
   if (!serializedSources) {
     return null;
   }
-  const [title, type] = extractDataFromFirstSources(serializedSources);
 
-  const RENDER_ENGINES: RenderEngines = [
-    markdownRE(layout, pageContext && pageContext.specifications),
-    openApiRE,
-  ];
-  const RENDERERS: Renderers = {
+  let title = "";
+  let type = "";
+  if (DOCS_LAYOUTS.includes(layout)) {
+    [title, type] = extractDataFromFirstSources(serializedSources);
+  }
+
+  const plugins = getPlugins(layout);
+  const renderEngines = getRenderEngines(layout, pageContext);
+  const renderers: Renderers = {
     single: [MarkdownRenderer(serializedSources.length, { title, type })],
   };
 
@@ -146,14 +185,15 @@ export const GenericComponent: React.FunctionComponent<GenericComponentProps> = 
     <GenericDocsProvider assetsPath={pageContext && pageContext.assetsPath}>
       <DC.Provider
         sources={serializedSources}
-        plugins={PLUGINS}
-        renderEngines={RENDER_ENGINES}
+        plugins={plugins}
+        renderEngines={renderEngines}
       >
-        {renderContent(layout, RENDERERS, {
+        {renderContent(layout, renderers, {
           ...pageContext,
           sourcesLength: serializedSources.length,
-          docsVersionSwitcher,
-          inPreview: pageContext && pageContext.inPreview,
+          ...additionalProps,
+          inPreview:
+            pageContext && (pageContext as PreviewPageContext).inPreview,
         })}
       </DC.Provider>
     </GenericDocsProvider>

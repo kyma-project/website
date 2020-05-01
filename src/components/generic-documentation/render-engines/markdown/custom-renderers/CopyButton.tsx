@@ -49,8 +49,8 @@ const CopyButton: React.FunctionComponent<IntlInterface & CopyButtonProps> = ({
   return (
     <CopyButtonWrapper className={className}>
       <Tooltip
-        content={formatMessage({ id: "copyButtonTooltip" })}
-        placement="bottom"
+        title={formatMessage({ id: "copyButtonTooltip" })}
+        position="bottom"
       >
         <CopyToClipboard
           text={code}

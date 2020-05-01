@@ -5,33 +5,13 @@ import {
 import { DocsContentItem } from "@typings/docs";
 
 export class DocsSerializer {
-  private docsContent: DocsContentItem = {} as DocsContentItem;
   private sources: SourceWithOptions[] = [];
 
-  setDocsContent(docsContent: DocsContentItem): DocsSerializer {
-    this.docsContent = docsContent;
-    this.clear();
-    return this;
-  }
-
-  serialize(assetsPath: string): DocsSerializer {
-    this.serializeMarkdownFiles(assetsPath);
-    return this;
-  }
-
-  getSources(considerAsGroup: boolean = false): Sources {
-    if (!considerAsGroup) {
-      return this.sources;
-    }
-    return [
-      {
-        sources: this.sources,
-      },
-    ];
-  }
-
-  private serializeMarkdownFiles(assetsPath: string): void {
-    this.docsContent.docs.map(doc => {
+  serializeDocs(
+    docsContent: DocsContentItem,
+    assetsPath: string,
+  ): DocsSerializer {
+    docsContent.docs.map(doc => {
       this.sources.push({
         source: {
           type: "md",
@@ -46,9 +26,36 @@ export class DocsSerializer {
         },
       });
     });
+
+    return this;
   }
 
-  private clear(): void {
+  serializeBlogPost(postContent: string, assetsPath: string): DocsSerializer {
+    this.sources.push({
+      source: {
+        type: "md",
+        rawContent: postContent,
+        data: {
+          assetsPath,
+        },
+      },
+    });
+
+    return this;
+  }
+
+  getSources(considerAsGroup: boolean = false): Sources {
+    if (!considerAsGroup) {
+      return this.sources;
+    }
+    return [
+      {
+        sources: this.sources,
+      },
+    ];
+  }
+
+  clear(): void {
     this.sources = [];
   }
 }

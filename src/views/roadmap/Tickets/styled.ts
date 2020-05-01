@@ -239,10 +239,12 @@ export const TicketWrapper = styled.div`
   border-radius: 8px;
   background: #fff;
   box-shadow: 0 2px 26px 0 rgba(11, 116, 222, 0.2);
-  transition: all 0.3s ease-in-out;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s,
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
   cursor: pointer;
 
   &:hover {
+    transform: translateY(-0.25rem);
     box-shadow: 0 2px 26px 0 rgba(11, 116, 222, 0.49);
   }
 `;

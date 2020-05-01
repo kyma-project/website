@@ -13,6 +13,7 @@ const navNode = (multiple: number) => css`
 
 interface HeadersNavigationsWrapperProps {
   showMobileNav?: boolean;
+  visible?: boolean;
 }
 
 export const HeadersNavigationsWrapper = styled.div<
@@ -25,6 +26,10 @@ export const HeadersNavigationsWrapper = styled.div<
   height: 100%;
   margin: 16px 0;
   background: #fff;
+
+  transition: opacity 0.15s linear;
+  opacity: ${props => (props.visible ? "1" : "0")};
+  pointer-events: ${props => (props.visible ? "initial" : "none")};
 
   ${customScrollBar({
     thumbBorderRadius: "4px",

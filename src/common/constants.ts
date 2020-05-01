@@ -4,6 +4,7 @@ export const DOCS_ID = "documentation-content";
 export const MOBILE_DEVICES_BREAKPOINT: number = 1024;
 export const PHONE_RESPONSIVE_BREAKPOINT: number = 768;
 export const DOCS_RESPONSIVE_BREAKPOINT: number = 768;
+export const BLOG_POST_VISIBILITY_OFFSET_BREAKPOINT: number = 500;
 
 export const RICK_ROLLED = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
 

@@ -4,5 +4,5 @@ import styled from "@styled";
 export const ReleaseButtonsWrapper = styled.div`
   display: flex;
   justify-content: center;
-  margin-bottom: 50px;
+  margin-bottom: 16px;
 `;

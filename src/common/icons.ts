@@ -25,12 +25,16 @@ import {
   faCalendarAlt,
 } from "@fortawesome/free-regular-svg-icons";
 import {
+  faFacebook,
+  faFacebookF,
   faTwitter,
   faLinkedinIn,
   faGithub,
   faSlack,
   faYoutube,
   faStackOverflow,
+  faReddit,
+  faRedditAlien,
 } from "@fortawesome/free-brands-svg-icons";
 
 config.autoAddCss = false;
@@ -56,11 +60,15 @@ library.add(
   faChevronUp,
   faChevronLeft,
   faChevronRight,
+  faFacebook,
+  faFacebookF,
   faTwitter,
   faLinkedinIn,
   faGithub,
   faSlack,
   faYoutube,
+  faReddit,
+  faRedditAlien,
   faStackOverflow,
   faRss,
 );

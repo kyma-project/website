@@ -9,25 +9,30 @@ import {
 } from "@typings/blog";
 
 interface PostContentProps {
-  markdown: string;
-  assetsPath?: string;
+  content: React.ReactNode;
   metadata: PostMetaData;
+  forceDefaultTemplate?: boolean;
 }
 
-export const PostContent: React.FunctionComponent<PostContentProps> = ({
-  markdown,
-  assetsPath = "",
+const PostContent: React.FunctionComponent<PostContentProps> = ({
+  content,
   metadata,
+  forceDefaultTemplate = false,
 }) => {
+  if (forceDefaultTemplate) {
+    return <DefaultTemplate content={content} />;
+  }
+
   if (metadata.type && metadata.type === PostTypeRelease) {
     return (
       <ReleaseTemplate
-        markdown={markdown}
+        content={content}
         releaseTag={metadata.releaseTag}
-        assetsPath={assetsPath}
       />
     );
   }
 
-  return <DefaultTemplate markdown={markdown} assetsPath={assetsPath} />;
+  return <DefaultTemplate content={content} />;
 };
+
+export default PostContent;
