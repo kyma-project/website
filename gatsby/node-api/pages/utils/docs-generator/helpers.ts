@@ -15,6 +15,12 @@ const getContent = async <T extends ContentGQL>(
             fields {
               ${additionalFields}
               slug
+              imagesWithAspectRatio {
+                imageName
+                originalWidth
+                originalHeight
+                aspectRatio
+              }
             }
             frontmatter {
               title

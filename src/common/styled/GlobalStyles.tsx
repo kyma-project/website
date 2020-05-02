@@ -57,5 +57,10 @@ export default createGlobalStyle`
   .lazyloading {
     opacity: 1;
     transition: opacity 300ms;
+    background: #f7f7f7;
+  }
+
+  .lazyloaded {
+    background: transparent;
   }
 `;

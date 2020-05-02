@@ -42,6 +42,7 @@ export class DocsSerializer {
               type: doc.type,
             },
             assetsPath,
+            imagesWithAspectRatio: doc.imagesWithAspectRatio,
           },
         },
       });

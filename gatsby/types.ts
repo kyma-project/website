@@ -58,3 +58,10 @@ export type GraphQLFunction = <TData = any, TVariables = any>(
   errors?: any;
   data?: TData;
 }>;
+
+export interface ImageWithAspectRatio {
+  imageName: string;
+  originalWidth: number;
+  originalHeight: number;
+  aspectRatio: number;
+}

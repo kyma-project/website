@@ -1,9 +1,11 @@
 import { Specification } from "@typings/docs";
+import { ImageWithAspectRatio } from "../../../../types";
 
 export interface ContentGQL<T = any> {
   rawMarkdownBody: string;
   fields: {
     slug: string;
+    imagesWithAspectRatio: ImageWithAspectRatio[];
   } & T;
   frontmatter: {
     title: string;
@@ -50,6 +52,7 @@ export interface DocsContentDocs {
   order: string;
   title: string;
   source: string;
+  imagesWithAspectRatio: ImageWithAspectRatio[];
   type?: string;
 }
 

@@ -26,6 +26,12 @@ export const getPosts = async (
                 month
                 day
               }
+              imagesWithAspectRatio {
+                imageName
+                originalWidth
+                originalHeight
+                aspectRatio
+              }
             }
             frontmatter {
               title

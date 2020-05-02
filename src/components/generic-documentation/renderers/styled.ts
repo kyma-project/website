@@ -255,9 +255,6 @@ export const StyledMarkdown = styled.div<StyledMarkdownProps>`
     tr:last-child {
       border: none;
     }
-    img {
-      max-width: 100%;
-    }
     ul:last-child,
     ol:last-child,
     p:last-child {
