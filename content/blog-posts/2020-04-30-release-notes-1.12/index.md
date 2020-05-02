@@ -68,11 +68,11 @@ From now on, you can specify a version of the Kyma Installer to be deployed on a
 
 ### Upgrades in the Runtime Provisioner 
 
-In this release, we introduced the first version of [GraphQL API](https://github.com/kyma-incubator/compass/blob/master/docs/internal/runtime-upgrade.md) the Runtime Provisioner uses to upgrade a Kyma Runtime. Though simple, the API allows you to upgrade the existing Runtime to the new Kyma version and replace the existing configuration with the one passed with the upgrade mutation. We also included a rollback option, but it may still require additional actions on the cluster. 
+Starting with this release, the Runtime Provisioner allows you to upgrade your Kyma runtime using the [GraphQL API](https://github.com/kyma-incubator/compass/blob/master/docs/internal/runtime-upgrade.md). Though simple, the API allows you to upgrade the existing Runtime to the new Kyma version and replace the existing configuration with the one passed with the upgrade mutation. We also included a rollback option, but it may still require additional actions on the cluster. 
 
 ### Automatic status update for Applications and Runtimes in the Director 
 
-When a paired Application or Runtime communicates with the Director API for the first time, the Director automatically sets its status to **CONNECTED**. This operation does not prevent you or the Integration System from managing Application and Runtime status on your own.
+When a paired Application or Runtime communicates with the Director API for the first time, the Director automatically sets its status to **CONNECTED**. This operation does not prevent you or the Integration System from managing Application and Runtime statuses on your own.
 
 ### Automatic Scenario Assignment in the Director 
 
@@ -90,12 +90,11 @@ In the 1.11 release, we introduced API packages to allow the Applications to reg
 
 ### Brand new Kiali 
 
-For 1.12, we took the chance and upgraded the Kiali component to leverage the newest Kiali Operator, making it possible for you to configure all options in a convenient way using the Installer overrides. Although we had to rewrite the component implementation, these changes do not affect you as the user in any way .
+For 1.12, we took the chance and upgraded the Kiali component to leverage the newest Kiali Operator, making it possible for you to configure all options in a convenient way using the Installer overrides. Although we had to rewrite the component implementation, these changes do not affect you as the user in any way.
 
 ### Jaeger renamed to Tracing 
 
 The Jaeger component also received a full makeover and a new name. The new **Tracing** component is based on the most recent Jaeger Operator and brings in new features and fixes. As the BadgerDB persistence caused more problems then satisfaction due to issues with data retention and memory consumption higher than expected, we switched back to the in-memory-based deployment model. Additionally, we ensured that you can use the Installer overrides to configure deployment strategies available in the Jaeger Operator. All this allows you to switch back to a BadgerDB-based deployment or even introduce a production scenario based on Elastic Search. 
-
 
 ## Monitoring
 
@@ -105,11 +104,11 @@ We updated the monitoring stack to the latest versions of Prometheus and Grafana
 
 ## Serverless
 
-As mentioned in the previous release notes, we switched to a new version of Serverless that relies on [Knative Serving](https://knative.dev/docs/serving/) for deploying and managing Functions and [Kubernetes Jobs](https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/) for creating Docker images. For this reason, backend, frontend, and documentation of Serverless have received full makeovers. 
+As mentioned in the previous release notes, we switched to a new version of Serverless that relies on [Knative Serving](https://knative.dev/docs/serving/) for deploying and managing Functions, and [Kubernetes Jobs](https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/) for creating Docker images. For this reason, backend, frontend, and documentation of Serverless have received full makeovers. 
 
 ### Backend
 
-Serverless is now based on a new [Function (CR)](https://kyma-project.io/docs/1.12/components/serverless/#custom-resource-function) that provides you with full control over resource management, replacing at the same time the previous Function sizes management. We also switched to the Node.js 12 Runtime and improved the [resource processing flow](https://kyma-project.io/docs/1.12/components/serverless/#details-function-processing) in which the Function's image is built in a separate phase, helping the Functions to run more smoothly. 
+Serverless is now based on the new [Function CR](https://kyma-project.io/docs/1.12/components/serverless/#custom-resource-function) that provides you with full control over resource management, replacing at the same time the previous Function sizes management. We also switched to the Node.js 12 Runtime and improved the [resource processing flow](https://kyma-project.io/docs/1.12/components/serverless/#details-function-processing) in which the Function's image is built in a separate phase, helping the Functions to run more smoothly. 
 
 ### Frontend
 
