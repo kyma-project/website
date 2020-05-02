@@ -54,7 +54,6 @@ function calculateAspectRatio(dir: string) {
 
   fs.readdir(dir, (err, files) => {
     if (err) {
-      console.warn(err);
       return;
     }
 
