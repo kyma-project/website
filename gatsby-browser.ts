@@ -1,3 +1,4 @@
+import "lazysizes";
 import { browserAPI } from "./gatsby/browser-api";
 
 export const onInitialClientRender = browserAPI.onInitialClientRender;

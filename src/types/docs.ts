@@ -57,7 +57,7 @@ export interface DocsContentDocs {
   title: string;
   type?: string;
   source: string;
-  [key: string]: string | undefined;
+  [key: string]: any;
 }
 
 /* Navigation */

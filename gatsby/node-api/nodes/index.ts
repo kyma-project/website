@@ -13,6 +13,8 @@ import {
   onCreateCommunityNode,
   onCreateRoadmapNode,
   copyAssets,
+  onCreateImagesSpecNode,
+  NodeType,
   CopyAssetsNode,
 } from "./onCreateNode";
 
@@ -25,16 +27,28 @@ export const onCreateNode = async ({
 
   switch (node.internal.type) {
     case "MarkdownRemark": {
-      const { relativePath } = getNode(node.parent);
+      const { relativePath, absolutePath } = getNode(node.parent);
 
       if (relativePath.startsWith(BLOG_POST_DIR)) {
         onCreateBlogPostNode({ node, relativePath, createNodeField });
       }
       if (relativePath.startsWith(DOCS_DIR)) {
         onCreateDocsNode({ node, relativePath, createNodeField });
+        onCreateImagesSpecNode({
+          node,
+          absolutePath,
+          createNodeField,
+          nodeType: NodeType.DOCS,
+        });
       }
       if (relativePath.startsWith(COMMUNITY_PATH_PREFIX)) {
         onCreateCommunityNode({ node, relativePath, createNodeField });
+        onCreateImagesSpecNode({
+          node,
+          absolutePath,
+          createNodeField,
+          nodeType: NodeType.DOCS,
+        });
       }
       if (relativePath.startsWith(ROADMAP_CAPABILITIES_DIR)) {
         onCreateRoadmapNode.capability({ node, relativePath, createNodeField });
