@@ -51,17 +51,17 @@ export default createGlobalStyle`
   }
 
   /* Lazysizes */
-  .lazyload {
-    opacity: 0;
+  img.lazyload {
+    background: rgba(27, 31, 35, 0.05);
+    border-radius: 4px;
   }
 
-  .lazyloading {
-    opacity: 1;
-    transition: opacity 300ms;
-    background: #f7f7f7;
+  img.lazyloading {
+    background: rgba(27, 31, 35, 0.05);
+    border-radius: 4px;
   }
 
-  .lazyloaded {
+  img.lazyloaded {
     background: transparent;
   }
 `;

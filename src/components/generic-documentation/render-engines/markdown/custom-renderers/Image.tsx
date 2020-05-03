@@ -3,13 +3,14 @@ import styled from "@styled";
 import { ImageSpec } from "../../../../../../gatsby/types";
 
 interface StyledImageProps {
-  width: number;
-  height: number;
+  originalWidth: number;
+  originalHeight: number;
 }
 
 const StyledImage = styled.img<StyledImageProps>`
-  max-width: ${props => props.width};
-  max-height: ${props => props.height};
+  max-width: 100%;
+  max-height: ${props => `${props.originalHeight}px`};
+  width: ${props => `${props.originalWidth}px`};
   height: auto;
 `;
 
@@ -42,11 +43,11 @@ export const Image: React.FunctionComponent<ImageProps> = ({
   return (
     <a href={src} target="_blank" rel="noopener noreferrer">
       <StyledImage
-        width={width}
-        height={height}
+        originalWidth={width}
+        originalHeight={height}
         src={srcPlaceholder}
         data-src={src}
-        alt={alt}
+        alt={alt || src}
         className="lazyload cms__image"
       />
     </a>
