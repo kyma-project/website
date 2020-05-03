@@ -83,6 +83,7 @@ const Input: React.FunctionComponent<Props & IntlInterface> = ({
       iconName="search"
       iconPrefix="fas"
       reference={iconEl}
+      ariaLabel="Search input"
       onClick={() => {
         focusSearch();
         if (!inputActive) {

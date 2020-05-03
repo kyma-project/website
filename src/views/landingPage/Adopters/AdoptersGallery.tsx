@@ -8,7 +8,7 @@ import "react-alice-carousel/lib/alice-carousel.css";
 import Grid from "@styled/Grid";
 import Button from "@components/shared/Button";
 
-import { AdoptersItem } from "./AdoptersItem";
+import AdoptersItem from "./AdoptersItem";
 
 import { Adopter } from "@typings/landingPage";
 

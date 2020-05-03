@@ -106,8 +106,14 @@ class Navigation extends Component<{}, State> {
             </NavigationItem>
           ))}
           <NavigationItem>
-            <NavigationExtLink to={slackMedia.url}>
-              <Button.Light iconName={slackMedia.icon}>
+            <NavigationExtLink
+              to={slackMedia.url}
+              ariaLabel="Link to Slack channel"
+            >
+              <Button.Light
+                iconName={slackMedia.icon}
+                ariaLabel="Link to Slack channel"
+              >
                 <span>{slackMedia.name}</span>
               </Button.Light>
             </NavigationExtLink>

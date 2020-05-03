@@ -141,7 +141,7 @@ const TechIndependent = () => (
           transform="translate(1021.000000, 693.000000)"
           fillRule="nonzero"
         >
-          <g id="Shape">
+          <g>
             <use
               fill="url(#technology-linearGradient-1)"
               xlinkHref="#technology-path-2"
@@ -152,7 +152,7 @@ const TechIndependent = () => (
               xlinkHref="#path-2"
             />
           </g>
-          <g id="Shape">
+          <g>
             <use
               fill="url(#technology-linearGradient-5)"
               xlinkHref="#technology-path-6"
@@ -163,7 +163,7 @@ const TechIndependent = () => (
               xlinkHref="#path-6"
             />
           </g>
-          <g id="Shape">
+          <g>
             <use
               fill="url(#technology-linearGradient-9)"
               xlinkHref="#technology-path-10"
@@ -174,7 +174,7 @@ const TechIndependent = () => (
               xlinkHref="#path-10"
             />
           </g>
-          <g id="Shape">
+          <g>
             <use
               fill="url(#technology-linearGradient-13)"
               xlinkHref="#technology-path-14"

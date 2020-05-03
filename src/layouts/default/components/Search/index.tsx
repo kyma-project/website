@@ -99,7 +99,11 @@ const Search: React.FunctionComponent = () => {
 
   return (
     <AlgoliaWrapper>
-      <Button.Light iconName="search" iconPrefix="fas" />
+      <Button.Light
+        iconName="search"
+        iconPrefix="fas"
+        ariaLabel="Search input"
+      />
       <Input search={search} />
     </AlgoliaWrapper>
   );

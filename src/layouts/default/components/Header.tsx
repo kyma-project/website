@@ -8,7 +8,7 @@ import Logo from "./assets/LogoSecond";
 import Navigation from "./Navigation";
 import { HeaderWrapper, HeaderLogo, GithubButtonsWrapper } from "./styled";
 
-import { GithubButtons } from "./GithubButtons";
+import GithubButtons from "./GithubButtons";
 
 interface HeaderProps {
   horizontalBg?: boolean;
@@ -23,7 +23,7 @@ const Header: React.FunctionComponent<HeaderProps> = ({
   <HeaderWrapper horizontalBg={horizontalBg}>
     <Grid.Container>
       <GithubButtonsWrapper>
-        <Link.Internal to="/">
+        <Link.Internal to="/" ariaLabel="Go to main page">
           <HeaderLogo horizontalBg={horizontalBg}>
             <Logo />
           </HeaderLogo>

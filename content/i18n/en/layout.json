@@ -14,5 +14,9 @@
     "copyright": "Copyright © 2018-{actualYear} The Kyma project authors. {copyrightLink}",
     "privacyStatement": "Privacy Statement",
     "madeWithLove": "Made with {heartIcon} & {coffeeIcon} by Kyma maintainers."
+  },
+  "githubButtons": {
+    "stars": "Kyma's GitHub stars",
+    "forks": "Kyma's GitHub forks"
   }
 }

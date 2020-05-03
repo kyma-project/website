@@ -19,6 +19,7 @@ type KeysOfi18nConfig = keyof typeof i18nConfig;
 
 interface LinkProps extends GatsbyLinkProps<{}> {
   underline?: boolean;
+  ariaLabel?: string;
 }
 
 const External: React.FunctionComponent<LinkProps & {
@@ -29,6 +30,7 @@ const External: React.FunctionComponent<LinkProps & {
   children,
   externalIcon = false,
   underline = false,
+  ariaLabel,
   onClick,
 }) => (
   <ExternalLink
@@ -38,6 +40,7 @@ const External: React.FunctionComponent<LinkProps & {
     className={className}
     underline={underline ? "true" : "false"}
     onClick={onClick}
+    aria-label={ariaLabel}
   >
     {children}
     {externalIcon && <Icon iconName="external-link-alt" iconPrefix="fas" />}
@@ -52,6 +55,7 @@ const Internal: React.FunctionComponent<LinkProps &
   children,
   underline = false,
   onClick,
+  ariaLabel,
   state,
 }) => {
   let path = i18nConfig[locale].default ? to : `/${locale}${to}`;
@@ -69,6 +73,7 @@ const Internal: React.FunctionComponent<LinkProps &
         }
       }}
       state={state}
+      aria-label={ariaLabel}
     >
       {children}
     </InternalLink>

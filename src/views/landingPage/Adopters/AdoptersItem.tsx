@@ -2,7 +2,7 @@ import React from "react";
 
 import Link from "@components/shared/Link";
 
-import { FormattedMessage } from "@common/i18n";
+import { injectIntl, IntlInterface, FormattedMessage } from "@common/i18n";
 
 import { Adopter } from "@typings/landingPage";
 
@@ -13,12 +13,14 @@ import {
   StyledAdoptersItemIntLink,
 } from "./styled";
 
-export const AdoptersItem: React.FunctionComponent<Adopter> = ({
+const AdoptersItem: React.FunctionComponent<Adopter & IntlInterface> = ({
   websiteUrl,
+  company,
   url = "",
   logo,
   content,
   cssProperties,
+  formatMessage,
 }) => {
   const handleOnDragStart = (e: React.DragEvent<HTMLDivElement>) =>
     e.preventDefault();
@@ -29,20 +31,41 @@ export const AdoptersItem: React.FunctionComponent<Adopter> = ({
     ? StyledAdoptersItemExtLink
     : StyledAdoptersItemIntLink;
 
+  const companyLogoAlt = formatMessage(
+    { id: "companyLogo" },
+    {
+      company,
+    },
+  );
+  const companyWebsiteLinkAria = formatMessage(
+    { id: "linkToCompanyWebsite" },
+    {
+      company,
+    },
+  );
+  const companyCaseStudyLinkAria = formatMessage(
+    { id: "linkToCompanyCaseStudy" },
+    {
+      company,
+    },
+  );
+
   return (
     <StyledAdoptersItem
       onDragStart={handleOnDragStart}
       cssProperties={cssProperties}
     >
-      <Link.External to={websiteUrl}>
-        <img src={logo} />
+      <Link.External to={websiteUrl} ariaLabel={companyWebsiteLinkAria}>
+        <img src={logo} alt={companyLogoAlt} />
       </Link.External>
       <StyledAdoptersItemContent>{content}</StyledAdoptersItemContent>
       {BlogPostLink && (
-        <BlogPostLink to={url}>
+        <BlogPostLink to={url} ariaLabel={companyCaseStudyLinkAria}>
           <FormattedMessage id="landingPage.adopters.readMoreLink" />
         </BlogPostLink>
       )}
     </StyledAdoptersItem>
   );
 };
+
+export default injectIntl("landingPage.adopters.accessibility")(AdoptersItem);

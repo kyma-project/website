@@ -15,6 +15,8 @@ interface VersionSwitcherProps {
   topic: string;
 }
 
+const ID = "docs-version";
+
 const VersionSwitcher: FunctionComponentIntl<VersionSwitcherProps> = ({
   versions = [],
   version,
@@ -35,9 +37,13 @@ const VersionSwitcher: FunctionComponentIntl<VersionSwitcherProps> = ({
 
   return (
     <Wrapper>
-      <Label>{formatMessage({ id: "version" })}:</Label>
+      <Label htmlFor={ID}>{formatMessage({ id: "version" })}:</Label>
       <SelectWrapper>
-        <VersionSelect onChange={changeDocsVersion} defaultValue={version}>
+        <VersionSelect
+          id={ID}
+          onChange={changeDocsVersion}
+          defaultValue={version}
+        >
           {Object.keys(versions).map((key: string, id: number) => (
             <optgroup key={key} label={formatMessage({ id: key })}>
               {(versions as any)[key].map((element: string, index: number) => {
