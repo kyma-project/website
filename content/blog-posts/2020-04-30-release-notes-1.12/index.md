@@ -68,7 +68,7 @@ From now on, you can specify a version of the Kyma Installer to be deployed on a
 
 ### Upgrades in the Runtime Provisioner 
 
-Starting with this release, the Runtime Provisioner allows you to upgrade your Kyma runtime using the [GraphQL API](https://github.com/kyma-incubator/compass/blob/master/docs/internal/runtime-upgrade.md). Though simple, the API allows you to upgrade the existing Runtime to the new Kyma version and replace the existing configuration with the one passed with the upgrade mutation. We also included a rollback option, but it may still require additional actions on the cluster. 
+Starting with this release, the Runtime Provisioner allows you to upgrade your Kyma Runtime to the newer version using the [GraphQL API](https://github.com/kyma-incubator/compass/blob/master/docs/internal/runtime-upgrade.md). The new configuration passed with the upgrade mutation replaces the existing one. We also included a rollback option. Bear in mind that the rollback operation may still require additional actions performed on the cluster. 
 
 ### Automatic status update for Applications and Runtimes in the Director 
 
@@ -135,4 +135,4 @@ There is a brand-new set of docs for the new solution with detailed architecture
 - [Bind a Service Instance to a Function](https://kyma-project.io/docs/1.12/components/serverless/#tutorials-bind-a-service-instance-to-a-function) 
 - [Trigger a Function with an event](https://kyma-project.io/docs/1.12/components/serverless/#tutorials-trigger-a-function-with-an-event) 
 
-> **CAUTION:** If you already use Kubeless Functions, you must migrate them manually. Read the [migration guide](https://github.com/kyma-project/kyma/blob/release-1.12/docs/migration-guides/1.11-1.12.md#serverless) for details. 
+> **CAUTION:** If you already use Kubeless Functions, you must migrate them manually. Read the [migration guide](https://github.com/kyma-project/kyma/blob/release-1.12/docs/migration-guides/1.11-1.12.md#serverless) for details.
