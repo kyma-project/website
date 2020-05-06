@@ -13,7 +13,7 @@ redirectFrom:
 Even though the current situation calls for some stay-at-home time, we don't lose our sense of adventure. The Kyma ship leaves Rome and embarks on a long, exciting journey all the way to Santiago de Chile, using the time well to deliver a set of new features. Join us in celebration, and once you get a glimpse of the majestic Andes surrounding the city, explore what Kyma 1.12 has to offer. This release brings API Gateway v2 as the sole mechanism for exposing services, introduces refurbished Serverless and a fresh set of features brought in by Compass - all that topped off with brand new Kiali and Tracing. For more details, read the full story behind Kyma 1.12 Santiago.
 <!-- overview -->
 
-> **CAUTION:** Before upgrading your Kyma deployment to 1.12, you must perform the migration steps described in the [Migration Guide](https://github.com/kyma-project/kyma/blob/release-1.12/docs/migration-guides/1.11-1.12.md). If you upgrade to the new release without performing these steps, you can compromise the functionality of your cluster or make it unusable.
+> **CAUTION:** Before upgrading your Kyma deployment to 1.12, you must perform the migration steps described in the [Migration Guide](https://github.com/kyma-project/kyma/blob/release-1.12/docs/migration-guides/1.11-1.12.md). If you upgrade to the new release without performing these steps, you can compromise the functionality of your cluster or make it unusable. However, this Migration Guide also contains steps you must complete to migrate your Kubeless Functions to the new solution - complete them after you upgrade to the new release.
 
 See the overview of all changes in this release:
 
@@ -135,4 +135,4 @@ There is a brand-new set of docs for the new solution with detailed architecture
 - [Bind a Service Instance to a Function](https://kyma-project.io/docs/1.12/components/serverless/#tutorials-bind-a-service-instance-to-a-function) 
 - [Trigger a Function with an event](https://kyma-project.io/docs/1.12/components/serverless/#tutorials-trigger-a-function-with-an-event) 
 
-> **CAUTION:** If you already use Kubeless Functions, you must migrate them manually. Read the [migration guide](https://github.com/kyma-project/kyma/blob/release-1.12/docs/migration-guides/1.11-1.12.md#serverless) for details.
+> **CAUTION:** If you already use Kubeless Functions, you must migrate them manually after you upgrade to the new release. Read the [migration guide](https://github.com/kyma-project/kyma/blob/release-1.12/docs/migration-guides/1.11-1.12.md#serverless) for details.
