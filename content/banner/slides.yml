@@ -1,13 +1,5 @@
 bannerDuration: 5000
 slides:
-  - text: "Our own, Mateusz Szostok has two sessions at KubeCon around K8s Service Catalog"
-    url: "https://kccncna19.sched.com/event/UaiQ/intro-to-sig-service-catalog-jonathan-berkhahn-ibm-mateusz-szostok-sap"
-    startDate: "13/11/2019"
-    endDate: "21/11/2019"
-  - text: "Mateusz Szostok, Piotr Kopczynski and Pawel Kosiec have several talks at San Diego Cloud Native Meetup"
-    url: "https://www.meetup.com/San-Diego-Cloud-Native-Computing-Meetup/events/265108857/"
-    startDate: "13/11/2019"
-    endDate: "26/11/2019"
   - text: "Kyma adoption gets validated big time! SAP is using Kyma open source for a fully managed Kubernetes-based runtime. Learn more here!"  
     url: "https://blogs.sap.com/?p=1098793"
     startDate: "12/05/2020"
