@@ -30,7 +30,7 @@ See the overview of all changes in this release:
 
 ## Application Connector
 
-Starting from this release, we support additional headers and query parameters in OAuth token calls. Now you can customize the flow in an easy way. Check the Application Connector [documentation](https://kyma-project.io/docs/1.9/components/application-connector/#tutorials-register-a-secured-api-register-an-o-auth-secured-api) to find the tutorial and examples.
+Starting from this release, we support additional headers and query parameters in OAuth token calls. Now you can customize the flow in an easy way. Check the Application Connector [documentation](https://github.com/kyma-project/kyma/blob/release-1.9/docs/application-connector/08-04-register-secured-api.md#register-an-oauth-secured-api) to find the tutorial and examples.
 
 ## CLI
 
@@ -78,13 +78,13 @@ We redesigned the Addons Configuration view. Now you get a more detailed status 
 
 ### Knative Eventing Mesh (Alpha)
 
-In this release, we introduced Knative Eventing Mesh as an alpha feature which you can use for testing purposes only. It leverages Knative Eventing components to build an eventing mesh that provides event routing and pub/sub capabilities. This mesh layer abstracts the underlying messaging system and allows you to configure different persistence for each Namespace. The new Eventing Mesh runs in parallel with the existing Event Bus. The Kyma Event Bus still supports sending Events to the regular eventing endpoint, while a separate Kyma endpoint handles sending Events to the new Knative Eventing Mesh. Read more about it [here](https://kyma-project.io/docs/1.9/components/event-bus/#details-knative-eventing-mesh-alpha).
+In this release, we introduced Knative Eventing Mesh as an alpha feature which you can use for testing purposes only. It leverages Knative Eventing components to build an eventing mesh that provides event routing and pub/sub capabilities. This mesh layer abstracts the underlying messaging system and allows you to configure different persistence for each Namespace. The new Eventing Mesh runs in parallel with the existing Event Bus. The Kyma Event Bus still supports sending Events to the regular eventing endpoint, while a separate Kyma endpoint handles sending Events to the new Knative Eventing Mesh. Read more about it [here](https://github.com/kyma-project/kyma/blob/release-1.9/docs/event-bus/03-04-knative-eventing-mesh.md#overview).
 
 ## Installation & documentation
 
 ### Gardener provisioning based on Kyma CLI documented
 
-After introducing Gardener cluster provisioning through the Kyma CLI in the previous release, in this release, we added the official documentation for this feature. The instructions for provisioning a Gardener cluster on GCP or Azure are now based on Kyma CLI. Check it out in [this](https://kyma-project.io/docs/1.9/root/kyma/#installation-install-kyma-on-a-cluster-prepare-the-cluster) document under the **Gardener** tab.
+After introducing Gardener cluster provisioning through the Kyma CLI in the previous release, in this release, we added the official documentation for this feature. The instructions for provisioning a Gardener cluster on GCP or Azure are now based on Kyma CLI. Check it out in [this](https://github.com/kyma-project/kyma/blob/release-1.9/docs/kyma/04-04-cluster-installation.md#prepare-the-cluster) document under the **Gardener** tab.
 
 ### Finite number of revisions in Tiller
 
@@ -119,7 +119,7 @@ During the refactoring, we noticed that after a few months of developing and mak
 
 Due to the fact that we use [MinIO](https://min.io/) as a backend for Rafter, we get an S3-like files/assets store managed with [CRs](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/).
 
-This release introduces Rafter in Kyma. For more details, read the [documentation](https://kyma-project.io/docs/1.9/components/rafter/). To make sure the switch is seamless, we prepared automated migration for your convenience. For more details, see the [Migrations and upgrades](#migrations-and-upgrades) section.
+This release introduces Rafter in Kyma. For more details, read the [documentation](https://github.com/kyma-project/kyma/tree/release-1.9/docs/rafter/). To make sure the switch is seamless, we prepared automated migration for your convenience. For more details, see the [Migrations and upgrades](#migrations-and-upgrades) section.
 
 ## Service Management 
 

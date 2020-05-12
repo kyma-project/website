@@ -35,7 +35,7 @@ See the overview of all changes in this release:
 
 ### Brand new API Gateway
 
-This release introduces a brand new [API Gateway](https://kyma-project.io/docs/components/api-gateway-v2/) for you to try out. It aims at replacing the old implementation, but before this happens, the two run side by side in Kyma. Since the API Gateway is still under development, you can find its source code in the Kyma Incubator. A new [`apirules.gateway.kyma-project.io`](https://kyma-project.io/docs/components/api-gateway-v2/#custom-resource-api-rule) CRD supports interacting with the new API Gateway. You can also expose your services and secure them with either OAuth2 scopes or JSON Web Tokens. Follow [this](https://kyma-project.io/docs/components/api-gateway-v2/#tutorials-expose-and-secure-a-service) tutorial to learn how.
+This release introduces a brand new [API Gateway](https://github.com/kyma-project/kyma/tree/release-1.6/docs/api-gateway-v2) for you to try out. It aims at replacing the old implementation, but before this happens, the two run side by side in Kyma. Since the API Gateway is still under development, you can find its source code in the Kyma Incubator. A new [`apirules.gateway.kyma-project.io`](https://github.com/kyma-project/kyma/blob/release-1.6/docs/api-gateway-v2/06-01-apirule.md) CRD supports interacting with the new API Gateway. You can also expose your services and secure them with either OAuth2 scopes or JSON Web Tokens. Follow [this](https://github.com/kyma-project/kyma/blob/release-1.6/docs/api-gateway-v2/08-01-exposesecure.md) tutorial to learn how.
 
 ## Console
 
@@ -57,7 +57,7 @@ We attach great importance to Kyma performance, constantly striving to speed thi
 
 ### Introducing Compass
 
-Compass is a central, multi-tenant system that allows you to connect Applications and manage them across multiple Kyma Runtimes. Read the [documentation](https://kyma-project.io/docs/components/compass/) to learn how to enable this experimental component and try it out.
+Compass is a central, multi-tenant system that allows you to connect Applications and manage them across multiple Kyma Runtimes. Read the [documentation](https://github.com/kyma-project/kyma/tree/release-1.6/docs/compass) to learn how to enable this experimental component and try it out.
 
 
 ### Authorization and authentication
@@ -76,7 +76,7 @@ Upgrading from Kyma 1.5 to 1.6 means the cluster has already the new configurati
 
 >**NOTE:** Your specification won’t be converted if version 1.0 is corrupted.
 
-To get even more insight into the topic, check our [demo](https://youtu.be/9tJOn6qRR2U?t=2283) presented during the Core Special Interest Group meeting and read the [documentation](https://kyma-project.io/docs/1.6/components/headless-cms/#details-cms-async-api-service).
+To get even more insight into the topic, check our [demo](https://youtu.be/9tJOn6qRR2U?t=2283) presented during the Core Special Interest Group meeting and read the [documentation](https://github.com/kyma-project/kyma/blob/release-1.6/docs/headless-cms/03-02-cms-asyncapi-service.md).
 
 
 ### AsyncAPI UI component restyled
@@ -87,14 +87,14 @@ We restyled the existing UI component to match SAP Fiori 3 and updated the compo
 
 ### Support for more Gateway modes by Asset Store
 
-One of the most important features of Asset Store is multi-cloud storage support. Now you can easily save your assets to Azure Blob, AWS S3, or Alibaba Object Storage Service. Read [this](https://kyma-project.io/docs/components/rafter/#tutorials-set-min-io-to-gateway-mode tutorial) to learn how to set Minio to the desired Gateway mode.
+One of the most important features of Asset Store is multi-cloud storage support. Now you can easily save your assets to Azure Blob, AWS S3, or Alibaba Object Storage Service. Read [this](https://kyma-project.io/docs/components/rafter/#tutorials-set-min-io-to-gateway-mode) tutorial to learn how to set Minio to the desired Gateway mode.
 
 Additionally, the automated pipeline makes sure the cooperation between Asset Store and Azure Blob remains stable after each change introduced to the component. This means that from now on we regularly test Asset Store with not only Google Cloud Storage but also Azure Blob.
 
 
 ### Metrics for Asset Store and Headless CMS
 
-In preparation for the 1.6 release, we invested a lot of time and effort to expose metrics defined for controllers and services. You can now use the Asset Store and Headless CMS metrics to [define dashboards](https://kyma-project.io/docs/components/monitoring/#tutorials-create-a-grafana-dashboard) and [configure alerting rules](https://kyma-project.io/docs/components/monitoring/#tutorials-define-alerting-rules).
+In preparation for the 1.6 release, we invested a lot of time and effort to expose metrics defined for controllers and services. You can now use the Asset Store and Headless CMS metrics to [define dashboards](https://github.com/kyma-project/kyma/blob/release-1.6/docs/monitoring/08-03-create-and-configure-grafana-dashboard.md) and [configure alerting rules](https://github.com/kyma-project/kyma/blob/release-1.6/docs/monitoring/08-04-define-alerting-rules.md).
 
 You can also start exploring metrics right away, using our pre-configured Grafana dashboards.
 
@@ -104,17 +104,17 @@ You can also start exploring metrics right away, using our pre-configured Grafan
 
 ### Improved installation documentation
 
-We want our documentation to be comprehensive, yet easy to follow and understand. That's why we constantly improve it, always with the community feedback in mind. Our [most recent discussions](https://kyma-community.slack.com/archives/CD2HJ0E78/p1568721087011100) turned out to be a great starting point for another successful implementation. Check out [this](https://kyma-project.io/docs/1.6/root/kyma/#installation-install-kyma-on-a-cluster) installation document to explore the new structure.
+We want our documentation to be comprehensive, yet easy to follow and understand. That's why we constantly improve it, always with the community feedback in mind. Our [most recent discussions](https://kyma-community.slack.com/archives/CD2HJ0E78/p1568721087011100) turned out to be a great starting point for another successful implementation. Check out [this](https://github.com/kyma-project/kyma/blob/release-1.6/docs/kyma/04-04-cluster-installation.md#install-kyma) installation document to explore the new structure.
 
 ### Added troubleshooting guide for Backup
 
-We are aware of potential issues that may occur from time to time. That's why our troubleshooting guides are there to help you. If you experience problems with Eventing after you completed the restore process, read [this](https://kyma-project.io/docs/components/backup/#troubleshooting-restore-troubleshooting-eventing-does-not-work) guide.
+We are aware of potential issues that may occur from time to time. That's why our troubleshooting guides are there to help you. If you experience problems with Eventing after you completed the restore process, read [this](https://github.com/kyma-project/kyma/blob/release-1.6/docs/backup/10-01-restore-troubleshooting.md) guide.
 
 ## Eventing
 
 ### Knative Eventing replaced Channel Provisioners with Channel CRD controllers
 
-In the past, Knative Eventing introduced the general concept of Channel Provisioners. This concept assumed no concrete types for different channel implementations, such as NATS Streaming vs Kafka. Along with Knative Eventing 0.8, Channel Provisioners were deprecated and replaced with [Channel CRD](https://knative.dev/v0.8-docs/eventing/channels/channels-crds/) controllers. In Kyma 1.6, we updated our Event Bus implementation to use the new Channel CRDs. For more details on the recent updates in the Eventing architecture, read [this](https://kyma-project.io/docs/components/event-bus/#architecture-architecture) document.
+In the past, Knative Eventing introduced the general concept of Channel Provisioners. This concept assumed no concrete types for different channel implementations, such as NATS Streaming vs Kafka. Along with Knative Eventing 0.8, Channel Provisioners were deprecated and replaced with [Channel CRD](https://knative.dev/v0.8-docs/eventing/channels/channels-crds/) controllers. In Kyma 1.6, we updated our Event Bus implementation to use the new Channel CRDs. For more details on the recent updates in the Eventing architecture, read [this](https://github.com/kyma-project/kyma/blob/release-1.6/docs/event-bus/02-01-event-bus.md) document.
 
 ### Knative Eventing chart updated to 0.8
 
@@ -124,7 +124,7 @@ In this release, we updated our bundled Knative Eventing chart to [Knative 0.8](
 
 ### Introducing Hydroform
 
-This release brings you [Hydroform](https://github.com/kyma-incubator/hydroform/blob/master/README.md ), an infrastructure SDK you can use to create and manage Kubernetes clusters provisioned on the chosen cloud provider. The idea behind Hydroform is to provide an easy way of creating infrastructure. Having a common library used across products such as Kyma CLI or Compass significantly simplifies cluster provisioning and management. Currently, Hydroform supports Google Cloud Platform and Gardener, the latter using [Terraform provider for Gardener](https://github.com/kyma-incubator/terraform-provider-gardener) to ensure smooth cluster provisioning.
+This release brings you [Hydroform](https://github.com/kyma-incubator/hydroform/blob/master/README.md), an infrastructure SDK you can use to create and manage Kubernetes clusters provisioned on the chosen cloud provider. The idea behind Hydroform is to provide an easy way of creating infrastructure. Having a common library used across products such as Kyma CLI or Compass significantly simplifies cluster provisioning and management. Currently, Hydroform supports Google Cloud Platform and Gardener, the latter using [Terraform provider for Gardener](https://github.com/kyma-incubator/terraform-provider-gardener) to ensure smooth cluster provisioning.
 
 
 ## Logging
@@ -138,7 +138,7 @@ So far, Loki came with the default [Promtail](https://github.com/grafana/loki) l
 
 ### Function Controller enhanced with new features
 
-The recent enhancements and fixes introduced to the [Function Controller](https://github.com/kyma-project/kyma/tree/master/components/function-controller) bring it even closer to become production-ready.
+The recent enhancements and fixes introduced to the [Function Controller](https://github.com/kyma-project/kyma/tree/release-1.6/components/function-controller) bring it even closer to become production-ready.
 
 ### Knative Serving updated to 0.8.1
 
@@ -164,7 +164,7 @@ See [this](https://svc-cat.io/docs/design/#service-catalog-design) document for 
 
 ### GCP Service Broker no longer in the preview mode
 
-After some time spent in the preview mode, the GCP Service Broker joins other production-ready addons that are provided in Kyma by default. For details, see [this](https://kyma-project.io/docs/components/service-catalog#service-brokers-gcp-service-broker) document.
+After some time spent in the preview mode, the GCP Service Broker joins other production-ready addons that are provided in Kyma by default. For details, see [this](https://github.com/kyma-project/kyma/blob/release-1.6/docs/service-catalog/13-02-gcp-broker.md) document.
 
 
 ## Service Mesh
