@@ -108,7 +108,7 @@ We want our documentation to be comprehensive, yet easy to follow and understand
 
 ### Added troubleshooting guide for Backup
 
-We are aware of potential issues that may occur from time to time. That's why our troubleshooting guides are there to help you. If you experience problems with Eventing after you completed the restore process, read [this](https://github.com/kyma-project/kyma/blob/release-1.6/docs/backup/10-01-restore-troubleshooting.md) guide.
+We are aware of potential issues that may occur from time to time. That's why our troubleshooting guides are there to help you. If you experience problems with Eventing after you completed the restore process, read [this](https://github.com/kyma-project/kyma/blob/release-1.6/docs/backup/10-01-restore-troubleshooting.md#eventing-not-working) guide.
 
 ## Eventing
 
