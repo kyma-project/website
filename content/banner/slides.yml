@@ -1,6 +1,6 @@
 bannerDuration: 5000
 slides:
-  - text: "Kyma adoption gets validated big time! SAP is using Kyma open source for a fully managed Kubernetes-based runtime. Learn more here!"  
+  - text: "Kyma adoption gets validated big time! SAP is now using Kyma for a fully managed Kubernetes-based runtime. Learn more here!"  
     url: "https://blogs.sap.com/?p=1098793"
     startDate: "10/05/2020"
     endDate: "19/05/2020" 
