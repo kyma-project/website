@@ -2,6 +2,7 @@ import styled, { media } from "@styled";
 
 export const Wrapper = styled.div`
   margin: 75px 0 0 0;
+  padding: 0 32px;
   display: flex;
   flex-direction: column;
 
@@ -12,27 +13,27 @@ export const Wrapper = styled.div`
 
 /* PostOnList */
 export const PostOnListWrapper = styled.article`
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s,
-    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
-  border-radius: 4px;
-  box-shadow: rgba(46, 41, 51, 0.08) 0px 1px 2px,
-    rgba(71, 63, 79, 0.08) 0px 2px 4px;
-  margin-bottom: 1.5rem;
-  padding: 3rem;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 3rem 0;
   color: rgb(81, 85, 89);
 
-  &:hover {
-    transform: translateY(-0.25rem);
-    box-shadow: 0 2px 13px 0 rgba(11, 116, 222, 0.49);
-
-    h2 {
-      color: rgb(11, 116, 222);
-    }
+  &:last-child {
+    border-bottom: none;
   }
+
+  ${media.tablet`
+    &:last-child {
+      padding-bottom: 0;
+    }
+    margin-bottom: 0;
+  `};
 `;
 
 export const PostOnListExcerpt = styled.p`
-  margin-top: ;
+  font-size: 16px;
+  color: rgb(81, 85, 89);
+  line-height: 1.57;
+  font-weight: 500;
 `;
 
 /* Post */

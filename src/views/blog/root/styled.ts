@@ -14,7 +14,6 @@ export const RSSIcon = styled.div`
   width: 3rem;
   height: 3rem;
   border-radius: 100%;
-  box-shadow: 0 1px 26px 0 rgba(137, 165, 199, 0.42);
   background: #fff;
   transition: all 0.2s linear, opacity 0.2s linear;
 

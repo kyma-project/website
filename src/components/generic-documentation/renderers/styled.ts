@@ -380,7 +380,7 @@ export const StyledMarkdown = styled.div<StyledMarkdownProps>`
     }
 
     .dc-markdown__blockquote-content {
-      display: inline-block;
+      /* display: inline-block; */
       > p {
         margin-bottom: 5px;
       }
