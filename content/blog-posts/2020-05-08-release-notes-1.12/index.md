@@ -30,7 +30,7 @@ See the overview of all changes in this release:
 
 ### Migration from API Gateway v1 to API Gateway v2
 
-With this release, we removed API Gateway v1 and made API Gateway v2 the only way to expose your services. To simplify the transition process, we introduced the [API Gateway migrator](https://github.com/kyma-project/kyma/blob/master/components/api-gateway-migrator/README.md#api-gateway-migrator) job that automatically migrates Api CRs to APIRule CRs. Although we automated the migration process, some Api CRs may be too complex to handle them automatically. To make sure all your services are exposed using API Rules, follow the instructions in the [migration guide](https://github.com/kyma-project/kyma/blob/release-1.12/docs/migration-guides/1.11-1.12.md#service-mesh).
+With this release, we removed API Gateway v1 and made API Gateway v2 the only way to expose your services. To simplify the transition process, we introduced the [API Gateway migrator](https://github.com/kyma-project/kyma/blob/release-1.12/components/api-gateway-migrator/README.md) job that automatically migrates Api CRs to APIRule CRs. Although we automated the migration process, some Api CRs may be too complex to handle them automatically. To make sure all your services are exposed using API Rules, follow the instructions in the [migration guide](https://github.com/kyma-project/kyma/blob/release-1.12/docs/migration-guides/1.11-1.12.md#service-mesh).
 
 ### Istio upgrade
 
