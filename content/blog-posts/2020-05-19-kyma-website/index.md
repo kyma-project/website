@@ -40,15 +40,15 @@ As the website expanded, we simply needed a platform that would meet the needs a
 
   - Create a release in the `kyma` repository. This triggers the rebuild of the **Docs** view and triggers a new release switcher.
 
-  ![Release switcher](./assets/release-switcher.png)
+  ![Release switcher](./release-switcher.png)
 
   - Add or remove the `Epic` label to issues (ZenHub API), the release for which the epic is planned (ZenHub API), the issue's capability label (GitHub API), or the issue title.
 
-  ![Issue labels](./assets/issue-labels.png)
+  ![Issue labels](./issue-labels.png)
 
   - Change ClusterAssetGroups that provide the structure for the left topic navigation in **Docs** and **Community**.
 
-  ![Left navigation in docs](./assets/left-navigation.png)
+  ![Left navigation in docs](./left-navigation.png)
 
 ## Custom rendering
 
@@ -58,23 +58,23 @@ To customize content rendering in some of the views, we put our own twists on th
 
 In Kyma, we render the documentation sources both on the website under the **Docs** view and as built-in documentation in the UI on every Kyma cluster. To unify the way in which it is shown in both places, we created our own React-based [documentation component](https://github.com/kyma-incubator/documentation-component) for rendering such specification formats as Markdown, OpenAPI, AsyncAPI, and OData. We use this component on the website to render Markdown and OpenAPI specifications with [custom styles](https://github.com/kyma-project/website/tree/master/src/components/generic-documentation/render-engines) applied in chosen views. The documentation component also provides the documentation toggle, right navigation and scrollspy in **Docs** and **Community** views:
 
-![Features provided by the documentation component](./assets/documentation-component.png)
+![Features provided by the documentation component](./documentation-component.png)
 
 ### React-markdown library
 
 We also wanted to customize the way we render some Markdown elements. Since Gatsby didn't support that, and we couldn't find any other tool for that, we created the [react-markdown library](https://github.com/kyma-incubator/documentation-component/tree/master/packages/markdown-render-engine) that is our wrapper for the [`react-markdown`](https://github.com/rexxars/react-markdown). We used it in **Docs**, **Blog**, and **Community** views to customize such Markdown elements as panels, or icons next to external links.
 
-![Features provided by the react-markdown library](./assets/react-markdown.png)
+![Features provided by the react-markdown library](./react-markdown.png)
 
 ### ClusterAssetGroups
 
 We even found a place for a chunk of Kubernetes implementation in our frontend. In Kyma, we use our in-house, k8s-based component [Rafter](https://kyma-project.io/docs/components/rafter/#overview-rafter-in-kyma) as a backend mechanism for uploading data for documentation topics and storing them in external buckets located in MinIO storage. Rafter is based on AssetGroup and ClusterAssetGroup custom resources (CRs) - we decided to use their structure on the website to configure the left navigation for [documentation topics](https://kyma-project.io/community/guidelines/content#add-new-documentation-to-the-website-add-new-documentation-to-the-website) in the **Docs** and **Community** views, simply by fetching content from these `.yaml` files. Each [ClusterAssetGroup](https://github.com/kyma-project/kyma/tree/master/resources/core/charts/docs/charts/content-ui/templates) is a separate node in the navigation, that our content loading tool uploads along with the source documentation and renders in the order and under the name specified in the CRs.
 
-![ClusterAssetGroups for the left navigation](./assets/ClusterAssetGroups.png)
+![ClusterAssetGroups for the left navigation](./ClusterAssetGroups.png)
 
 ## Views and their sources
 
-![Views on the website](./assets/views.png)
+![Views on the website](./views.png)
 
 Each view on the website takes its sources from a different repository.
 
@@ -92,7 +92,7 @@ Before the website build, all this content is moved to the `website` repository 
 
 Now that you know all pieces of the puzzle, let's have a look at how they fit together. The diagram and description beneath show the whole website building process triggered after merging a pull request.
 
-![Website building flow](./assets/building-process.svg)
+![Website building flow](./building-process.svg)
 
 1. When you merge your PR to the `kyma/docs`, `website` or `community` repositories, the GitHub API sends an event to the Netlify function that triggers the master build.
 
@@ -122,7 +122,7 @@ Previews are built for PRs containing changes made to any file within these repo
 
 When it comes to the building process, it looks very similar to the general flow. The only difference is that the Netlify function is not involved. Every commit on a pull request triggers the content loader straightaway which generates only the preview of the view you actually modify.
 
-![Successful preview build on a pull request](./assets/successful-preview.png)
+![Successful preview build on a pull request](./successful-preview.png)
 
 ## How and where to contribute
 
