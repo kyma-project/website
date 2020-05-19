@@ -56,7 +56,7 @@ To customize content rendering in some of the views, we put our own twists on th
 
 ### Documentation component
 
-In Kyma, we render the documentation sources both on the website under the **Docs** view and as built-in documentation in the UI on every Kyma cluster. To unify the way in which it is shown in both places, we created our own React-based [documentation component](https://github.com/kyma-incubator/documentation-component) for rendering such specification formats as Markdown, OpenAPI, AsyncAPI, and OData. We use this component on the website to render Markdown and OpenAPI specifications with [custom styles](https://github.com/kyma-project/website/tree/master/src/components/generic-documentation/render-engines) applied in chosen views. The documentation component also provides the documentation toggle, right navigation and scrollspy in **Docs** and **Community** views:
+In Kyma, we render the documentation sources both on the website under the **Docs** view and as built-in documentation in the UI on every Kyma cluster. To unify the way in which it is shown in both places, we created our own React [documentation component](https://github.com/kyma-incubator/documentation-component) for rendering such specification formats as Markdown, OpenAPI, AsyncAPI, and OData. We use this component on the website to render Markdown and OpenAPI specifications with [custom styles](https://github.com/kyma-project/website/tree/master/src/components/generic-documentation/render-engines) applied in chosen views. The documentation component also provides the documentation toggle, right navigation and scrollspy in **Docs** and **Community** views:
 
 ![Features provided by the documentation component](./documentation-component.png)
 
@@ -84,7 +84,7 @@ Each view on the website takes its sources from a different repository.
 - **Roadmap** - `capabilities` folder in the community repository for descriptions of our project areas, and GitHub issues with `Epic` and a given capability's labels for the roadmap details.
 - **Landing page** - `content` folder in the `website` repository, including the banner, and the **Used by** section with Kyma users
 
-Before the website build, all this content is moved to the `website` repository by the [content loader](https://github.com/kyma-project/website/tree/master/tools/content-loader) - our in-house TypeScript-based tool we use for fetching:
+Before the website build, all this content is moved to the `website` repository by the [content loader](https://github.com/kyma-project/website/tree/master/tools/content-loader) - our in-house TypeScript tool we use for fetching:
 - Content from various repository sources
 - Details of issues from ZenHub and GitHub APIs
 
