@@ -136,7 +136,7 @@ The contribution flow is quite simple:
 2. Create a pull request.
 3. Add content and wait for our review and approval.
 
-The fun may begin when you try to figure out where the sources of all views are. However, we hope this table clarifies it a bit and helps you to find your way through our repositories and the website structure:
+The fun may begin when you try to figure out where the sources of all views are. However, we hope this table clarifies it a bit and will help you to find your way through our repositories and the website structure:
 
 | Website view | Where? | What? | How? |
 |---|---|---|---|
