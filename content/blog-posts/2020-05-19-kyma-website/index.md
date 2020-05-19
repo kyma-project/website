@@ -10,7 +10,7 @@ redirectFrom:
   - "/blog/2020-05-19-kyma-website"
 ---
 
-Our website, just like success, has many fathers that have been maintaining it from the very day it was born - out of the burning need for a homepage for our soon-to-be-open-sourced Kyma. It evolved in time, in an agile spirit, extended with new views and features that were added when the need arose or an idea for improvement popped into our heads. As much as we love it, we realize it might seem a bit complex, especially for those who would like to contribute to it for the first time. In this post we explain which tools we decided to use, how the website is built, and where all the sources sit - all this aiming to "tame the beast" and bring it a bit closer to you.
+Our website, just like success, has many fathers maintaining it from the very first day it was born out of the burning need for a homepage for our soon-to-be-open-sourced Kyma. It evolved in time, in an agile spirit, extended with new views and features that were added when the need arose or an idea for improvement popped into our heads. As much as we love it, we realize it might seem a bit complex, especially for those who would like to contribute to it for the first time. In this post we explain which tools we decided to use, how the website is built, and where all the sources sit - all this aiming to "tame the beast" and bring it a bit closer to you.
 
 <!-- overview -->
 
