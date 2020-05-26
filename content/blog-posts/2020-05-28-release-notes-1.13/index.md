@@ -65,12 +65,13 @@ It is now possible to configure Compass so that it doesn't return Applications l
 
 Kyma CLI commands for cluster provisioning on GKE and AKS are now renamed. There are also three separate provisioning commands for Gardener. With that, the usage is more intuitive and provider-specific default values are applied for all Gardener commands. These are the available provisioning commands:
 
-`kyma provision gke`
-`kyma provision aks`
-`kyma provision gardener gcp`
-`kyma provision gardener az`
-`kyma provision gardener aws`
-
+```
+kyma provision gke
+kyma provision aks
+kyma provision gardener gcp
+kyma provision gardener az
+kyma provision gardener aws
+```
 
 ## Serverless
 
