@@ -20,7 +20,7 @@ See the overview of all changes in this release:
 - [Eventing](#eventing) - Tracing enabled within Event Mesh
 - [Compass](#compass) - Availability zones in provisioned clusters, hide Applications from Runtimes, Fetch request for API specification
 - [CLI](#cli) - Provisioning commands renamed
-- [Serverless](#serverless) - Caching enabled, improved ServiceBinding creation
+- [Serverless](#serverless) - Caching enabled, improved ServiceBinding creation, Kubeless Function CRD to be removed
 - [Backup](#backup) - Backup functionality redesigned, backup documentation provided
 
 ## Application Connector
@@ -83,9 +83,9 @@ We have significantly reduced the overall time in which Functions are built. All
 
 We also improved the way ServiceBindings are created for Function. So far, you could only create them when the Function was already running, so the order was sequential. We modified the component logic, and now it is possible to create ServiceBindings and Functions synchronously.
 
-### Kubeless Function CRD will be removed
+### Kubeless Function CRD to be removed
 
-With the next Kyma release - 1.14 - the `functions.kubeless.io` will be no longer installed with Kyma and will be removed. It is dictated by Kyma is no longer using Kubeless, and all functions are migrated to `functions.serverless.kyma-project.io`. 
+With the next Kyma release, the `functions.kubeless.io` will be removed. As Kyma no longer uses Kubeless, all functions will be migrated to `functions.serverless.kyma-project.io`. 
 
 ## Backup
 
