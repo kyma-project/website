@@ -83,6 +83,10 @@ We have significantly reduced the overall time in which Functions are built. All
 
 We also improved the way ServiceBindings are created for Function. So far, you could only create them when the Function was already running, so the order was sequential. We modified the component logic, and now it is possible to create ServiceBindings and Functions synchronously.
 
+### Kubeless Function CRD will be removed
+
+With the next Kyma release - 1.14 - the `functions.kubeless.io` will be no longer installed with Kyma and will be removed. It is dictated by Kyma is no longer using Kubeless, and all functions are migrated to `functions.serverless.kyma-project.io`. 
+
 ## Backup
 
 ### Backup functionality redesigned
