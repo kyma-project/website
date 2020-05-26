@@ -19,7 +19,7 @@ Our website, has many "fathers" who have maintained it from the very first day i
 
 When it comes to the tool we wanted to build our website with, we decided to choose a static site generator over a single-page application (SPA) to:
 - Make the development process easier by providing a set of ready-to-use plugins and templates.
-- Provide support for search engine optimization (SEO), increasing our website's visibility.
+- Provide support for search engine optimization (SEO), increasing our website's visibility in search results.
 - Ensure quick load time.
 
 Our choice fell on [Gatsby](https://www.gatsbyjs.org/), partially because it is based on React that our frontend developers were used to and particularly fond of. Gatsby also uses GraphQL to query and pull source data, and we already used it for our [Console Backend Service](https://kyma-project.io/docs/components/console/#details-console-backend-service) in Kyma for the communication between Console UI views and k8s resources.
