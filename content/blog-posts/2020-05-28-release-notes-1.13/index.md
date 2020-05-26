@@ -54,7 +54,7 @@ From now on, the Runtime Provisioner fully supports the availability zone functi
 
 It is now possible to configure Compass so that it doesn't return Applications labeled with specific labels in response to the `applicationsForRuntime` query used by Runtimes. To learn [how to hide Applications from Runtimes](https://github.com/kyma-incubator/compass/blob/master/docs/director/03-01-hide-applications-from-runtimes.md), read the documentation.
 
-### Fetch Request for API specification
+### Fetch Request for API specification
 
 [Fetch Request](https://github.com/kyma-incubator/compass/blob/master/docs/director/03-fetch-requests.md) is a type in the Director API that contains all information needed to fetch a specification from the given URL. If a Fetch Request is specified, the Director makes a synchronous call to the specified URL and downloads the specification.
 
