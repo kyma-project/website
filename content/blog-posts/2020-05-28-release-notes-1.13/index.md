@@ -93,6 +93,6 @@ In this release, we removed the Backup component from Kyma, together with the co
 
 With the new backup strategy, we provide a brand new set of corresponding documentation. Refer to it to learn:
 
-- [How to back up your volumes using on-demand volume snapshots](https://kyma-project.io/docs/1.13/root/kyma/#installation-back-up-kyma)
-- [How to create on-demand volume snapshots](https://kyma-project.io/docs/1.13/root/kyma/#tutorials-create-on-demand-volume-snapshots)
+- [How backup works for Kyma and what are the on-demand volume snapshots](https://kyma-project.io/docs/1.13/root/kyma/#installation-back-up-kyma)
+- [How to back up your volumes using on-demand volume snapshots](https://kyma-project.io/docs/1.13/root/kyma/#tutorials-create-on-demand-volume-snapshots)
 - [How to create on-demand volume snapshots for cloud providers](https://kyma-project.io/docs/1.13/root/kyma/#tutorials-create-on-demand-volume-snapshots-for-cloud-providers)
