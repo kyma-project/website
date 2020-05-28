@@ -15,7 +15,7 @@ Our website has many "fathers" who have maintained it ever since it was born out
 
 <!-- overview -->
 
-## Building tool
+## Build tool
 
 When it comes to the tool we wanted to build our website with, we decided to choose a static site generator (SSG) over a single-page application (SPA) to:
 - Make the development process easier by providing a set of ready-to-use plugins and templates.
@@ -24,11 +24,11 @@ When it comes to the tool we wanted to build our website with, we decided to cho
 
 Our choice fell on [Gatsby](https://www.gatsbyjs.org/), partly because it is based on React that our frontend developers were used to and particularly fond of. Gatsby also uses GraphQL to query and pull source data, and we already used it for our [Console Backend Service](https://kyma-project.io/docs/components/console/#details-console-backend-service) in Kyma to allow communication between Console UI views and k8s resources.
 
-In its initial version, the website was quite simple and almost solely based on the logic provided by Gatsby. Basically, we defined React components for particular views following Gatsby's tutorials and templates and used the available plugins to extend the data and content. This allowed Gatsby to pull all the data from specified Markdown sources, build, and render the content on GitHub Pages.
+In its initial version, the website was quite simple and almost solely based on the logic provided by Gatsby. Basically, we defined React components for particular views following Gatsby's tutorials and templates. We then used the available plugins to extend the data and content. This allowed Gatsby to pull all the data from specified Markdown sources, build, and render the content on GitHub Pages.
 
 ## Deployment tool
 
-Although initially we used GitHub pages to deploy and host our website, we turned to [Netlify](https://www.netlify.com/) that offers a favorable [policy plan](https://www.netlify.com/legal/open-source-policy/) for open-source projects.
+Although initially we used GitHub Pages to deploy and host our website, we turned to [Netlify](https://www.netlify.com/) that offers a favorable [policy plan](https://www.netlify.com/legal/open-source-policy/) for open-source projects.
 
 As the website expanded, we simply needed a platform that would help us to tackle the challenges ahead of us. Netlify managed to do so by offering:
 
@@ -40,7 +40,7 @@ As the website expanded, we simply needed a platform that would help us to tackl
 
   - Merge content to the `docs` folder in the `kyma` repository and to the `community` repository.
 
-  - Create a release in the `kyma` repository. This triggers the full website rebuild and adds a new release switcher in the **Docs** view.
+  - Create a release in the `kyma` repository. This triggers the full website rebuild and adds a new release switcher to the **Docs** view.
 
   ![Release switcher](./release-switcher.png)
 
@@ -48,9 +48,7 @@ As the website expanded, we simply needed a platform that would help us to tackl
 
   ![Issue labels](./issue-labels.png)
 
-  - Change the `.yaml` files that provide the structure for the left-side topic navigation in **Docs** and **Community**.
-
-  > **TIP:** Read more about these files in the [ClusterAssetGroups](#cluster-asset-groups) section.
+  - Change the `.yaml` files that provide the structure for the left-side navigation in **Docs** and **Community**. You can read more about them in the [ClusterAssetGroups](#cluster-asset-groups) section.
 
   ![Left-side navigation in docs](./left-side-navigation.png)
 
@@ -60,19 +58,19 @@ To customize content rendering in some of the views, we put our own twists on th
 
 ### Documentation component
 
-In Kyma, we render the documentation sources both on the website under the **Docs** view and as built-in documentation in the UI on every Kyma cluster. To unify the way in which it is displayed in both places, we created our own React [documentation component](https://github.com/kyma-incubator/documentation-component) to render Markdown formats and specifications such as OpenAPI, AsyncAPI, and OData. We use this component on the website to render Markdown formats and OpenAPI specifications with [custom styles](https://github.com/kyma-project/website/tree/master/src/components/generic-documentation/render-engines) applied in chosen views. The documentation component also provides tabs, copy buttons next to code snippets, and scrollspy in **Docs** and **Community** views:
+In Kyma, we render the documentation sources both on the website under the **Docs** view and as built-in documentation in the UI on every Kyma cluster. To unify the way in which it is displayed in both places, we created our own React [documentation component](https://github.com/kyma-incubator/documentation-component) to render Markdown formats and specifications such as OpenAPI, AsyncAPI, and OData. We use this component on the website to render Markdown formats and OpenAPI specifications with [custom styles](https://github.com/kyma-project/website/tree/master/src/components/generic-documentation/render-engines) applied in chosen views. The documentation component also provides tabs, copy buttons next to code snippets, and scrollspy in the **Docs** and **Community** views:
 
 ![Features provided by the documentation component](./documentation-component.png)
 
 ### React-markdown library
 
-We also wanted to customize the way we render some Markdown elements. Since Gatsby couldn't cater for all our needs, and we couldn't find any other suitable tool, we created one on our own. We needed a unified library that we could use for both the website and the cluster documentation. We came up with the [react-markdown library](https://github.com/kyma-incubator/documentation-component/tree/master/packages/markdown-render-engine) as a wrapper for the [`react-markdown`](https://github.com/rexxars/react-markdown). We used it in the **Docs**, **Blog**, and **Community** views to customize such Markdown elements as panels, or icons next to external links.
+We also wanted to customize the way we render some Markdown elements. Since Gatsby couldn't cater for all our needs, and we couldn't find any other suitable tool, we created one on our own. We needed a unified library that we could use for both the website and the cluster documentation. We came up with the [react-markdown library](https://github.com/kyma-incubator/documentation-component/tree/master/packages/markdown-render-engine) as a wrapper for [`react-markdown`](https://github.com/rexxars/react-markdown). We used it in the **Docs**, **Blog**, and **Community** views to customize such Markdown elements as panels and icons that appear next to external links.
 
 ![Features provided by the react-markdown library](./react-markdown.png)
 
 ### ClusterAssetGroups
 
-We even found a place for a chunk of Kubernetes implementation in our frontend. In Kyma, we use our in-house k8s-based component [Rafter](https://kyma-project.io/docs/components/rafter/#overview-rafter-in-kyma) as a backend mechanism for uploading data for documentation topics. Rafter is based on AssetGroup and ClusterAssetGroup custom resources (CRs) — we decided to use their structure on the website to configure the left-side navigation for [documentation topics](https://kyma-project.io/community/guidelines/content#add-new-documentation-to-the-website-add-new-documentation-to-the-website) in the **Docs** and **Community** views, simply by fetching content from these `.yaml` files. Each [ClusterAssetGroup](https://github.com/kyma-project/kyma/tree/master/resources/core/charts/docs/charts/content-ui/templates) is a separate node in the navigation. The content loader uploads the source documentation for a given topic from the path specified in the ClusterAssetGroup CR under the **filter** path. It then renders the sources in the order and under the name specified in the CRs (`rafter.kyma-project.io/order: "2"` and `displayName: "Service Catalog"` respectively). Similarly to the documentation component and the react-markdown library, we use ClusterAssetGroup CRs both on the website and for the documentation on Kyma clusters.
+We even found a place for a chunk of Kubernetes implementation in our frontend. In Kyma, we use our in-house k8s-based component [Rafter](https://kyma-project.io/docs/components/rafter/#overview-rafter-in-kyma) as a backend mechanism for uploading data for documentation topics. Rafter provides ClusterAssetGroup custom resources (CRs) that group assets — we decided to use their structure on the website to configure the left-side navigation for [documentation topics](https://kyma-project.io/community/guidelines/content#add-new-documentation-to-the-website-add-new-documentation-to-the-website) in the **Docs** and **Community** views. We did it simply by fetching the content from these `.yaml` files. Each [ClusterAssetGroup](https://github.com/kyma-project/kyma/tree/master/resources/core/charts/docs/charts/content-ui/templates) is a separate node in the navigation. The content loader uploads the source documentation for a given topic from the path specified in the ClusterAssetGroup CR under the **filter** path. It then renders the sources in the order and under the name specified in the CRs (`rafter.kyma-project.io/order: "2"` and `displayName: "Service Catalog"` respectively). Similarly to the documentation component and the react-markdown library, we use ClusterAssetGroup CRs both on the website and for the documentation on Kyma clusters.
 
 ![ClusterAssetGroups for the left-side navigation](./ClusterAssetGroups.png)
 
@@ -86,19 +84,19 @@ Each view on the website takes its sources from a different repository.
 - **Blog** — the `content/blog-post` folder in the `website` repository
 - **Community** — the `community` repository
 - **Roadmap** — the `capabilities` folder in the `community` repository for descriptions of our project areas, and GitHub issues with `Epic` and a given capability labels for the roadmap details
-- **Landing page** — `content` folder in the `website` repository, including the banner, and the **Used by** section with Kyma adopters
+- **Landing page** — the `content` folder in the `website` repository, including the banner, and the **Used by** section with Kyma adopters
 
 Before the website build, all this content is copied to the `website` repository by the [content loader](https://github.com/kyma-project/website/tree/master/tools/content-loader) — our own TypeScript tool we use for fetching:
 - Content from various repositories
 - Issue details from ZenHub and GitHub APIs
 
-## Building and deployment process
+## Build and deployment process
 
-Now that you know all the pieces of the puzzle, let's have a look at how they fit together. The diagram and description below show the whole website building process triggered after merging a PR.
+Now that you know all the pieces of our puzzle, let's have a look at how they fit together. The diagram and description below show the whole website build and deployment process, triggered after merging a PR to one of the repositories.
 
 ![Website building flow](./building-process.svg)
 
-1. Merge your PR to either the `kyma/docs` or `community` repository.
+1. Merge your PR to either the `kyma` (`docs` folder) or `community` repository.
 
 2. The GitHub API sends an event to the Netlify function that triggers the master build.
 
@@ -110,7 +108,7 @@ Now that you know all the pieces of the puzzle, let's have a look at how they fi
 
 5. Gatsby reads this content through the connected plugins and retrieves selected data, such as metadata in docs. It later transforms the data into a GraphQL schema which can be pulled by React components.
 
-6. Gatsby uses the [Node API](https://www.gatsbyjs.org/docs/node-apis/) to build particular static HTML sites from React components that use the generated GraphQL schema. It then [optimizes](https://www.gatsbyjs.org/docs/performance/) these static sites to increase their performance.
+6. Gatsby uses the [Node API](https://www.gatsbyjs.org/docs/node-apis/) to build particular static HTML sites from React components that use the generated GraphQL schema. Gatsby then [optimizes](https://www.gatsbyjs.org/docs/performance/) these static sites to increase their performance.
 
 7. Finally, Netlify deploys the static sites.
 
@@ -134,13 +132,11 @@ As for the building process, it looks very similar to the general flow. The only
 
 ## How and where to contribute
 
-When it comes to our future plans concerning the website, we have some ideas on how to improve its overall performance, simplify contribution, and introduce easy feedback options. We are also currently moving from ZenHub to GitHub projects for issue tracking and that change will require modifying the website's logic in the nearest future.
+When it comes to our future plans concerning the website, we have some ideas on how to improve its overall performance, simplify contribution, and introduce easy feedback options. We are also currently moving from ZenHub to GitHub Projects for issue tracking, and that change will require modifying the website's logic in the nearest future.
 
 We log all our ideas as [GitHub issues](https://github.com/kyma-project/website/issues) in the `website` repository — feel encouraged to do the same if an idea for improvement crosses your mind.
 
-You can also jump straight to action and add your two cents to the look and feel of `https://kyma-project.io/`.
-
-The contribution flow is quite simple:
+You can also jump straight to action and add your two cents to the look and feel of `https://kyma-project.io/`. The contribution flow is quite simple:
 
 1. [Fork](https://kyma-project.io/community/contributing/#git-workflow-git-workflow) a repo.
 2. Create a PR.
@@ -148,14 +144,14 @@ The contribution flow is quite simple:
 
 The fun may begin when you try to figure out where we keep the sources for all the views. However, don't get discouraged. The table below clarifies it all. We hope it will help you to find your way through our repositories and the website structure:
 
-| Website view | Where | What | How |
+| Website view | What | Where | How |
 |---|---|---|---|
-| **Landing page** | [`website/content/adopters/adopters.yaml`](https://github.com/kyma-project/website/blob/master/content/adopters/adopters.yaml) | Kyma adopter | Follow the [instruction](https://github.com/kyma-project/website/blob/master/docs/add-user.md) or [log and issue](https://github.com/kyma-project/website/issues/new?template=new-user-request.md) and we will add it for you. |
-| **Landing page** | [`website/content/banner/slides.yml`](https://github.com/kyma-project/website/blob/master/content/banner/slides.yml) | Banner | Follow the [instruction](https://github.com/kyma-project/website/blob/master/docs/banner-modification.md). |
-| **Docs** | [`kyma/docs`](https://github.com/kyma-project/kyma/tree/master/docs) | Document or topic | Add a document that follows one of the [templates](https://kyma-project.io/community/guidelines/templates/#document-types-templates-document-types-templates-document-types-for-kyma-components) or follow the instructions to [add a new topic](https://kyma-project.io/community/guidelines/content/#add-new-documentation-to-the-website-add-new-documentation-to-the-website). |
-| **Blogs** | [`website/content/blog-post`](https://github.com/kyma-project/website/tree/master/content/blog-posts) | Blog post | Follow the [instruction](https://github.com/kyma-project/website/blob/master/docs/write-blog-posts.md). |
-| **Community** | [`community`](https://github.com/kyma-project/community) | Document | Create a PR. |
-| **Roadmap** | All repositories | Epic | Log and issue, assign it to the proper release on GitHub, and add your [capability](https://github.com/kyma-project/community/tree/master/capabilities) and `Epic` labels. |
-| **Roadmap** | [`community/capabilities`](https://github.com/kyma-project/community/tree/master/capabilities) | Capability | Create a PR. |
+| **Landing page** | Kyma adopter | [`website/content/adopters/adopters.yaml`](https://github.com/kyma-project/website/blob/master/content/adopters/adopters.yaml) | Follow the [instruction](https://github.com/kyma-project/website/blob/master/docs/add-user.md) or [log and issue](https://github.com/kyma-project/website/issues/new?template=new-user-request.md) and we will add it for you. |
+| **Landing page** | Banner | [`website/content/banner/slides.yml`](https://github.com/kyma-project/website/blob/master/content/banner/slides.yml) | Follow the [instruction](https://github.com/kyma-project/website/blob/master/docs/banner-modification.md). |
+| **Docs** | Document or topic | [`kyma/docs`](https://github.com/kyma-project/kyma/tree/master/docs) | Add a document that follows one of the [templates](https://kyma-project.io/community/guidelines/templates/#document-types-templates-document-types-templates-document-types-for-kyma-components) or follow the instructions to [add a new topic](https://kyma-project.io/community/guidelines/content/#add-new-documentation-to-the-website-add-new-documentation-to-the-website). |
+| **Blogs** | Blog post | [`website/content/blog-post`](https://github.com/kyma-project/website/tree/master/content/blog-posts) | Follow the [instruction](https://github.com/kyma-project/website/blob/master/docs/write-blog-posts.md). |
+| **Community** | Document | [`community`](https://github.com/kyma-project/community) | Create a PR. |
+| **Roadmap** | Epic | All repositories | Log and issue, assign it to the proper release on GitHub, and add your [capability](https://github.com/kyma-project/community/tree/master/capabilities) and `Epic` labels. |
+| **Roadmap** | Capability | [`community/capabilities`](https://github.com/kyma-project/community/tree/master/capabilities) | Create a PR. |
 
-Apart from contribution, we are also open to feedback. If you have any thoughts to share or questions to ask, contact us directly on the [`#kyma-project-io`](http://slack.kyma-project.io/) Slack channel.
+Apart from contribution, we also cherish feedback. If you have any thoughts to share or questions to ask, contact us directly on the [`#kyma-project-io`](http://slack.kyma-project.io/) Slack channel.
