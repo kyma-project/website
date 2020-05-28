@@ -10,7 +10,7 @@ redirectFrom:
   - "/blog/release-notes-113"
 ---
 
-In Japanese culture, there is a concept of _kintsugi_ (金継ぎ) which can be loosely translated as "golden joinery". It assumes mending objects with gold so that they become more beautiful after the improvements. With the 1.13 Tokyo release, we follow this amazing custom and provide some golden improvements to Kyma features. This includes installation improvements in the Kyma Operator, a couple of tweaks in the brand new Serverless, and changes in the Kyma CLI command nomenclature. Apart from that, this release brings yet another set of new Compass features and redesigned backup functionality. Read on for the full story behind Kyma 1.13 Tokyo.
+In Japanese culture, there is a concept of _kintsugi_ (金継ぎ) which can be loosely translated as "golden joinery." It assumes mending objects with gold so that they become more beautiful after the improvements. With the 1.13 Tokyo release, we follow this amazing custom and provide some golden improvements to Kyma features. This includes installation improvements in the Kyma Operator, a couple of tweaks in the brand new Serverless, and changes in the Kyma CLI command nomenclature. Apart from that, this release brings yet another set of new Compass features and redesigned backup functionality. Read on for the full story behind Kyma 1.13 Tokyo.
 <!-- overview -->
 
 See the overview of all changes in this release:
@@ -59,7 +59,7 @@ It is now possible to configure Compass not to return Applications labeled with 
 
 ### Renamed provisioning commands
 
-[Kyma CLI commands](https://github.com/kyma-project/cli#commands) for cluster provisioning on GKE and AKS have been renamed. There are also three separate provisioning commands for Gardener, and provider-specific default values are applied for all the Gardener commands, making the CLI even more intuitive now. These are the available provisioning commands:
+[Kyma CLI commands](https://github.com/kyma-project/cli#commands) for cluster provisioning on GKE and AKS have been renamed. There are also three separate provisioning commands for Gardener, and provider-specific default values are applied for all the Gardener commands, making CLI even more intuitive now. These are the available provisioning commands:
 
 ```
 kyma provision gke
@@ -81,7 +81,7 @@ We also improved the way ServiceBindings are created for Function. So far, you c
 
 ### Kubeless Function CRD to be removed
 
-With the next Kyma release, the `functions.kubeless.io` CRD will be removed. As Kyma no longer uses Kubeless, all functions will be migrated to `functions.serverless.kyma-project.io`.
+With the next Kyma release, the `functions.kubeless.io` CRD will be removed. As Kyma no longer uses Kubeless, all functions will have to be manually migrated to `functions.serverless.kyma-project.io`.
 
 ## Backup
 
