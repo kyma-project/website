@@ -11,7 +11,7 @@ redirectFrom:
   - "/blog/2020-05-28-kyma-website"
 ---
 
-Our website has many "fathers" who have maintained it ever since it was born out of the burning need for a homepage for our soon-to-be-open-sourced Kyma. It has evolved in time, in an agile spirit, extended with new views and features that were added whenever the need arose or an idea for improvement popped into our heads. As much as we love it, we realize it might seem a bit complex, especially for those who contribute to it for the first time. That's why we use this post to explain which tools we decided to use, how the website is built, and where all the sources sit — all this aiming to "tame the beast" and bring it a bit closer to you.
+Our website has many "fathers" who have maintained it ever since it was born out of the burning need for a homepage for our soon-to-be-open-sourced Kyma. It has evolved in time, in an agile spirit, extended with new views and features that were added whenever the need arose or an idea for improvement popped into our heads. As much as we love it, we realize it might seem a bit complex, especially for those who contribute to it for the first time. That is why we wrote this post to explain which tools we decided to use, how the website is built, and where all the sources sit — all this aiming to "tame the beast" and bring it a bit closer to you.
 
 <!-- overview -->
 
@@ -64,13 +64,13 @@ In Kyma, we render the documentation sources both on the website under the **Doc
 
 ### New react-markdown library
 
-We also wanted to customize the way we render some Markdown elements. Since Gatsby couldn't cater for all our needs, and we couldn't find any other suitable tool, we created one on our own. We needed a unified library that we could use for both the website and the cluster documentation. We came up with the [react-markdown library](https://github.com/kyma-incubator/documentation-component/tree/master/packages/markdown-render-engine) as a wrapper for [`react-markdown`](https://github.com/rexxars/react-markdown). We used it in the **Docs**, **Blog**, and **Community** views to customize such Markdown elements as panels and icons that appear next to external links.
+We also wanted to customize the way we render some Markdown elements. Since Gatsby could not cater for all our needs, and we did not find any other suitable tool, we created one on our own. We needed a unified library that we could use for both the website and the cluster documentation. We came up with the [react-markdown library](https://github.com/kyma-incubator/documentation-component/tree/master/packages/markdown-render-engine) as a wrapper for [`react-markdown`](https://github.com/rexxars/react-markdown). We used it in the **Docs**, **Blog**, and **Community** views to customize such Markdown elements as panels and icons that appear next to external links.
 
 ![Features provided by the react-markdown library](./react-markdown.png)
 
 ### ClusterAssetGroups
 
-We even found a place for a chunk of Kubernetes implementation in our frontend. In Kyma, we use our in-house Kubernetes-based component [Rafter](https://kyma-project.io/docs/components/rafter/#overview-rafter-in-kyma) as a backend mechanism for uploading data for documentation topics. Rafter provides ClusterAssetGroup custom resources (CRs) that group assets, and we decided to use their structure on the website to configure the left-side navigation for [documentation topics](https://kyma-project.io/community/guidelines/content#add-new-documentation-to-the-website-add-new-documentation-to-the-website) in the **Docs** and **Community** views. We did it simply by fetching the content from these `.yaml` files. Each [ClusterAssetGroup](https://github.com/kyma-project/kyma/tree/master/resources/core/charts/docs/charts/content-ui/templates) is a separate node in the navigation. The content loader uploads the source documentation for a given topic from the path specified in the ClusterAssetGroup CR under the **filter** path. It then renders the sources in the order and under the name specified in the CRs (`rafter.kyma-project.io/order: "2"` and `displayName: "Service Catalog"` respectively). Similarly to the documentation component and the react-markdown library, we use ClusterAssetGroup CRs both on the website and for the documentation on Kyma clusters.
+We even found a place for a chunk of Kubernetes implementation in our frontend. In Kyma, we use our in-house Kubernetes-based component [Rafter](https://kyma-project.io/docs/components/rafter/#overview-rafter-in-kyma) as a backend mechanism for uploading data for documentation topics. Rafter provides ClusterAssetGroup custom resources (CRs) that group assets, and we decided to use their structure on the website to configure the left-side navigation for [documentation topics](https://kyma-project.io/community/guidelines/content#add-new-documentation-to-the-website-add-new-documentation-to-the-website) in the **Docs** and **Community** views. We did it simply by fetching the content from these `.yaml` files. Each [ClusterAssetGroup](https://github.com/kyma-project/kyma/tree/master/resources/core/charts/docs/charts/content-ui/templates) is a separate node in the navigation. The content loader uploads the source documentation for a given topic from the path specified in the ClusterAssetGroup CR under the **filter** path. It then renders the sources in the order and under the name specified in the CR (`rafter.kyma-project.io/order: "2"` and `displayName: "Service Catalog"` respectively). Similarly to the documentation component and the react-markdown library, we use ClusterAssetGroup CRs both on the website and for the documentation on Kyma clusters.
 
 ![ClusterAssetGroups for the left-side navigation](./ClusterAssetGroups.png)
 
@@ -86,7 +86,7 @@ Each view on the website takes its sources from a different repository.
 - **Roadmap** — the `capabilities` folder in the `community` repository for descriptions of our project areas, and GitHub issues with `Epic` and a given capability labels for the roadmap details
 - **Landing page** — the `content` folder in the `website` repository, including the banner, and the **Used by** section with Kyma adopters
 
-Before the website build, all this content is copied to the `website` repository by the [content loader](https://github.com/kyma-project/website/tree/master/tools/content-loader) — our own TypeScript tool we use for fetching content from various repositories and issue details from ZenHub and GitHub APIs.
+Before the website is built, all this content is copied to the `website` repository by the [content loader](https://github.com/kyma-project/website/tree/master/tools/content-loader) — our own TypeScript tool we use for fetching content from various repositories and getting issue details from ZenHub and GitHub APIs.
 
 ## Build and deployment process
 
@@ -112,7 +112,7 @@ Now that you know all the pieces of our puzzle, let's have a look at how they fi
 
 ## Preview
 
-Before your merge a PR and the content gets published on the Kyma website, you can preview your changes. This way you can see if the formatting of the text is correct, images fit well, and links work as expected. That is possible thanks to the [preview feature](https://kyma-project.io/community/guidelines/content#documentation-preview-documentation-preview) provided by Netlify. It attaches links to autogenerated previews of all website views to your PRs.
+Before your merge a PR and the content gets published on the Kyma website, you can preview your changes. This way you can see if the formatting of the text is correct, images fit well, and links work as expected. That is possible thanks to the [preview feature](https://kyma-project.io/community/guidelines/content#documentation-preview-documentation-preview) provided by Netlify. It attaches links to autogenerated previews of website views to your PRs.
 
 We enabled this feature for these Kyma repositories:
 
@@ -140,7 +140,7 @@ You can also jump straight to action and add your two cents to the look and feel
 2. Create a PR.
 3. Add content and wait for our review and approval.
 
-The fun may begin when you try to figure out where we keep the sources for all the views. However, don't get discouraged. The table below clarifies it all. We hope it will help you to find your way through our repositories and the website structure:
+The fun may begin when you try to figure out where we keep the sources for all the views. However, do not get discouraged. The table below clarifies it all. We hope it will help you to find your way through our repositories and the website structure:
 
 | Website view | What | Where | How |
 |---|---|---|---|
