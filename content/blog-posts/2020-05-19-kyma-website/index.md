@@ -8,7 +8,7 @@ tags:
   - gatsby
   - community
 redirectFrom:
-  - "/blog/2020-05-27-kyma-website"
+  - "/blog/2020-05-28-kyma-website"
 ---
 
 Our website has many "fathers" who have maintained it ever since it was born out of the burning need for a homepage for our soon-to-be-open-sourced Kyma. It has evolved in time, in an agile spirit, extended with new views and features that were added whenever the need arose or an idea for improvement popped into our heads. As much as we love it, we realize it might seem a bit complex, especially for those who contribute to it for the first time. That's why we use this post to explain which tools we decided to use, how the website is built, and where all the sources sit — all this aiming to "tame the beast" and bring it a bit closer to you.
@@ -20,11 +20,11 @@ Our website has many "fathers" who have maintained it ever since it was born out
 When it comes to the tool we wanted to build our website with, we decided to choose a static site generator (SSG) over a single-page application (SPA) to:
 - Make the development process easier by providing a set of ready-to-use plugins and templates.
 - Provide support for search engine optimization (SEO), increasing our website's visibility in search results.
-- Ensure quick load time.
+- Ensure a quick load time.
 
 Our choice fell on [Gatsby](https://www.gatsbyjs.org/), partly because it is based on React that our frontend developers were used to and particularly fond of. Gatsby also uses GraphQL to query and pull source data, and we already used it for our [Console Backend Service](https://kyma-project.io/docs/components/console/#details-console-backend-service) in Kyma to allow communication between Console UI views and k8s resources.
 
-In its initial version, the website was quite simple and almost solely based on the logic provided by Gatsby. Basically, we defined React components for particular views following Gatsby's tutorials and templates and used the available plugins to extend the data and content. This allowed Gatsby to pull all the data from specified Markdown sources, build, and render the content on GitHub pages.
+In its initial version, the website was quite simple and almost solely based on the logic provided by Gatsby. Basically, we defined React components for particular views following Gatsby's tutorials and templates and used the available plugins to extend the data and content. This allowed Gatsby to pull all the data from specified Markdown sources, build, and render the content on GitHub Pages.
 
 ## Deployment tool
 
@@ -32,7 +32,7 @@ Although initially we used GitHub pages to deploy and host our website, we turne
 
 As the website expanded, we simply needed a platform that would help us to tackle the challenges ahead of us. Netlify managed to do so by offering:
 
-- [Continuous deployment](https://www.netlify.com/blog/2015/09/17/continuous-deployment/) thanks to which the website is built automatically every time you commit changes to the `master` branch. With GitHub pages, we used Prow CI that we had to maintain ourselves, so we gladly moved to the one offered by Netlify.
+- [Continuous deployment](https://www.netlify.com/blog/2015/09/17/continuous-deployment/) thanks to which the website is built automatically every time you commit changes to the `master` branch. With GitHub Pages, we used Prow CI that we had to maintain ourselves, so we gladly moved to the one offered by Netlify.
 
 - [Deploy Previews](https://www.netlify.com/blog/2016/07/20/introducing-deploy-previews-in-netlify/) built on pull requests (PRs), allowing you to detect any rendering issues before PRs are merged to the `master` branch.
 
@@ -52,7 +52,7 @@ As the website expanded, we simply needed a platform that would help us to tackl
 
   > **TIP:** Read more about these files in the [ClusterAssetGroups](#cluster-asset-groups) section.
 
-  ![Left-side navigation in docs](./left-navigation.png)
+  ![Left-side navigation in docs](./left-side-navigation.png)
 
 ## Custom rendering
 
@@ -110,7 +110,7 @@ Now that you know all the pieces of the puzzle, let's have a look at how they fi
 
 5. Gatsby reads this content through the connected plugins and retrieves selected data, such as metadata in docs. It later transforms the data into a GraphQL schema which can be pulled by React components.
 
-6. Gatsby uses the [Node API](https://www.gatsbyjs.org/docs/node-apis/) to build particular static HTML sites from React components which use the generated GraphQL schema. It then [optimizes](https://www.gatsbyjs.org/docs/performance/) these static sites to increase their performance.
+6. Gatsby uses the [Node API](https://www.gatsbyjs.org/docs/node-apis/) to build particular static HTML sites from React components that use the generated GraphQL schema. It then [optimizes](https://www.gatsbyjs.org/docs/performance/) these static sites to increase their performance.
 
 7. Finally, Netlify deploys the static sites.
 
@@ -142,7 +142,7 @@ You can also jump straight to action and add your two cents to the look and feel
 
 The contribution flow is quite simple:
 
-1. Fork a repo.
+1. [Fork](https://kyma-project.io/community/contributing/#git-workflow-git-workflow) a repo.
 2. Create a PR.
 3. Add content and wait for our review and approval.
 
@@ -155,7 +155,7 @@ The fun may begin when you try to figure out where we keep the sources for all t
 | **Docs** | [`kyma/docs`](https://github.com/kyma-project/kyma/tree/master/docs) | Document or topic | Add a document that follows one of the [templates](https://kyma-project.io/community/guidelines/templates/#document-types-templates-document-types-templates-document-types-for-kyma-components) or follow the instructions to [add a new topic](https://kyma-project.io/community/guidelines/content/#add-new-documentation-to-the-website-add-new-documentation-to-the-website). |
 | **Blogs** | [`website/content/blog-post`](https://github.com/kyma-project/website/tree/master/content/blog-posts) | Blog post | Follow the [instruction](https://github.com/kyma-project/website/blob/master/docs/write-blog-posts.md). |
 | **Community** | [`community`](https://github.com/kyma-project/community) | Document | Create a PR. |
-| **Roadmap** | All repos | Epic | Log and issue, assign it to the proper release on GitHub, and add your [capability](https://github.com/kyma-project/community/tree/master/capabilities) and `Epic` labels. |
+| **Roadmap** | All repositories | Epic | Log and issue, assign it to the proper release on GitHub, and add your [capability](https://github.com/kyma-project/community/tree/master/capabilities) and `Epic` labels. |
 | **Roadmap** | [`community/capabilities`](https://github.com/kyma-project/community/tree/master/capabilities) | Capability | Create a PR. |
 
 Apart from contribution, we are also open to feedback. If you have any thoughts to share or questions to ask, contact us directly on the [`#kyma-project-io`](http://slack.kyma-project.io/) Slack channel.
