@@ -81,7 +81,7 @@ We also improved the way ServiceBindings are created for Function. So far, you c
 
 ### Kubeless Function CRD to be removed
 
-With the next Kyma release, the `functions.kubeless.io` CRD will be removed. As Kyma no longer uses Kubeless, all functions will have to be manually migrated to `functions.serverless.kyma-project.io`.
+With the next Kyma release, the `functions.kubeless.io` CRD will be removed. As Kyma no longer uses Kubeless, migrate all Functions to `functions.serverless.kyma-project.io` before you start using Kyma 1.14. Refer to the [migration guide](https://github.com/kyma-project/kyma/blob/release-1.12/docs/migration-guides/1.11-1.12.md#serverless) for more details.
 
 ## Backup
 
