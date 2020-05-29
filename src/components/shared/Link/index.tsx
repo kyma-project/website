@@ -24,28 +24,37 @@ interface LinkProps extends GatsbyLinkProps<{}> {
 
 const External: React.FunctionComponent<LinkProps & {
   externalIcon?: boolean;
+  noFollow?: boolean;
 }> = ({
   to,
   className,
   children,
   externalIcon = false,
   underline = false,
+  noFollow = false,
   ariaLabel,
   onClick,
-}) => (
-  <ExternalLink
-    href={to}
-    target="_blank"
-    rel="noopener noreferrer"
-    className={className}
-    underline={underline ? "true" : "false"}
-    onClick={onClick}
-    aria-label={ariaLabel}
-  >
-    {children}
-    {externalIcon && <Icon iconName="external-link-alt" iconPrefix="fas" />}
-  </ExternalLink>
-);
+}) => {
+  const rel = ["noopener", "noreferrer"];
+  if (noFollow) {
+    rel.push("nofollow");
+  }
+
+  return (
+    <ExternalLink
+      href={to}
+      target="_blank"
+      rel={rel.join(" ")}
+      className={className}
+      underline={underline ? "true" : "false"}
+      onClick={onClick}
+      aria-label={ariaLabel}
+    >
+      {children}
+      {externalIcon && <Icon iconName="external-link-alt" iconPrefix="fas" />}
+    </ExternalLink>
+  );
+};
 
 const Internal: React.FunctionComponent<LinkProps &
   InjectedIntlProps & { intl: { locale: KeysOfi18nConfig } }> = ({

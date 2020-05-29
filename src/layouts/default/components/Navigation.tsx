@@ -5,6 +5,7 @@ import Button from "@components/shared/Button";
 
 import Search from "./Search";
 
+import { injectIntl, IntlInterface } from "@common/i18n";
 import { resolveSocialMedia } from "@common/utils";
 import { sizes } from "@styled";
 
@@ -42,7 +43,7 @@ interface State {
   initial?: boolean;
 }
 
-class Navigation extends Component<{}, State> {
+class Navigation extends Component<IntlInterface, State> {
   state: State = {
     mobileMenuVisible: false,
     isOnMobile: false,
@@ -77,6 +78,9 @@ class Navigation extends Component<{}, State> {
     const { mobileMenuVisible, isOnMobile, initial } = this.state;
 
     const slackMedia = resolveSocialMedia("slack");
+    const slackAriaLabel = this.props.formatMessage({
+      id: "navigation.socialLinks.slack",
+    });
 
     const menuVisible = !initial
       ? false
@@ -106,13 +110,10 @@ class Navigation extends Component<{}, State> {
             </NavigationItem>
           ))}
           <NavigationItem>
-            <NavigationExtLink
-              to={slackMedia.url}
-              ariaLabel="Link to Slack channel"
-            >
+            <NavigationExtLink to={slackMedia.url} ariaLabel={slackAriaLabel}>
               <Button.Light
                 iconName={slackMedia.icon}
-                ariaLabel="Link to Slack channel"
+                ariaLabel={slackAriaLabel}
               >
                 <span>{slackMedia.name}</span>
               </Button.Light>
@@ -128,4 +129,4 @@ class Navigation extends Component<{}, State> {
   }
 }
 
-export default Navigation;
+export default injectIntl("layout")(Navigation);

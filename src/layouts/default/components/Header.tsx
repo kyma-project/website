@@ -1,8 +1,9 @@
 import React from "react";
 
-import { is } from "@styled";
 import Grid from "@styled/Grid";
 import Link from "@components/shared/Link";
+
+import { injectIntl, IntlInterface } from "@common/i18n";
 
 import Logo from "./assets/LogoSecond";
 import Navigation from "./Navigation";
@@ -16,14 +17,18 @@ interface HeaderProps {
   search?: boolean;
 }
 
-const Header: React.FunctionComponent<HeaderProps> = ({
+const Header: React.FunctionComponent<HeaderProps & IntlInterface> = ({
   horizontalBg = false,
   hiddenNav,
+  formatMessage,
 }) => (
   <HeaderWrapper horizontalBg={horizontalBg}>
     <Grid.Container>
       <GithubButtonsWrapper>
-        <Link.Internal to="/" ariaLabel="Go to main page">
+        <Link.Internal
+          to="/"
+          ariaLabel={formatMessage({ id: "header.ariaLabel" })}
+        >
           <HeaderLogo horizontalBg={horizontalBg}>
             <Logo />
           </HeaderLogo>
@@ -35,4 +40,4 @@ const Header: React.FunctionComponent<HeaderProps> = ({
   </HeaderWrapper>
 );
 
-export default Header;
+export default injectIntl("layout")(Header);

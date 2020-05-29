@@ -55,7 +55,11 @@ const AdoptersItem: React.FunctionComponent<Adopter & IntlInterface> = ({
       onDragStart={handleOnDragStart}
       cssProperties={cssProperties}
     >
-      <Link.External to={websiteUrl} ariaLabel={companyWebsiteLinkAria}>
+      <Link.External
+        to={websiteUrl}
+        ariaLabel={companyWebsiteLinkAria}
+        noFollow={true}
+      >
         <img src={logo} alt={companyLogoAlt} />
       </Link.External>
       <StyledAdoptersItemContent>{content}</StyledAdoptersItemContent>

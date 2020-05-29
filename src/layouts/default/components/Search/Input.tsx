@@ -78,12 +78,14 @@ const Input: React.FunctionComponent<Props & IntlInterface> = ({
     </TooltipContent>
   );
 
+  const ariaLabel = formatMessage({ id: "ariaLabel" });
+
   return (
     <InputWrapper
       iconName="search"
       iconPrefix="fas"
       reference={iconEl}
-      ariaLabel="Search input"
+      ariaLabel={ariaLabel}
       onClick={() => {
         focusSearch();
         if (!inputActive) {
@@ -97,7 +99,7 @@ const Input: React.FunctionComponent<Props & IntlInterface> = ({
           id="algolia-search"
           type="search"
           placeholder={formatMessage({ id: "placeholder" })}
-          aria-label={formatMessage({ id: "ariaLabel" })}
+          aria-label={ariaLabel}
           ref={inputEl}
         />
       </form>
