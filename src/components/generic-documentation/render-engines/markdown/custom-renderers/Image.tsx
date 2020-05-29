@@ -41,15 +41,20 @@ export const Image: React.FunctionComponent<ImageProps> = ({
   const srcPlaceholder = `data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}"%3E%3C/svg%3E`;
 
   return (
-    <a href={src} target="_blank" rel="noopener noreferrer">
-      <StyledImage
-        originalWidth={width}
-        originalHeight={height}
-        src={srcPlaceholder}
-        data-src={src}
-        alt={alt || src}
-        className="lazyload cms__image"
-      />
-    </a>
+    <>
+      <noscript>
+        <img src={src} alt={alt} />
+      </noscript>
+      <a href={src} target="_blank" rel="noopener noreferrer">
+        <StyledImage
+          originalWidth={width}
+          originalHeight={height}
+          src={srcPlaceholder}
+          data-src={src}
+          alt={alt}
+          className="lazyload cms__image"
+        />
+      </a>
+    </>
   );
 };

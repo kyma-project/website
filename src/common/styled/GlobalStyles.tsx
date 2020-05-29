@@ -64,4 +64,8 @@ export default createGlobalStyle`
   img.lazyloaded {
     background: transparent;
   }
+
+  .no-js img.lazyload {
+    display: none;
+  }
 `;
