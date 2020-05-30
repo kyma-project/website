@@ -62,4 +62,5 @@ export const plugins: Plugins = [
     },
   },
   rssFeed,
+  "gatsby-plugin-uninline-styles",
 ];
