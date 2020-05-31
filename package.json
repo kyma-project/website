@@ -58,7 +58,7 @@
     "@rooks/use-timeout": "^3.3.0",
     "babel-plugin-styled-components": "^1.10.0",
     "constate": "^1.0.0",
-    "gatsby": "^2.18.2",
+    "gatsby": "^2.22.15",
     "gatsby-plugin-env-variables": "^1.0.1",
     "gatsby-plugin-feed": "^2.3.2",
     "gatsby-plugin-gtag": "^1.0.11",
