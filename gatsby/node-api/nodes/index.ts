@@ -25,7 +25,7 @@ export const onCreateNode = async ({
 
   switch (node.internal.type) {
     case "MarkdownRemark": {
-      const { relativePath } = getNode(node.parent);
+      const relativePath = getNode(node.parent).relativePath as string;
 
       if (relativePath.startsWith(BLOG_POST_DIR)) {
         onCreateBlogPostNode({ node, relativePath, createNodeField });
