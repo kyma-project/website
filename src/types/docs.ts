@@ -1,3 +1,5 @@
+import { ImageSpec } from "../../gatsby/types";
+
 export type DocsType = "root" | "component";
 
 /* Docs Page Context */
@@ -57,7 +59,7 @@ export interface DocsContentDocs {
   title: string;
   type?: string;
   source: string;
-  [key: string]: any;
+  imagesSpec: ImageSpec[];
 }
 
 /* Navigation */
