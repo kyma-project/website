@@ -2,10 +2,6 @@ import { resolve } from "path";
 import { rssFeed } from "./rss-feed";
 import { Plugins } from "./types";
 
-const GA = {
-  identifier: `UA-122665881-1`,
-};
-
 export const plugins: Plugins = [
   "gatsby-plugin-react-helmet",
   {
@@ -45,7 +41,7 @@ export const plugins: Plugins = [
   {
     resolve: `gatsby-plugin-google-analytics`,
     options: {
-      trackingId: GA.identifier,
+      trackingId: "UA-122665881-1",
       anonymize: true,
       allowLinker: true,
     },
