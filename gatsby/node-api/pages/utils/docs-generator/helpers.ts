@@ -15,6 +15,11 @@ const getContent = async <T extends ContentGQL>(
             fields {
               ${additionalFields}
               slug
+              imagesSpec {
+                name
+                width
+                height
+              }
             }
             frontmatter {
               title

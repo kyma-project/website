@@ -135,7 +135,11 @@ export const GenericComponent: React.FunctionComponent<GenericComponentProps> = 
   const [title, type] = extractDataFromFirstSources(serializedSources);
 
   const RENDER_ENGINES: RenderEngines = [
-    markdownRE(layout, pageContext && pageContext.specifications),
+    markdownRE(
+      layout,
+      serializedSources,
+      pageContext && pageContext.specifications,
+    ),
     openApiRE,
   ];
   const RENDERERS: Renderers = {

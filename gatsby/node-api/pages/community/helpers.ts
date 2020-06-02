@@ -66,6 +66,7 @@ const extractFn = (
     rawMarkdownBody,
     fields: {
       docInfo: { id, type, fileName },
+      imagesSpec,
     },
     frontmatter: { title, type: docType },
   } = doc;
@@ -78,6 +79,7 @@ const extractFn = (
     order: fileName,
     title,
     source: rawMarkdownBody,
+    imagesSpec,
   };
 
   if (docType) {

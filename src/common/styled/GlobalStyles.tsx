@@ -28,7 +28,7 @@ export default createGlobalStyle`
     overflow-x: hidden;
   }
 
-  body{
+  body {
     position: relative;
   }
 
@@ -40,7 +40,7 @@ export default createGlobalStyle`
     display: none;
   }
 
-  .overlay{
+  .overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -48,5 +48,24 @@ export default createGlobalStyle`
     height: 100%;
     z-index: 10;
     background-color: rgba(0,0,0,0.5); /*dim the background*/
+  }
+
+  /* Lazysizes */
+  img.lazyload {
+    background: rgba(27, 31, 35, 0.05);
+    border-radius: 4px;
+  }
+
+  img.lazyloading {
+    background: rgba(27, 31, 35, 0.05);
+    border-radius: 4px;
+  }
+
+  img.lazyloaded {
+    background: transparent;
+  }
+
+  .no-js img.lazyload {
+    display: none;
   }
 `;

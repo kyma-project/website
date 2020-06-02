@@ -256,7 +256,7 @@ export const StyledMarkdown = styled.div<StyledMarkdownProps>`
       border: none;
     }
     img {
-      max-width: 100%;
+      margin: 16px 0;
     }
     ul:last-child,
     ol:last-child,

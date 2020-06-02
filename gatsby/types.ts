@@ -58,3 +58,9 @@ export type GraphQLFunction = <TData = any, TVariables = any>(
   errors?: any;
   data?: TData;
 }>;
+
+export interface ImageSpec {
+  name: string;
+  width: number;
+  height: number;
+}
