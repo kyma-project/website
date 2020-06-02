@@ -9,6 +9,7 @@ interface ButtonProps {
   size?: "sm" | "md";
   iconAlign?: "right" | "left";
   reference?: any;
+  ariaLabel?: string;
   [key: string]: any;
 }
 
@@ -19,9 +20,10 @@ const Button: React.FunctionComponent<ButtonProps> = ({
   iconAlign = "left",
   children,
   reference,
+  ariaLabel,
   ...otherProps
 }) => (
-  <button {...otherProps} ref={reference}>
+  <button {...otherProps} ref={reference} aria-label={ariaLabel}>
     {iconAlign === "left" && iconName ? (
       <Icon iconName={iconName} iconPrefix={iconPrefix} />
     ) : null}

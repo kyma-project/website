@@ -39,11 +39,11 @@ export const plugins: Plugins = [
     },
   },
   {
-    resolve: `gatsby-plugin-gtag`,
+    resolve: `gatsby-plugin-google-analytics`,
     options: {
       trackingId: "UA-122665881-1",
-      head: true,
       anonymize: true,
+      allowLinker: true,
     },
   },
   `gatsby-plugin-sitemap`,

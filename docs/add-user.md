@@ -11,10 +11,11 @@ Follow these steps to add information on a new Kyma user to the **Used by** sect
    Each element of the list in the `adopters.yaml` file should have the following format:
 
    ```yaml
-   - websiteUrl: { WEBSITE_URL }
-     url: { URL }
-     logo: { LOGO }
-     content: { CONTENT }
+   - websiteUrl: {WEBSITE_URL}
+     company: {COMPANY_NAME}
+     url: {URL}
+     logo: {LOGO}
+     content: {CONTENT}
      cssProperties:
         {CSS_PROPERTY}: {CSS_VALUE}
         ...
@@ -22,9 +23,10 @@ Follow these steps to add information on a new Kyma user to the **Used by** sect
 
    Replace these parameters with real values:
 
-   - `{WEBSITE_URL}` is a URL to your company's website.
-   - `{URL}` is a URL to your case study published either on your company's website or on our blog. This field is optional.
-   - `{LOGO}` is a path to your company's logo. It can be either a relative path to an image added under the `content/adopters/logos` folder in your PR or a path to an external source.
+   - `{WEBSITE_URL}` is the URL to your company's website.
+   - `{COMPANY_NAME}` is the full name of your company.
+   - `{URL}` is the URL to your case study published either on your company's website or on our blog. This field is optional.
+   - `{LOGO}` is the path to your company's logo. It can be either a relative path to an image added under the `content/adopters/logos` folder in your PR or a path to an external source.
    - `{CONTENT}` is a short description of your feelings about adopting Kyma in your company. Add only text with a maximum of 144 characters.
    - `{CSS_PROPERTY}` and `{CSS_VALUE}` are property/value pair. See [that](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Properties_Reference) and [that](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units) documents for reference. This field is optional - if not used remove the `cssProperties` key.
 
@@ -34,6 +36,7 @@ Follow these steps to add information on a new Kyma user to the **Used by** sect
 
    ```yaml
    - websiteUrl: "https://company.com"
+     company: "Company"
      url: "https://company.com/blog/kyma-rocks"
      logo: "./logos/company.svg"
      content: "Kyma rocks!"
@@ -43,6 +46,7 @@ Follow these steps to add information on a new Kyma user to the **Used by** sect
 
    ```yaml
    - websiteUrl: "https://company.com"
+     company: "Company"
      logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg"
      content: "Kyma rocks!"
    ```

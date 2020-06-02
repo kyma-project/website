@@ -54,7 +54,12 @@
     "headline": "Used by",
     "paragraph": "Discover what our happy users have to say about their experience with Kyma.",
     "readMoreLink": "Read More",
-    "addYourCompany": "Add your company"
+    "addYourCompany": "Add your company",
+    "accessibility": {
+      "companyLogo": "{company} logo",
+      "linkToCompanyWebsite": "Link to {company} website",
+      "linkToCompanyCaseStudy": "Link to {company} case study"
+    }
   },
   "newsroom": {
     "headline": "Newsroom",

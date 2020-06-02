@@ -9,6 +9,7 @@ export interface LandingPageContext {
 
 export interface Adopter {
   websiteUrl: string;
+  company: string;
   url?: string;
   cssProperties?: CSSProp;
   logo: string;

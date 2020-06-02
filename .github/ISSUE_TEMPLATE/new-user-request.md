@@ -12,6 +12,11 @@ Thank you for your contribution! Follow the comments for instructions or read th
 Add the URL to your company's website.
 -->
 
+**company:**
+<!--
+Add the name of your company.
+-->
+
 **url:**
 <!--
 Add the URL to your case study published either on your company's website or on our blog. This field is optional.

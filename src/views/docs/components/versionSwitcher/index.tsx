@@ -32,12 +32,17 @@ const VersionSwitcher: FunctionComponentIntl<VersionSwitcherProps> = ({
     });
     navigate(path);
   };
+  const htmlID = "docs-version";
 
   return (
     <Wrapper>
-      <Label>{formatMessage({ id: "version" })}:</Label>
+      <Label htmlFor={htmlID}>{formatMessage({ id: "version" })}:</Label>
       <SelectWrapper>
-        <VersionSelect onChange={changeDocsVersion} defaultValue={version}>
+        <VersionSelect
+          id={htmlID}
+          onChange={changeDocsVersion}
+          defaultValue={version}
+        >
           {Object.keys(versions).map((key: string, id: number) => (
             <optgroup key={key} label={formatMessage({ id: key })}>
               {(versions as any)[key].map((element: string, index: number) => {

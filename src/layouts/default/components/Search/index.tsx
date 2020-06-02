@@ -6,13 +6,14 @@ import Button from "@components/shared/Button";
 import Input from "./Input";
 
 import { ALGOLIA } from "@common/constants";
+import { injectIntl, IntlInterface } from "@common/i18n";
 import { isDevelopmentMode, isProductionMode } from "@common/utils";
 
 import { AlgoliaWrapper } from "./styled";
 
 let search: any;
 
-const Search: React.FunctionComponent = () => {
+const Search: React.FunctionComponent<IntlInterface> = ({ formatMessage }) => {
   const [initial, setInitial] = useState<boolean>(false);
   const [loadedAlgolia, setLoadedAlgolia] = useState<boolean>(false);
 
@@ -97,12 +98,14 @@ const Search: React.FunctionComponent = () => {
     loadAlgolia();
   }, []);
 
+  const ariaLabel = formatMessage({ id: "ariaLabel" });
+
   return (
     <AlgoliaWrapper>
-      <Button.Light iconName="search" iconPrefix="fas" />
+      <Button.Light iconName="search" iconPrefix="fas" ariaLabel={ariaLabel} />
       <Input search={search} />
     </AlgoliaWrapper>
   );
 };
 
-export default Search;
+export default injectIntl("search")(Search);
