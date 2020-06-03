@@ -19,8 +19,14 @@ function unlineGlobalStyles({
   const transformedHeadComponents = headComponents.map((node: any) => {
     // inline global style produces by GatsbyJS
     if (node.type === "style" && node.props["data-href"]) {
+      let loaded = false;
       return (
-        <link href={node.props["data-href"]} rel="stylesheet" type="text/css" />
+        <link
+          href={node.props["data-href"]}
+          as="style"
+          onLoad={_ => (loaded = true)}
+          rel={loaded ? "stylesheet" : "preload"}
+        />
       );
       // remove global style produces by TypographyJS - we do it ourselves
     }
