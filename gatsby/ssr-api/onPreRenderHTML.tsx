@@ -2,10 +2,10 @@ import React from "react";
 import { PreRenderHTMLArgs } from "gatsby";
 
 export const onPreRenderHTML = (args: PreRenderHTMLArgs): any => {
-  unlineGlobalStyles(args);
+  unInlineGlobalStyles(args);
 };
 
-function unlineGlobalStyles({
+function unInlineGlobalStyles({
   getHeadComponents,
   replaceHeadComponents,
 }: PreRenderHTMLArgs) {
