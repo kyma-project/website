@@ -28,8 +28,8 @@ function unlineGlobalStyles({
           rel={loaded ? "stylesheet" : "preload"}
         />
       );
-      // remove global style produces by TypographyJS - we do it ourselves
     }
+    // remove global style produces by TypographyJS - we do it ourselves
     if (node.props.id !== "typography.js") {
       return node;
     }
