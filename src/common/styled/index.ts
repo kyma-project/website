@@ -6,7 +6,6 @@ import media, { sizes, is } from "./media";
 const {
   default: styled,
   css,
-  createGlobalStyle,
   keyframes,
   ThemeProvider,
   withTheme,
@@ -18,7 +17,6 @@ type ThemeProps<P> = styledComponents.ThemedStyledProps<P, Theme>;
 
 export {
   css,
-  createGlobalStyle,
   keyframes,
   ThemeProvider,
   withTheme,

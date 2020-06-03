@@ -4,7 +4,6 @@ import { LocationProvider } from "@reach/router";
 
 import { ThemeProvider } from "@styled";
 import { lightTheme } from "@styled/theme";
-import GlobalStyles from "@styled/GlobalStyles";
 
 import { IntlProvider } from "@common/i18n";
 import { default as PopupService } from "@common/state/usePopup";
@@ -18,7 +17,6 @@ export const RootWrapper: React.FunctionComponent = ({ children }) => (
       <IntlProvider>
         <ThemeProvider theme={lightTheme}>
           <div id="kyma-project-io-wrapper">
-            <GlobalStyles />
             <PopupService.Provider>
               <ModalProvider>{children}</ModalProvider>
               <Popup />
