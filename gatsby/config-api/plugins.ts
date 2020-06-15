@@ -56,9 +56,18 @@ export const plugins: Plugins = [
     },
   },
   {
-    resolve: "gatsby-plugin-robots-txt",
+    // resolve: "gatsby-plugin-robots-txt",
+    resolve: "@kyma-project-robots-txt-plugin",
     options: {
-      policy: [{ userAgent: "*", allow: "/docs/latest/", disallow: "/docs/" }],
+      policy: [
+        { userAgent: "*", allow: "/docs/latest/", disallow: "/docs/" },
+        {
+          userAgent: "OtherBot",
+          allow: ["/allow-for-all-bots", "/allow-only-for-other-bot"],
+          disallow: ["/admin", "/login"],
+          crawlDelay: 2,
+        },
+      ],
     },
   },
   rssFeed,
