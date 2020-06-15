@@ -76,9 +76,7 @@ exports.onPostBuild = async function onPostBuild({ graphql }, pluginOptions) {
     mergedOptions.sitemap = url.resolve(siteUrl, "sitemap.xml");
   }
 
-  const { sitemap, host, output, configFile, policy } = mergedOptions;
-
-  console.log(policy);
+  const { sitemap, host, output, configFile } = mergedOptions;
 
   const distintDocs = await runQuery(
     graphql,
@@ -91,26 +89,24 @@ exports.onPostBuild = async function onPostBuild({ graphql }, pluginOptions) {
   );
 
   const docsVersions = distintDocs.allDirectory.distinct
-    .map(elem => elem.slice(5))
-    .filter(elem => elem !== "master")
+    .map(elem => elem.slice(5)) // chops off "docs/" part
+    .filter(elem => elem !== "master") // special case
     .map(Number)
-    .sort((a, b) => a < b);
+    .sort((a, b) => b - a);
 
-  console.log(Math.max(...docsVersions));
-
-  const policies = [
+  const policy = [
     {
       userAgent: "*",
       allow: ["/docs/"],
       disallow: [
         "/docs/master",
-        ...docsVersions.slice(1).map(version => `/docs/${version}`),
+        ...docsVersions.slice(1).map(version => `/docs/${version}/`),
       ],
     },
   ];
 
   const content = await robotsTxt({
-    policies,
+    policy,
     sitemap,
     host,
     configFile,
