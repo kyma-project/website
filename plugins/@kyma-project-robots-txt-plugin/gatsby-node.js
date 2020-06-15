@@ -94,12 +94,23 @@ exports.onPostBuild = async function onPostBuild({ graphql }, pluginOptions) {
     .map(elem => elem.slice(5))
     .filter(elem => elem !== "master")
     .map(Number)
-    .sort((a, b) => a > b);
+    .sort((a, b) => a < b);
 
-  console.log(docsVersions);
+  console.log(Math.max(...docsVersions));
+
+  const policies = [
+    {
+      userAgent: "*",
+      allow: ["/docs/"],
+      disallow: [
+        "/docs/master",
+        ...docsVersions.slice(1).map(version => `/docs/${version}`),
+      ],
+    },
+  ];
 
   const content = await robotsTxt({
-    policy,
+    policies,
     sitemap,
     host,
     configFile,
