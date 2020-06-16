@@ -100,7 +100,7 @@ exports.onPostBuild = async function onPostBuild({ graphql }, pluginOptions) {
       allow: ["/docs/"],
       disallow: [
         "/docs/master/",
-        ...docsVersions.slice(1).map(version => `/docs/${version}/`),
+        ...docsVersions.map(version => `/docs/${version}/`),
       ],
     },
   ];
