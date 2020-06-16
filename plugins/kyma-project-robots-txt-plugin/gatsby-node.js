@@ -88,20 +88,13 @@ exports.onPostBuild = async function onPostBuild({ graphql }, pluginOptions) {
 `,
   );
 
-  const docsVersions = distintDocs.allDirectory.distinct
-    .map(elem => elem.slice(5)) // chops off "docs/" part
-    .filter(elem => elem !== "master") // special case
-    .map(Number)
-    .sort((a, b) => b - a);
-
   const policy = [
     {
       userAgent: "*",
       allow: ["/docs/"],
-      disallow: [
-        "/docs/master/",
-        ...docsVersions.map(version => `/docs/${version}/`),
-      ],
+      disallow: distintDocs.allDirectory.distinct.map(
+        version => `/${version}/`,
+      ),
     },
   ];
 
