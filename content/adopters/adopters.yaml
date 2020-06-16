@@ -6,11 +6,6 @@ adopters:
     content: "The SAP Cloud Platform Extension Factory, Kyma runtime will provide developers with the open source project Kyma"
     cssProperties:
       padding: 8px 0
- - websiteUrl: "https://softicious.com/"
-    company: "Softicious"
-    url: "https://softicious.com"
-    logo: "./logos/softicious.svg"
-    content: "Kyma enables us to extend and customize a unique customer experience."      
   - websiteUrl: "https://netconomy.net/"
     company: "Netconomy"
     url: "https://kyma-project.io/blog/2019/12/20/netconomy-use-case"
@@ -45,4 +40,9 @@ adopters:
     company: "dotSource"
     url: "https://www.dotsource.de/sap-c4hana/"
     logo: "./logos/dotsource.svg"  
-    content: "Kyma allows us to extend our SAP CX solutions with scalable and decoupled microservices which keeps them neat and updatable." 
+    content: "Kyma allows us to extend our SAP CX solutions with scalable and decoupled microservices which keeps them neat and updatable."
+  - websiteUrl: "https://softicious.com/"
+    company: "Softicious"
+    url: "https://softicious.com"
+    logo: "./logos/softicious.svg"  
+    content: "Kyma enables us to extend and customize a unique customer experience."
