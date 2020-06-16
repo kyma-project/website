@@ -55,20 +55,6 @@ export const plugins: Plugins = [
       whitelist: ["GOOGLE_CSE", "ALGOLIA_API_KEY", "ALGOLIA_INDEX_NAME"],
     },
   },
-  {
-    // resolve: "gatsby-plugin-robots-txt",
-    resolve: "@kyma-project-robots-txt-plugin",
-    options: {
-      policy: [
-        { userAgent: "*", allow: "/docs/latest/", disallow: "/docs/" },
-        {
-          userAgent: "OtherBot",
-          allow: ["/allow-for-all-bots", "/allow-only-for-other-bot"],
-          disallow: ["/admin", "/login"],
-          crawlDelay: 2,
-        },
-      ],
-    },
-  },
+  "kyma-project-robots-txt-plugin",
   rssFeed,
 ];
