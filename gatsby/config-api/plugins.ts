@@ -1,5 +1,6 @@
 import { resolve } from "path";
-import { rssFeed } from "./rss-feed";
+import { rssFeedPlugin } from "./rss-feed";
+import { sitemapPlugin } from "./sitemap";
 import { Plugins } from "./types";
 
 export const plugins: Plugins = [
@@ -46,7 +47,6 @@ export const plugins: Plugins = [
       allowLinker: true,
     },
   },
-  `gatsby-plugin-sitemap`,
   `gatsby-plugin-netlify`,
   `gatsby-plugin-netlify-cache`,
   {
@@ -56,5 +56,6 @@ export const plugins: Plugins = [
     },
   },
   "kyma-project-robots-txt-plugin",
-  rssFeed,
+  sitemapPlugin,
+  rssFeedPlugin,
 ];
