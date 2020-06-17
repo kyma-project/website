@@ -33,18 +33,19 @@ export const sitemapPlugin = {
             }
           }
         }
-        allDirectory(filter: { relativePath: { glob: "docs/*" } }) {
-          distinct(field: relativePath)
-        }
       }
     `,
     serialize: ({ site, allSitePage, allDirectory }: QueryResult) => {
       let siteUrl = site.siteMetadata && site.siteMetadata.siteUrl;
       siteUrl = siteUrl || "";
-      const docsVersions = allDirectory.distinct;
 
       return allSitePage.edges
-        .filter(edge => !docsVersions.some(v => edge.node.path.includes(v)))
+        .filter(edge => {
+          if (edge.node.path.includes("/docs")) {
+            return edge.node.path.includes("/docs/latest");
+          }
+          return true;
+        })
         .map(edge => ({
           url: `${siteUrl}${edge.node.path}`,
           changefreq: `daily`,

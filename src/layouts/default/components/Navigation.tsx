@@ -20,7 +20,7 @@ import {
 
 const navigation = [
   {
-    path: "/docs/",
+    path: "/docs/latest/",
     title: "Docs",
   },
   {
