@@ -25,7 +25,12 @@ const createWebsitePages = async ({
   await createLandingPages({ graphql, createPage, createRedirect });
   await createPageNotFound({ createPage, createRedirect });
   await createBlogPages({ graphql, createPage, createRedirect });
-  await createDocsPages({ graphql, createPage, buildFor: BuildFor.WEBSITE });
+  await createDocsPages({
+    graphql,
+    createPage,
+    createRedirect,
+    buildFor: BuildFor.WEBSITE,
+  });
   await createCommunityPages({
     graphql,
     createPage,
@@ -49,7 +54,12 @@ const createWebsitePreviewPages = async ({
     createRedirect,
     options: { numberOfLatestPosts: 4 },
   });
-  await createDocsPages({ graphql, createPage, buildFor: BuildFor.WEBSITE });
+  await createDocsPages({
+    graphql,
+    createPage,
+    createRedirect,
+    buildFor: BuildFor.WEBSITE,
+  });
   await createCommunityPages({
     graphql,
     createPage,
@@ -68,6 +78,7 @@ const createDocsPreviewPages = async ({
   await createDocsPages({
     graphql,
     createPage,
+    createRedirect,
     buildFor: BuildFor.DOCS_PREVIEW,
   });
 };

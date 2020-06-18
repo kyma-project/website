@@ -9,18 +9,24 @@ import {
   preparePreviewPaths,
 } from "./helpers";
 import { DocsNavigation } from "../utils";
-import { CreatePageFn, GraphQLFunction } from "../../../types";
+import {
+  CreatePageFn,
+  CreateRedirectFn,
+  GraphQLFunction,
+} from "../../../types";
 import { BuildFor } from "../../../../src/types/common";
 
 export interface CreateDocsPages {
   graphql: GraphQLFunction;
   createPage: CreatePageFn;
+  createRedirect: CreateRedirectFn;
   buildFor: BuildFor;
 }
 
 export const createDocsPages = async ({
   graphql,
   createPage: createPageFn,
+  createRedirect,
   buildFor,
 }: CreateDocsPages) => {
   const preparePaths =
@@ -86,6 +92,7 @@ export const createDocsPages = async ({
         const createPage = createDocsPage(createPageFn, context);
         createComponentDocsPage({
           createPage,
+          createRedirect,
           context,
           path: pagePath,
           rootPath: rootPagePath,
