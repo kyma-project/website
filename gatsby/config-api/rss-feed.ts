@@ -29,7 +29,7 @@ interface QueryType {
   };
 }
 
-export const rssFeed = {
+export const rssFeedPlugin = {
   resolve: `gatsby-plugin-feed`,
   options: {
     query: `
