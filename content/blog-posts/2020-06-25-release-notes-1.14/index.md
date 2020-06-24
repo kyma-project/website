@@ -19,7 +19,7 @@ After a stop in the Land of Cherry Blossom, we set a course for the Old Continen
 See the overview of all changes in this release:
 
 - [Known issues](#known-issues) - The `knative-eventing` Namespace must be manually deleted
-- [Fixed security vulnerabilities](#fixed-security-vulnerabilities) - GQL subscriptions don't support directives in Console Backend Service
+- [Fixed security vulnerabilities](#fixed-security-vulnerabilities) - GQL subscriptions don't support the authorization annotation
 - [Application Connector](#application-connector) - Application Operator now uses Helm 3
 - [CLI](#cli) - Windows installation
 - [Compass](#compass) - Runtime Provisioner integrated with Helm 3, monitoring for Runtime Provisioner, error handling in Director
@@ -35,7 +35,7 @@ The `knative-eventing` Namespace is not automatically deleted after you uninstal
 
 ## Fixed security vulnerabilities
 
-Before Ulm 1.14, Console Backend Service (CBS) had a medium security vulnerability as the authorization directive was not executed when CBS handled subscription requests. As a result, there was no verification to check if the user subscribing to an event had sufficient permissions to access a given resource. We fixed it by adding the `@HasAccess` directive and upgrading gqlgen in CBS to v0.11.3 that finally supports this directive. For details, see [issue 3412](https://github.com/kyma-project/kyma/issues/3412), [PR 8620](https://github.com/kyma-project/kyma/pull/8620) and [PR 8676](https://github.com/kyma-project/kyma/pull/8676).
+- GQL subscriptions don't support the authorization annotation - [Issue #3412](https://github.com/kyma-project/kyma/issues/3412) - **Medium** - [PR #8676](https://github.com/kyma-project/kyma/pull/8676)
 
 ## Application Connector
 
