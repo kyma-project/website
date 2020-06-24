@@ -53,7 +53,7 @@ CLI can now be installed on Windows easily using [Chocolatey](https://chocolatey
 
 ### Runtime Provisioner integrated with Helm 3
 
-Runtime Provisioner is now compliant with all Helm 3-based installations of Runtimes. This means there will be no Tiller on new clusters. If you prefer to have an older version of Kyma on your cluster, specify your version of choice in the [provisioning mutation](https://kyma-project.io/docs/1.14/components/compass/#tutorials-provision-clusters-through-gardener). This way, Runtime Provisioner will be installed from the chosen release that contains the Tiller deployment.
+Runtime Provisioner is now compliant with all Helm 3-based installations of Runtimes. This means there will be no Tiller on new clusters. If you prefer to have an older version of Kyma on your cluster, specify your version of choice in the [provisioning mutation](https://kyma-project.io/docs/1.14/components/compass/#tutorials-provision-clusters-through-gardener). This way Kyma deployment will be installed on a cluster from the chosen release that contains the Tiller deployment.
 
 ### Monitoring for Runtime Provisioner
 
