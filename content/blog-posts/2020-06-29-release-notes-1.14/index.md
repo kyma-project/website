@@ -87,7 +87,7 @@ The Eventing component and all of its charts (`knative-eventing`, `event-sources
 
 ### Kyma Operator now uses Helm 3
 
-Kyma Operator now uses Helm 3 under the hood, making the upgrade from 1.13 to 1.14 smooth and automatic. For more details on the migration process, see the [Migration Guide](https://github.com/kyma-project/kyma/blob/release-1.14/docs/migration-guides/1.13-1.14.md). If you want to learn more about Helm 3 itself, read the official [Helm documentation](https://helm.sh/docs/topics/v2_v3_migration/).
+Kyma Operator now uses Helm 3 under the hood. Upgrade from 1.13 to 1.14 is smooth and automatic. For more details on the migration process, see the [Migration Guide](https://github.com/kyma-project/kyma/blob/release-1.14/docs/migration-guides/1.13-1.14.md). If you want to learn more about Helm 3 itself, read the official [Helm documentation](https://helm.sh/docs/topics/v2_v3_migration/).
 
 ## Monitoring
 
