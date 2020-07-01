@@ -21,7 +21,7 @@ See the overview of all changes in this release:
 - [Known issues](#known-issues) - The `knative-eventing` Namespace must be manually deleted
 - [Fixed security vulnerabilities](#fixed-security-vulnerabilities) - GraphQL subscriptions don't support the authorization annotation
 - [Application Connector](#application-connector) - Application Operator now uses Helm 3
-- [CLI](#cli) - Windows installation with Chocolatey
+- [CLI](#cli) - Windows installation with Chocolatey, Helm setup removed, improved usability of the install command, install command supports the component list, install command supports Git revisions, CLI usage in Kyma documentation
 - [Compass](#compass) - Compass separated from the Kyma installation, Runtime Provisioner integrated with Helm 3, monitoring for the Runtime Provisioner, error handling in the Director
 - [Console](#console) - Improved view with Namespace details, Console is no longer a core module
 - [Eventing](#eventing) - Eventing installation tweaks
@@ -48,6 +48,26 @@ Application Operator now uses Helm 3 to deploy its underlying components, Event 
 ### Windows installation with Chocolatey
 
 CLI can now be installed on Windows easily using [Chocolatey](https://chocolatey.org/). All you need to do is run `choco install kyma-cli`.
+
+### Helm setup removed
+
+[Kyma Operator](#installation) is now based on Helm 3. This means that Helm no longer uses specific certificates to communicate with the cluster. As a result, this configuration step was removed from the CLI `install` command.
+
+### Improved usability of the install command
+
+We redesigned the `install` command to make the Kyma installation process run smoothly, even if you encounter any interruptions on the way. When you call the `install` command, the system first detects if there is any installation process running. If there is one, it does not override it but resumes watching the installation progress instead and prints out its status.
+
+### install command supports the component list
+
+The `install` command has the new `--components` flag which you can use to define the list of components you want to install. You must provide a path to the YAML file that either contains the full [Installation custom resource](https://kyma-project.io/docs/#custom-resource-installation) configuration or just the components list.
+
+### install command supports Git revisions
+
+You can now specify the Kyma installation source by passing a Git revision number. To do so, call `kyma install --source={COMMIT_NUMBER}`, such as `kyma install --source=34edf09a`.
+
+### CLI usage in Kyma documentation
+
+We unified Kyma documentation and made sure all installation instructions include only CLI commands for cluster provisioning, Kyma installation, and testing.
 
 ## Compass
 
