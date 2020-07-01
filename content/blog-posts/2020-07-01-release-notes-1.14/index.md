@@ -24,7 +24,7 @@ See the overview of all changes in this release:
 - [CLI](#cli) - Windows installation with Chocolatey
 - [Compass](#compass) - Runtime Provisioner integrated with Helm 3, monitoring for the Runtime Provisioner, error handling in the Director
 - [Console](#console) - Improved view with Namespace details, Console is no longer a core module
-- [Eventing](#eventing) - Eventing charts compatible with Helm 3
+- [Eventing](#eventing) - Eventing installation tweaks
 - [Installation](#installation) - Kyma Operator uses Helm 3
 - [Monitoring](#monitoring) - Grafana upgraded
 - [Serverless](#serverless) - Serverless migrated to bare-metal Kubernetes resources, new Function CRD validation, `functions.kubeless.io` CRD removed
@@ -79,9 +79,9 @@ Console UI was moved together with its backend API out of the `core` chart to it
 
 ## Eventing
 
-### Eventing charts compatible with Helm 3
+### Eventing installation tweaks
 
-The Eventing component and all of its charts (`knative-eventing`, `event-sources`, `knative-eventing-kafka`, `nats-streaming`, and `knative-provisioner-nats`) are now Helm 3-compatible and can be installed independently as a standalone `kyma-eventing` cluster. We also made sure that all Eventing charts are uninstalled smoothly and all related custom resources are cleaned up. To uninstall the Eventing component, simply run `helm delete {EVENTING_CHART_NAME}`.
+Apart from being compatible with Helm3, we now also support uninstallation and parallel installation of Eventing charts with Helm. When uninstalling the charts, we bring your cluster back to its original state by cleaning up all Eventing-related CustomResourceDefinitions and their corresponding control plane components, like Eventing Controllers and Knative Eventing. To uninstall the whole Eventing component, simply run `helm delete {EVENTING_CHART_NAME}`. When it comes to parallel installation, all Eventing charts (`knative-eventing`, `event-sources`, `knative-eventing-kafka`, `nats-streaming`, and `knative-provisioner-nats`) can now be installed concurrently. This change introduces out-of-the-box resiliency to the installation process - by installing all bits and pieces alongside their dependencies, you significantly raise the chances of having a healthy Eventing system on your cluster.
 
 ## Installation
 
