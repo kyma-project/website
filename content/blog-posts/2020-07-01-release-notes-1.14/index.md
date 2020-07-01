@@ -53,7 +53,7 @@ CLI can now be installed on Windows easily using [Chocolatey](https://chocolatey
 
 ### Compass separated from the Kyma installation
 
-Since this release, Compass is no longer an integral part of the Kyma installation. However, Kyma still connects to Compass through the [Runtime Agent](https://kyma-project.io/docs/1.14/components/runtime-agent/). From now on, if you want to use Compass, simply enable the Runtime Agent before the Kyma installation and [install Compass](https://github.com/kyma-incubator/compass#installation) additionally afterward.
+Since this release, Compass is no longer an integral part of the Kyma installation. However, Kyma still connects to Compass through the [Runtime Agent](https://kyma-project.io/docs/1.14/components/runtime-agent/). From now on, if you want to use Compass, first [install Kyma with the Runtime Agent](https://kyma-project.io/docs/1.14/components/runtime-agent#installation-installation) and then [install Compass](https://github.com/kyma-incubator/compass#installation) separately.
 
 ### Runtime Provisioner integrated with Helm 3
 
