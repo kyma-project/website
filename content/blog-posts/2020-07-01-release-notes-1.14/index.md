@@ -22,7 +22,7 @@ See the overview of all changes in this release:
 - [Fixed security vulnerabilities](#fixed-security-vulnerabilities) - GraphQL subscriptions don't support the authorization annotation
 - [Application Connector](#application-connector) - Application Operator now uses Helm 3
 - [CLI](#cli) - Windows installation with Chocolatey
-- [Compass](#compass) - Runtime Provisioner integrated with Helm 3, monitoring for the Runtime Provisioner, error handling in the Director
+- [Compass](#compass) - Compass separated from the Kyma installation, Runtime Provisioner integrated with Helm 3, monitoring for the Runtime Provisioner, error handling in the Director
 - [Console](#console) - Improved view with Namespace details, Console is no longer a core module
 - [Eventing](#eventing) - Eventing installation tweaks
 - [Installation](#installation) - Kyma Operator uses Helm 3
@@ -50,6 +50,10 @@ Application Operator now uses Helm 3 to deploy its underlying components, Event 
 CLI can now be installed on Windows easily using [Chocolatey](https://chocolatey.org/). All you need to do is run `choco install kyma-cli`.
 
 ## Compass
+
+### Compass separated from the Kyma installation
+
+Since this release, Compass is no longer an integral part of the Kyma installation. However, Kyma still connects to Compass through the [Runtime Agent](https://kyma-project.io/docs/1.14/components/runtime-agent/). From now on, if you want to use Compass, simply enable the Runtime Agent before the Kyma installation and [install Compass](https://github.com/kyma-incubator/compass#installation) additionally afterwards.
 
 ### Runtime Provisioner integrated with Helm 3
 
