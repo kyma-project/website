@@ -63,7 +63,7 @@ The `install` command has the new `--components` flag which you can use to defin
 
 ### install command supports Git revisions
 
-You can now specify the Kyma installation source by passing a Git revision number. To do so, call `kyma install --source={ID}`. For example, use `kyma install --source=34edf09a`.
+You can now specify the Kyma installation source by passing a Git revision number. To do so, call `kyma install --source={COMMIT-ID}`. For example, use `kyma install --source=34edf09a`.
 
 ### CLI usage in Kyma documentation
 
