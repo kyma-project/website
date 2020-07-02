@@ -10,7 +10,7 @@ redirectFrom:
   - "/blog/release-notes-114"
 ---
 
-After a stop in the Land of Cherry Blossoms, we set a course for the Old Continent and the German city of Ulm. Such sudden changes of directions followed by long and challenging journeys are not entirely metaphorical when you think of Kyma, let alone this release. Ulm 1.14 was dominated by the leitmotif of Helm 3. We made our best efforts to ensure all our components are compatible with Helm 3, removing Tiller and related security vulnerabilities. As for the "twists and turns" part, Serverless underwent yet another transformation, this time switching from Knative Serving to pure Kubernetes resources. In addition to that, we bet once again on improving UX by enriching the Namespace details view in the Console UI, and introducing the new Runtime Provisioner dashboard, followed by the upgrade of the monitoring tool itself. Although extensive, this overview is not exhaustive at all. Keep on reading for a complete list of features brought to you by Ulm 1.14.
+After a stop in the Land of Cherry Blossoms, we set a course for the Old Continent and the German city of Ulm. Such sudden changes of directions followed by long and challenging journeys are not entirely metaphorical when you think of Kyma, let alone this release. Ulm 1.14 was dominated by the leitmotif of Helm 3. We made our best efforts to ensure all our components are compatible with Helm 3, removing Tiller and related security vulnerabilities. As for the "twists and turns" part, Serverless underwent yet another transformation, this time switching from Knative Serving to pure Kubernetes resources. In addition to that, we bet once again on improving UX by enriching the Namespace details view in the Console UI and introducing the new Runtime Provisioner dashboard, followed by the upgrade of the monitoring tool itself. Although extensive, this overview is not exhaustive at all. Keep on reading for a complete list of features brought to you by Ulm 1.14.
 
 <!-- overview -->
 
@@ -21,13 +21,13 @@ See the overview of all changes in this release:
 - [Known issues](#known-issues) - The `knative-eventing` Namespace must be manually deleted
 - [Fixed security vulnerabilities](#fixed-security-vulnerabilities) - GraphQL subscriptions don't support the authorization annotation
 - [Application Connector](#application-connector) - Application Operator now uses Helm 3
-- [CLI](#cli) - Windows installation with Chocolatey, Helm setup removed, improved usability of the install command, install command supports the component list, install command supports Git revisions, CLI usage in Kyma documentation
+- [CLI](#cli) - Windows installation with Chocolatey, Helm setup removed, improved usability of the `install` command, `install` command supports the component list, `install` command supports Git revisions, CLI usage in Kyma documentation
 - [Compass](#compass) - Compass separated from the Kyma installation, Runtime Provisioner integrated with Helm 3, monitoring for the Runtime Provisioner, error handling in the Director
 - [Console](#console) - Improved view with Namespace details, Console is no longer a core module
 - [Eventing](#eventing) - Eventing installation tweaks
 - [Installation](#installation) - Kyma Operator uses Helm 3
 - [Monitoring](#monitoring) - Grafana upgraded
-- [Serverless](#serverless) - Serverless migrated to bare-metal Kubernetes resources, new Function CRD validation, `functions.kubeless.io` CRD removed
+- [Serverless](#serverless) - Serverless migrated to bare-metal Kubernetes resources, new Function CustomResourceDefinitions (CRDs) validation, `functions.kubeless.io` CRD removed
 
 ## Known issues
 
@@ -55,15 +55,15 @@ CLI can now be installed on Windows easily using [Chocolatey](https://chocolatey
 
 ### Improved usability of the install command
 
-We redesigned the `install` command to make the Kyma installation process run smoothly, even if you encounter any interruptions on the way. When you call the `install` command, the system first detects if there is any installation process running. If there is one, it does not override it but resumes watching the installation progress instead and prints out its status.
+We redesigned the `install` command to make the Kyma installation process run smoothly, even if you encounter any interruptions on the way. When you call the `install` command, the system first detects if there already is an installation process running. If there is one, the system does not override it but resumes watching the installation progress instead and prints out its status.
 
 ### install command supports the component list
 
-The `install` command has the new `--components` flag which you can use to define the list of components you want to install. You must provide a path to the YAML file that either contains the full [Installation custom resource](https://kyma-project.io/docs/#custom-resource-installation) configuration or just the components list.
+The `install` command has the new `--components` flag which you can use to define the list of components you want to install. You must provide a path to the YAML file that contains either the full [Installation custom resource](https://kyma-project.io/docs/1.14/root/kyma/#custom-resource-installation) configuration or just the components list.
 
 ### install command supports Git revisions
 
-You can now specify the Kyma installation source by passing a Git revision number. To do so, call `kyma install --source={COMMIT_NUMBER}`, such as `kyma install --source=34edf09a`.
+You can now specify the Kyma installation source by passing a Git revision number. To do so, call `kyma install --source={ID}`. For example use `kyma install --source=34edf09a`.
 
 ### CLI usage in Kyma documentation
 
@@ -73,15 +73,15 @@ We unified Kyma documentation and made sure all installation instructions includ
 
 ### Compass separated from the Kyma installation
 
-Since this release, Compass is no longer an integral part of the Kyma installation. However, Kyma still connects to Compass through the [Runtime Agent](https://kyma-project.io/docs/1.14/components/runtime-agent/). From now on, if you want to use Compass, first [install Kyma with the Runtime Agent](https://kyma-project.io/docs/1.14/components/runtime-agent#installation-installation) and then [install Compass](https://github.com/kyma-incubator/compass#installation) separately.
+From this release, Compass is no longer an integral part of the Kyma installation. However, Kyma still connects to Compass through the [Runtime Agent](https://kyma-project.io/docs/1.14/components/runtime-agent/). From now on, if you want to use Compass, [install Kyma with the Runtime Agent](https://kyma-project.io/docs/1.14/components/runtime-agent#installation-installation) first and then [install Compass](https://github.com/kyma-incubator/compass#installation) separately.
 
 ### Runtime Provisioner integrated with Helm 3
 
-Runtime Provisioner is now compliant with all Helm 3-based installations of Runtimes. This means there will be no Tiller on new clusters. If you prefer to have an older version of Kyma on your cluster, specify your version of choice in the [provisioning mutation](https://kyma-project.io/docs/1.14/components/compass/#tutorials-provision-clusters-through-gardener). This way, Kyma deployment will be installed on a cluster from the chosen release that contains the Tiller deployment.
+Runtime Provisioner is now compliant with all Helm 3-based installations of Runtimes. This means there will be no Tiller on new clusters. If you prefer to have an older version of Kyma on your cluster, specify your version of choice in the [provisioning mutation](https://github.com/kyma-incubator/compass/blob/master/docs/provisioner/08-02-provisioning-gardener.md). This way, Kyma deployment will be installed on a cluster from the chosen release that contains the Tiller deployment.
 
 ### Monitoring for the Runtime Provisioner
 
-We enabled a new Grafana dashboard for the Runtime Provisioner. It includes basic Kubernetes information and resources. It also shows a new metric with the number of currently running provisioning operations. Still, treat it only as a foretaste of what is to come, as we will be including more and more Runtime Provisioner-relevant information in this dashboard.
+We enabled a new Grafana dashboard for the Runtime Provisioner. It includes basic Kubernetes information and resources. It also shows a new metric with the number of currently running provisioning operations. Still, treat it only as a foretaste of what is to come as we will be including more and more Runtime Provisioner-relevant information in this dashboard.
 
 ![Runtime Provisioner dashboard](./runtime-provisioner-dashboard.png)
 
@@ -105,7 +105,7 @@ Console UI was moved together with its backend API out of the `core` chart to it
 
 ### Eventing installation tweaks
 
-Apart from being compatible with Helm3, we now also support uninstallation and parallel installation of Eventing charts with Helm. When uninstalling the charts, we bring your cluster back to its original state by cleaning up all Eventing-related CustomResourceDefinitions and their corresponding control plane components, like Eventing Controllers and Knative Eventing. To uninstall the whole Eventing component, simply run `helm delete {EVENTING_CHART_NAME}`. When it comes to parallel installation, all Eventing charts (`knative-eventing`, `event-sources`, `knative-eventing-kafka`, `nats-streaming`, and `knative-provisioner-nats`) can now be installed concurrently. This change introduces out-of-the-box resiliency to the installation process - by installing all bits and pieces alongside their dependencies, you significantly raise the chances of having a healthy Eventing system on your cluster.
+Apart from being compatible with Helm3, we now also support uninstallation and parallel installation of Eventing charts with Helm. When uninstalling the charts, Helm brings your cluster back to its original state by cleaning up all Eventing-related CRDs and their corresponding control plane components, like Eventing Controllers and Knative Eventing. To uninstall the whole Eventing component, simply run `helm delete {EVENTING_CHART_NAME}`. When it comes to parallel installation, all Eventing charts (`knative-eventing`, `event-sources`, `knative-eventing-kafka`, `nats-streaming`, and `knative-provisioner-nats`) can now be installed concurrently. This change introduces out-of-the-box resiliency to the installation process - by installing all bits and pieces alongside their dependencies, you significantly raise the chances of having a healthy Eventing system on your cluster.
 
 ## Installation
 
@@ -123,11 +123,11 @@ We upgraded Grafana to v7.0 which brings a lot of improvements like a new panel 
 
 ### Serverless migrated to bare-metal Kubernetes resources
 
-We continue our work on the Serverless Runtime for Kyma. In this release, we migrated from Knative Serving to pure Kubernetes resources. In its new shape and form, Serverless is more lightweight, doesn't require any additional components, and provides more control over underlying resources. With this change, Serverless uses only Jobs, Deployments, Services, and Horizontal Pod Autoscalers. To see how all these pieces fit together, take a look at [Serverless architecture](https://kyma-project.io/docs/1.14/components/serverless/#architecture-architecture). Importantly, the whole migration from the previous solution to the current one is fully automated and executed during Kyma update.
+We continue our work on the Serverless Runtime for Kyma. In this release, we migrated from Knative Serving to pure Kubernetes resources. In its new shape and form, Serverless is more lightweight, doesn't require any additional components, and provides more control over underlying resources. With this change, Serverless uses only Jobs, Deployments, Services, and Horizontal Pod Autoscalers. To see how all these pieces fit together, take a look at the [Serverless architecture](https://kyma-project.io/docs/1.14/components/serverless/#architecture-architecture). Importantly, the whole migration from the previous solution to the current one is fully automated and executed during Kyma update.
 
 ### Function CRD validation
 
-We introduced the validation of Function CustomResourceDefinitions (CRDs). Every new version of the Function CRD is verified by the [defaulting and validation webhooks](https://kyma-project.io/docs/1.14/components/serverless/#details-supported-webhooks) before you apply it on your cluster. Validation works not only in the UI but also in the terminal when you apply resources using kubectl.
+We introduced the validation of Function CRDs. Every new version of the Function CRD is verified by the [defaulting and validation webhooks](https://kyma-project.io/docs/1.14/components/serverless/#details-supported-webhooks) before you apply it on your cluster. Validation works not only in the UI but also in the terminal when you apply resources using kubectl.
 
 ### functions.kubeless.io CRD removed
 
