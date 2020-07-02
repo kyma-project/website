@@ -46,3 +46,8 @@ adopters:
     url: "https://softicious.com"
     logo: "./logos/softicious.svg"  
     content: "Kyma enables us to extend and customize a unique customer experience."
+  - websiteUrl: "https://www.pearlgroup.no/en/"
+    company: "Pearl Group"
+    url: "https://www.pearlgroup.no/en/technology/"
+    logo: "./logos/pearlgroup.svg"
+    content: "Kyma helps our customers to bring rapid innovations into their C/4 HANA and S/4 HANA ecosystems through our CXify Loyalty application template."
