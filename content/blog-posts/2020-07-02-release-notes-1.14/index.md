@@ -55,7 +55,7 @@ CLI can now be installed on Windows easily using [Chocolatey](https://chocolatey
 
 ### Improved usability of the install command
 
-We redesigned the `install` command to make the Kyma installation process run smoothly, even if you encounter any interruptions on the way. When you call the `install` command, the system first detects if there already is an installation process running. If there is one, the system does not override it but resumes watching the installation progress instead and prints out its status.
+We redesigned the `install` command to make the Kyma installation process run smoothly, even if you encounter any interruptions on the way. When you run the `install` command, the system first detects if there already is an installation process running. If there is one, the system does not override it but resumes watching the installation progress instead and prints out its status.
 
 ### install command supports the component list
 
@@ -63,7 +63,7 @@ The `install` command has the new `--components` flag which you can use to defin
 
 ### install command supports Git revisions
 
-You can now specify the Kyma installation source by passing a Git revision number. To do so, call `kyma install --source={COMMIT-ID}`. For example, use `kyma install --source=34edf09a`.
+You can now specify the Kyma installation source by passing a Git revision number. To do so, run `kyma install --source={COMMIT-ID}`. For example, use `kyma install --source=34edf09a`.
 
 ### CLI usage in Kyma documentation
 
