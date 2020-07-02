@@ -63,7 +63,7 @@ The `install` command has the new `--components` flag which you can use to defin
 
 ### install command supports Git revisions
 
-You can now specify the Kyma installation source by passing a Git revision number. To do so, call `kyma install --source={ID}`. For example use `kyma install --source=34edf09a`.
+You can now specify the Kyma installation source by passing a Git revision number. To do so, call `kyma install --source={ID}`. For example, use `kyma install --source=34edf09a`.
 
 ### CLI usage in Kyma documentation
 
@@ -73,7 +73,7 @@ We unified Kyma documentation and made sure all installation instructions includ
 
 ### Compass separated from the Kyma installation
 
-From this release, Compass is no longer an integral part of the Kyma installation. However, Kyma still connects to Compass through the [Runtime Agent](https://kyma-project.io/docs/1.14/components/runtime-agent/). From now on, if you want to use Compass, [install Kyma with the Runtime Agent](https://kyma-project.io/docs/1.14/components/runtime-agent#installation-installation) first and then [install Compass](https://github.com/kyma-incubator/compass#installation) separately.
+From this release, Compass is no longer an integral part of the Kyma installation. However, Kyma still connects to Compass through the [Runtime Agent](https://kyma-project.io/docs/1.14/components/runtime-agent/). From now on, if you want to use Compass, [install Kyma with the Runtime Agent](https://kyma-project.io/docs/1.14/components/runtime-agent#installation-installation) first and then [install Compass](https://github.com/kyma-incubator/compass/blob/master/docs/compass/04-01-installation.md) separately.
 
 ### Runtime Provisioner integrated with Helm 3
 
