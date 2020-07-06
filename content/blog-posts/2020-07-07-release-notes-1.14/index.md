@@ -27,7 +27,7 @@ See the overview of all changes in this release:
 - [Eventing](#eventing) - Eventing installation tweaks
 - [Installation](#installation) - Kyma Operator uses Helm 3
 - [Monitoring](#monitoring) - Grafana upgraded
-- [Serverless](#serverless) - Serverless migrated to bare-metal Kubernetes resources, new Function CustomResourceDefinitions (CRDs) validation, `functions.kubeless.io` CRD removed
+- [Serverless](#serverless) - Serverless migrated to bare metal Kubernetes resources, new Function CustomResourceDefinitions (CRDs) validation, external Docker registry, `functions.kubeless.io` CRD removed
 
 ## Known issues
 
@@ -121,13 +121,23 @@ We upgraded Grafana to v7.0 which brings a lot of improvements like a new panel 
 
 ## Serverless  
 
-### Serverless migrated to bare-metal Kubernetes resources
+### Serverless migrated to bare metal Kubernetes resources
 
 We continue our work on the Serverless Runtime for Kyma. In this release, we migrated from Knative Serving to pure Kubernetes resources. In its new shape and form, Serverless is more lightweight, doesn't require any additional components, and provides more control over underlying resources. With this change, Serverless uses only Jobs, Deployments, Services, and Horizontal Pod Autoscalers. To see how all these pieces fit together, take a look at the [Serverless architecture](https://kyma-project.io/docs/1.14/components/serverless/#architecture-architecture). Importantly, the whole migration from the previous solution to the current one is fully automated and executed during Kyma update.
 
 ### Function CRD validation
 
 We introduced the validation of Function CRDs. Every new version of the Function CRD is verified by the [defaulting and validation webhooks](https://kyma-project.io/docs/1.14/components/serverless/#details-supported-webhooks) before you apply it on your cluster. Validation works not only in the UI but also in the terminal when you apply resources using kubectl.
+
+### External Docker registry
+
+1.14 Ulm brings you an option to use an external Docker registry for your Function images - a bonus feature that wasn't originally planned for the scope of this release. In general, Serverless in Kyma comes with a built-in internal Docker registry in which you can store images when developing Functions. We now allow you to switch from the default registry to one of these hosted repository services:
+
+- Docker Hub
+- Google Container Registry
+- Azure Container Registry
+
+We strongly recommend them for your production set-up. They are fully managed and pre-configured, making your Function images secure and backed up. Read how to [switch to them using overrides](https://kyma-project.io/docs/1.14/components/serverless/#tutorials-set-an-external-docker-registry).
 
 ### functions.kubeless.io CRD removed
 
