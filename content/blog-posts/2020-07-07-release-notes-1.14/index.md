@@ -131,7 +131,7 @@ We introduced the validation of Function CRDs. Every new version of the Function
 
 ### External Docker registry
 
-1.14 Ulm brings you an option to use an external Docker registry for your Function images - a bonus feature that wasn't originally planned for the scope of this release. In general, Serverless in Kyma comes with a built-in internal Docker registry in which you can store images when developing Functions. We now allow you to switch from the default registry to one of these hosted repository services:
+1.14 Ulm brings up an option to use an external Docker registry for your Function images - a bonus feature that wasn't originally planned for the scope of this release. In general, Serverless in Kyma comes with a built-in internal Docker registry in which you can store images when developing Functions. We now allow you to switch from the default registry to one of these hosted repository services:
 
 - Docker Hub
 - Google Container Registry
