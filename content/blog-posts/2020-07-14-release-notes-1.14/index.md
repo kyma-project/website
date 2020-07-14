@@ -18,7 +18,7 @@ After a stop in the Land of Cherry Blossoms, we set a course for the Old Contine
 
 See the overview of all changes in this release:
 
-- [Known issues](#known-issues) - The `knative-eventing` Namespace must be manually deleted
+- [Known issues](#known-issues) - The `knative-eventing` Namespace must be manually deleted, Kyma installation through GCP Marketplace disabled
 - [Fixed security vulnerabilities](#fixed-security-vulnerabilities) - GraphQL subscriptions don't support the authorization annotation
 - [Application Connector](#application-connector) - Application Operator now uses Helm 3
 - [CLI](#cli) - Windows installation with Chocolatey, Helm setup removed, improved usability of the `install` command, `install` command supports the component list, `install` command supports Git revisions, CLI usage in Kyma documentation
@@ -31,7 +31,13 @@ See the overview of all changes in this release:
 
 ## Known issues
 
+### knative-eventing Namespace must be manually deleted
+
 The `knative-eventing` Namespace is not automatically deleted after you uninstall the Eventing component. For now, you have to manually delete this Namespace as part of the post-uninstallation cleanup.
+
+### Kyma installation through GCP Marketplace disabled
+
+As a result of [Kubernetes API deprecation](https://kubernetes.io/blog/2019/07/18/api-deprecations-in-1-16/), Kyma can no longer be installed through the Google Cloud Platform (GCP) Marketplace. That is why, we decided to temporary disable Kyma on GCP Marketplace until we make changes necessary to fix the installation issues.
 
 ## Fixed security vulnerabilities
 
