@@ -51,3 +51,8 @@ adopters:
     url: "https://www.pearlgroup.no/en/technology/"
     logo: "./logos/pearlgroup.svg"
     content: "Kyma helps our customers to bring rapid innovations into their C/4 HANA and S/4 HANA ecosystems through our CXify Loyalty application template."
+  - websiteUrl: "https://www.sybit.de/"
+    company: "Sybit GmbH"
+    url: "https://www.sybit.de/unternehmen/news/referenz-benlink/"
+    logo: "./logos/Sybit-Logo.svg"
+    content: "With Kyma, we develop flexible SAP CX solutions for our customers. Kyma allows us to extend the CX Suite without touching the standard code."
