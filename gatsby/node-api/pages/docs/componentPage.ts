@@ -1,5 +1,5 @@
 import { CreatePageFn, CreateRedirectFn } from "../../../types";
-import { DOCS_ROOT_TYPE, DOCS_KYMA_ID } from "../../../constants";
+import { DocsRepository } from "./types";
 
 export interface CreatDocsPageArgs {
   createPage: CreatePageFn;
@@ -7,6 +7,7 @@ export interface CreatDocsPageArgs {
   context: any;
   path: string;
   rootPath: string;
+  repository: DocsRepository;
 }
 
 interface RedirectFromLatestArgs {
@@ -20,12 +21,16 @@ export const createComponentDocsPage = ({
   context: { docsType, topic },
   path,
   rootPath,
+  repository,
 }: CreatDocsPageArgs) => {
   createPage({
     path,
   });
 
-  if (DOCS_ROOT_TYPE === docsType && DOCS_KYMA_ID === topic) {
+  if (
+    repository.rootPath.docsType === docsType &&
+    repository.rootPath.docsTopic === topic
+  ) {
     createPage({
       path: rootPath,
     });

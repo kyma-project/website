@@ -62,5 +62,43 @@
       "locale": "English",
       "default": true
     }
+  },
+  "docs": {
+    "kyma": {
+      "displayName": "Kyma",
+      "organization": "kyma-project",
+      "repository": "kyma",
+      "branches": ["master"],
+      "lastReleases": 3,
+      "navPath": "",
+      "rootPath": {
+        "docsType": "root",
+        "docsTopic": "kyma"
+      }
+    },
+    "cli": {
+      "displayName": "CLI",
+      "organization": "magicmatatjahu",
+      "repository": "cli",
+      "branches": ["603-website-upstream-docs"],
+      "lastReleases": 0,
+      "navPath": "cli",
+      "rootPath": {
+        "docsType": "cli",
+        "docsTopic": "overview"
+      }
+    },
+    "control-plane": {
+      "displayName": "Control Plane",
+      "organization": "magicmatatjahu",
+      "repository": "control-plane",
+      "branches": ["603-website-upstream-docs"],
+      "lastReleases": 0,
+      "navPath": "control-plane",
+      "rootPath": {
+        "docsType": "control-plane",
+        "docsTopic": "kyma-environment-broker"
+      }
+    }
   }
 }

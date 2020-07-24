@@ -4,11 +4,10 @@ import { VError } from "verror";
 import GitHubClient from "../github-client/github-client";
 
 export class BranchesSerializer {
-  async get(configBranches: string[]) {
-    const currentBranches = configBranches ? configBranches : [];
+  async get(configBranches: string[] = []) {
     const branches = new Map<string, string>();
 
-    for (const branchName of currentBranches) {
+    for (const branchName of configBranches) {
       const [err, commit] = await to(
         GitHubClient.getLatestCommitFromBranch(branchName),
       );

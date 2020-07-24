@@ -1,0 +1,9 @@
+{
+  "spec": {
+    "id": "provisioner",
+    "displayName": "Provisioner",
+    "description": "Overall documentation for Provisioner",
+    "type": "Control-plane"
+  },
+  "specifications": []
+}

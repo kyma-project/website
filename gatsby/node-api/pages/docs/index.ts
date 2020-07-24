@@ -15,26 +15,51 @@ import {
   GraphQLFunction,
 } from "../../../types";
 import { BuildFor } from "../../../../src/types/common";
+import { DocsRepository } from "./types";
+
+import config from "../../../../config.json";
 
 export interface CreateDocsPages {
   graphql: GraphQLFunction;
   createPage: CreatePageFn;
   createRedirect: CreateRedirectFn;
   buildFor: BuildFor;
+  prepareForRepo?: string;
 }
 
-export const createDocsPages = async ({
-  graphql,
-  createPage: createPageFn,
-  createRedirect,
-  buildFor,
-}: CreateDocsPages) => {
+export const createDocsPages = async (options: CreateDocsPages) => {
+  const repositoryName = options.prepareForRepo;
+
+  if (repositoryName) {
+    await createDocsPagesPerRepo(
+      repositoryName,
+      (config.docs as any)[repositoryName],
+      options,
+    );
+    return;
+  }
+
+  for (const [repositoryName, repository] of Object.entries(config.docs)) {
+    await createDocsPagesPerRepo(repositoryName, repository, options);
+  }
+};
+
+const createDocsPagesPerRepo = async (
+  repositoryName: string,
+  repository: DocsRepository,
+  {
+    graphql,
+    createPage: createPageFn,
+    createRedirect,
+    buildFor,
+  }: CreateDocsPages,
+) => {
   const preparePaths =
     buildFor === BuildFor.DOCS_PREVIEW
       ? preparePreviewPaths
       : prepareWebsitePaths;
 
-  const preparedData = await prepareData({ graphql, buildFor });
+  const preparedData = await prepareData({ graphql, buildFor, repositoryName });
   if (!preparedData) {
     return;
   }
@@ -55,6 +80,7 @@ export const createDocsPages = async ({
           pagePath,
           rootPagePath,
         } = preparePaths({
+          repositoryName,
           version,
           latestVersion: latestVersion || "",
           docsType,
@@ -66,7 +92,6 @@ export const createDocsPages = async ({
           fixedContent = fixLinks({
             content: fixedContent,
             version,
-            latestVersion,
           });
         }
         const specifications = fixedContent.specifications.map(
@@ -87,6 +112,7 @@ export const createDocsPages = async ({
           docsType,
           topic,
           specifications,
+          repositoryName,
         };
 
         const createPage = createDocsPage(createPageFn, context);
@@ -96,6 +122,7 @@ export const createDocsPages = async ({
           context,
           path: pagePath,
           rootPath: rootPagePath,
+          repository,
         });
         createModalDocsPage({ createPage, context });
       });

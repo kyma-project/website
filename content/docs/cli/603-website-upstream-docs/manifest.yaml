@@ -1,0 +1,6 @@
+spec:
+  cli:
+    - displayName: Kyma CLI
+      id: overview
+    - displayName: Commands
+      id: commands

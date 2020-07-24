@@ -18,11 +18,7 @@ import prepareRoadmapContent from "../src/prepare-roadmap";
 const prepareDocsContentFn = async () => {
   const config: CoreConfig = {
     ...coreConfig,
-    repository: docsConfig.repository,
   };
-
-  GitClient.withConfig(config, docsConfig.sourcePath);
-  GitHubClient.withConfig(config);
 
   const [err] = await to(prepareDocs(config));
   if (err) throw err;

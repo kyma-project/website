@@ -4,6 +4,7 @@ import throttle from "lodash.throttle";
 import Button from "@components/shared/Button";
 
 import Search from "./Search";
+import NavDropdown from "./NavDropdown";
 
 import { injectIntl, IntlInterface } from "@common/i18n";
 import { resolveSocialMedia } from "@common/utils";
@@ -18,11 +19,9 @@ import {
   NavigationMobileButton,
 } from "./styled";
 
+import config from "@config";
+
 const navigation = [
-  {
-    path: "/docs/",
-    title: "Docs",
-  },
   {
     path: "/blog/",
     title: "Blog",
@@ -74,6 +73,28 @@ class Navigation extends Component<IntlInterface, State> {
     });
   };
 
+  renderDocsNavigation = () => {
+    const docsNav = {
+      path: "/docs/",
+      title: "Docs",
+    };
+    const elements = Object.entries(config.docs).map(([_, doc]) => ({
+      displayName: doc.displayName,
+      url: `/docs/${doc.navPath}`,
+      active: false,
+    }));
+
+    return (
+      <NavigationItem key={docsNav.title}>
+        <NavDropdown elements={elements}>
+          <NavigationIntLink to={docsNav.path}>
+            {docsNav.title}
+          </NavigationIntLink>
+        </NavDropdown>
+      </NavigationItem>
+    );
+  };
+
   render() {
     const { mobileMenuVisible, isOnMobile, initial } = this.state;
 
@@ -102,7 +123,8 @@ class Navigation extends Component<IntlInterface, State> {
           >
             <Button.Light iconName="times" iconPrefix="fas" />
           </NavigationItem>
-          {navigation.map((navItem: { path: string; title: string }) => (
+          {this.renderDocsNavigation()}
+          {navigation.map(navItem => (
             <NavigationItem key={navItem.title}>
               <NavigationIntLink to={navItem.path}>
                 {navItem.title}

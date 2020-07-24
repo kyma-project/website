@@ -1,0 +1,6 @@
+spec:
+  control-plane:
+    - displayName: Kyma Environment Broker
+      id: kyma-environment-broker
+    - displayName: Provisioner
+      id: provisioner

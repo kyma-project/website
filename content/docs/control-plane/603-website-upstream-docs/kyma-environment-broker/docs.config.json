@@ -1,0 +1,9 @@
+{
+  "spec": {
+    "id": "kyma-environment-broker",
+    "displayName": "Kyma Environment Broker",
+    "description": "Overall documentation for Kyma Environment Broker",
+    "type": "Control-plane"
+  },
+  "specifications": []
+}

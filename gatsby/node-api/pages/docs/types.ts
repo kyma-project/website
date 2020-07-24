@@ -14,6 +14,7 @@ export interface DocsVersions {
 }
 
 export interface DocsPathsArgs {
+  repositoryName: string;
   version: string;
   docsType: string;
   topic: string;
@@ -26,4 +27,16 @@ export interface DocsPaths {
   pagePath: string;
   rootPagePath: string;
   modalUrlPrefix: string;
+}
+
+export interface DocsRepository {
+  displayName: string;
+  rootPath: {
+    docsType: string;
+    docsTopic: string;
+  };
+  organization: string;
+  repository: string;
+  branches: string[];
+  lastReleases?: number;
 }

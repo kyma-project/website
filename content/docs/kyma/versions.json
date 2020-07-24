@@ -1,0 +1,14 @@
+{
+  "releases": [
+    {
+      "name": "1.0",
+      "tag": "1.0.0"
+    }
+  ],
+  "branches": [
+    {
+      "name": "master",
+      "commit": "d7b09d76d3168018baaa9c07b8f99e7c305b419b"
+    }
+  ]
+}

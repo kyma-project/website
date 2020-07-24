@@ -50,7 +50,7 @@ export class ReleaseFetcher {
   }
 
   groupBy(
-    array: any[],
+    array: any[] = [],
     fn: (arg: ReposGetReleaseResponse) => string,
   ): Map<string, any> {
     return array.reduce((prv, curr) => {

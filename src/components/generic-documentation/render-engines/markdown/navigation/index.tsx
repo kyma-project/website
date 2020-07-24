@@ -48,6 +48,7 @@ function renderList(
   items: DocsNavigationTopic[],
   linkFn: linkSerializer,
   activeLinkFn?: activeLinkChecker,
+  showGroups?: boolean,
 ): React.ReactNode {
   const list = items.map(item => (
     <NavigationListItem
@@ -66,7 +67,7 @@ function renderList(
 
   return (
     <div key={group}>
-      {items.length > 1 ? (
+      {showGroups && items.length > 1 ? (
         <NavigationGroupName>{group}</NavigationGroupName>
       ) : null}
       <NavigationList>{list}</NavigationList>
@@ -82,8 +83,15 @@ export const Navigation: React.FunctionComponent<NavigationProps> = ({
 }) => {
   const { showMobileLeftNav } = useContext(GenericDocsContext);
 
+  const numberOfGroups = Object.keys(navigation).length;
   const lists = Object.keys(navigation).map(group =>
-    renderList(group, navigation[group], linkFn, activeLinkFn),
+    renderList(
+      group,
+      navigation[group],
+      linkFn,
+      activeLinkFn,
+      numberOfGroups > 1,
+    ),
   );
 
   return (
