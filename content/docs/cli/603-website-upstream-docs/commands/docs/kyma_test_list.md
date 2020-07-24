@@ -1,22 +1,20 @@
 ---
-title: kyma_test_list
+title: kyma test list
 ---
-
-## kyma test list
 
 Lists test suites available for a provisioned Kyma cluster.
 
-### Synopsis
+## Synopsis
 
 Use this command to list test suites available for a provisioned Kyma cluster.
 
-```
+```bash
 kyma test list [flags]
 ```
 
-### Options inherited from parent commands
+## Options inherited from parent commands
 
-```
+```bash
       --ci                  Enables the CI mode to run on CI/CD systems.
   -h, --help                Displays help for the command.
       --kubeconfig string   Specifies the path to the kubeconfig file. By default, Kyma CLI uses the KUBECONFIG environment variable or "/$HOME/.kube/config" if the variable is not set.
@@ -24,7 +22,7 @@ kyma test list [flags]
   -v, --verbose             Displays details of actions triggered by the command.
 ```
 
-### SEE ALSO
+## See also
 
-* [kyma test](#kyma-test)	 - Runs tests on a provisioned Kyma cluster.
+* [kyma test](#kyma-test-kyma-test)	 - Runs tests on a provisioned Kyma cluster.
 

@@ -26,7 +26,7 @@ const NavDropdown: React.FunctionComponent<NavDropdown> = ({
   const [dropOpen, setDropOpen] = useState(false);
 
   const list = elements.map(el => (
-    <DropdownListItem>
+    <DropdownListItem key={el.displayName}>
       <Link.Internal to={el.url}>{el.displayName}</Link.Internal>
     </DropdownListItem>
   ));

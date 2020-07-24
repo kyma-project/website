@@ -1,18 +1,16 @@
 ---
-title: kyma_provision_gardener
+title: kyma provision gardener
 ---
 
-## kyma provision gardener
+Provisions a cluster using Gardener on GCP, Azure, or AWS.
+
+## Synopsis
 
 Provisions a cluster using Gardener on GCP, Azure, or AWS.
 
-### Synopsis
+## Options inherited from parent commands
 
-Provisions a cluster using Gardener on GCP, Azure, or AWS.
-
-### Options inherited from parent commands
-
-```
+```bash
       --ci                  Enables the CI mode to run on CI/CD systems.
   -h, --help                Displays help for the command.
       --kubeconfig string   Specifies the path to the kubeconfig file. By default, Kyma CLI uses the KUBECONFIG environment variable or "/$HOME/.kube/config" if the variable is not set.
@@ -20,10 +18,10 @@ Provisions a cluster using Gardener on GCP, Azure, or AWS.
   -v, --verbose             Displays details of actions triggered by the command.
 ```
 
-### SEE ALSO
+## See also
 
-* [kyma provision](#kyma-provision)	 - Provisions a cluster for Kyma installation.
-* [kyma provision gardener aws](#kyma-provision-gardener-aws)	 - Provisions a Kubernetes cluster using Gardener on Amazon Web Services (AWS).
-* [kyma provision gardener az](#kyma-provision-gardener-az)	 - Provisions a Kubernetes cluster using Gardener on Azure.
-* [kyma provision gardener gcp](#kyma-provision-gardener-gcp)	 - Provisions a Kubernetes cluster using Gardener on Google Cloud Platform (GCP).
+* [kyma provision](#kyma-provision-kyma-provision)	 - Provisions a cluster for Kyma installation.
+* [kyma provision gardener aws](#kyma-provision-gardener-aws-kyma-provision-gardener-aws)	 - Provisions a Kubernetes cluster using Gardener on Amazon Web Services (AWS).
+* [kyma provision gardener az](#kyma-provision-gardener-az-kyma-provision-gardener-az)	 - Provisions a Kubernetes cluster using Gardener on Azure.
+* [kyma provision gardener gcp](#kyma-provision-gardener-gcp-kyma-provision-gardener-gcp)	 - Provisions a Kubernetes cluster using Gardener on Google Cloud Platform (GCP).
 

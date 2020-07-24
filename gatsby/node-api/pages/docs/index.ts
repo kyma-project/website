@@ -39,8 +39,8 @@ export const createDocsPages = async (options: CreateDocsPages) => {
     return;
   }
 
-  for (const [repositoryName, repository] of Object.entries(config.docs)) {
-    await createDocsPagesPerRepo(repositoryName, repository, options);
+  for (const [repoName, repository] of Object.entries(config.docs)) {
+    await createDocsPagesPerRepo(repoName, repository, options);
   }
 };
 
