@@ -59,7 +59,7 @@ It is now possible to configure Compass not to return Applications labeled with 
 
 ### Renamed provisioning commands
 
-[Kyma CLI commands](https://github.com/kyma-project/cli/tree/master/docs/03-02-use-kyma-cli.md) for cluster provisioning on GKE and AKS have been renamed. There are also three separate provisioning commands for Gardener, and provider-specific default values are applied for all the Gardener commands, making CLI even more intuitive now. These are the available provisioning commands:
+[Kyma CLI commands](https://github.com/kyma-project/cli/tree/release-1.13#commands) for cluster provisioning on GKE and AKS have been renamed. There are also three separate provisioning commands for Gardener, and provider-specific default values are applied for all the Gardener commands, making CLI even more intuitive now. These are the available provisioning commands:
 
 ```
 kyma provision gke
