@@ -22,7 +22,7 @@ See the overview of all changes in this release:
 - [Fixed security vulnerabilities](#fixed-security-vulnerabilities) - GraphQL subscriptions don't support the authorization annotation
 - [Application Connector](#application-connector) - Application Operator now uses Helm 3
 - [CLI](#cli) - Windows installation with Chocolatey, Helm setup removed, improved usability of the `install` command, `install` command supports the component list, `install` command supports Git revisions, CLI usage in Kyma documentation
-- [Compass](#compass) - Compass separated from the Kyma installation, Runtime Provisioner integrated with Helm 3, monitoring for the Runtime Provisioner, error handling in the Director
+- [Compass](#compass) - Compass separated from the Kyma installation
 - [Console](#console) - Improved view with Namespace details, Console is no longer a core module
 - [Eventing](#eventing) - Eventing installation tweaks
 - [Installation](#installation) - Kyma Operator uses Helm 3
@@ -79,21 +79,7 @@ We unified Kyma documentation and made sure all installation instructions includ
 
 ### Compass separated from the Kyma installation
 
-From this release, Compass is no longer an integral part of the Kyma installation. However, Kyma still connects to Compass through the [Runtime Agent](https://kyma-project.io/docs/1.14/components/runtime-agent/). From now on, if you want to use Compass, [install Kyma with the Runtime Agent](https://kyma-project.io/docs/1.14/components/runtime-agent#installation-installation) first and then [install Compass](https://github.com/kyma-incubator/compass/blob/master/docs/compass/04-01-installation.md) separately.
-
-### Runtime Provisioner integrated with Helm 3
-
-Runtime Provisioner is now compliant with all Helm 3-based installations of Runtimes. This means there will be no Tiller on new clusters. If you prefer to have an older version of Kyma on your cluster, specify your version of choice in the [provisioning mutation](https://github.com/kyma-incubator/compass/blob/master/docs/provisioner/08-02-provisioning-gardener.md). This way, Kyma deployment will be installed on a cluster from the chosen release that contains the Tiller deployment.
-
-### Monitoring for the Runtime Provisioner
-
-We enabled a new Grafana dashboard for the Runtime Provisioner. It includes basic Kubernetes information and resources. It also shows a new metric with the number of currently running provisioning operations. Still, treat it only as a foretaste of what is to come as we will be including more and more Runtime Provisioner-relevant information in this dashboard.
-
-![Runtime Provisioner dashboard](./runtime-provisioner-dashboard.png)
-
-### Error handling in the Director
-
-From now on, the Director's GraphQL API handles errors gracefully, with more descriptive error messages. Using error extensions, we provide machine-readable error codes every time something goes wrong. For specific error types, read about [error handling in the Director](https://github.com/kyma-incubator/compass/blob/master/docs/director/03-error-handling.md).
+From this release, Compass is no longer an integral part of the Kyma installation. However, Kyma still connects to Compass through the [Runtime Agent](https://kyma-project.io/docs/1.14/components/runtime-agent/). From now on, if you want to use Compass, [install Kyma with the Runtime Agent](https://kyma-project.io/docs/1.14/components/runtime-agent#installation-installation) first and then [install Compass](https://github.com/kyma-incubator/compass/blob/master/docs/compass/04-01-installation.md) separately.  
 
 ## Console
 
