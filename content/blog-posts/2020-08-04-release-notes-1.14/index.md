@@ -23,7 +23,7 @@ See the overview of all changes in this release:
 - [Application Connector](#application-connector) - Application Operator now uses Helm 3
 - [CLI](#cli) - Windows installation with Chocolatey, Helm setup removed, improved usability of the `install` command, `install` command supports the component list, `install` command supports Git revisions, CLI usage in Kyma documentation
 - [Compass](#compass) - Compass separated from the Kyma installation
-- [Console](#console) - Improved view with Namespace details, API Rules available from **Functions** and **Services** views, Console is no longer a core module
+- [Console](#console) - Improved view with Namespace details, API Rules available from **Functions** and **Services** views, message toast, Console is no longer a core module
 - [Eventing](#eventing) - Eventing installation tweaks
 - [Installation](#installation) - Kyma Operator uses Helm 3
 - [Monitoring](#monitoring) - Grafana upgraded
@@ -94,6 +94,12 @@ With 1.14, we made the first steps toward changing the rather empty view with Na
 With simplicity and user experience in mind, we made one small step for the Console UI that is a giant leap for its users. When wanting to expose your Function or Service in the Console UI, you no longer need to go to the **API Rules** view. As of release 1.14, you can create an API Rule directly from both **Functions** and **Services** views. The advantages of this solution are that you don't need to constantly switch between views, the API Rule you create gets automatically assigned to the Function or Service you are exposing, and all related API Rules are always listed under the given Function or Service.
 
 ![API Rules view](./APIRules.png)
+
+### Message toast
+
+We made one more step towards UI harmonization by introducing a non-disruptive popup for success messages. This new component confirms your actions in the Console UI in a form of small message toast that appears at the bottom of the page. With that, you are discretely informed if what you just did succeeded, without being interrupted by large and distracting messages.
+
+![Message toast](./message-toast.png)
 
 ### Console is no longer a core module
 
