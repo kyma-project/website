@@ -91,7 +91,7 @@ With 1.14, we made the first steps toward changing the rather empty view with Na
 
 ### API Rules available from Functions and Services views
 
-With simplicity and user experience in mind, we made one small step for the Console UI that is a giant leap for its users. When wanting to expose your Function or Service in the Console UI, you no longer need to go to the **API Rules** view. As of release 1.14, you can create an API Rule directly from both **Functions** and **Services** views. The advantages of this solution are that you don't need to constantly switch between views, the API Rule you create gets automatically assigned to the Function or Service you are exposing, and all related API Rules are always listed under the given Function or Service.
+With simplicity and user experience in mind, we made one small step for the Console UI that is a giant leap for its users. When wanting to expose your Function or Service in the Console UI, you no longer need to go to the **API Rules** view. As of release 1.14, you can create an API Rule directly from both the **Functions** and **Services** views. The advantages of this solution are that you don't need to constantly switch between views, the API Rule you create gets automatically assigned to the Function or Service you are exposing, and all related API Rules are always listed under the given Function or Service.
 
 ![API Rules view](./APIRules.png)
 
