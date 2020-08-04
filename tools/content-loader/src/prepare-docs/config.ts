@@ -17,6 +17,7 @@ export interface DocsConfig {
   docsRepositories: DocsRepositories;
   outputPath: string;
   outputDocsVersion: string;
+  sourcePreviewPath: string;
 }
 
 const config: DocsConfig = {
@@ -25,6 +26,7 @@ const config: DocsConfig = {
     : ["master"],
   docsRepositories: configJSON.docs,
   outputPath: process.env.APP_DOCS_OUTPUT || "docs",
+  sourcePreviewPath: process.env.APP_PREVIEW_SOURCE_DIR || "kyma",
   outputDocsVersion:
     process.env.APP_DOCS_VERSIONS_CONFIG_FILE || "versions.json",
 };

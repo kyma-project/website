@@ -132,13 +132,12 @@ const prepareDocsPerSource = async (
 };
 
 const preparePreviewDocs = async (coreConfig: CoreConfig) => {
+  const branchName = docsConfig.branches[0];
   const sourceName = coreConfig.prepareForRepo;
   const source: DocsRepository = configJSON.docs[sourceName];
   if (!source) {
     throw new Error(`for preview APP_PREPARE_FOR_REPO env must be defined`);
   }
-
-  const branchName = source.branches[0];
 
   let outputPath = resolve(`${docsConfig.outputPath}/${sourceName}`);
   if (!outputPath.endsWith(branchName)) {
@@ -149,7 +148,7 @@ const preparePreviewDocs = async (coreConfig: CoreConfig) => {
   const outputDocsVersion = resolve(
     `${docsConfig.outputPath}/${sourceName}/${docsConfig.outputDocsVersion}`,
   );
-  const sourcePath = resolve(sourceName);
+  const sourcePath = resolve(docsConfig.sourcePreviewPath);
 
   let [err] = await to(makeDir(outputPath));
   if (err) {

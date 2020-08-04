@@ -39,17 +39,17 @@ prepare-content-website:
 	./scripts/prepare-content.sh --prepare-for "website"
 
 prepare-content-docs-preview:
-ifdef PREVIEW_SOURCE_DIR
-	./scripts/prepare-content.sh --prepare-for "docs-preview" --docs-src-dir $(PREVIEW_SOURCE_DIR) --docs-branches "preview"
+ifdef APP_PREVIEW_SOURCE_DIR
+	./scripts/prepare-content.sh --prepare-for "docs-preview" --docs-src-dir $(APP_PREVIEW_SOURCE_DIR) --docs-branches "preview"
 else
-	@echo "PREVIEW_SOURCE_DIR is a required env!"
+	@echo "APP_PREVIEW_SOURCE_DIR is a required env!"
 endif
 
 prepare-content-community-preview:
-ifdef PREVIEW_SOURCE_DIR
-	./scripts/prepare-content.sh --prepare-for "community-preview" --community-src-dir $(PREVIEW_SOURCE_DIR)
+ifdef APP_PREVIEW_SOURCE_DIR
+	./scripts/prepare-content.sh --prepare-for "community-preview" --community-src-dir $(APP_PREVIEW_SOURCE_DIR)
 else
-	@echo "PREVIEW_SOURCE_DIR is a required env!"
+	@echo "APP_PREVIEW_SOURCE_DIR is a required env!"
 endif
 
 build-prod:
