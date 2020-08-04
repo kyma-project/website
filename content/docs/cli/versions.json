@@ -3,8 +3,8 @@
   "pre_releases": [],
   "branches": [
     {
-      "name": "603-website-upstream-docs",
-      "commit": "4acb460cd771e787178d6de7887fccce5dfd8c9b"
+      "name": "master",
+      "commit": "easter-egg"
     }
   ]
 }

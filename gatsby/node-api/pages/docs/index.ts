@@ -1,3 +1,5 @@
+import { existsSync } from "fs";
+import { resolve } from "path";
 import { createComponentDocsPage } from "./componentPage";
 import { createModalDocsPage } from "./modalPage";
 import { fixLinks } from "./fixLinks";
@@ -54,6 +56,14 @@ const createDocsPagesPerRepo = async (
     buildFor,
   }: CreateDocsPages,
 ) => {
+  const pathToRepo = resolve(
+    __dirname,
+    `../../../../content/docs/${repositoryName}`,
+  );
+  if (!existsSync(pathToRepo)) {
+    return;
+  }
+
   const preparePaths =
     buildFor === BuildFor.DOCS_PREVIEW
       ? preparePreviewPaths
