@@ -97,7 +97,7 @@ With simplicity and user experience in mind, we made one small step for the Cons
 
 ### Message toast
 
-We made one more step towards UI harmonization by introducing a non-disruptive pop-up for success messages. This new component confirms your actions in the Console UI in the form of a small message toast that appears at the bottom of the page. Thanks to this feature, you are discretely informed if what you just did succeeded, without being interrupted by large and distracting messages.
+We took one more step towards UI harmonization by introducing a non-disruptive pop-up for success messages. This new component confirms your actions in the Console UI in the form of a small message toast that appears at the bottom of the page. Thanks to this feature, you are discretely informed if what you just did succeeded, without being interrupted by large and distracting messages.
 
 ![Message toast](./message-toast.png)
 
