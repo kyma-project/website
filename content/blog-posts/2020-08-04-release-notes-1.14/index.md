@@ -23,7 +23,7 @@ See the overview of all changes in this release:
 - [Application Connector](#application-connector) - Application Operator now uses Helm 3
 - [CLI](#cli) - Windows installation with Chocolatey, Helm setup removed, improved usability of the `install` command, `install` command supports the component list, `install` command supports Git revisions, CLI usage in Kyma documentation
 - [Compass](#compass) - Compass separated from the Kyma installation
-- [Console](#console) - Improved view with Namespace details, Console is no longer a core module
+- [Console](#console) - Improved view with Namespace details, API Rules available from **Functions** and **Services** views, Console is no longer a core module
 - [Eventing](#eventing) - Eventing installation tweaks
 - [Installation](#installation) - Kyma Operator uses Helm 3
 - [Monitoring](#monitoring) - Grafana upgraded
@@ -88,6 +88,12 @@ From this release, Compass is no longer an integral part of the Kyma installatio
 With 1.14, we made the first steps toward changing the rather empty view with Namespace details into a dashboard. It shows you nice pie charts indicating the health status of Pods and Deployments in a given Namespace. We are planning more features for this view in the future, so stay tuned.
 
 ![Detailed Namespace view](./details-view.png)
+
+### API Rules available from Functions and Services views
+
+With simplicity and user experience in mind, we made one small step for the Console UI that is a giant leap for the user. When wanting to expose your Function or Service in the Console UI, you no longer need to go to the **API Rules** view. As of release 1.14, you can create an API Rule directly from the **Functions** and **Services** views. The advantages of this solution are that you don't need to switch constantly between views, the API Rule you create gets automatically assigned to the Function or Service you are exposing, and all related API Rules are always listed under the given Functions or Services. 
+
+![API Rules view](./APIRules.png)
 
 ### Console is no longer a core module
 
