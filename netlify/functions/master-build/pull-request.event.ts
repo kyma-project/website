@@ -64,10 +64,10 @@ const checkChangedFiles = (
 
 const checkChangedFileNames = (
   files: PullsListFilesResponse,
-  regex: RegExp,
+  regex?: RegExp,
 ): boolean => {
   if (!regex) {
-    return false;
+    return true;
   }
   return files.some(file => regex.test(file.filename));
 };
