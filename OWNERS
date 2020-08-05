@@ -4,7 +4,6 @@ filters:
       - aerfio
       - magicmatatjahu
       - m00g3n
-      - michal-hudy
       - pPrecel
     labels:
       - area/core-and-supporting
