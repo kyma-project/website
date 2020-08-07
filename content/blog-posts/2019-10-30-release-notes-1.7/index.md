@@ -32,7 +32,7 @@ The second addition to the Runtime Agent involves labeling Runtimes. After a suc
 
 ### Runtime Provisioner first implementation
 
-The first implementation of the [Runtime Provisioner](https://kyma-project.io/docs/components/compass#architecture-components-runtime-provisioner) is here. We have unmocked the provisioning part of the API – it is now possible to provision clusters on GCP and Gardener projects using GCP credentials.
+The first implementation of the [Runtime Provisioner](https://github.com/kyma-project/kyma/blob/release-1.7/docs/compass/02-01-components.md#runtime-provisioner) is here. We have unmocked the provisioning part of the API – it is now possible to provision clusters on GCP and Gardener projects using GCP credentials.
 
 ### Tenant Mapping Handler for requests validation
 
@@ -40,7 +40,7 @@ Starting with this release, the [Tenant Mapping Handler](https://github.com/kyma
 
 ### Scenarios view available in the Console
 
-A new **Scenarios** view in the Compass Console shows Applications and Runtimes connected to a specific [scenario](https://kyma-project.io/docs/components/compass#architecture-basic-architecture-scenarios). It allows you to manage Applications and Runtimes in a given scenario.
+A new **Scenarios** view in the Compass Console shows Applications and Runtimes connected to a specific [scenario](https://github.com/kyma-project/kyma/blob/release-1.7/docs/compass/02-02-flow.md#scenarios). It allows you to manage Applications and Runtimes in a given scenario.
 
 ![Details view](./details-view.png)
 
@@ -75,4 +75,4 @@ The default label preset for disabling Istio side-car injection is [broken](http
 
 ### Known issues
 
-Backup restore for the Event Bus fails. See the details in [this](https://github.com/kyma-project/kyma/issues/5942) issue and read the [troubleshooting](https://kyma-project.io/docs/1.7/components/backup#troubleshooting-restore-troubleshooting-eventing-not-working) document for a workaround.
+Backup restore for the Event Bus fails. See the details in [this](https://github.com/kyma-project/kyma/issues/5942) issue and read the [troubleshooting](https://github.com/kyma-project/kyma/blob/release-1.7/docs/backup/10-01-restore-troubleshooting.md#eventing-not-working) document for a workaround.
