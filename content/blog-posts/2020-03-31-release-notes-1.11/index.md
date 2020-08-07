@@ -57,7 +57,7 @@ Helm core release is an umbrella release for multiple components. This leads to 
 
 ### OAuth2 ORY/Hydra server GCP Proxy support 
 
-Cloud SQL is a provider-supplied and maintained database which requires a special proxy deployment in order to provide a secured connection. In Kyma, we provide a pre-installed [deployment](https://github.com/rimusz/charts/tree/master/stable/gcloud-sqlproxy) of the proxy which is ready to use. It requires only a set of input parameters in order to connect to the chosen database. Find all configuration options [here](https://kyma-project.io/docs/1.11/components/security/#configuration-o-auth2-server-profiles). 
+Cloud SQL is a provider-supplied and maintained database which requires a special proxy deployment in order to provide a secured connection. In Kyma, we provide a pre-installed [deployment](https://github.com/rimusz/charts/tree/master/stable/gcloud-sqlproxy) of the proxy which is ready to use. It requires only a set of input parameters in order to connect to the chosen database. Find all configuration options [here](https://github.com/kyma-project/kyma/blob/release-1.11/docs/security/05-05-production-profile.md). 
 
 > **NOTE:** When using any kind of custom database (gcloud or self-maintained), it is important to provide the **hydra.hydra.config.secrets** variables. Otherwise, a random Secret will be generated. This Secret needs to be common for all Hydra instances using the same instance of the chosen database. 
 
@@ -95,7 +95,7 @@ In order to address security concerns and reduce the potential attack surface, a
 
 * **Istio installation customization**
 
-Istio installation can be customized with an installation override. This allows you to easily change the Istio configuration used in Kyma installation. The user-provided configurations are merged with the defaults. See the [documentation](https://kyma-project.io/docs/1.11/components/service-mesh/#configuration-service-mesh-production-profile-system-requirements) for the details and usage example. 
+Istio installation can be customized with an installation override. This allows you to easily change the Istio configuration used in Kyma installation. The user-provided configurations are merged with the defaults. See the [documentation](https://github.com/kyma-project/kyma/blob/release-1.11/docs/service-mesh/05-05-production-profile.md#system-requirements) for the details and usage example. 
 
 > **NOTE:** This feature deprecates the old way of configuring Istio with Helm overrides. 
 
@@ -139,13 +139,13 @@ To ensure stable performance, we introduced the following changes to Monitoring:
 - Production profile with a retention time of 30 days
 - Local profile allowing you to deploy Kyma with Monitoring locally on Minikube. This configuration includes a very low retention time and a very low memory limit.
 
-For more information, refer to the [documentation](https://kyma-project.io/docs/1.11/components/monitoring/#configuration-monitoring-profiles). 
+For more information, refer to the [documentation](https://github.com/kyma-project/kyma/blob/release-1.11/docs/monitoring/05-04-production-profile.md). 
 
 ## Installation 
 
 ### New retry mechanism in Kyma installer 
 
-The new retry mechanism ensures that a single component is retried instead of the whole installation. If the retries are not successful, the installation is stopped. Previously, it would be retried until successful. By default, there are 5 retries with increasing time between them. For more information, refer to the [documentation](https://kyma-project.io/docs/1.11/root/kyma/#installation-details-retry-policy). 
+The new retry mechanism ensures that a single component is retried instead of the whole installation. If the retries are not successful, the installation is stopped. Previously, it would be retried until successful. By default, there are 5 retries with increasing time between them. For more information, refer to the [documentation](https://github.com/kyma-project/kyma/blob/release-1.11/docs/kyma/04-12-details.md#retry-policy). 
 
 ### Integration pipelines now run on Kubernetess 1.15 and 1.16 
 
@@ -163,14 +163,14 @@ To test it out, enable these charts before installing Kyma:
 - `function-controller-init` 
 - `function-controller` 
 
-Refer to the documentation to learn more about [Serverless v2](https://kyma-project.io/docs/1.11/components/serverless-v2/) and [create a test lambda](https://kyma-project.io/docs/1.11/components/serverless-v2/#tutorials-create-a-lambda) on your own. 
+Refer to the documentation to learn more about [Serverless v2](https://github.com/kyma-project/kyma/tree/release-1.11/docs/serverless-v2) and [create a test lambda](https://github.com/kyma-project/kyma/blob/release-1.11/docs/serverless-v2/08-01-create-lambda.md) on your own. 
 
 ### Play with lambdas 
 
 Once you have enabled the Serverless v2 charts and have a sample lambda in place, you can play with it a bit: 
 
-- [Expose](https://kyma-project.io/docs/1.11/components/serverless-v2/#tutorials-expose-the-lambda-with-an-api-rule) it to an external endpoint through an API Rule. 
-- [Bind](https://kyma-project.io/docs/1.11/components/serverless-v2/#tutorials-bind-a-service-instance-to-a-lambda) it to a Service Instance. 
+- [Expose](https://github.com/kyma-project/kyma/blob/release-1.11/docs/serverless-v2/08-02-expose-lambda.md) it to an external endpoint through an API Rule. 
+- [Bind](https://github.com/kyma-project/kyma/blob/release-1.11/docs/serverless-v2/08-03-bind-service-instance.md) it to a Service Instance. 
 
 Use the reference tutorials to test these scenarios. 
 
@@ -208,7 +208,7 @@ We applied HTTP security headers for the Log UI, which solves the CVSS:3.0/AV:N/
 
 ### Migration to new Knative Eventing Mesh 
 
-With Kyma 1.11, we migrated the underlying eventing solution to the new [Knative Eventing Mesh](https://kyma-project.io/docs/1.11/components/knative-eventing-mesh/). As a result, all your Kyma Subscriptions were converted to Knative Triggers to ensure a seamless eventing experience.  
+With Kyma 1.11, we migrated the underlying eventing solution to the new [Knative Eventing Mesh](https://github.com/kyma-project/kyma/tree/release-1.11/docs/knative-eventing-mesh). As a result, all your Kyma Subscriptions were converted to Knative Triggers to ensure a seamless eventing experience.  
 
 This migration has no negative impact on any existing connectors. You can still use the old eventing endpoints to publish the events your Application sends. The old eventing endpoints convert your request to a valid CloudEvent in version 1.0 and redirect this request to the new Eventing Mesh. 
 
