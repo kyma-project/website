@@ -1,4 +1,4 @@
-import styled from "@styled";
+import styled, { media } from "@styled";
 
 export const DropDownWrapper = styled.div`
   position: relative;
@@ -18,6 +18,14 @@ export const DropDownWrapper = styled.div`
 export const DropdownDropElementWrapper = styled.div`
   position: relative;
   text-align: left;
+  padding-top: 16px;
+
+  &&& {
+    ${media.largeTablet`
+      padding-top: 0px;
+      margin-bottom: 18px;
+    `}
+  }
 `;
 
 export const DropdownActionElementWrapper = styled.div`
@@ -30,7 +38,6 @@ interface DropdownListWrapperProps {
 
 export const DropdownListWrapper = styled.div<DropdownListWrapperProps>`
   position: absolute;
-  top: 16px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1;
@@ -54,6 +61,20 @@ export const DropdownListWrapper = styled.div<DropdownListWrapperProps>`
     border-right: 12px solid transparent;
     border-bottom: 12px solid #fff;
   }
+
+  ${media.largeTablet`
+    position: relative;
+    visibility: visible;
+    width: 100%;
+    background-color: transparent;
+    box-shadow: none;
+    border: 2px solid #fff;
+    padding: 12px 0;
+
+    &:before {
+      display: none;
+    }
+  `}
 `;
 
 export const DropdownList = styled.ul`
@@ -99,4 +120,14 @@ export const DropdownListItem = styled.li`
       }
     }
   }
+
+  ${media.largeTablet`
+    border-bottom: 2px solid #fff;
+
+    a {
+      color: #fff;
+      font-size: 18px;
+      font-weight: 500;
+    }
+  `}
 `;

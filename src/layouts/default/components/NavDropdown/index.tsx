@@ -17,16 +17,18 @@ interface NavDropdown {
     url: string;
     active: boolean;
   }>;
+  toggleVisibility: () => void;
 }
 
 const NavDropdown: React.FunctionComponent<NavDropdown> = ({
   elements = [],
+  toggleVisibility,
   children,
 }) => {
   const [dropOpen, setDropOpen] = useState(false);
 
   const list = elements.map(el => (
-    <DropdownListItem key={el.displayName}>
+    <DropdownListItem key={el.displayName} onClick={toggleVisibility}>
       <Link.Internal to={el.url}>{el.displayName}</Link.Internal>
     </DropdownListItem>
   ));
@@ -36,13 +38,12 @@ const NavDropdown: React.FunctionComponent<NavDropdown> = ({
       onMouseEnter={() => {
         setDropOpen(true);
       }}
+      onMouseLeave={() => {
+        setDropOpen(false);
+      }}
     >
       <DropdownActionElementWrapper>{children}</DropdownActionElementWrapper>
-      <DropdownDropElementWrapper
-        onMouseLeave={() => {
-          setDropOpen(false);
-        }}
-      >
+      <DropdownDropElementWrapper>
         <DropdownListWrapper active={dropOpen}>
           <DropdownList>{list}</DropdownList>
         </DropdownListWrapper>

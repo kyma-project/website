@@ -216,10 +216,10 @@ export const IFrameWrapper = styled.section`
   top: 110px;
 
   ${media.tablet`
-  top: 110px;
+    top: 110px;
   `}
   ${media.phone`
-  top: 95px;
+    top: 95px;
   `}
 
   > iframe {
