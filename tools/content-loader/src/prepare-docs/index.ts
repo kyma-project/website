@@ -32,7 +32,7 @@ const prepareDocsPerSource = async (
   );
   const sourcePath = resolve(repositoryName);
 
-  let err: Error | null;
+  let err: Error | null = null;
 
   [err] = await to(makeDir(outputPath));
   if (err) {

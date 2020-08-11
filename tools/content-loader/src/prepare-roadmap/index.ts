@@ -23,7 +23,7 @@ const prepareRoadmapContent = async (coreConfig: CoreConfig) => {
   const capabilitiesOutput = resolve(roadmapConfig.capabilitiesOutput);
   const ticketsOutput = resolve(roadmapConfig.ticketsOutput);
 
-  let err: Error | null;
+  let err: Error | null = null;
 
   [err] = await to(CapabilitiesFetcher.copyCommunityRepository(coreConfig));
   if (err) {

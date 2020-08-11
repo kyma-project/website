@@ -30,12 +30,13 @@ export interface CreateDocsPages {
 }
 
 export const createDocsPages = async (options: CreateDocsPages) => {
+  const reposData: { [repo: string]: DocsRepository } = config.docs;
   const repositoryName = options.prepareForRepo;
 
   if (repositoryName) {
     await createDocsPagesPerRepo(
       repositoryName,
-      (config.docs as any)[repositoryName],
+      reposData[repositoryName],
       options,
     );
     return;

@@ -50,9 +50,9 @@ export class ReleaseFetcher {
   }
 
   groupBy(
-    array: any[] = [],
+    array: ReposGetReleaseResponse[] = [],
     fn: (arg: ReposGetReleaseResponse) => string,
-  ): Map<string, any> {
+  ): Map<string, ReposGetReleaseResponse> {
     return array.reduce((prv, curr) => {
       const key = fn(curr);
       let values = prv.get(key);
