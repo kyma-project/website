@@ -52,7 +52,7 @@ export class ReleaseFetcher {
   groupBy(
     array: ReposGetReleaseResponse[] = [],
     fn: (arg: ReposGetReleaseResponse) => string,
-  ): Map<string, ReposGetReleaseResponse> {
+  ): Map<string, ReposGetReleaseResponse[]> {
     return array.reduce((prv, curr) => {
       const key = fn(curr);
       let values = prv.get(key);
