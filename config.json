@@ -78,9 +78,9 @@
     },
     "cli": {
       "displayName": "CLI",
-      "organization": "magicmatatjahu",
+      "organization": "kyma-project",
       "repository": "cli",
-      "branches": ["603-website-upstream-docs"],
+      "branches": ["master"],
       "lastReleases": 0,
       "navPath": "cli",
       "rootPath": {
@@ -90,9 +90,9 @@
     },
     "control-plane": {
       "displayName": "Control Plane",
-      "organization": "magicmatatjahu",
+      "organization": "kyma-project",
       "repository": "control-plane",
-      "branches": ["603-website-upstream-docs"],
+      "branches": ["master"],
       "lastReleases": 0,
       "navPath": "control-plane",
       "rootPath": {
