@@ -68,10 +68,10 @@ const createWebsitePreviewPages = async ({
   await createRoadmapPages({ graphql, createPage, createRedirect });
 };
 
-const createDocsPreviewPages = async ({
-  graphql,
-  actions: { createRedirect, ...otherActions },
-}: CreatePagesArgs) => {
+const createDocsPreviewPages = async (
+  { graphql, actions: { createRedirect, ...otherActions } }: CreatePagesArgs,
+  prepareForRepo = "kyma",
+) => {
   let createPage = createIntlPage(otherActions.createPage, createRedirect);
   createPage = createPreviewPage(createPage);
 
@@ -80,6 +80,7 @@ const createDocsPreviewPages = async ({
     createPage,
     createRedirect,
     buildFor: BuildFor.DOCS_PREVIEW,
+    prepareForRepo,
   });
 };
 
@@ -108,7 +109,10 @@ export const createPages = async (createPagesArgs: CreatePagesArgs) => {
       return;
     }
     case BuildFor.DOCS_PREVIEW: {
-      await createDocsPreviewPages(createPagesArgs);
+      await createDocsPreviewPages(
+        createPagesArgs,
+        process.env.APP_PREPARE_FOR_REPO,
+      );
       return;
     }
     case BuildFor.COMMUNITY_PREVIEW: {

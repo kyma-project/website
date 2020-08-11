@@ -28,11 +28,14 @@ export class GitHubClient {
     }
   };
 
-  getReleases = async () => {
+  getReleases = async (
+    repositoryName: string = this.config.repository,
+    organizationName: string = this.config.organization,
+  ) => {
     const [err, response] = await to<Response<ReposGetReleaseResponse[]>>(
       this.octokit.repos.listReleases({
-        owner: this.config.organization,
-        repo: this.config.repository,
+        owner: organizationName,
+        repo: repositoryName,
         per_page: 100,
       }),
     );

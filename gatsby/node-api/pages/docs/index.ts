@@ -1,3 +1,5 @@
+import { existsSync } from "fs";
+import { resolve } from "path";
 import { createComponentDocsPage } from "./componentPage";
 import { createModalDocsPage } from "./modalPage";
 import { fixLinks } from "./fixLinks";
@@ -15,26 +17,60 @@ import {
   GraphQLFunction,
 } from "../../../types";
 import { BuildFor } from "../../../../src/types/common";
+import { DocsRepository } from "./types";
+
+import config from "../../../../config.json";
 
 export interface CreateDocsPages {
   graphql: GraphQLFunction;
   createPage: CreatePageFn;
   createRedirect: CreateRedirectFn;
   buildFor: BuildFor;
+  prepareForRepo?: string;
 }
 
-export const createDocsPages = async ({
-  graphql,
-  createPage: createPageFn,
-  createRedirect,
-  buildFor,
-}: CreateDocsPages) => {
+export const createDocsPages = async (options: CreateDocsPages) => {
+  const reposData: { [repo: string]: DocsRepository } = config.docs;
+  const repositoryName = options.prepareForRepo;
+
+  if (repositoryName) {
+    await createDocsPagesPerRepo(
+      repositoryName,
+      reposData[repositoryName],
+      options,
+    );
+    return;
+  }
+
+  for (const [repoName, repository] of Object.entries(config.docs)) {
+    await createDocsPagesPerRepo(repoName, repository, options);
+  }
+};
+
+const createDocsPagesPerRepo = async (
+  repositoryName: string,
+  repository: DocsRepository,
+  {
+    graphql,
+    createPage: createPageFn,
+    createRedirect,
+    buildFor,
+  }: CreateDocsPages,
+) => {
+  const pathToRepo = resolve(
+    __dirname,
+    `../../../../content/docs/${repositoryName}`,
+  );
+  if (!existsSync(pathToRepo)) {
+    return;
+  }
+
   const preparePaths =
     buildFor === BuildFor.DOCS_PREVIEW
       ? preparePreviewPaths
       : prepareWebsitePaths;
 
-  const preparedData = await prepareData({ graphql, buildFor });
+  const preparedData = await prepareData({ graphql, buildFor, repositoryName });
   if (!preparedData) {
     return;
   }
@@ -55,6 +91,7 @@ export const createDocsPages = async ({
           pagePath,
           rootPagePath,
         } = preparePaths({
+          repositoryName,
           version,
           latestVersion: latestVersion || "",
           docsType,
@@ -66,7 +103,6 @@ export const createDocsPages = async ({
           fixedContent = fixLinks({
             content: fixedContent,
             version,
-            latestVersion,
           });
         }
         const specifications = fixedContent.specifications.map(
@@ -87,6 +123,7 @@ export const createDocsPages = async ({
           docsType,
           topic,
           specifications,
+          repositoryName,
         };
 
         const createPage = createDocsPage(createPageFn, context);
@@ -96,6 +133,7 @@ export const createDocsPages = async ({
           context,
           path: pagePath,
           rootPath: rootPagePath,
+          repository,
         });
         createModalDocsPage({ createPage, context });
       });

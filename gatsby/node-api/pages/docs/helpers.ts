@@ -52,21 +52,26 @@ export const createDocsPage = (
 interface PrepareDataArgs {
   graphql: GraphQLFunction;
   buildFor: BuildFor;
+  repositoryName: string;
 }
 
-export const prepareData = async ({ graphql, buildFor }: PrepareDataArgs) => {
+export const prepareData = async ({
+  graphql,
+  buildFor,
+  repositoryName,
+}: PrepareDataArgs) => {
   const versions = getDocsVersions(
-    require("../../../../content/docs/versions"),
+    require(`../../../../content/docs/${repositoryName}/versions`),
   );
   if (Object.keys(versions).length === 0) {
-    console.error("No docs versions found");
+    console.error(`No docs versions found for ${repositoryName}`);
     return;
   }
   const latestVersion = getLatestVersion(versions);
 
   const docs = await getContent<DocGQL>(
     graphql,
-    "/content/docs/",
+    `/content/docs/${repositoryName}/`,
     `docInfo {
       id
       type
@@ -79,7 +84,7 @@ export const prepareData = async ({ graphql, buildFor }: PrepareDataArgs) => {
   if (buildFor === BuildFor.DOCS_PREVIEW) {
     docsArch[""] = docsGenerator<DocGQL>(
       docs,
-      "docs",
+      `docs/${repositoryName}`,
       extractDocsFn(latestVersion),
       latestVersion,
     );
@@ -98,7 +103,7 @@ export const prepareData = async ({ graphql, buildFor }: PrepareDataArgs) => {
     for (const version of versions[versionType]) {
       docsArch[version] = docsGenerator<DocGQL>(
         docs,
-        "docs",
+        `docs/${repositoryName}`,
         extractDocsFn(version),
         version,
       );
@@ -211,6 +216,7 @@ export const sortGroupOfNavigation = (
 };
 
 export const prepareWebsitePaths = ({
+  repositoryName,
   version,
   latestVersion,
   docsType,
@@ -219,13 +225,17 @@ export const prepareWebsitePaths = ({
   const v =
     !version || version === DOCS_LATEST_VERSION ? latestVersion : version;
 
-  const assetsPath = `/${ASSETS_DIR}${DOCS_DIR}${v}/${topic}/${DOCS_DIR}${ASSETS_DIR}`;
-  const specificationsPath = `/${ASSETS_DIR}${DOCS_DIR}${v}/${topic}/${DOCS_SPECIFICATIONS_PATH}`;
+  const assetsPath = `/${ASSETS_DIR}${DOCS_DIR}${repositoryName}/${v}/${topic}/${DOCS_DIR}${ASSETS_DIR}`;
+  const specificationsPath = `/${ASSETS_DIR}${DOCS_DIR}${repositoryName}/${v}/${topic}/${DOCS_SPECIFICATIONS_PATH}`;
   const pagePath = `/${DOCS_PATH_PREFIX}/${
     version ? `${version}/` : ""
   }${docsType}/${topic}`;
-  const rootPagePath = `/${DOCS_PATH_PREFIX}/${version}`;
-  const modalUrlPrefix = `/${DOCS_PATH_PREFIX}/${v}/${docsType}/${topic}/${DOCS_SPECIFICATIONS_PATH}`;
+  const rootPagePath = `/${DOCS_PATH_PREFIX}/${
+    repositoryName === "kyma" ? "" : `${repositoryName}/`
+  }${version}`;
+  const modalUrlPrefix = `/${DOCS_PATH_PREFIX}/${
+    repositoryName === "kyma" ? "" : `${repositoryName}/`
+  }${v}/${docsType}/${topic}/${DOCS_SPECIFICATIONS_PATH}`;
 
   return {
     assetsPath,
@@ -237,6 +247,7 @@ export const prepareWebsitePaths = ({
 };
 
 export const preparePreviewPaths = ({
+  repositoryName,
   version,
   latestVersion,
   docsType,
@@ -245,8 +256,8 @@ export const preparePreviewPaths = ({
   const v =
     !version || version === DOCS_LATEST_VERSION ? latestVersion : version;
 
-  const assetsPath = `/${ASSETS_DIR}${DOCS_DIR}${v}/${topic}/${DOCS_DIR}${ASSETS_DIR}`;
-  const specificationsPath = `/${ASSETS_DIR}${DOCS_DIR}${v}/${topic}/${DOCS_SPECIFICATIONS_PATH}`;
+  const assetsPath = `/${ASSETS_DIR}${DOCS_DIR}${repositoryName}/${v}/${topic}/${DOCS_DIR}${ASSETS_DIR}`;
+  const specificationsPath = `/${ASSETS_DIR}${DOCS_DIR}${repositoryName}/${v}/${topic}/${DOCS_SPECIFICATIONS_PATH}`;
   const pagePath = `/${version ? `${version}/` : ""}${docsType}/${topic}`;
   const rootPagePath = `/${version}`;
   const modalUrlPrefix = `/${docsType}/${topic}/${DOCS_SPECIFICATIONS_PATH}`;

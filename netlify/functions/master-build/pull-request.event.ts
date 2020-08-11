@@ -3,6 +3,8 @@ import { PullsListFilesResponse } from "@octokit/rest";
 
 import { GitHubClient } from "../utils/github-client";
 
+const configJSON = require("../../../config.json");
+
 enum PullRequestActionType {
   CLOSED = "closed",
 }
@@ -15,10 +17,12 @@ enum RepositoryName {
 const REPOSITORY_NAMES: string[] = [
   RepositoryName.KYMA,
   RepositoryName.COMMUNITY,
+  ...Object.keys(configJSON.docs),
 ];
 
-const REGEX: { [repository: string]: RegExp } = {
-  [RepositoryName.KYMA]: /^(docs\/)|(resources\/core\/charts\/docs\/charts\/content-ui\/templates\/)/,
+const REGEX = {
+  KYMA: /^(docs\/)|(resources\/core\/charts\/docs\/charts\/content-ui\/templates\/)/,
+  OTHERS: /^(docs\/)|(\.kyma-project-io\/)/,
 };
 
 export const checkPullRequestEvent = async (
@@ -50,18 +54,21 @@ const checkChangedFiles = (
 ): boolean => {
   switch (repositoryName) {
     case RepositoryName.KYMA:
-      return checkChangedFileNames(files, REGEX[RepositoryName.KYMA]);
+      return checkChangedFileNames(files, REGEX.KYMA);
     case RepositoryName.COMMUNITY:
       return true;
     default:
-      return false;
+      return checkChangedFileNames(files, REGEX.OTHERS);
   }
 };
 
 const checkChangedFileNames = (
   files: PullsListFilesResponse,
-  regex: RegExp,
+  regex?: RegExp,
 ): boolean => {
+  if (!regex) {
+    return true;
+  }
   return files.some(file => regex.test(file.filename));
 };
 

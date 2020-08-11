@@ -1,22 +1,34 @@
+const configJSON = require("../../../../config.json");
+
+export interface DocsRepository {
+  displayName: string;
+  organization: string;
+  repository: string;
+  branches: string[];
+  lastReleases?: number;
+}
+
+export interface DocsRepositories {
+  [source: string]: DocsRepository;
+}
+
 export interface DocsConfig {
   branches: string[];
+  docsRepositories: DocsRepositories;
   outputPath: string;
   outputDocsVersion: string;
-  sourcePath: string;
-  repository: string;
-  numberOfProcessedReleases: number;
+  sourcePreviewPath: string;
 }
 
 const config: DocsConfig = {
   branches: process.env.APP_DOCS_BRANCHES
     ? process.env.APP_DOCS_BRANCHES.replace(/ /g, "").split(",")
     : ["master"],
+  docsRepositories: configJSON.docs,
   outputPath: process.env.APP_DOCS_OUTPUT || "docs",
+  sourcePreviewPath: process.env.APP_PREVIEW_SOURCE_DIR || "kyma",
   outputDocsVersion:
     process.env.APP_DOCS_VERSIONS_CONFIG_FILE || "versions.json",
-  sourcePath: process.env.APP_DOCS_SOURCE_DIR || "tempDocsDir",
-  repository: process.env.APP_DOCS_REPOSITORY || "kyma",
-  numberOfProcessedReleases: Number(process.env.APP_DOCS_RELEASE_NUMBER) || 3,
 };
 
 export default config;

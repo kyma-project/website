@@ -1,0 +1,14 @@
+{
+  "releases": [
+    {
+      "name": "1.0",
+      "tag": "1.0.0"
+    }
+  ],
+  "branches": [
+    {
+      "name": "master",
+      "commit": "easter-egg"
+    }
+  ]
+}

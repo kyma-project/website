@@ -4,6 +4,7 @@ import throttle from "lodash.throttle";
 import Button from "@components/shared/Button";
 
 import Search from "./Search";
+import DocsNavigation from "./DocsNavigation";
 
 import { injectIntl, IntlInterface } from "@common/i18n";
 import { resolveSocialMedia } from "@common/utils";
@@ -19,10 +20,6 @@ import {
 } from "./styled";
 
 const navigation = [
-  {
-    path: "/docs/",
-    title: "Docs",
-  },
   {
     path: "/blog/",
     title: "Blog",
@@ -102,8 +99,9 @@ class Navigation extends Component<IntlInterface, State> {
           >
             <Button.Light iconName="times" iconPrefix="fas" />
           </NavigationItem>
-          {navigation.map((navItem: { path: string; title: string }) => (
-            <NavigationItem key={navItem.title}>
+          <DocsNavigation toggleVisibility={this.toggleVisibility} />
+          {navigation.map(navItem => (
+            <NavigationItem key={navItem.title} onClick={this.toggleVisibility}>
               <NavigationIntLink to={navItem.path}>
                 {navItem.title}
               </NavigationIntLink>
