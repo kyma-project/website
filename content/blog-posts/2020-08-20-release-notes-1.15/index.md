@@ -68,6 +68,7 @@ Significantly reduced the time required to install the component.
 
 ### Increased availability of Hydra during updates
 
+Increased availability of the component during updates.
 
 ### Improved stability of Oathkeeper
 
