@@ -18,7 +18,7 @@ Not to mention the beautiful architecture of the city!
 Inspired by the views, we worked on improving our Console UI. 
 We also added more documentation sources to the website. 
 Lastly, we worked on tweaks and improvements for Monitoring, the Kyma CLI, and the ORY stack. 
-Read the notes, to find out more.
+Read the notes to find out more.
 
 <!-- overview -->
 
