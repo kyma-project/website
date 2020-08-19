@@ -44,7 +44,6 @@ The Kyma installation on a remote cluster from a local Kyma GitHub checkout requ
 
 ###  Improved resilience of the `install` command
 
-<!-- The install command will not disconnect on connection problems while watching an ongoing installation. With that -->
 The resilience of the `install` command has been improved. Now, even if you encounter connection problems during installation, the process triggered by the `install` command will be resumed and continue until it's completed. 
 
 ## ORY stack
