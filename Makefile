@@ -16,7 +16,7 @@
 	prepare-functions
 
 netlify-production: clear-cache prepare-content-website build-prod prepare-functions
-netlify-deploy-preview: validate test clear-cache prepare-content-website build-prod
+netlify-deploy-preview: clear-cache validate test prepare-content-website build-prod
 netlify-docs-preview: resolve prepare-content-docs-preview build-docs-preview
 netlify-community-preview: resolve prepare-content-community-preview build-community-preview
 
