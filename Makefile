@@ -16,9 +16,9 @@
 	prepare-functions
 
 netlify-production: clear-cache prepare-content-website build-prod prepare-functions
-netlify-deploy-preview: validate test build-website-preview
-netlify-docs-preview: resolve prepare-content-docs-preview build-docs-preview
-netlify-community-preview: resolve prepare-content-community-preview build-community-preview
+netlify-deploy-preview: clear-cache validate test build-website-preview
+netlify-docs-preview: clear-cache resolve prepare-content-docs-preview build-docs-preview
+netlify-community-preview: clear-cache resolve prepare-content-community-preview build-community-preview
 
 clear-cache:
 	make -C "./tools/content-loader" clear-cache
