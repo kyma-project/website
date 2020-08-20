@@ -17,14 +17,14 @@ But did you know that Vienna was the largest German-speaking city in the world u
 Not to mention the beautiful architecture of the city! 
 Inspired by the views, we worked on improving our Console UI. 
 We also added more documentation sources to the website. 
-Lastly, we worked on tweaks and improvements for Monitoring, the Kyma CLI, and the ORY stack. 
+Lastly, we worked on tweaks and improvements for monitoring, Kyma CLI, and the ORY stack. 
 Read the notes to find out more.
 
 <!-- overview -->
 
 See the overview of all changes in this release:
 
-- [Monitoring](#monitoring) - `Jaeger` datasource in Grafana
+- [Monitoring](#monitoring) - Jaeger datasource in Grafana
 - [CLI](#cli) - Installation from a local checkout to a remote cluster, improved resilience of the `install` command
 - [ORY stack](#ory-stack) - Reduced time of Hydra installation, increased availability of Hydra during updates, improved stability of Oathkeeper
 - [Console](#console) - Managing OAuth2 clients from the Console UI, collapsible navigation categories, configuration of event triggers for services
@@ -34,7 +34,7 @@ See the overview of all changes in this release:
 
 ### Jaeger datasource in Grafana
 
-We took the chance and preconfigured the new `Jaeger` datasource type in Grafana. Now you can explore all traces available in the Jaeger UI also in the **Explore** section of Grafana by selecting this new datasource. 
+We took the chance and preconfigured the new Jaeger datasource type in Grafana. Now you can also explore all traces available in the Jaeger UI by selecting this new datasource in the **Explore** section of Grafana.
 
 ## CLI
 
@@ -89,7 +89,7 @@ This feature allows you to easily manage event subscriptions not only for Functi
 ### Documentation from various repository sources displayed on the website
 
 In response to numerous requests, we extended the **Docs** view and now display various documentation sources on the website.
-From now on, when you click on **Docs** in the main navigation panel, you select the repository from which you want to read the documentation.
+From now on, when you hover over **Docs** in the main navigation panel, you can select the repository from which you want to read the documentation.
 You can choose from the main [Kyma documentation](https://kyma-project.io/docs/), Kyma [CLI](https://kyma-project.io/docs/cli/), and Kyma [Control Plane](https://kyma-project.io/docs/control-plane/).
 <!-- I BELIEVE THIS PART IS OF NO INTEREST TO THE CLIENTS/USERS AND SHOULD NOT BE INCLUDED IN THE NOTES; THIS WILL BE REMOVED
 It is possible to add documentation from any other repository within the `kyma-project` and `kyma-incubator` GitHub organizations, as long as these documents meet certain requirements and you perform some additional configuration steps.
