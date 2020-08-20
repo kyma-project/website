@@ -24,7 +24,7 @@ Read the notes to find out more.
 
 See the overview of all changes in this release:
 
-- [Monitoring](#monitoring) - Jaeger datasource in Grafana
+- [Monitoring](#monitoring) - Jaeger data source in Grafana
 - [CLI](#cli) - Installation from a local checkout to a remote cluster, improved resilience of the `install` command
 - [ORY stack](#ory-stack) - Reduced time of Hydra installation, increased availability of Hydra during updates, improved stability of Oathkeeper
 - [Console](#console) - Managing OAuth2 clients from the Console UI, collapsible navigation categories, configuration of event triggers for services
@@ -32,19 +32,19 @@ See the overview of all changes in this release:
 
 ## Monitoring
 
-### Jaeger datasource in Grafana
+### Jaeger data source in Grafana
 
-We took the chance and preconfigured the new Jaeger datasource type in Grafana. Now you can also explore all traces available in the Jaeger UI by selecting this new datasource in the **Explore** section of Grafana.
+We took the chance and preconfigured the new Jaeger data source type in Grafana. Now you can also explore all traces available in the Jaeger UI by selecting this new data source in the **Explore** section of Grafana.
 
 ## CLI
 
 ### Installation from a local checkout to a remote cluster
 
-The Kyma installation on a remote cluster from a local Kyma GitHub checkout requires building and pushing the `kyma-installer` image to a remote Docker registry. This is now taken care of by the CLI. When the `install` command detects such a setup, it will require you to pass the **--custom-image** parameter specifying the full image name to be used. The CLI will then build and push the image automatically, leveraging the authentication details retrieved from the local Docker client. 
+Kyma installation on a remote cluster from a local Kyma GitHub checkout requires building and pushing the `kyma-installer` image to a remote Docker registry. From now on, CLI takes care of this process. When the `install` command detects such a setup, it will prompt you to pass the **--custom-image** parameter specifying the full image name to be used. The CLI will then build and push the image automatically, leveraging the authentication details retrieved from the local Docker client. 
 
-###  Improved resilience of the `install` command
+###  Improved resilience of the install command
 
-The resilience of the `install` command has been improved. Now, even if you encounter connection problems during installation, the process triggered by the `install` command will be resumed and continue until it's completed. 
+We improved the resilience of the `install` command. Now, even if you encounter connection problems during installation, the process triggered by the `install` command will be resumed and continue until it's completed. 
 
 ## ORY stack
 
@@ -90,7 +90,7 @@ This feature allows you to easily manage event subscriptions not only for Functi
 
 In response to numerous requests, we extended the **Docs** view and now display various documentation sources on the website.
 From now on, when you hover over **Docs** in the main navigation panel, you can select the repository from which you want to read the documentation.
-You can choose from the main [Kyma documentation](https://kyma-project.io/docs/), Kyma [CLI](https://kyma-project.io/docs/cli/), and Kyma [Control Plane](https://kyma-project.io/docs/control-plane/).
+You can choose from the documentation for [Kyma](https://kyma-project.io/docs/), [CLI](https://kyma-project.io/docs/cli/), and [Control Plane](https://kyma-project.io/docs/control-plane/).
 <!-- I BELIEVE THIS PART IS OF NO INTEREST TO THE CLIENTS/USERS AND SHOULD NOT BE INCLUDED IN THE NOTES; THIS WILL BE REMOVED
 It is possible to add documentation from any other repository within the `kyma-project` and `kyma-incubator` GitHub organizations, as long as these documents meet certain requirements and you perform some additional configuration steps.
 To learn the details, see the [instruction on adding a new repository documentation](https://kyma-project.io/community/guidelines/content#add-new-documentation-to-the-website-add-new-documentation-to-the-website-add-a-new-repository-documentation). 
