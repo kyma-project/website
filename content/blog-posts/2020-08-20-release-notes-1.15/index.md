@@ -64,7 +64,7 @@ The Oathkeeper stability has been improved. We also fixed the issues with period
 
 ### Managing OAuth2 clients from the Console UI
 
-To interact with the Kyma OAuth2 server and secure your microservices and Functions, you must first [register an OAuth2 client](https://kyma-project.io/docs/components/security#details-o-auth2-and-open-id-connect-server-register-an-o-auth2-client). 
+To interact with the Kyma OAuth2 server and secure your microservices and Functions, you must first [register an OAuth2 client](https://kyma-project.io/docs/1.15/components/security/#details-o-auth2-and-open-id-connect-server-register-an-o-auth2-client). 
 So far, you could do it only through `kubectl`. 
 With Kyma 1.15, you can also register OAuth2 clients from the new view in the Console UI: 
 
