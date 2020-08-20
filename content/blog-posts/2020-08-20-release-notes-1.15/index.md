@@ -34,7 +34,7 @@ See the overview of all changes in this release:
 
 ### Jaeger data source in Grafana
 
-We took the chance and preconfigured the new Jaeger data source type in Grafana. Now you can also explore all traces available in the Jaeger UI by selecting this new data source in the **Explore** section of Grafana.
+We took the chance and preconfigured the new Jaeger data source in Grafana. Now you can also explore all traces available in the Jaeger UI by selecting this new data source in the **Explore** section of Grafana.
 
 ## CLI
 
