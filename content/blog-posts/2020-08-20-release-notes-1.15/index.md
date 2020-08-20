@@ -54,12 +54,6 @@ Improvements in the ORY stack include:
 * Increased availability of Hydra during updates.
 * Improved Oathkeeper stability and fixed issues with periodic restarts.
 
-Another thing we worked on was Hydra availability. As a result, the availability of the component during updates is now increased.
-
-### Improved stability of Oathkeeper
-
-The Oathkeeper stability has been improved. We also fixed the issues with periodic restarts.
-
 ## Console
 
 ### Managing OAuth2 clients from the Console UI
