@@ -85,10 +85,6 @@ This feature allows you to easily manage event subscriptions not only for Functi
 In response to numerous requests, we extended the **Docs** view and now display various documentation sources on the website.
 From now on, when you hover over **Docs** in the main navigation panel, you can select the repository from which you want to read the documentation.
 You can choose from the documentation for [Kyma](https://kyma-project.io/docs/), [CLI](https://kyma-project.io/docs/cli/), and [Control Plane](https://kyma-project.io/docs/control-plane/).
-<!-- I BELIEVE THIS PART IS OF NO INTEREST TO THE CLIENTS/USERS AND SHOULD NOT BE INCLUDED IN THE NOTES; THIS WILL BE REMOVED
-It is possible to add documentation from any other repository within the `kyma-project` and `kyma-incubator` GitHub organizations, as long as these documents meet certain requirements and you perform some additional configuration steps.
-To learn the details, see the [instruction on adding a new repository documentation](https://kyma-project.io/community/guidelines/content#add-new-documentation-to-the-website-add-new-documentation-to-the-website-add-a-new-repository-documentation). 
--->
 
 ![Documentation from various repositories](./docs-different-repos.png)
  
