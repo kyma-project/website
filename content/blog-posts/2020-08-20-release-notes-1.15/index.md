@@ -48,11 +48,11 @@ We improved the resilience of the `install` command. Now, even if you encounter 
 
 ## ORY stack
 
-### Reduced time of Hydra installation
+Improvements in the ORY stack include:
 
-We worked on the Hydra installation process and bringing those numbers down, and we succeeded. We significantly reduced the time required to install the component.
-
-### Increased availability of Hydra during updates
+* Significantly reduced time of Hydra installation.
+* Increased availability of Hydra during updates.
+* Improved Oathkeeper stability and fixed issues with periodic restarts.
 
 Another thing we worked on was Hydra availability. As a result, the availability of the component during updates is now increased.
 
