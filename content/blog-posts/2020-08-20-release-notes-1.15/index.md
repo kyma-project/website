@@ -50,9 +50,9 @@ We improved the resilience of the `install` command. Now, even if you encounter 
 
 Improvements in the ORY stack include:
 
-* Significantly reduced time of Hydra installation.
-* Increased availability of Hydra during updates.
-* Improved Oathkeeper stability and fixed issues with periodic restarts.
+* Significantly reduced time of Hydra installation
+* Increased availability of Hydra during updates
+* Improved Oathkeeper stability and fixed issues with periodic restarts
 
 ## Console
 
