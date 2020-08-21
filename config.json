@@ -97,7 +97,7 @@
       "navPath": "control-plane",
       "rootPath": {
         "docsType": "control-plane",
-        "docsTopic": "kyma-environment-broker"
+        "docsTopic": "control-plane"
       }
     }
   }
