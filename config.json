@@ -97,7 +97,7 @@
       "navPath": "control-plane",
       "rootPath": {
         "docsType": "control-plane",
-        "docsTopic": "control-plane"
+        "docsTopic": "kyma-control-plane"
       }
     }
   }
