@@ -26,7 +26,7 @@ See the overview of all changes in this release:
 
 - [Monitoring](#monitoring) - Jaeger data source in Grafana
 - [CLI](#cli) - Installation from a local checkout to a remote cluster, improved resilience of the `install` command
-- [ORY stack](#ory-stack) - Reduced time of Hydra installation, increased availability of Hydra during updates, improved stability of Oathkeeper
+- [ORY stack](#ory-stack) - Reduced Hydra installation time, increased availability of Hydra during updates, improved Oathkeeper stability
 - [Console](#console) - Managing OAuth2 clients from the Console UI, collapsible navigation categories, configuration of event triggers for services
 - [Website](#website) - Documentation from various repository sources displayed on the website
 
@@ -50,7 +50,7 @@ We improved the resilience of the `install` command. Now, even if you encounter 
 
 Improvements in the ORY stack include:
 
-* Significantly reduced time of Hydra installation
+* Significantly reduced Hydra installation time
 * Increased availability of Hydra during updates
 * Improved Oathkeeper stability and fixed issues with periodic restarts
 
