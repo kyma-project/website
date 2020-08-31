@@ -54,7 +54,7 @@ With 1.12, we removed the Event Bus component, allowing Knative Eventing Mesh to
 
 ### Documentation updates
 
-With Event Bus removed, we focused on Knative Eventing Mesh. For 1.12, this also meant providing you with additional documentation on [event processing and delivery](https://kyma-project.io/docs/1.12/components/knative-eventing-mesh/#details-event-processing-and-delivery). If you are interested in setting Kafka as your default Channel implementation, read this [tutorial](https://kyma-project.io/docs/1.12/components/knative-eventing-mesh/#tutorials-configure-the-kafka-channel).
+With Event Bus removed, we focused on Knative Eventing Mesh. For 1.12, this also meant providing you with additional documentation on [event processing and delivery](https://github.com/kyma-project/kyma/blob/release-1.12/docs/knative-eventing-mesh/03-01-event-processing.md). If you are interested in setting Kafka as your default Channel implementation, read this [tutorial](https://github.com/kyma-project/kyma/blob/release-1.12/docs/knative-eventing-mesh/08-01-configure-kafka-channel.md).
 
 ## Compass
 
@@ -108,7 +108,7 @@ As mentioned in the previous release notes, we switched to a new version of Serv
 
 ### Backend
 
-Serverless is now based on the new [Function CR](https://kyma-project.io/docs/1.12/components/serverless/#custom-resource-function) that provides you with full control over resource management, replacing at the same time the previous Function sizes management. We also switched to the Node.js 12 Runtime and improved the [resource processing flow](https://kyma-project.io/docs/1.12/components/serverless/#details-function-processing) in which the Function's image is built in a separate phase, helping the Functions to run more smoothly.
+Serverless is now based on the new [Function CR](https://github.com/kyma-project/kyma/blob/release-1.12/docs/serverless/06-01-function-cr.md) that provides you with full control over resource management, replacing at the same time the previous Function sizes management. We also switched to the Node.js 12 Runtime and improved the [resource processing flow](https://github.com/kyma-project/kyma/blob/release-1.12/docs/serverless/03-03-function-processing.md) in which the Function's image is built in a separate phase, helping the Functions to run more smoothly.
 
 ### Frontend
 
@@ -130,9 +130,9 @@ Changes in the Console UI include:
 
 There is a brand-new set of docs for the new solution with detailed architecture, Function CR description and configuration options, and step-by-step tutorials for both CLI and UI:
 
-- [Create a Function](https://kyma-project.io/docs/1.12/components/serverless/#tutorials-create-a-function)
-- [Expose a Function with an API Rule](https://kyma-project.io/docs/1.12/components/serverless/#tutorials-expose-a-function-with-an-api-rule)
-- [Bind a Service Instance to a Function](https://kyma-project.io/docs/1.12/components/serverless/#tutorials-bind-a-service-instance-to-a-function)
-- [Trigger a Function with an event](https://kyma-project.io/docs/1.12/components/serverless/#tutorials-trigger-a-function-with-an-event)
+- [Create a Function](https://github.com/kyma-project/kyma/blob/release-1.12/docs/serverless/08-01-create-function.md)
+- [Expose a Function with an API Rule](https://github.com/kyma-project/kyma/blob/release-1.12/docs/serverless/08-02-expose-function.md)
+- [Bind a Service Instance to a Function](https://github.com/kyma-project/kyma/blob/release-1.12/docs/serverless/08-03-bind-service-instance.md)
+- [Trigger a Function with an event](https://github.com/kyma-project/kyma/blob/release-1.12/docs/serverless/08-04-trigger-function-with-event.md)
 
 > **CAUTION:** If you already use Kubeless Functions, you must migrate them manually after you upgrade to the new release. Read the [migration guide](https://github.com/kyma-project/kyma/blob/release-1.12/docs/migration-guides/1.11-1.12.md#serverless) for details.
