@@ -11,6 +11,11 @@ import { default as PopupService } from "@common/state/usePopup";
 import { RootProvider } from "./services";
 import { Popup } from "./components";
 
+import "../styles/css/fonts.css";
+import "../styles/css/typography.css";
+import "../styles/css/global.css";
+import "../styles/css/docsearch.min.css";
+
 export const RootWrapper: React.FunctionComponent = ({ children }) => (
   <RootProvider>
     <LocationProvider>
