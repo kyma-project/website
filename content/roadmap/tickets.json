@@ -1,0 +1,178 @@
+{
+  "Future": {
+    "Core & Supporting": [
+      {
+        "title": "Basic SEO for kyma-project.io",
+        "body": "**Description**\r\n\r\nFirst:\r\n* We should do some basic optimization to be able to measure the effectiveness\r\n* Try with official google recommendations for start\r\n* Focus on search queries that we expect due to kyma name, technology stack and the mission statement:\r\n  * `kyma` (github org is 4th, the kyma-project.io is 15th)\r\n  * `extending enterprise software in cloud` (currently 46th result, in incognito, excluding advertisement items)\r\n  * `extending enterprise software using kubernetes` (currently 4th result, in incognito, excluding advertisement items)\r\n\r\nAC:\r\n* After each improvement reindexing of the website must be triggered and after a week we need to check if there is any noticable change in the search results\r\n* After completing the Epic we need to measure the traffic in google analytics if it improved comparing to previous months\r\n\r\nSuccess measure:\r\n- Better search position\r\n- More traffic on kyma-project.io\r\n\r\n**Reasons**\r\n\r\n* Kyma is a new project in Kubernetes landscape and we need to enable kyma-project.io site to be much more visible in google search results. \r\n* People can end up directly on kyma-project.io only if they are attending some conference and learn about kyma. In majority of cases you find different projects that solve your problems by googling and reading about them. So google should be our focus and we should work on SEO\r\n* Increase traffic on kyma-project.io to get more users",
+        "url": "https://github.com/kyma-project/website/issues/100",
+        "number": 100,
+        "labels": [
+          "area/community",
+          "enhancement"
+        ],
+        "githubUrl": "https://github.com/kyma-project/website/issues/100",
+        "repository": {
+          "name": "website",
+          "id": 139847219,
+          "issues": []
+        },
+        "dueDate": "2020-12-31T11:00:00.000Z",
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/website/100",
+        "release": {
+          "release_id": "5c0791ef1a6a4c6bf4b314ce",
+          "title": "Future",
+          "description": "Items selected for development but not scheduled yet.",
+          "start_date": "2020-01-01T11:00:00.000Z",
+          "desired_end_date": "2020-12-31T11:00:00.000Z",
+          "created_at": "2018-12-05T08:53:03.286Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Core & Supporting",
+          "epicsLabels": [
+            "area/core-and-supporting",
+            "area/community"
+          ],
+          "id": "core-and-supporting"
+        }
+      }
+    ],
+    "Service Management": [
+      {
+        "title": "Provide essential data and e2e test to *-kyma-gke-upgrade plan ",
+        "body": "**Description**\r\n\r\nAs Kyma 0.8 should be upgradeable from 0.7 and still work we need to test at least our top Kyma scenario, namely enterprise application integration, sending evens and receiving API calls back.\r\n\r\n**Acceptance Criteria**\r\n- Provide a separate steps for:\r\n  - essential component and data installation\r\n  - e2e test\r\n- Implement e2e test scenario: \r\n  - _your component e2e scenario_\r\n- Upgrade plan steps:\r\n  * install 0.7.0 -> apply setup and execute test\r\n  * upgrade to 0.8.0\r\n  * execute test again\r\n- Provide a way to install essential components and data in kyma before upgrade\r\n- Provide a way to run test\r\n\r\n\r\n**Example e2e test scenario**\r\n  - ec-mock installed, \r\n  - kyma and mock paired, \r\n  - api, events registered,\r\n  - app to namespace mapping created,\r\n  - APIs and Events classes provisioned, \r\n  - lambda with code to call back EC Mock API created, trigger by event checked,\r\n  - service binding usage to lambda created, \r\n  - EC mock event sent,\r\n  - lambda triggered,\r\n  - lambda calls API\r\n  - success",
+        "url": "https://github.com/kyma-project/test-infra/issues/582",
+        "number": 582,
+        "labels": [
+          "area/application-connector",
+          "area/ci",
+          "area/cluster",
+          "area/eventing",
+          "area/serverless",
+          "area/service-catalog",
+          "enhancement"
+        ],
+        "githubUrl": "https://github.com/kyma-project/test-infra/issues/582",
+        "repository": {
+          "name": "test-infra",
+          "id": 147495537,
+          "issues": []
+        },
+        "dueDate": "2020-12-31T11:00:00.000Z",
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/test-infra/582",
+        "release": {
+          "release_id": "5c0791ef1a6a4c6bf4b314ce",
+          "title": "Future",
+          "description": "Items selected for development but not scheduled yet.",
+          "start_date": "2020-01-01T11:00:00.000Z",
+          "desired_end_date": "2020-12-31T11:00:00.000Z",
+          "created_at": "2018-12-05T08:53:03.286Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Service Management",
+          "epicsLabels": [
+            "area/service-catalog"
+          ],
+          "id": "service-management"
+        }
+      }
+    ]
+  },
+  "2019-Q4": {
+    "Core & Supporting": [],
+    "Service Management": []
+  },
+  "2019-Q3": {
+    "Core & Supporting": [],
+    "Service Management": []
+  },
+  "1.1": {
+    "Core & Supporting": [
+      {
+        "title": "Create a view of kyma roadmap",
+        "body": "**Description**\r\n\r\n- due to the irregular quality of Epics  and lack of final vision for all capabilities page should not be yet visible in the navigation, we should see it only with direct URL for review\r\n- content for visions should be taken from https://github.com/kyma-project/community/tree/master/capabilities (feel free to reorganize or introduce some index file to make it easy to fetch)\r\n- dynamic display of roadmap means calling GitHub and ZenHub API and the number of API calls is limited. It can be done on a pipeline level, we do not need real-time refresh, set up the pipeline to periodically refresh the page as often as the limits allow us to do that.\r\n\r\n**Reasons**\r\n\r\nHave nice to digest, scalable and dynamic solution to share Kyma roadmap\r\n\r\n**Attachments**\r\n\r\nDesigns are too big and not so easy to make a screenshot, just pick it up during implementation from the system\r\n",
+        "url": "https://github.com/kyma-project/website/issues/258",
+        "number": 258,
+        "labels": [
+          "area/community",
+          "enhancement"
+        ],
+        "githubUrl": "https://github.com/kyma-project/website/issues/258",
+        "repository": {
+          "name": "website",
+          "id": 139847219,
+          "issues": []
+        },
+        "dueDate": "2019-05-10T10:00:00.000Z",
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/website/258",
+        "release": {
+          "release_id": "5c86318b1aa06e798dcd6782",
+          "title": "1.1",
+          "description": "Release 1.1 - Helsinki",
+          "start_date": "2019-04-06T22:00:00.000Z",
+          "desired_end_date": "2019-05-10T10:00:00.000Z",
+          "created_at": "2019-03-11T09:59:39.887Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Core & Supporting",
+          "epicsLabels": [
+            "area/core-and-supporting",
+            "area/community"
+          ],
+          "id": "core-and-supporting"
+        }
+      }
+    ],
+    "Service Management": [
+      {
+        "title": "Implement Add-on Manager",
+        "body": "**Description**\r\nThe Add-on Manager is responsible for managing all of the add-ons installed in the kubernetes. Currently Add-on Manager is a part of service catalog UI view powered by helm-broker. That feature is about to separate views and backend logic but still powered by helm-broker application.\r\n\r\n**Add-ons examples**\r\n- application - Order Service\r\n- application - OSB API Broker\r\n- database\r\n- integration scenario\r\n- showcase - two lambdas\r\n- example \r\n- others\r\n\r\n**AC**\r\n- UI/UX discussed and provided\r\n- Create a new view in namespaced Console UI for Add-on Manager\r\n- Create a new view in system Console UI for Add-on Manager Repositories\r\n- Adjust a backend ui-api-layer to feed Add-on Manager UI and Service Catalog UI independently\r\n\r\n**Attachments**\r\n- Catalog View 1 : \r\n<img width=\"1083\" alt=\"Add-ons Catalog 1\" src=\"https://user-images.githubusercontent.com/9609118/55703702-9e97c580-59da-11e9-85b0-41ce6c8a2ce6.png\">\r\n- Catalog View 2: \r\n<img width=\"1082\" alt=\"Add-ons Catalog 2\" src=\"https://user-images.githubusercontent.com/9609118/55703709-a5263d00-59da-11e9-84ef-8e030024406c.png\">\r\n- Instances View: \r\n<img width=\"1081\" alt=\"Add-ons Instances\" src=\"https://user-images.githubusercontent.com/9609118/55703730-b111ff00-59da-11e9-9007-a82f30b8d7c8.png\">\r\n- Add-ons Config: \r\n<img width=\"1084\" alt=\"Add-ons Config\" src=\"https://user-images.githubusercontent.com/9609118/55703737-b707e000-59da-11e9-9a26-ab2b22296fe4.png\">\r\n\r\n\r\n\r\n\r\n",
+        "url": "https://github.com/kyma-project/kyma/issues/3068",
+        "number": 3068,
+        "labels": [
+          "area/installation",
+          "area/service-catalog",
+          "enhancement"
+        ],
+        "githubUrl": "https://github.com/kyma-project/kyma/issues/3068",
+        "repository": {
+          "name": "kyma",
+          "id": 139590616,
+          "issues": []
+        },
+        "dueDate": "2019-05-10T10:00:00.000Z",
+        "zenHubUrl": "https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues/kyma-project/kyma/3068",
+        "release": {
+          "release_id": "5c86318b1aa06e798dcd6782",
+          "title": "1.1",
+          "description": "Release 1.1 - Helsinki",
+          "start_date": "2019-04-06T22:00:00.000Z",
+          "desired_end_date": "2019-05-10T10:00:00.000Z",
+          "created_at": "2019-03-11T09:59:39.887Z",
+          "closed_at": null,
+          "state": "open"
+        },
+        "capability": {
+          "displayName": "Service Management",
+          "epicsLabels": [
+            "area/service-catalog"
+          ],
+          "id": "service-management"
+        }
+      }
+    ]
+  },
+  "1.2": {
+    "Core & Supporting": [],
+    "Service Management": []
+  },
+  "1.3": {
+    "Core & Supporting": [],
+    "Service Management": []
+  }
+}
