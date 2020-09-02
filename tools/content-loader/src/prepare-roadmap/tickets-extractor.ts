@@ -43,18 +43,21 @@ export class TicketsExtractor {
         tickets[milestoneTitle][capability.displayName] = [];
         repositoriesWithEpics.forEach(repo => {
           repo.issues.forEach(issue => {
-            if (issue.milestone.title === milestoneTitle && issue.labels.some(l => capability.epicsLabels.includes(l))) {
-                issue.capability = {
-                  id: capability.id,
-                  displayName: capability.displayName,
-                  epicsLabels: capability.epicsLabels,
-                };
-                tickets[milestoneTitle][capability.displayName].push(issue);
-              }
-            });
+            if (
+              issue.milestone.title === milestoneTitle &&
+              issue.labels.some(l => capability.epicsLabels.includes(l))
+            ) {
+              issue.capability = {
+                id: capability.id,
+                displayName: capability.displayName,
+                epicsLabels: capability.epicsLabels,
+              };
+              tickets[milestoneTitle][capability.displayName].push(issue);
+            }
           });
         });
-      };
+      });
+    }
     return tickets;
   };
 }

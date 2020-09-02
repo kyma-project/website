@@ -46,8 +46,10 @@ const prepareRoadmapContent = async (coreConfig: CoreConfig) => {
   }
 
   console.log(`Querying for milestones`);
-  let milestoneTitlesSet: Set<string>
-  [err, milestoneTitlesSet] = await to (TicketsFetcher.getMilestoneTitles(repositories)).then( titles => titles)
+  let milestoneTitlesSet: Set<string>;
+  [err, milestoneTitlesSet] = await to(
+    TicketsFetcher.getMilestoneTitles(repositories),
+  ).then(titles => titles);
   if (err) throw err;
 
   console.log(`Querying for issues with Epic label`);
@@ -65,7 +67,6 @@ const prepareRoadmapContent = async (coreConfig: CoreConfig) => {
     milestoneTitlesSet,
     capabilities,
   });
-
 
   console.log(`Writing tickets to ${ticketsOutput}`);
   [err] = await to(TicketsExtractor.writeTickets(ticketsOutput, tickets));
