@@ -186,6 +186,7 @@ export class TicketsFetcher {
           ...node,
           githubUrl: node.url,
           labels,
+          dueDate: milestone.node.dueOn,
           release: {
             release_id: milestone.node.number,
             start_date: milestone.node.createdAt,
