@@ -49,7 +49,7 @@ const prepareRoadmapContent = async (coreConfig: CoreConfig) => {
   let milestoneTitlesSet: Set<string>;
   [err, milestoneTitlesSet] = await to(
     TicketsFetcher.getMilestoneTitles(repositories),
-  ).then(titles => titles);
+  );
   if (err) throw err;
 
   console.log(`Querying for issues with Epic label`);
