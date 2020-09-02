@@ -15,6 +15,7 @@ export interface Release {
 export interface Milestone {
   title: string;
   number: number;
+  dueOn: string;
 }
 
 export interface Repository {

@@ -46,17 +46,9 @@ const prepareRoadmapContent = async (coreConfig: CoreConfig) => {
   }
 
   console.log(`Querying for milestones`);
-  const milestoneTitlesSet = new Set<string>();
-  let milestones: Milestone[];
-  for (const repo of repositories) {
-    [err, milestones] = await to(TicketsFetcher.queryMilestones(repo));
-    milestones.forEach(m => {
-      milestoneTitlesSet.add(m.title);
-    });
-  }
-  if (err) {
-    throw err;
-  }
+  let milestoneTitlesSet: Set<string>
+  [err, milestoneTitlesSet] = await to (TicketsFetcher.getMilestoneTitles(repositories)).then( titles => titles)
+  if (err) throw err;
 
   console.log(`Querying for issues with Epic label`);
   let repositoriesWithEpics: Repository[];
@@ -73,6 +65,7 @@ const prepareRoadmapContent = async (coreConfig: CoreConfig) => {
     milestoneTitlesSet,
     capabilities,
   });
+
 
   console.log(`Writing tickets to ${ticketsOutput}`);
   [err] = await to(TicketsExtractor.writeTickets(ticketsOutput, tickets));

@@ -43,11 +43,7 @@ export class TicketsExtractor {
         tickets[milestoneTitle][capability.displayName] = [];
         repositoriesWithEpics.forEach(repo => {
           repo.issues.forEach(issue => {
-            capability.epicsLabels.forEach(label => {
-              if (
-                issue.milestone.title === milestoneTitle &&
-                issue.labels.indexOf(label) > -1
-              ) {
+            if (issue.milestone.title === milestoneTitle && issue.labels.some(l => capability.epicsLabels.includes(l))) {
                 issue.capability = {
                   id: capability.id,
                   displayName: capability.displayName,
@@ -58,8 +54,7 @@ export class TicketsExtractor {
             });
           });
         });
-      });
-    }
+      };
     return tickets;
   };
 }

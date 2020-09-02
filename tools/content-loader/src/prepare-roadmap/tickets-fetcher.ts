@@ -61,6 +61,7 @@ export class TicketsFetcher {
               node {
                 title
                 number
+                dueOn
               }
             }
           }
@@ -88,11 +89,18 @@ export class TicketsFetcher {
         const result: Milestone = {
           title: milestone.node.title,
           number: milestone.node.number,
+          dueOn: milestone.node.dueOn,
         };
 
         return result;
       },
     );
+
+    milestones.sort( (a,b) => {
+      const dateA = new Date(a.dueOn)
+      const dateB = new Date(b.dueOn)
+      return dateA.getDate() - dateB.getDate()
+    })
 
     return milestones;
   };
@@ -225,6 +233,22 @@ export class TicketsFetcher {
 
     return result;
   };
+
+  getMilestoneTitles = async (repositories: Repository[]): Promise<Set<string>> => {
+    const milestoneTitlesSet = new Set<string>();
+    let err: Error | null = null;
+    let milestones: Milestone[];
+    for (const repo of repositories) {
+      [err, milestones] = await to(this.queryMilestones(repo));
+      milestones.forEach(m => {
+        milestoneTitlesSet.add(m.title);
+      });
+      if (err) {
+        throw err
+      }
+    }
+    return milestoneTitlesSet
+  }
 }
 
 export default new TicketsFetcher();
