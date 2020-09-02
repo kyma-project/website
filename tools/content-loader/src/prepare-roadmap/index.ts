@@ -68,7 +68,7 @@ const prepareRoadmapContent = async (coreConfig: CoreConfig) => {
   }
 
   console.log(`Generating tickets`);
-  const tickets: Tickets = TicketsExtractor.extractTicketsNEW({
+  const tickets: Tickets = TicketsExtractor.extractTickets({
     repositoriesWithEpics,
     milestoneTitlesSet,
     capabilities,

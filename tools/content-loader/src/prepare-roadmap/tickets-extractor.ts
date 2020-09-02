@@ -10,12 +10,12 @@ export interface ExtractTicketsArgs {
 }
 
 export class TicketsExtractor {
-  extractTicketsNEW = ({
+  extractTickets = ({
     repositoriesWithEpics,
     milestoneTitlesSet,
     capabilities,
   }: ExtractTicketsArgs) => {
-    const tickets: Tickets = this.createTicketsNEW(
+    const tickets: Tickets = this.createTickets(
       repositoriesWithEpics,
       milestoneTitlesSet,
       capabilities,
@@ -31,7 +31,7 @@ export class TicketsExtractor {
     }
   };
 
-  private createTicketsNEW = (
+  private createTickets = (
     repositoriesWithEpics: Repository[],
     milestoneTitlesSet: Set<string>,
     capabilities: Capability[],
