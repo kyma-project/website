@@ -11,9 +11,7 @@ import TicketsExtractor from "./tickets-extractor";
 import {
   Capability,
   Repository,
-  Release,
-  ReleasesIssuesData,
-  Tickets,
+  Tickets, Milestone,
 } from "./types";
 
 const prepareRoadmapContent = async (coreConfig: CoreConfig) => {
@@ -38,7 +36,7 @@ const prepareRoadmapContent = async (coreConfig: CoreConfig) => {
   }
 
   console.log(`Extracting metadata of capabilities`);
-  let capabilities: Capability[] = [];
+  let capabilities: Capability[];
   [err, capabilities] = await to(
     CapabilitiesFetcher.extractCapabilitiesMetadata(capabilitiesDir),
   );
@@ -47,6 +45,21 @@ const prepareRoadmapContent = async (coreConfig: CoreConfig) => {
   console.log(`Querying for repositories of ${coreConfig.organization}`);
   let repositories: Repository[];
   [err, repositories] = await to(TicketsFetcher.queryRepositories());
+  if (err) {
+    throw err;
+  }
+
+  console.log(`Querying for milestones`)
+  const milestoneTitlesSet = new Set<string>();
+  let milestones: Milestone[];
+  for (const repo of repositories){
+    [err, milestones] = await to(
+        TicketsFetcher.queryMilestones(repo),
+    );
+    milestones.forEach(m => {
+      milestoneTitlesSet.add(m.title)
+    })
+  }
   if (err) {
     throw err;
   }
@@ -60,29 +73,10 @@ const prepareRoadmapContent = async (coreConfig: CoreConfig) => {
     throw err;
   }
 
-  console.log(`Querying for releases`);
-  let releases: Release[];
-  [err, releases] = await to(
-    TicketsFetcher.queryRepositoriesReleases(repositories),
-  );
-  if (err) {
-    throw err;
-  }
-
-  console.log(`Querying for issues in releases`);
-  let releaseIssuesData: ReleasesIssuesData;
-  [err, releaseIssuesData] = await to(
-    TicketsFetcher.queryIssuesReleases(releases),
-  );
-  if (err) {
-    throw err;
-  }
-
   console.log(`Generating tickets`);
-  const tickets: Tickets = TicketsExtractor.extractTickets({
+  const tickets: Tickets = TicketsExtractor.extractTicketsNEW({
     repositoriesWithEpics,
-    releaseIssuesData,
-    releases,
+    milestoneTitlesSet,
     capabilities,
   });
 

@@ -12,6 +12,11 @@ export interface Release {
   state: "open" | "closed";
 }
 
+export interface Milestone {
+  title: string;
+  number: number;
+}
+
 export interface Repository {
   name: string;
   id: string | number;
@@ -33,15 +38,7 @@ export interface Issue {
   zenHubUrl: string;
   dueDate: string;
   release: Release;
+  milestone: Milestone
   repository: Repository;
   capability: Capability;
-}
-
-export interface ReleasesIssuesData {
-  [release: string]: ReleaseIssue[];
-}
-
-export interface ReleaseIssue {
-  repo_id: number;
-  issue_number: number;
 }

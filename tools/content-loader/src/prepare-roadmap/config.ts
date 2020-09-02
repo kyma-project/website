@@ -12,7 +12,7 @@ export interface RoadmapConfig {
 }
 
 const config: RoadmapConfig = {
-  zenHubToken: process.env.APP_ZEN_HUB_TOKEN || null,
+  zenHubToken: process.env.APP_ZEN_HUB_TOKEN || "",
   outputPath: process.env.APP_ROADMAP_OUTPUT || "roadmap",
   tempPath: process.env.APP_ROADMAP_TEMP_DIR || "tempRoadmapDir",
   repository: process.env.APP_ROADMAP_REPOSITORY || "community",
