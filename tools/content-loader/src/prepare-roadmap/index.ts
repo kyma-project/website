@@ -8,11 +8,7 @@ import CapabilitiesFetcher from "./capabilities-fetcher";
 import TicketsFetcher from "./tickets-fetcher";
 import TicketsExtractor from "./tickets-extractor";
 
-import {
-  Capability,
-  Repository,
-  Tickets, Milestone,
-} from "./types";
+import { Capability, Repository, Tickets, Milestone } from "./types";
 
 const prepareRoadmapContent = async (coreConfig: CoreConfig) => {
   const capabilitiesDir = resolve(
@@ -49,16 +45,14 @@ const prepareRoadmapContent = async (coreConfig: CoreConfig) => {
     throw err;
   }
 
-  console.log(`Querying for milestones`)
+  console.log(`Querying for milestones`);
   const milestoneTitlesSet = new Set<string>();
   let milestones: Milestone[];
-  for (const repo of repositories){
-    [err, milestones] = await to(
-        TicketsFetcher.queryMilestones(repo),
-    );
+  for (const repo of repositories) {
+    [err, milestones] = await to(TicketsFetcher.queryMilestones(repo));
     milestones.forEach(m => {
-      milestoneTitlesSet.add(m.title)
-    })
+      milestoneTitlesSet.add(m.title);
+    });
   }
   if (err) {
     throw err;

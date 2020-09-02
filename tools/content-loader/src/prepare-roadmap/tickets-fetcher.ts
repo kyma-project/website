@@ -6,11 +6,7 @@ import roadmapConfig from "./config";
 
 import GitHubGraphQLClient from "../github-client/github-graphql-client";
 
-import {
-  Repository,
-  Issue,
-  Milestone,
-} from "./types";
+import { Repository, Issue, Milestone } from "./types";
 
 export class TicketsFetcher {
   queryRepositories = async (): Promise<Repository[]> => {
@@ -78,23 +74,24 @@ export class TicketsFetcher {
     };
 
     const [err, data] = await to<any>(
-        GitHubGraphQLClient.query(query, {
-          ...options,
-          repositoryName: repository.name,}),
+      GitHubGraphQLClient.query(query, {
+        ...options,
+        repositoryName: repository.name,
+      }),
     );
     if (err) {
       throw new VError(err, `while querying milestones`);
     }
 
     const milestones: Milestone[] = data.repository.milestones.edges.map(
-        milestone => {
-          const result: Milestone = {
-            title: milestone.node.title,
-            number: milestone.node.number
-          };
+      milestone => {
+        const result: Milestone = {
+          title: milestone.node.title,
+          number: milestone.node.number,
+        };
 
-          return result;
-        },
+        return result;
+      },
     );
 
     return milestones;
@@ -178,40 +175,36 @@ export class TicketsFetcher {
       );
     }
 
-    const issues: Issue[] = []
-    data.organization.repository.milestones.edges.map(
-        milestone => {
-          return milestone.node.issues.edges.map(
-              issue => {
-                const node = issue.node;
-                const labels: string[] = node.labels.edges
-                    .map(label => label.node.name)
-                    .filter((label: string) => !roadmapConfig.labels.includes(label));
-                issues.push({
-                  ...node,
-                  githubUrl: node.url,
-                  labels,
-                  release: {
-                    release_id: milestone.node.number,
-                    start_date: milestone.node.createdAt,
-                    desired_end_date: milestone.node.dueOn,
-                    title: milestone.node.title,
-                    state: milestone.node.state
-                  },
-                  milestone: {
-                    title: milestone.node.title,
-                    number: milestone.node.number
-                  },
-                  repository: {
-                    id: data.organization.repository.id,
-                    name: data.organization.repository.name,
-                    issues: [],
-                  }
-                } as Issue);
-              },
-          )
-        }
-        );
+    const issues: Issue[] = [];
+    data.organization.repository.milestones.edges.map(milestone => {
+      return milestone.node.issues.edges.map(issue => {
+        const node = issue.node;
+        const labels: string[] = node.labels.edges
+          .map(label => label.node.name)
+          .filter((label: string) => !roadmapConfig.labels.includes(label));
+        issues.push({
+          ...node,
+          githubUrl: node.url,
+          labels,
+          release: {
+            release_id: milestone.node.number,
+            start_date: milestone.node.createdAt,
+            desired_end_date: milestone.node.dueOn,
+            title: milestone.node.title,
+            state: milestone.node.state,
+          },
+          milestone: {
+            title: milestone.node.title,
+            number: milestone.node.number,
+          },
+          repository: {
+            id: data.organization.repository.id,
+            name: data.organization.repository.name,
+            issues: [],
+          },
+        } as Issue);
+      });
+    });
     return issues;
   };
 
@@ -231,7 +224,6 @@ export class TicketsFetcher {
 
     return result;
   };
-
 }
 
 export default new TicketsFetcher();

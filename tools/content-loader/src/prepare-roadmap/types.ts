@@ -38,7 +38,7 @@ export interface Issue {
   zenHubUrl: string;
   dueDate: string;
   release: Release;
-  milestone: Milestone
+  milestone: Milestone;
   repository: Repository;
   capability: Capability;
 }

@@ -1,11 +1,7 @@
 import to from "await-to-js";
 
 import { writeToJson } from "../helpers";
-import {
-  Tickets,
-  Repository,
-  Capability,
-} from "./types";
+import { Tickets, Repository, Capability } from "./types";
 
 export interface ExtractTicketsArgs {
   repositoriesWithEpics: Repository[];
@@ -18,7 +14,7 @@ export class TicketsExtractor {
     repositoriesWithEpics,
     milestoneTitlesSet,
     capabilities,
-  }:  ExtractTicketsArgs) => {
+  }: ExtractTicketsArgs) => {
     const tickets: Tickets = this.createTicketsNEW(
       repositoriesWithEpics,
       milestoneTitlesSet,
@@ -44,22 +40,25 @@ export class TicketsExtractor {
     for (const milestoneTitle of milestoneTitlesSet) {
       tickets[milestoneTitle] = {};
       capabilities.forEach(capability => {
-        tickets[milestoneTitle][capability.displayName] = []
+        tickets[milestoneTitle][capability.displayName] = [];
         repositoriesWithEpics.forEach(repo => {
           repo.issues.forEach(issue => {
             capability.epicsLabels.forEach(label => {
-              if (issue.milestone.title === milestoneTitle && issue.labels.indexOf(label) > -1) {
+              if (
+                issue.milestone.title === milestoneTitle &&
+                issue.labels.indexOf(label) > -1
+              ) {
                 issue.capability = {
                   id: capability.id,
                   displayName: capability.displayName,
-                  epicsLabels: capability.epicsLabels
-                }
-                tickets[milestoneTitle][capability.displayName].push(issue)
+                  epicsLabels: capability.epicsLabels,
+                };
+                tickets[milestoneTitle][capability.displayName].push(issue);
               }
-            })
-          })
-        })
-      })
+            });
+          });
+        });
+      });
     }
     return tickets;
   };
