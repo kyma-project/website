@@ -61,13 +61,6 @@ export const ModalHeader: React.FunctionComponent<ModalHeaderProps> = ({
     <ModalHeaderTitle>{title}</ModalHeaderTitle>
     <ModalHeaderLinks>
       <ModalHeaderLink>
-        <Link.External to={zenHubUrl}>
-          <ModalHeaderLinkButton>
-            <FormattedMessage id="roadmap.modal.viewInZenHub" />
-          </ModalHeaderLinkButton>
-        </Link.External>
-      </ModalHeaderLink>
-      <ModalHeaderLink>
         <Link.External to={githubUrl}>
           <ModalHeaderLinkButton>
             <FormattedMessage id="roadmap.modal.viewInGitHub" />

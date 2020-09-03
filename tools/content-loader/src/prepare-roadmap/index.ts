@@ -8,13 +8,7 @@ import CapabilitiesFetcher from "./capabilities-fetcher";
 import TicketsFetcher from "./tickets-fetcher";
 import TicketsExtractor from "./tickets-extractor";
 
-import {
-  Capability,
-  Repository,
-  Release,
-  ReleasesIssuesData,
-  Tickets,
-} from "./types";
+import { Capability, Repository, Tickets, Milestone } from "./types";
 
 const prepareRoadmapContent = async (coreConfig: CoreConfig) => {
   const capabilitiesDir = resolve(
@@ -38,7 +32,7 @@ const prepareRoadmapContent = async (coreConfig: CoreConfig) => {
   }
 
   console.log(`Extracting metadata of capabilities`);
-  let capabilities: Capability[] = [];
+  let capabilities: Capability[];
   [err, capabilities] = await to(
     CapabilitiesFetcher.extractCapabilitiesMetadata(capabilitiesDir),
   );
@@ -51,6 +45,13 @@ const prepareRoadmapContent = async (coreConfig: CoreConfig) => {
     throw err;
   }
 
+  console.log(`Querying for milestones`);
+  let milestoneTitlesSet: Set<string>;
+  [err, milestoneTitlesSet] = await to(
+    TicketsFetcher.getMilestoneTitles(repositories),
+  );
+  if (err) throw err;
+
   console.log(`Querying for issues with Epic label`);
   let repositoriesWithEpics: Repository[];
   [err, repositoriesWithEpics] = await to(
@@ -60,29 +61,10 @@ const prepareRoadmapContent = async (coreConfig: CoreConfig) => {
     throw err;
   }
 
-  console.log(`Querying for releases`);
-  let releases: Release[];
-  [err, releases] = await to(
-    TicketsFetcher.queryRepositoriesReleases(repositories),
-  );
-  if (err) {
-    throw err;
-  }
-
-  console.log(`Querying for issues in releases`);
-  let releaseIssuesData: ReleasesIssuesData;
-  [err, releaseIssuesData] = await to(
-    TicketsFetcher.queryIssuesReleases(releases),
-  );
-  if (err) {
-    throw err;
-  }
-
   console.log(`Generating tickets`);
   const tickets: Tickets = TicketsExtractor.extractTickets({
     repositoriesWithEpics,
-    releaseIssuesData,
-    releases,
+    milestoneTitlesSet,
     capabilities,
   });
 
