@@ -67,7 +67,7 @@ function renderList(
 
   return (
     <div key={group}>
-      {showGroups && items.length > 1 ? (
+      {showGroups && items.length > 1 && group.toLowerCase() !== "root" ? (
         <NavigationGroupName>{group}</NavigationGroupName>
       ) : null}
       <NavigationList>{list}</NavigationList>
