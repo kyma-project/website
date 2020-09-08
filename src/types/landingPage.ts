@@ -33,3 +33,9 @@ export enum NewsroomI18nTarget {
   YOUTUBE = "youtube",
   Blog_POST = "lastBlogPost",
 }
+
+export enum FeaturesI18nTarget {
+  EXTENSIBILITY = "extensibility",
+  RUNTIME = "runtime",
+  SUPPORT = "support",
+}
