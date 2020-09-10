@@ -31,7 +31,7 @@ const FeatureCardRaw: React.FunctionComponent<Props & IntlInterface> = ({
 }) => (
   <FeatureWrapper>
     <ImageWrapper>
-      <img src={getImageForFeature(feature)} />
+      <img src={getImageForFeature(feature)} alt={feature} />
     </ImageWrapper>
     <H as="h3">{formatMessage({ id: `${feature}.title` })}</H>
     {formatArray({ id: `${feature}.paragraphs` }).map((desc, id) => (

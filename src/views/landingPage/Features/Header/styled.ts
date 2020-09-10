@@ -14,8 +14,7 @@ export const HeaderWrapper = styled.div`
   }
 `;
 
-export const SpellingOfText = styled.pre`
-  margin: 0;
-  display: inline;
+export const SpellingOfText = styled.span`
+  font-family: monospace;
   font-size: 16px;
 `;

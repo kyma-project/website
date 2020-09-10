@@ -60,7 +60,11 @@ const ManifestoRaw: FunctionComponentIntl = ({ formatMessage }) => (
       </Grid.Unit>
       <Grid.Unit df={12}>
         <IconWrapper>
-          <Link.Hash to="key-features" onClick={scrollToFeatures}>
+          <Link.Hash
+            to="key-features"
+            onClick={scrollToFeatures}
+            ariaLabel={formatMessage({ id: "scrollButton" })}
+          >
             <Icon
               iconName="chevron-down"
               iconPrefix="fas"

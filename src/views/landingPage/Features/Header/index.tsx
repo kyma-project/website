@@ -16,10 +16,11 @@ const gt = getTranslation("landingPage.keyFeatures");
 const HeaderRaw: FunctionComponentIntl = ({ formatMessage }) => (
   <HeaderWrapper>
     <H as="h2">
-      <FormattedMessage id={gt("headline")} />
+      <FormattedMessage id={gt("headline")} tagName={React.Fragment} />
     </H>
     <div>
       <FormattedMessage
+        tagName="p"
         id={gt("paragraph")}
         values={{
           spelling: (
