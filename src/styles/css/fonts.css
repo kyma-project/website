@@ -1,5 +1,15 @@
 @font-face {
   font-family: "Poppins";
+  src: url("../font/Poppins-Regular.otf");
+  src: local("Poppins Regular"), local("Poppins-Regular"),
+    url("../font/Poppins-Regular.otf") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins";
   src: url("../font/poppins-v5-latin-500.eot");
   src: local("Poppins Medium"), local("Poppins-Medium"),
     url("../font/poppins-v5-latin-500.eot?#iefix") format("embedded-opentype"),

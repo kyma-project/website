@@ -34,6 +34,7 @@ export default (prefix?: string) => <T extends IntlInterface>(
         <WrappedComponent
           {...(this.props as T)}
           formatMessage={this.formatMessage}
+          formatArray={this.formatMessage}
           intl={this.context.intl}
         />
       );

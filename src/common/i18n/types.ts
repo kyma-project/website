@@ -6,8 +6,14 @@ export type FormatMessageFn = (
   values?: { [key: string]: MessageValue | JSX.Element },
 ) => string;
 
+export type FormatArrayFn = (
+  messageDescriptor: FormattedMessage.MessageDescriptor,
+  values?: { [key: string]: MessageValue | JSX.Element },
+) => string[];
+
 export interface IntlInterface {
   formatMessage: FormatMessageFn;
+  formatArray: FormatArrayFn;
 }
 
 export type FunctionComponentIntl<P = {}> = React.FunctionComponent<
@@ -18,4 +24,10 @@ export interface Internationalization {
   [key: string]: {
     [key: string]: any;
   };
+}
+
+export interface NestedObject<
+  T = string | string[] | { [key: string]: NestedObject }
+> {
+  [key: string]: T;
 }

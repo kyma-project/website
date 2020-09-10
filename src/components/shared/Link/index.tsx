@@ -96,6 +96,7 @@ const Hash: React.FunctionComponent<LinkProps & { anchorIcon?: boolean }> = ({
   anchorIcon = false,
   underline = false,
   onClick,
+  ariaLabel,
 }) => {
   const preparedTo = to.startsWith("#") ? to : `#${to}`;
 
@@ -109,6 +110,7 @@ const Hash: React.FunctionComponent<LinkProps & { anchorIcon?: boolean }> = ({
             className={className}
             underline={underline ? "true" : "false"}
             onClick={onClick}
+            aria-label={ariaLabel}
           >
             <Icon iconName="anchor" iconPrefix="fas" />
           </HashLink>
@@ -123,6 +125,7 @@ const Hash: React.FunctionComponent<LinkProps & { anchorIcon?: boolean }> = ({
       className={className}
       underline={underline ? "true" : "false"}
       onClick={onClick}
+      aria-label={ariaLabel}
     >
       {children}
     </HashLink>
