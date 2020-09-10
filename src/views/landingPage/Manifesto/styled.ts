@@ -1,6 +1,6 @@
 import styled, { media } from "@styled";
 
-export const HeadlineWrapper = styled.h3`
+export const HeadlineWrapper = styled.p`
   ${media.phone`
     margin-top: 80px;
     line-height: 1.4;

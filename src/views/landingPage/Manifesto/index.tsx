@@ -41,6 +41,7 @@ const ManifestoRaw: FunctionComponentIntl = ({ formatMessage }) => (
         <HeadlineWrapper>
           <FormattedMessage
             id={gt("paragraph")}
+            tagName={React.Fragment}
             values={{
               brand: (
                 <FormattedBrand>
