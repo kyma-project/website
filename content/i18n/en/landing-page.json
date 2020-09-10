@@ -4,7 +4,7 @@
     "paragraph": "{brand} is a cloud-native application runtime that gives you the power of Kubernetes but without the hassle of worrying about security, configuration, and integration of tools.",
     "brand": "Kyma",
     "githubButton": "Get it on GitHub",
-    "scrollButton": "Scroll to next section"
+    "scrollButton": "Scroll to the next section"
   },
   "whatIs": {
     "headline": "What is Kyma?",
