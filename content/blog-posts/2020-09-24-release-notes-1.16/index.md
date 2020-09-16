@@ -39,7 +39,7 @@ You can fix the Function source to a specific commit, or you can reference a bra
 
 With 1.16, you can choose Python (3.8) as a runtime for your Function:
 
-![Support Python as a serverless runtime](./pyhon-serverless.png)
+![Support Python as a serverless runtime](./python-serverless.png)
 
 See all [available runtimes](https://kyma-project.io/docs/1.16/components/serverless/#details-runtimes) with sample Functions.
 
