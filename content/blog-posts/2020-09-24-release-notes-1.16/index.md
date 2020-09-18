@@ -14,6 +14,8 @@ After a stop in beautiful Vienna, we disembark on a new journey to Wellington, N
 
 <!-- overview -->
 
+> **CAUTION:** Read the [Migration Guide]() before upgrading your Kyma deployment to 1.16.
+
 See the overview of all changes in this release:
 
 - [Serverless](#serverless) - Git repository as a source for your Function, Support Python as a serverless runtime
