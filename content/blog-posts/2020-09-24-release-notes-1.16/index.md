@@ -23,6 +23,7 @@ See the overview of all changes in this release:
 - [CLI](#cli) - Upgrade command, Command to create a system
 - [Monitoring](#monitoring) - AuthProxy support for Grafana
 - [Tracing](#tracing) - Disable sending traces
+- [Installation](#installation) - Istio upgrade to 1.5.10
 
 ## Serverless
 
@@ -72,3 +73,9 @@ The Grafana chart now offers an option to deploy Grafana along with an instance 
 ### Disable sending traces
 
 A new override `global.tracing.enabled` is available in the event-sources-controller-manager sub-chart configuration. By setting it to `false`, you can disable sending traces from Kyma components to the service deployed by the Tracing component.
+
+## Installation
+
+### Istio upgrade to 1.5.10
+
+With this release, we have upgraded Istio from 1.4.7 to 1.5.10. More details about migration can be found [here](https://github.com/kyma-project/kyma/blob/master/docs/migration-guides/1.15-1.16.md). To learn more about this Istio release, click [here](https://istio.io/latest/news/releases/1.5.x/announcing-1.5.10/).
