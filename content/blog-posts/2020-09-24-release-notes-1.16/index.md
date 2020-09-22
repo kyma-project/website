@@ -60,7 +60,7 @@ Have you ever wondered how to start with Kyma? How to connect all the dots (comp
 
 ### Command to create a system
 
-[`kyma create system`](/cli/commands/#kyma-create-system-kyma-create-system) is another new command that we added.  In just one step, it allows you to create a system (an Application), bind it to a Namespace, and get a token to pair the system with an external application.
+Another new command that we added is [`kyma create system`](/cli/commands/#kyma-create-system-kyma-create-system).  In just one step, it allows you to create a system (an Application), bind it to a Namespace, and get a token to pair the system with an external application.
 
 ## Monitoring
 
