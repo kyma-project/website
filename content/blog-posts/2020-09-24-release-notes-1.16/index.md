@@ -31,7 +31,7 @@ See the overview of all changes in this release:
 
 We introduced a new way of developing Functions. Instead of editing your Function in an inline editor, you can now configure a Git repository as the source of your Function's code and dependencies. It is a great convenience for developers, who can now use their favorite IDE to develop Functions.
 
-Read more about the [Git source type](https://kyma-project.io/docs/1.16/components/serverless/#details-git-source-type) and see the [tutorial on how to create a Function from Git repository source](https://kyma-project.io/docs/1.16/components/serverless/#tutorials-create-a-function-from-git-repository-sources).
+Read more about the [Git source type](https://kyma-project.io/docs/1.16/components/serverless/#details-git-source-type) and see the [tutorial on how to create a Function from Git repository sources](https://kyma-project.io/docs/1.16/components/serverless/#tutorials-create-a-function-from-git-repository-sources).
 
 You can set the Function source to a specific commit, or you can reference a branch. The function will rebuild on every change pushed to the repository.
 
@@ -78,4 +78,4 @@ The new `global.tracing.enabled` override is available in the Event Sources Cont
 
 ### Istio upgrade to 1.5.10
 
-With this release, we upgraded Istio from 1.4.7 to 1.5.10. Find more details in the [migration guide]https://github.com/kyma-project/kyma/blob/release-1.16/docs/migration-guides/1.15-1.16.md). To learn more, read the [Istio 1.5.10 release notes](https://istio.io/latest/news/releases/1.5.x/announcing-1.5.10/).
+With this release, we upgraded Istio from 1.4.7 to 1.5.10. Find more details in the [migration guide](https://github.com/kyma-project/kyma/blob/release-1.16/docs/migration-guides/1.15-1.16.md). To learn more, read the [Istio 1.5.10 release notes](https://istio.io/latest/news/releases/1.5.x/announcing-1.5.10/).
