@@ -39,7 +39,7 @@ Operations performed by the Kyma Operator are now atomic. As a result, if an err
 
 ### Tracing enabled within Event Mesh
 
-With Kyma 1.13, you can trace event propagation throughout the cluster. Tracing will work both for the default [NatssChannel](https://github.com/knative/eventing-contrib/tree/master/natss/config) implementation used in Kyma and with the [Kafka Channel configuration](https://kyma-project.io/docs/1.13/components/event-mesh#tutorials-configure-the-kafka-channel). If you opt for eventing with the Kafka Channel, enable Tracing by configuring Istio. To do so, [increase trace sampling](https://istio.io/docs/tasks/observability/distributed-tracing/configurability/#trace-sampling). You can then use Jaeger to visualize traces.
+With Kyma 1.13, you can trace event propagation throughout the cluster. Tracing will work both for the default [NatssChannel](https://github.com/knative-sandbox/eventing-natss/tree/master/config) implementation used in Kyma and with the [Kafka Channel configuration](https://kyma-project.io/docs/1.13/components/event-mesh#tutorials-configure-the-kafka-channel). If you opt for eventing with the Kafka Channel, enable Tracing by configuring Istio. To do so, [increase trace sampling](https://istio.io/docs/tasks/observability/distributed-tracing/configurability/#trace-sampling). You can then use Jaeger to visualize traces.
 
 ## Compass
 
