@@ -1,6 +1,7 @@
 white-list-external:
   - localhost
   - kyma.local
+  - "http://xip.io"
 black-list:
   - node_modules
   - content/docs
