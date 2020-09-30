@@ -21,8 +21,9 @@ See the overview of all changes in this release:
 - [Serverless](#serverless) - Git repository as a source for your Function, support for Python as a serverless runtime
 - [Website](#website) - New Getting Started guides
 - [CLI](#cli) - New commands for upgrade and creating a system
-- [Monitoring](#monitoring) - AuthProxy support for Grafana
-- [Tracing](#tracing) - Disabling sending traces
+- [Monitoring](#monitoring) - AuthProxy support for Grafana, removed dashboards for CoreDNS/KubeDNS and Kube-Proxy
+- [Tracing](#tracing) - Disabling sending traces, improved integration of Loki to Grafana
+- [Kiali](#kiali) - General update and Jaeger integration
 - [Installation](#installation) - Istio upgrade to 1.5.10
 
 ## Serverless
@@ -68,11 +69,34 @@ Another new command that we added is [`kyma create system`](/cli/commands/#kyma-
 
 The Grafana chart now offers an option to deploy Grafana along with an instance of a Keycloak Gatekeeper (`louketo-proxy`) in front of it. Enabling the proxy and switching to Grafana in AuthProxy allows you to control the access by the `group` claim of your IDToken.
 
+### Removed dashboards for CoreDNS/KubeDNS and Kube-Proxy
+
+The Grafana bundle in Kyma brings a lot of ready-to-use dashboards together with service monitors definitions for the related components. Here, the focus is on having an observable Kyma eco-system. Among those dashboards are CoreDNS/KubeDNS and Kube-Proxy. The related components are provided by Kubernetes on which Kyma is installed, so they are not shipped with Kyma. Different Kubernetes providers are changing settings in the setup of the components, and as we do not offer support for the mentioned components, they will not be activated by default. You can still easily enable them via the configuration options of the Grafana sub-chart, but that might require further configuration dependent on your Kubernetes provider.
+
 ## Tracing
 
 ### Disabling sending traces
 
 The new `global.tracing.enabled` override is available in the Event Sources Controller Manager sub-chart configuration. By setting it to `false`, you can disable sending traces from Kyma components to the service deployed by the Tracing component.
+
+### Improved integration of Loki to Grafana
+
+If Log lines are in a JSON format, the root elements of the document will now be treated as their own log record attributes in fluent-bit. With that, the root elements will be shown as fields in Grafana.
+
+To be consistent with the Prometheus labelling, the `instance` label got renamed to `pod`, as it contains the pod name.
+
+## Kiali
+
+### General update and Jaeger integration
+
+Kiali got upgraded to the latest version 1.24. With that, proper configuration of the component status was possible and there is no red light shown in the top bar. Furthermore, the metric dashboards are working more reliably.
+Additionally, we now configured Jaeger so that you can see traces inline in Kiali with deep-linking into the Jaeger-UI.
+
+## Eventing
+
+### Removing Knative-Serving chart
+
+In Release 1.16, we remove the support for Knative-Serving from Kyma. After the upgrade, Knative-Serving will still be fully functional in the cluster, but it can be removed easily in order to free resources. Removing Knative-Serving will not affect supported Kyma functionality. To learn more, read the [migration guide](https://github.com/kyma-project/kyma/blob/release-1.16/docs/migration-guides/1.15-1.16.md).
 
 ## Installation
 
