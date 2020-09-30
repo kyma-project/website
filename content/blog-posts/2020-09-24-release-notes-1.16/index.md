@@ -75,7 +75,7 @@ The Grafana bundle in Kyma brings a lot of ready-to-use dashboards together with
 
 ## Tracing
 
-### Disabling sending traces
+### Option to disable sending traces
 
 The new `global.tracing.enabled` override is available in the Event Sources Controller Manager sub-chart configuration. By setting it to `false`, you can disable sending traces from Kyma components to the service deployed by the Tracing component.
 
