@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 
 import { PageContext } from "@typings/common";
 import { LandingPageContext } from "@typings/landingPage";
@@ -8,17 +8,26 @@ import { WhatIs } from "./WhatIs";
 import { ExtensionsAndTools } from "./ExtensionsAndTools";
 import { Adopters } from "./Adopters";
 import { Newsroom } from "./Newsroom";
+import { Manifesto } from "./Manifesto";
+import { Features } from "./Features";
+import { UsedBy } from "./UsedBy";
 
 const LandingPageView: React.FunctionComponent<PageContext<
   LandingPageContext
->> = ({ pageContext: { adopters, latestBlogPosts } }) => (
-  <>
-    <Headline />
-    <WhatIs />
-    <ExtensionsAndTools />
-    <Newsroom latestBlogPosts={latestBlogPosts} />
-    <Adopters adopters={adopters} />
-  </>
-);
+>> = ({ pageContext: { adopters, latestBlogPosts } }) => {
+  const scrollRef = useRef<HTMLElement>(null);
+  return (
+    <>
+      <Manifesto scrollRef={scrollRef} />
+      <Features scrollRef={scrollRef} />
+      <UsedBy adopters={adopters} />
+      {/* <Headline /> */}
+      {/* <WhatIs /> */}
+      {/* <ExtensionsAndTools /> */}
+      {/* <Newsroom latestBlogPosts={latestBlogPosts} /> */}
+      {/* <Adopters adopters={adopters} /> */}
+    </>
+  );
+};
 
 export default LandingPageView;

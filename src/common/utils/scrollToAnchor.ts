@@ -90,7 +90,7 @@ const scrollToLocationSmooth = async (
   });
 
 interface ScrollToAnchorProps {
-  target: any;
+  target: HTMLElement;
   timeout?: number;
   callback?: () => void;
   smooth?: boolean;

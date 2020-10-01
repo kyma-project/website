@@ -28,8 +28,8 @@ const AdoptersItem: React.FunctionComponent<Adopter & IntlInterface> = ({
   const BlogPostLink: any = !url
     ? null
     : url.startsWith("http")
-    ? StyledAdoptersItemExtLink
-    : StyledAdoptersItemIntLink;
+    ? Link.External
+    : Link.Internal;
 
   const companyLogoAlt = formatMessage(
     { id: "companyLogo" },

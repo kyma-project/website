@@ -9,7 +9,7 @@
   "whatIs": {
     "headline": "What is Kyma?",
     "paragraph": "Kyma {spelling} is a platform for extending applications with serverless functions and microservices. It provides a selection of cloud-native projects glued together to simplify the creation and management of extensions.",
-    "spelling":"/kee-ma/",
+    "spelling": "/kee-ma/",
     "installButton": "Install"
   },
   "extensionsAndTools": {
@@ -31,17 +31,28 @@
     "features": {
       "extensibility": {
         "title": "Extensibility platform",
-        "paragraphs": ["If you are looking for cloud-native ways to extend your enterprise products, Kyma is a secure and tested environment you can rely on.", "First, connect external APIs and ensure a stable event flow between the external or built-in services and your own applications. Then, start molding your own code into microservices and functions that extend your applications' logic."]
+        "paragraphs": [
+          "If you are looking for cloud-native ways to extend your enterprise products, Kyma is a secure and tested environment you can rely on.",
+          "First, connect external APIs and ensure a stable event flow between the external or built-in services and your own applications. Then, start molding your own code into microservices and functions that extend your applications' logic."
+        ]
       },
       "runtime": {
         "title": "Application runtime",
-        "paragraphs": ["Build standalone Kubernetes applications from scratch. Kyma is also an application runtime that is scalable, secure, and reliable. It allows you to develop microservices-based solutions in any language and run them on Kubernetes clusters from a cloud provider of your choice."]
+        "paragraphs": [
+          "Build standalone Kubernetes applications from scratch. Kyma is also an application runtime that is scalable, secure, and reliable. It allows you to develop microservices-based solutions in any language and run them on Kubernetes clusters from a cloud provider of your choice."
+        ]
       },
       "support": {
         "title": "Operational support",
-        "paragraphs": ["Kyma ensures smooth Day-2 support for the standalone applications and extensions you'll create. Thanks to numerous CNCF open-source projects that come preconfigured with Kyma, you can easily monitor the performance of your microservices and functions, scan logs for errors, and upgrade your solutions painlessly."]
+        "paragraphs": [
+          "Kyma ensures smooth Day-2 support for the standalone applications and extensions you'll create. Thanks to numerous CNCF open-source projects that come preconfigured with Kyma, you can easily monitor the performance of your microservices and functions, scan logs for errors, and upgrade your solutions painlessly."
+        ]
       }
     }
+  },
+  "usedBy": {
+    "headline": "Used by",
+    "paragraph": "Discover the main usecases of our happy customers"
   },
   "community": {
     "headline": "Connect with the Kyma community and get involved!",
