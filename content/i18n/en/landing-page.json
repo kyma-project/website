@@ -52,7 +52,14 @@
   },
   "usedBy": {
     "headline": "Used by",
-    "paragraph": "Discover the main usecases of our happy customers"
+    "paragraph": "Discover the main usecases of our happy customers",
+    "readMoreLink": "Read More",
+    "loadAll": "Load all",
+    "accessibility": {
+      "companyLogo": "{company} logo",
+      "linkToCompanyWebsite": "Link to {company} website",
+      "linkToCompanyCaseStudy": "Link to {company} case study"
+    }
   },
   "community": {
     "headline": "Connect with the Kyma community and get involved!",

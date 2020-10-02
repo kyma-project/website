@@ -2,9 +2,8 @@ import React, { FunctionComponent } from "react";
 import { Adopter } from "@typings/landingPage";
 import styled from "@styled";
 import { injectIntl, IntlInterface, FormattedMessage } from "@common/i18n";
-
+import { linkEffect } from "@styled/mixins";
 import Link from "@components/shared/Link";
-import H from "@components/shared/H";
 
 const CardRaw: FunctionComponent<Adopter & IntlInterface> = ({
   logo,
@@ -12,14 +11,13 @@ const CardRaw: FunctionComponent<Adopter & IntlInterface> = ({
   company,
   websiteUrl,
   content,
-  cssProperties,
   formatMessage,
 }) => {
   const BlogPostLink: any = !url
     ? null
     : url.startsWith("http")
-    ? Link.External
-    : Link.Internal;
+    ? StyledAdoptersItemExtLink
+    : StyledAdoptersItemIntLink;
 
   const companyLogoAlt = formatMessage(
     { id: "companyLogo" },
@@ -53,11 +51,16 @@ const CardRaw: FunctionComponent<Adopter & IntlInterface> = ({
       </LogoHeader>
       <StyledCompanyName>{company}</StyledCompanyName>
       <StyledContent>{content}</StyledContent>
+      {BlogPostLink && (
+        <BlogPostLink to={url} ariaLabel={companyCaseStudyLinkAria}>
+          <FormattedMessage id="landingPage.usedBy.readMoreLink" />
+        </BlogPostLink>
+      )}
     </StyledSection>
   );
 };
 
-export const Card = injectIntl("landingPage.adopters.accessibility")(CardRaw);
+export const Card = injectIntl("landingPage.usedBy.accessibility")(CardRaw);
 
 const ImgHeight = "60px";
 const StyledSection = styled.section`
@@ -65,6 +68,8 @@ const StyledSection = styled.section`
   box-shadow: 0 2px 26px 0 rgba(11, 116, 222, 0.49);
   background-color: white;
   height: 100%;
+  display: flex;
+  flex-direction: column;
 
   > div > a {
     display: inline-flex;
@@ -82,10 +87,6 @@ const StyledSection = styled.section`
       cursor: pointer;
     }
   }
-
-  /* space */
-  /* width: 568px; */
-  /* height: 420px; */
 `;
 
 const LogoHeader = styled.div`
@@ -99,5 +100,23 @@ const StyledCompanyName = styled.h3`
 
 const StyledContent = styled.p`
   margin: 0;
-  padding-left: 27px;
+  padding: 0px 27px 30px;
+`;
+
+export const StyledAdoptersItemExtLink = styled(Link.External)`
+  &&&&& {
+    /* ${linkEffect} */
+    padding: 0 27px 27px;
+    margin-top: auto;
+    display: block;
+  }
+`;
+
+export const StyledAdoptersItemIntLink = styled(Link.Internal)`
+  &&&&& {
+    /* ${linkEffect} */
+    display: block;
+    margin-top: auto;
+    padding: 0 27px 27px;
+  }
 `;
