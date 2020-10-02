@@ -12,7 +12,7 @@ export interface RoadmapService {
 
 const RoadmapService = ({ pageContext }: RoadmapService) => {
   const { pathname, search } = useLocation();
-  const ticketsReference = useRef<HTMLElement>(null);
+  const ticketsReference = useRef<HTMLDivElement>(null);
 
   const scrollToTickets = (): boolean =>
     ((pathname && /roadmap\/[a-z]/.test(pathname)) || Boolean(search)) &&
