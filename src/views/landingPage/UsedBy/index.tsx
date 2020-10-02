@@ -67,12 +67,13 @@ const UsedByRaw: FunctionComponentIntl<UsedByProps> = ({ adopters }) => {
 };
 
 const LoadAllButtonWrapper = styled.div`
+  margin-top: 50px;
   display: flex;
   justify-content: center;
 `;
 
 const LoadAllButton = styled(Button.Normal)`
-  padding: 0 50px;
+  padding: 0 70px;
 `;
 
 const CustomerPair: React.FunctionComponent<{
@@ -98,10 +99,8 @@ const StyledWrapper = styled.div`
   background: url(${usedByBackgroundSVG});
   background-size: 100% 1100px;
   background-repeat: no-repeat;
-  /* background-color: rebeccapurple; */
-  /* margin-top: -200px; */
-  /* min-height: 1200px; */
-  padding-top: 200px;
+
+  padding: 200px 15px 60px;
 `;
 
 export const UsedBy = injectIntl("landingPage.usedBy")(UsedByRaw);
