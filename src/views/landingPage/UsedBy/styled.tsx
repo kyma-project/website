@@ -1,7 +1,11 @@
 import styled from "@styled";
 
-export const HeaderWrapper = styled.div`
-  margin-bottom: 75px;
+interface HeaderWrapperProps {
+  marginBottom?: number;
+}
+
+export const HeaderWrapper = styled.div<HeaderWrapperProps>`
+  margin-bottom: ${props => props.marginBottom || 75}px;
   > h2,
   p {
     text-align: center;

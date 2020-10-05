@@ -13,7 +13,10 @@ const CardRaw: FunctionComponent<Adopter & IntlInterface> = ({
   content,
   formatMessage,
 }) => {
-  const BlogPostLink: any = !url
+  const BlogPostLink: React.FunctionComponent<
+    | React.ComponentProps<typeof StyledAdoptersItemExtLink>
+    | React.ComponentProps<typeof StyledAdoptersItemIntLink>
+  > | null = !url
     ? null
     : url.startsWith("http")
     ? StyledAdoptersItemExtLink
@@ -74,7 +77,6 @@ const StyledSection = styled.section`
   > div > a {
     display: inline-flex;
     > img {
-      /* width: 100%; */
       height: ${ImgHeight};
       max-width: 240px;
       margin: 21px 27px;
@@ -105,17 +107,19 @@ const StyledContent = styled.p`
 
 export const StyledAdoptersItemExtLink = styled(Link.External)`
   &&&&& {
-    /* ${linkEffect} */
+    ${linkEffect}
     padding: 0 27px 27px;
     margin-top: auto;
+    margin-left: -16px;
     display: block;
   }
 `;
 
 export const StyledAdoptersItemIntLink = styled(Link.Internal)`
   &&&&& {
-    /* ${linkEffect} */
+    ${linkEffect}
     display: block;
+    margin-left: -16px;
     margin-top: auto;
     padding: 0 27px 27px;
   }
