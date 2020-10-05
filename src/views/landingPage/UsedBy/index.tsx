@@ -47,7 +47,7 @@ const UsedByRaw: FunctionComponentIntl<UsedByProps> = ({ adopters }) => {
       >
         {isMobile ? (
           <Grid.Row>
-            <Grid.Unit df={12} withoutPadding withoutMargin>
+            <Grid.Unit df={12} withoutPadding={true} withoutMargin={true}>
               <HeaderWrapper marginBottom={10}>
                 <H as="h2">
                   <FormattedMessage
