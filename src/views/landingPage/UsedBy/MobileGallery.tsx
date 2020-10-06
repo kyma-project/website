@@ -45,7 +45,7 @@ interface MobileGalleryProps {
 export const MobileGallery: React.FunctionComponent<MobileGalleryProps> = ({
   customers,
 }) => (
-  <Wrap>
+  <Wrapper>
     <AliceCarousel {...aliceCarouselProps}>
       {customers.map(el => (
         <CardWrapper key={el.company}>
@@ -53,14 +53,14 @@ export const MobileGallery: React.FunctionComponent<MobileGalleryProps> = ({
         </CardWrapper>
       ))}
     </AliceCarousel>
-  </Wrap>
+  </Wrapper>
 );
 
 const CardWrapper = styled.div`
   padding: 0 10px;
 `;
 
-const Wrap = styled.div`
+const Wrapper = styled.div`
   &&&& .alice-carousel__stage-item {
     transition-duration: 300ms;
     &:not(.__active) {

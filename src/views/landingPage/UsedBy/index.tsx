@@ -42,22 +42,7 @@ const UsedByRaw: FunctionComponentIntl<UsedByProps> = ({ adopters }) => {
   return (
     <StyledWrapper>
       <StyledGridContainer as="section">
-        {isMobile ? (
-          <Grid.Row>
-            <StyledGridUnit df={12} withoutMargin={true} withoutPadding={true}>
-              <HeaderWrapper marginBottom={10}>
-                <H as="h2">
-                  <FormattedMessage
-                    id={gt("headline")}
-                    tagName={React.Fragment}
-                  />
-                </H>
-                <FormattedMessage tagName="p" id={gt("paragraph")} />
-              </HeaderWrapper>
-              <MobileGallery customers={adopters} />
-            </StyledGridUnit>
-          </Grid.Row>
-        ) : (
+        {!isMobile ? (
           <Grid.Row>
             <Grid.Unit df={12}>
               <HeaderWrapper>
@@ -73,8 +58,22 @@ const UsedByRaw: FunctionComponentIntl<UsedByProps> = ({ adopters }) => {
             <CustomerPair customers={customers.slice(0, 2)} />
             {!!opened ? <CustomerPair customers={customers.slice(2)} /> : null}
           </Grid.Row>
+        ) : (
+          <Grid.Row>
+            <StyledGridUnit>
+              <HeaderWrapper marginBottom={10}>
+                <H as="h2">
+                  <FormattedMessage
+                    id={gt("headline")}
+                    tagName={React.Fragment}
+                  />
+                </H>
+                <FormattedMessage tagName="p" id={gt("paragraph")} />
+              </HeaderWrapper>
+              <MobileGallery customers={adopters} />
+            </StyledGridUnit>
+          </Grid.Row>
         )}
-
         <ButtonWrapper>
           {!!opened || isMobile ? (
             <AddCompanyButton />
@@ -150,11 +149,13 @@ const StyledGridContainer = styled(Grid.Container)`
   `}
 `;
 
-const StyledGridUnit = styled(Grid.Unit)`
-  &&& {
-    padding: 0;
-    margin: 0;
-  }
+const StyledGridUnit = styled.section`
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+  flex: 0 0 100%;
+  max-width: 100%;
 `;
 
 export const UsedBy = injectIntl("landingPage.usedBy")(UsedByRaw);
