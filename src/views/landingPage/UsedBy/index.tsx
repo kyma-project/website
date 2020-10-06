@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Adopter } from "@typings/landingPage";
-import styled, { is } from "@styled";
+import styled, { is, media } from "@styled";
 import H from "@components/shared/H";
 import Link from "@components/shared/Link";
 import Grid from "@styled/Grid";
@@ -40,14 +40,11 @@ const UsedByRaw: FunctionComponentIntl<UsedByProps> = ({ adopters }) => {
   };
 
   return (
-    <StyledWrapper isMobile={isMobile}>
-      <Grid.Container
-        as="section"
-        padding={isMobile ? "padding: 0" : undefined}
-      >
+    <StyledWrapper>
+      <StyledGridContainer as="section">
         {isMobile ? (
           <Grid.Row>
-            <Grid.Unit df={12} withoutPadding={true} withoutMargin={true}>
+            <StyledGridUnit df={12} withoutMargin={true} withoutPadding={true}>
               <HeaderWrapper marginBottom={10}>
                 <H as="h2">
                   <FormattedMessage
@@ -58,7 +55,7 @@ const UsedByRaw: FunctionComponentIntl<UsedByProps> = ({ adopters }) => {
                 <FormattedMessage tagName="p" id={gt("paragraph")} />
               </HeaderWrapper>
               <MobileGallery customers={adopters} />
-            </Grid.Unit>
+            </StyledGridUnit>
           </Grid.Row>
         ) : (
           <Grid.Row>
@@ -79,7 +76,7 @@ const UsedByRaw: FunctionComponentIntl<UsedByProps> = ({ adopters }) => {
         )}
 
         <ButtonWrapper>
-          {!!opened ? (
+          {!!opened || isMobile ? (
             <AddCompanyButton />
           ) : (
             <LoadAllButton size="md" onClick={useToggle}>
@@ -87,7 +84,7 @@ const UsedByRaw: FunctionComponentIntl<UsedByProps> = ({ adopters }) => {
             </LoadAllButton>
           )}
         </ButtonWrapper>
-      </Grid.Container>
+      </StyledGridContainer>
     </StyledWrapper>
   );
 };
@@ -129,14 +126,35 @@ const CustomerPair: React.FunctionComponent<{
   </React.Fragment>
 );
 
-const StyledWrapper = styled.div<{
-  isMobile: boolean;
-}>`
+const StyledWrapper = styled.div`
   background: url(${usedByBackgroundSVG});
-  background-size: ${props => (props.isMobile ? "120% 600px" : "100% 1100px")};
+  background-size: 100% 1100px;
+  padding: 200px 15px 60px;
   background-repeat: no-repeat;
+  ${media.phone`
+    background-size: 120% 600px;
+    padding: 110px 15px 60px;
+  `};
+  ${media.smallPhone`
+    background-size: 120% 600px;
+    padding: 110px 15px 60px;
+  `};
+`;
 
-  padding: ${props => (props.isMobile ? 110 : 200)}px 15px 60px;
+const StyledGridContainer = styled(Grid.Container)`
+  ${media.phone`
+    padding: 0;
+  `}
+  ${media.smallPhone`
+    padding: 0;
+  `}
+`;
+
+const StyledGridUnit = styled(Grid.Unit)`
+  &&& {
+    padding: 0;
+    margin: 0;
+  }
 `;
 
 export const UsedBy = injectIntl("landingPage.usedBy")(UsedByRaw);

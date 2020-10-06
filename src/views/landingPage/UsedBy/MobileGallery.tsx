@@ -15,16 +15,16 @@ const aliceCarouselProps: AliceCarouselProps = {
       items: 1,
     },
     576: {
-      items: 2,
+      items: 1,
     },
     768: {
-      items: 3,
+      items: 1,
     },
     1024: {
-      items: 4,
+      items: 1,
     },
     [Number.POSITIVE_INFINITY]: {
-      items: 4,
+      items: 1,
     },
   },
   buttonsDisabled: true,
