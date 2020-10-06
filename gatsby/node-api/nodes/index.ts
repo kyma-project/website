@@ -29,9 +29,20 @@ export const onCreateNode = async ({
     case "MarkdownRemark": {
       const { relativePath, absolutePath } = getNode(node.parent);
 
+      if (typeof relativePath !== "string") {
+        console.error("relativePath is not a string");
+        return;
+      }
+
       if (relativePath.startsWith(BLOG_POST_DIR)) {
         onCreateBlogPostNode({ node, relativePath, createNodeField });
       }
+
+      if (typeof absolutePath !== "string") {
+        console.error("absolutePath is not a string");
+        return;
+      }
+
       if (relativePath.startsWith(DOCS_DIR)) {
         onCreateDocsNode({ node, relativePath, createNodeField });
         onCreateImagesSpecNode({
