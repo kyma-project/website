@@ -10,23 +10,6 @@ import styled from "@styled";
 const aliceCarouselProps: AliceCarouselProps = {
   duration: 700,
   autoPlayInterval: 5000,
-  responsive: {
-    0: {
-      items: 1,
-    },
-    576: {
-      items: 1,
-    },
-    768: {
-      items: 1,
-    },
-    1024: {
-      items: 1,
-    },
-    [Number.POSITIVE_INFINITY]: {
-      items: 1,
-    },
-  },
   buttonsDisabled: true,
   dotsDisabled: true,
   autoPlay: true,
@@ -45,7 +28,7 @@ interface MobileGalleryProps {
 export const MobileGallery: React.FunctionComponent<MobileGalleryProps> = ({
   customers,
 }) => (
-  <Wrapper>
+  <AliceCarouselWrapper>
     <AliceCarousel {...aliceCarouselProps}>
       {customers.map(el => (
         <CardWrapper key={el.company}>
@@ -53,14 +36,14 @@ export const MobileGallery: React.FunctionComponent<MobileGalleryProps> = ({
         </CardWrapper>
       ))}
     </AliceCarousel>
-  </Wrapper>
+  </AliceCarouselWrapper>
 );
 
 const CardWrapper = styled.div`
   padding: 0 10px;
 `;
 
-const Wrapper = styled.div`
+const AliceCarouselWrapper = styled.div`
   &&&& .alice-carousel__stage-item {
     transition-duration: 300ms;
     &:not(.__active) {

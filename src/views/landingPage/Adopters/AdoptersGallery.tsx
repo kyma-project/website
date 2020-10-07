@@ -9,7 +9,6 @@ import Grid from "@styled/Grid";
 import Button from "@components/shared/Button";
 
 import AdoptersItem from "./AdoptersItem";
-import { Card } from "../UsedBy/Card";
 
 import { Adopter } from "@typings/landingPage";
 

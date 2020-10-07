@@ -39,6 +39,8 @@ const UsedByRaw: FunctionComponentIntl<UsedByProps> = ({ adopters }) => {
     useOpen(open => !open);
   };
 
+  console.log(is.phone(), is.smallPhone());
+
   return (
     <StyledWrapper>
       <StyledGridContainer as="section">
