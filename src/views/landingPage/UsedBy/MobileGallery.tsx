@@ -9,7 +9,7 @@ import styled from "@styled";
 
 const aliceCarouselProps: AliceCarouselProps = {
   duration: 700,
-  autoPlayInterval: 5000,
+  autoPlayInterval: 6000,
   buttonsDisabled: true,
   dotsDisabled: true,
   autoPlay: true,
@@ -23,16 +23,18 @@ const aliceCarouselProps: AliceCarouselProps = {
 
 interface MobileGalleryProps {
   customers: Adopter[];
+  isMobile: boolean;
 }
 
 export const MobileGallery: React.FunctionComponent<MobileGalleryProps> = ({
   customers,
+  isMobile,
 }) => (
   <AliceCarouselWrapper>
     <AliceCarousel {...aliceCarouselProps}>
       {customers.map(el => (
         <CardWrapper key={el.company}>
-          <Card {...el} data-info={el.company} />
+          <Card {...el} data-info={el.company} isMobile={isMobile} />
         </CardWrapper>
       ))}
     </AliceCarousel>

@@ -30,7 +30,7 @@ interface UsedByProps {
 type CustomerPairArray = Array<[Adopter, Adopter?]>;
 
 const UsedByRaw: FunctionComponentIntl<UsedByProps> = ({ adopters }) => {
-  const isMobile = is.phone() || is.smallPhone();
+  const isMobile = is.smallPhone();
 
   const customers = chunk(adopters, 2) as CustomerPairArray;
   const [opened, useOpen] = useState(false);
@@ -39,15 +39,28 @@ const UsedByRaw: FunctionComponentIntl<UsedByProps> = ({ adopters }) => {
     useOpen(open => !open);
   };
 
-  console.log(is.phone(), is.smallPhone());
-
   return (
     <StyledWrapper>
       <StyledGridContainer as="section">
-        {!isMobile ? (
+        {isMobile ? (
+          <Grid.Row>
+            <StyledGridUnit>
+              <HeaderWrapper marginBottom={10}>
+                <H as="h2">
+                  <FormattedMessage
+                    id={gt("headline")}
+                    tagName={React.Fragment}
+                  />
+                </H>
+                <FormattedMessage tagName="p" id={gt("paragraph")} />
+              </HeaderWrapper>
+              <MobileGallery customers={adopters} isMobile={isMobile} />
+            </StyledGridUnit>
+          </Grid.Row>
+        ) : (
           <Grid.Row>
             <Grid.Unit df={12}>
-              <HeaderWrapper>
+              <HeaderWrapper marginBottom={30}>
                 <H as="h2">
                   <FormattedMessage
                     id={gt("headline")}
@@ -60,31 +73,18 @@ const UsedByRaw: FunctionComponentIntl<UsedByProps> = ({ adopters }) => {
             <CustomerPair customers={customers.slice(0, 2)} />
             {!!opened ? <CustomerPair customers={customers.slice(2)} /> : null}
           </Grid.Row>
-        ) : (
-          <Grid.Row>
-            <StyledGridUnit>
-              <HeaderWrapper marginBottom={10}>
-                <H as="h2">
-                  <FormattedMessage
-                    id={gt("headline")}
-                    tagName={React.Fragment}
-                  />
-                </H>
-                <FormattedMessage tagName="p" id={gt("paragraph")} />
-              </HeaderWrapper>
-              <MobileGallery customers={adopters} />
-            </StyledGridUnit>
-          </Grid.Row>
         )}
-        <ButtonWrapper>
-          {!!opened || isMobile ? (
-            <AddCompanyButton />
-          ) : (
-            <LoadAllButton size="md" onClick={useToggle}>
-              <FormattedMessage id={gt("loadAll")} />
-            </LoadAllButton>
-          )}
-        </ButtonWrapper>
+        {isMobile ? null : (
+          <ButtonWrapper>
+            {!!opened ? (
+              <AddCompanyButton />
+            ) : (
+              <LoadAllButton size="md" onClick={useToggle}>
+                <FormattedMessage id={gt("loadAll")} />
+              </LoadAllButton>
+            )}
+          </ButtonWrapper>
+        )}
       </StyledGridContainer>
     </StyledWrapper>
   );
@@ -92,9 +92,9 @@ const UsedByRaw: FunctionComponentIntl<UsedByProps> = ({ adopters }) => {
 
 const AddCompanyButton = () => (
   <Link.External to={config.links.ADD_KYMA_USER}>
-    <Button.Normal size="md">
+    <Button.Emphasized size="md">
       <FormattedMessage id={gt("addYourCompany")} />
-    </Button.Normal>
+    </Button.Emphasized>
   </Link.External>
 );
 
@@ -102,6 +102,9 @@ const ButtonWrapper = styled.div`
   margin-top: 50px;
   display: flex;
   justify-content: center;
+  /* & button {
+    padding: 0 30px;
+  } */
 `;
 
 const LoadAllButton = styled(Button.Normal)`
@@ -113,7 +116,7 @@ const CustomerPair: React.FunctionComponent<{
 }> = ({ customers }) => (
   <React.Fragment>
     {customers.map(([first, second]) => (
-      <Grid.Row key={first.company}>
+      <StyledGridRow key={first.company}>
         <Grid.Unit df={6}>
           <Card {...first} />
         </Grid.Unit>
@@ -122,30 +125,31 @@ const CustomerPair: React.FunctionComponent<{
             <Card {...second} />
           </Grid.Unit>
         ) : null}
-      </Grid.Row>
+      </StyledGridRow>
     ))}
   </React.Fragment>
 );
 
+const StyledGridRow = styled(Grid.Row)`
+  justify-content: center;
+`;
+
 const StyledWrapper = styled.div`
   background: url(${usedByBackgroundSVG});
-  background-size: 100% 1100px;
-  padding: 200px 15px 60px;
+  background-size: 100% 1050px;
+  padding: 200px 15px 30px;
   background-repeat: no-repeat;
   ${media.phone`
     background-size: 120% 600px;
-    padding: 110px 15px 60px;
+    padding: 110px 15px 0px;
   `};
   ${media.smallPhone`
     background-size: 120% 600px;
-    padding: 110px 15px 60px;
+    padding: 110px 15px 0px;
   `};
 `;
 
 const StyledGridContainer = styled(Grid.Container)`
-  ${media.phone`
-    padding: 0;
-  `}
   ${media.smallPhone`
     padding: 0;
   `}

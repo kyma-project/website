@@ -5,12 +5,17 @@ import { injectIntl, IntlInterface, FormattedMessage } from "@common/i18n";
 import { linkEffect } from "@styled/mixins";
 import Link from "@components/shared/Link";
 
-const CardRaw: FunctionComponent<Adopter & IntlInterface> = ({
+interface CardProps {
+  isMobile?: boolean;
+}
+
+const CardRaw: FunctionComponent<Adopter & IntlInterface & CardProps> = ({
   logo,
   url,
   company,
   websiteUrl,
   content,
+  isMobile,
   formatMessage,
 }) => {
   const BlogPostLink: React.FunctionComponent<
@@ -42,7 +47,7 @@ const CardRaw: FunctionComponent<Adopter & IntlInterface> = ({
   );
 
   return (
-    <StyledSection>
+    <StyledSection isMobile={isMobile}>
       <LogoHeader>
         <Link.External
           to={websiteUrl}
@@ -52,10 +57,14 @@ const CardRaw: FunctionComponent<Adopter & IntlInterface> = ({
           <img src={logo} alt={companyLogoAlt} height={60} />
         </Link.External>
       </LogoHeader>
-      <StyledCompanyName>{company}</StyledCompanyName>
-      <StyledContent>{content}</StyledContent>
+      <StyledCompanyName isMobile={isMobile}>{company}</StyledCompanyName>
+      <StyledContent isMobile={isMobile}>{content}</StyledContent>
       {BlogPostLink && (
-        <BlogPostLink to={url} ariaLabel={companyCaseStudyLinkAria}>
+        <BlogPostLink
+          to={url}
+          ariaLabel={companyCaseStudyLinkAria}
+          isMobile={isMobile}
+        >
           <FormattedMessage id="landingPage.usedBy.readMoreLink" />
         </BlogPostLink>
       )}
@@ -66,7 +75,7 @@ const CardRaw: FunctionComponent<Adopter & IntlInterface> = ({
 export const Card = injectIntl("landingPage.usedBy.accessibility")(CardRaw);
 
 const ImgHeight = "60px";
-const StyledSection = styled.section`
+const StyledSection = styled.section<CardProps>`
   border-radius: 8px;
   box-shadow: 0 2px 26px 0 rgba(11, 116, 222, 0.49);
   background-color: white;
@@ -79,7 +88,7 @@ const StyledSection = styled.section`
     > img {
       height: ${ImgHeight};
       max-width: 240px;
-      margin: 21px 27px;
+      margin: 21px ${props => (props.isMobile ? "20px" : "27px")};
       max-height: ${ImgHeight};
     }
   }
@@ -95,31 +104,34 @@ const LogoHeader = styled.div`
   border-bottom: solid 1px #d7d7d7;
 `;
 
-const StyledCompanyName = styled.h3`
-  padding: 17px 27px 31px;
+const StyledCompanyName = styled.h3<CardProps>`
+  padding: 17px ${props => (props.isMobile ? "20px 24px" : "24px 31px")};
   margin: 0;
 `;
 
-const StyledContent = styled.p`
+const StyledContent = styled.p<CardProps>`
   margin: 0;
-  padding: 0px 27px 30px;
+  padding: 0px ${p => (p.isMobile ? "20px" : "27px")} 30px;
 `;
 
-export const StyledAdoptersItemExtLink = styled(Link.External)`
+const marginLeftFn = (isMobile?: boolean): string =>
+  isMobile ? "-22px" : "-16px";
+
+export const StyledAdoptersItemExtLink = styled(Link.External)<CardProps>`
   &&&&& {
     ${linkEffect}
     padding: 0 27px 27px;
     margin-top: auto;
-    margin-left: -16px;
+    margin-left: ${p => marginLeftFn(p.isMobile)};
     display: block;
   }
 `;
 
-export const StyledAdoptersItemIntLink = styled(Link.Internal)`
+export const StyledAdoptersItemIntLink = styled(Link.Internal)<CardProps>`
   &&&&& {
     ${linkEffect}
     display: block;
-    margin-left: -16px;
+    margin-left: ${p => marginLeftFn(p.isMobile)};
     margin-top: auto;
     padding: 0 27px 27px;
   }
