@@ -24,6 +24,7 @@ See the overview of all changes in this release:
 - [Monitoring](#monitoring) - AuthProxy support for Grafana, removed dashboards for CoreDNS/KubeDNS and Kube-Proxy
 - [Tracing](#tracing) - Option to disable sending traces, improved integration of Loki to Grafana
 - [Kiali](#kiali) - General update and Jaeger integration
+- [Eventing](#eventing) - Removed Knative-Serving chart
 - [Installation](#installation) - Istio upgrade to 1.5.10
 
 ## Serverless
@@ -94,7 +95,7 @@ Additionally, we now configured Jaeger so that you can see traces inline in Kial
 
 ## Eventing
 
-### Removing Knative-Serving chart
+### Removed Knative-Serving chart
 
 In release 1.16, we remove the support for Knative-Serving from Kyma. After the upgrade, Knative-Serving will still be fully functional in the cluster, but it can be removed easily in order to free resources. Removing Knative-Serving will not affect supported Kyma functionality. To learn more, read the [migration guide](https://github.com/kyma-project/kyma/blob/release-1.16/docs/migration-guides/1.15-1.16.md).
 
