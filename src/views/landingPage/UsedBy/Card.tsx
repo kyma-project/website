@@ -88,7 +88,7 @@ const StyledSection = styled.section<CardProps>`
     > img {
       height: ${ImgHeight};
       max-width: 240px;
-      margin: 21px ${props => (props.isMobile ? "20px" : "27px")};
+      margin: 21px ${props => (props.isMobile ? "20px" : "25px")};
       max-height: ${ImgHeight};
     }
   }
