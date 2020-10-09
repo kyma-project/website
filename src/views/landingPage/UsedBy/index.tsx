@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Adopter } from "@typings/landingPage";
-import styled, { is, media } from "@styled";
+import styled, { media, sizes } from "@styled";
+import { useWindowSize } from "react-use";
 import H from "@components/shared/H";
 import Link from "@components/shared/Link";
 import Grid from "@styled/Grid";
@@ -30,7 +31,9 @@ interface UsedByProps {
 type CustomerPairArray = Array<[Adopter, Adopter?]>;
 
 const UsedByRaw: FunctionComponentIntl<UsedByProps> = ({ adopters }) => {
-  const isMobile = is.smallPhone();
+  const { width } = useWindowSize();
+
+  const isMobile = width < sizes.smallPhone; // same as is.smallPhone(), but because we use useWindowSize we get updated width after every browser window resize
 
   const customers = chunk(adopters, 2) as CustomerPairArray;
   const [opened, useOpen] = useState(false);
