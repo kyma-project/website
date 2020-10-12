@@ -8,12 +8,12 @@ import "react-alice-carousel/lib/alice-carousel.css";
 import styled from "@styled";
 
 const aliceCarouselProps: AliceCarouselProps = {
-  duration: 700,
-  autoPlayInterval: 6000,
+  // duration: 700,
+  // autoPlayInterval: 6000,
   buttonsDisabled: true,
   dotsDisabled: true,
-  autoPlay: true,
-  stopAutoPlayOnHover: true,
+  autoPlay: false,
+  // stopAutoPlayOnHover: true,
   mouseTrackingEnabled: true,
   stagePadding: {
     paddingLeft: 20,

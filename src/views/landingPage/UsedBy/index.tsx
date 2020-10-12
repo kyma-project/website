@@ -33,7 +33,7 @@ type CustomerPairArray = Array<[Adopter, Adopter?]>;
 const UsedByRaw: FunctionComponentIntl<UsedByProps> = ({ adopters }) => {
   const { width } = useWindowSize();
 
-  const isMobile = width < sizes.smallPhone; // same as is.smallPhone(), but because we use useWindowSize we get updated width after every browser window resize
+  const isMobile = width <= sizes.smallPhone; // same as is.smallPhone(), but because we use useWindowSize we get updated width after every browser window resize
 
   const customers = chunk(adopters, 2) as CustomerPairArray;
   const [opened, useOpen] = useState(false);
