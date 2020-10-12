@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Adopter } from "@typings/landingPage";
-import styled, { media, sizes } from "@styled";
+import { sizes } from "@styled";
 import { useWindowSize } from "react-use";
 import H from "@components/shared/H";
 import Link from "@components/shared/Link";
@@ -15,11 +15,17 @@ import {
   FunctionComponentIntl,
 } from "@common/i18n";
 
-import usedByBackgroundSVG from "@views/landingPage/assets/landing-page/usedBy/usedByBackground.svg";
+import { CustomerPairArray, CustomerPair } from "./CustomerPair";
 
-import { Card } from "./Card";
+import {
+  HeaderWrapper,
+  StyledWrapper,
+  StyledGridUnit,
+  ButtonWrapper,
+  LoadAllButton,
+  StyledGridContainer,
+} from "./styled";
 
-import { HeaderWrapper } from "./styled";
 import { MobileGallery } from "./MobileGallery";
 
 const gt = getTranslation("landingPage.usedBy");
@@ -27,8 +33,6 @@ const gt = getTranslation("landingPage.usedBy");
 interface UsedByProps {
   adopters: Adopter[];
 }
-
-type CustomerPairArray = Array<[Adopter, Adopter?]>;
 
 const UsedByRaw: FunctionComponentIntl<UsedByProps> = ({ adopters }) => {
   const { width } = useWindowSize();
@@ -80,7 +84,11 @@ const UsedByRaw: FunctionComponentIntl<UsedByProps> = ({ adopters }) => {
         {isMobile ? null : (
           <ButtonWrapper>
             {!!opened ? (
-              <AddCompanyButton />
+              <Link.External to={config.links.ADD_KYMA_USER}>
+                <Button.Emphasized size="md">
+                  <FormattedMessage id={gt("addYourCompany")} />
+                </Button.Emphasized>
+              </Link.External>
             ) : (
               <LoadAllButton size="md" onClick={useToggle}>
                 <FormattedMessage id={gt("loadAll")} />
@@ -92,79 +100,5 @@ const UsedByRaw: FunctionComponentIntl<UsedByProps> = ({ adopters }) => {
     </StyledWrapper>
   );
 };
-
-const AddCompanyButton = () => (
-  <Link.External to={config.links.ADD_KYMA_USER}>
-    <Button.Emphasized size="md">
-      <FormattedMessage id={gt("addYourCompany")} />
-    </Button.Emphasized>
-  </Link.External>
-);
-
-const ButtonWrapper = styled.div`
-  margin-top: 50px;
-  display: flex;
-  justify-content: center;
-  /* & button {
-    padding: 0 30px;
-  } */
-`;
-
-const LoadAllButton = styled(Button.Normal)`
-  padding: 0 70px;
-`;
-
-const CustomerPair: React.FunctionComponent<{
-  customers: CustomerPairArray;
-}> = ({ customers }) => (
-  <React.Fragment>
-    {customers.map(([first, second]) => (
-      <StyledGridRow key={first.company}>
-        <Grid.Unit df={6}>
-          <Card {...first} />
-        </Grid.Unit>
-        {!!second ? (
-          <Grid.Unit df={6}>
-            <Card {...second} />
-          </Grid.Unit>
-        ) : null}
-      </StyledGridRow>
-    ))}
-  </React.Fragment>
-);
-
-const StyledGridRow = styled(Grid.Row)`
-  justify-content: center;
-`;
-
-const StyledWrapper = styled.div`
-  background: url(${usedByBackgroundSVG});
-  background-size: 100% 1050px;
-  padding: 200px 15px 30px;
-  background-repeat: no-repeat;
-  ${media.phone`
-    background-size: 120% 600px;
-    padding: 110px 15px 0px;
-  `};
-  ${media.smallPhone`
-    background-size: 120% 600px;
-    padding: 110px 15px 0px;
-  `};
-`;
-
-const StyledGridContainer = styled(Grid.Container)`
-  ${media.smallPhone`
-    padding: 0;
-  `}
-`;
-
-const StyledGridUnit = styled.section`
-  display: flex;
-  flex-direction: column;
-  padding: 0;
-  margin: 0;
-  flex: 0 0 100%;
-  max-width: 100%;
-`;
 
 export const UsedBy = injectIntl("landingPage.usedBy")(UsedByRaw);

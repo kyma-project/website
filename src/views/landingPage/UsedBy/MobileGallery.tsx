@@ -5,15 +5,13 @@ import AliceCarousel, {
   Props as AliceCarouselProps,
 } from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
-import styled from "@styled";
+import { AliceCarouselWrapper, CardWrapper } from "./styled";
 
 const aliceCarouselProps: AliceCarouselProps = {
-  // duration: 700,
-  // autoPlayInterval: 6000,
+  duration: 350,
   buttonsDisabled: true,
   dotsDisabled: true,
   autoPlay: false,
-  // stopAutoPlayOnHover: true,
   mouseTrackingEnabled: true,
   stagePadding: {
     paddingLeft: 20,
@@ -40,16 +38,3 @@ export const MobileGallery: React.FunctionComponent<MobileGalleryProps> = ({
     </AliceCarousel>
   </AliceCarouselWrapper>
 );
-
-const CardWrapper = styled.div`
-  padding: 0 10px;
-`;
-
-const AliceCarouselWrapper = styled.div`
-  &&&& .alice-carousel__stage-item {
-    transition-duration: 300ms;
-    &:not(.__active) {
-      margin-top: 20px;
-    }
-  }
-`;
