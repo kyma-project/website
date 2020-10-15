@@ -18,14 +18,14 @@ const LandingPageView: React.FunctionComponent<PageContext<
   const scrollRef = useRef<HTMLElement>(null);
   return (
     <>
-      <Manifesto scrollRef={scrollRef} />
-      <Features scrollRef={scrollRef} />
-      <UsedBy adopters={adopters} />
-      {/* <Headline /> */}
-      {/* <WhatIs /> */}
-      {/* <ExtensionsAndTools /> */}
-      {/* <Newsroom latestBlogPosts={latestBlogPosts} /> */}
-      {/* <Adopters adopters={adopters} /> */}
+      {/* <Manifesto scrollRef={scrollRef} /> */}
+      {/* <Features scrollRef={scrollRef} /> */}
+      {/* <UsedBy adopters={adopters} /> */}
+      <Headline />
+      <WhatIs />
+      <ExtensionsAndTools />
+      <Newsroom latestBlogPosts={latestBlogPosts} />
+      <Adopters adopters={adopters} />
     </>
   );
 };
