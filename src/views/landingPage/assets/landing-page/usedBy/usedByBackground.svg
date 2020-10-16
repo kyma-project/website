@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="Ebene_1" x="0" y="0" enable-background="new 0 0 1440 1282" version="1.1" viewBox="0 0 1440 1282" xml:space="preserve" preserveAspectRatio="none" >
+  <style>
+    .st1{fill-rule:evenodd;clip-rule:evenodd;fill:#fff}
+  </style>
+  <defs>
+    <filter id="Adobe_OpacityMaskFilter" width="2166.1" height="1201.7" x="-668.5" y="62.3" filterUnits="userSpaceOnUse">
+      <feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0"/>
+    </filter>
+  </defs>
+  <mask id="mask-2_1_" width="2166.1" height="1201.7" x="-668.5" y="62.3" maskUnits="userSpaceOnUse">
+    <g filter="url(#Adobe_OpacityMaskFilter)">
+      <path id="path-1_1_" d="M0 0h1440v1282H0z" class="st1"/>
+    </g>
+  </mask>
+  <linearGradient id="Oval-5_1_" x1="615.3636" x2="615.063" y1="788.5305" y2="789.3396" gradientTransform="matrix(2161.5002 0 0 -1201.4222 -1329376.125 948476.8125)" gradientUnits="userSpaceOnUse">
+    <stop offset=".2563" stop-color="#2c85de" stop-opacity="0"/>
+    <stop offset=".7272" stop-color="#1369bf" stop-opacity=".6332"/>
+    <stop offset="1" stop-color="#095eb3"/>
+  </linearGradient>
+  <path id="Oval-5" fill="url(#Oval-5_1_)" d="M859.3 1251.8c-517.1 42.1-1101.6-15-1397-318.3C-837.5 630.5-627.9 135.6 153 72s1305.7 195.2 1340 526.5c34.1 328.7-116.6 611.2-633.7 653.3z" enable-background="new" mask="url(#mask-2_1_)" opacity=".8171"/>
+  <defs>
+    <filter id="Adobe_OpacityMaskFilter_1_" width="3061.8" height="1153.8" x="-749" y="128.1" filterUnits="userSpaceOnUse">
+      <feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0"/>
+    </filter>
+  </defs>
+  <mask id="mask-2_2_" width="3061.8" height="1153.8" x="-749" y="128.1" maskUnits="userSpaceOnUse">
+    <g filter="url(#Adobe_OpacityMaskFilter_1_)">
+      <path id="path-1_2_" d="M0 0h1440v1282H0z" class="st1"/>
+    </g>
+  </mask>
+  <linearGradient id="Oval-6_1_" x1="615.4346" x2="615.2295" y1="788.53" y2="789.361" gradientTransform="matrix(3061.833 0 0 -1153.7625 -1883161.25 910938.6875)" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#2c85de" stop-opacity="0"/>
+    <stop offset="1" stop-color="#095eb3"/>
+  </linearGradient>
+  <path id="Oval-6" fill="url(#Oval-6_1_)" d="M1243.1 1247C656.5 1373.4-172.3 1139-598.6 820.3-1018.5 565.9-528.7 309.4 489.1 184c1017.2-131.3 1833.5-24 1823.6 243.8-10 266.5-487.2 650.1-1069.6 819.2z" mask="url(#mask-2_2_)"/>
+</svg>

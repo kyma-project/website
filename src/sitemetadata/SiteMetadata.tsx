@@ -1,12 +1,13 @@
 import React, { useContext } from "react";
 import Helmet from "react-helmet";
-import { withPrefix, graphql, useStaticQuery } from "gatsby";
+import { withPrefix } from "gatsby";
 
 import { globalHistory } from "@reach/router";
 import { RootContext } from "../root/services";
 import { injectIntl, IntlInterface } from "@common/i18n";
 import { getActualYear } from "@common/utils";
-import { SiteMetadata as SiteMetadataType } from "../../gatsby/config-api/types";
+
+import { siteMetadata } from "../../gatsby/config-api/sitemetadata";
 
 import { Facebook } from "./Facebook";
 import { Twitter } from "./Twitter";
@@ -40,9 +41,6 @@ const SiteMetadata: React.FunctionComponent<SiteMetadataProps &
   formatMessage,
 }) => {
   const { language } = useContext(RootContext);
-  const {
-    site: { siteMetadata },
-  } = useStaticQuery<{ site: { siteMetadata: SiteMetadataType } }>(query);
 
   const host =
     process.env.GATSBY_SITE_URL || `127.0.0.1:${globalHistory.location.port}`;
@@ -133,16 +131,5 @@ const SiteMetadata: React.FunctionComponent<SiteMetadataProps &
     </>
   );
 };
-
-const query = graphql`
-  query SiteMetadata {
-    site {
-      siteMetadata {
-        siteUrl
-        twitterUsername
-      }
-    }
-  }
-`;
 
 export default injectIntl("siteMetadata")(SiteMetadata);

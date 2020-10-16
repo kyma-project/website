@@ -19,22 +19,32 @@ import Button from "@components/shared/Button";
 import Link from "@components/shared/Link";
 import Icon from "@components/shared/Icon";
 import { scrollToAnchor } from "@common/utils/scrollToAnchor";
+import { featuresID } from "../Features";
 
 const gt = getTranslation("landingPage.manifesto");
 
-const scrollToFeatures = (
+const scrollToFeatures = (target: ManifestoProps["scrollRef"]) => (
   e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
 ) => {
   e.preventDefault();
 
-  scrollToAnchor({
-    target: document.getElementById("key-features"),
-    timeout: 250,
-    smooth: true,
-  })();
+  if (target && target.current) {
+    scrollToAnchor({
+      target: target.current,
+      timeout: 250,
+      smooth: true,
+    })();
+  }
 };
 
-const ManifestoRaw: FunctionComponentIntl = ({ formatMessage }) => (
+interface ManifestoProps {
+  scrollRef: React.RefObject<HTMLElement>;
+}
+
+const ManifestoRaw: FunctionComponentIntl<ManifestoProps> = ({
+  formatMessage,
+  scrollRef: innerRef,
+}) => (
   <Grid.Container as="header">
     <Grid.Row>
       <Grid.Unit df={8} sm={12}>
@@ -62,8 +72,8 @@ const ManifestoRaw: FunctionComponentIntl = ({ formatMessage }) => (
       <Grid.Unit df={12}>
         <IconWrapper>
           <Link.Hash
-            to="key-features"
-            onClick={scrollToFeatures}
+            to={featuresID}
+            onClick={scrollToFeatures(innerRef)}
             ariaLabel={formatMessage({ id: "scrollButton" })}
           >
             <Icon

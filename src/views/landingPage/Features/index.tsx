@@ -9,8 +9,17 @@ import { FeaturesI18nTarget } from "@typings/landingPage";
 
 const features = Object.values<FeaturesI18nTarget>(FeaturesI18nTarget);
 
-export const Features: React.FunctionComponent = () => (
-  <Grid.Container as="section" id="key-features">
+interface FeatureProps {
+  scrollRef: React.RefObject<HTMLElement>;
+}
+
+// also used in Manifesto component
+export const featuresID = "key-features";
+
+export const Features: React.FunctionComponent<FeatureProps> = ({
+  scrollRef: innerRef,
+}) => (
+  <Grid.Container as="section" id={featuresID} ref={innerRef}>
     <Grid.Row>
       <Grid.Unit df={12}>
         <FeaturesHeader />

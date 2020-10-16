@@ -4,8 +4,8 @@ interface HProps {
   center?: boolean;
 }
 
-export default styled.h1`
-  text-align: ${(props: HProps) => (props.center ? "center" : "left")};
+export default styled.h1<HProps>`
+  text-align: ${props => (props.center ? "center" : "left")};
 
   &&& {
     &.header-with-anchor--level-1 {

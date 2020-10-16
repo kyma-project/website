@@ -1,4 +1,4 @@
-import styled, { media } from "@styled";
+import styled from "@styled";
 
 export const HeaderWrapper = styled.div`
   margin-bottom: 75px;
