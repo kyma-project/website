@@ -1,11 +1,11 @@
 ---
-title: "Kyma 1.16 Wellington"
+title: "Kyma 1.16 Wellington (release candidate)"
 author:
   name: "Aleksandra Simeonova, Technical Writer @Kyma"
 tags:
-  - release-notes
-type: release
-releaseTag: "1.16.0"
+  - release-candidate
+type: release-candidate
+releaseTag: "1.16.0 RC"
 redirectFrom:
   - "/blog/release-notes-116"
 ---
@@ -13,6 +13,8 @@ redirectFrom:
 After a stop in the beautiful Vienna, we disembark on a new journey to Wellington, New Zealand. The southernmost capital in the world is well-known for its cafes and restaurants (there are more of them per capita than in New York), and the filming locations of the Lord of the Rings and Hobbit movies. While we are starting to feel the cooler weather, spring in Wellington is just beginning, so don't put on your jackets just yet. Almost all of Wellington's residents live within three kilometers of the sea coast, so this is a perfect spot to ride the Kyma wave with us. The new Getting Started guides on our website will help you navigate the sea of Serverless, CLI, Monitoring, and Tracing features that are part of this release. Read the notes to find out more.
 
 <!-- overview -->
+
+> **NOTE:** Kyma 1.16 is a release candidate, which means it is not a stable release. If possible, you should wait until Kyma 1.17 to upgrade to the newest version.
 
 > **CAUTION:** Read the [Migration Guide](https://github.com/kyma-project/kyma/blob/release-1.16/docs/migration-guides/1.15-1.16.md) before upgrading your Kyma deployment to 1.16.
 
