@@ -1,33 +1,32 @@
 ---
-title: "Kyma 1.16 Wellington (release candidate)"
+title: "Kyma 1.17 Xinzhou"
 author:
   name: "Aleksandra Simeonova, Technical Writer @Kyma"
 tags:
   - release-candidate
 type: release-candidate
-releaseTag: "1.16.0 RC"
+releaseTag: "1.17.0"
 redirectFrom:
-  - "/blog/release-notes-116"
+  - "/blog/release-notes-117"
 ---
 
-After a stop in the beautiful Vienna, we disembark on a new journey to Wellington, New Zealand. The southernmost capital in the world is well-known for its cafes and restaurants (there are more of them per capita than in New York), and the filming locations of the Lord of the Rings and Hobbit movies. While we are starting to feel the cooler weather, spring in Wellington is just beginning, so don't put on your jackets just yet. Almost all of Wellington's residents live within three kilometers of the sea coast, so this is a perfect spot to ride the Kyma wave with us. The new Getting Started guides on our website will help you navigate the sea of Serverless, CLI, Monitoring, and Tracing features that are part of this release. Read the notes to find out more.
-<br>
-> **NOTE:** Kyma 1.16 is a release candidate, which means it is not a stable release. The next stable release will be Kyma 1.17. Because it is not possible to upgrade from 1.15 directly to 1.17, you still need to upgrade to 1.16 RC first.
+The new Getting Started guides on our website will help you navigate the sea of Serverless, CLI, Monitoring, and Tracing features that are part of this release. Read the notes to find out more.
 
 <!-- overview -->
 
-> **CAUTION:** Read the [Migration Guide](https://github.com/kyma-project/kyma/blob/release-1.16/docs/migration-guides/1.15-1.16.md) before upgrading your Kyma deployment to 1.16.
+> **CAUTION:** Read the [Migration Guide](https://github.com/kyma-project/kyma/blob/release-1.16/docs/migration-guides/1.15-1.17.md) before upgrading your Kyma deployment to 1.17. Note that you will first need to update to the 1.16 release candidate instead of upgrading to 1.17 directly.
 
 See the overview of all changes in this release:
 
 - [Serverless](#serverless) - Git repository as a source for your Function, support for Python as a serverless runtime
 - [Website](#website) - New Getting Started guides
-- [CLI](#cli) - New commands for upgrade and creating a system
+- [CLI](#cli) - New commands for upgrade and creating a system, manage functions, PR-number support for Install command, Minikube support when using a DNS-Proxy on MacOS
 - [Monitoring](#monitoring) - AuthProxy support for Grafana, removed dashboards for CoreDNS/KubeDNS and Kube-Proxy
 - [Tracing](#tracing) - Option to disable sending traces, improved integration of Loki to Grafana
 - [Kiali](#kiali) - General update and Jaeger integration
 - [Eventing](#eventing) - Removed Knative-Serving chart
-- [Installation](#installation) - Istio upgrade to 1.5.10
+- [Installation](#installation) - Istio upgrade to 1.7.4
+- [Console](#console) - New features on namespace details page
 
 ## Serverless
 
@@ -66,6 +65,23 @@ We introduced the new command as a first step to offer a smooth Kyma upgrade. To
 
 Another new command that we added is [`kyma create system`](/cli/commands/#kyma-create-system-kyma-create-system). In just one step, it allows you to create a system (an Application), bind it to a Namespace, and get a token to pair the system with an external application.
 
+### Manage functions
+
+If you prefer CLI over UI we have great news for you. We have released a set of new commands for function developers that would help them to get started with function development.
+
+You should find those command really helpful when starting the function from scratch or whenever you want to apply code or configuration changes to a function.
+
+Find more details in the dedicated [tutorial](https://kyma-project.io/docs/master/cli/overview/#tutorials-use-kyma-cli-to-manage-functions).
+
+
+### PR-number support for Install command
+
+The install command supports installing Kyma based on a specific Pull Request to the Kyma repository. So `kyma install --source=PR-XXXX` will install Kyma to your kubernetes cluster using the revision identified by the latest commit to the specific Pull Request.
+
+### Minikube support when using a DNS-Proxy on MacOS
+
+We added a new flag to the minikube command to support a setup which is typical for corporate environments. Please check out the new flag: `kyma provision minikube --use-hyperkit-vpnkit-sock`.
+
 ## Monitoring
 
 ### AuthProxy support for Grafana
@@ -103,6 +119,20 @@ In release 1.16, we remove the support for Knative-Serving from Kyma. After the 
 
 ## Installation
 
-### Istio upgrade to 1.5.10
+### Istio upgrade to 1.7.4
 
-With this release, we upgraded Istio from 1.4.7 to 1.5.10. Find more details in the [migration guide](https://github.com/kyma-project/kyma/blob/release-1.16/docs/migration-guides/1.15-1.16.md). To learn more, read the [Istio 1.5.10 release notes](https://istio.io/latest/news/releases/1.5.x/announcing-1.5.10/).
+With this release we have upgraded istio from 1.5.10 to 1.7.4. It requires Kubernetes 1.16 or higher.  Find more details in the [migration guide](https://github.com/kyma-project/kyma/blob/master/docs/migration-guides/1.15-1.17.md). To learn more, read the [Istio 1.7.4 release notes](https://istio.io/latest/news/releases/1.7.x/announcing-1.7/).
+
+## Console
+
+### New features on namespace details page
+
+We have added new functionalities to the namespace overview page.
+
+You can easily jump from the namespace overview to the Grafana dashboard and inspect logs from the namespace. You can also see all resource quotas and limit ranges that apply to the namespace:
+
+![Namespace overview](./namespace-overview.png)
+
+You can edit those limits via handy YAML editor that slides out as a drawer:
+
+![Namespace overview YAML editor](./yaml-editor.png)
