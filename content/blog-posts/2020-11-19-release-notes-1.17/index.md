@@ -10,11 +10,11 @@ redirectFrom:
   - "/blog/release-notes-117"
 ---
 
-The new Getting Started guides on our website will help you navigate the sea of Serverless, CLI, Monitoring, and Tracing features that are part of this release. Read the notes to find out more.
+Good things take time to build. This is true of both the new Kyma release and the city it is named after - Xinzhou - located near the notorious Great Wall of China. This release includes updates to many Kyma features, including Serverless, Monitoring, Tracing, Kiali, Evening, and others. Read the release notes to find out more.
 
 <!-- overview -->
 
-> **CAUTION:** Read the [Migration Guide](https://github.com/kyma-project/kyma/blob/release-1.16/docs/migration-guides/1.15-1.17.md) before upgrading your Kyma deployment to 1.17. Note that you will first need to update to the 1.16 release candidate instead of upgrading to 1.17 directly.
+> **CAUTION:** Read the [Migration Guide](https://github.com/kyma-project/kyma/blob/release-1.17/docs/migration-guides/1.15-1.17.md) before upgrading your Kyma deployment to 1.17. Note that you will first need to update to the 1.16 release candidate instead of upgrading to 1.17 directly.
 
 See the overview of all changes in this release:
 
@@ -34,7 +34,7 @@ See the overview of all changes in this release:
 
 We introduced a new way of developing Functions. Instead of editing your Function in an inline editor, you can now configure a Git repository as the source of your Function's code and dependencies. It is a great convenience for developers who can now use their favorite IDE to develop Functions.
 
-Read more about the [Git source type](https://kyma-project.io/docs/1.16/components/serverless/#details-git-source-type) and see the [tutorial on how to create a Function from Git repository sources](https://kyma-project.io/docs/1.16/components/serverless/#tutorials-create-a-function-from-git-repository-sources).
+Read more about the [Git source type](https://kyma-project.io/docs/1.17/components/serverless/#details-git-source-type) and see the [tutorial on how to create a Function from Git repository sources](https://kyma-project.io/docs/1.17/components/serverless/#tutorials-create-a-function-from-git-repository-sources).
 
 You can set the Function source to a specific commit, or you can reference a branch. The function will rebuild on every change pushed to the repository.
 
@@ -43,17 +43,17 @@ You can set the Function source to a specific commit, or you can reference a bra
 
 ### Support for Python as a serverless runtime
 
-With 1.16, you can choose Python (3.8) as a runtime for your Function:
+With Kyma 1.17, you can choose Python (3.8) as a runtime for your Function:
 
 ![Support for Python as a serverless runtime](./python-serverless.png)
 
-See all [available runtimes with sample Functions](https://kyma-project.io/docs/1.16/components/serverless/#details-runtimes).
+See all [available runtimes with sample Functions](https://kyma-project.io/docs/1.17/components/serverless/#details-runtimes).
 
 ## Website
 
 ### New Getting Started guides
 
-Have you ever wondered how to start with Kyma? How to connect all the dots (components) into a meaningful scenario? We tried to address such questions with a set of [Getting Started guides](https://kyma-project.io/docs/1.16/root/getting-started/) we are happy to share with you. These guides lead you through an end-to-end scenario that shows a sample Kyma use case. After completing it, you will get a Function and a microservice that react to events sent from an external application and use the external Redis service to store the events data. These guides show all Kyma’s major features, introduce you to our components, and give you a chance to get to know Kyma either through the kubectl commands or the Console UI steps.
+Have you ever wondered how to start with Kyma? How to connect all the dots (components) into a meaningful scenario? We tried to address such questions with a set of [Getting Started guides](https://kyma-project.io/docs/1.17/root/getting-started/) we are happy to share with you. These guides lead you through an end-to-end scenario that shows a sample Kyma use case. After completing it, you will get a Function and a microservice that react to events sent from an external application and use the external Redis service to store the events data. These guides show all Kyma’s major features, introduce you to our components, and give you a chance to get to know Kyma either through the kubectl commands or the Console UI steps.
 
 ## CLI
 
@@ -67,20 +67,18 @@ Another new command that we added is [`kyma create system`](/cli/commands/#kyma-
 
 ### Manage functions
 
-If you prefer CLI over UI we have great news for you. We have released a set of new commands for function developers that would help them to get started with function development.
-
-You should find those command really helpful when starting the function from scratch or whenever you want to apply code or configuration changes to a function.
+We released a set of new commands for function developers. These commands are very useful when starting a function from scratch or whenever you want to apply code or configuration changes to a function.
 
 Find more details in the dedicated [tutorial](https://kyma-project.io/docs/master/cli/overview/#tutorials-use-kyma-cli-to-manage-functions).
 
 
-### PR-number support for Install command
+### PR number support for install command
 
-The install command supports installing Kyma based on a specific Pull Request to the Kyma repository. So `kyma install --source=PR-XXXX` will install Kyma to your kubernetes cluster using the revision identified by the latest commit to the specific Pull Request.
+The `install` command now supports installing Kyma based on a specific pull request (PR) to the Kyma repository. So `kyma install --source=PR-XXXX` will install Kyma to your Kubernetes cluster using the revision identified by the latest commit to the specific PR.
 
 ### Minikube support when using a DNS-Proxy on MacOS
 
-We added a new flag to the minikube command to support a setup which is typical for corporate environments. Please check out the new flag: `kyma provision minikube --use-hyperkit-vpnkit-sock`.
+We added a new flag to the Minikube command to support a setup which is typical for corporate environments. The new flag is: `kyma provision minikube --use-hyperkit-vpnkit-sock`.
 
 ## Monitoring
 
@@ -115,24 +113,31 @@ Additionally, we now configured Jaeger so that you can see traces inline in Kial
 
 ### Removed Knative-Serving chart
 
-In release 1.16, we remove the support for Knative-Serving from Kyma. After the upgrade, Knative-Serving will still be fully functional in the cluster, but it can be removed easily in order to free resources. Removing Knative-Serving will not affect supported Kyma functionality. To learn more, read the [migration guide](https://github.com/kyma-project/kyma/blob/release-1.16/docs/migration-guides/1.15-1.16.md).
+In release 1.17, we remove the support for Knative-Serving from Kyma. After the upgrade, Knative-Serving will still be fully functional in the cluster, but it can be removed easily in order to free resources. Removing Knative-Serving will not affect supported Kyma functionality. To learn more, read the [migration guide](https://github.com/kyma-project/kyma/blob/release-1.17/docs/migration-guides/1.15-1.17.md).
 
 ## Installation
 
 ### Istio upgrade to 1.7.4
 
-With this release we have upgraded istio from 1.5.10 to 1.7.4. It requires Kubernetes 1.16 or higher.  Find more details in the [migration guide](https://github.com/kyma-project/kyma/blob/master/docs/migration-guides/1.15-1.17.md). To learn more, read the [Istio 1.7.4 release notes](https://istio.io/latest/news/releases/1.7.x/announcing-1.7/).
+With this release, we have upgraded Istio from 1.5.10 to 1.7.4. This version of Istio requires Kubernetes 1.16 or higher.  Find more details in the [migration guide](https://github.com/kyma-project/kyma/blob/master/docs/migration-guides/1.15-1.17.md) and the [Istio 1.7.4 release notes](https://istio.io/latest/news/releases/1.7.x/announcing-1.7/).
+
+Two known issues exist as a result of this upgrade:
+
+* Prometheus-Istio crashes:
+With the switch to Istio telemetry v2 (required for Istio 1.7), an important feature about metric retention is still missing in the Istio-proxy. Due to that, under heavy service topology changes there might be proxy instances such as ORY Oathkeeper that keep orphaned metrics scraped by the prometheus-istio instance. That can cause a OOM crash. Click [here](https://github.com/kyma-project/kyma/issues/9867) to learn more.
+
+* Kiali Graph and App Metrics missing:
+In order to mitigate the Prometheus-Istio crashes problem, labels for Istio metrics were reduced to a bare minimum. With that, Kiali is no longer showing the full graph. Click [here](https://github.com/kyma-project/kyma/issues/9886) for information on how to enable all labels on the istio metrics in order to see the graph again.
+
 
 ## Console
 
 ### New features on namespace details page
 
-We have added new functionalities to the namespace overview page.
-
-You can easily jump from the namespace overview to the Grafana dashboard and inspect logs from the namespace. You can also see all resource quotas and limit ranges that apply to the namespace:
+We have added new functionalities to the namespace overview page. They allow you to easily jump from the namespace overview to the Grafana dashboard and inspect logs from the namespace. You can also see all resource quotas and limit ranges that apply to the namespace:
 
 ![Namespace overview](./namespace-overview.png)
 
-You can edit those limits via handy YAML editor that slides out as a drawer:
+Additionally, you can edit those limits via a handy YAML editor that slides out as a drawer:
 
 ![Namespace overview YAML editor](./yaml-editor.png)
