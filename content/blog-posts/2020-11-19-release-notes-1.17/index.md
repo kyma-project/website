@@ -10,7 +10,7 @@ redirectFrom:
   - "/blog/release-notes-117"
 ---
 
-Good things take time to build. This is true of both the new Kyma release and the city it is named after - Xinzhou - located near the notorious Great Wall of China. This release includes updates to many Kyma features, including Serverless, Monitoring, Tracing, Kiali, Evening, and others. Read the release notes to find out more.
+Good things take time to build. This is true for both the new Kyma release and the city it is named after - Xinzhou - located near the notorious Great Wall of China. This release includes updates to many Kyma features, including Serverless, Monitoring, Tracing, Kiali, Evening, and others. Read the release notes to find out more.
 
 <!-- overview -->
 
@@ -20,19 +20,19 @@ See the overview of all changes in this release:
 
 - [Serverless](#serverless) - Git repository as a source for your Function, support for Python as a serverless runtime
 - [Website](#website) - New Getting Started guides
-- [CLI](#cli) - New commands for upgrade and creating a system, manage functions, PR-number support for Install command, Minikube support when using a DNS-Proxy on MacOS
-- [Monitoring](#monitoring) - AuthProxy support for Grafana, removed dashboards for CoreDNS/KubeDNS and Kube-Proxy
+- [CLI](#cli) - New commands for upgrade and creating a system, manage Functions, PR number support for the `install` command, Minikube support when using a DNS-Proxy on MacOS
+- [Monitoring](#monitoring) - AuthProxy support for Grafana, removed dashboards for CoreDNS, KubeDNS, and Kube-Proxy
 - [Tracing](#tracing) - Option to disable sending traces, improved integration of Loki to Grafana
 - [Kiali](#kiali) - General update and Jaeger integration
-- [Eventing](#eventing) - Removed Knative-Serving chart
+- [Eventing](#eventing) - Removed the Knative-Serving chart
 - [Installation](#installation) - Istio upgrade to 1.7.4
-- [Console](#console) - New features on namespace details page
+- [Console](#console) - New features on the Namespace details page
 
 ## Serverless
 
 ### Git repository as a source for your Function
 
-We introduced a new way of developing Functions. Instead of editing your Function in an inline editor, you can now configure a Git repository as the source of your Function's code and dependencies. It is a great convenience for developers who can now use their favorite IDE to develop Functions.
+We introduced a new way of developing Functions. Instead of editing your Function in an inline editor, you can now configure a Git repository as the source of your Function's code and dependencies. It offers great convenience for developers who can now use their favorite IDE to develop Functions.
 
 Read more about the [Git source type](https://kyma-project.io/docs/1.17/components/serverless/#details-git-source-type) and see the [tutorial on how to create a Function from Git repository sources](https://kyma-project.io/docs/1.17/components/serverless/#tutorials-create-a-function-from-git-repository-sources).
 
@@ -65,20 +65,20 @@ We introduced the new command as a first step to offer a smooth Kyma upgrade. To
 
 Another new command that we added is [`kyma create system`](/cli/commands/#kyma-create-system-kyma-create-system). In just one step, it allows you to create a system (an Application), bind it to a Namespace, and get a token to pair the system with an external application.
 
-### Manage functions
+### Manage Functions
 
-We released a set of new commands for function developers. These commands are very useful when starting a function from scratch or whenever you want to apply code or configuration changes to a function.
+We released a set of new commands for Function developers. These commands are very useful when creating a Function from scratch or whenever you want to apply code or configuration changes to a Function.
 
 Find more details in the dedicated [tutorial](https://kyma-project.io/docs/master/cli/overview/#tutorials-use-kyma-cli-to-manage-functions).
 
 
-### PR number support for install command
+### PR number support for the install command
 
-The `install` command now supports installing Kyma based on a specific pull request (PR) to the Kyma repository. So `kyma install --source=PR-XXXX` will install Kyma to your Kubernetes cluster using the revision identified by the latest commit to the specific PR.
+The `install` command now supports installing Kyma based on a specific pull request (PR) submitted to the Kyma repository. So `kyma install --source=PR-XXXX` will install Kyma on your Kubernetes cluster using the revision identified by the latest commit to the specific PR.
 
 ### Minikube support when using a DNS-Proxy on MacOS
 
-We added a new flag to the Minikube command to support a setup which is typical for corporate environments. The new flag is: `kyma provision minikube --use-hyperkit-vpnkit-sock`.
+We added a new flag to the Minikube command to support a setup which is typical for corporate environments. The new flag is `kyma provision minikube --use-hyperkit-vpnkit-sock`.
 
 ## Monitoring
 
@@ -86,7 +86,7 @@ We added a new flag to the Minikube command to support a setup which is typical 
 
 The Grafana chart now offers an option to deploy Grafana along with an instance of a Keycloak Gatekeeper (`louketo-proxy`) in front of it. Enabling the proxy and switching to Grafana in AuthProxy allows you to control the access by the `group` claim of your IDToken.
 
-### Removed dashboards for CoreDNS/KubeDNS and Kube-Proxy
+### Removed dashboards for CoreDNS, KubeDNS, and Kube-Proxy
 
 The Grafana bundle in Kyma brings a lot of ready-to-use dashboards together with service monitors definitions for the related components. Here, the focus is on having an observable Kyma ecosystem. Among those dashboards are CoreDNS/KubeDNS and Kube-Proxy. The related components are provided by Kubernetes on which Kyma is installed, so they are not shipped with Kyma. Different Kubernetes providers are changing settings in the setup of the components, and as we do not offer support for the mentioned components, they will not be activated by default. You can still easily enable them via the configuration options of the Grafana sub-chart, but that might require further configuration dependent on your Kubernetes provider.
 
@@ -100,44 +100,44 @@ The new `global.tracing.enabled` override is available in the Event Sources Cont
 
 If log lines are in a JSON format, the root elements of the document will now be treated as their own log record attributes in Fluent Bit. With that, the root elements will be shown as fields in Grafana.
 
-To be consistent with the Prometheus labeling, the `instance` label got renamed to `pod`, as it contains the Pod name.
+To be consistent with the Prometheus labeling, the `instance` label got renamed to `pod` as it contains the Pod name.
 
 ## Kiali
 
 ### General update and Jaeger integration
 
-Kiali got upgraded to the latest version 1.24. With that, proper configuration of the component status was possible and there is no red light shown in the top bar. Furthermore, the metric dashboards work more reliably.
-Additionally, we now configured Jaeger so that you can see traces inline in Kiali with deep-linking into the Jaeger UI.
+Kiali got upgraded to the latest 1.24 version. With that, proper configuration of the component status was possible and there is no red light shown in the top bar. Furthermore, the metric dashboards operate more smoothly.
+Additionally, we now configured Jaeger so that you can see inline traces in Kiali with deep-linking into the Jaeger UI.
 
 ## Eventing
 
-### Removed Knative-Serving chart
+### Removed the Knative-Serving chart
 
-In release 1.17, we remove the support for Knative-Serving from Kyma. After the upgrade, Knative-Serving will still be fully functional in the cluster, but it can be removed easily in order to free resources. Removing Knative-Serving will not affect supported Kyma functionality. To learn more, read the [migration guide](https://github.com/kyma-project/kyma/blob/release-1.17/docs/migration-guides/1.15-1.17.md).
+In release 1.17, we remove the support for Knative-Serving from Kyma. After the upgrade, Knative-Serving will still be fully functional in the cluster, but it can be removed easily in order to free resources. Removing Knative-Serving will not affect the supported Kyma functionality. To learn more, read the [Migration Guide](https://github.com/kyma-project/kyma/blob/release-1.17/docs/migration-guides/1.15-1.17.md).
 
 ## Installation
 
 ### Istio upgrade to 1.7.4
 
-With this release, we have upgraded Istio from 1.5.10 to 1.7.4. This version of Istio requires Kubernetes 1.16 or higher.  Find more details in the [migration guide](https://github.com/kyma-project/kyma/blob/master/docs/migration-guides/1.15-1.17.md) and the [Istio 1.7.4 release notes](https://istio.io/latest/news/releases/1.7.x/announcing-1.7/).
+With this release, we have upgraded Istio from 1.5.10 to 1.7.4. This version of Istio requires Kubernetes 1.16 or higher. Find more details in the [Migration Guide](https://github.com/kyma-project/kyma/blob/master/docs/migration-guides/1.15-1.17.md) and the [Istio 1.7.4 release notes](https://istio.io/latest/news/releases/1.7.x/announcing-1.7/).
 
 Two known issues exist as a result of this upgrade:
 
-* Prometheus-Istio crashes:
-With the switch to Istio telemetry v2 (required for Istio 1.7), an important feature about metric retention is still missing in the Istio-proxy. Due to that, under heavy service topology changes there might be proxy instances such as ORY Oathkeeper that keep orphaned metrics scraped by the prometheus-istio instance. That can cause a OOM crash. Click [here](https://github.com/kyma-project/kyma/issues/9867) to learn more.
+* Prometheus-Istio crashes
+With the switch to Istio telemetry v2 (required for Istio 1.7), an important feature about metric retention is still missing in the Istio-proxy. Due to that, under heavy service topology changes, there might be proxy instances such as ORY Oathkeeper that keep orphaned metrics scraped by the prometheus-istio instance. That can cause an OOM crash. See [issue 9867](https://github.com/kyma-project/kyma/issues/9867) to learn more.
 
-* Kiali Graph and App Metrics missing:
-In order to mitigate the Prometheus-Istio crashes problem, labels for Istio metrics were reduced to a bare minimum. With that, Kiali is no longer showing the full graph. Click [here](https://github.com/kyma-project/kyma/issues/9886) for information on how to enable all labels on the istio metrics in order to see the graph again.
+* Kiali Graph and App Metrics missing
+In order to mitigate the Prometheus-Istio crashes problem, labels for Istio metrics were reduced to a bare minimum. With that, Kiali is no longer showing the full graph. See [issue 9886](https://github.com/kyma-project/kyma/issues/9886) for information on how to enable all labels on the Istio metrics in order to see the graph again.
 
 
 ## Console
 
-### New features on namespace details page
+### New features on the Namespace details page
 
-We have added new functionalities to the namespace overview page. They allow you to easily jump from the namespace overview to the Grafana dashboard and inspect logs from the namespace. You can also see all resource quotas and limit ranges that apply to the namespace:
+We have added new functionalities to the Namespace overview page. They allow you to easily jump from the Namespace overview to the Grafana dashboard and inspect logs from that Namespace. You can also see all resource quotas and limit ranges that apply to the Namespace:
 
 ![Namespace overview](./namespace-overview.png)
 
-Additionally, you can edit those limits via a handy YAML editor that slides out as a drawer:
+Additionally, you can edit those limits using a handy YAML editor that slides out as a drawer:
 
 ![Namespace overview YAML editor](./yaml-editor.png)
