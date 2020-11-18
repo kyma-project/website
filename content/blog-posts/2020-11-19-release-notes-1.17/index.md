@@ -27,6 +27,7 @@ See the overview of all changes in this release:
 - [Eventing](#eventing) - Removed the Knative-Serving chart
 - [Installation](#installation) - Istio upgrade to 1.7.4
 - [Console](#console) - New features on the Namespace details page
+- [Known issues](#known-issues) - Known issues related to the Istio 1.7.4 upgrade
 
 ## Serverless
 
@@ -88,7 +89,7 @@ The Grafana chart now offers an option to deploy Grafana along with an instance 
 
 ### Removed dashboards for CoreDNS, KubeDNS, and Kube-Proxy
 
-The Grafana bundle in Kyma brings a lot of ready-to-use dashboards together with service monitors definitions for the related components. Here, the focus is on having an observable Kyma ecosystem. Among those dashboards are CoreDNS/KubeDNS and Kube-Proxy. The related components are provided by Kubernetes on which Kyma is installed, so they are not shipped with Kyma. Different Kubernetes providers are changing settings in the setup of the components, and as we do not offer support for the mentioned components, they will not be activated by default. You can still easily enable them via the configuration options of the Grafana sub-chart, but that might require further configuration dependent on your Kubernetes provider.
+The Grafana bundle in Kyma brings a lot of ready-to-use dashboards together with service monitors definitions for the related components. Here, the focus is on having an observable Kyma ecosystem. Among those dashboards are CoreDNS/KubeDNS and Kube-Proxy. Components related to them are provided by Kubernetes and are not in Kyma's control. Different Kubernetes providers are changing settings in the setup of the components, and as we do not offer support for the mentioned components, they will not be activated by default. You can still easily enable them via the configuration options of the Grafana sub-chart, but that might require further configuration dependent on your Kubernetes provider.
 
 ## Tracing
 
@@ -141,3 +142,15 @@ We have added new functionalities to the Namespace overview page. They allow you
 Additionally, you can edit those limits using a handy YAML editor that slides out as a drawer:
 
 ![Namespace overview YAML editor](./yaml-editor.png)
+
+## Known issues
+
+Two known issues exist in this release as a result of the upgrade to Istion 1.7.4.
+
+### Prometheus-Istio crashes
+
+With the switch to Istio telemetry v2 (required for Istio 1.7), an important feature about metric retention is still missing in the Istio-proxy. Due to that, under heavy service topology changes, there might be proxy instances such as ORY Oathkeeper that keep orphaned metrics scraped by the prometheus-istio instance. That can cause an OOM crash. See [issue 9867](https://github.com/kyma-project/kyma/issues/9867) to learn more.
+
+### Kiali Graph and App Metrics missing
+
+In order to mitigate the Prometheus-Istio crashes problem, labels for Istio metrics were reduced to a bare minimum. With that, Kiali is no longer showing the full graph. See [issue 9886](https://github.com/kyma-project/kyma/issues/9886) for information on how to enable all labels on the Istio metrics in order to see the graph again.
