@@ -64,7 +64,7 @@ We introduced the new command as a first step to offer a smooth Kyma upgrade. To
 
 ### Command to create a system
 
-Another new command that we added is [`kyma create system`](/cli/commands/#kyma-create-system-kyma-create-system). In just one step, it allows you to create a system (an Application), bind it to a Namespace, and get a token to pair the system with an external application.
+Another new command that we added is [`kyma create system`](/cli/commands/#kyma-create-system-kyma-create-system). In just one step, it allows you to create a system (an application), bind it to a Namespace, and get a token to pair the system with an external application.
 
 ### Manage Functions
 
@@ -120,16 +120,7 @@ In release 1.17, we removed the support for Knative-Serving from Kyma. After the
 
 ### Istio upgrade to 1.7.4
 
-With this release, we have upgraded Istio from 1.5.10 to 1.7.4. This version of Istio requires Kubernetes 1.16 or higher. Find more details in the [Migration Guide](https://github.com/kyma-project/kyma/blob/release-1.17/docs/migration-guides/1.15-1.17.md) and the [Istio 1.7.4 release notes](https://istio.io/latest/news/releases/1.7.x/announcing-1.7/).
-
-Two known issues exist as a result of this upgrade:
-
-* Prometheus-Istio crashes
-With the switch to Istio telemetry v2 (required for Istio 1.7), an important feature about metric retention is still missing in the Istio-proxy. Due to that, under heavy service topology changes, there might be proxy instances such as ORY Oathkeeper that keep orphaned metrics scraped by the prometheus-istio instance. That can cause an OOM crash. See [issue 9867](https://github.com/kyma-project/kyma/issues/9867) to learn more.
-
-* Kiali Graph and App Metrics missing
-In order to mitigate the Prometheus-Istio crashes problem, labels for Istio metrics were reduced to a bare minimum. With that, Kiali is no longer showing the full graph. See [issue 9886](https://github.com/kyma-project/kyma/issues/9886) for information on how to enable all labels on the Istio metrics in order to see the graph again.
-
+With this release, we have upgraded Istio from 1.5.10 to 1.7.4. This version of Istio requires Kubernetes 1.16 or higher. Find more details in the [Migration Guide](https://github.com/kyma-project/kyma/blob/release-1.17/docs/migration-guides/1.15-1.17.md) and the [Istio 1.7.4 release notes](https://istio.io/latest/news/releases/1.7.x/announcing-1.7/). This upgrade resulted in two known issues which are documented [here](#known-issues).
 
 ## Console
 
