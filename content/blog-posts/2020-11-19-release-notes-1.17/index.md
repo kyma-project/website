@@ -70,7 +70,7 @@ Another new command that we added is [`kyma create system`](/cli/commands/#kyma-
 
 We released a set of new commands for Function developers. These commands are very useful when creating a Function from scratch or whenever you want to apply code or configuration changes to a Function.
 
-Find more details in the dedicated [tutorial](https://kyma-project.io/docs/master/cli/overview/#tutorials-use-kyma-cli-to-manage-functions).
+Find more details in the dedicated [tutorial](https://kyma-project.io/docs/1.17/cli/overview/#tutorials-use-kyma-cli-to-manage-functions).
 
 
 ### PR number support for the install command
@@ -89,7 +89,7 @@ The Grafana chart now offers an option to deploy Grafana along with an instance 
 
 ### Removed dashboards for CoreDNS, KubeDNS, and Kube-Proxy
 
-The Grafana bundle in Kyma brings a lot of ready-to-use dashboards together with service monitors definitions for the related components. Here, the focus is on having an observable Kyma ecosystem. Among those dashboards are CoreDNS/KubeDNS and Kube-Proxy. Components related to them are provided by Kubernetes and are not in Kyma's control. Different Kubernetes providers are changing settings in the setup of the components, and as we do not offer support for the mentioned components, they will not be activated by default. You can still easily enable them via the configuration options of the Grafana sub-chart, but that might require further configuration dependent on your Kubernetes provider.
+The Grafana bundle in Kyma brings a lot of ready-to-use dashboards together with service monitor definitions for the related components. Here, the focus is on having an observable Kyma ecosystem. Among those dashboards are CoreDNS, KubeDNS, and Kube-Proxy. Components related to them are provided by Kubernetes and are not in Kyma's control. Different Kubernetes providers are changing settings in the setup of the components and, as we do not offer support for the mentioned components, they will not be activated by default. You can still easily enable them using the configuration options of the Grafana sub-chart, but that might require further configuration dependent on your Kubernetes provider.
 
 ## Tracing
 
@@ -114,13 +114,13 @@ Additionally, we now configured Jaeger so that you can see inline traces in Kial
 
 ### Removed the Knative-Serving chart
 
-In release 1.17, we remove the support for Knative-Serving from Kyma. After the upgrade, Knative-Serving will still be fully functional in the cluster, but it can be removed easily in order to free resources. Removing Knative-Serving will not affect the supported Kyma functionality. To learn more, read the [Migration Guide](https://github.com/kyma-project/kyma/blob/release-1.17/docs/migration-guides/1.15-1.17.md).
+In release 1.17, we removed the support for Knative-Serving from Kyma. After the upgrade, Knative-Serving will still be fully functional in the cluster, but it can be removed easily in order to free resources. Removing Knative-Serving will not affect the supported Kyma functionality. To learn more, read the [Migration Guide](https://github.com/kyma-project/kyma/blob/release-1.17/docs/migration-guides/1.15-1.17.md).
 
 ## Installation
 
 ### Istio upgrade to 1.7.4
 
-With this release, we have upgraded Istio from 1.5.10 to 1.7.4. This version of Istio requires Kubernetes 1.16 or higher. Find more details in the [Migration Guide](https://github.com/kyma-project/kyma/blob/master/docs/migration-guides/1.15-1.17.md) and the [Istio 1.7.4 release notes](https://istio.io/latest/news/releases/1.7.x/announcing-1.7/).
+With this release, we have upgraded Istio from 1.5.10 to 1.7.4. This version of Istio requires Kubernetes 1.16 or higher. Find more details in the [Migration Guide](https://github.com/kyma-project/kyma/blob/release-1.17/docs/migration-guides/1.15-1.17.md) and the [Istio 1.7.4 release notes](https://istio.io/latest/news/releases/1.7.x/announcing-1.7/).
 
 Two known issues exist as a result of this upgrade:
 
@@ -135,7 +135,7 @@ In order to mitigate the Prometheus-Istio crashes problem, labels for Istio metr
 
 ### New features on the Namespace details page
 
-We have added new functionalities to the Namespace overview page. They allow you to easily jump from the Namespace overview to the Grafana dashboard and inspect logs from that Namespace. You can also see all resource quotas and limit ranges that apply to the Namespace:
+We have added new features to the Namespace overview page. They allow you to easily jump from the Namespace overview to the Grafana dashboard and inspect logs from that Namespace. You can also see all resource quotas and limit ranges that apply to the Namespace:
 
 ![Namespace overview](./namespace-overview.png)
 
