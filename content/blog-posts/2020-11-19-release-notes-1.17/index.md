@@ -120,7 +120,7 @@ In release 1.17, we removed the support for Knative-Serving from Kyma. After the
 
 ### Istio upgrade to 1.7.4
 
-With this release, we have upgraded Istio from 1.5.10 to 1.7.4. This version of Istio requires Kubernetes 1.16 or higher. Find more details in the [Migration Guide](https://github.com/kyma-project/kyma/blob/release-1.17/docs/migration-guides/1.15-1.17.md) and the [Istio 1.7.4 release notes](https://istio.io/latest/news/releases/1.7.x/announcing-1.7/). This upgrade resulted in two known issues which are documented [here](#known-issues).
+With this release, we have upgraded Istio from 1.5.10 to 1.7.4. This version of Istio requires Kubernetes 1.16 or higher. Find more details in the [Migration Guide](https://github.com/kyma-project/kyma/blob/release-1.17/docs/migration-guides/1.15-1.17.md) and the [Istio 1.7.4 release notes](https://istio.io/latest/news/releases/1.7.x/announcing-1.7/). This upgrade resulted in two [known issues](#known-issues).
 
 ## Console
 
