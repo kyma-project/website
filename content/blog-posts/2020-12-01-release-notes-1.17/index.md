@@ -3,8 +3,8 @@ title: "Kyma 1.17 Xinzhou"
 author:
   name: "Aleksandra Simeonova, Technical Writer @Kyma"
 tags:
-  - release-candidate
-type: release-candidate
+  - release-notes
+type: release-notes
 releaseTag: "1.17.0"
 redirectFrom:
   - "/blog/release-notes-117"
