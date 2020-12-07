@@ -10,7 +10,7 @@ redirectFrom:
   - "/blog/release-notes-117"
 ---
 
-Good things take time to build. This is true for both the new Kyma release and the city it is named after - Xinzhou - located near the notorious Great Wall of China. This release includes updates to many Kyma features, including Serverless, Monitoring, Tracing, Kiali, Evening, and others. Read the release notes to find out more.
+Good things take time to build. This is true for both the new Kyma release and the city it is named after - Xinzhou - located near the notorious Great Wall of China. This release includes updates to many Kyma features, including Serverless, Monitoring, Tracing, Kiali, Eventing, and others. Read the release notes to find out more.
 
 <!-- overview -->
 
