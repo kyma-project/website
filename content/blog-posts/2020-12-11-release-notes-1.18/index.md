@@ -48,7 +48,7 @@ In this release, we fixed the inconsistency in the naming of CLI command flags. 
 
 In 1.18, the `--source=latest` option in the `kyma install` command was changed to `--source=master`. The previous option name gave users the wrong idea that the command installs the latest Kyma release version instead of the latest revision from the `master` branch.
 
-Furthermore, we removed the `--source=latest-published` option and integrated this functionality with the `--source=master` option. If the artefacts for the latest revision are not available yet on the master branch, you will be asked if you want to use the previous revision.
+Furthermore, we removed the `--source=latest-published` option and integrated this functionality with the `--source=master` option. If the artefacts for the latest revision are not available yet on the `master` branch, you will be asked if you want to use the previous revision.
 
 ### More intuitive AKS provisioning command
 
@@ -82,4 +82,4 @@ As for Rafter, if you are interested in adopting it (and adapting to your liking
 
 ### Prometheus-Istio crashes
 
-With the switch to Istio telemetry v2 (required for Istio 1.7), an important feature about metric retention is still missing in the Istio-proxy. Due to that, under heavy service topology changes, there might be proxy instances such as ORY Oathkeeper that keep orphaned metrics scraped by the prometheus-istio instance. That can cause an OOM crash. See [issue 9867](https://github.com/kyma-project/kyma/issues/9867) to learn more.
+With the switch to Istio telemetry v2 (required for Istio 1.7), an important feature about metric retention is still missing in the Istio-proxy. Due to that, under heavy service topology changes, there might be proxy instances such as ORY Oathkeeper that keep orphaned metrics scraped by the prometheus-istio instance. That can cause an OOM crash. See [this issue](https://github.com/kyma-project/kyma/issues/9867) to learn more.
