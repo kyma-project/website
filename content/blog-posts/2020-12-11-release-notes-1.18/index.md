@@ -44,6 +44,8 @@ In this release, we fixed the inconsistency in the naming of CLI command flags. 
 - `kyma provision minikube` command
 	* hypervVirtualSwitch -> hyperv-virtual-switch
 
+For more information about the possible flags and options, read [Kyma CLI documentation](https://kyma-project.io/docs/1.18/cli/commands/#kyma-install-kyma-install-options).
+
 ### Changes to the `kyma install --source` command
 
 In 1.18, the `--source=latest` option in the `kyma install` command was changed to `--source=master`. The previous option name gave users the wrong idea that the command installs the latest Kyma release version instead of the latest revision from the `master` branch.
