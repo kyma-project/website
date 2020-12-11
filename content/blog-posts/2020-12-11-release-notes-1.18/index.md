@@ -68,7 +68,7 @@ All monitoring components got upgraded to the latest versions, especially Promet
 
 ### Kiali Operator removed
 
-To reduce the maintenance efforts and resource consumption, we removed the Kiali Operator and now we just bundle the plain Kiali deployment with Kyma. See [this issue](https://github.com/kyma-project/kyma/issues/9866) for reference.
+To reduce the maintenance efforts and resource consumption, we removed the Kiali Operator and now we just bundle the plain Kiali deployment with Kyma. See issue [#9866](https://github.com/kyma-project/kyma/issues/9866) for reference.
 
 
 ## Console
