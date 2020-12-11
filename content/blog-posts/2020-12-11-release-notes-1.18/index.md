@@ -47,7 +47,7 @@ In this release, we fixed the inconsistency in the naming of CLI command flags. 
 
 - `kyma provision minikube` command  
   ```
-	- hypervVirtualSwitch -> hyperv-virtual-switch
+  - hypervVirtualSwitch -> hyperv-virtual-switch
   ```
 
 For more information about the possible commands, flags, and options, read [Kyma CLI documentation](https://kyma-project.io/docs/1.18/cli/overview/).
