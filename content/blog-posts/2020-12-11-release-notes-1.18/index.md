@@ -10,7 +10,7 @@ redirectFrom:
   - "/blog/release-notes-118"
 ---
 
-The last stop in this year's Kyma journey lands in Armenia to visit Yerevan, one of the oldest cities in the world. Yerevan is called the "pink city" due to the color of the stone used for building. Staying in the same tone, we put on the rose-colored glasses and look forward for the future releases that are to come in 2021. For the time being, read about the changes introduced in 1.18 that focuses mostly on CLI, Monitorig, Kiali, and Console.
+The last stop in this year's Kyma journey lands in Armenia to visit Yerevan, one of the oldest cities in the world. Yerevan is called the "pink city" due to the color of the stone used for building. Staying in the same tone, we put on the rose-colored glasses and look forward to the future releases that are to come in 2021. For the time being, read about the changes introduced in 1.18 that focuses mostly on CLI, Monitorig, Kiali, and Console.
 
 <!-- overview -->
 
