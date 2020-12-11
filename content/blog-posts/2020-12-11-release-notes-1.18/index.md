@@ -47,7 +47,7 @@ For more information about the possible commands, flags, and options, read [Kyma
 
 ### Changes to the installation command
 
-In 1.18, the `--source=latest` option in the `kyma install` command was changed to `--source=master`. The previous option name gave users the wrong idea that the command installs the latest Kyma release version instead of the latest revision from the `master` branch.
+In 1.18, the `--source=latest` option in the `kyma install` command was changed to `--source=master`. The previous option name gave users the wrong idea that the command installed the latest Kyma release version instead of the latest revision from the `master` branch.
 
 Furthermore, we removed the `--source=latest-published` option and integrated this functionality with the `--source=master` option. If the artifacts for the latest revision are not available on the `master` branch yet, you will be asked to confirm if you want to use the previous revision.
 
