@@ -79,7 +79,7 @@ As for Rafter, if you are interested in adopting it (and adapting to your liking
 
 ### Prometheus-Istio crashes
 
-With the switch to Istio telemetry v2 (required for Istio 1.7), an important feature about metric retention is still missing in the Istio-proxy. Due to that, under heavy service topology changes, there might be proxy instances such as ORY Oathkeeper that keep orphaned metrics scraped by the Prometheus-Istio instance. That can cause an OOM crash. See isue [#9867](https://github.com/kyma-project/kyma/issues/9867) to learn more.
+With the switch to Istio telemetry v2 (required for Istio 1.7), an important feature about metric retention is still missing in the Istio-proxy. Due to that, under heavy service topology changes, there might be proxy instances such as ORY Oathkeeper that keep orphaned metrics scraped by the Prometheus-Istio instance. That can cause an OOM crash. See issue [#9867](https://github.com/kyma-project/kyma/issues/9867) to learn more.
 
 ### Rafter in Gateway mode
 
