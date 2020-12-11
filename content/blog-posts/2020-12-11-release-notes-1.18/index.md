@@ -88,4 +88,4 @@ With the switch to Istio telemetry v2 (required for Istio 1.7), an important fea
 
 ### Rafter in Gateway mode
 
-Due to a known issue with Rafter overrides, Kyma fails to be installed and upgraded with [MinIO in Gateway mode](https://kyma-project.io/docs/1.18/components/rafter/#tutorials-set-min-io-to-gateway-mode). We are planning to provide a solution in a patch. See the [related issue](https://github.com/kyma-project/kyma/issues/10199) for details.
+Due to a known issue with Rafter overrides, Kyma fails to be installed and upgraded with [MinIO in Gateway mode](https://kyma-project.io/docs/1.18/components/rafter/#tutorials-set-min-io-to-gateway-mode). We are planning to provide a solution in a patch. See issue [#10199](https://github.com/kyma-project/kyma/issues/10199) for details.
