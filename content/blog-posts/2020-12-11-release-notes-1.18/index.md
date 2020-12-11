@@ -10,7 +10,7 @@ redirectFrom:
   - "/blog/release-notes-118"
 ---
 
-The last stop in this year's Kyma journey lands in Armenia to visit Yerevan, one of the oldest cities in the world. Yerevan is called the "pink city" due to the color of the stone used for building. Staying in the same tone, we put on the rose-colored glasses and look forward for the future releases that are to come in 2021. For the time being, read about the changes introduced in 1.18 that focuses mostly on CLI, Monitorig, Kiali, and Console.
+The last stop in this year's Kyma journey lands in Armenia to visit Yerevan, one of the oldest cities in the world. Yerevan is called the "pink city" due to the color of the stone used for building. Staying in the same tone, we put on the rose-colored glasses and look forward for the future releases that are to come in 2021. For the time being, read about the changes introduced in 1.18 that focuses mostly on CLI, Monitoring, Kiali, and Console.
 
 <!-- overview -->
 
@@ -22,7 +22,7 @@ See the overview of all changes in this release:
 - [Monitoring](#monitoring) - Full upgrade of all monitoring components
 - [Kiali](#kiali) - Kiali Operator removed
 - [Console](#console) - Baked-in docs removed from the Console UI
-- [Known issues](#known-issues) - Prometheus-Istio crashes
+- [Known issues](#known-issues) - Prometheus-Istio crashes, Rafter in Gateway mode
 
 
 ## CLI
@@ -44,7 +44,7 @@ In this release, we fixed the inconsistency in the naming of CLI command flags. 
 - `kyma provision minikube` command
 	* hypervVirtualSwitch -> hyperv-virtual-switch
 
-For more information about the possible flags and options, read [Kyma CLI documentation](https://kyma-project.io/docs/1.18/cli/commands/#kyma-install-kyma-install-options).
+For more information about the possible commands, flags, and options, read [Kyma CLI documentation](https://kyma-project.io/docs/1.18/cli/overview/).
 
 ### Changes to the `kyma install --source` command
 
@@ -85,3 +85,7 @@ As for Rafter, if you are interested in adopting it (and adapting to your liking
 ### Prometheus-Istio crashes
 
 With the switch to Istio telemetry v2 (required for Istio 1.7), an important feature about metric retention is still missing in the Istio-proxy. Due to that, under heavy service topology changes, there might be proxy instances such as ORY Oathkeeper that keep orphaned metrics scraped by the prometheus-istio instance. That can cause an OOM crash. See [this issue](https://github.com/kyma-project/kyma/issues/9867) to learn more.
+
+### Rafter in Gateway mode
+
+Due to a known issue with Rafter overrides, Kyma fails to be installed and upgraded with [MinIO in Gateway mode](https://kyma-project.io/docs/1.18/components/rafter/#tutorials-set-min-io-to-gateway-mode). We are planning to provide a solution in a patch. See the [related issue](https://github.com/kyma-project/kyma/issues/10199) for details.
