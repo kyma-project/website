@@ -18,12 +18,11 @@ The last stop in this year's Kyma journey lands in Armenia to visit Yerevan, one
 
 See the overview of all changes in this release:
 
-- [CLI](#cli) - Consistent flag names across all commands, changes to the `kyma install --source` command, more intuitive AKS provisioning command
+- [CLI](#cli) - Consistent flag names across all commands, changes to the installation command, more intuitive AKS provisioning command
 - [Monitoring](#monitoring) - Full upgrade of all monitoring components
 - [Kiali](#kiali) - Kiali Operator removed
 - [Console](#console) - Baked-in docs removed from the Console UI
 - [Known issues](#known-issues) - Prometheus-Istio crashes, Rafter in Gateway mode
-
 
 ## CLI
 
@@ -46,7 +45,7 @@ In this release, we fixed the inconsistency in the naming of CLI command flags. 
 
 For more information about the possible commands, flags, and options, read [Kyma CLI documentation](https://kyma-project.io/docs/1.18/cli/overview/).
 
-### Changes to the `kyma install --source` command
+### Changes to the installation command
 
 In 1.18, the `--source=latest` option in the `kyma install` command was changed to `--source=master`. The previous option name gave users the wrong idea that the command installs the latest Kyma release version instead of the latest revision from the `master` branch.
 
@@ -56,20 +55,17 @@ Furthermore, we removed the `--source=latest-published` option and integrated th
 
 The `kyma provision aks` command now expects a JSON file for specifying the Azure Service Principal instead of a TOML file which turned out to be an error-prone and uncommon format.
 
-
 ## Monitoring
 
 ### Full upgrade of all monitoring components
 
-All monitoring components got upgraded to the latest versions, especially Prometheus and Grafana.
-
+All monitoring components got upgraded to the latest versions.
 
 ## Kiali
 
 ### Kiali Operator removed
 
 To reduce the maintenance efforts and resource consumption, we removed the Kiali Operator and now we just bundle the plain Kiali deployment with Kyma. See issue [#9866](https://github.com/kyma-project/kyma/issues/9866) for reference.
-
 
 ## Console
 
@@ -78,7 +74,6 @@ To reduce the maintenance efforts and resource consumption, we removed the Kiali
 As some of you might have already noticed, Rafter has recently entered the maintenance mode. It has served us for a long time as a backend mechanism for storing API specifications, Service Class-related documentation, and baked-in documentation in the Console UI. Since we are planning to replace Rafter's functionality with a different solution, we are moving slowly but surely away from it. As the first step, we have decided to remove the baked-in documentation that you could access in the top-right corner of the Console UI under the question mark icon. This way, we reduced the footprint of the runtime and made it more lightweight. Worry not as the docs are still available on our [website](https://kyma-project.io/docs/) in all of their shapes and forms.
 
 As for Rafter, if you are interested in adopting it (and adapting to your liking), it is still [looking for some caring foster parents](https://github.com/kyma-project/rafter#rafter).
-
 
 ## Known issues
 
