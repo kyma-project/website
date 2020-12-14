@@ -27,29 +27,24 @@ See the overview of all changes in this release:
 ## CLI
 
 ### Consistent flag names across all commands
-
 In this release, we fixed the inconsistency in the naming of CLI command flags. Here is the complete list of changes:
 
 - `kyma install` command  
 
-  ```
-  - noWait -> no-wait
-  - tlsCert -> tls-cert
-  - tlsKey -> tls-key
-  - fallbackLevel -> fallback-level
-  ```
-
+  - `noWait` → `no-wait`
+  - `tlsCert` → `tls-cert`
+  - `tlsKey` → `tls-key`
+  - `fallbackLevel` → `fallback-level`
+  
 - `kyma upgrade` command  
-  ```
-  - noWait -> no-wait
-  - fallbackLevel -> fallback-level
-  ```
 
+  - `noWait` → `no-wait`
+  - `fallbackLevel` → `fallback-level`
+  
 - `kyma provision minikube` command  
-  ```
-  - hypervVirtualSwitch -> hyperv-virtual-switch
-  ```
 
+  - `hypervVirtualSwitch` → `hyperv-virtual-switch`
+  
 For more information about the possible commands, flags, and options, read [Kyma CLI documentation](https://kyma-project.io/docs/1.18/cli/overview/).
 
 ### Changes to the installation command
