@@ -65,7 +65,7 @@ We redesigned the `install` command to make the Kyma installation process run sm
 
 ### install command supports the component list
 
-The `install` command has the new `--components` flag which you can use to define the list of components you want to install. You must provide a path to the YAML file that contains either the full [Installation custom resource](https://kyma-project.io/docs/1.14/root/kyma/#custom-resource-installation) configuration or just the components list.
+The `install` command has the new `--components` flag which you can use to define the list of components you want to install. You must provide a path to the YAML file that contains either the full [Installation custom resource](https://github.com/kyma-project/kyma/blob/release-1.14/docs/kyma/06-01-installation.md) configuration or just the components list.
 
 ### install command supports Git revisions
 
@@ -79,7 +79,7 @@ We unified Kyma documentation and made sure all installation instructions includ
 
 ### Compass separated from the Kyma installation
 
-From this release, Compass is no longer an integral part of the Kyma installation. However, Kyma still connects to Compass through the [Runtime Agent](https://kyma-project.io/docs/1.14/components/runtime-agent/). From now on, if you want to use Compass, [install Kyma with the Runtime Agent](https://kyma-project.io/docs/1.14/components/runtime-agent#installation-installation) first and then [install Compass](https://github.com/kyma-incubator/compass/blob/master/docs/compass/04-01-installation.md) separately.  
+From this release, Compass is no longer an integral part of the Kyma installation. However, Kyma still connects to Compass through the [Runtime Agent](https://github.com/kyma-project/kyma/tree/release-1.14/docs/runtime-agent). From now on, if you want to use Compass, [install Kyma with the Runtime Agent](https://github.com/kyma-project/kyma/blob/release-1.14/docs/runtime-agent/04-01-installation-modes.md) first and then [install Compass](https://github.com/kyma-incubator/compass/blob/master/docs/compass/04-01-installation.md) separately.  
 
 ## Console
 
@@ -127,7 +127,7 @@ We upgraded Grafana to v7.0 which brings a lot of improvements like a new panel 
 
 ### Serverless migrated to bare metal Kubernetes resources
 
-We continue our work on the Serverless Runtime for Kyma. In this release, we migrated from Knative Serving to pure Kubernetes resources. In its new shape and form, Serverless is more lightweight, doesn't require any additional components, and provides more control over underlying resources. With this change, Serverless uses only Jobs, Deployments, Services, and Horizontal Pod Autoscalers. To see how all these pieces fit together, take a look at the [Serverless architecture](https://kyma-project.io/docs/1.14/components/serverless/#architecture-architecture). Importantly, the whole migration from the previous solution to the current one is fully automated and executed during Kyma update.
+We continue our work on the Serverless Runtime for Kyma. In this release, we migrated from Knative Serving to pure Kubernetes resources. In its new shape and form, Serverless is more lightweight, doesn't require any additional components, and provides more control over underlying resources. With this change, Serverless uses only Jobs, Deployments, Services, and Horizontal Pod Autoscalers. To see how all these pieces fit together, take a look at the [Serverless architecture](https://github.com/kyma-project/kyma/blob/release-1.14/docs/serverless/02-01-serverless.md). Importantly, the whole migration from the previous solution to the current one is fully automated and executed during Kyma update.
 
 ### Function CRD validation
 
@@ -141,7 +141,7 @@ We introduced the validation of Function CRDs. Every new version of the Function
 - Google Container Registry
 - Azure Container Registry
 
-We strongly recommend them for your production set-up. They are fully managed and pre-configured, making your Function images secure and backed up. Read how to [switch to an external Docker registry using overrides](https://kyma-project.io/docs/1.14/components/serverless/#tutorials-set-an-external-docker-registry).
+We strongly recommend them for your production set-up. They are fully managed and pre-configured, making your Function images secure and backed up. Read how to [switch to an external Docker registry using overrides](https://github.com/kyma-project/kyma/blob/release-1.14/docs/serverless/08-05-set-external-docker-registry.md).
 
 ### functions.kubeless.io CRD removed
 
