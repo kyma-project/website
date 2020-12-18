@@ -131,7 +131,7 @@ We continue our work on the Serverless Runtime for Kyma. In this release, we mig
 
 ### Function CRD validation
 
-We introduced the validation of Function CRDs. Every new version of the Function CRD is verified by the [defaulting and validation webhooks](https://kyma-project.io/docs/1.14/components/serverless/#details-supported-webhooks) before you apply it on your cluster. Validation works not only in the UI but also in the terminal when you apply resources using kubectl.
+We introduced the validation of Function CRDs. Every new version of the Function CRD is verified by the [defaulting and validation webhooks](https://github.com/kyma-project/kyma/blob/release-1.14/docs/serverless/03-01-supported-webhooks.md) before you apply it on your cluster. Validation works not only in the UI but also in the terminal when you apply resources using kubectl.
 
 ### External Docker registry
 
