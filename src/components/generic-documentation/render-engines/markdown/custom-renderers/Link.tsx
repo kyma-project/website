@@ -46,8 +46,8 @@ export const Link: React.FunctionComponent<LinkProps> = ({
     );
   }
 
-  if (href.includes("mailto")) {
-    return <a href={href.slice(href.indexOf("mailto"))}>{children}</a>;
+  if (href.includes("mailto:")) {
+    return <a href={href.slice(href.indexOf("mailto:"))}>{children}</a>;
   }
 
   const onClickHash = (e: any) => {
