@@ -10,6 +10,7 @@ Content Strategy is a term that relates to the approach you need to to define be
 * What types of content you have
 * How the reader will navigate through the content
 * What the review process is
+* [info@kyma-project.io](mailto:info@kyma-project.io)
 
 ## Location and context
 
