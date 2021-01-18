@@ -1,3 +1,4 @@
+export * from "./Code";
 export * from "./Image";
 export * from "./Heading";
 export * from "./Link";

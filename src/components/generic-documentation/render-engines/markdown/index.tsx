@@ -8,11 +8,10 @@ import {
   markdownRenderEngine,
   MarkdownRenderEngineOptions,
 } from "@kyma-project/dc-markdown-render-engine";
-
 import { ImageSpec } from "../../../../../gatsby/types";
 import { Specification } from "@typings/docs";
 
-import { Image, Link, Heading, CopyButton } from "./custom-renderers";
+import { Code, Image, Link, Heading, CopyButton } from "./custom-renderers";
 import { tabsParserPlugin } from "./plugins";
 import { highlightTheme } from "./highlightTheme";
 import { headingPrefix } from "./helpers";
@@ -36,6 +35,13 @@ export const markdownRE = (
         image: (props: any) => <Image {...props} imagesSpec={imagesSpec} />,
         link: (props: any) => (
           <Link {...props} specifications={specifications} layout={layout} />
+        ),
+        code: (props: any) => (
+          <Code
+            {...props}
+            highlightTheme={highlightTheme}
+            copyButton={CopyButton}
+          />
         ),
         heading: Heading,
       },

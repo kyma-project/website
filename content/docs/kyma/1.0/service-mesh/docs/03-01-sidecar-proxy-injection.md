@@ -3,6 +3,12 @@ title: Sidecar Proxy Injection
 type: Details
 ---
 
+To apply the definition of OpenAPI schema, run command:
+
+```bash
+kubectl apply -f https://raw.githubusercontent.com/kyma-project/kyma/master/docs/getting-started/assets/orders-service-openapi.yaml
+```
+
 By default, the Istio sidecar injector watches all Pod creation operations on all Namespaces and injects the newly created Pods with a sidecar proxy.
 
 You can disable sidecar proxy injection for either an entire Namespace or a single Deployment.
