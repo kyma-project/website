@@ -57,17 +57,26 @@ const External: React.FunctionComponent<LinkProps & {
 };
 
 const Internal: React.FunctionComponent<LinkProps &
-  InjectedIntlProps & { intl: { locale: KeysOfi18nConfig } }> = ({
-  to = "",
-  intl: { locale },
-  className,
-  children,
-  underline = false,
-  onClick,
-  ariaLabel,
-  state,
-}) => {
+  InjectedIntlProps & { intl: { locale: KeysOfi18nConfig } }> = props => {
+  const {
+    to = "",
+    intl: { locale },
+    className,
+    children,
+    underline = false,
+    onClick,
+    ariaLabel,
+    state,
+  } = props;
+
   let path = i18nConfig[locale].default ? to : `/${locale}${to}`;
+
+  const lastPartOfPath = path.split("/").pop() || "";
+  const isFile = !!lastPartOfPath.includes(".");
+  if (isFile) {
+    return <External {...props} />;
+  }
+
   path = path.endsWith("/") || path.includes("#") ? path : `${path}/`;
 
   return (
