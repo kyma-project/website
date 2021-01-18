@@ -27,19 +27,19 @@ See the overview of all changes in this release:
 
 ### Deprecated Connector and Application Registry APIs
 
-With [Compass](https://github.com/kyma-incubator/compass) being the target API for the Application Connectivity topics, APIs of both the Connector Service and the Application Registry have been deprecated. To learn how to install Compass and integrate with it, refer to the [Compass documentation](https://kyma-project.io/docs/1.13/components/compass/#installation-enable-compass-in-kyma) or to the [Director GraphQL schema](https://github.com/kyma-incubator/compass/blob/master/components/director/pkg/graphql/schema.graphql) directly. Backward compatibility is preserved by the introduction of [Connectivity Adapter](https://github.com/kyma-incubator/compass/tree/master/components/connectivity-adapter).
+With [Compass](https://github.com/kyma-incubator/compass) being the target API for the Application Connectivity topics, APIs of both the Connector Service and the Application Registry have been deprecated. To learn how to install Compass and integrate with it, refer to the [Compass documentation](https://github.com/kyma-project/kyma/blob/release-1.13/docs/compass/04-01-compass.md) or to the [Director GraphQL schema](https://github.com/kyma-incubator/compass/blob/master/components/director/pkg/graphql/schema.graphql) directly. Backward compatibility is preserved by the introduction of [Connectivity Adapter](https://github.com/kyma-incubator/compass/tree/master/components/connectivity-adapter).
 
 ## Installation
 
 ### Improved error handling in Kyma Operator
 
-Operations performed by the Kyma Operator are now atomic. As a result, if an error occurs while processing a component, the controller restores the initial state of that component and retries the step. Read about [error handling and retry policy](https://kyma-project.io/docs/1.13/root/kyma#installation-error-handling) for more details.
+Operations performed by the Kyma Operator are now atomic. As a result, if an error occurs while processing a component, the controller restores the initial state of that component and retries the step. Read about [error handling and retry policy](https://github.com/kyma-project/kyma/blob/release-1.13/docs/kyma/04-13-error-handling.md) for more details.
 
 ## Eventing
 
 ### Tracing enabled within Event Mesh
 
-With Kyma 1.13, you can trace event propagation throughout the cluster. Tracing will work both for the default [NatssChannel](https://github.com/knative-sandbox/eventing-natss/tree/master/config) implementation used in Kyma and with the [Kafka Channel configuration](https://kyma-project.io/docs/1.13/components/event-mesh#tutorials-configure-the-kafka-channel). If you opt for eventing with the Kafka Channel, enable Tracing by configuring Istio. To do so, [increase trace sampling](https://istio.io/docs/tasks/observability/distributed-tracing/configurability/#trace-sampling). You can then use Jaeger to visualize traces.
+With Kyma 1.13, you can trace event propagation throughout the cluster. Tracing will work both for the default [NatssChannel](https://github.com/knative-sandbox/eventing-natss/tree/master/config) implementation used in Kyma and with the [Kafka Channel configuration](https://github.com/kyma-project/kyma/blob/release-1.13/docs/event-mesh/08-01-configure-kafka-channel.md). If you opt for eventing with the Kafka Channel, enable Tracing by configuring Istio. To do so, [increase trace sampling](https://istio.io/docs/tasks/observability/distributed-tracing/configurability/#trace-sampling). You can then use Jaeger to visualize traces.
 
 ## Compass
 
@@ -87,12 +87,12 @@ With the next Kyma release, the `functions.kubeless.io` CRD will be removed. As 
 
 ### Backup functionality redesigned
 
-In this release, we removed the Backup component from Kyma, together with the component-specific Velero drivers. The backup functionality is still available, but in a redesigned form that is based on a managed Kubernetes cluster for periodic backups of Kubernetes objects. The volumes, however, are not included in the automated backup procedure. That's why you should back up your volumes periodically using the VolumeSnapshot API resource. Read more about [backing up Kyma](https://kyma-project.io/docs/1.13/root/kyma/#installation-back-up-kyma) in the documentation.
+In this release, we removed the Backup component from Kyma, together with the component-specific Velero drivers. The backup functionality is still available, but in a redesigned form that is based on a managed Kubernetes cluster for periodic backups of Kubernetes objects. The volumes, however, are not included in the automated backup procedure. That's why you should back up your volumes periodically using the VolumeSnapshot API resource. Read more about [backing up Kyma](https://github.com/kyma-project/kyma/blob/release-1.13/docs/kyma/04-12-back-up-kyma.md) in the documentation.
 
 ### Backup documentation
 
 With the new backup strategy, we provide a brand new set of corresponding documentation. Refer to it to learn:
 
-- [How backup works for Kyma and what are the on-demand volume snapshots](https://kyma-project.io/docs/1.13/root/kyma/#installation-back-up-kyma)
-- [How to back up your volumes using on-demand volume snapshots](https://kyma-project.io/docs/1.13/root/kyma/#tutorials-create-on-demand-volume-snapshots)
-- [How to create on-demand volume snapshots for cloud providers](https://kyma-project.io/docs/1.13/root/kyma/#tutorials-create-on-demand-volume-snapshots-for-cloud-providers)
+- [How backup works for Kyma and what are the on-demand volume snapshots](https://github.com/kyma-project/kyma/blob/release-1.13/docs/kyma/04-12-back-up-kyma.md)
+- [How to back up your volumes using on-demand volume snapshots](https://github.com/kyma-project/kyma/blob/release-1.13/docs/kyma/08-06-create-volume-snapshots.md)
+- [How to create on-demand volume snapshots for cloud providers](https://github.com/kyma-project/kyma/blob/release-1.13/docs/kyma/08-07-create-volume-snapshots-providers.md)

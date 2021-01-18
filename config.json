@@ -81,7 +81,7 @@
       "organization": "kyma-project",
       "repository": "cli",
       "branches": ["master"],
-      "lastReleases": 1,
+      "lastReleases": 3,
       "navPath": "cli",
       "rootPath": {
         "docsType": "cli",
