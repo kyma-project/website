@@ -22,7 +22,7 @@ See the overview of all changes in this release:
 
 - [Console](#console) - Improved left navigation structure
 - [Installation](#installation) - Istio upgrade to 1.8.2
-- [Serverless](#serverless) - Manage function secrets & configs, limiting parallel function builds
+- [Serverless](#serverless) - Managing function secrets & configs, limiting parallel function builds
 
 ## Console
 
