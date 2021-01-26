@@ -16,7 +16,7 @@ Maybe after these wishes you already know that our journey in 2021 begins in Cro
 
 <!-- overview -->
 
-> **CAUTION:** Read the [Migration Guide](https://github.com/kyma-project/kyma/blob/release-1.18/docs/migration-guides/1.17-1.18.md) before upgrading your Kyma deployment to 1.18.
+> **CAUTION:** Read the [Migration Guide](https://github.com/kyma-project/kyma/blob/release-1.19/docs/migration-guides/1.18-1.19.md) before upgrading your Kyma deployment to 1.19.
 
 See the overview of all changes in this release:
 
