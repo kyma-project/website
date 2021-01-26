@@ -29,7 +29,7 @@ See the overview of all changes in this release:
 ### Improved left navigation structure
 
 We have reviewed the categories displayed in left navigation. 
-We adjusted the structure to better match kubernetes taxonomy. With that in mind, it is now more natural to find the workloads, their configuration and networking setup.  
+We adjusted the structure to better match Kubernetes taxonomy. With that in mind, it is now more natural to find the workloads, their configuration and networking setup.  
 
 ## Installation 
 
