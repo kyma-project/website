@@ -39,7 +39,7 @@ With this release, we have upgraded Istio from 1.7.4 to 1.8.2. Find more details
 
 ## Serverless
 
-### Manage function secrets & configs  
+### Managing function secrets & configs  
 
 You can define secrets and config maps used by funtions in the function descriptor (config.yaml) and apply them using Kyma CLI. 
 
