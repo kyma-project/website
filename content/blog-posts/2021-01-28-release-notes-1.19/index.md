@@ -12,7 +12,7 @@ redirectFrom:
 
 Sretna Nova Godina!
 
-Maybe after these wishes you already know that our journey in 2021 begins in Croatia, specifically in its capital city, Zagreb. Apart from its famous café culture, beautiful historic buildings and amazing views, Zagreb offers you delicious snacks such as licitar. This time we also have some tasty improvements for you. Read the notes to find out what they are.
+Maybe after these wishes you already know that our journey in 2021 begins in Croatia, specifically in its capital city, Zagreb. Apart from its famous café culture, beautiful historic buildings and amazing views, Zagreb offers you delicious snacks such as licitar. We also prepared some tasty improvements for you. Read the notes to find out what they are.
 
 <!-- overview -->
 
@@ -28,8 +28,7 @@ See the overview of all changes in this release:
 
 ### Improved left navigation structure
 
-We have reviewed the categories displayed in left navigation. 
-We adjusted the structure to better match Kubernetes taxonomy. With that in mind, it is now more natural to find the workloads, their configuration and networking setup.  
+We reviewed the categories displayed in the left navigation and we adjusted the structure to better match the Kubernetes naming. With that in mind, it is now more intuitive to find the workloads, their configuration, and the networking setup.  
 
 ## Installation 
 
