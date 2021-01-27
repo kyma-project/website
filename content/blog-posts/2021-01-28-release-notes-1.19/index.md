@@ -12,7 +12,7 @@ redirectFrom:
 
 Sretna Nova Godina!
 
-Maybe after these wishes you already know that our journey in 2021 begins in Croatia, specifically in its capital city, Zagreb. Apart from its famous café culture, beautiful historic buildings and amazing views, Zagreb offers you delicious snacks such as licitar. We also prepared some tasty improvements for you. Read the notes to find out what they are.
+Maybe after these wishes you already know that our journey in 2021 begins in Croatia, specifically in its capital city, Zagreb. Apart from its famous café culture, beautiful historic buildings, and amazing views, Zagreb offers you delicious snacks such as licitar. We also prepared some tasty improvements for you. Read the notes to find out what they are.
 
 <!-- overview -->
 
