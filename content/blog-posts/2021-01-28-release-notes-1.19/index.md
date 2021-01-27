@@ -44,5 +44,5 @@ With this release, we have upgraded Istio from 1.7.4 to 1.8.2. Find more details
 You can define Secrets and ConfigMaps used by Functions in the Function descriptor (`config.yaml`) and apply them using Kyma CLI. 
 
 ### Limiting parallel Function builds  
-We have changed the function build process so that it doesn't allow for unlimited simultanous builds. There is a pool of 5 simultanous builds available by default.  
+We have changed the Function build process so that it doesn't allow for unlimited simultaneous builds. There is a pool of 5 simultaneous builds available by default.  
 This will protect from draining the computational resources on small runtimes, in a scenario where bulk function reconciliation is triggered. 
