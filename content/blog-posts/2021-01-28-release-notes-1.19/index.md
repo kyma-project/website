@@ -28,7 +28,7 @@ See the overview of all changes in this release:
 
 ### Improved left navigation structure
 
-We reviewed the categories displayed in the left navigation and we adjusted the structure to better match the Kubernetes naming. With that in mind, it is now more intuitive to find the workloads, their configuration, and the networking setup.  
+We reviewed the categories displayed in the left navigation and adjusted the structure to better match the Kubernetes naming. With that in mind, it is now more intuitive to find the workloads, their configuration, and the networking setup.  
 
 ## Installation 
 
