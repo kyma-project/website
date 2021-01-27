@@ -34,7 +34,7 @@ We reviewed the categories displayed in the left navigation and we adjusted the 
 
 ### Istio upgrade to 1.8.2 
 
-With this release, we upgraded Istio from 1.7.4 to 1.8.2. Find more details in the [Migration Guide](https://github.com/kyma-project/kyma/blob/release-1.19/docs/migration-guides/1.18-1.19.md)) and the [Istio 1.8.2 release notes](https://istio.io/latest/news/releases/1.8.x/announcing-1.8.2/). 
+With this release, we upgraded Istio from 1.7.4 to 1.8.2. Find more details in the [Migration Guide](https://github.com/kyma-project/kyma/blob/release-1.19/docs/migration-guides/1.18-1.19.md) and the [Istio 1.8.2 release notes](https://istio.io/latest/news/releases/1.8.x/announcing-1.8.2/). 
 
 ## Serverless
 
