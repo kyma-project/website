@@ -45,4 +45,4 @@ You can define Secrets and ConfigMaps used by Functions in the Function descript
 
 ### Limiting parallel Function builds  
 We have changed the Function build process so that it doesn't allow for unlimited simultaneous builds. There is a pool of 5 simultaneous builds available by default.  
-This will protect from draining the computational resources on small runtimes, in a scenario where bulk function reconciliation is triggered. 
+This will protect against draining the computational resources on small Runtimes, in a scenario where bulk Function reconciliation is triggered. 
