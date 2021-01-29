@@ -2,6 +2,7 @@ white-list-external:
   - localhost
   - kyma.local
   - http://xip.io
+  - https://twitter.com/*
 black-list:
   - node_modules
   - content/docs
