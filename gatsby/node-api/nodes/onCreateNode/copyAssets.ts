@@ -27,14 +27,14 @@ const matchExcludeFiles = (
 interface CopyAssetsOptions {
   source: string;
   destination: string;
-  extensions: string[];
+  excludeExtensions: string[];
   excludeDirs: Array<string | RegExp>;
   excludeFiles: Array<string | RegExp>;
 }
 const options: CopyAssetsOptions = {
   source: resolve(`${__dirname}/../../../../content`),
   destination: "/assets",
-  extensions: ["jpeg", "jpg", "gif", "png", "svg", "json", "yaml", "yml"],
+  excludeExtensions: ["md", "mdx"],
   excludeDirs: ["i18n"],
   excludeFiles: [
     "docs/versions.json",
@@ -57,14 +57,14 @@ export const copyAssets = (node: CopyAssetsNode) => {
   const {
     source,
     destination,
-    extensions,
+    excludeExtensions,
     excludeDirs,
     excludeFiles,
   } = options;
 
   const condition =
     node.dir.includes(source) &&
-    extensions.includes(node.extension) &&
+    !excludeExtensions.includes(node.extension) &&
     !(
       matchExcludeDirs(excludeDirs, node.relativeDirectory) ||
       matchExcludeFiles(excludeFiles, nodeName)
