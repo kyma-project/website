@@ -10,14 +10,14 @@ redirectFrom:
   - "/blog/release-notes-115"
 ---
 
-Same language, different city! 
-After leaving Ulm, we take a short trip to the City of Music, Vienna. 
-We all know Vienna for the famous musicians that were either born there or went there to work. 
-But did you know that Vienna was the largest German-speaking city in the world up to the 20th century, and to date remains the second-largest one, after Berlin? 
-Not to mention the beautiful architecture of the city! 
-Inspired by the views, we worked on improving our Console UI. 
-We also added more documentation sources to the website. 
-Lastly, we worked on tweaks and improvements for monitoring, Kyma CLI, and the ORY stack. 
+Same language, different city!
+After leaving Ulm, we take a short trip to the City of Music, Vienna.
+We all know Vienna for the famous musicians that were either born there or went there to work.
+But did you know that Vienna was the largest German-speaking city in the world up to the 20th century, and to date remains the second-largest one, after Berlin?
+Not to mention the beautiful architecture of the city!
+Inspired by the views, we worked on improving our Console UI.
+We also added more documentation sources to the website.
+Lastly, we worked on tweaks and improvements for monitoring, Kyma CLI, and the ORY stack.
 Read the notes to find out more.
 
 <!-- overview -->
@@ -40,11 +40,11 @@ We took the chance and preconfigured the new Jaeger data source in Grafana. Now 
 
 ### Installation from a local checkout to a remote cluster
 
-Kyma installation on a remote cluster from a local Kyma GitHub checkout requires building and pushing the `kyma-installer` image to a remote Docker registry. From now on, CLI takes care of this process. When the `install` command detects such a setup, it will prompt you to pass the **--custom-image** parameter specifying the full image name to be used. The CLI will then build and push the image automatically, leveraging the authentication details retrieved from the local Docker client. 
+Kyma installation on a remote cluster from a local Kyma GitHub checkout requires building and pushing the `kyma-installer` image to a remote Docker registry. From now on, CLI takes care of this process. When the `install` command detects such a setup, it will prompt you to pass the **--custom-image** parameter specifying the full image name to be used. The CLI will then build and push the image automatically, leveraging the authentication details retrieved from the local Docker client.
 
 ###  Improved resilience of the install command
 
-We improved the resilience of the `install` command. Now, even if you encounter connection problems during installation, the process triggered by the `install` command will be resumed and continue until it's completed. 
+We improved the resilience of the `install` command. Now, even if you encounter connection problems during installation, the process triggered by the `install` command will be resumed and continue until it's completed.
 
 ## ORY stack
 
@@ -58,22 +58,22 @@ Improvements in the ORY stack include:
 
 ### Managing OAuth2 clients from the Console UI
 
-To interact with the Kyma OAuth2 server and secure your microservices and Functions, you must first [register an OAuth2 client](https://kyma-project.io/docs/1.15/components/security/#details-o-auth2-and-open-id-connect-server-register-an-o-auth2-client). 
-So far, you could do it only through `kubectl`. 
-With Kyma 1.15, you can also register OAuth2 clients from the new view in the Console UI: 
+To interact with the Kyma OAuth2 server and secure your microservices and Functions, you must first [register an OAuth2 client](https://github.com/kyma-project/kyma/blob/release-1.15/docs/security/03-06-oauth2-server.md#register-an-oauth2-client). 
+So far, you could do it only through `kubectl`.
+With Kyma 1.15, you can also register OAuth2 clients from the new view in the Console UI:
 
 ![OAuth2 clients in the Console UI](./OAuth2-clients-console.png)
 
 ### Collapsible navigation categories
 
-Starting with this release, you can collapse categories which you don't use that often to focus on the views that you use frequently. 
+Starting with this release, you can collapse categories which you don't use that often to focus on the views that you use frequently.
 For your convenience, the state of collapsed nodes is preserved in the browser cache.  
 
 ![Collapsible navigation categories](./collapsible-navigation.png)
 
 ### Configuration of event triggers for services
 
-As of now, you can finally subscribe Kubernetes services to events in your Namespace from the Console UI. 
+As of now, you can finally subscribe Kubernetes services to events in your Namespace from the Console UI.
 This feature allows you to easily manage event subscriptions not only for Functions but also for any custom microservice you deployed in your Namespace.  
 
 ![Event triggers for services](./event-triggers-for-services.png)
@@ -87,4 +87,3 @@ From now on, when you hover over **Docs** in the main navigation panel, you can 
 You can choose from the documentation for [Kyma](https://kyma-project.io/docs/), [CLI](https://kyma-project.io/docs/cli/), and [Control Plane](https://kyma-project.io/docs/control-plane/).
 
 ![Documentation from various repositories](./docs-different-repos.png)
- 
