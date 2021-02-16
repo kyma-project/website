@@ -27,7 +27,12 @@ export const onCreateNode = async ({
 
   switch (node.internal.type) {
     case "MarkdownRemark": {
-      const { relativePath, absolutePath } = getNode(node.parent);
+      if (typeof node.parent !== "string") {
+        console.error("node.parent is not a string");
+        return;
+      }
+      const nodeParent = node.parent;
+      const { relativePath, absolutePath } = getNode(nodeParent);
 
       if (typeof relativePath !== "string") {
         console.error("relativePath is not a string");
