@@ -27,7 +27,7 @@ See the overview of all changes in this release:
 
 ### Removed support for outdated Knative APIs
 
-We've recently removed the support for the Knative APIs `legacysinkbindings.webhook.sources.knative.dev` and `sinkbindings.webhook.sources.knative.dev`. You can find the details of these changes in the issue [#10628](https://github.com/kyma-project/kyma/pull/10628).
+We've recently removed the support for the Knative APIs `legacysinkbindings.webhook.sources.knative.dev` and `sinkbindings.webhook.sources.knative.dev`. Apart from the above APIs, this change does not affect any other Kyma features. You can find the details of this change in the issue [#10628](https://github.com/kyma-project/kyma/pull/10628).
 
 ## Installation  
 
