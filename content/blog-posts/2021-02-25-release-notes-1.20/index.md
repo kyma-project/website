@@ -44,7 +44,7 @@ For more details, read the [overview of both profiles](https://kyma-project.io/d
 
 ### Revamp of the Fluent Bit chart
 
-We upgraded to the latest upstream version of the Fluent Bit chart. As a result, we changed its overall structure and made it much more flexible to use. In its new shape and form, Fluent Bit configuration supports native Fluent Bit parsers and allows you to [configure aliases](https://docs.fluentbit.io/manual/administration/monitoring#configuring-aliases) for input and output plugins.
+We upgraded to the latest upstream version of the Fluent Bit chart. As a result of changes to its overall structure, it has become much more flexible to use. In its new shape and form, Fluent Bit configuration supports native Fluent Bit parsers and allows you to [configure aliases](https://docs.fluentbit.io/manual/administration/monitoring#configuring-aliases) for input and output plugins.
 
 Read about the details of all introduced changes in the issue [#10089](https://github.com/kyma-project/kyma/issues/10089) and the [Migration Guide](https://github.com/kyma-project/kyma/blob/release-1.20/docs/migration-guides/1.19-1.20.md).
 
@@ -52,13 +52,13 @@ Read about the details of all introduced changes in the issue [#10089](https://g
 
 Up until now, when you wanted to send logs to output plugins (such as Elastic Search or HTTP-based services), you had to pass their basic authentication credentials to Fluent Bit using plain ConfigMaps. These times are over. We've just [introduced](https://github.com/kyma-project/kyma/issues/10018) support for the already existing [Fluent Bit feature](https://docs.fluentbit.io/manual/administration/configuring-fluent-bit/variables) and provided a way to store these sensitive details in a more secure way - in Secrets.
 
-> **CAUTION:** Not only do we advise but even strongly recommend you use this new feature and move all your credentials for output plugins to Secrets. Read the [Migration Guide](https://github.com/kyma-project/kyma/blob/release-1.20/docs/migration-guides/1.19-1.20.md) for more details.
+> **CAUTION:** We strongly recommend you use this new feature and move all your credentials for output plugins to Secrets. Read the [Migration Guide](https://github.com/kyma-project/kyma/blob/release-1.20/docs/migration-guides/1.19-1.20.md) for more details.
 
 ## Serverless
 
 ### Configurable Docker registry
 
-Before 1.20, you could only change the default internal Docker registry for your Function images to an external one through overrides. You had to do it centrally for the whole cluster and trigger either a Kyma installation or an update process afterward. We have now extended this functionality by enabling registry switch in the runtime. Changing the underlying Docker registry is now possible without the hassle of running an update. Moreover, you also get the flexibility to choose between different Docker registries for different Namespaces. This way, you can configure registries as you please. You can either opt for one central external registry in the cluster or switch to Docker Hub, Google Container Registry (GCR), or Azure Container Registry (ACR) in specific Namespaces. You can even have different repositories in different Namespaces. Sky is the limit.
+Before 1.20, you could change the default internal Docker registry for your Function images to an external one only through overrides. You had to do it centrally for the whole cluster and trigger either a Kyma installation or an update process afterward. We have now extended this functionality by enabling registry switch at runtime. Changing the underlying Docker registry is now possible without the hassle of running an update. Moreover, you also get the flexibility to choose between different Docker registries for different Namespaces. This way, you can configure registries as you please. You can either opt for one central external registry in the cluster or switch to Docker Hub, Google Container Registry (GCR), or Azure Container Registry (ACR) in specific Namespaces. You can even have different repositories in different Namespaces. Sky is the limit.
 
 Learn more about:
 - [Internal and external registries in general](https://kyma-project.io/docs/1.20/components/serverless/#details-internal-and-external-registries)
