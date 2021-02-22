@@ -10,7 +10,7 @@ redirectFrom:
   - "/blog/release-notes-120"
 ---
 
-Hartelijk welkom bij Kyma 1.20 Amsterdam! Slip into a comfy pair of clogs, grab a tulip in your hand, and hop on a guided bike tour around recent changes in Kyma. This time it will be a quick but interesting ride, with four stops in the eventing, installation, logging, and serverless areas. Read on to see how these components have evolved and matured in the recent weeks, as their development is the leitmotif of this release.
+Hartelijk welkom bij Kyma 1.20 Amsterdam! Slip into a comfy pair of clogs, grab a tulip in your hand, and hop on a guided bike tour around recent changes in Kyma. This time it will be a quick but interesting ride, with four stops in the Eventing, Installation, Logging, and Serverless areas. Read on to see how these components have evolved and matured in the recent weeks, as their development is the leitmotif of this release.
 
 <!-- overview -->
 
@@ -27,7 +27,7 @@ See the overview of all changes in this release:
 
 ### Removed support for outdated Knative APIs
 
-We've recently removed the support for the Knative APIs `legacysinkbindings.webhook.sources.knative.dev` and `sinkbindings.webhook.sources.knative.dev`. Apart from the above APIs, this change does not affect any other Kyma features. You can find the details of this change in the issue [#10628](https://github.com/kyma-project/kyma/pull/10628).
+We've recently removed support for the `legacysinkbindings.webhook.sources.knative.dev` and `sinkbindings.webhook.sources.knative.dev` Knative APIs. Apart from these APIs, the change does not affect any other Kyma features. You can find the details of this change in the issue [#10628](https://github.com/kyma-project/kyma/pull/10628).
 
 ## Installation  
 
@@ -38,7 +38,7 @@ Starting with the 1.20 release, you can install or upgrade Kyma with one of thes
 - **Evaluation profile** with limited resources, suitable if you want to try out Kyma
 - **Production profile** with high availability and scalability, recommended if you use Kyma for your production workload
 
-For more details, read an [overview of both profiles](https://kyma-project.io/docs/1.20/root/kyma/#installation-overview-profiles).
+For more details, read the [overview of both profiles](https://kyma-project.io/docs/1.20/root/kyma/#installation-overview-profiles).
 
 ## Logging
 
@@ -46,12 +46,11 @@ For more details, read an [overview of both profiles](https://kyma-project.io/do
 
 We upgraded to the latest upstream version of the Fluent Bit chart. As a result, we changed its overall structure and made it much more flexible to use. In its new shape and form, Fluent Bit configuration supports native Fluent Bit parsers and allows you to [configure aliases](https://docs.fluentbit.io/manual/administration/monitoring#configuring-aliases) for input and output plugins.
 
-Read about details of all introduced changes in the issue [#10089](https://github.com/kyma-project/kyma/issues/10089) and the [Migration Guide](https://github.com/kyma-project/kyma/blob/release-1.20/docs/migration-guides/1.19-1.20.md).
-
+Read about the details of all introduced changes in the issue [#10089](https://github.com/kyma-project/kyma/issues/10089) and the [Migration Guide](https://github.com/kyma-project/kyma/blob/release-1.20/docs/migration-guides/1.19-1.20.md).
 
 ### Support for Secrets in Fluent Bit
 
-Up until now, when you wanted to send logs to output plugins (such as Elastic Search or HTTP-based services), you had to pass their basic authentication credentials to Fluent Bit using plain ConfigMaps. These times are over. We've just [introduced](https://github.com/kyma-project/kyma/issues/10018) the support for the already existing [Fluent Bit feature](https://docs.fluentbit.io/manual/administration/configuring-fluent-bit/variables) and provide a way to store these sensitive details in a more secure way - in Secrets.
+Up until now, when you wanted to send logs to output plugins (such as Elastic Search or HTTP-based services), you had to pass their basic authentication credentials to Fluent Bit using plain ConfigMaps. These times are over. We've just [introduced](https://github.com/kyma-project/kyma/issues/10018) support for the already existing [Fluent Bit feature](https://docs.fluentbit.io/manual/administration/configuring-fluent-bit/variables) and provided a way to store these sensitive details in a more secure way - in Secrets.
 
 > **CAUTION:** Not only do we advise but even strongly recommend you use this new feature and move all your credentials for output plugins to Secrets. Read the [Migration Guide](https://github.com/kyma-project/kyma/blob/release-1.20/docs/migration-guides/1.19-1.20.md) for more details.
 
@@ -63,7 +62,7 @@ Before 1.20, you could only change the default internal Docker registry for your
 
 Learn more about:
 - [Internal and external registries in general](https://kyma-project.io/docs/1.20/components/serverless/#details-internal-and-external-registries)
-- [The way in which you can switch between them](https://kyma-project.io/docs/1.20/components/serverless/#tutorials-switch-to-an-external-docker-registry-in-the-runtime)
+- [How you can switch between registries](https://kyma-project.io/docs/1.20/components/serverless/#tutorials-switch-to-an-external-docker-registry-in-the-runtime)
 - [Admission webhook and its role in the whole process](https://kyma-project.io/docs/1.20/components/serverless/#details-supported-webhooks-admission-webhook)
 
 > **CAUTION:** Although you can now switch back and forth between Docker registries, bear in mind that the internal registry is suitable only for local development. For production purposes, always use an external one.
