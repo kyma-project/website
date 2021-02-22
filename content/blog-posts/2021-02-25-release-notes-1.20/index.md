@@ -10,7 +10,7 @@ redirectFrom:
   - "/blog/release-notes-120"
 ---
 
-Welcome to Kyma 1.20 Amsterdam! Slip into a comfy pair of clogs, grab a tulip in your hand, and hop on a guided bike tour around recent changes in Kyma. This time it will be a quick but interesting ride, with four stops in the eventing, installation, logging, and serverless areas. Read on to see how these components have evolved and matured in the recent weeks, as their development is the leitmotif of this release.
+Hartelijk welkom bij Kyma 1.20 Amsterdam! Slip into a comfy pair of clogs, grab a tulip in your hand, and hop on a guided bike tour around recent changes in Kyma. This time it will be a quick but interesting ride, with four stops in the eventing, installation, logging, and serverless areas. Read on to see how these components have evolved and matured in the recent weeks, as their development is the leitmotif of this release.
 
 <!-- overview -->
 
