@@ -1,24 +1,12 @@
-white-list-external:
-  - localhost
-  - kyma.local
-  - http://xip.io
-  - https://twitter.com/*
 external-links-to-ignore:
   - localhost
   - kyma.local
   - http://xip.io
   - https://twitter.com/*
-black-list:
-  - node_modules
-  - content/docs
-  - content/community
 files-to-ignore:
   - node_modules
   - content/docs
   - content/community
-black-list-internal:
-  - ./website/src/blog-posts/
-  - ./website/content/blog-posts/
 files-to-ignore-internal-links-in:
   - ./website/src/blog-posts/
   - ./website/content/blog-posts/
@@ -27,45 +15,28 @@ request-repeats: 5
 files:
   - path: "./website/.github/ISSUE_TEMPLATE/security-vulnerability.md"
     config:
-      white-list-internal: ["{CVSS"]
       internal-links-to-ignore: ["{CVSS"]
-      white-list-external:
-        [
-          "https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:L/A:N",
-        ]
       external-links-to-ignore:
         [
           "https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:L/A:N",
         ]
   - path: ./website/docs/banner-modification.md
     config:
-      white-list-internal:
-        - ../src/banner/assets
       internal-links-to-ignore:
         - ../src/banner/assets
   - path: ./website/docs/write-blog-posts.md
     config:
-      white-list-external:
-        - https://kyma-project.io/blog/some-address
-        - https://kyma-project.io/blog/{DATE}/{ADDRESS
       external-links-to-ignore:
         - https://kyma-project.io/blog/some-address
         - https://kyma-project.io/blog/{DATE}/{ADDRESS
-      white-list-internal:
-        - "../{some_file}#development"
-        - /docs/{VERSION}/root/kyma#overview-in-a-nutshell
       internal-links-to-ignore:
         - "../{some_file}#development"
         - /docs/{VERSION}/root/kyma#overview-in-a-nutshell
   - path: ./website/content/blog-posts/2019-07-24-happy-birthday-kyma/index.md
     config:
-      white-list-external:
-        - https://www.linkedin.com/company/kyma-project
       external-links-to-ignore:
         - https://www.linkedin.com/company/kyma-project
   - path: ./website/content/blog-posts/2019-01-14-release-notes-0.6/index.md
     config:
-      white-list-external:
-        - https://codesandbox.io/s/5vz8l9zlmn
       external-links-to-ignore:
         - https://codesandbox.io/s/5vz8l9zlmn
