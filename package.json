@@ -56,7 +56,7 @@
     "@kyma-project/dc-open-api-render-engine": "0.3.0",
     "@kyma-project/documentation-component": "0.3.0",
     "@rooks/use-timeout": "^3.6.0",
-    "babel-plugin-styled-components": "^1.10.0",
+    "babel-plugin-styled-components": "^1.12.0",
     "constate": "^1.0.0",
     "encoding": "^0.1.13",
     "gatsby": "^2.32.0",
