@@ -47,6 +47,7 @@ export class CopyDocs {
 
   local = async ({ source, output }) => {
     console.log(`Copying local documentation from branch`);
+    //TODO: tutaj leci error na netlify
 
     const [err] = await to(this.do(source, output));
     if (err) {
@@ -57,7 +58,9 @@ export class CopyDocs {
   private do = async (source: string, output: string, version?: string) => {
     let err: Error | null = null;
 
-    console.log(`Copy documentation to ${output}`);
+    //TODO: tutaj leci error na netlify
+
+    console.log(`Copy documentation from ${source} to ${output}`);
 
     [err] = await to(this.copy(source, output, version));
     if (err) {
