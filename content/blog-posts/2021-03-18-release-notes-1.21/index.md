@@ -49,13 +49,14 @@ For more information, read the [Kyma CLI documentation](https://kyma-project.io/
 ### Dynamic data source configuration 
 
 We enabled the Grafana feature to collect and load data source definitions from Kubernetes ConfigMaps at startup. 
-By doing that, we moved the individual pre-configured data sources into the related components. For example, the data source for Loki moved into the `logging` component.
+By doing that, we were able to move the individual pre-configured data sources into the related components. For example, the data source for Loki moved into the `logging` component. This way, we improved the resource organization. 
 
 ### Deriving traces from Loki logs 
 
-The Loki data source for Grafana now contains a new [derived field](https://grafana.com/docs/grafana/latest/datasources/loki/#derived-fields) for `traceId`. 
+The Loki data source for Grafana now contains a new derived field for `traceId`. 
 By default, Grafana checks every log in the Grafana View for the `traceId=(\w+)` pattern. 
 If it finds this `traceId`, it displays the link to the corresponding Jaeger trace.
+For more information about derived fields, read the [Grafana documentation](https://grafana.com/docs/grafana/latest/datasources/loki/#derived-fields).
 
 ## Eventing
 
