@@ -24,9 +24,9 @@ This time, we focused on CLI, Monitoring, Eventing, and Serverless, so grab a cu
 
 See the overview of all changes in this release:
 
-- [CLI](#cli) - alpha commands stabilized, `run` command available locally
-- [Monitoring](#monitoring) - dynamic datasource configuration, deriving traces from Loki logs
-- [Eventing](#eventing) - Knative-based Eventing replaced by NATS 
+- [CLI](#cli) - Alpha commands stabilized, `run` command available locally
+- [Monitoring](#monitoring) - Dynamic data source configuration, deriving traces from Loki logs
+- [Eventing](#eventing) - Knative-based eventing replaced by NATS 
 - [Serverless](#serverless) - Node.js 10 deprecation
 
 ## CLI
@@ -34,14 +34,14 @@ See the overview of all changes in this release:
 ### New alpha commands stabilized 
 
 We've recently added new alpha commands: `alpha provision k3s`, `alpha deploy`, `alpha delete`, and  `alpha version`.
-In this release, we stabilized these commands, and they are now ready for beta-testing.
-For more information, read the [Alpha Command Usage Examples](https://kyma-project.io/docs/1.21/cli/overview#details-kyma-cli-alpha-command-usage-examples) and the command help. 
+In this release, we stabilized these commands, and they are now ready for beta testing.
+For more information, read the [alpha command usage examples](https://kyma-project.io/docs/1.21/cli/overview#details-kyma-cli-alpha-command-usage-examples) and the command help. 
  
 ### Test-run Functions locally 
 
 Kyma CLI provides a set of helpful commands for Function developers.
 They support developers in starting development, pushing local code to the Runtime, and syncing Functions.
-In this release, we have added one more command, to facilitate your developer experience even more.
+In this release, we have added one more command to facilitate your developer experience even more.
 The `run` command allows you to run the Function's code locally, before applying it to the Kyma runtime.
 
 For more information, read the [Kyma CLI documentation](https://kyma-project.io/docs/1.21/cli/commands/#kyma-run-function-kyma-run-function). 
@@ -51,7 +51,7 @@ For more information, read the [Kyma CLI documentation](https://kyma-project.io/
 ### Dynamic data source configuration 
 
 We enabled the Grafana feature to collect and load data source definitions from Kubernetes ConfigMaps at startup. 
-By doing that, we were able to move the individual pre-configured data sources into the related components. For example, the data source for Loki moved into the `logging` component. This way, we improved the resource organization. 
+By doing that, we were able to move the individual pre-configured data sources into the related components. For example, the data source for Loki moved into the Logging component. This way, we improved the resource organization. 
 
 ### Deriving traces from Loki logs 
 
@@ -63,13 +63,13 @@ For more information about derived fields, read the [Grafana documentation](http
 
 ## Eventing
 
-### Knative-based Eventing replaced by NATS 
+### Knative-based eventing replaced by NATS 
 
-In this release, we removed Knative-based Eventing. 
-The new Eventing is based on [NATS](https://github.com/nats-io/nats-server) with a Kyma-specific Subscription custom resource (CR). 
+In this release, we removed Knative-based eventing. 
+The new Eventing component is based on [NATS](https://github.com/nats-io/nats-server) with a Kyma-specific Subscription custom resource (CR). 
 For upgrade scenarios, refer to the [Migration Guide](https://github.com/kyma-project/kyma/blob/release-1.21/docs/migration-guides/1.20-1.21.md).
 
-For more information on the new Eventing, read the [documentation](https://kyma-project.io/docs/1.21/components/eventing).
+For more information on the new eventing, read the [documentation](https://kyma-project.io/docs/1.21/components/eventing).
 
 ## Serverless 
 
