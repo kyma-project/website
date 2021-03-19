@@ -37,7 +37,7 @@ We've recently added new alpha commands: `alpha provision k3s`, `alpha deploy`, 
 In this release, we stabilized these commands, and they are now ready for beta testing.
 For more information, read the [alpha command usage examples](https://kyma-project.io/docs/1.21/cli/overview#details-kyma-cli-alpha-command-usage-examples) and the command help. 
  
-### Test-run Functions locally 
+### Run Functions locally 
 
 Kyma CLI provides a set of helpful commands for Function developers.
 They support developers in starting development, pushing local code to the Runtime, and syncing Functions.
