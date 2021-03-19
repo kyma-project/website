@@ -35,7 +35,7 @@ See the overview of all changes in this release:
 
 We introduced a new way of developing Functions. Instead of editing your Function in an inline editor, you can now configure a Git repository as the source of your Function's code and dependencies. It offers great convenience for developers who can now use their favorite IDE to develop Functions.
 
-Read more about the [Git source type](https://kyma-project.io/docs/1.17/components/serverless/#details-git-source-type) and see the [tutorial on how to create a Function from Git repository sources](https://kyma-project.io/docs/1.17/components/serverless/#tutorials-create-a-function-from-git-repository-sources).
+Read more about the [Git source type](https://github.com/kyma-project/kyma/blob/release-1.17/docs/serverless/03-02-git-source-type.md) and see the [tutorial on how to create a Function from Git repository sources](https://github.com/kyma-project/kyma/blob/release-1.17/docs/serverless/08-02-create-git-function.md).
 
 You can set the Function source to a specific commit, or you can reference a branch. The function will rebuild on every change pushed to the repository.
 
@@ -48,13 +48,13 @@ With Kyma 1.17, you can choose Python (3.8) as a runtime for your Function:
 
 ![Support for Python as a serverless runtime](./python-serverless.png)
 
-See all [available runtimes with sample Functions](https://kyma-project.io/docs/1.17/components/serverless/#details-runtimes).
+See all [available runtimes with sample Functions](https://github.com/kyma-project/kyma/blob/release-1.17/docs/serverless/03-01-available-runtimes.md).
 
 ## Website
 
 ### New Getting Started guides
 
-Have you ever wondered how to start with Kyma? How to connect all the dots (components) into a meaningful scenario? We tried to address such questions with a set of [Getting Started guides](https://kyma-project.io/docs/1.17/root/getting-started/) we are happy to share with you. These guides lead you through an end-to-end scenario that shows a sample Kyma use case. After completing it, you will get a Function and a microservice that react to events sent from an external application and use the external Redis service to store the events data. These guides show all Kyma’s major features, introduce you to our components, and give you a chance to get to know Kyma either through the kubectl commands or the Console UI steps.
+Have you ever wondered how to start with Kyma? How to connect all the dots (components) into a meaningful scenario? We tried to address such questions with a set of [Getting Started guides](https://github.com/kyma-project/kyma/tree/release-1.17/docs/getting-started) we are happy to share with you. These guides lead you through an end-to-end scenario that shows a sample Kyma use case. After completing it, you will get a Function and a microservice that react to events sent from an external application and use the external Redis service to store the events data. These guides show all Kyma’s major features, introduce you to our components, and give you a chance to get to know Kyma either through the kubectl commands or the Console UI steps.
 
 ## CLI
 
@@ -70,7 +70,7 @@ Another new command that we added is [`kyma create system`](/cli/commands/#kyma-
 
 We released a set of new commands for Function developers. These commands are very useful when creating a Function from scratch or whenever you want to apply code or configuration changes to a Function.
 
-Find more details in the dedicated [tutorial](https://kyma-project.io/docs/1.17/cli/overview/#tutorials-use-kyma-cli-to-manage-functions).
+Find more details in the dedicated [tutorial](https://github.com/kyma-project/cli/blob/release-1.17/docs/08-02-cli-in-serverless.md).
 
 
 ### PR number support for the install command
