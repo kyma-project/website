@@ -143,7 +143,7 @@ The latest release comes with a new version of Istio 1.4.3. This change has affe
 
 ### Production profile for Istio
 
-The default cluster configuration provides Istio that is good enough for playground purposes but not sufficient for a production-grade workload. This release comes with the production profile for Istio which increases Application scalability (updated HPA) and provides higher CPU and memory limits/requests for the Istio control plane components. These changes improve the overall Istio components' performance and stability. The production profile configuration is optional, not enabled by default. To learn more about the profile, read our [docs](https://kyma-project.io/docs/components/service-mesh/#configuration-service-mesh-production-profile).
+The default cluster configuration provides Istio that is good enough for playground purposes but not sufficient for a production-grade workload. This release comes with the production profile for Istio which increases Application scalability (updated HPA) and provides higher CPU and memory limits/requests for the Istio control plane components. These changes improve the overall Istio components' performance and stability. The production profile configuration is optional, not enabled by default. To learn more about the profile, read our [docs](https://github.com/kyma-project/kyma/blob/release-1.10/docs/service-mesh/05-05-production-profile.md#the-production-profile).
 
 ### Production profile for ORY
 
