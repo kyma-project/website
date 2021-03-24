@@ -59,6 +59,8 @@ The Loki data source for Grafana now contains a new derived field for `traceId`.
 By default, Grafana checks every log in the Grafana View for the `traceId=(\w+)` pattern. 
 If it finds this `traceId`, it displays the link to the corresponding Jaeger trace.
 
+![Logs with traceId](logs-traceId.png)
+
 For more information about derived fields, read the [Grafana documentation](https://grafana.com/docs/grafana/latest/datasources/loki/#derived-fields).
 
 ## Eventing
