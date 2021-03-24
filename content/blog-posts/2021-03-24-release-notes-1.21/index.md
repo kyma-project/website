@@ -28,6 +28,7 @@ See the overview of all changes in this release:
 - [Monitoring](#monitoring) - Dynamic data source configuration, deriving traces from Loki logs
 - [Eventing](#eventing) - Knative-based eventing replaced by NATS 
 - [Serverless](#serverless) - Node.js 10 deprecation
+- [Known issues](#known-issues) - Tracing not working with the new Eventing
 
 ## CLI
 
@@ -85,3 +86,11 @@ For now, we recommend that you configure all your Node.js 10 Functions to run on
 See the [list of notable changes since Node.js 10 LTS](https://nodejs.org/tr/blog/uncategorized/10-lts-to-12-lts/).
 
 For more information on Node.js 10 deprecation, read about [Node.js releases](https://nodejs.org/en/about/releases/).
+
+## Known issues
+
+### Tracing not working with the new Eventing
+
+Due to the [change from Knative to NATS Eventing](#knative-based-eventing-replaced-by-nats), tracing is not working as expected for events sent to Kyma. 
+All traces stop at the [Event Publisher Proxy](https://github.com/kyma-project/kyma/tree/release-1.21/resources/eventing/charts/event-publisher-proxy).
+To learn more, see [issue #10957](https://github.com/kyma-project/kyma/issues/10957). 
