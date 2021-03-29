@@ -50,6 +50,11 @@
       }
     }
   },
+  "inANutshell": {
+    "headline": "In a nutshell",
+    "paragraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "githubButton": "Get it on GitHub"
+  },
   "usedBy": {
     "headline": "Used by",
     "paragraph": "Discover the main use cases of our happy customers",
