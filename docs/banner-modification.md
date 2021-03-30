@@ -12,6 +12,7 @@ slides:
 ```
 
 
+
 Replace these parameters with real values:
 
 - **{BANNER_DURATION}** is the time (in milliseconds) after which a banner slide changes to the next one if there is more than one slide.
