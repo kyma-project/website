@@ -20,7 +20,7 @@ These kind of articles are very helpful. When I started using open source projec
 
 We wanted to improve in this area and make things easier for the Kyma community. We identified in Kyma different capabilities and shared our goal and vision for each of them. The capabilities have their own roadmaps which are in sync with one another and all together constitute an overview of what is going to happen in Kyma in the short and long term. We combined them all in one view called [Roadmap](https://kyma-project.io/roadmap/).
 
-Thanks to this view you can clearly identify the areas of Kyma that are the most important for you, and see if the planned development goes in the direction you expect. If something is not the way you wanted, you can always share your opinion with us at our [Core SIG meetings](https://github.com/kyma-project/community/blob/master/collaboration/02-sig-core.md). Contact us especially if you notice that we are not fully transparent regarding a specific capability, and its roadmap is not properly maintained. Another way to make things better is to join us, and contribute.
+Thanks to this view you can clearly identify the areas of Kyma that are the most important for you, and see if the planned development goes in the direction you expect. If something is not the way you wanted, you can always share your opinion with us at our [Core SIG meetings](https://github.com/kyma-project/community/blob/main/collaboration/02-sig-core.md). Contact us especially if you notice that we are not fully transparent regarding a specific capability, and its roadmap is not properly maintained. Another way to make things better is to join us, and contribute.
 
 ## Easier contribution
 

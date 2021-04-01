@@ -129,10 +129,10 @@ You can use a link instead of a relative path to the image.
 Example:
 
 ``` Markdown
-![Kyma logo](https://raw.githubusercontent.com/kyma-project/kyma/master/logo.png "Hover over me!")
+![Kyma logo](https://raw.githubusercontent.com/kyma-project/kyma/main/logo.png "Hover over me!")
 ```
 
-![Kyma logo](https://github.com/kyma-project/website/blob/master/static/android-chrome-512x512.png "Hover over me!")
+![Kyma logo](https://github.com/kyma-project/website/blob/main/static/android-chrome-512x512.png "Hover over me!")
 
 However, it is advised to download the image, put it into the folder where the `index.md` file is located, and refer to its relative path instead of an absolute link from the Internet.
 
@@ -197,11 +197,11 @@ where:
 Examples:
 
 ``` Markdown
-[Overview - In a nutshell](/docs/master/root/kyma/#overview-in-a-nutshell)
+[Overview - In a nutshell](/docs/main/root/kyma/#overview-in-a-nutshell)
 ```
 
 ``` Markdown
-[Create a bundle](/docs/master/components/helm-broker/#details-create-a-bundle)
+[Create a bundle](/docs/main/components/helm-broker/#details-create-a-bundle)
 ```
 
 For posts with release notes, put the release number in place of `{VERSION}`. For example, the reference to the Helm Broker 0.8 documentation looks as follows:
@@ -210,4 +210,4 @@ For posts with release notes, put the release number in place of `{VERSION}`. Fo
 [Configuration](/docs/0.8/components/helm-broker/#configuration-configuration)
 ```
 
-For more information on how to write release notes, see [this](https://github.com/kyma-project/community/blob/master/guidelines/content-guidelines/06-release-notes.md) document.
+For more information on how to write release notes, see [this](https://github.com/kyma-project/community/blob/main/guidelines/content-guidelines/06-release-notes.md) document.

@@ -103,7 +103,7 @@ Visit our [`test-infra`](https://github.com/kyma-project/test-infra) repository 
 
 - Kyma eventing use cases
 
-  To better align with the Knative eventing community, we created basic use cases of Kyma eventing. These use cases are meant to help us and the community to drive the Knative eventing evolution forward. Read more about the use cases [here](https://github.com/kyma-project/community/blob/master/collaboration/archive/wg-knative/kyma-eventing-use-case.md).
+  To better align with the Knative eventing community, we created basic use cases of Kyma eventing. These use cases are meant to help us and the community to drive the Knative eventing evolution forward. Read more about the use cases [here](https://github.com/kyma-project/community/blob/main/collaboration/archive/wg-knative/kyma-eventing-use-case.md).
 
 - Kyma-Knative eventing installation design
 
@@ -176,7 +176,7 @@ In short, there was a simple but not very useful text reference to other documen
 
 As a follow-up to this new improvement, we also added:
 
-- [Guidelines](https://github.com/kyma-project/community/blob/master/guidelines/content-guidelines/05-links.md) for all contributors on how to add links to documents under `kyma/docs`.
+- [Guidelines](https://github.com/kyma-project/community/blob/main/guidelines/content-guidelines/05-links.md) for all contributors on how to add links to documents under `kyma/docs`.
 
 - The **chain link icon** on `kyma-project.io` that allows you to remember the link to a given document section easier. When you hover the cursor over any heading in the documentation, you can now see this icon. Once you click it, the address bar in the browser gets updated with the direct link to a given section.
 
@@ -188,7 +188,7 @@ Since we introduced a website-centric approach to linking in the documentation, 
 
 The good news is that we also render the documentation for pre-releases on `kyma-project.io/docs`, whenever they are available.
 
-![](./master-branch.png)
+![](./main-branch.png)
 
 ### Blog landing page excerpts 
 

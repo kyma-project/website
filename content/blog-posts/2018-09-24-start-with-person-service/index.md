@@ -2,7 +2,7 @@
 title: "Get started guide for developers on Kyma"
 author:
   name: "Andreas Krause, Kyma Cloud Software Enablement"
-tags: 
+tags:
   - kyma
   - cloud
   - native
@@ -20,7 +20,7 @@ Now that Kyma is out there available to the world you are most probably keen on 
 
 This hands-on guide provides an end-to-end example application implementation in Java and Spring Boot running on Kyma. In the end state, you as a developer will understand all the features Kyma delivers. To summarize, this guide teaches you how to:
 
-- Deploy the application locally to Kyma (based on minikube) or to an actual Kyma cluster 
+- Deploy the application locally to Kyma (based on minikube) or to an actual Kyma cluster
 - Connect your service to Kyma as an extension platform and run a scenario
 - Extend business applications with Kyma through event-driven, Lambda (serverless) functions
 - Bind your application to a brokered backing service
@@ -30,6 +30,6 @@ This hands-on guide provides an end-to-end example application implementation in
 
 We would like to hear your feedback. If you face any issues or have any comments while testing Kyma, feel free to report them on [GitHub](https://github.com/kyma-incubator/examples).  
 
-We also invite you to join the Kyma community on [Twitter](https://twitter.com/kymaproject) and [LinkedIn](https://www.linkedin.com/company/kyma-project/). 
+We also invite you to join the Kyma community on [Twitter](https://twitter.com/kymaproject) and [LinkedIn](https://www.linkedin.com/company/kyma-project/).
 
-Have fun with Kyma! 
+Have fun with Kyma!

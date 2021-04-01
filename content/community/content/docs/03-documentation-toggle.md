@@ -52,7 +52,7 @@ This section contains exemplary uses of the toggle in Markdown documents.
   From release
   </summary>
 
-  When you install Kyma locally from a release, follow [this](https://kyma-project.io/docs/master/root/kyma/#installation-install-kyma-locally) guide.
+  When you install Kyma locally from a release, follow [this](https://kyma-project.io/docs/root/kyma/#installation-install-kyma-locally) guide.
   Ensure that you created the local Kubernetes cluster with `10240Mb` memory and `30Gb` disk size.
   ```
   ./scripts/minikube.sh --domain "kyma.local" --vm-driver "hyperkit" --memory 10240Mb --disk-size 30g
@@ -91,7 +91,7 @@ The code renders on `kyma-project.io` as follows:
       From release
       </summary>
 
-      When you install Kyma locally from a release, follow [this](https://kyma-project.io/docs/master/root/kyma/#installation-install-kyma-locally) guide.
+      When you install Kyma locally from a release, follow [this](https://kyma-project.io/docs/root/kyma/#installation-install-kyma-locally) guide.
       Ensure that you created the local Kubernetes cluster with `10240Mb` memory and `30Gb` disk size.
       ```
       ./scripts/minikube.sh --domain "kyma.local" --vm-driver "hyperkit" --memory 10240Mb --disk-size 30g

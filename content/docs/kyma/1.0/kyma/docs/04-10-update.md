@@ -12,7 +12,7 @@ This guide describes how to update Kyma deployed locally or on a cluster.
 
 ## Overview
 
-Kyma consists of multiple components, installed as [Helm](https://github.com/helm/helm/tree/master/docs) releases.
+Kyma consists of multiple components, installed as [Helm](https://github.com/helm/helm) releases.
 
 Update of an existing deployment can include:
 - changes in charts
