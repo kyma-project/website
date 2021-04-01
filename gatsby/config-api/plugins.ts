@@ -52,7 +52,7 @@ export const plugins: Plugins = [
   {
     resolve: `gatsby-plugin-env-variables`,
     options: {
-      whitelist: ["GOOGLE_CSE", "ALGOLIA_API_KEY", "ALGOLIA_INDEX_NAME"],
+      allowList: ["GOOGLE_CSE", "ALGOLIA_API_KEY", "ALGOLIA_INDEX_NAME"],
     },
   },
   "kyma-project-robots-txt-plugin",
