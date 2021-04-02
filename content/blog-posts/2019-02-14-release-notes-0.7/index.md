@@ -62,7 +62,7 @@ If you run Kyma on Minikube, you must expose the Nginx Ingress Controller on the
 
 We have introduced the alpha version of a new, Kubernetes-native solution for storing assets, such as documents, files, images, or API specifications.
 
-This version of the Asset Store brings you the following features included in the [Asset Store proposal](https://github.com/kyma-project/community/blob/master/collaboration/sig-core/proposals/asset-store-proposal.md):
+This version of the Asset Store brings you the following features included in the [Asset Store proposal](https://github.com/kyma-project/community/blob/main/collaboration/sig-core/proposals/asset-store-proposal.md):
 
 * Fetching single files and packages (zip and tar files are supported for unpacking).
 * Starting Minio in the Minio Gateway mode to push resources to cloud providers, such as Azure or Google Cloud.
@@ -98,7 +98,7 @@ Browsers use cached file versions from previous Kyma releases instead of fetchin
 
 ### New CI pipelines
 
-We have introduced nightly and weekly CI pipelines to perform tests and identify any potential issues, such as incorrect settings or memory leaks. The pipelines run Kyma on Google Kubernetes Engine using the master branch. If you are interested in details, go to `https://status.build.kyma-project.io/?type=periodic` and search for **kyma-gke-nightly** and **kyma-gke-weekly** jobs. We are also planning to add Slack notification for test results.
+We have introduced nightly and weekly CI pipelines to perform tests and identify any potential issues, such as incorrect settings or memory leaks. The pipelines run Kyma on Google Kubernetes Engine using the main branch. If you are interested in details, go to `https://status.build.kyma-project.io/?type=periodic` and search for **kyma-gke-nightly** and **kyma-gke-weekly** jobs. We are also planning to add Slack notification for test results.
 
 ## Eventing
 

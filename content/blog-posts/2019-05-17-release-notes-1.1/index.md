@@ -85,7 +85,7 @@ In 1.1, we focused on creating configuration documents and simplifying the exist
 Configuration improvements:
 - An [overview](/docs/root/kyma/#configuration-overview) document explaining what you can configure in Kyma and how you can do it before and after installation
 - Improved documents on selected [component installation](/docs/root/kyma/#configuration-custom-component-installation) and chart values [overrides](/docs/root/kyma/#configuration-helm-overrides-for-kyma-installation)
-- A [template](https://github.com/kyma-project/community/blob/master/guidelines/templates/resources/configuration.md) for the **Configuration** document type that provides technical details about configuration of a Kyma component's chart or sub-chart
+- A [template](https://github.com/kyma-project/community/blob/main/guidelines/templates/resources/configuration.md) for the **Configuration** document type that provides technical details about configuration of a Kyma component's chart or sub-chart
 - A set of configuration documents for the [Asset Store](/docs/components/asset-store/#configuration-configuration) specifying the configurable parameters from the `values.yaml` charts and sub-charts that you can override. You can expect more of such documents for other Kyma components to come in the upcoming releases
 
 Installation improvements:

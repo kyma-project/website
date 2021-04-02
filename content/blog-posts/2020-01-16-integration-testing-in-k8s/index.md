@@ -110,7 +110,7 @@ With Octopus, all test preparation steps come down to creating:
 2. TestDefinition that specifies the image to use and commands to run.
 3. ClusterTestSuite that defines which tests to run on a cluster, and how you want to run them.
 
-In Kyma, we created integration jobs in the continuous integration tool called [Prow](https://github.com/kyma-project/test-infra/blob/master/prow/README.md). These Prow jobs are run before and after merging any changes to the `master` branch. Upon triggering, a Prow job runs the [`testing.sh`](https://github.com/kyma-project/kyma/blob/master/installation/scripts/testing.sh) script that creates a ClusterTestSuite, builds a cluster, and runs all integration tests on it.
+In Kyma, we created integration jobs in the continuous integration tool called [Prow](https://github.com/kyma-project/test-infra/blob/main/prow/README.md). These Prow jobs are run before and after merging any changes to the `master` branch. Upon triggering, a Prow job runs the [`testing.sh`](https://github.com/kyma-project/kyma/blob/master/installation/scripts/testing.sh) script that creates a ClusterTestSuite, builds a cluster, and runs all integration tests on it.
 
 ## Features & benefits
 

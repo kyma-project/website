@@ -52,7 +52,7 @@ This table lists all the possible parameters of a given resource together with t
 | **metadata.labels.action** | **YES** | Defines the behavior of the Kyma Installer. Available options are `install` and `uninstall`. |
 | **metadata.finalizers** | **NO** | Protects the CR from deletion. Read [this](https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/#finalizers) Kubernetes document to learn more about finalizers. |
 | **spec.version** | **NO** | When manually installing Kyma on a cluster, specify any valid [SemVer](https://semver.org/) notation string. |
-| **spec.url** | **YES** | Specifies the location of the Kyma sources `tar.gz` package. For example, for the `master` branch of Kyma, the address is `https://github.com/kyma-project/kyma/archive/master.tar.gz` |
+| **spec.url** | **YES** | Specifies the location of the Kyma sources `tar.gz` package. For example, for the `main` branch of Kyma, the address is `https://github.com/kyma-project/kyma/archive/main.tar.gz` |
 | **spec.components** | **YES** | Lists which components of Helm chart components to install or update. |
 | **spec.components.name** | **YES** | Specifies the name of the component which is the same as the name of the component subdirectory in the `resources` directory. |
 | **spec.components.namespace** | **YES** | Defines the Namespace in which you want the Installer to install, or update the component. |

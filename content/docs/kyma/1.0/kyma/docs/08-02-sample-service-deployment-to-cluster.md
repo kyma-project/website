@@ -47,13 +47,13 @@ Follow these steps:
 1. Deploy the sample service to any of your Namespaces. Use the `stage` Namespace for this guide:
 
    ```bash
-   kubectl create -n stage -f https://raw.githubusercontent.com/kyma-project/examples/master/http-db-service/deployment/deployment.yaml
+   kubectl create -n stage -f https://raw.githubusercontent.com/kyma-project/examples/main/http-db-service/deployment/deployment.yaml
    ```
 
 2. Create an unsecured API for your service:
 
    ```bash
-   curl -k https://raw.githubusercontent.com/kyma-project/examples/master/gateway/service/api-without-auth.yaml |  sed "s/.kyma.local/.$yourClusterDomain/" | kubectl apply -n stage -f -
+   curl -k https://raw.githubusercontent.com/kyma-project/examples/main/gateway/service/api-without-auth.yaml |  sed "s/.kyma.local/.$yourClusterDomain/" | kubectl apply -n stage -f -
    ```
 
 3. Access the service using the following call:
@@ -79,7 +79,7 @@ Follow these steps:
 Run the following command:
 
    ```bash
-   curl -k https://raw.githubusercontent.com/kyma-project/examples/master/gateway/service/api-with-auth.yaml |  sed "s/.kyma.local/.$yourClusterDomain/" | kubectl apply -n stage -f -
+   curl -k https://raw.githubusercontent.com/kyma-project/examples/main/gateway/service/api-with-auth.yaml |  sed "s/.kyma.local/.$yourClusterDomain/" | kubectl apply -n stage -f -
    ```
 After you apply this update, you must include a valid bearer ID token in the Authorization header to access the service.
 

@@ -32,9 +32,9 @@ Although initially we used GitHub Pages to deploy and host our website, we turne
 
 As the website expanded, we simply needed a platform that would help us to tackle the challenges ahead of us. Netlify managed to do so by offering:
 
-- [Continuous deployment](https://www.netlify.com/blog/2015/09/17/continuous-deployment/) thanks to which the website is built automatically every time you commit changes to the `master` branch. With GitHub Pages, we used Prow CI that we had to maintain ourselves, so we gladly moved to the one offered by Netlify.
+- [Continuous deployment](https://www.netlify.com/blog/2015/09/17/continuous-deployment/) thanks to which the website is built automatically every time you commit changes to the `main` branch. With GitHub Pages, we used Prow CI that we had to maintain ourselves, so we gladly moved to the one offered by Netlify.
 
-- [Deploy Previews](https://www.netlify.com/blog/2016/07/20/introducing-deploy-previews-in-netlify/) built on pull requests (PRs), allowing you to detect any rendering issues before PRs are merged to the `master` branch.
+- [Deploy Previews](https://www.netlify.com/blog/2016/07/20/introducing-deploy-previews-in-netlify/) built on pull requests (PRs), allowing you to detect any rendering issues before PRs are merged to the `main` branch.
 
 - [AWS functions](https://docs.netlify.com/functions/overview/) for running on-demand code triggered by events coming from the GitHub API. In Kyma, we use them as a trigger for running the build and deployment of specific website views. Such a function is triggered whenever you:
 
@@ -58,7 +58,7 @@ To customize content rendering in some of the views, we put our own twists on th
 
 ### In-house documentation component
 
-In Kyma, we render the documentation sources both on the website under the **Docs** view and as built-in documentation in the UI on every Kyma cluster. To unify the way in which it is displayed in both places, we created our own React [documentation component](https://github.com/kyma-incubator/documentation-component) to render Markdown formats and specifications such as OpenAPI, AsyncAPI, and OData. We use this component on the website to render Markdown formats and OpenAPI specifications with [custom styles](https://github.com/kyma-project/website/tree/master/src/components/generic-documentation/render-engines) applied in the chosen views. The documentation component also provides tabs, copy buttons next to code snippets, and scrollspy in the **Docs** and **Community** views:
+In Kyma, we render the documentation sources both on the website under the **Docs** view and as built-in documentation in the UI on every Kyma cluster. To unify the way in which it is displayed in both places, we created our own React [documentation component](https://github.com/kyma-incubator/documentation-component) to render Markdown formats and specifications such as OpenAPI, AsyncAPI, and OData. We use this component on the website to render Markdown formats and OpenAPI specifications with [custom styles](https://github.com/kyma-project/website/tree/main/src/components/generic-documentation/render-engines) applied in the chosen views. The documentation component also provides tabs, copy buttons next to code snippets, and scrollspy in the **Docs** and **Community** views:
 
 ![Features provided by the documentation component](./documentation-component.png)
 
@@ -86,7 +86,7 @@ Each view on the website takes its sources from a different repository.
 - **Roadmap** — the `capabilities` folder in the `community` repository for descriptions of our project areas, and GitHub issues with `Epic` and a given capability labels for the roadmap details
 - **Landing page** — the `content` folder in the `website` repository, including the banner, and the **Used by** section with Kyma adopters
 
-Before the website is built, all this content is copied to the `website` repository by the [content loader](https://github.com/kyma-project/website/tree/master/tools/content-loader) — our own TypeScript tool we use for fetching content from various repositories and getting issue details from ZenHub and GitHub APIs.
+Before the website is built, all this content is copied to the `website` repository by the [content loader](https://github.com/kyma-project/website/tree/main/tools/content-loader) — our own TypeScript tool we use for fetching content from various repositories and getting issue details from ZenHub and GitHub APIs.
 
 ## Build and deployment process
 
@@ -96,9 +96,9 @@ Now that you know all the pieces of our puzzle, let's have a look at how they fi
 
 1. Merge your PR to either the `kyma` (`docs` folder) or `community` repository.
 
-2. The GitHub API sends an event to the Netlify function that triggers the master build.
+2. The GitHub API sends an event to the Netlify function that triggers the main build.
 
-> **NOTE:** The Netlify function is not triggered for the `website` repository since any changes you introduce there automatically trigger the master build.
+> **NOTE:** The Netlify function is not triggered for the `website` repository since any changes you introduce there automatically trigger the main build.
 
 3. The build triggers the content loader to fetch the given repository content, along with related ClusterAssetGroups, and perform initial data serialization and filtering.
 
@@ -144,12 +144,12 @@ The fun may begin when you try to figure out where we keep the sources for all t
 
 | Website view | What | Where | How |
 |---|---|---|---|
-| **Landing page** | Kyma adopter | [`website/content/adopters/adopters.yaml`](https://github.com/kyma-project/website/blob/master/content/adopters/adopters.yaml) | Follow the [instruction](https://github.com/kyma-project/website/blob/master/docs/add-user.md), or [log an issue](https://github.com/kyma-project/website/issues/new?template=new-user-request.md) and we will add it for you. |
-| **Landing page** | Banner | [`website/content/banner/slides.yml`](https://github.com/kyma-project/website/blob/master/content/banner/slides.yml) | Follow the [instruction](https://github.com/kyma-project/website/blob/master/docs/banner-modification.md). |
+| **Landing page** | Kyma adopter | [`website/content/adopters/adopters.yaml`](https://github.com/kyma-project/website/blob/main/content/adopters/adopters.yaml) | Follow the [instruction](https://github.com/kyma-project/website/blob/main/docs/add-user.md), or [log an issue](https://github.com/kyma-project/website/issues/new?template=new-user-request.md) and we will add it for you. |
+| **Landing page** | Banner | [`website/content/banner/slides.yml`](https://github.com/kyma-project/website/blob/main/content/banner/slides.yml) | Follow the [instruction](https://github.com/kyma-project/website/blob/main/docs/banner-modification.md). |
 | **Docs** | Document or topic | [`kyma/docs`](https://github.com/kyma-project/kyma/tree/master/docs) | Add a document that follows one of the [templates](https://kyma-project.io/community/guidelines/templates/#document-types-templates-document-types-templates-document-types-for-kyma-components), or follow the instructions to [add a new topic](https://kyma-project.io/community/guidelines/content/#add-new-documentation-to-the-website-add-new-documentation-to-the-website). |
-| **Blogs** | Blog post | [`website/content/blog-post`](https://github.com/kyma-project/website/tree/master/content/blog-posts) | Follow the [instruction](https://github.com/kyma-project/website/blob/master/docs/write-blog-posts.md). |
+| **Blogs** | Blog post | [`website/content/blog-post`](https://github.com/kyma-project/website/tree/main/content/blog-posts) | Follow the [instruction](https://github.com/kyma-project/website/blob/main/docs/write-blog-posts.md). |
 | **Community** | Document | [`community`](https://github.com/kyma-project/community) | Create a PR. |
-| **Roadmap** | Epic | All repositories | Log an issue, assign it to the proper release on GitHub, and add your [capability](https://github.com/kyma-project/community/tree/master/capabilities) and `Epic` labels. |
-| **Roadmap** | Capability | [`community/capabilities`](https://github.com/kyma-project/community/tree/master/capabilities) | Create a PR. |
+| **Roadmap** | Epic | All repositories | Log an issue, assign it to the proper release on GitHub, and add your [capability](https://github.com/kyma-project/community/tree/main/capabilities) and `Epic` labels. |
+| **Roadmap** | Capability | [`community/capabilities`](https://github.com/kyma-project/community/tree/main/capabilities) | Create a PR. |
 
 Apart from contribution, we also cherish feedback. If you have any thoughts to share or questions to ask, contact us directly on the [`#kyma-project-io`](http://slack.kyma-project.io/) Slack channel.

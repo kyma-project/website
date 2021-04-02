@@ -84,7 +84,7 @@ spec:
     - type: markdown
       name: docs
       mode: package
-      url: https://github.com/prometheus/docs/archive/master.zip
+      url: https://github.com/prometheus/docs/archive/main.zip
       filter: content/docs/concepts
 EOF
 ```

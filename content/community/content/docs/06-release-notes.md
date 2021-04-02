@@ -12,7 +12,7 @@ Information in release notes must provide readers with everything they need to k
 * Does an error message appear?
 * Was the enhancement based upon customer feedback?
 
-Because the release notes contain critical information and act as an important communication tool, follow these guidelines so that the documentation is informative and consistent. When authoring release notes, follow the [Style and Terminology](#style-and-terminology-style-and-terminology) for many agreed-upon standards. Read [this](https://github.com/kyma-project/website/blob/master/docs/write-blog-posts.md) document to learn how to add the release notes as a blog post on a website.
+Because the release notes contain critical information and act as an important communication tool, follow these guidelines so that the documentation is informative and consistent. When authoring release notes, follow the [Style and Terminology](#style-and-terminology-style-and-terminology) for many agreed-upon standards. Read [this](https://github.com/kyma-project/website/blob/main/docs/write-blog-posts.md) document to learn how to add the release notes as a blog post on a website.
 
 ## Headlines
 A headline is short, interesting, and summarizes your release notes. Write headlines in sentence case.

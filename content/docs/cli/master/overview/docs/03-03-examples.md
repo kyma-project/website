@@ -10,7 +10,7 @@ The following examples show how to provision a cluster, install Kyma, and run th
 To provision a cluster on a specific cloud provider (in this example GCP), run:
 
 ```bash
-kyma provision gke -c {SERVICE_ACCOUNT_KEY_FILE_PATH} -n {CLUSTER_NAME} -p {GCP_PROJECT} 
+kyma provision gke -c {SERVICE_ACCOUNT_KEY_FILE_PATH} -n {CLUSTER_NAME} -p {GCP_PROJECT}
 ```
 To provision a Minikube cluster, run:
 
@@ -26,7 +26,7 @@ To install Kyma using your own domain, run:
 kyma install --domain {DOMAIN} --tlsCert {TLS_CERT} --tlsKey {TLS_KEY}
 ```
 
-To install Kyma from the latest `master` branch, run:
+To install Kyma from the latest `main` branch, run:
 
 ```bash
 kyma install -s latest

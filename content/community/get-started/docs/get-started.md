@@ -22,7 +22,7 @@ Create an issue on [GitHub](https://github.com/kyma-project) to report a bug or 
 
 ## Special Interest Groups & Working Groups
 
-The Kyma community collaborates through Special Interest Groups and Working Groups ([SIGs and WGs](/collaboration/#overview-overview)). By joining the SIGs and WGs, you can meet other community members, exchange information on Kyma, provide feedback, raise interest, ask questions, and learn about the product. Join the SIGs or WGs meeting to learn more what each group works on. 
+The Kyma community collaborates through Special Interest Groups and Working Groups ([SIGs and WGs](/collaboration/#overview-overview)). By joining the SIGs and WGs, you can meet other community members, exchange information on Kyma, provide feedback, raise interest, ask questions, and learn about the product. Join the SIGs or WGs meeting to learn more what each group works on.
 
 # <img src="assets/stay-informed-icon.svg" width="120"> Stay Informed
 
@@ -36,7 +36,7 @@ Subscribe to our [YouTube channel](https://www.youtube.com/channel/UC8Q8bBtYe9gQ
 
 ## Blog
 
-Go the [Kyma blog](https://kyma-project.io/blog/) to read the latest news on our project, events, and teams. If you want to share your experience with Kyma, feel free to [write a blog post](https://github.com/kyma-project/website/blob/master/docs/write-blog-posts.md) on your own.
+Go the [Kyma blog](https://kyma-project.io/blog/) to read the latest news on our project, events, and teams. If you want to share your experience with Kyma, feel free to [write a blog post](https://github.com/kyma-project/website/blob/main/docs/write-blog-posts.md) on your own.
 
 # <img src="assets/community-support-icon.svg" width="120"> Community Support
 

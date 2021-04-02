@@ -115,7 +115,7 @@ If you already have WordPress installed, you can go to the next step. If not, yo
 kubectl create namespace wordpress
 
 # Deploy WordPress
-kubectl -n wordpress apply -f https://raw.githubusercontent.com/kyma-project/website/master/content/blog-posts/2019-07-08-extend-wordpress/wordpress-deployment.yaml
+kubectl -n wordpress apply -f https://raw.githubusercontent.com/kyma-project/website/main/content/blog-posts/2019-07-08-extend-wordpress/wordpress-deployment.yaml
 ```
 
 Wait a few seconds for WordPress to start. You can check the status in the **Deployments** section.
