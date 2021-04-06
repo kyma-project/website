@@ -45,7 +45,7 @@ const Search: React.FunctionComponent<IntlInterface> = ({ formatMessage }) => {
   const transformData = (suggestions: any[]) => {
     if (!suggestions || !suggestions.length) return [];
     const newSuggestions = suggestions.filter(suggestion => {
-      const regexp: RegExp = /docs\/([0-9]\.[0-9]|master|latest)/g;
+      const regexp: RegExp = /docs\/([0-9]\.[0-9]|master|main|latest)/g;
       const found = suggestion.url.match(regexp);
       return !found || !Boolean(found.length);
     });
