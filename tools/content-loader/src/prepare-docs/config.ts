@@ -23,7 +23,7 @@ export interface DocsConfig {
 const config: DocsConfig = {
   branches: process.env.APP_DOCS_BRANCHES
     ? process.env.APP_DOCS_BRANCHES.replace(/ /g, "").split(",")
-    : ["master"],
+    : ["main"],
   docsRepositories: configJSON.docs,
   outputPath: process.env.APP_DOCS_OUTPUT || "docs",
   sourcePreviewPath: process.env.APP_PREVIEW_SOURCE_DIR || "kyma",
