@@ -80,7 +80,7 @@
       "displayName": "CLI",
       "organization": "kyma-project",
       "repository": "cli",
-      "branches": ["master"],
+      "branches": ["main"],
       "lastReleases": 3,
       "navPath": "cli",
       "rootPath": {
@@ -92,7 +92,7 @@
       "displayName": "Control Plane",
       "organization": "kyma-project",
       "repository": "control-plane",
-      "branches": ["master"],
+      "branches": ["main"],
       "lastReleases": 0,
       "navPath": "control-plane",
       "rootPath": {
