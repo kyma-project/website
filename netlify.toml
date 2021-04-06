@@ -6,4 +6,4 @@
   command = "make netlify-production"
 
 [context.deploy-preview]
-  command = "make netlify-production"
+  command = "make netlify-deploy-preview"
