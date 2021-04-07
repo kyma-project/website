@@ -37,17 +37,17 @@ export const HeaderWrapper = styled.div<HeaderWrapperProps>`
 
 export const StyledWrapper = styled.div`
   background: url(${usedByBackgroundSVG});
-  background-size: 100% 1050px;
+  background-size: 100% 100%;
   padding: 200px 15px 30px;
   background-repeat: no-repeat;
 
   ${media.phone`
-    background-size: 120% 600px;
+    background-size: 120% 100%;
     padding: 110px 15px 0px;
   `};
 
   ${media.smallPhone`
-    background-size: 120% 600px;
+    background-size: 120% 100%;
     padding: 110px 15px 0px;
   `};
 `;
@@ -55,7 +55,7 @@ export const StyledWrapper = styled.div`
 export const ImageWrapper = styled.div`
   display: flex;
   margin-bottom: 90px;
-  height: 100%;
+  /* height: 100%; */
 
   img {
     margin: 0 auto;
