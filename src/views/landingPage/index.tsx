@@ -11,6 +11,7 @@ import { Newsroom } from "./Newsroom";
 import { Manifesto } from "./Manifesto";
 import { Features } from "./Features";
 import { UsedBy } from "./UsedBy";
+import { Nutshell } from "./Nutshell";
 
 const LandingPageView: React.FunctionComponent<PageContext<
   LandingPageContext
@@ -20,7 +21,9 @@ const LandingPageView: React.FunctionComponent<PageContext<
     <>
       {/* <Manifesto scrollRef={scrollRef} /> */}
       {/* <Features scrollRef={scrollRef} /> */}
+      {/* <Nutshell /> */}
       {/* <UsedBy adopters={adopters} /> */}
+
       <Headline />
       <WhatIs />
       <ExtensionsAndTools />
