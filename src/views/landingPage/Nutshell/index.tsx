@@ -56,7 +56,6 @@ const NutshellRaw: React.FunctionComponent = () => {
               </ImageWrapper>
             </HeaderWrapper>
           </StyledGridUnit>
-          <Grid.Unit></Grid.Unit>
         </Grid.Row>
       </StyledGridContainer>
     </StyledWrapper>
