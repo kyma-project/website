@@ -16,6 +16,8 @@ Use the following tools to set up the project:
 
 - [Node.js](https://nodejs.org/en/)
 
+> **NOTE:** The latest working version of `Node.js` is `12.20.1`. If you're using a later version something may not work properly.
+
 ## Usage
 
 ### Install dependencies
