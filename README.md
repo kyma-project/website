@@ -14,7 +14,7 @@ This repository contains website source for [`kyma-project.io`](https://kyma-pro
 
 Use the following tools to set up the project:
 
-- [Node.js](https://nodejs.org/en/)
+- [Node.js](https://nodejs.org/en/) v12.20.1
 
 ## Usage
 
