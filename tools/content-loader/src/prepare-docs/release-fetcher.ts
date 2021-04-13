@@ -1,4 +1,6 @@
+import { prepareData } from "./../../../../gatsby/node-api/pages/community/helpers";
 import to from "await-to-js";
+import { gt as semverGt, coerce as semverCoerce } from "semver";
 import {
   ReposGetReleaseResponse,
   ReposListTagsResponseItem,
@@ -85,14 +87,36 @@ export class ReleaseFetcher {
     return result;
   }
 
+  handlePreReleasesWithoutRelease(
+    releases: Map<string, ReposGetReleaseResponse>,
+    numberOfReleases: number,
+    prerelease: string,
+  ) {
+    const latestReleaseVersions = [...releases.keys()]
+      .map(el => semverCoerce(el))
+      .sort((a, b) => {
+        return semverGt(a, b) ? -1 : 1;
+      })
+      .map(el => el.raw)
+      .slice(0, numberOfReleases);
+
+    return latestReleaseVersions.some(elem => {
+      return semverGt(semverCoerce(prerelease), semverCoerce(elem));
+    });
+  }
+
   filterReleased(
     prereleases: Map<string, ReposGetReleaseResponse>,
     releases: Map<string, ReposGetReleaseResponse>,
+    numberOfReleases: number,
   ) {
     const result = new Map<string, ReposGetReleaseResponse>();
 
     prereleases.forEach((value, key) => {
-      if (!releases.has(key)) {
+      if (
+        !releases.has(key) &&
+        this.handlePreReleasesWithoutRelease(releases, numberOfReleases, key)
+      ) {
         result.set(key, value);
       }
     });

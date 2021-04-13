@@ -55,7 +55,10 @@ export class GitHubClient {
       }),
     );
     if (err) {
-      throw new VError(err, `while getting data from branch: ${branch}`);
+      throw new VError(
+        err,
+        `while getting data from branch ${branch} from repo ${this.config.repository}`,
+      );
     }
 
     return response ? response.data.commit.sha : null;
