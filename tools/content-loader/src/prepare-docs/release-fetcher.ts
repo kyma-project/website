@@ -102,7 +102,7 @@ export class ReleaseFetcher {
       semverCoerce(el),
     );
 
-    if (latestReleaseVersions.every(elem => !!elem)) {
+    if (!latestReleaseVersions.every(elem => !!elem)) {
       throw new VError(
         `All newest version in array: ${latestReleaseVersions} should be coercable to semver version`,
       );
@@ -110,15 +110,13 @@ export class ReleaseFetcher {
 
     const latestReleaseVersionsInSemver = (latestReleaseVersions as SemVer[]) // casting needed to fix types, we ensure that the types are correct in lines above
       .filter(arg => arg !== null)
-      .sort((a, b) => {
-        return semverGt(a, b) ? -1 : 1;
-      })
+      .sort((a, b) => (semverGt(a, b) ? -1 : 1))
       .map(el => el.raw)
       .slice(0, numberOfReleases);
 
-    return latestReleaseVersionsInSemver.some(elem => {
-      return semverGt(preReleaseSemver, semverCoerce(elem) as SemVer);
-    });
+    return latestReleaseVersionsInSemver.some(elem =>
+      semverGt(preReleaseSemver, semverCoerce(elem) as SemVer),
+    );
   }
 
   filterReleased(
