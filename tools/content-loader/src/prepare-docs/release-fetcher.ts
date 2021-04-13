@@ -1,6 +1,8 @@
+import { VError } from "verror";
 import { prepareData } from "./../../../../gatsby/node-api/pages/community/helpers";
 import to from "await-to-js";
-import { gt as semverGt, coerce as semverCoerce } from "semver";
+import { gt as semverGt, coerce as semverCoerce, SemVer } from "semver";
+
 import {
   ReposGetReleaseResponse,
   ReposListTagsResponseItem,
@@ -92,16 +94,31 @@ export class ReleaseFetcher {
     numberOfReleases: number,
     prerelease: string,
   ) {
-    const latestReleaseVersions = [...releases.keys()]
-      .map(el => semverCoerce(el))
+    const preReleaseSemver = semverCoerce(prerelease);
+    if (!preReleaseSemver) {
+      throw new VError(`Couldn't coerce ${prerelease} to SemVer`);
+    }
+
+    const latestReleaseVersions = [...releases.keys()].map(el =>
+      semverCoerce(el),
+    );
+
+    if (latestReleaseVersions.every(elem => !!elem)) {
+      throw new VError(
+        `All newest version in array: ${latestReleaseVersions} should be coercable to semver version`,
+      );
+    }
+
+    const latestReleaseVersionsInSemver = (latestReleaseVersions as SemVer[]) // casting needed to fix types, we ensure that the types are correct in lines above
+      .filter(arg => arg !== null)
       .sort((a, b) => {
         return semverGt(a, b) ? -1 : 1;
       })
       .map(el => el.raw)
       .slice(0, numberOfReleases);
 
-    return latestReleaseVersions.some(elem => {
-      return semverGt(semverCoerce(prerelease), semverCoerce(elem));
+    return latestReleaseVersionsInSemver.some(elem => {
+      return semverGt(preReleaseSemver, semverCoerce(elem) as SemVer);
     });
   }
 
