@@ -1,5 +1,4 @@
 import { VError } from "verror";
-import { prepareData } from "./../../../../gatsby/node-api/pages/community/helpers";
 import to from "await-to-js";
 import { gt as semverGt, coerce as semverCoerce, SemVer } from "semver";
 
