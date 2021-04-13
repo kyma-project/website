@@ -36,6 +36,7 @@ The configuration options are as follows:
 | Name                                    | Required | Default value            | Description                                                           |
 | ----------------------------------------| :------: | :----------------------: | --------------------------------------------------------------------- |
 | **APP_TOKEN**                           | **YES**  | `null`                   | GitHub API OAuth token                                            |
+| **APP_PREVIEW_SOURCE_DIR**              | **NO**  | TODO: | Source of markdowns and CAG configuration
 | **APP_ZEN_HUB_TOKEN**                   | **YES**  | `null`                   | ZenHub API OAuth token                                            |
 | **APP_ORGANIZATION**                    | **YES**  | `kyma-project`           | GitHub organization that owns a given repository                  |
 | **APP_DOCS_REPOSITORY**                 | **YES**  | `kyma`                   | Repository with documentation                                     |

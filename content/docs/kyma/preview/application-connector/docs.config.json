@@ -1,0 +1,28 @@
+{
+  "spec": {
+    "id": "application-connector",
+    "displayName": "Application Connector",
+    "description": "Overall documentation for Application Connector",
+    "type": "Components"
+  },
+  "specifications": [
+    {
+      "id": "connectorapi",
+      "type": "openapi",
+      "assetPath": "connectorapi.yaml",
+      "githubUrl": "https://github.com/kyma-project/kyma/blob/master/docs/application-connector/assets/connectorapi.yaml"
+    },
+    {
+      "id": "eventsapi",
+      "type": "openapi",
+      "assetPath": "eventsapi.yaml",
+      "githubUrl": "https://github.com/kyma-project/kyma/blob/master/docs/application-connector/assets/eventsapi.yaml"
+    },
+    {
+      "id": "metadataapi",
+      "type": "openapi",
+      "assetPath": "metadataapi.yaml",
+      "githubUrl": "https://github.com/kyma-project/kyma/blob/master/docs/application-connector/assets/metadataapi.yaml"
+    }
+  ]
+}

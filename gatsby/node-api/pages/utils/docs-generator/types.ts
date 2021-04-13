@@ -66,6 +66,18 @@ export interface DocsNavigationTopic {
   id: string;
 }
 
+/*Nowe lepsze typy*/
+export interface NewBtrDocsManifest {
+  [id: string]: BetterNavigationTopic;
+}
+
+export interface BetterNavigationTopic {
+  displayName: string;
+  items: {
+    [id: string]: BetterNavigationTopic;
+  };
+}
+
 /* Manifest */
 export interface DocsManifest {
   spec: ManifestSpec;

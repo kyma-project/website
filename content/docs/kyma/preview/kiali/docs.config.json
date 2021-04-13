@@ -1,0 +1,9 @@
+{
+  "spec": {
+    "id": "kiali",
+    "displayName": "Kiali",
+    "description": "Overall documentation for Kiali",
+    "type": "Components"
+  },
+  "specifications": []
+}

@@ -1,0 +1,9 @@
+{
+  "spec": {
+    "id": "runtime-agent",
+    "displayName": "Runtime Agent",
+    "description": "Overall documentation for Runtime Agent",
+    "type": "Components"
+  },
+  "specifications": []
+}

@@ -70,6 +70,7 @@ export interface DocsNavigation {
 export interface DocsNavigationTopic {
   displayName: string;
   id: string;
+  items: DocsNavigationTopic[];
 }
 
 /* Manifest */

@@ -2,20 +2,20 @@ import { ContentLoader } from "./contentLoader";
 import { extractSpecifications } from "./extractSpecifications";
 import {
   ContentGQL,
-  ManifestSpec,
   ManifestItem,
   DocsContent,
   DocsContentDocs,
+  NewBtrDocsManifest,
 } from "./types";
-import { sortDocsByOrder, sortDocsByType, populateObject } from "./helpers";
+import { sortDocsByOrder, sortDocsByType, toArray } from "./helpers";
 
 export const extractContent = <T extends ContentGQL>({
-  manifestSpec,
+  manifest,
   contentGQLs,
   contentLoader,
   extractFn,
 }: {
-  manifestSpec: ManifestSpec;
+  manifest: NewBtrDocsManifest;
   contentGQLs: T[];
   contentLoader: ContentLoader;
   extractFn: (
@@ -26,9 +26,9 @@ export const extractContent = <T extends ContentGQL>({
 }): DocsContent => {
   const content: DocsContent = {} as DocsContent;
 
-  Object.keys(manifestSpec).map(docsGroup => {
+  Object.keys(manifest).map(docsGroup => {
     content[docsGroup] = {};
-    const topics = populateObject<ManifestItem>(manifestSpec[docsGroup]);
+    const topics = toArray<ManifestItem>(manifest[docsGroup]);
 
     topics.map(topic => {
       const topicId = topic.id;

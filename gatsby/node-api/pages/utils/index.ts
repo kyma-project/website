@@ -1,5 +1,5 @@
 export * from "./docs-generator";
-export { getContent, populateObject } from "./docs-generator/helpers";
+export { getContent, toArray } from "./docs-generator/helpers";
 export * from "./docs-generator/types";
 export * from "./addToContextBannerSlides";
 export * from "./createIntlPage";

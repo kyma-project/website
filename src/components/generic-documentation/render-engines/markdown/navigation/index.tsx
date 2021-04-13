@@ -43,6 +43,7 @@ export interface NavigationProps {
   docsVersionSwitcher?: React.ReactNode;
 }
 
+// TODO: Tutaj trzeba bd zmieniac, bo tutaj sie tworzy slupek z dokumentacja
 function renderList(
   group: string,
   items: DocsNavigationTopic[],

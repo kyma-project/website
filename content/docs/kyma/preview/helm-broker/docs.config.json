@@ -1,0 +1,9 @@
+{
+  "spec": {
+    "id": "helm-broker",
+    "displayName": "Helm Broker",
+    "description": "Overall documentation for the Helm Broker",
+    "type": "Components"
+  },
+  "specifications": []
+}

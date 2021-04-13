@@ -1,0 +1,9 @@
+{
+  "spec": {
+    "id": "eventing",
+    "displayName": "Eventing",
+    "description": "Overall documentation for Eventing",
+    "type": "Components"
+  },
+  "specifications": []
+}

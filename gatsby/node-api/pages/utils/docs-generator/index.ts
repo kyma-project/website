@@ -19,10 +19,11 @@ export const docsGenerator = <T extends ContentGQL>(
   contentLoader.setFolder(folder);
   contentLoader.setVersion(version ? version : "");
 
-  const manifestSpec = loadManifest(contentLoader.loadManifest()).spec;
-  const navigation = createNavigation(manifestSpec);
+  const manifest = loadManifest(contentLoader.loadManifest());
+  // const navigation = createNavigation(manifestSpec);
+
   const content = extractContent<T>({
-    manifestSpec,
+    manifest,
     contentGQLs,
     contentLoader,
     extractFn,
@@ -30,8 +31,7 @@ export const docsGenerator = <T extends ContentGQL>(
 
   return {
     content,
-    navigation,
-    manifest: manifestSpec,
+    manifest,
   };
 };
 

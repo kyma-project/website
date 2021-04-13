@@ -1,0 +1,9 @@
+{
+  "spec": {
+    "id": "service-catalog",
+    "displayName": "Service Catalog",
+    "description": "Overall documentation for Service Catalog",
+    "type": "Components"
+  },
+  "specifications": []
+}

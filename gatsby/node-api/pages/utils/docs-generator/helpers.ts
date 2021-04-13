@@ -84,7 +84,7 @@ const sortFnByProperty = <T extends { [k: string]: any }>(sortBy: string) => (
   return 0;
 };
 
-const populateObject = <T = any>(obj: any | any[]): T[] => {
+const toArray = <T = any>(obj: any | any[]): T[] => {
   if (Array.isArray(obj)) {
     return obj;
   }
@@ -96,4 +96,4 @@ const populateObject = <T = any>(obj: any | any[]): T[] => {
   return [];
 };
 
-export { getContent, sortDocsByOrder, sortDocsByType, populateObject };
+export { getContent, sortDocsByOrder, sortDocsByType, toArray };

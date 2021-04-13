@@ -1,0 +1,16 @@
+{
+  "spec": {
+    "id": "getting-started",
+    "displayName": "Getting Started",
+    "description": "Getting started guides for Kyma",
+    "type": "Root"
+  },
+  "specifications": [
+    {
+      "id": "orders-service-openapi",
+      "type": "openapi",
+      "assetPath": "orders-service-openapi.yaml",
+      "githubUrl": "https://github.com/kyma-project/kyma/blob/master/docs/getting-started/assets/orders-service-openapi.yaml"
+    }
+  ]
+}

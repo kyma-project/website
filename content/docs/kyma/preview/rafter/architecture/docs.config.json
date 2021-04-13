@@ -1,0 +1,34 @@
+{
+  "spec": {
+    "id": "rafter",
+    "displayName": "Dupa-Rafter",
+    "description": "Overall documentation for Rafter",
+    "type": "Components"
+  },
+  "specifications": [
+    {
+      "id": "example-openapi-service",
+      "type": "openapi",
+      "assetPath": "example-openapi-service.yaml",
+      "githubUrl": "https://github.com/kyma-project/kyma/blob/master/docs/rafter/assets/example-openapi-service.yaml"
+    },
+    {
+      "id": "front-matter-service-openapi",
+      "type": "openapi",
+      "assetPath": "front-matter-service-openapi.yaml",
+      "githubUrl": "https://github.com/kyma-project/kyma/blob/master/docs/rafter/assets/front-matter-service-openapi.yaml"
+    },
+    {
+      "id": "upload-service-openapi",
+      "type": "openapi",
+      "assetPath": "upload-service-openapi.yaml",
+      "githubUrl": "https://github.com/kyma-project/kyma/blob/master/docs/rafter/assets/upload-service-openapi.yaml"
+    },
+    {
+      "id": "asyncapi-service-openapi",
+      "type": "openapi",
+      "assetPath": "asyncapi-service-openapi.yaml",
+      "githubUrl": "https://github.com/kyma-project/kyma/blob/master/docs/rafter/assets/asyncapi-service-openapi.yaml"
+    }
+  ]
+}

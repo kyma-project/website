@@ -1,0 +1,38 @@
+spec:
+  components:
+    - displayName: Dupa
+      id: security
+    - displayName: Service Catalog
+      id: service-catalog
+    - displayName: Helm Broker
+      id: helm-broker
+    - displayName: Application Connector
+      id: application-connector
+    - displayName: Eventing
+      id: eventing
+    - displayName: Service Mesh
+      id: service-mesh
+    - displayName: Serverless
+      id: serverless
+    - displayName: Monitoring
+      id: monitoring
+    - displayName: Tracing
+      id: tracing
+    - displayName: API Gateway
+      id: api-gateway
+    - displayName: Logging
+      id: logging
+    - displayName: Console
+      id: console
+    - displayName: Rafter
+      id: rafter
+    - displayName: Runtime Agent
+      id: runtime-agent
+    - displayName: Kiali
+      id: kiali
+
+  root:
+    - displayName: Kyma
+      id: kyma
+    - displayName: Getting Started
+      id: getting-started

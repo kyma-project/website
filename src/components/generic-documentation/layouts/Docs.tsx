@@ -65,6 +65,7 @@ export const DocsLayout: React.FunctionComponent<DocsLayoutProps> = ({
         <Grid.Container className="grid-container" padding="0">
           <StickyContainer>
             <Grid.Row>
+              {/*TO JEST NAWIGAJA Z LEWEJ STRONY*/}
               <Grid.Unit
                 df={2}
                 md={0}
@@ -85,6 +86,7 @@ export const DocsLayout: React.FunctionComponent<DocsLayoutProps> = ({
                 </Sticky>
                 <MobileNavButton />
               </Grid.Unit>
+              {/*TO JEST NAWIGAJA Z LEWEJ STRONY*/}
               <Grid.Unit
                 df={8}
                 md={9}
@@ -98,6 +100,7 @@ export const DocsLayout: React.FunctionComponent<DocsLayoutProps> = ({
                 </TitleHeader>
                 <Content renderers={renderers} />
               </Grid.Unit>
+              {/*TUTAJ JEST NAWIGACJA PRAWA*/}
               <Grid.Unit
                 df={2}
                 md={3}
@@ -116,6 +119,7 @@ export const DocsLayout: React.FunctionComponent<DocsLayoutProps> = ({
                 </Sticky>
                 <MobileNavButton orientation="right" iconName="anchor" />
               </Grid.Unit>
+              {/*TUTAJ JEST NAWIGACJA PRAWA*/}
             </Grid.Row>
           </StickyContainer>
         </Grid.Container>

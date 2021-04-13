@@ -1,0 +1,19 @@
+security:
+  displayName: Security
+service-catalog:
+  displayName: Service Catalog
+  items:
+    overview:
+      displayName: Overview
+    architecture:
+      displayName: Architecture
+rafter:
+  displayName: Rafter
+  items:
+    overview:
+      displayName: Overview
+    architecture:
+      displayName: Architecture
+      items:
+        asset-flow:
+           displayName: Basic Asset Flow

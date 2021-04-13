@@ -4,7 +4,7 @@ import { safeLoad } from "js-yaml";
 import { DocsConfig } from "@typings/docs";
 import { DOCS_SPECIFICATIONS_PATH } from "../../../../constants";
 
-const MANIFEST_YAML = "manifest.yaml";
+const MANIFEST_YAML = "new-manifest.yaml";
 const TOPIC_CONFIG_JSON = "docs.config.json";
 
 export class ContentLoader {

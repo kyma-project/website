@@ -1,6 +1,7 @@
-import { populateObject } from "./helpers";
+import { toArray } from "./helpers";
 import { ManifestSpec, ManifestItem, DocsNavigation } from "./types";
 
+//TODO: Czy to jest potrzebne?
 export const createNavigation = (
   manifestSpec: ManifestSpec,
 ): DocsNavigation => {
@@ -8,7 +9,7 @@ export const createNavigation = (
 
   // working on reference
   Object.keys(manifestSpec).map(key => {
-    manifestSpec[key] = populateObject<ManifestItem>(manifestSpec[key]);
+    manifestSpec[key] = toArray<ManifestItem>(manifestSpec[key]);
   });
 
   return navigation;

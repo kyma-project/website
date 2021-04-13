@@ -57,7 +57,7 @@ export class CopyDocs {
   private do = async (source: string, output: string, version?: string) => {
     let err: Error | null = null;
 
-    console.log(`Copy documentation to ${output}`);
+    console.log(`Copy documentation from ${source} to ${output}`);
 
     [err] = await to(this.copy(source, output, version));
     if (err) {
