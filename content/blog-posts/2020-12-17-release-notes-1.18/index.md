@@ -45,7 +45,7 @@ In this release, we fixed the inconsistency in the naming of CLI command flags. 
 
   - `hypervVirtualSwitch` → `hyperv-virtual-switch`
 
-For more information about the possible commands, flags, and options, read [Kyma CLI documentation](https://kyma-project.io/docs/1.18/cli/overview/).
+For more information about the possible commands, flags, and options, read [Kyma CLI documentation](https://github.com/kyma-project/cli/tree/release-1.18/docs).
 
 ### Changes to the installation command
 
