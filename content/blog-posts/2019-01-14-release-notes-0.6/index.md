@@ -182,9 +182,9 @@ As a follow-up to this new improvement, we also added:
 
 ![](./linking.png)
 
-### Main branch available in Docs
+### Master branch available in Docs
 
-Since we introduced a website-centric approach to linking in the documentation, we wanted to make sure you don't fail at reading it on GitHub as a contributor, by being constantly redirected to the website's Docs. Before Kyma 0.6 Cairo, we only rendered the release-related documentation on `kyma-project.io/docs`. Now, as one of few open-source projects, we also render documentation for the [`main`](https://kyma-project.io/docs/main) branch. This documentation is updated on the website automatically, approx. 10 minutes after every merge of changes to the `master` branch.
+Since we introduced a website-centric approach to linking in the documentation, we wanted to make sure you don't fail at reading it on GitHub as a contributor, by being constantly redirected to the website's Docs. Before Kyma 0.6 Cairo, we only rendered the release-related documentation on `kyma-project.io/docs`. Now, as one of few open-source projects, we also render documentation for the [`master`](https://kyma-project.io/docs/main) branch. This documentation is updated on the website automatically, approx. 10 minutes after every merge of changes to the `master` branch.
 
 The good news is that we also render the documentation for pre-releases on `kyma-project.io/docs`, whenever they are available.
 
