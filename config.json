@@ -68,7 +68,7 @@
       "displayName": "Kyma",
       "organization": "kyma-project",
       "repository": "kyma",
-      "branches": ["main"],
+      "branches": ["release-1.22"],
       "lastReleases": 3,
       "navPath": "",
       "rootPath": {
@@ -80,7 +80,7 @@
       "displayName": "CLI",
       "organization": "kyma-project",
       "repository": "cli",
-      "branches": ["main"],
+      "branches": ["release-1.21"],
       "lastReleases": 3,
       "navPath": "cli",
       "rootPath": {
@@ -92,7 +92,7 @@
       "displayName": "Control Plane",
       "organization": "kyma-project",
       "repository": "control-plane",
-      "branches": ["main"],
+      "branches": ["kyma-1.20"],
       "lastReleases": 0,
       "navPath": "control-plane",
       "rootPath": {
