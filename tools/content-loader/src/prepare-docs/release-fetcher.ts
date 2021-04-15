@@ -1,4 +1,7 @@
+import { VError } from "verror";
 import to from "await-to-js";
+import { gt as semverGt, coerce as semverCoerce, SemVer } from "semver";
+
 import {
   ReposGetReleaseResponse,
   ReposListTagsResponseItem,
@@ -85,14 +88,49 @@ export class ReleaseFetcher {
     return result;
   }
 
+  handlePreReleasesWithoutRelease(
+    releases: Map<string, ReposGetReleaseResponse>,
+    numberOfReleases: number,
+    prerelease: string,
+  ) {
+    const preReleaseSemver = semverCoerce(prerelease);
+    if (!preReleaseSemver) {
+      throw new VError(`Couldn't coerce ${prerelease} to SemVer`);
+    }
+
+    const latestReleaseVersions = [...releases.keys()].map(el =>
+      semverCoerce(el),
+    );
+
+    if (!latestReleaseVersions.every(elem => !!elem)) {
+      throw new VError(
+        `All newest version in array: ${latestReleaseVersions} should be coercable to semver version`,
+      );
+    }
+
+    const latestReleaseVersionsInSemver = (latestReleaseVersions as SemVer[]) // casting needed to fix types, we ensure that the types are correct in lines above
+      .filter(arg => arg !== null)
+      .sort((a, b) => (semverGt(a, b) ? -1 : 1))
+      .map(el => el.raw)
+      .slice(0, numberOfReleases);
+
+    return latestReleaseVersionsInSemver.some(elem =>
+      semverGt(preReleaseSemver, semverCoerce(elem) as SemVer),
+    );
+  }
+
   filterReleased(
     prereleases: Map<string, ReposGetReleaseResponse>,
     releases: Map<string, ReposGetReleaseResponse>,
+    numberOfReleases: number,
   ) {
     const result = new Map<string, ReposGetReleaseResponse>();
 
     prereleases.forEach((value, key) => {
-      if (!releases.has(key)) {
+      if (
+        !releases.has(key) &&
+        this.handlePreReleasesWithoutRelease(releases, numberOfReleases, key)
+      ) {
         result.set(key, value);
       }
     });

@@ -67,7 +67,10 @@ const prepareDocsPerSource = async (
     let result;
     [err, result] = await to(CheckingDocs.releases(repository.lastReleases));
     if (err) {
-      throw new VError(err, `while checking releases`);
+      throw new VError(
+        err,
+        `while checking releases of repo ${repositoryName}`,
+      );
     }
 
     if (result) {
