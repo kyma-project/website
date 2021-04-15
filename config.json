@@ -68,8 +68,8 @@
       "displayName": "Kyma",
       "organization": "kyma-project",
       "repository": "kyma",
-      "branches": ["release-1.22"],
-      "lastReleases": 3,
+      "branches": ["release-1.21"],
+      "lastReleases": 0,
       "navPath": "",
       "rootPath": {
         "docsType": "root",
@@ -81,7 +81,7 @@
       "organization": "kyma-project",
       "repository": "cli",
       "branches": ["release-1.21"],
-      "lastReleases": 3,
+      "lastReleases": 0,
       "navPath": "cli",
       "rootPath": {
         "docsType": "cli",
