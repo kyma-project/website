@@ -152,10 +152,7 @@ const appendDocsType = (
     return;
   }
 
-  const sortedVersions = versions
-    .map(version => version.name)
-    .sort(compareVersions)
-    .reverse();
+  const sortedVersions = versions.map(version => version.name).reverse();
 
   versionsByType[type] = sortedVersions;
 };
