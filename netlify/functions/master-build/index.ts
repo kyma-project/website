@@ -52,7 +52,9 @@ const actionByEventType = async (
 };
 
 const triggerBuild = async () => {
-  await fetch(process.env.MASTER_BRANCH_BUILD_HOOK, { method: "POST" });
+  if (process.env.MASTER_BRANCH_BUILD_HOOK) {
+    await fetch(process.env.MASTER_BRANCH_BUILD_HOOK, { method: "POST" });
+  }
 };
 
 const handler: Handler = async (
