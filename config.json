@@ -132,18 +132,6 @@
         "docsType": "cli",
         "docsTopic": "overview"
       }
-    },
-    "control-plane": {
-      "displayName": "Control Plane",
-      "organization": "kyma-project",
-      "repository": "control-plane",
-      "branches": ["kyma-1.20"],
-      "lastReleases": 0,
-      "navPath": "control-plane",
-      "rootPath": {
-        "docsType": "control-plane",
-        "docsTopic": "kyma-control-plane"
-      }
     }
   }
 }
