@@ -20,18 +20,18 @@ import {
 } from "./styled";
 
 const navigation = [
-  {
-    path: "/blog/",
-    title: "Blog",
-  },
-  {
-    path: "/community/",
-    title: "Community",
-  },
-  {
-    path: "/roadmap/",
-    title: "Roadmap",
-  },
+  // {
+  //   path: "/blog/",
+  //   title: "Blog",
+  // },
+  // {
+  //   path: "/community/",
+  //   title: "Community",
+  // },
+  // {
+  //   path: "/roadmap/",
+  //   title: "Roadmap",
+  // },
 ];
 
 interface State {
