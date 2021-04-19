@@ -35,7 +35,9 @@ In Kyma 1.22, ORY charts are updated to latest versions from ORY repositories. T
 
 The update also caused important changes in Hydra autoscaling (HPA) overrides. The ORY charts now provide a more recent and configurable set of overrides. Existing overrides defined in the `hpa.hydra` entry are replaced by a configuration defined in `hydra.deployment.autoscaling`. Take a look at [values.yaml](https://github.com/kyma-project/kyma/blob/release-1.22/resources/ory/charts/hydra/values.yaml) file for a default configuration.
 
- ## Other
+## Other
+
+### Inclusive language
 
  Following [good practices from GitHub](https://github.com/github/renaming), we have adjusted our repos to use more inclusive language and got rid of such phrases as "whitelist", "blacklist", and "slave" wherever possible. We also renamed the `master` branches into `main` in the following repos:
 
