@@ -18,7 +18,7 @@ We are leaving Western Europe this month and heading to the beautiful city of Ca
 See the overview of all changes in this release:
 
 - [Installation](#installation) - Istio upgrade to 1.9.1, ORY charts update
-- [CLI](#cli) - Option to deploy specific Kyma branch
+- [CLI](#cli) - Option to deploy a specific Kyma branch
 - [Other](#other) - Inclusive language
 
 ## Installation
@@ -38,7 +38,7 @@ The update also caused important changes in Hydra autoscaling (HPA) overrides. T
 
 ## CLI
 
-### Option to deploy specific Kyma branch
+### Option to deploy a specific Kyma branch
 
 Starting from this release, you can use the `kyma alpha deploy` command to specify any branch as a source to install or update Kyma. As before, you can choose the `main` branch, but now you can also deploy Kyma from any other branch of the official Kyma repository. You can find more details in the [CLI documentation](https://kyma-project.io/docs/cli/commands/#kyma-alpha-deploy-kyma-alpha-deploy).
 
