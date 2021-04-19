@@ -11,7 +11,7 @@ redirectFrom:
 ---
 
 Hoşgeldiniz!
-We are leaving Western Europe this month and heading to the beautiful city of Cappadocia in Central Turkey. This region has a very rich history beginning as early as the Bronze age. It is famous for the magical-looking Fairy Chimneys: massive rock formations caused by volcanic eruptions. In the tall vertical rocks, visitors can find houses and temples carved thousands of years ago. Today, hot-air ballooning is popular in Cappadocia, often adding to its other-worldly appearance as the colorful aircraft rise above the Fairy Chimneys at sunrise. Let's embark on our own journey now and explore the horizons of Kyma 1.22.
+We are leaving Western Europe this month and heading to the beautiful city of Cappadocia in Central Turkey. This region has a very rich history beginning as early as the Bronze age. It is famous for the magical-looking Fairy Chimneys, massive rock formations caused by volcanic eruptions. In the tall vertical rocks, visitors can find houses and temples carved thousands of years ago. Today, hot-air ballooning is popular in Cappadocia, often adding to its other-worldly appearance as the colorful aircraft rise above the Fairy Chimneys at sunrise. Let's embark on our own journey now and explore the horizons of Kyma 1.22.
 
 <!-- overview -->
 
@@ -29,7 +29,7 @@ With this release, we upgraded Istio from 1.8.2 to 1.9.1. You can find more deta
 ### ORY charts update
 
 In Kyma 1.22, ORY charts were updated to the latest versions from ORY repositories. These charts are not a direct copy because of many customizations and extensions specific to Kyma. The main changes resulting from this update are:
-- The Hydra chart was updated to version 0.5.5, Hydra version 1.8.5. Find more details in the [Hydra 1.8.5 release](https://github.com/ory/hydra/releases/tag/v1.8.5).
+- The Hydra chart was updated to version 0.5.5, Hydra version 1.8.5. Find more details in the [Hydra 1.8.5 release notes](https://github.com/ory/hydra/releases/tag/v1.8.5).
 - The Oathkeeper chart was updated to version 0.5.7, Oathkeeper version v0.38.9-beta.1. Find more details in the [Oathkeeper v0.38-9-beta.1 release notes](https://github.com/ory/oathkeeper/releases/tag/v0.38.9-beta.1).
 - Hydra-Maester and Oathkeeper-Maester charts were updated accordingly.
 
@@ -39,7 +39,7 @@ The update also caused important changes in Hydra autoscaling (HPA) overrides. T
 
 ### Inclusive language
 
-Following [good practices from GitHub](https://github.com/github/renaming), we have adjusted our repos to use more inclusive language and got rid of such phrases as "whitelist", "blacklist", and "slave" wherever possible. We also renamed the `master` branches into `main` in the following repos:
+Following [good practices from GitHub](https://github.com/github/renaming), we have adjusted our repos to use more inclusive language and got rid of phrases such as "whitelist", "blacklist", and "slave" wherever possible. We also renamed the `master` branches to `main` in the following repos:
 
 - `kyma-project` organization:
   - [`busola`](https://github.com/kyma-project/busola)
