@@ -11,7 +11,7 @@ redirectFrom:
 ---
 
 Hoşgeldiniz!
-We are leaving Western Europe this month and heading to the beautiful city of Cappadocia in Central Turkey. This region has a very rich history beginning as early as the Bronze age. It is famous for the magical-looking Fairy Chimneys, massive rock formations caused by volcanic eruptions. In the tall vertical rocks, visitors can find houses and temples carved thousands of years ago. Today, hot-air ballooning is popular in Cappadocia, often adding to its other-worldly appearance as the colorful aircraft rise above the Fairy Chimneys at sunrise. Let's embark on our own journey now and explore the horizons of Kyma 1.22.
+We are leaving Western Europe this month and heading to the beautiful Cappadocia in Central Turkey. This region has a very rich history beginning as early as the Bronze age. It is famous for the magical-looking Fairy Chimneys, massive rock formations caused by volcanic eruptions. In the tall vertical rocks, visitors can find houses and temples carved thousands of years ago. Today, hot-air ballooning is popular in Cappadocia, often adding to its other-worldly appearance as the colorful aircraft rise above the Fairy Chimneys at sunrise. Let's embark on our own journey now and explore the horizons of Kyma 1.22.
 
 <!-- overview -->
 
@@ -46,7 +46,7 @@ Starting from this release, you can use the `kyma alpha deploy` command to speci
 
 ### Inclusive language
 
-Following [good practices from GitHub](https://github.com/github/renaming), we have adjusted our repos to use more inclusive language and got rid of phrases such as "whitelist", "blacklist", and "slave" wherever possible. We also renamed the `master` branches to `main` in the following repos:
+Following [good practices from GitHub](https://github.com/github/renaming), we adjusted our repositories to use more inclusive language and got rid of phrases such as "whitelist", "blacklist", and "slave" wherever possible. We also renamed the `master` branches to `main` in the following repositories:
 
 - `kyma-project` organization:
   - [`busola`](https://github.com/kyma-project/busola)
