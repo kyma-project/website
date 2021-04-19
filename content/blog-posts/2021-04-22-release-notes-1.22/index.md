@@ -40,7 +40,7 @@ The update also caused important changes in Hydra autoscaling (HPA) overrides. T
 
 ### Option to deploy a specific Kyma branch
 
-Starting from this release, you can use the `kyma alpha deploy` command to specify any branch as a source to install or update Kyma. As before, you can choose the `main` branch, but now you can also deploy Kyma from any other branch of the official Kyma repository. You can find more details in the [CLI documentation](https://kyma-project.io/docs/cli/commands/#kyma-alpha-deploy-kyma-alpha-deploy).
+Starting from this release, you can use the `kyma alpha deploy` command to specify any branch of the official Kyma repository as a source to install or update Kyma. You can find more details in the [CLI documentation](https://kyma-project.io/docs/cli/commands/#kyma-alpha-deploy-kyma-alpha-deploy).
 
 ## Other
 
