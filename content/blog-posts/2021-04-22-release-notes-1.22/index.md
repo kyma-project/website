@@ -17,7 +17,8 @@ We are leaving Western Europe this month and heading to the beautiful city of Ca
 
 See the overview of all changes in this release:
 
-- [Installation ](#installation) - Istio upgrade to 1.9.1, ORY charts update
+- [Installation](#installation) - Istio upgrade to 1.9.1, ORY charts update
+- [CLI](#cli) - Option to deploy specific Kyma branch
 - [Other](#other) - Inclusive language
 
 ## Installation
@@ -34,6 +35,12 @@ In Kyma 1.22, ORY charts were updated to the latest versions from ORY repositori
 - Hydra-Maester and Oathkeeper-Maester charts were updated accordingly.
 
 The update also caused important changes in Hydra autoscaling (HPA) overrides. The ORY charts now provide a more recent and configurable set of overrides. Existing overrides defined in the `hpa.hydra` entry were replaced by a configuration defined in `hydra.deployment.autoscaling`. Take a look at the [`values.yaml`](https://github.com/kyma-project/kyma/blob/release-1.22/resources/ory/charts/hydra/values.yaml) file for a default configuration.
+
+## CLI
+
+### Option to deploy specific Kyma branch
+
+Starting from this release, you can use the `kyma alpha deploy` command to specify any branch as a source to install or update Kyma. As before, you can choose the `main` branch, but now you can also deploy Kyma from any other branch of the official Kyma repository. You can find more details in the [CLI documentation](https://kyma-project.io/docs/cli/commands/#kyma-alpha-deploy-kyma-alpha-deploy).
 
 ## Other
 
