@@ -33,7 +33,7 @@ In Kyma 1.22, ORY charts are updated to latest versions from ORY repositories. T
 - The Oathkeeper chart is updated to version 0.5.7, Oathkeeper version v0.38.9-beta.1. Find more details in the [Oathkeeper v0.38-9-beta.1 release notes](https://github.com/ory/oathkeeper/releases/tag/v0.38.9-beta.1)
 - Hydra-Maester and Oathkeeper-Maester charts are updated accordingly.
 
-The update also caused important changes in Hydra autoscaling (HPA) overrides. The ORY charts now provide a more recent and configurable set of overrides. Existing overrides defined in the `hpa.hydra` entry are replaced by a configuration defined in `hydra.deployment.autoscaling`. Take a look at [values.yaml](https://github.com/kyma-project/kyma/blob/release-1.22/resources/ory/charts/hydra/values.yaml) file for a default configuration.
+The update also caused important changes in Hydra autoscaling (HPA) overrides. The ORY charts now provide a more recent and configurable set of overrides. Existing overrides defined in the `hpa.hydra` entry are replaced by a configuration defined in `hydra.deployment.autoscaling`. Take a look at the [values.yaml](https://github.com/kyma-project/kyma/blob/release-1.22/resources/ory/charts/hydra/values.yaml) file for a default configuration.
 
 ## Other
 
