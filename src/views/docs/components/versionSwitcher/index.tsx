@@ -51,7 +51,8 @@ const VersionSwitcher: FunctionComponentIntl<VersionSwitcherProps> = ({
                 return (
                   <option key={element} value={element}>
                     {element}{" "}
-                    {isLatestVersion && `(${formatMessage({ id: "latest" })})`}
+                    {/* some elements have a too long name and then they are breaking styles so I muted this suffix /*}
+                    {/* {isLatestVersion && `(${formatMessage({ id: "latest" })})`} */}
                   </option>
                 );
               })}

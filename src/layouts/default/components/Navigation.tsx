@@ -19,21 +19,6 @@ import {
   NavigationMobileButton,
 } from "./styled";
 
-const navigation = [
-  {
-    path: "/blog/",
-    title: "Blog",
-  },
-  {
-    path: "/community/",
-    title: "Community",
-  },
-  {
-    path: "/roadmap/",
-    title: "Roadmap",
-  },
-];
-
 interface State {
   mobileMenuVisible?: boolean;
   isOnMobile?: boolean;
@@ -100,13 +85,6 @@ class Navigation extends Component<IntlInterface, State> {
             <Button.Light iconName="times" iconPrefix="fas" />
           </NavigationItem>
           <DocsNavigation toggleVisibility={this.toggleVisibility} />
-          {navigation.map(navItem => (
-            <NavigationItem key={navItem.title} onClick={this.toggleVisibility}>
-              <NavigationIntLink to={navItem.path}>
-                {navItem.title}
-              </NavigationIntLink>
-            </NavigationItem>
-          ))}
           <NavigationItem>
             <NavigationExtLink to={slackMedia.url} ariaLabel={slackAriaLabel}>
               <Button.Light

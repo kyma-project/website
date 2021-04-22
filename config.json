@@ -68,8 +68,32 @@
       "displayName": "Kyma",
       "organization": "kyma-project",
       "repository": "kyma",
-      "branches": ["main"],
-      "lastReleases": 3,
+      "branches": [
+        "release-1.0",
+        "release-1.1",
+        "release-1.2",
+        "release-1.3",
+        "release-1.4",
+        "release-1.5",
+        "release-1.6",
+        "release-1.7",
+        "release-1.8",
+        "release-1.9",
+        "release-1.10",
+        "release-1.11",
+        "release-1.12",
+        "release-1.13",
+        "release-1.14",
+        "release-1.15",
+        "release-1.16",
+        "release-1.17",
+        "release-1.18",
+        "release-1.19",
+        "release-1.20",
+        "release-1.21",
+        "release-1.22"
+      ],
+      "lastReleases": 0,
       "navPath": "",
       "rootPath": {
         "docsType": "root",
@@ -80,24 +104,20 @@
       "displayName": "CLI",
       "organization": "kyma-project",
       "repository": "cli",
-      "branches": ["main"],
-      "lastReleases": 3,
+      "branches": [
+        "release-1.15",
+        "release-1.16",
+        "release-1.17",
+        "release-1.18",
+        "release-1.19",
+        "release-1.20",
+        "release-1.21"
+      ],
+      "lastReleases": 0,
       "navPath": "cli",
       "rootPath": {
         "docsType": "cli",
         "docsTopic": "overview"
-      }
-    },
-    "control-plane": {
-      "displayName": "Control Plane",
-      "organization": "kyma-project",
-      "repository": "control-plane",
-      "branches": ["main"],
-      "lastReleases": 0,
-      "navPath": "control-plane",
-      "rootPath": {
-        "docsType": "control-plane",
-        "docsTopic": "kyma-control-plane"
       }
     }
   }
