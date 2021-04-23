@@ -51,3 +51,8 @@ adopters:
     url: "https://www.sybit.de/unternehmen/news/referenz-benlink/"
     logo: "./logos/Sybit-Logo.svg"
     content: "With Kyma, we develop flexible SAP CX solutions for our customers. Kyma allows us to extend the CX Suite without touching the standard code."
+  - websiteUrl: "https://23technologies.cloud/"
+    company: "23 Technologies GmbH"
+    url: "https://23technologies.cloud/#products-anchor"
+    logo: "./logos/23technologies.png"
+    content: "Kyma helps us offer our customers consistent runtime extensions for their cloud native applications regardless of the clouds they are using."
