@@ -68,7 +68,7 @@
       "displayName": "Kyma",
       "organization": "kyma-project",
       "repository": "kyma",
-      "branches": ["master"],
+      "branches": ["main"],
       "lastReleases": 3,
       "navPath": "",
       "rootPath": {

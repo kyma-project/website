@@ -42,6 +42,7 @@ export class BranchesChecking {
     const filteredPrereleases = ReleaseFetcher.filterReleased(
       newestPrereleases,
       newestReleases,
+      numberOfReleases,
     );
 
     return {
