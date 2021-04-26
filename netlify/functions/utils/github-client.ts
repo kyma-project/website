@@ -7,6 +7,8 @@ export class GitHubClient {
   private static options = {
     headers: {
       Authorization: `token ${process.env.BOT_GITHUB_TOKEN}`,
+      "Strict-Transport-Security":
+        "max-age=31536000; includeSubDomains; preload",
     },
   };
 
