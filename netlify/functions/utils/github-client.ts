@@ -7,7 +7,7 @@ export class GitHubClient {
   private static options = {
     headers: {
       Authorization: `token ${process.env.BOT_GITHUB_TOKEN}`,
-      "Strict-Transport-Security":
+      "strict-transport-security":
         "max-age=31536000; includeSubDomains; preload",
     },
   };
@@ -18,7 +18,7 @@ export class GitHubClient {
     let data: PullsListFilesResponse;
     try {
       const subPath = `repos/${event.repository.owner.login}/${event.repository.name}/pulls/${event.number}/files`;
-
+      console.log(GitHubClient.options.headers["strict-transport-security"]);
       const response = await fetch(
         `${GitHubClient.apiPath}/${subPath}`,
         GitHubClient.options,
