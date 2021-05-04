@@ -85,10 +85,10 @@
       "application-connector": {
         "API": {
           "Connector Service": {
-            "https://github.com/kyma-project/kyma/blob/master/docs/application-connector/docs/assets/connectorapi.yaml": "./assets/connectorapi.yaml"
+            "https://github.com/kyma-project/kyma/blob/main/docs/application-connector/assets/connectorapi.yaml": "./assets/connectorapi.yaml"
           },
           "Event Service": {
-            "https://github.com/kyma-project/kyma/blob/master/docs/application-connector/docs/assets/eventsapi.yaml": "./assets/eventsapi.yaml"
+            "https://github.com/kyma-project/kyma/blob/main/docs/application-connector/assets/eventsapi.yaml": "./assets/eventsapi.yaml"
           }
         }
       },

@@ -3,7 +3,7 @@ title: Helm overrides for Kyma installation
 type: Tutorials
 ---
 
-Kyma packages its components into [Helm](https://github.com/helm/helm) charts that the [Installer](https://github.com/kyma-project/kyma/blob/master/installation/resources/installer.yaml) uses.
+Kyma packages its components into [Helm](https://github.com/helm/helm) charts that the [Installer](https://github.com/kyma-project/kyma/blob/main/installation/resources/installer.yaml) uses.
 This document describes how to configure the Installer with override values for Helm [charts](https://helm.sh/docs/topics/charts/).
 
 

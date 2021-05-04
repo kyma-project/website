@@ -110,7 +110,7 @@ With Octopus, all test preparation steps come down to creating:
 2. TestDefinition that specifies the image to use and commands to run.
 3. ClusterTestSuite that defines which tests to run on a cluster, and how you want to run them.
 
-In Kyma, we created integration jobs in the continuous integration tool called [Prow](https://github.com/kyma-project/test-infra/blob/main/prow/README.md). These Prow jobs are run before and after merging any changes to the `master` branch. Upon triggering, a Prow job runs the [`testing.sh`](https://github.com/kyma-project/kyma/blob/master/installation/scripts/testing.sh) script that creates a ClusterTestSuite, builds a cluster, and runs all integration tests on it.
+In Kyma, we created integration jobs in the continuous integration tool called [Prow](https://github.com/kyma-project/test-infra/blob/main/prow/README.md). These Prow jobs are run before and after merging any changes to the `main` branch. Upon triggering, a Prow job runs the [`testing.sh`](https://github.com/kyma-project/kyma/blob/main/installation/scripts/testing.sh) script that creates a ClusterTestSuite, builds a cluster, and runs all integration tests on it.
 
 ## Features & benefits
 
@@ -144,7 +144,7 @@ Migration from Helm tests to Octopus went smoothly and came down to minor modifi
 
     [Here](https://asciinema.org/a/287696) you can take a look at Kyma CLI in action.
 
-   - **Dashboards** - We used the information available in the **status** field of the ClusterTestSuite to visualize test details on Prow dashboards. In the below example, you can clearly see all details of the `post-master-kyma-gke-integration` Prow job that builds our artifacts on a GKE cluster after every merge to the `master` branch.
+   - **Dashboards** - We used the information available in the **status** field of the ClusterTestSuite to visualize test details on Prow dashboards. In the below example, you can clearly see all details of the `post-main-kyma-gke-integration` Prow job that builds our artifacts on a GKE cluster after every merge to the `main` branch.
 
    ![Testing time](./test-status.png)
 

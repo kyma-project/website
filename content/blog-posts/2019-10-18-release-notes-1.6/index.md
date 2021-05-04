@@ -124,7 +124,7 @@ In this release, we updated our bundled Knative Eventing chart to [Knative 0.8](
 
 ### Introducing Hydroform
 
-This release brings you [Hydroform](https://github.com/kyma-incubator/hydroform/blob/master/README.md), an infrastructure SDK you can use to create and manage Kubernetes clusters provisioned on the chosen cloud provider. The idea behind Hydroform is to provide an easy way of creating infrastructure. Having a common library used across products such as Kyma CLI or Compass significantly simplifies cluster provisioning and management. Currently, Hydroform supports Google Cloud Platform and Gardener, the latter using [Terraform provider for Gardener](https://github.com/kyma-incubator/terraform-provider-gardener) to ensure smooth cluster provisioning.
+This release brings you [Hydroform](https://github.com/kyma-project/hydroform/blob/main/README.md), an infrastructure SDK you can use to create and manage Kubernetes clusters provisioned on the chosen cloud provider. The idea behind Hydroform is to provide an easy way of creating infrastructure. Having a common library used across products such as Kyma CLI or Compass significantly simplifies cluster provisioning and management. Currently, Hydroform supports Google Cloud Platform and Gardener, the latter using [Terraform provider for Gardener](https://github.com/kyma-incubator/terraform-provider-gardener) to ensure smooth cluster provisioning.
 
 
 ## Logging

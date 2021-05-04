@@ -183,7 +183,7 @@ The wildcard DNS provided by `xip.io` is integrated as the default DNS solution,
 
 ### Test runner for the Kyma upgrade
 
-We created a test runner and a place for end-to-end upgrade tests executed by [Kyma upgrade plan on CI](https://status.build.kyma-project.io/?job=post-master-kyma-gke-upgrade). The framework allows you to prepare the data and run tests against the prepared data. For more information on end-to-end upgrade tests, read [this](https://github.com/kyma-project/kyma/tree/release-0.9/tests/end-to-end/upgrade) document.
+We created a test runner and a place for end-to-end upgrade tests executed by [Kyma upgrade plan on CI](https://status.build.kyma-project.io/?job=post-main-kyma-gke-upgrade). The framework allows you to prepare the data and run tests against the prepared data. For more information on end-to-end upgrade tests, read [this](https://github.com/kyma-project/kyma/tree/release-0.9/tests/end-to-end/upgrade) document.
 
 
 ## Monitoring
