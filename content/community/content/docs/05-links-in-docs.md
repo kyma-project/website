@@ -2,9 +2,9 @@
 title: Links in docs
 ---
 
-These are the guidelines for making cross-references between the documents in the [`kyma/docs`](https://github.com/kyma-project/kyma/tree/master/docs) folder.
+These are the guidelines for making cross-references between the documents in the [`kyma/docs`](https://github.com/kyma-project/kyma/tree/main/docs) folder.
 
->**NOTE:** The linking works only on the [Kyma website](https://kyma-project.io/docs). Currently, the cross-references between [GitHub documentation](https://github.com/kyma-project/kyma/tree/master/docs) is not available.
+>**NOTE:** The linking works only on the [Kyma website](https://kyma-project.io/docs). Currently, the cross-references between [GitHub documentation](https://github.com/kyma-project/kyma/tree/main/docs) is not available.
 
 ## Links between documents in the same topic
 

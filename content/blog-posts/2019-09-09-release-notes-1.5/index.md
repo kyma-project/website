@@ -59,7 +59,7 @@ In previous Kyma versions, it was only possible to configure cluster-wide addons
 
 ### Improved monitoring tutorials
 
-Based on the existing [`monitoring-custom-metrics`](https://github.com/kyma-project/examples/tree/master/monitoring-custom-metrics) Kyma example and its `cpu_temperature_celsius` custom metric, we have created unified monitoring tutorials. Thanks to them you can see how Kyma applies monitoring tools to manage application metrics. More specifically, these tutorials show how you can observe the custom metric's changing values, create a Grafana dashboard for the metric, and set up a corresponding alerting rule for it.
+Based on the existing [`monitoring-custom-metrics`](https://github.com/kyma-project/examples/tree/main/monitoring-custom-metrics) Kyma example and its `cpu_temperature_celsius` custom metric, we have created unified monitoring tutorials. Thanks to them you can see how Kyma applies monitoring tools to manage application metrics. More specifically, these tutorials show how you can observe the custom metric's changing values, create a Grafana dashboard for the metric, and set up a corresponding alerting rule for it.
 
 Follow these links to see the improved monitoring tutorials:
 - [Observe application metrics](/docs/components/monitoring/#tutorials-observe-application-metrics)
@@ -88,7 +88,7 @@ Starting from the 1.5 release, we support fetching addons from repositories that
 
 ### Experimental function controller module
 
-As you know, Kyma runs serverless functions using Kubeless. We now added the Knative function controller to Kyma as an experimental feature to provide a Knative-based alternative for serverless functions. Read more about the controller [here](https://github.com/kyma-project/kyma/tree/master/components/function-controller).
+As you know, Kyma runs serverless functions using Kubeless. We now added the Knative function controller to Kyma as an experimental feature to provide a Knative-based alternative for serverless functions. Read more about the controller [here](https://github.com/kyma-project/kyma/tree/main/components/function-controller).
 
 ## Service Mesh
 

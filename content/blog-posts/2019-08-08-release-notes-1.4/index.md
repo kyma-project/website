@@ -216,7 +216,7 @@ Starting from the 1.4 release, all bundles are renamed to addons to better refle
 
 ### Preview of the new GCP Service Broker addon
 
-As the Google Cloud Platform (GCP) Service Broker is being deprecated by Google, we have removed this addon from our offering. Instead, we added the preview mode of a new GCP Service Broker which you can already integrate with Kyma. See [this](https://github.com/kyma-project/addons/issues/94) issue for more information. To learn how to switch to the new addon when upgrading Kyma, read the [migration guide](https://github.com/kyma-project/kyma/blob/master/docs/migration-guides/1.3-1.4.md).
+As the Google Cloud Platform (GCP) Service Broker is being deprecated by Google, we have removed this addon from our offering. Instead, we added the preview mode of a new GCP Service Broker which you can already integrate with Kyma. See [this](https://github.com/kyma-project/addons/issues/94) issue for more information. To learn how to switch to the new addon when upgrading Kyma, read the [migration guide](https://github.com/kyma-project/kyma/blob/release-1.4/docs/migration-guides/1.3-1.4.md).
 
 ### Helm Broker supports addons exposed by Git
 

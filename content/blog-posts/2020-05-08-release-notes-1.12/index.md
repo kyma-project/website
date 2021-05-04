@@ -68,7 +68,7 @@ From now on, you can specify a version of the Kyma Installer to be deployed on a
 
 ### Upgrades in the Runtime Provisioner
 
-Starting with this release, the Runtime Provisioner allows you to upgrade your Kyma Runtime to the newer version using the [GraphQL API](https://github.com/kyma-project/control-plane/blob/master/docs/internal/runtime-upgrade.md). The new configuration passed with the upgrade mutation replaces the existing one. We also included a rollback option. Bear in mind that the rollback operation may still require additional actions performed on the cluster. 
+Starting with this release, the Runtime Provisioner allows you to upgrade your Kyma Runtime to the newer version using the [GraphQL API](https://github.com/kyma-project/control-plane/blob/main/docs/internal/runtime-upgrade.md). The new configuration passed with the upgrade mutation replaces the existing one. We also included a rollback option. Bear in mind that the rollback operation may still require additional actions performed on the cluster. 
 
 ### Automatic status update for Applications and Runtimes in the Director
 
