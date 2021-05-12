@@ -11,7 +11,7 @@ redirectFrom:
 ---
 
 Marhaba! مرحبا !
-While we're staying in the Middle East, we are still moving forward, this time having a short stop in Dhahran, Saudi Arabia. With our eyes set on horizon and focused on delivering Kyma 2.0, we still keep providing regular improvements, this time for Serverless, Loki, and Service Mesh. So imagine you're with us in Dhahran, sitting under one of the palm trees, and read on to learn more about the recent changes.
+While we're staying in the Middle East, we are still moving forward, this time having a short stop in Dhahran, Saudi Arabia. With our eyes set on the horizon and focused on delivering Kyma 2.0, we still keep providing regular improvements, this time for Serverless, Loki, and Service Mesh. So imagine you're with us in Dhahran, sitting under one of the palm trees, and read on to learn more about the recent changes.
 
 <!-- overview -->
 
