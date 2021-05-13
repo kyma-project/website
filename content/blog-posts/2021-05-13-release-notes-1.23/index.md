@@ -27,7 +27,7 @@ See the overview of all changes in this release:
 
 ### Node.js runtime changes - v14 in, v10 out
 
-As we had announced some time ago, we removed Node.js 10 from the [list of supported runtimes](https://kyma-project.io/docs/1.23/components/serverless/#details-runtimes) for Functions. At the same time, we introduced a new runtime Node.js 14 and set it as the default one. From now on, you can create Functions using:
+As we announced some time ago, we removed Node.js 10 from the [list of supported runtimes](https://kyma-project.io/docs/1.23/components/serverless/#details-runtimes) for Functions. At the same time, we introduced a new runtime, Node.js 14, and set it as the default one. From now on, you can create Functions using:
 - Node.js 12
 - Node.js 14
 - Python 3.8
