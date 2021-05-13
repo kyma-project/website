@@ -38,7 +38,7 @@ We also updated Kyma CLI to reflect the new runtime changes. Kyma CLI 1.23 now s
 
 ### Loki volume size increased
 
-We increased the persistence for Loki from 1 day to 5 days. To accommodate this change, we also increased the default volume size of PersistentVolumeClaim for Loki from 10Gi to 30Gi. Read the [Migration Guide](https://github.com/kyma-project/kyma/blob/release-1.23/docs/migration-guides/1.22-1.23.md) to learn more about the upgrade process.
+We increased the persistence for Loki from 1 to 5 days. To accommodate this change, we also increased the default volume size of PersistentVolumeClaim for Loki from 10Gi to 30Gi. Read the [Migration Guide](https://github.com/kyma-project/kyma/blob/release-1.23/docs/migration-guides/1.22-1.23.md) to learn more about the upgrade process.
 
 ## Service Mesh
 
