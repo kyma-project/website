@@ -44,4 +44,4 @@ We increased the persistence for Loki from 1 day to 5 days. To accommodate this 
 
 ### Istio upgraded to version 1.9.5
 
-With this release, we upgraded Istio to version 1.9.5. This upgrade fixes several security vulnerabilities and a few minor issues. See Istio 1.9.x [release announcements](https://istio.io/latest/news/releases/1.9.x/) for more information.
+With this release, we upgraded Istio to version 1.9.5. This upgrade fixes several security vulnerabilities and a few minor issues. See [Istio 1.9.5 release announcements](https://istio.io/latest/news/releases/1.9.x/announcing-1.9.5/) for more information.
