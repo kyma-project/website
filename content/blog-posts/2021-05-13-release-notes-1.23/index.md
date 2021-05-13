@@ -31,13 +31,14 @@ As we had announced some time ago, we removed Node.js 10 from the [list of suppo
 - Node.js 12
 - Node.js 14
 - Python 3.8
+
 We also updated Kyma CLI to reflect the new runtime changes. Kyma CLI 1.23 now sets Node.js 14 as a default runtime for your Functions. If you update Kyma CLI without updating Kyma, you will face an incompatibility when initiating Functions with Kyma CLI. To resolve it, override the runtime version with the [`--runtime` flag](https://kyma-project.io/docs/1.23/cli/commands/#kyma-init-function-kyma-init-function).
 
 ## Logging
 
 ### Loki volume size increased
 
-We increased the persistence for Loki from 1 day to 5 days. We also increased the volume size of PersistentVolumeClaim for Loki from 10Gi to 30Gi. Read the [Migration Guide](https://github.com/kyma-project/kyma/blob/release-1.23/docs/migration-guides/1.22-1.23.md) to learn more about the upgrade process.
+We increased the persistence for Loki from 1 day to 5 days. To accommodate this change, we also increased the default volume size of PersistentVolumeClaim for Loki from 10Gi to 30Gi. Read the [Migration Guide](https://github.com/kyma-project/kyma/blob/release-1.23/docs/migration-guides/1.22-1.23.md) to learn more about the upgrade process.
 
 ## Service Mesh
 
