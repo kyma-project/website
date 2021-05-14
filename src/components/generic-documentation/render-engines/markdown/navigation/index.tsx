@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 
 import Link from "@components/shared/Link";
 
 import { GenericDocsContext } from "../../../services";
 
-import { DocsNavigation, DocsNavigationTopic } from "@typings/docs";
+import { DocsNavigation, DocsNavigationElement } from "@typings/docs";
 
 import {
   NavigationWrapper,
@@ -14,64 +14,54 @@ import {
   NavigationListItemName,
   NavigationGroupName,
   VersionSwitcherWrapper,
+  SubToggle,
 } from "./styled";
+import Icon from "@components/shared/Icon";
 
-export type linkSerializer = ({
-  group,
-  items,
-  id,
-}: {
-  group: string;
-  items: DocsNavigationTopic[];
-  id: string;
-}) => string;
-
-export type activeLinkChecker = ({
-  group,
-  items,
-  id,
-}: {
-  group: string;
-  items: DocsNavigationTopic[];
-  id: string;
-}) => boolean;
+export type linkSerializer = (path: string[]) => string;
+export type activeLinkChecker = (path: string[]) => boolean;
 
 export interface NavigationProps {
-  navigation: DocsNavigation;
+  navigation: DocsNavigationElement[];
   linkFn: linkSerializer;
   activeLinkFn?: activeLinkChecker;
   docsVersionSwitcher?: React.ReactNode;
 }
 
-function renderList(
-  group: string,
-  items: DocsNavigationTopic[],
+function renderListElement(
+  element: DocsNavigationElement,
+  path: string[],
   linkFn: linkSerializer,
   activeLinkFn?: activeLinkChecker,
-  showGroups?: boolean,
 ): React.ReactNode {
-  const list = items.map(item => (
-    <NavigationListItem
-      active={
-        activeLinkFn ? activeLinkFn({ group, items, id: item.id }) : false
-      }
-      key={`${group}-${item.id}`}
-    >
-      <Link.Internal to={linkFn({ group, items, id: item.id })}>
-        <NavigationListItemName>
-          <span>{item.displayName}</span>
-        </NavigationListItemName>
-      </Link.Internal>
-    </NavigationListItem>
-  ));
+  const curPath = [...path, element.id];
+
+  const [subHidden, setSubHidden] = useState(true);
+  const toggleSub = () => setSubHidden(!subHidden);
 
   return (
-    <div key={group}>
-      {showGroups && items.length > 1 && group.toLowerCase() !== "root" ? (
-        <NavigationGroupName>{group}</NavigationGroupName>
-      ) : null}
-      <NavigationList>{list}</NavigationList>
-    </div>
+    <NavigationListItem active={activeLinkFn ? activeLinkFn(curPath) : false}>
+      {element.children.length > 0 && (
+        <SubToggle onClick={toggleSub}>
+          <Icon
+            iconName={subHidden ? "chevron-right" : "chevron-down"}
+            iconPrefix="fas"
+          />
+        </SubToggle>
+      )}
+      <Link.Internal to={element.noContent ? "#" : linkFn(curPath)}>
+        <NavigationListItemName>
+          <span>{element.displayName}</span>
+        </NavigationListItemName>
+      </Link.Internal>
+      {element.children.length > 0 && (
+        <NavigationList level={curPath.length} hidden={subHidden}>
+          {element.children.map(el =>
+            renderListElement(el, curPath, linkFn, activeLinkFn),
+          )}
+        </NavigationList>
+      )}
+    </NavigationListItem>
   );
 }
 
@@ -83,23 +73,97 @@ export const Navigation: React.FunctionComponent<NavigationProps> = ({
 }) => {
   const { showMobileLeftNav } = useContext(GenericDocsContext);
 
-  const numberOfGroups = Object.keys(navigation).length;
-  const lists = Object.keys(navigation).map(group =>
-    renderList(
-      group,
-      navigation[group],
-      linkFn,
-      activeLinkFn,
-      numberOfGroups > 1,
-    ),
-  );
+  const mockNavigation: DocsNavigationElement[] = [
+    {
+      displayName: "Get  started",
+      id: "one",
+      noContent: false,
+      children: [],
+    },
+    {
+      displayName: "Overview",
+      id: "two",
+      noContent: false,
+      children: [
+        {
+          displayName: "sub-one",
+          id: "one",
+          noContent: false,
+          children: [],
+        },
+        {
+          displayName: "sub-two",
+          id: "two",
+          noContent: false,
+          children: [],
+        },
+        {
+          displayName: "sub-three",
+          id: "three",
+          noContent: false,
+          children: [],
+        },
+      ],
+    },
+    {
+      displayName: "Glossary (no content)",
+      id: "three",
+      noContent: true,
+      children: [
+        {
+          displayName: "sub-one",
+          id: "one",
+          noContent: false,
+          children: [
+            {
+              displayName: "sub-sub-one",
+              id: "one",
+              noContent: true,
+              children: [
+                {
+                  displayName: "sub-sub-sub-one",
+                  id: "one",
+                  noContent: false,
+                  children: [],
+                },
+              ],
+            },
+            {
+              displayName: "sub-sub-two",
+              id: "two",
+              noContent: false,
+              children: [],
+            },
+          ],
+        },
+        {
+          displayName: "sub-two",
+          id: "two",
+          noContent: false,
+          children: [],
+        },
+        {
+          displayName: "sub-three",
+          id: "three",
+          noContent: false,
+          children: [],
+        },
+      ],
+    },
+  ];
 
   return (
     <NavigationWrapper showMobileNav={showMobileLeftNav}>
       {docsVersionSwitcher && (
         <VersionSwitcherWrapper>{docsVersionSwitcher}</VersionSwitcherWrapper>
       )}
-      <NavigationListWrapper>{lists}</NavigationListWrapper>
+      <NavigationListWrapper>
+        <NavigationList level={0}>
+          {mockNavigation.map(el =>
+            renderListElement(el, [], linkFn, activeLinkFn),
+          )}
+        </NavigationList>
+      </NavigationListWrapper>
     </NavigationWrapper>
   );
 };

@@ -8,6 +8,7 @@ import {
   DocsManifest,
   DocsContentItem,
   Specification,
+  DocsNavigationElement,
 } from "@typings/docs";
 
 import {
@@ -32,7 +33,7 @@ import { MarkdownWrapper } from "../styled";
 
 export interface DocsLayoutProps {
   renderers: Renderers;
-  navigation: DocsNavigation;
+  navigation: DocsNavigationElement[];
   manifest: DocsManifest;
   version: string;
   content: DocsContentItem;
@@ -52,12 +53,11 @@ export const DocsLayout: React.FunctionComponent<DocsLayoutProps> = ({
   docsVersionSwitcher,
   inPreview,
 }) => {
-  const linkFn: linkSerializer = ({ group, id }) =>
-    `/${!inPreview ? `docs/` : ""}${
-      version ? `${version}/` : ""
-    }${group}/${id}`;
-  const activeLinkFn: activeLinkChecker = ({ group, id }) =>
-    topic === id && type === group;
+  const linkFn: linkSerializer = path =>
+    `/${!inPreview ? `docs/` : ""}${version ? `${version}/` : ""}${path.join(
+      "/",
+    )}`;
+  const activeLinkFn: activeLinkChecker = path => false; // TODO: check if current page
 
   return (
     <DocsLayoutWrapper>
