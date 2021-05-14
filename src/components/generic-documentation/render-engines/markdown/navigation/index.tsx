@@ -15,6 +15,8 @@ import {
   NavigationGroupName,
   VersionSwitcherWrapper,
   SubToggle,
+  NavigationListItemMain,
+  NoContent,
 } from "./styled";
 import Icon from "@components/shared/Icon";
 
@@ -36,24 +38,42 @@ function renderListElement(
 ): React.ReactNode {
   const curPath = [...path, element.id];
 
-  const [subHidden, setSubHidden] = useState(true);
+  const [subHidden, setSubHidden] = useState(
+    activeLinkFn ? activeLinkFn(curPath) : true,
+  );
   const toggleSub = () => setSubHidden(!subHidden);
 
   return (
-    <NavigationListItem active={activeLinkFn ? activeLinkFn(curPath) : false}>
-      {element.children.length > 0 && (
-        <SubToggle onClick={toggleSub}>
-          <Icon
-            iconName={subHidden ? "chevron-right" : "chevron-down"}
-            iconPrefix="fas"
-          />
-        </SubToggle>
-      )}
-      <Link.Internal to={element.noContent ? "#" : linkFn(curPath)}>
-        <NavigationListItemName>
-          <span>{element.displayName}</span>
-        </NavigationListItemName>
-      </Link.Internal>
+    <NavigationListItem>
+      <NavigationListItemMain
+        active={activeLinkFn ? activeLinkFn(curPath) : false}
+      >
+        {element.children.length > 0 && (
+          <SubToggle
+            onClick={toggleSub}
+            active={activeLinkFn ? activeLinkFn(curPath) : false}
+          >
+            <Icon
+              iconName={subHidden ? "chevron-right" : "chevron-down"}
+              iconPrefix="fas"
+            />
+          </SubToggle>
+        )}
+        {element.noContent ? (
+          <NoContent active={activeLinkFn ? activeLinkFn(curPath) : false}>
+            <NavigationListItemName>
+              <span>{element.displayName}</span>
+            </NavigationListItemName>
+          </NoContent>
+        ) : (
+          <Link.Internal to={linkFn(curPath)}>
+            <NavigationListItemName>
+              <span>{element.displayName}</span>
+            </NavigationListItemName>
+          </Link.Internal>
+        )}
+      </NavigationListItemMain>
+
       {element.children.length > 0 && (
         <NavigationList level={curPath.length} hidden={subHidden}>
           {element.children.map(el =>

@@ -71,32 +71,44 @@ interface NavigationListProps {
 export const NavigationList = styled.ul`
   padding: 0;
   list-style: none;
-  margin: 0 0 0 ${(props: NavigationListProps) => props.level * 10}px;
+  font-size: ${(props: NavigationListProps) =>
+    14 - Math.max(0, Math.min(2, props.level))}px;
+  margin: 0;
 `;
-
-interface NavigationListItemProps {
-  active: boolean;
-}
 
 export const NavigationListItem = styled.li`
   margin-bottom: 9px;
+  margin-left: 20px;
+  position: relative;
   ${media.tablet`
     padding: 0 8px;
   `};
+`;
+
+interface NavigationListItemMainProps {
+  active: boolean;
+}
+
+export const NavigationListItemMain = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: flex-start;
 
   > a {
     display: block;
     position: relative;
     width: 100%;
-    padding: 9px 16px;
-    font-size: 14px;
+    padding: 5px 5px;
     color: #485766;
     font-weight: 500;
     background-color: #fff;
     border-radius: 8px;
     transition: all 0.3s ease-in-out;
 
-    ${(props: NavigationListItemProps) =>
+    ${(props: NavigationListItemMainProps) =>
       props.active
         ? css`
             color: #0b74de;
@@ -105,7 +117,7 @@ export const NavigationListItem = styled.li`
         : ""}
 
     &:hover {
-      ${(props: NavigationListItemProps) =>
+      ${(props: NavigationListItemMainProps) =>
         props.active
           ? css`
               background-color: rgba(11, 116, 222, 0.26);
@@ -125,6 +137,55 @@ export const NavigationListItem = styled.li`
       transform: translate(0, -50%);
     }
   }
+`;
+
+interface SubToggleProps {
+  active: boolean;
+}
+
+export const SubToggle = styled.div`
+  background-color: #fff;
+  border-radius: 8px;
+  position: absolute;
+  left: -20px;
+  padding: 5px 0px;
+  transition: all 0.3s ease-in-out;
+
+  ${(props: SubToggleProps) =>
+    props.active
+      ? css`
+          color: #0b74de;
+        `
+      : ""}
+
+  &:hover {
+    cursor: pointer;
+    color: #0b74de;
+  }
+`;
+
+interface NoContentProps {
+  active: boolean;
+}
+
+export const NoContent = styled.div`
+  display: block;
+  position: relative;
+  width: 100%;
+  padding: 5px 5px;
+  color: #485766;
+  font-weight: 500;
+  background-color: #fff;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+
+  ${(props: NoContentProps) =>
+    props.active
+      ? css`
+          color: #0b74de;
+          background-color: rgba(11, 116, 222, 0.12);
+        `
+      : ""}
 `;
 
 export const NavigationListItemName = styled.div`
@@ -160,10 +221,4 @@ export const NavigationGroupName = styled.div`
 export const VersionSwitcherWrapper = styled.div`
   display: block;
   margin-bottom: 16px;
-`;
-
-export const SubToggle = styled.div`
-  &:hover {
-    cursor: pointer;
-  }
 `;
