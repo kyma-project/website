@@ -20,6 +20,7 @@ import { BuildFor } from "../../../../src/types/common";
 import { DocsRepository } from "./types";
 
 import config from "../../../../config.json";
+import { DocsNavigationElement } from "@typings/docs";
 
 export interface CreateDocsPages {
   graphql: GraphQLFunction;
@@ -78,7 +79,8 @@ const createDocsPagesPerRepo = async (
 
   Object.keys(docsArch).map(version => {
     const { content, navigation } = docsArch[version];
-    const sortedNavigation: DocsNavigation = sortGroupOfNavigation(navigation);
+    // const sortedNavigation: DocsNavigation = sortGroupOfNavigation({});
+    // const sortedNavigation: DocsNavigationElement[] = navigation
 
     Object.keys(content).map(docsType => {
       const topics = content[docsType];
@@ -115,10 +117,11 @@ const createDocsPagesPerRepo = async (
 
         const context = {
           content: fixedContent,
-          navigation: sortedNavigation,
-          manifest: sortedNavigation,
+          navigation,
+          manifest: navigation,
           versions,
           version,
+          pagePath: "",
           assetsPath,
           docsType,
           pagePath,

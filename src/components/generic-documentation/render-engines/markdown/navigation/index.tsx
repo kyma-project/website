@@ -230,7 +230,7 @@ export const Navigation: React.FunctionComponent<NavigationProps> = ({
       )}
       <NavigationListWrapper>
         <NavigationList>
-          {mockNavigation.map(el =>
+          {navigation.map(el =>
             renderListElement(el, [], linkFn, activeLinkFn),
           )}
         </NavigationList>
