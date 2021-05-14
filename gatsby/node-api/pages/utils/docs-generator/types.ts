@@ -5,6 +5,7 @@ export interface ContentGQL<T = any> {
   rawMarkdownBody: string;
   fields: {
     slug: string;
+    filePath?: string;
     imagesSpec: ImageSpec[];
   } & T;
   frontmatter: {
@@ -62,8 +63,10 @@ export interface DocsNavigation {
 }
 
 export interface DocsNavigationTopic {
+  noContent: boolean;
   displayName: string;
   id: string;
+  children: DocsNavigationTopic[];
 }
 
 /* Manifest */
