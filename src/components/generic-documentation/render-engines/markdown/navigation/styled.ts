@@ -64,10 +64,14 @@ export const NavigationListWrapper = styled.div`
   `}
 `;
 
+interface NavigationListProps {
+  level: number;
+}
+
 export const NavigationList = styled.ul`
   padding: 0;
-  margin: 0;
   list-style: none;
+  margin: 0 0 0 ${(props: NavigationListProps) => props.level * 10}px;
 `;
 
 interface NavigationListItemProps {
@@ -156,4 +160,10 @@ export const NavigationGroupName = styled.div`
 export const VersionSwitcherWrapper = styled.div`
   display: block;
   margin-bottom: 16px;
+`;
+
+export const SubToggle = styled.div`
+  &:hover {
+    cursor: pointer;
+  }
 `;
