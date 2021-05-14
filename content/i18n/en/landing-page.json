@@ -33,7 +33,7 @@
         "title": "Serverless",
         "paragraphs": [
           "Kyma empowers developers to easily deploy workloads in form of Functions. With Kyma, you can focus on coding.",
-          "Simply write your Function code, add a configuration manifest, and push it to Kyma using supporting CLI or directly to git."
+          "Simply write your Function code, add a configuration manifest, and push it to Kyma using our supporting CLI or directly to git."
         ]
       },
       "runtime": {
