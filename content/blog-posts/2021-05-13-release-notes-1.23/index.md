@@ -54,5 +54,5 @@ Up to the date of kyma 1.23 release, there is no security patch for python 3.8.x
 
 Additionally, with one of the upcomming releases, we will introduce a serverless runtime based on newer 3.10 python version ([#11299](https://github.com/kyma-project/kyma/issues/11299)).
 
-It is rather uncommon to pass IPv4 addresses with leading zeros. Still, if you want to tolerate leading zeros, you can pre-process your inputs as described in the [workaround](https://bugs.python.org/msg390353).
+It is rather uncommon to pass IPv4 addresses with leading zeros. Still, if you want to tolerate leading zeros in your serverless python based functions, you can pre-process your inputs as described in the [workaround](https://bugs.python.org/msg390353).
 
