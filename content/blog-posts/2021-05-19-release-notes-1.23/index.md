@@ -22,6 +22,7 @@ See the overview of all changes in this release:
 - [Serverless](#serverless) - Node.js runtime changes - v14 in, v10 out
 - [Logging](#logging) - Loki volume size increased
 - [Service Mesh](#service-mesh) - Istio upgraded to version 1.9.5
+- [Known issues](#known-issues) - Python's standard library stripps leading zeros from IP addresses
 
 ## Serverless  
 
@@ -48,11 +49,8 @@ With this release, we upgraded Istio to version 1.9.5. This upgrade fixes severa
 
 ## Known issues
 
-### Python's standard library stripps leading zeros from IP addresses 
-The Python standard library `ipaddress` suffers from the IP address validation vulnerability ([CVE-2021-29921](https://nvd.nist.gov/vuln/detail/CVE-2021-29921)).
-Up to the date of kyma 1.23 release, there is no security patch for python 3.8.x. We will track the vulnerability and issue a patch release for kyma as soon as the [fix](https://bugs.python.org/issue36384) is back-ported to 3.8.x.
+### Python's standard library stripps leading zeros from IP addresses
 
-Additionally, with one of the upcomming releases, we will introduce a serverless runtime based on newer 3.10 python version ([#11299](https://github.com/kyma-project/kyma/issues/11299)).
+The Python standard library `ipaddress` suffers from the IP address validation vulnerability ([CVE-2021-29921](https://nvd.nist.gov/vuln/detail/CVE-2021-29921)). Up to the date of Kyma 1.23 release, there is no security patch for Python 3.8.x. We will track the vulnerability and issue a patch release for Kyma as soon as the [fix](https://bugs.python.org/issue36384) is available.
 
-It is rather uncommon to pass IPv4 addresses with leading zeros. Still, if you want to tolerate leading zeros in your serverless python based functions, you can pre-process your inputs as described in the [workaround](https://bugs.python.org/msg390353).
-
+It is rather uncommon to pass IPv4 addresses with leading zeros, but if you want to tolerate leading zeros in your Serverless Python-based Functions, you can pre-process your inputs as described in the [workaround](https://bugs.python.org/msg390353).
