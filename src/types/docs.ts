@@ -8,6 +8,7 @@ export interface DocsPageContext {
   versions: DocsVersions;
   navigation: DocsNavigation;
   content: DocsContentItem;
+  pagePath: string;
   manifest: DocsManifest;
   assetsPath: string;
   specifications: Specification[];
@@ -68,10 +69,10 @@ export interface DocsNavigation {
 }
 
 export interface DocsNavigationElement {
-  noContent: boolean;
+  noContent?: boolean;
   displayName: string;
   id: string;
-  children: DocsNavigationElement[];
+  children?: DocsNavigationElement[];
 }
 
 /* Manifest */
