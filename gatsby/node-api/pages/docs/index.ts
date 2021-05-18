@@ -121,6 +121,7 @@ const createDocsPagesPerRepo = async (
           version,
           assetsPath,
           docsType,
+          pagePath,
           topic,
           specifications,
           repositoryName,

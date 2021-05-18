@@ -71,13 +71,12 @@ interface NavigationListProps {
 export const NavigationList = styled.ul`
   padding: 0;
   list-style: none;
-  font-size: ${(props: NavigationListProps) =>
-    14 - Math.max(0, Math.min(2, props.level))}px;
+  font-size: 14px;
   margin: 0;
 `;
 
 export const NavigationListItem = styled.li`
-  margin-bottom: 9px;
+  margin-bottom: 0px;
   margin-left: 20px;
   position: relative;
   ${media.tablet`
@@ -112,19 +111,11 @@ export const NavigationListItemMain = styled.div`
       props.active
         ? css`
             color: #0b74de;
-            background-color: rgba(11, 116, 222, 0.12);
+            font-weight: 700;
           `
         : ""}
 
     &:hover {
-      ${(props: NavigationListItemMainProps) =>
-        props.active
-          ? css`
-              background-color: rgba(11, 116, 222, 0.26);
-            `
-          : css`
-              background-color: rgba(11, 116, 222, 0.12);
-            `}
       color: #0b74de;
     }
 
@@ -183,7 +174,7 @@ export const NoContent = styled.div`
     props.active
       ? css`
           color: #0b74de;
-          background-color: rgba(11, 116, 222, 0.12);
+          font-weight: 700;
         `
       : ""}
 `;
