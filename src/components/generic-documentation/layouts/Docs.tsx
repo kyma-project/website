@@ -37,6 +37,7 @@ export interface DocsLayoutProps {
   manifest: DocsManifest;
   version: string;
   content: DocsContentItem;
+  pagePath: string;
   sourcesLength: number;
   docsVersionSwitcher: React.ReactNode;
   specifications?: Specification[];
@@ -48,6 +49,7 @@ export const DocsLayout: React.FunctionComponent<DocsLayoutProps> = ({
   navigation,
   version,
   content: { id: topic, type, displayName },
+  pagePath,
   sourcesLength,
   specifications,
   docsVersionSwitcher,
@@ -57,7 +59,12 @@ export const DocsLayout: React.FunctionComponent<DocsLayoutProps> = ({
     `/${!inPreview ? `docs/` : ""}${version ? `${version}/` : ""}${path.join(
       "/",
     )}`;
-  const activeLinkFn: activeLinkChecker = path => false; // TODO: check if current page
+  const activeLinkFn: activeLinkChecker = path =>
+    pagePath.startsWith(
+      `/${!inPreview ? `docs/` : ""}${version ? `${version}/` : ""}${path.join(
+        "/",
+      )}`,
+    );
 
   return (
     <DocsLayoutWrapper>

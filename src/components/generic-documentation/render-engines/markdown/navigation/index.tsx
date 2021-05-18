@@ -39,7 +39,7 @@ function renderListElement(
   const curPath = [...path, element.id];
 
   const [subHidden, setSubHidden] = useState(
-    activeLinkFn ? activeLinkFn(curPath) : true,
+    activeLinkFn ? !activeLinkFn(curPath) : true,
   );
   const toggleSub = () => setSubHidden(!subHidden);
 
@@ -48,7 +48,7 @@ function renderListElement(
       <NavigationListItemMain
         active={activeLinkFn ? activeLinkFn(curPath) : false}
       >
-        {element.children.length > 0 && (
+        {element.children && element.children.length > 0 && (
           <SubToggle
             onClick={toggleSub}
             active={activeLinkFn ? activeLinkFn(curPath) : false}
@@ -74,7 +74,7 @@ function renderListElement(
         )}
       </NavigationListItemMain>
 
-      {element.children.length > 0 && (
+      {element.children && element.children.length > 0 && (
         <NavigationList level={curPath.length} hidden={subHidden}>
           {element.children.map(el =>
             renderListElement(el, curPath, linkFn, activeLinkFn),
@@ -94,35 +94,38 @@ export const Navigation: React.FunctionComponent<NavigationProps> = ({
   const { showMobileLeftNav } = useContext(GenericDocsContext);
 
   const mockNavigation: DocsNavigationElement[] = [
+    { displayName: "Test", id: "test" },
     {
-      displayName: "Get  started",
-      id: "one",
-      noContent: false,
-      children: [],
+      displayName: "Root",
+      id: "root",
+      children: [
+        { displayName: "Something", id: "something" },
+        {
+          displayName: "Kyma",
+          id: "kyma",
+          children: [
+            {
+              displayName: "Test",
+              id: "test",
+              children: [
+                {
+                  displayName: "Super Nest",
+                  id: "super",
+                },
+              ],
+            },
+          ],
+        },
+      ],
     },
+    { displayName: "Get  started", id: "one" },
     {
       displayName: "Overview",
       id: "two",
-      noContent: false,
       children: [
-        {
-          displayName: "sub-one",
-          id: "one",
-          noContent: false,
-          children: [],
-        },
-        {
-          displayName: "sub-two",
-          id: "two",
-          noContent: false,
-          children: [],
-        },
-        {
-          displayName: "sub-three",
-          id: "three",
-          noContent: false,
-          children: [],
-        },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-two", id: "two" },
+        { displayName: "sub-three", id: "three" },
       ],
     },
     {
@@ -133,7 +136,6 @@ export const Navigation: React.FunctionComponent<NavigationProps> = ({
         {
           displayName: "sub-one",
           id: "one",
-          noContent: false,
           children: [
             {
               displayName: "sub-sub-one",
@@ -143,31 +145,14 @@ export const Navigation: React.FunctionComponent<NavigationProps> = ({
                 {
                   displayName: "sub-sub-sub-one",
                   id: "one",
-                  noContent: false,
-                  children: [],
                 },
               ],
             },
-            {
-              displayName: "sub-sub-two",
-              id: "two",
-              noContent: false,
-              children: [],
-            },
+            { displayName: "sub-sub-two", id: "two" },
           ],
         },
-        {
-          displayName: "sub-two",
-          id: "two",
-          noContent: false,
-          children: [],
-        },
-        {
-          displayName: "sub-three",
-          id: "three",
-          noContent: false,
-          children: [],
-        },
+        { displayName: "sub-two", id: "two" },
+        { displayName: "sub-three", id: "three" },
       ],
     },
   ];
