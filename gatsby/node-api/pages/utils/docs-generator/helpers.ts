@@ -25,6 +25,7 @@ const getContent = async <T extends ContentGQL>(
               title
               type
             }
+            fileAbsolutePath
           }
         }
       }
