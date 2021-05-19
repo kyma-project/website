@@ -110,6 +110,7 @@ export const DocsLayout: React.FunctionComponent<DocsLayoutProps> = ({
                 <TitleHeader marginBottom={sourcesLength === 1}>
                   {displayName}
                 </TitleHeader>
+                {/*TODO: Tutaj jest renderowany content yay!*/}
                 <Content renderers={renderers} />
               </Grid.Unit>
               <Grid.Unit

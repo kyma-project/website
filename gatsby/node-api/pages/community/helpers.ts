@@ -89,6 +89,7 @@ const extractFn = (
   return obj;
 };
 
+//TODO: popatrzeć czy te linki są sensowne
 export const prepareWebsitePaths = ({
   topicsKeys,
   docsType,

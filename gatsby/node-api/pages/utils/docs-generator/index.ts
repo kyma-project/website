@@ -30,23 +30,6 @@ export const docsGenerator = <T extends ContentGQL>(
     addChildren(navigation, navigationPath, item);
   });
 
-  //CREATE CONTENT
-  // const content = {
-  //   "master": {
-  //     "aaa": {
-  //       displayName:"aaaa",
-  //       id:"a",
-  //       description:"dadsas",
-  //       specifications: [] as Specification[],
-  //     } as DocsContentItem,
-  //     // "bbb": {
-  //     //   displayName:"bbbb",
-  //     //   id:"b",
-  //     //   specifications: [] as Specification[],
-  //     // } as DocsContentItem
-  //   }
-  // } as DocsContent
-
   contentLoader.setFolder(folder);
   contentLoader.setVersion(version ? version : "");
   const manifestSpec = loadManifest(contentLoader.loadManifest()).spec;
@@ -58,9 +41,31 @@ export const docsGenerator = <T extends ContentGQL>(
     extractFn,
   });
 
+  const newBetterContent = {
+    component: {},
+  } as DocsContent;
+
+  Object.keys(content).map(key => {
+    const innerContent = content[key];
+    Object.keys(innerContent).map(innerKey => {
+      const component = innerContent[innerKey];
+      component.docs.forEach(doc => {
+        const tmpObj = {} as DocsContentItem;
+        const id = doc.order.replace(".md", "");
+        tmpObj.id = id;
+        tmpObj.displayName = doc.title;
+        tmpObj.type = "component";
+        tmpObj.docs = [doc];
+        tmpObj.specifications = [] as Specification[];
+
+        newBetterContent.component[id] = tmpObj;
+      });
+    });
+  });
+  // pathy: /docs/version/path w drzewie/nazwa bez .md
+
   return {
-    content,
-    // content: {} as DocsContent,
+    content: newBetterContent,
     navigation,
     manifest: navigation,
   };
@@ -88,6 +93,8 @@ export const addChildren = <T extends ContentGQL>(
   }
 
   // create if not found
+
+  //TODO: if is leaf then add displayName from md
   const newDocsNavigationTopic = {
     id: navigationPath[0],
     displayName: navigationPath[0],
