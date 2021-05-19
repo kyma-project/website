@@ -51,6 +51,6 @@ With this release, we upgraded Istio to version 1.9.5. This upgrade fixes severa
 
 ### Python's standard library strips leading zeros from IP addresses
 
-The Python standard library `ipaddress` suffers from the IP address validation vulnerability ([CVE-2021-29921](https://nvd.nist.gov/vuln/detail/CVE-2021-29921)). Up to the date of Kyma 1.23 release, there is no security patch for Python 3.8.x. We will track the vulnerability and issue a patch release for Kyma as soon as the [fix](https://bugs.python.org/issue36384) is available.
+The `ipaddress` module of the Python standard library suffers from the IP address validation vulnerability ([CVE-2021-29921](https://nvd.nist.gov/vuln/detail/CVE-2021-29921)). Up to the date of Kyma 1.23 release, there is no security patch for Python 3.8.x. We will track the vulnerability and issue a patch release for Kyma as soon as the [fix](https://bugs.python.org/issue36384) is available.
 
 It is rather uncommon to pass IPv4 addresses with leading zeros, but if you want to tolerate leading zeros in your Serverless Python-based Functions, you can pre-process your inputs as described in the [workaround](https://bugs.python.org/msg390353).
