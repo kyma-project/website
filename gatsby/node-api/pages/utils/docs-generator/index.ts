@@ -9,7 +9,14 @@ import {
 import { extractContent } from "./extractContent";
 import { loadManifest } from "./loadManifest";
 
+import { resolve } from "path";
+
 import { Specification } from "@typings/docs";
+import { readYaml } from "../../../../../tools/content-loader/src/helpers";
+import to from "await-to-js";
+import { ClusterDocsTopic } from "../../../../../tools/content-loader/src/cdt-serializer/types";
+import { readFileSync } from "fs-extra";
+import { safeLoad } from "js-yaml";
 
 const contentLoader = new ContentLoader();
 
@@ -34,35 +41,29 @@ export const docsGenerator = <T extends ContentGQL>(
   contentLoader.setVersion(version ? version : "");
   const manifestSpec = loadManifest(contentLoader.loadManifest()).spec;
 
-  const content = extractContent<T>({
-    manifestSpec,
-    contentGQLs,
-    contentLoader,
-    extractFn,
-  });
-
   const newBetterContent = {
     component: {},
   } as DocsContent;
 
-  Object.keys(content).map(key => {
-    const innerContent = content[key];
-    Object.keys(innerContent).map(innerKey => {
-      const component = innerContent[innerKey];
-      component.docs.forEach(doc => {
-        const tmpObj = {} as DocsContentItem;
-        const id = doc.order.replace(".md", "");
-        tmpObj.id = id;
-        tmpObj.displayName = doc.title;
-        tmpObj.type = "component";
-        tmpObj.docs = [doc];
-        tmpObj.specifications = [] as Specification[];
+  contentGQLs.forEach(content => {
+    const tmpObj = {} as DocsContentItem;
+    const id = content.fields.slug.replace(".md", "");
+    tmpObj.id = id;
+    tmpObj.displayName = content.frontmatter.title;
+    tmpObj.type = "component";
 
-        newBetterContent.component[id] = tmpObj;
-      });
-    });
+    const tmpDoc = {} as DocsContentDocs;
+    tmpDoc.order = content.fields.slug;
+    tmpDoc.title = content.frontmatter.title;
+    tmpDoc.source = content.rawMarkdownBody;
+    tmpDoc.imagesSpec = content.fields.imagesSpec;
+    tmpDoc.type = "";
+
+    tmpObj.docs = [tmpDoc];
+    tmpObj.specifications = [] as Specification[];
+
+    newBetterContent.component[id] = tmpObj;
   });
-  // pathy: /docs/version/path w drzewie/nazwa bez .md
 
   return {
     content: newBetterContent,
@@ -92,14 +93,29 @@ export const addChildren = <T extends ContentGQL>(
     return;
   }
 
-  // create if not found
+  let displayName = "";
+  if (navigationPath.length === 1) {
+    displayName = item.frontmatter.title;
+  } else {
+    const path = item.fileAbsolutePath.split("/");
+    const dirPath = path.slice(0, path.length - 1);
+    dirPath.push("metadata.yaml");
 
-  //TODO: if is leaf then add displayName from md
+    const metadataPath = dirPath.join("/");
+
+    const file = readFileSync(resolve(metadataPath)).toString();
+    const data = safeLoad(file) as DirMetadata;
+
+    displayName = data.displayName;
+  }
+
+  // create if not found
   const newDocsNavigationTopic = {
     id: navigationPath[0],
-    displayName: navigationPath[0],
+    displayName,
     children: [] as DocsNavigationTopic[],
   } as DocsNavigationTopic;
+
   addChildren(newDocsNavigationTopic.children, navigationPath.slice(1), item);
 
   // add child
@@ -107,3 +123,7 @@ export const addChildren = <T extends ContentGQL>(
 };
 
 export type DocsGeneratorReturnType = ReturnType<typeof docsGenerator>;
+
+export interface DirMetadata {
+  displayName: string;
+}

@@ -12,6 +12,7 @@ export interface ContentGQL<T = any> {
     title: string;
     type: string;
   };
+  fileAbsolutePath: string;
 }
 
 export interface DocsVersions {
