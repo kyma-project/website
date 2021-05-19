@@ -49,7 +49,7 @@ With this release, we upgraded Istio to version 1.9.5. This upgrade fixes severa
 
 ## Known issues
 
-### Python's standard library stripps leading zeros from IP addresses
+### Python's standard library strips leading zeros from IP addresses
 
 The Python standard library `ipaddress` suffers from the IP address validation vulnerability ([CVE-2021-29921](https://nvd.nist.gov/vuln/detail/CVE-2021-29921)). Up to the date of Kyma 1.23 release, there is no security patch for Python 3.8.x. We will track the vulnerability and issue a patch release for Kyma as soon as the [fix](https://bugs.python.org/issue36384) is available.
 
