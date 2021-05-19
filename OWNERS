@@ -1,10 +1,11 @@
 filters:
   '.*':
     approvers:
-      - aerfio
-      - magicmatatjahu
       - m00g3n
       - pPrecel
+      - dbadura 
+      - tgorgol 
+      - rJankowski93
     labels:
       - area/core-and-supporting
   '\.md$|/content/|^milv\.config\.yaml$':
