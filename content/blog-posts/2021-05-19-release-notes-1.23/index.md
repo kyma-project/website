@@ -22,7 +22,7 @@ See the overview of all changes in this release:
 - [Serverless](#serverless) - Node.js runtime changes - v14 in, v10 out
 - [Logging](#logging) - Loki volume size increased
 - [Service Mesh](#service-mesh) - Istio upgraded to version 1.9.5
-- [Known issues](#known-issues) - Python's standard library stripps leading zeros from IP addresses
+- [Known issues](#known-issues) - Python's standard library strips leading zeros from IP addresses
 
 ## Serverless  
 
