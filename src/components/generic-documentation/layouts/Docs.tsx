@@ -15,6 +15,7 @@ import {
   Navigation,
   linkSerializer,
   activeLinkChecker,
+  ActiveState,
 } from "../render-engines/markdown/navigation";
 import { HeadersNavigation } from "../render-engines/markdown/headers-toc";
 import { SpecificationList } from "../render-engines/markdown/specifications-list";
@@ -59,12 +60,18 @@ export const DocsLayout: React.FunctionComponent<DocsLayoutProps> = ({
     `/${!inPreview ? `docs/` : ""}${version ? `${version}/` : ""}${path.join(
       "/",
     )}`;
-  const activeLinkFn: activeLinkChecker = path =>
-    pagePath.startsWith(
-      `/${!inPreview ? `docs/` : ""}${version ? `${version}/` : ""}${path.join(
-        "/",
-      )}`,
-    );
+  const activeLinkFn: activeLinkChecker = path => {
+    const slug = `/${!inPreview ? `docs/` : ""}${
+      version ? `${version}/` : ""
+    }${path.join("/")}`;
+    if (pagePath === slug) {
+      return ActiveState.ACTIVE_DIRECT;
+    }
+    if (pagePath.startsWith(slug)) {
+      return ActiveState.ACTIVE_INDIRECT;
+    }
+    return ActiveState.INACTIVE;
+  };
 
   return (
     <DocsLayoutWrapper>

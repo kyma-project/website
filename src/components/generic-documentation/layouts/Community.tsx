@@ -14,6 +14,7 @@ import {
   Navigation,
   linkSerializer,
   activeLinkChecker,
+  ActiveState,
 } from "../render-engines/markdown/navigation";
 import { HeadersNavigation } from "../render-engines/markdown/headers-toc";
 
@@ -45,7 +46,7 @@ export const CommunityLayout: React.FunctionComponent<CommunityLayoutProps> = ({
 }) => {
   const linkFn: linkSerializer = path =>
     `/${!inPreview ? `community/` : ""}${path.join("/")}`;
-  const activeLinkFn: activeLinkChecker = path => false; // TODO: check if current page
+  const activeLinkFn: activeLinkChecker = path => ActiveState.INACTIVE; // TODO: check if current page
 
   return (
     <CommunityLayoutWrapper>

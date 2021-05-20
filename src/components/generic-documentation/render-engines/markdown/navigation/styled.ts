@@ -1,5 +1,6 @@
 import styled, { media, css } from "@styled";
 import { customScrollBar } from "@styled/mixins";
+import { ActiveState } from ".";
 
 interface NavigationWrapperProps {
   showMobileNav?: boolean;
@@ -24,6 +25,7 @@ export const NavigationWrapper = styled.div<NavigationWrapperProps>`
     position: fixed;
     padding: 9px 0 0 0;
     top: 0px;
+    margin-left: 10px;
     width: 15rem;
     max-width: 70vw;
     z-index: 10;
@@ -64,10 +66,6 @@ export const NavigationListWrapper = styled.div`
   `}
 `;
 
-interface NavigationListProps {
-  level: number;
-}
-
 export const NavigationList = styled.ul`
   padding: 0;
   list-style: none;
@@ -77,7 +75,7 @@ export const NavigationList = styled.ul`
 
 export const NavigationListItem = styled.li`
   margin-bottom: 0px;
-  margin-left: 20px;
+  margin-left: 13px;
   position: relative;
   ${media.tablet`
     padding: 0 8px;
@@ -85,7 +83,7 @@ export const NavigationListItem = styled.li`
 `;
 
 interface NavigationListItemMainProps {
-  active: boolean;
+  active: ActiveState;
 }
 
 export const NavigationListItemMain = styled.div`
@@ -107,13 +105,20 @@ export const NavigationListItemMain = styled.div`
     border-radius: 8px;
     transition: all 0.3s ease-in-out;
 
-    ${(props: NavigationListItemMainProps) =>
-      props.active
-        ? css`
+    ${(props: NavigationListItemMainProps) => {
+      switch (props.active) {
+        case ActiveState.ACTIVE_DIRECT:
+          return css`
             color: #0b74de;
             font-weight: 700;
-          `
-        : ""}
+          `;
+        case ActiveState.ACTIVE_INDIRECT:
+          return css`
+            color: #0b74de;
+          `;
+      }
+      return "";
+    }}
 
     &:hover {
       color: #0b74de;
@@ -131,19 +136,19 @@ export const NavigationListItemMain = styled.div`
 `;
 
 interface SubToggleProps {
-  active: boolean;
+  active: ActiveState;
 }
 
 export const SubToggle = styled.div`
   background-color: #fff;
   border-radius: 8px;
   position: absolute;
-  left: -20px;
+  left: -13px;
   padding: 5px 0px;
   transition: all 0.3s ease-in-out;
 
   ${(props: SubToggleProps) =>
-    props.active
+    props.active === ActiveState.ACTIVE_INDIRECT
       ? css`
           color: #0b74de;
         `
@@ -156,7 +161,7 @@ export const SubToggle = styled.div`
 `;
 
 interface NoContentProps {
-  active: boolean;
+  active: ActiveState;
 }
 
 export const NoContent = styled.div`
@@ -170,13 +175,20 @@ export const NoContent = styled.div`
   border-radius: 8px;
   transition: all 0.3s ease-in-out;
 
-  ${(props: NoContentProps) =>
-    props.active
-      ? css`
+  ${(props: NoContentProps) => {
+    switch (props.active) {
+      case ActiveState.ACTIVE_DIRECT:
+        return css`
           color: #0b74de;
           font-weight: 700;
-        `
-      : ""}
+        `;
+      case ActiveState.ACTIVE_INDIRECT:
+        return css`
+          color: #0b74de;
+        `;
+    }
+    return "";
+  }}
 `;
 
 export const NavigationListItemName = styled.div`
