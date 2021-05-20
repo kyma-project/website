@@ -21,7 +21,12 @@ import {
 import Icon from "@components/shared/Icon";
 
 export type linkSerializer = (path: string[]) => string;
-export type activeLinkChecker = (path: string[]) => boolean;
+export enum ActiveState {
+  INACTIVE = "inactive",
+  ACTIVE_INDIRECT = "indirect",
+  ACTIVE_DIRECT = "direct",
+}
+export type activeLinkChecker = (path: string[]) => ActiveState;
 
 export interface NavigationProps {
   navigation: DocsNavigationElement[];
@@ -37,22 +42,18 @@ function renderListElement(
   activeLinkFn?: activeLinkChecker,
 ): React.ReactNode {
   const curPath = [...path, element.id];
+  const isActive = activeLinkFn ? activeLinkFn(curPath) : ActiveState.INACTIVE;
 
   const [subHidden, setSubHidden] = useState(
-    activeLinkFn ? !activeLinkFn(curPath) : true,
+    isActive !== ActiveState.ACTIVE_INDIRECT,
   );
   const toggleSub = () => setSubHidden(!subHidden);
 
   return (
     <NavigationListItem>
-      <NavigationListItemMain
-        active={activeLinkFn ? activeLinkFn(curPath) : false}
-      >
+      <NavigationListItemMain active={isActive}>
         {element.children && element.children.length > 0 && (
-          <SubToggle
-            onClick={toggleSub}
-            active={activeLinkFn ? activeLinkFn(curPath) : false}
-          >
+          <SubToggle onClick={toggleSub} active={isActive}>
             <Icon
               iconName={subHidden ? "chevron-right" : "chevron-down"}
               iconPrefix="fas"
@@ -60,7 +61,7 @@ function renderListElement(
           </SubToggle>
         )}
         {element.noContent ? (
-          <NoContent active={activeLinkFn ? activeLinkFn(curPath) : false}>
+          <NoContent active={isActive}>
             <NavigationListItemName>
               <span>{element.displayName}</span>
             </NavigationListItemName>
@@ -75,7 +76,7 @@ function renderListElement(
       </NavigationListItemMain>
 
       {element.children && element.children.length > 0 && (
-        <NavigationList level={curPath.length} hidden={subHidden}>
+        <NavigationList hidden={subHidden}>
           {element.children.map(el =>
             renderListElement(el, curPath, linkFn, activeLinkFn),
           )}
@@ -124,6 +125,71 @@ export const Navigation: React.FunctionComponent<NavigationProps> = ({
       id: "two",
       children: [
         { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
+        { displayName: "sub-one", id: "one" },
         { displayName: "sub-two", id: "two" },
         { displayName: "sub-three", id: "three" },
       ],
@@ -163,7 +229,7 @@ export const Navigation: React.FunctionComponent<NavigationProps> = ({
         <VersionSwitcherWrapper>{docsVersionSwitcher}</VersionSwitcherWrapper>
       )}
       <NavigationListWrapper>
-        <NavigationList level={0}>
+        <NavigationList>
           {mockNavigation.map(el =>
             renderListElement(el, [], linkFn, activeLinkFn),
           )}
