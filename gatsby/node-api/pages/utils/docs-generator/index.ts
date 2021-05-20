@@ -31,21 +31,22 @@ export const docsGenerator = <T extends ContentGQL>(
   version?: string,
 ) => {
   const navigation: DocsNavigationTopic[] = [];
-  contentGQLs.forEach(item => {
-    const filePath = item.fields.slug as string;
+
+  const documents = contentGQLs.filter(
+    val => val.fields.docInfo.version === version,
+  );
+
+  documents.forEach(item => {
+    const filePath = item.fields.slug.replace(".md", "") as string;
     const navigationPath = filePath.split("/");
     addChildren(navigation, navigationPath, item);
   });
-
-  contentLoader.setFolder(folder);
-  contentLoader.setVersion(version ? version : "");
-  const manifestSpec = loadManifest(contentLoader.loadManifest()).spec;
 
   const newBetterContent = {
     component: {},
   } as DocsContent;
 
-  contentGQLs.forEach(content => {
+  documents.forEach(content => {
     const tmpObj = {} as DocsContentItem;
     const id = content.fields.slug.replace(".md", "");
     tmpObj.id = id;
