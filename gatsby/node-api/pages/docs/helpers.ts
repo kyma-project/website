@@ -76,7 +76,6 @@ export const prepareData = async ({
       id
       type
       version
-      fileName
     }`,
   );
   const docsArch: { [version: string]: DocsGeneratorReturnType } = {};
