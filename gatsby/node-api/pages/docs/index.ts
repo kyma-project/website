@@ -121,7 +121,7 @@ const createDocsPagesPerRepo = async (
           manifest: navigation,
           versions,
           version,
-          pagePath: "",
+          pagePath,
           assetsPath,
           docsType,
           // pagePath,
