@@ -36,10 +36,22 @@ export const docsGenerator = <T extends ContentGQL>(
     val => val.fields.docInfo.version === version,
   );
 
+  const nodeContent = [] as ContentGQL[];
+
   documents.forEach(item => {
-    const filePath = item.fields.slug.replace(".md", "") as string;
+    if (item.fields.slug.endsWith("index.md")) {
+      nodeContent.push(item);
+    } else {
+      const filePath = item.fields.slug.replace(".md", "") as string;
+      const navigationPath = filePath.split("/");
+      addChildren(navigation, navigationPath, item);
+    }
+  });
+
+  nodeContent.forEach(item => {
+    const filePath = item.fields.slug.replace("/index.md", "") as string;
     const navigationPath = filePath.split("/");
-    addChildren(navigation, navigationPath, item);
+    markNodeWithContent(navigation, navigationPath);
   });
 
   const newBetterContent = {
@@ -120,6 +132,7 @@ export const addChildren = <T extends ContentGQL>(
     id: navigationPath[0],
     displayName,
     children: [] as DocsNavigationTopic[],
+    noContent: true,
   } as DocsNavigationTopic;
 
   addChildren(newDocsNavigationTopic.children, navigationPath.slice(1), item);
@@ -129,6 +142,21 @@ export const addChildren = <T extends ContentGQL>(
 };
 
 export type DocsGeneratorReturnType = ReturnType<typeof docsGenerator>;
+
+export const markNodeWithContent = (
+  navigation: DocsNavigationTopic[],
+  filePath: string[],
+): void => {
+  navigation.forEach(navigationItem => {
+    if (navigationItem.id === filePath[0]) {
+      if (filePath.length === 1) {
+        navigationItem.noContent = false;
+      } else {
+        markNodeWithContent(navigationItem.children, filePath.slice(1));
+      }
+    }
+  });
+};
 
 export interface DirMetadata {
   displayName: string;

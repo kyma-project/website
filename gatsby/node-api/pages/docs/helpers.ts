@@ -258,6 +258,10 @@ export const preparePreviewPaths = ({
 
   const assetsPath = `/${ASSETS_DIR}${DOCS_DIR}${repositoryName}/${v}/${topic}/${DOCS_DIR}${ASSETS_DIR}`;
   const specificationsPath = `/${ASSETS_DIR}${DOCS_DIR}${repositoryName}/${v}/${topic}/${DOCS_SPECIFICATIONS_PATH}`;
+
+  if (topic.endsWith("index")) {
+    topic = topic.replace("index", "");
+  }
   const pagePath = `/${version ? `${version}/` : ""}${docsType}/${topic}`;
   const rootPagePath = `/${version}`;
   const modalUrlPrefix = `/${docsType}/${topic}/${DOCS_SPECIFICATIONS_PATH}`;
