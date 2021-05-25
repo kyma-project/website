@@ -55,6 +55,7 @@ export const StyledWrapper = styled.div`
 export const ImageWrapper = styled.div`
   display: flex;
   margin-bottom: 90px;
+  margin-top: 90px;
   /* height: 100%; */
 
   img {

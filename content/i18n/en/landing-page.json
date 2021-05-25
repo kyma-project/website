@@ -30,29 +30,29 @@
     "spelling": "/kee-ma/",
     "features": {
       "extensibility": {
-        "title": "Extensibility platform",
+        "title": "Serverless",
         "paragraphs": [
-          "If you are looking for cloud-native ways to extend your enterprise products, Kyma is a secure and tested environment you can rely on.",
-          "First, connect external APIs and ensure a stable event flow between the external or built-in services and your own applications. Then, start molding your own code into microservices and functions that extend your applications' logic."
+          "Kyma empowers developers to easy deploy workloads in form of functions. With Kyma you can focus on coding.",
+          "Simply write your function code, add a configuration manifest and push it to Kyma using supporting CLI or directly to git."
         ]
       },
       "runtime": {
-        "title": "Application runtime",
+        "title": "Eventing",
         "paragraphs": [
-          "Build standalone Kubernetes applications from scratch. Kyma is also an application runtime that is scalable, secure, and reliable. It allows you to develop microservices-based solutions in any language and run them on Kubernetes clusters from a cloud provider of your choice."
+          "Kyma allows you to trigger workloads ( functions or microservices ) via in-cluster events or extrenal business events"
         ]
       },
       "support": {
-        "title": "Operational support",
+        "title": "Observability",
         "paragraphs": [
-          "Kyma ensures smooth Day-2 support for the standalone applications and extensions you'll create. Thanks to numerous CNCF open-source projects that come preconfigured with Kyma, you can easily monitor the performance of your microservices and functions, scan logs for errors, and upgrade your solutions painlessly."
+          "Kyma comes with pre-configured open-source observability tools. You can easily monitor the performance of your microservices and functions, scan logs for errors and trace request flow through entire system."
         ]
       }
     }
   },
   "inANutshell": {
-    "headline": "In a nutshell",
-    "paragraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "headline": "Your workloads are in the center",
+    "paragraph": "Deploy containerised microservices or push the code to deploy functions. Kyma helps you to expose API of your workloads, trigger them with events, consume external services from them and last but not least - assures observability.",
     "githubButton": "Get it on GitHub"
   },
   "usedBy": {
