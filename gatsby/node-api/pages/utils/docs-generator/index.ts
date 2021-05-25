@@ -36,11 +36,11 @@ export const docsGenerator = <T extends ContentGQL>(
     val => val.fields.docInfo.version === version,
   );
 
-  const nodeContent = [] as ContentGQL[];
+  const docsContentForNodes = [] as ContentGQL[];
 
   documents.forEach(item => {
     if (item.fields.slug.endsWith("index.md")) {
-      nodeContent.push(item);
+      docsContentForNodes.push(item);
     } else {
       const filePath = item.fields.slug.replace(".md", "") as string;
       const navigationPath = filePath.split("/");
@@ -48,9 +48,9 @@ export const docsGenerator = <T extends ContentGQL>(
     }
   });
 
-  //TODO: mark all nodes with noContent = true to make them not clickable
+  markNodes(navigation);
 
-  nodeContent.forEach(item => {
+  docsContentForNodes.forEach(item => {
     const filePath = item.fields.slug.replace("/index.md", "") as string;
     const navigationPath = filePath.split("/");
     markNodeWithContent(navigation, navigationPath);
@@ -148,6 +148,15 @@ export const addNavigationItem = <T extends ContentGQL>(
 };
 
 export type DocsGeneratorReturnType = ReturnType<typeof docsGenerator>;
+
+export const markNodes = (navigation: DocsNavigationTopic[]): void => {
+  navigation.forEach(item => {
+    if (item.children.length !== 0) {
+      item.noContent = true;
+      markNodes(item.children);
+    }
+  });
+};
 
 export const markNodeWithContent = (
   navigation: DocsNavigationTopic[],
