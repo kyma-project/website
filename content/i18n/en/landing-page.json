@@ -1,8 +1,9 @@
 {
   "headline": "Extend your applications\nwith Kubernetes",
   "manifesto": {
-    "paragraph": "{brand} is a cloud-native application runtime that combines the power of Kubernetes with a set of best-in-class tools and open-source components, that empower you to develop, run and operate secure and scalable cloud-native applications.",
+    "paragraph": "{brand} {spelling} is a cloud-native application runtime that combines the power of Kubernetes with a set of best-in-class tools and open-source components, that empower you to develop, run and operate secure and scalable cloud-native applications.",
     "brand": "Kyma",
+    "spelling": "/kee-ma/",
     "githubButton": "Get it on GitHub",
     "scrollButton": "Scroll to the next section"
   },
@@ -27,7 +28,6 @@
   "keyFeatures": {
     "headline": "Key features",
     "paragraph": "Kyma {spelling} is a platform for extending applications with serverless functions and microservices.",
-    "spelling": "/kee-ma/",
     "features": {
       "extensibility": {
         "title": "Serverless",
@@ -51,8 +51,8 @@
     }
   },
   "inANutshell": {
-    "headline": "Your workloads are in the center",
-    "paragraph": "Deploy containerised microservices or push the code to deploy functions. Kyma helps you to expose API of your workloads, trigger them with events, consume external services from them and last but not least - assures observability.",
+    "headline": "In the nutshell",
+    "paragraph": "With Kyma your workloads are in the center. Kyma helps you to expose their APIs, trigger them with events, enable them for external service consumption and will assure observability.",
     "githubButton": "Get it on GitHub"
   },
   "usedBy": {

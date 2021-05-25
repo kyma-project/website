@@ -42,3 +42,8 @@ export const ButtonWrapper = styled.div`
     text-align: center;
   `};
 `;
+
+export const SpellingOfText = styled.span`
+  font-family: monospace;
+  font-size: 32px;
+`;
