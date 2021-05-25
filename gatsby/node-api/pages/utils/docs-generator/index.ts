@@ -1,4 +1,3 @@
-import { ContentLoader } from "./contentLoader";
 import {
   ContentGQL,
   DocsContent,
@@ -6,28 +5,16 @@ import {
   DocsContentDocs,
   DocsNavigationTopic,
 } from "./types";
-import { extractContent } from "./extractContent";
-import { loadManifest } from "./loadManifest";
 
 import { resolve } from "path";
 
 import { Specification } from "@typings/docs";
-import { readYaml } from "../../../../../tools/content-loader/src/helpers";
-import to from "await-to-js";
-import { ClusterDocsTopic } from "../../../../../tools/content-loader/src/cdt-serializer/types";
 import { readFileSync } from "fs-extra";
 import { safeLoad } from "js-yaml";
-
-const contentLoader = new ContentLoader();
 
 export const docsGenerator = <T extends ContentGQL>(
   contentGQLs: T[],
   folder: string,
-  extractFn: (
-    doc: T,
-    docsGroup: string,
-    topicId: string,
-  ) => DocsContentDocs | null,
   version?: string,
 ) => {
   const navigation: DocsNavigationTopic[] = [];
@@ -56,9 +43,11 @@ export const docsGenerator = <T extends ContentGQL>(
     markNodeWithContent(navigation, navigationPath);
   });
 
-  const newBetterContent = {
-    component: {},
-  } as DocsContent;
+  const newBetterContent = {} as DocsContent;
+
+  // const newBetterContent = {
+  //   component: {},
+  // } as DocsContent;
 
   documents.forEach(content => {
     const tmpObj = {} as DocsContentItem;
@@ -77,13 +66,13 @@ export const docsGenerator = <T extends ContentGQL>(
     tmpObj.docs = [tmpDoc];
     tmpObj.specifications = [] as Specification[];
 
-    newBetterContent.component[id] = tmpObj;
+    newBetterContent[id] = tmpObj;
   });
 
   //TODO: hack for fixing links, it should be removed and fixed in normal way
-  navigation.forEach(val => {
-    val.id = "component/" + val.id;
-  });
+  // navigation.forEach(val => {
+  //   val.id = "component/" + val.id;
+  // });
 
   return {
     content: newBetterContent,

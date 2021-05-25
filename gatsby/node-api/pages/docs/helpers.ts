@@ -85,7 +85,6 @@ export const prepareData = async ({
     docsArch[""] = docsGenerator<DocGQL>(
       docs,
       `docs/${repositoryName}`,
-      extractDocsFn(latestVersion),
       latestVersion,
     );
 
@@ -104,7 +103,6 @@ export const prepareData = async ({
       docsArch[version] = docsGenerator<DocGQL>(
         docs,
         `docs/${repositoryName}`,
-        extractDocsFn(version),
         version,
       );
     }
@@ -256,15 +254,20 @@ export const preparePreviewPaths = ({
   const v =
     !version || version === DOCS_LATEST_VERSION ? latestVersion : version;
 
-  const assetsPath = `/${ASSETS_DIR}${DOCS_DIR}${repositoryName}/${v}/${topic}/${DOCS_DIR}${ASSETS_DIR}`;
+  const tmp = topic.split("/");
+  tmp.pop();
+  const subtopic = tmp.join("/");
+
+  console.log(`subtopic:${subtopic}  | topci: ${topic}`);
+  const assetsPath = `/${ASSETS_DIR}${DOCS_DIR}${repositoryName}/${v}/${subtopic}/${ASSETS_DIR}`;
   const specificationsPath = `/${ASSETS_DIR}${DOCS_DIR}${repositoryName}/${v}/${topic}/${DOCS_SPECIFICATIONS_PATH}`;
 
   if (topic.endsWith("index")) {
     topic = topic.replace("index", "");
   }
-  const pagePath = `/${version ? `${version}/` : ""}${docsType}/${topic}`;
+  const pagePath = `/${version ? `${version}/` : ""}${topic}`;
   const rootPagePath = `/${version}`;
-  const modalUrlPrefix = `/${docsType}/${topic}/${DOCS_SPECIFICATIONS_PATH}`;
+  const modalUrlPrefix = `/${topic}/${DOCS_SPECIFICATIONS_PATH}`;
 
   return {
     assetsPath,

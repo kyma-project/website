@@ -54,7 +54,7 @@ export const prepareData = async (
     }`,
   );
 
-  return docsGenerator<CommunityGQL>(docs, "community", extractFn);
+  return docsGenerator<CommunityGQL>(docs, "community");
 };
 
 const extractFn = (

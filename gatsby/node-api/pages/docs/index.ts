@@ -82,65 +82,63 @@ const createDocsPagesPerRepo = async (
     // const sortedNavigation: DocsNavigation = sortGroupOfNavigation({});
     // const sortedNavigation: DocsNavigationElement[] = navigation
 
-    Object.keys(content).map(docsType => {
-      const topics = content[docsType];
+    // Object.keys(content).map(docsType => {
+    //   const topics = content[docsType];
 
-      Object.keys(topics).map(topic => {
-        const {
-          assetsPath,
-          specificationsPath,
-          modalUrlPrefix,
-          pagePath,
-          rootPagePath,
-        } = preparePaths({
-          repositoryName,
-          version,
-          latestVersion: latestVersion || "",
-          docsType,
-          topic,
-        });
-
-        let fixedContent = content[docsType][topic];
-        if (buildFor !== BuildFor.DOCS_PREVIEW) {
-          fixedContent = fixLinks({
-            content: fixedContent,
-            version,
-          });
-        }
-        const specifications = fixedContent.specifications.map(
-          specification => ({
-            ...specification,
-            assetPath: `${specificationsPath}/${specification.assetPath}`,
-            pageUrl: `${modalUrlPrefix}/${specification.id}`,
-          }),
-        );
-
-        const context = {
-          content: fixedContent,
-          navigation,
-          manifest: navigation,
-          versions,
-          version,
-          pagePath,
-          assetsPath,
-          docsType,
-          // pagePath,
-          topic,
-          specifications,
-          repositoryName,
-        };
-
-        const createPage = createDocsPage(createPageFn, context);
-        createComponentDocsPage({
-          createPage,
-          createRedirect,
-          context,
-          path: pagePath,
-          rootPath: rootPagePath,
-          repository,
-        });
-        createModalDocsPage({ createPage, context });
+    Object.keys(content).map(topic => {
+      const {
+        assetsPath,
+        specificationsPath,
+        modalUrlPrefix,
+        pagePath,
+        rootPagePath,
+      } = preparePaths({
+        repositoryName,
+        version,
+        latestVersion: latestVersion || "",
+        docsType: "",
+        topic,
       });
+
+      let fixedContent = content[topic];
+      if (buildFor !== BuildFor.DOCS_PREVIEW) {
+        fixedContent = fixLinks({
+          content: fixedContent,
+          version,
+        });
+      }
+      const specifications = fixedContent.specifications.map(specification => ({
+        ...specification,
+        assetPath: `${specificationsPath}/${specification.assetPath}`,
+        pageUrl: `${modalUrlPrefix}/${specification.id}`,
+      }));
+
+      const context = {
+        content: fixedContent,
+        navigation,
+        manifest: navigation,
+        versions,
+        version,
+        pagePath,
+        assetsPath,
+        docsType: "",
+        // pagePath,
+        topic,
+        specifications,
+        repositoryName,
+      };
+
+      const createPage = createDocsPage(createPageFn, context);
+      createComponentDocsPage({
+        createPage,
+        createRedirect,
+        context,
+        path: pagePath,
+        rootPath: rootPagePath,
+        repository,
+      });
+      createModalDocsPage({ createPage, context });
     });
   });
+  // });
 };

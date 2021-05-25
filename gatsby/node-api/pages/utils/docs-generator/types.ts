@@ -27,9 +27,7 @@ export interface Docs {
 
 /* Content */
 export interface DocsContent {
-  [group: string]: {
-    [topic: string]: DocsContentItem;
-  };
+  [topic: string]: DocsContentItem;
 }
 
 export interface DocsContentItem {
