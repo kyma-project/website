@@ -44,9 +44,11 @@ export const docsGenerator = <T extends ContentGQL>(
     } else {
       const filePath = item.fields.slug.replace(".md", "") as string;
       const navigationPath = filePath.split("/");
-      addChildren(navigation, navigationPath, item);
+      addNavigationItem(navigation, navigationPath, item);
     }
   });
+
+  //TODO: mark all nodes with noContent = true to make them not clickable
 
   nodeContent.forEach(item => {
     const filePath = item.fields.slug.replace("/index.md", "") as string;
@@ -90,7 +92,7 @@ export const docsGenerator = <T extends ContentGQL>(
   };
 };
 
-export const addChildren = <T extends ContentGQL>(
+export const addNavigationItem = <T extends ContentGQL>(
   navigation: DocsNavigationTopic[],
   navigationPath: string[],
   item: T,
@@ -102,7 +104,7 @@ export const addChildren = <T extends ContentGQL>(
   let found: boolean = false;
   navigation.forEach(navigationItem => {
     if (navigationPath[0] === navigationItem.id) {
-      addChildren(navigationItem.children, navigationPath.slice(1), item);
+      addNavigationItem(navigationItem.children, navigationPath.slice(1), item);
       found = true;
       return;
     }
@@ -132,10 +134,14 @@ export const addChildren = <T extends ContentGQL>(
     id: navigationPath[0],
     displayName,
     children: [] as DocsNavigationTopic[],
-    noContent: true,
+    noContent: false,
   } as DocsNavigationTopic;
 
-  addChildren(newDocsNavigationTopic.children, navigationPath.slice(1), item);
+  addNavigationItem(
+    newDocsNavigationTopic.children,
+    navigationPath.slice(1),
+    item,
+  );
 
   // add child
   navigation.push(newDocsNavigationTopic);
