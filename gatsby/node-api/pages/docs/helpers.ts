@@ -74,7 +74,7 @@ export const prepareData = async ({
     `/content/docs/${repositoryName}/`,
     `docInfo {
       id
-      type
+#      type
       version
     }`,
   );
@@ -227,13 +227,13 @@ export const prepareWebsitePaths = ({
   const specificationsPath = `/${ASSETS_DIR}${DOCS_DIR}${repositoryName}/${v}/${topic}/${DOCS_SPECIFICATIONS_PATH}`;
   const pagePath = `/${DOCS_PATH_PREFIX}/${
     version ? `${version}/` : ""
-  }${docsType}/${topic}`;
+  }${topic}`;
   const rootPagePath = `/${DOCS_PATH_PREFIX}/${
     repositoryName === "kyma" ? "" : `${repositoryName}/`
   }${version}`;
-  const modalUrlPrefix = `/${DOCS_PATH_PREFIX}/${
+  const modalUrlPrefix = `/${DOCS_PATH_PREFIX}${
     repositoryName === "kyma" ? "" : `${repositoryName}/`
-  }${v}/${docsType}/${topic}/${DOCS_SPECIFICATIONS_PATH}`;
+  }${v}/${topic}/${DOCS_SPECIFICATIONS_PATH}`;
 
   return {
     assetsPath,
