@@ -45,7 +45,7 @@
       "support": {
         "title": "Observability",
         "paragraphs": [
-          "Kyma comes with pre-configured open-source observability tools. You can easily monitor the performance of your microservices and functions, scan logs for errors and trace request flow through entire system."
+          "Kyma comes with pre-configured open-source observability tools. You can easily monitor the performance of your microservices and Functions, scan logs for errors, and trace the request flow through the entire system."
         ]
       }
     }
