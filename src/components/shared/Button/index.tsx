@@ -38,14 +38,17 @@ const buttonSizes = {
   borderRadius: {
     sm: "25px",
     md: "25px",
+    lg: "25px",
   },
   padding: {
     sm: "0 14px",
     md: "0 18px",
+    lg: "0 50px",
   },
   lineHeight: {
     sm: "40px",
     md: "46px",
+    lg: "46px",
   },
 };
 

@@ -1,5 +1,5 @@
 {
-  "headline": "Extend your applications\nwith Kubernetes",
+  "headline": "Check it out",
   "manifesto": {
     "paragraph": "{brand} is a cloud-native application runtime that combines the power of Kubernetes with a set of best-in-class tools and open-source components, that empower you to develop, run and operate secure and scalable cloud-native applications.",
     "brand": "Kyma",
@@ -7,10 +7,12 @@
     "scrollButton": "Scroll to the next section"
   },
   "whatIs": {
-    "headline": "What is Kyma?",
-    "paragraph": "Kyma {spelling} is a platform for extending applications with serverless functions and microservices. It provides a selection of cloud-native projects glued together to simplify the creation and management of extensions.",
-    "spelling": "/kee-ma/",
-    "installButton": "Install"
+    "firstParagraph1": "Kyma comes with supporting CLI. It is a really good idea to get it first.",
+    "firstParagraph2": "Choose from convenient installation {options}.",
+    "firstParagraph3": "With Kyma CLI installed you're only 2 commands away from having the local kyma installed on your machine",
+    "secondParagraph1": "Try out our tutorials that will help you get familiar with Kyma features.",
+    "secondParagraph2": "Start with basic concept by following our getting started guides.",
+    "learnMore": "Learn more"
   },
   "extensionsAndTools": {
     "extend": {

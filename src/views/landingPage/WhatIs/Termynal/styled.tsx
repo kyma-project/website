@@ -22,54 +22,23 @@ export const TermynalStyles = styled.div`
 
   [data-termynal] {
     max-width: 100%;
-    background: ${colorBg};
-    color: ${colorText};
     font-size: 14px;
     font-family: "Fira Mono", Consolas, Menlo, Monaco, "Courier New", Courier,
       monospace;
     border-radius: 4px;
-    padding: 33px 45px 20px;
+    padding: 10px;
     @media (max-width: 1025px) {
-      padding: 40px 45px 25px;
+      padding: 10px;
     }
     position: relative;
     box-sizing: border-box;
-  }
-
-  [data-termynal]:before {
-    content: "";
-    position: absolute;
-    top: 13px;
-    left: 13px;
-    display: inline-block;
-    width: 13px;
-    height: 13px;
-    border-radius: 50%;
-    /* A little hack to display the window buttons in one pseudo element. */
-    background: #d9515d;
-    box-shadow: 25px 0 0 #f4c025, 50px 0 0 #3ec930;
-  }
-
-  [data-termynal]:after {
-    content: "bash";
-    position: absolute;
-    color: ${colorTextSubtle};
-    top: 5px;
-    left: 0;
-    width: 100%;
-    text-align: center;
+    border: 2px solid #a2a2a2;
+    border-radius: 5px;
   }
 
   [data-ty] {
     display: block;
     line-height: 1.8;
-  }
-
-  [data-ty]:before {
-    /* Set up defaults and ensure empty lines are displayed. */
-    content: "";
-    display: inline-block;
-    vertical-align: middle;
   }
 
   [data-ty="input"]:before,

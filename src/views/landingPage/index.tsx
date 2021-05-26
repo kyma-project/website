@@ -26,9 +26,6 @@ const LandingPageView: React.FunctionComponent<PageContext<
 
       <Headline />
       <WhatIs />
-      <ExtensionsAndTools />
-      <Newsroom latestBlogPosts={latestBlogPosts} />
-      <Adopters adopters={adopters} />
     </>
   );
 };

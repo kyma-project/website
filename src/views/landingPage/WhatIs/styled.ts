@@ -2,7 +2,14 @@ import styled, { media } from "@styled";
 import Grid from "@styled/Grid";
 
 export const ParagraphWrapper = styled.section`
-  padding: 20px 0 7px;
+  padding: 0 0 7px;
+`;
+
+export const ParagraphWrapper2 = styled.section`
+  padding-top: 30px;
+  padding-bottom: 50px;
+  font-size: 18px;
+  font-weight: bold;
 `;
 
 export const StyledGridContainer = styled(Grid.Container)`

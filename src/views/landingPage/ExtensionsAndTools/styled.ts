@@ -33,14 +33,13 @@ export const StyledGridUnit = styled(Grid.Unit)<GridProps>`
 `;
 
 export const SvgWrapper = styled.section`
-  padding: 30px 0;
   ${media.tablet`
     text-align: center;
     width: unset;
   `};
 
   display: flex;
-  justify-content: center;
+  justify-content: left;
   flex-flow: row wrap;
 `;
 
@@ -48,4 +47,10 @@ export const ProjectIcon = styled.img`
   max-width: 100%;
   margin: 10px;
   height: 70px;
+`;
+
+export const CLIIcon = styled.img`
+  max-width: 100%;
+  margin: 10px;
+  height: 500px;
 `;

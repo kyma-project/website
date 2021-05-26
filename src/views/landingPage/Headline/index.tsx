@@ -11,7 +11,7 @@ const gt = getTranslation("landingPage");
 export const Headline: React.FunctionComponent = () => (
   <Grid.Container as="header">
     <Grid.Row>
-      <Grid.Unit df={6} lg={7} md={8} sm={10} xs={12}>
+      <Grid.Unit df={12} lg={12} md={12} sm={12} xs={12}>
         <HeadlineWrapper>
           <FormattedMessage id={gt("headline")} />
         </HeadlineWrapper>
