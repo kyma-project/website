@@ -32,6 +32,7 @@ export interface NavigationProps {
   navigation: DocsNavigationElement[];
   linkFn: linkSerializer;
   activeLinkFn?: activeLinkChecker;
+  basePath: string;
   docsVersionSwitcher?: React.ReactNode;
 }
 
@@ -89,11 +90,13 @@ function renderListElement(
 export const Navigation: React.FunctionComponent<NavigationProps> = ({
   navigation,
   linkFn,
+  basePath,
   activeLinkFn,
   docsVersionSwitcher,
 }) => {
   const { showMobileLeftNav } = useContext(GenericDocsContext);
 
+  const basicPath = basePath.split("/");
   const mockNavigation: DocsNavigationElement[] = [
     { displayName: "Test", id: "test" },
     {
@@ -231,7 +234,7 @@ export const Navigation: React.FunctionComponent<NavigationProps> = ({
       <NavigationListWrapper>
         <NavigationList>
           {navigation.map(el =>
-            renderListElement(el, [], linkFn, activeLinkFn),
+            renderListElement(el, basicPath, linkFn, activeLinkFn),
           )}
         </NavigationList>
       </NavigationListWrapper>

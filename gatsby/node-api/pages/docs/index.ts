@@ -21,6 +21,7 @@ import { DocsRepository } from "./types";
 
 import config from "../../../../config.json";
 import { DocsNavigationElement } from "@typings/docs";
+import { DOCS_LATEST_VERSION } from "../../../constants";
 
 export interface CreateDocsPages {
   graphql: GraphQLFunction;
@@ -85,6 +86,19 @@ const createDocsPagesPerRepo = async (
     // Object.keys(content).map(docsType => {
     //   const topics = content[docsType];
 
+    //set proper navigation id
+
+    const v =
+      !version || version === DOCS_LATEST_VERSION ? latestVersion : version;
+
+    // TODO: hack with adding this is bad, because navigation relies on `id`.
+    // Navigation split `id` and then every part is matched againts navigation, so
+    // /aaa/bb/ccc/ddd -> navigation will look for aaa in 1st depth, not for aaa/bb/ccc
+    //try to look at rootPagePath
+    // navigation.forEach(item => {
+    //   item.id = `docs/${v}/${item.id}`
+    // })
+
     Object.keys(content).map(topic => {
       const {
         assetsPath,
@@ -113,6 +127,7 @@ const createDocsPagesPerRepo = async (
         pageUrl: `${modalUrlPrefix}/${specification.id}`,
       }));
 
+      const basePath = rootPagePath;
       const context = {
         content: fixedContent,
         navigation,
@@ -121,8 +136,8 @@ const createDocsPagesPerRepo = async (
         version,
         pagePath,
         assetsPath,
+        basePath,
         docsType: "",
-        // pagePath,
         topic,
         specifications,
         repositoryName,
