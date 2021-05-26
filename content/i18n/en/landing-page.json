@@ -39,7 +39,7 @@
       "runtime": {
         "title": "Eventing",
         "paragraphs": [
-          "Kyma allows you to trigger workloads (functions or microservices) via in-cluster events or external business events"
+          "With Kyma, you can trigger workloads (Functions or microservices) using in-cluster events or external business events."
         ]
       },
       "support": {
