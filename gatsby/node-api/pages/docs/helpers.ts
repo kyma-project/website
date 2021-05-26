@@ -258,15 +258,15 @@ export const preparePreviewPaths = ({
   tmp.pop();
   const subtopic = tmp.join("/");
 
-  console.log(`subtopic:${subtopic}  | topci: ${topic}`);
   const assetsPath = `/${ASSETS_DIR}${DOCS_DIR}${repositoryName}/${v}/${subtopic}/${ASSETS_DIR}`;
   const specificationsPath = `/${ASSETS_DIR}${DOCS_DIR}${repositoryName}/${v}/${topic}/${DOCS_SPECIFICATIONS_PATH}`;
 
   if (topic.endsWith("index")) {
     topic = topic.replace("index", "");
   }
-  const pagePath = `/${version ? `${version}/` : ""}${topic}`;
-  const rootPagePath = `/${version}`;
+  const pagePath = `${DOCS_DIR}${v}/${topic}`;
+  //TODO: examine rootPagePath :)
+  const rootPagePath = `${DOCS_DIR}${v}`;
   const modalUrlPrefix = `/${topic}/${DOCS_SPECIFICATIONS_PATH}`;
 
   return {

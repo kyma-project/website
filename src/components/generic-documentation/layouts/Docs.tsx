@@ -31,6 +31,7 @@ import {
   StickyWrapperRightNav,
 } from "./styled";
 import { MarkdownWrapper } from "../styled";
+import to from "await-to-js";
 
 export interface DocsLayoutProps {
   renderers: Renderers;
@@ -39,6 +40,7 @@ export interface DocsLayoutProps {
   version: string;
   content: DocsContentItem;
   pagePath: string;
+  basePath: string;
   sourcesLength: number;
   docsVersionSwitcher: React.ReactNode;
   specifications?: Specification[];
@@ -51,23 +53,34 @@ export const DocsLayout: React.FunctionComponent<DocsLayoutProps> = ({
   version,
   content: { id: topic, type, displayName },
   pagePath,
+  basePath,
   sourcesLength,
   specifications,
   docsVersionSwitcher,
   inPreview,
 }) => {
-  const linkFn: linkSerializer = path =>
-    `/${!inPreview ? `docs/` : ""}${version ? `${version}/` : ""}${path.join(
-      "/",
-    )}`;
-  const activeLinkFn: activeLinkChecker = path => {
-    const slug = `/${!inPreview ? `docs/` : ""}${
+  const linkFn: linkSerializer = path => {
+    const out = `/${!inPreview ? `docs/` : ""}${
       version ? `${version}/` : ""
     }${path.join("/")}`;
-    if (pagePath === slug) {
+    // tslint:disable-next-line:no-var-before-return
+    return out;
+  };
+  const activeLinkFn: activeLinkChecker = path => {
+    const toReduce = basePath.split("/").length;
+    const newPagePath = pagePath
+      .split("/")
+      .slice(toReduce)
+      .join("/");
+    path = path.slice(toReduce);
+
+    const slug = `${!inPreview ? `docs/` : ""}${
+      version ? `${version}/` : ""
+    }${path.join("/")}`;
+    if (newPagePath === slug) {
       return ActiveState.ACTIVE_DIRECT;
     }
-    if (pagePath.startsWith(slug)) {
+    if (newPagePath.startsWith(slug)) {
       return ActiveState.ACTIVE_INDIRECT;
     }
     return ActiveState.INACTIVE;
@@ -92,6 +105,7 @@ export const DocsLayout: React.FunctionComponent<DocsLayoutProps> = ({
                         navigation={navigation}
                         linkFn={linkFn}
                         activeLinkFn={activeLinkFn}
+                        basePath={basePath}
                         docsVersionSwitcher={docsVersionSwitcher}
                       />
                     </StickyWrapperLeftNav>

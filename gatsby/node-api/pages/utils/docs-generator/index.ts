@@ -69,11 +69,6 @@ export const docsGenerator = <T extends ContentGQL>(
     newBetterContent[id] = tmpObj;
   });
 
-  //TODO: hack for fixing links, it should be removed and fixed in normal way
-  // navigation.forEach(val => {
-  //   val.id = "component/" + val.id;
-  // });
-
   return {
     content: newBetterContent,
     navigation,
