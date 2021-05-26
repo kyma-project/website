@@ -83,21 +83,8 @@ const createDocsPagesPerRepo = async (
     // const sortedNavigation: DocsNavigation = sortGroupOfNavigation({});
     // const sortedNavigation: DocsNavigationElement[] = navigation
 
-    // Object.keys(content).map(docsType => {
-    //   const topics = content[docsType];
-
-    //set proper navigation id
-
     const v =
       !version || version === DOCS_LATEST_VERSION ? latestVersion : version;
-
-    // TODO: hack with adding this is bad, because navigation relies on `id`.
-    // Navigation split `id` and then every part is matched againts navigation, so
-    // /aaa/bb/ccc/ddd -> navigation will look for aaa in 1st depth, not for aaa/bb/ccc
-    //try to look at rootPagePath
-    // navigation.forEach(item => {
-    //   item.id = `docs/${v}/${item.id}`
-    // })
 
     Object.keys(content).map(topic => {
       const {
@@ -149,7 +136,7 @@ const createDocsPagesPerRepo = async (
         createRedirect,
         context,
         path: pagePath,
-        rootPath: rootPagePath,
+        rootPath: "",
         repository,
       });
       createModalDocsPage({ createPage, context });

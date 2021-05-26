@@ -67,6 +67,7 @@ export const CommunityLayout: React.FunctionComponent<CommunityLayoutProps> = ({
                         navigation={navigation}
                         linkFn={linkFn}
                         activeLinkFn={activeLinkFn}
+                        basePath=""
                       />
                     </StickyWrapperLeftNav>
                   )}

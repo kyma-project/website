@@ -60,9 +60,12 @@ export const DocsLayout: React.FunctionComponent<DocsLayoutProps> = ({
   inPreview,
 }) => {
   const linkFn: linkSerializer = path => {
-    const out = `/${!inPreview ? `docs/` : ""}${
+    return path.join("/");
+    let out = `/${!inPreview ? `docs/` : ""}${
       version ? `${version}/` : ""
     }${path.join("/")}`;
+
+    out = path.join("/");
     // tslint:disable-next-line:no-var-before-return
     return out;
   };
@@ -74,9 +77,10 @@ export const DocsLayout: React.FunctionComponent<DocsLayoutProps> = ({
       .join("/");
     path = path.slice(toReduce);
 
-    const slug = `${!inPreview ? `docs/` : ""}${
-      version ? `${version}/` : ""
-    }${path.join("/")}`;
+    // const slug = `${!inPreview ? `docs/` : ""}${
+    //   version ? `${version}/` : ""
+    //}${path.join("/")}`;
+    const slug = path.join("/");
     if (newPagePath === slug) {
       return ActiveState.ACTIVE_DIRECT;
     }
