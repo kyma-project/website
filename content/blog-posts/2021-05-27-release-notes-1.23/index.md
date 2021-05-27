@@ -58,7 +58,7 @@ We decided to deprecate Service Catalog and all the related components, and in t
 - [Azure](https://github.com/Azure/azure-service-operator)
 - [AWS](https://github.com/aws-controllers-k8s/community)
 
-The decision impacts also these components that are deprecated together with Service Catalog:
+Furthermore, the following components have been impacted by this decision and are therefore deprecated together with Service Catalog:
 - Helm Broker
 - Application Broker
 - Service Binding Usage Controller
