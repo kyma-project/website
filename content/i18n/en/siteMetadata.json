@@ -1,8 +1,8 @@
 {
   "title": "Kyma",
   "shortDescription": "An easy way to extend enterprise applications on Kubernetes.",
-  "description": "Kyma is an open-source project designed natively on Kubernetes. It allows you to extend enterprise applications in a quick and modern way, using serverless computing or microservice architecture.",
+  "description": "Kyma is a cloud-native application runtime that gives you the power of Kubernetes but without the hassle of worrying about security, configuration, and integration of tools.",
   "author": "Kyma project authors",
-  "keywords": "kyma,kyma-project,kyma-project-io,kubernetes,cloud-native,k8s,knative",
+  "keywords": "kyma,kyma-project,kyma-project-io,kubernetes,cloud-native,k8s",
   "copyright": "Copyright © 2018-{actualYear} The Kyma project authors"
 }

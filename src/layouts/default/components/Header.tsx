@@ -33,7 +33,6 @@ const Header: React.FunctionComponent<HeaderProps & IntlInterface> = ({
             <Logo />
           </HeaderLogo>
         </Link.Internal>
-        <GithubButtons />
       </GithubButtonsWrapper>
       {hiddenNav ? null : <Navigation />}
     </Grid.Container>

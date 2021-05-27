@@ -3,12 +3,18 @@ import { Content, Renderers } from "@kyma-project/documentation-component";
 import { StickyContainer, Sticky } from "react-sticky";
 
 import Grid from "@styled/Grid";
-import { DocsNavigation, DocsManifest, DocsContentItem } from "@typings/docs";
+import {
+  DocsNavigation,
+  DocsManifest,
+  DocsContentItem,
+  DocsNavigationElement,
+} from "@typings/docs";
 
 import {
   Navigation,
   linkSerializer,
   activeLinkChecker,
+  ActiveState,
 } from "../render-engines/markdown/navigation";
 import { HeadersNavigation } from "../render-engines/markdown/headers-toc";
 
@@ -24,7 +30,7 @@ import { MarkdownWrapper } from "../styled";
 
 export interface CommunityLayoutProps {
   renderers: Renderers;
-  navigation: DocsNavigation;
+  navigation: DocsNavigationElement[];
   manifest: DocsManifest;
   content: DocsContentItem;
   sourcesLength: number;
@@ -38,12 +44,9 @@ export const CommunityLayout: React.FunctionComponent<CommunityLayoutProps> = ({
   sourcesLength,
   inPreview,
 }) => {
-  const linkFn: linkSerializer = ({ group, items, id }) =>
-    `/${!inPreview ? `community/` : ""}${
-      items.length > 1 ? `${group}/` : ""
-    }${id}`;
-  const activeLinkFn: activeLinkChecker = ({ group, id }) =>
-    topic === id && type === group;
+  const linkFn: linkSerializer = path =>
+    `/${!inPreview ? `community/` : ""}${path.join("/")}`;
+  const activeLinkFn: activeLinkChecker = path => ActiveState.INACTIVE; // TODO: check if current page
 
   return (
     <CommunityLayoutWrapper>
@@ -64,6 +67,7 @@ export const CommunityLayout: React.FunctionComponent<CommunityLayoutProps> = ({
                         navigation={navigation}
                         linkFn={linkFn}
                         activeLinkFn={activeLinkFn}
+                        basePath=""
                       />
                     </StickyWrapperLeftNav>
                   )}

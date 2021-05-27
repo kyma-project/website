@@ -27,38 +27,39 @@ export const createCommunityPages = async ({
       : prepareWebsitePaths;
   const { content, navigation, manifest } = await prepareData(graphql);
 
-  Object.keys(content).map(docsType => {
-    const topics = content[docsType];
-    const topicsKeys = Object.keys(topics);
+  // Object.keys(content).map(docsType => {
+  //   const topics = content[docsType];
+  const topicsKeys = Object.keys(content);
 
-    topicsKeys.map(topic => {
-      const { assetsPath, pagePath, rootPagePath } = preparePaths({
-        topicsKeys,
-        docsType,
-        topic,
-      });
+  topicsKeys.map(topic => {
+    const { assetsPath, pagePath, rootPagePath } = preparePaths({
+      topicsKeys,
+      docsType: "",
+      topic,
+    });
 
-      let sources = content[docsType][topic];
-      if (buildFor !== BuildFor.COMMUNITY_PREVIEW) {
-        sources = addCommunityPrefixInInternalLinks(sources);
-      }
+    let sources = content[topic];
+    if (buildFor !== BuildFor.COMMUNITY_PREVIEW) {
+      sources = addCommunityPrefixInInternalLinks(sources);
+    }
 
-      const context = {
-        content: sources,
-        navigation,
-        manifest,
-        assetsPath,
-        docsType,
-        topic,
-      };
+    const context = {
+      content: sources,
+      navigation,
+      manifest,
+      assetsPath,
+      docsType: "",
+      basePath: "",
+      topic,
+    };
 
-      const createPage = createCommunityPage(createPageFn, context);
-      createComponentCommunityPage({
-        createPage,
-        context,
-        path: pagePath,
-        rootPath: rootPagePath,
-      });
+    const createPage = createCommunityPage(createPageFn, context);
+    createComponentCommunityPage({
+      createPage,
+      context,
+      path: pagePath,
+      rootPath: rootPagePath,
     });
   });
+  // });
 };
