@@ -1,15 +1,13 @@
-import { resolve } from "path";
 import to from "await-to-js";
+import { resolve } from "path";
 import { VError } from "verror";
-
 import { CoreConfig, PrepareFor } from "../config";
-import docsConfig, { DocsRepository } from "./config";
 import GitClient from "../github-client/git-client";
 import GitHubClient from "../github-client/github-client";
-import CheckingDocs from "./branches-checking";
-import CopyDocs from "./copy-docs";
-import DocsVersions from "./docs-versions";
 import { makeDir } from "../helpers";
+import CheckingDocs from "./branches-checking";
+import docsConfig, { DocsRepository } from "./config";
+import CopyDocs from "./copy-docs";
 
 const configJSON = require("../../../../config.json");
 
@@ -117,21 +115,6 @@ const prepareDocsPerSource = async (
   if (err) {
     throw err;
   }
-
-  console.log(`Generating documentation versions file to ${outputDocsVersion}`);
-  [err] = await to(
-    DocsVersions.generate(
-      {
-        releases,
-        pre_releases: prereleases,
-        branches,
-      },
-      outputDocsVersion,
-    ),
-  );
-  if (err) {
-    throw err;
-  }
 };
 
 const preparePreviewDocs = async (coreConfig: CoreConfig) => {
@@ -163,22 +146,6 @@ const preparePreviewDocs = async (coreConfig: CoreConfig) => {
       source: sourcePath,
       output: outputPath,
     }),
-  );
-  if (err) {
-    throw err;
-  }
-
-  // commit must be defined :(
-  const branches = new Map<string, string>([[branchName, ""]]);
-
-  console.log(`Generating documentation versions file to ${outputDocsVersion}`);
-  [err] = await to(
-    DocsVersions.generate(
-      {
-        branches,
-      },
-      outputDocsVersion,
-    ),
   );
   if (err) {
     throw err;
