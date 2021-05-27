@@ -14,6 +14,7 @@ import {
   FormattedBrand,
   IconWrapper,
   ButtonWrapper,
+  SpellingOfText,
 } from "./styled";
 import Button from "@components/shared/Button";
 import Link from "@components/shared/Link";
@@ -57,6 +58,11 @@ const ManifestoRaw: FunctionComponentIntl<ManifestoProps> = ({
                 <FormattedBrand>
                   {formatMessage({ id: "brand" })}
                 </FormattedBrand>
+              ),
+              spelling: (
+                <SpellingOfText>
+                  {formatMessage({ id: "spelling" })}
+                </SpellingOfText>
               ),
             }}
           />

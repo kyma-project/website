@@ -13,8 +13,3 @@ export const HeaderWrapper = styled.div`
     margin: 0 auto;
   }
 `;
-
-export const SpellingOfText = styled.span`
-  font-family: monospace;
-  font-size: 16px;
-`;

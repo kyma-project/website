@@ -16,7 +16,7 @@ import { StyledGridUnit } from "../ExtensionsAndTools/styled";
 import Link from "@components/shared/Link";
 import Button from "@components/shared/Button";
 
-import usedByBackgroundSVG from "@views/landingPage/assets/landing-page/usedBy/usedByBackground.svg";
+import inTheNutshellPNG from "@views/landingPage/assets/landing-page/nutshell/in-the-nutshell.png";
 import { useWindowSize } from "react-use";
 
 const gt = getTranslation("landingPage.inANutshell");
@@ -49,9 +49,9 @@ const NutshellRaw: React.FunctionComponent = () => {
               </ButtonWrapper>
               <ImageWrapper>
                 {isMobile ? (
-                  <img src={`${usedByBackgroundSVG}`} />
+                  <img src={`${inTheNutshellPNG}`} />
                 ) : (
-                  <img src={`${usedByBackgroundSVG}`} />
+                  <img src={`${inTheNutshellPNG}`} />
                 )}
               </ImageWrapper>
             </HeaderWrapper>
