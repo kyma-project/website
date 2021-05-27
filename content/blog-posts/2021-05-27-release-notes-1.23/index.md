@@ -52,13 +52,13 @@ With this release, we upgraded Istio to version 1.9.5. This upgrade fixes severa
 
 ### Service Catalog deprecation
 
-In the nearest future, we are going to deprecate Service Catalog and all the related components. The main reason for this decision is the fact that hyperscale cloud providers no longer support the Open Service Broker API for service provisioning. Instead, they switched to operators, and we will also follow this approach in Kyma Service Management. Here you can learn more about operators for three main cloud providers:
+We decided to deprecate Service Catalog and all the related components, and in the nearest future, we are going to completely remove them. The main reason for this decision is the fact that hyperscale cloud providers no longer support the Open Service Broker API for service provisioning. Instead, they switched to operators, and we will also follow this approach in Kyma Service Management. Here you can learn more about operators for three main cloud providers:
 
 - [GCP](https://cloud.google.com/config-connector/docs/how-to/getting-started)
 - [Azure](https://github.com/Azure/azure-service-operator)
 - [AWS](https://github.com/aws-controllers-k8s/community)
 
-The decision impacts also these components that will be deprecated together with Service Catalog:
+The decision impacts also these components that are deprecated together with Service Catalog:
 - Helm Broker
 - Application Broker
 - Service Binding Usage Controller
