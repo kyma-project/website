@@ -74,7 +74,6 @@ const createDocsPreviewPages = async (
 ) => {
   let createPage = createIntlPage(otherActions.createPage, createRedirect);
   createPage = createPreviewPage(createPage);
-  await createLandingPages({ graphql, createPage, createRedirect });
   await createDocsPages({
     graphql,
     createPage,
