@@ -225,15 +225,15 @@ export const prepareWebsitePaths = ({
   const basePath = `/${DOCS_PATH_PREFIX}/${repositoryName}/${v}`;
   const assetBasePath = `/${ASSETS_DIR}${DOCS_DIR}${repositoryName}`;
 
-  //we remove `index` for nodes
+  // we remove `index` for nodes
   if (topic.endsWith("index")) {
     topic = topic.replace("index", "");
   }
 
-  //assetPath doesn't have markdown name, so we need to remove it
-  //Correct path in current implementation: assets/docs/kyma/main/deep-dive/assets/create-ssh-key.png
-  //and we have such markdown: my-super-tutorial
-  //so the topics looks like this: `deep-dive/my-super-tutorial`
+  // assetPath doesn't have markdown name, so we need to remove it
+  // Correct path in current implementation: assets/docs/kyma/main/deep-dive/assets/create-ssh-key.png
+  // and we have such markdown: my-super-tutorial
+  // so the topics looks like this: `deep-dive/my-super-tutorial`
   // that's why we need to remove the last part.
   const tmp = topic.split("/");
   tmp.pop();
@@ -244,7 +244,7 @@ export const prepareWebsitePaths = ({
 
   const pagePath = `${basePath}/${topic}`;
 
-  //TODO: do we use modalURLPrefix?
+  // TODO: do we use modalURLPrefix?
   const modalUrlPrefix = `/${DOCS_PATH_PREFIX}${
     repositoryName === "kyma" ? "" : `${repositoryName}/`
   }${v}/${topic}/${DOCS_SPECIFICATIONS_PATH}`;

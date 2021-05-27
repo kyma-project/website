@@ -13,7 +13,7 @@ export const onCreateDocsNode = ({
   relativePath,
   createNodeField,
 }: OnCreateDocsNode) => {
-  //TODO: Regex jest do śmieci
+  // TODO: Regex jest do śmieci
   const splitted = relativePath.split("/");
   // if (splitted.length < 6) {
   //   return;
