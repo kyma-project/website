@@ -49,12 +49,12 @@ export const prepareData = async (
     "/content/community/",
     `docInfo {
       id
-      type
-      fileName
+#      type
+#      fileName
     }`,
   );
 
-  return docsGenerator<CommunityGQL>(docs, "community", extractFn);
+  return docsGenerator<CommunityGQL>(docs, "community");
 };
 
 const extractFn = (
@@ -89,6 +89,7 @@ const extractFn = (
   return obj;
 };
 
+//TODO: popatrzeć czy te linki są sensowne
 export const prepareWebsitePaths = ({
   topicsKeys,
   docsType,
@@ -96,7 +97,7 @@ export const prepareWebsitePaths = ({
 }: CommunityPathsArgs): CommunityPaths => {
   const assetsPath = `/${ASSETS_DIR}${COMMUNITY_DIR}${topic}/${DOCS_DIR}${ASSETS_DIR}`;
   const rootPagePath = `/${COMMUNITY_PATH_PREFIX}`;
-  const pagePath = `/${COMMUNITY_PATH_PREFIX}/${
+  const pagePath = `/${COMMUNITY_PATH_PREFIX}${
     topicsKeys.length > 1 ? `${docsType}/` : ""
   }${topic}`;
 

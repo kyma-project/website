@@ -1,9 +1,0 @@
-{
-  "spec": {
-    "id": "overview",
-    "displayName": "Kyma CLI",
-    "description": "Overall documentation for CLI",
-    "type": "Cli"
-  },
-  "specifications": []
-}

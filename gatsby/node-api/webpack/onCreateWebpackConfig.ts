@@ -3,6 +3,7 @@ import { resolve } from "path";
 
 export const onCreateWebpackConfig = ({ actions }: CreateWebpackConfigArgs) => {
   actions.setWebpackConfig({
+    devtool: "eval-source-map",
     resolve: {
       alias: {
         "@components": resolve(__dirname, "../../../src/components"),

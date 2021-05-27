@@ -8,6 +8,7 @@ export interface DocsPageContext {
   versions: DocsVersions;
   navigation: DocsNavigation;
   content: DocsContentItem;
+  pagePath: string;
   manifest: DocsManifest;
   assetsPath: string;
   specifications: Specification[];
@@ -64,12 +65,14 @@ export interface DocsContentDocs {
 
 /* Navigation */
 export interface DocsNavigation {
-  [group: string]: DocsNavigationTopic[];
+  [group: string]: DocsNavigationElement[];
 }
 
-export interface DocsNavigationTopic {
+export interface DocsNavigationElement {
+  noContent?: boolean;
   displayName: string;
   id: string;
+  children?: DocsNavigationElement[];
 }
 
 /* Manifest */
@@ -77,7 +80,7 @@ export interface DocsManifest {
   spec: ManifestSpec;
 }
 export type ManifestSpec = DocsNavigation;
-export type ManifestItem = DocsNavigationTopic;
+export type ManifestItem = DocsNavigationElement;
 
 /* Specification */
 export enum SpecificationType {

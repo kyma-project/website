@@ -1,4 +1,4 @@
-import { resolve } from "path";
+import { resolve, join } from "path";
 import compareVersions from "compare-versions";
 
 import { DocsVersions, DocGQL, DocsPathsArgs, DocsPaths } from "./types";
@@ -74,18 +74,17 @@ export const prepareData = async ({
     `/content/docs/${repositoryName}/`,
     `docInfo {
       id
-      type
+#      type
       version
-      fileName
     }`,
   );
   const docsArch: { [version: string]: DocsGeneratorReturnType } = {};
 
+  // TODO: tutaj wołany jest generator z danymi z Graphql.
   if (buildFor === BuildFor.DOCS_PREVIEW) {
     docsArch[""] = docsGenerator<DocGQL>(
       docs,
       `docs/${repositoryName}`,
-      extractDocsFn(latestVersion),
       latestVersion,
     );
 
@@ -104,7 +103,6 @@ export const prepareData = async ({
       docsArch[version] = docsGenerator<DocGQL>(
         docs,
         `docs/${repositoryName}`,
-        extractDocsFn(version),
         version,
       );
     }
@@ -174,7 +172,7 @@ const extractDocsFn = (version: string) => (
     frontmatter: { title, type: docType },
   } = doc;
 
-  if (version === v && docsGroup === type && topicId === id) {
+  if (version === v && topicId === id) {
     const obj: DocsContentDocs = {
       order: fileName,
       title,
@@ -219,54 +217,77 @@ export const prepareWebsitePaths = ({
   repositoryName,
   version,
   latestVersion,
-  docsType,
   topic,
 }: DocsPathsArgs): DocsPaths => {
   const v =
     !version || version === DOCS_LATEST_VERSION ? latestVersion : version;
 
-  const assetsPath = `/${ASSETS_DIR}${DOCS_DIR}${repositoryName}/${v}/${topic}/${DOCS_DIR}${ASSETS_DIR}`;
-  const specificationsPath = `/${ASSETS_DIR}${DOCS_DIR}${repositoryName}/${v}/${topic}/${DOCS_SPECIFICATIONS_PATH}`;
-  const pagePath = `/${DOCS_PATH_PREFIX}/${
-    version ? `${version}/` : ""
-  }${docsType}/${topic}`;
-  const rootPagePath = `/${DOCS_PATH_PREFIX}/${
+  const basePath = `/${DOCS_PATH_PREFIX}/${repositoryName}/${v}`;
+  const assetBasePath = `/${ASSETS_DIR}${DOCS_DIR}${repositoryName}`;
+
+  //we remove `index` for nodes
+  if (topic.endsWith("index")) {
+    topic = topic.replace("index", "");
+  }
+
+  //assetPath doesn't have markdown name, so we need to remove it
+  //Correct path in current implementation: assets/docs/kyma/main/deep-dive/assets/create-ssh-key.png
+  //and we have such markdown: my-super-tutorial
+  //so the topics looks like this: `deep-dive/my-super-tutorial`
+  // that's why we need to remove the last part.
+  const tmp = topic.split("/");
+  tmp.pop();
+  const subtopic = tmp.join("/");
+
+  const assetsPath = `${assetBasePath}/${v}/${subtopic}/${ASSETS_DIR}`;
+  const specificationsPath = `${assetBasePath}/${v}/${subtopic}/${DOCS_SPECIFICATIONS_PATH}`;
+
+  const pagePath = `${basePath}/${topic}`;
+
+  //TODO: do we use modalURLPrefix?
+  const modalUrlPrefix = `/${DOCS_PATH_PREFIX}${
     repositoryName === "kyma" ? "" : `${repositoryName}/`
-  }${version}`;
-  const modalUrlPrefix = `/${DOCS_PATH_PREFIX}/${
-    repositoryName === "kyma" ? "" : `${repositoryName}/`
-  }${v}/${docsType}/${topic}/${DOCS_SPECIFICATIONS_PATH}`;
+  }${v}/${topic}/${DOCS_SPECIFICATIONS_PATH}`;
 
   return {
     assetsPath,
     specificationsPath,
     pagePath,
-    rootPagePath,
+    basePath,
     modalUrlPrefix,
   };
 };
 
-export const preparePreviewPaths = ({
-  repositoryName,
-  version,
-  latestVersion,
-  docsType,
-  topic,
-}: DocsPathsArgs): DocsPaths => {
-  const v =
-    !version || version === DOCS_LATEST_VERSION ? latestVersion : version;
-
-  const assetsPath = `/${ASSETS_DIR}${DOCS_DIR}${repositoryName}/${v}/${topic}/${DOCS_DIR}${ASSETS_DIR}`;
-  const specificationsPath = `/${ASSETS_DIR}${DOCS_DIR}${repositoryName}/${v}/${topic}/${DOCS_SPECIFICATIONS_PATH}`;
-  const pagePath = `/${version ? `${version}/` : ""}${docsType}/${topic}`;
-  const rootPagePath = `/${version}`;
-  const modalUrlPrefix = `/${docsType}/${topic}/${DOCS_SPECIFICATIONS_PATH}`;
-
-  return {
-    assetsPath,
-    specificationsPath,
-    pagePath,
-    rootPagePath,
-    modalUrlPrefix,
-  };
-};
+//
+// export const preparePreviewPaths = ({
+//   repositoryName,
+//   version,
+//   latestVersion,
+//   topic,
+// }: DocsPathsArgs): DocsPaths => {
+//   const v =
+//     !version || version === DOCS_LATEST_VERSION ? latestVersion : version;
+//
+//   const tmp = topic.split("/");
+//   tmp.pop();
+//   const subtopic = tmp.join("/");
+//
+//   const assetsPath = `/${ASSETS_DIR}${DOCS_DIR}${repositoryName}/${v}/${subtopic}/${ASSETS_DIR}`;
+//   const specificationsPath = `/${ASSETS_DIR}${DOCS_DIR}${repositoryName}/${v}/${topic}/${DOCS_SPECIFICATIONS_PATH}`;
+//
+//   if (topic.endsWith("index")) {
+//     topic = topic.replace("index", "");
+//   }
+//   const pagePath = `${DOCS_DIR}${v}/${topic}`;
+//   //TODO: examine rootPagePath :)
+//   const rootPagePath = `${DOCS_DIR}${v}`;
+//   const modalUrlPrefix = `/${topic}/${DOCS_SPECIFICATIONS_PATH}`;
+//
+//   return {
+//     assetsPath,
+//     specificationsPath,
+//     pagePath,
+//     basePath,
+//     modalUrlPrefix,
+//   };
+// };
