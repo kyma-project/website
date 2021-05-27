@@ -8,7 +8,6 @@ import {
   prepareData,
   sortGroupOfNavigation,
   prepareWebsitePaths,
-  preparePreviewPaths,
 } from "./helpers";
 import { DocsNavigation } from "../utils";
 import {
@@ -67,11 +66,6 @@ const createDocsPagesPerRepo = async (
     return;
   }
 
-  const preparePaths =
-    buildFor === BuildFor.DOCS_PREVIEW
-      ? preparePreviewPaths
-      : prepareWebsitePaths;
-
   const preparedData = await prepareData({ graphql, buildFor, repositoryName });
   if (!preparedData) {
     return;
@@ -92,12 +86,11 @@ const createDocsPagesPerRepo = async (
         specificationsPath,
         modalUrlPrefix,
         pagePath,
-        rootPagePath,
-      } = preparePaths({
+        basePath,
+      } = prepareWebsitePaths({
         repositoryName,
         version,
         latestVersion: latestVersion || "",
-        docsType: "",
         topic,
       });
 
@@ -114,7 +107,6 @@ const createDocsPagesPerRepo = async (
         pageUrl: `${modalUrlPrefix}/${specification.id}`,
       }));
 
-      const basePath = rootPagePath;
       const context = {
         content: fixedContent,
         navigation,
