@@ -22,6 +22,7 @@ See the overview of all changes in this release:
 - [Serverless](#serverless) - Node.js runtime changes - v14 in, v10 out
 - [Logging](#logging) - Loki volume size increased
 - [Service Mesh](#service-mesh) - Istio upgraded to version 1.9.5
+- [Service Management](#service-management) - Service Catalog deprecation
 - [Known issues](#known-issues) - Python's standard library strips leading zeros from IP addresses
 
 ## Serverless  
@@ -46,6 +47,24 @@ We increased the persistence for Loki from 1 to 5 days. To accommodate this chan
 ### Istio upgraded to version 1.9.5
 
 With this release, we upgraded Istio to version 1.9.5. This upgrade fixes several security vulnerabilities and a few minor issues. See [Istio 1.9.5 release announcements](https://istio.io/latest/news/releases/1.9.x/announcing-1.9.5/) for more information.
+
+## Service Management
+
+### Service Catalog deprecation
+
+In the nearest future, we are going to deprecate Service Catalog and all the related components. The main reason for this decision is the fact that hyperscale cloud providers no longer support the Open Service Broker API for service provisioning. Instead, they switched to operators, and we will also follow this approach in Kyma Service Management. Here you can learn more about operators for three main cloud providers:
+
+- [GCP](https://cloud.google.com/config-connector/docs/how-to/getting-started)
+- [Azure](https://github.com/Azure/azure-service-operator)
+- [AWS](https://github.com/aws-controllers-k8s/community)
+
+The decision impacts also these components that will be deprecated together with Service Catalog:
+- Helm Broker
+- Application Broker
+- Service Binding Usage Controller
+- Rafter
+
+The details and the migration guides related to the deprecation will be announced later.
 
 ## Known issues
 
