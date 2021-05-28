@@ -8,6 +8,7 @@ import { makeDir } from "../helpers";
 import CheckingDocs from "./branches-checking";
 import docsConfig, { DocsRepository } from "./config";
 import CopyDocs from "./copy-docs";
+import DocsVersions from "./docs-versions";
 
 const configJSON = require("../../../../config.json");
 
@@ -111,6 +112,21 @@ const prepareDocsPerSource = async (
       source: sourcePath,
       output: outputPath,
     }),
+  );
+  if (err) {
+    throw err;
+  }
+
+  console.log(`Generating documentation versions file to ${outputDocsVersion}`);
+  [err] = await to(
+    DocsVersions.generate(
+      {
+        releases,
+        pre_releases: prereleases,
+        branches,
+      },
+      outputDocsVersion,
+    ),
   );
   if (err) {
     throw err;
