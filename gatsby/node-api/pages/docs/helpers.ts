@@ -222,12 +222,12 @@ export const prepareWebsitePaths = ({
   const v =
     !version || version === DOCS_LATEST_VERSION ? latestVersion : version;
 
-  const basePath = `/${DOCS_PATH_PREFIX}/${repositoryName}/${v}`;
-  const assetBasePath = `/${ASSETS_DIR}${DOCS_DIR}${repositoryName}`;
+  const basePath = join("/", DOCS_PATH_PREFIX, repositoryName, v);
+  const assetBasePath = join("/", ASSETS_DIR, DOCS_DIR, repositoryName);
 
-  //we remove `index` for nodes
-  if (topic.endsWith("index")) {
-    topic = topic.replace("index", "");
+  // we remove `index` for nodes
+  if (topic.endsWith("README")) {
+    topic = topic.replace("README", "");
   }
 
   //assetPath doesn't have markdown name, so we need to remove it
@@ -239,12 +239,17 @@ export const prepareWebsitePaths = ({
   tmp.pop();
   const subtopic = tmp.join("/");
 
-  const assetsPath = `${assetBasePath}/${v}/${subtopic}/${ASSETS_DIR}`;
-  const specificationsPath = `${assetBasePath}/${v}/${subtopic}/${DOCS_SPECIFICATIONS_PATH}`;
+  const assetsPath = join(assetBasePath, v, subtopic, ASSETS_DIR);
+  const specificationsPath = join(
+    assetBasePath,
+    v,
+    subtopic,
+    DOCS_SPECIFICATIONS_PATH,
+  );
 
-  const pagePath = `${basePath}/${topic}`;
+  const pagePath = join(basePath, topic);
 
-  //TODO: do we use modalURLPrefix?
+  //TODO: it's used for specification
   const modalUrlPrefix = `/${DOCS_PATH_PREFIX}${
     repositoryName === "kyma" ? "" : `${repositoryName}/`
   }${v}/${topic}/${DOCS_SPECIFICATIONS_PATH}`;

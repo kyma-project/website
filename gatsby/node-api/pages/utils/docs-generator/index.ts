@@ -31,7 +31,7 @@ export const docsGenerator = <T extends ContentGQL>(
   const docsContentForNodes = [] as ContentGQL[];
 
   documents.forEach(item => {
-    if (item.fields.slug.endsWith("index.md")) {
+    if (item.fields.slug.endsWith("README.md")) {
       docsContentForNodes.push(item);
     } else {
       const filePath = item.fields.slug.replace(".md", "") as string;
@@ -43,7 +43,7 @@ export const docsGenerator = <T extends ContentGQL>(
   markNodes(navigation);
 
   docsContentForNodes.forEach(item => {
-    const filePath = item.fields.slug.replace("/index.md", "") as string;
+    const filePath = item.fields.slug.replace("/README.md", "") as string;
     const navigationPath = filePath.split("/");
     markNodeWithContent(navigation, navigationPath);
   });
