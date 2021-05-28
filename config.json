@@ -48,7 +48,9 @@
     "ADD_KYMA_USER": "https://github.com/kyma-project/website/blob/main/docs/add-user.md",
     "DOCS_OVERVIEW_NUTSHELL": "/docs/#overview-in-a-nutshell",
     "DOCS_DETAILS_COMPONENTS": "/docs/#details-components",
-    "DOCS_INSTALLATION": "/docs/root/kyma#installation-installation"
+    "DOCS_INSTALLATION": "/docs/root/kyma#installation-installation",
+    "GETTING_STARTED": "/docs/root/getting-started",
+    "DOCS_INSTALL_CLI": "docs/cli/#installation-install-kyma-cli"
   },
   "landingPage": {
     "ids": {
