@@ -254,6 +254,8 @@ export const prepareWebsitePaths = ({
     repositoryName === "kyma" ? "" : `${repositoryName}/`
   }${v}/${topic}/${DOCS_SPECIFICATIONS_PATH}`;
 
+  console.log(pagePath);
+
   return {
     assetsPath,
     specificationsPath,
