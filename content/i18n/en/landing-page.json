@@ -100,11 +100,12 @@
     "lastBlogPostButton": "Read our posts"
   },
   "checkItOut": {
-    "firstParagraph1": "Kyma comes with supporting CLI. It is a really good idea to get it first.",
-    "firstParagraph2": "Choose from convenient installation {options}.",
-    "firstParagraph3": "With Kyma CLI installed you're only 2 commands away from having the local kyma installed on your machine",
-    "secondParagraph1": "Try out our tutorials that will help you get familiar with Kyma features.",
-    "secondParagraph2": "Start with basic concept by following our getting started guides.",
+    "headline": "Check It Out",
+    "firstParagraphTitle": "Install Kyma locally",
+    "firstParagraph1": "Get Kyma CLI first. Choose from convenient installation {options}.",
+    "firstParagraph2": "With Kyma CLI you are only two steps away from having the local kyma installed.",
+    "secondParagraphTitle": "Start Exploring",
+    "secondParagraph1": "Try out getting started guides that will help you explore Kyma features.",
     "learnMore": "Learn more"
   }
 }

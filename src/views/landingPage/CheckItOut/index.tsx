@@ -1,17 +1,20 @@
 import React from "react";
 import Grid from "@styled/Grid";
 import { Termynal } from "./Termynal/Termynal";
+import { StyledGridUnit } from "../ExtensionsAndTools/styled";
+import H from "@components/shared/H";
 import config from "@config";
 import {
   ParagraphWrapper,
-  ParagraphWrapper2,
+  ParagraphTitleWrapper,
   CLIIcon,
   SvgWrapper,
   ProjectIcon,
+  LearnMoreButton,
   StyledGridContainer,
+  HeaderWrapper,
 } from "./styled";
 import { CenteredLink } from "../styled";
-import Button from "@components/shared/Button";
 
 import {
   FormattedMessage,
@@ -19,9 +22,9 @@ import {
   getTranslation,
   injectIntl,
 } from "@common/i18n";
-import imagePNG1 from "../assets/landing-page/landing-page-1.png";
-import imagePNG2 from "../assets/landing-page/landing-page-2.png";
-import imagePNGCLI from "../assets/landing-page/landing-page-3.png";
+import imagePNG1 from "../assets/landing-page/checkItOut/1.png";
+import imagePNG2 from "../assets/landing-page/checkItOut/2.png";
+import imagePNGCLI from "../assets/landing-page/checkItOut/terminal.png";
 
 const gt = getTranslation("landingPage.checkItOut");
 
@@ -42,21 +45,24 @@ const imageCLI = {
 
 const CheckItOutRaw: FunctionComponentIntl = ({ formatMessage }) => (
   <StyledGridContainer as="section">
+    <HeaderWrapper>
+      <H as="h2">
+        <FormattedMessage id={gt("headline")} tagName={React.Fragment} />
+      </H>
+    </HeaderWrapper>
+
     <Grid.Row space={true}>
       <Grid.Unit df={6} lg={6} md={12} withoutMargin={true}>
         <SvgWrapper>
           <ProjectIcon src={image1.src} alt={image1.alt} />
-          <ParagraphWrapper2>
-            Get yourself a local kyma runtime
-          </ParagraphWrapper2>
+          <ParagraphTitleWrapper>
+            <FormattedMessage id={gt("firstParagraphTitle")} />
+          </ParagraphTitleWrapper>
         </SvgWrapper>
 
         <ParagraphWrapper>
-          <FormattedMessage id={gt("firstParagraph1")} />
-        </ParagraphWrapper>
-        <ParagraphWrapper>
           <FormattedMessage
-            id={gt("firstParagraph2")}
+            id={gt("firstParagraph1")}
             values={{
               options: (
                 <CenteredLink to={config.links.DOCS_INSTALL_CLI}>
@@ -66,25 +72,26 @@ const CheckItOutRaw: FunctionComponentIntl = ({ formatMessage }) => (
             }}
           />
         </ParagraphWrapper>
+
+        <ParagraphWrapper />
         <ParagraphWrapper>
-          <FormattedMessage id={gt("firstParagraph3")} />
+          <FormattedMessage id={gt("firstParagraph2")} />
         </ParagraphWrapper>
         <Termynal />
 
         <SvgWrapper>
           <ProjectIcon src={image2.src} alt={image2.alt} />
-          <ParagraphWrapper2>Ready to explore</ParagraphWrapper2>
+          <ParagraphTitleWrapper>
+            <FormattedMessage id={gt("secondParagraphTitle")} />
+          </ParagraphTitleWrapper>
         </SvgWrapper>
         <ParagraphWrapper>
           <FormattedMessage id={gt("secondParagraph1")} />
         </ParagraphWrapper>
-        <ParagraphWrapper>
-          <FormattedMessage id={gt("secondParagraph2")} />
-        </ParagraphWrapper>
         <CenteredLink to={config.links.GETTING_STARTED}>
-          <Button.Normal size="lg">
+          <LearnMoreButton size="md">
             <FormattedMessage id={gt("learnMore")} />
-          </Button.Normal>
+          </LearnMoreButton>
         </CenteredLink>
       </Grid.Unit>
       <Grid.Unit df={6} lg={6} md={12} withoutMargin={true}>
