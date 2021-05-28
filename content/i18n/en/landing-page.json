@@ -52,7 +52,7 @@
   },
   "inANutshell": {
     "headline": "In a nutshell",
-    "paragraph": "With Kyma, your workloads are in the center. Kyma helps you to expose their APIs, trigger them with events, enable them for external service consumption, and assure observability.",
+    "paragraph": "With Kyma, your workloads are in the center. Kyma helps you expose their APIs, trigger them with events, enable them for external service consumption, and assure observability.",
     "githubButton": "Get it on GitHub"
   },
   "usedBy": {
