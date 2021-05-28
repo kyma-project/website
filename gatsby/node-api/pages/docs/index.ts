@@ -116,10 +116,9 @@ const createDocsPagesPerRepo = async (
         pagePath,
         assetsPath,
         basePath,
-        docsType: repositoryName,
+        repoName: repositoryName,
         topic,
         specifications,
-        repositoryName,
       };
 
       const createPage = createDocsPage(createPageFn, context);

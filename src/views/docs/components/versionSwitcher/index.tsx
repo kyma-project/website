@@ -11,14 +11,14 @@ import { Wrapper, Label, SelectWrapper, VersionSelect } from "./styled";
 interface VersionSwitcherProps {
   versions: DocsVersions;
   version: string;
-  docsType: string;
+  repoName: string;
   topic: string;
 }
 
 const VersionSwitcher: FunctionComponentIntl<VersionSwitcherProps> = ({
   versions = [],
   version,
-  docsType,
+  repoName,
   topic,
   formatMessage,
 }) => {
@@ -27,7 +27,7 @@ const VersionSwitcher: FunctionComponentIntl<VersionSwitcherProps> = ({
     const { hash } = window.location;
     const path = getDocsPath(newVersion, {
       id: topic,
-      type: docsType,
+      repoName,
       hash: hash.substring(1),
     });
     navigate(path);

@@ -1,8 +1,18 @@
 {
   "releases": [
     {
-      "name": "preview",
+      "name": "1.0",
       "tag": "1.0.0"
+    },
+    {
+      "name": "2.0",
+      "tag": "1.0.0"
+    }
+  ],
+  "branches": [
+    {
+      "name": "preview",
+      "commit": "dunno"
     }
   ]
 }

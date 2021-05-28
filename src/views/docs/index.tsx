@@ -17,7 +17,8 @@ const DocsView: React.FunctionComponent<PageContext<
   const {
     version,
     versions,
-    content: { id: topic, type: docsType },
+    content: { id: topic },
+    repoName,
     inPreview,
   } = pageContext;
 
@@ -31,7 +32,7 @@ const DocsView: React.FunctionComponent<PageContext<
       <VersionSwitcher
         version={version}
         versions={versions}
-        docsType={docsType}
+        repoName={repoName}
         topic={topic}
       />
     );
