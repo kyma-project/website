@@ -104,8 +104,8 @@
     "firstParagraphTitle": "Install Kyma locally",
     "firstParagraph1": "Get Kyma CLI first. Choose from convenient installation {options}.",
     "firstParagraph2": "With Kyma CLI, you are only two steps away from having the local Kyma installed.",
-    "secondParagraphTitle": "Start exploring",
-    "secondParagraph1": "Go through the Getting Started guides that will help you explore Kyma features.",
+    "secondParagraphTitle": "Explore Kyma",
+    "secondParagraph1": "Check out our Getting Started guides that will help you get familiar with Kyma and discover your own use cases.",
     "learnMore": "Learn more"
   }
 }
