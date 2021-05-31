@@ -28,6 +28,6 @@ export const getDocsPath = (
 
 export const getDocsPathLink = (version: string) => (content: {
   id: string;
-  type: string;
+  repoName: string;
   hash: string;
 }) => getDocsPath(version, content);

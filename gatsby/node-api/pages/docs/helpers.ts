@@ -230,10 +230,10 @@ export const prepareWebsitePaths = ({
     topic = topic.replace("README", "");
   }
 
-  //assetPath doesn't have markdown name, so we need to remove it
-  //Correct path in current implementation: assets/docs/kyma/main/deep-dive/assets/create-ssh-key.png
-  //and we have such markdown: my-super-tutorial
-  //so the topics looks like this: `deep-dive/my-super-tutorial`
+  // assetPath doesn't have markdown name, so we need to remove it
+  // Correct path in current implementation: assets/docs/kyma/main/deep-dive/assets/create-ssh-key.png
+  // and we have such markdown: my-super-tutorial
+  // so the topics looks like this: `deep-dive/my-super-tutorial`
   // that's why we need to remove the last part.
   const tmp = topic.split("/");
   tmp.pop();
@@ -249,12 +249,12 @@ export const prepareWebsitePaths = ({
 
   const pagePath = join(basePath, topic);
 
-  //TODO: it's used for specification
+  // TODO: it's used for specification
   const modalUrlPrefix = `/${DOCS_PATH_PREFIX}${
     repositoryName === "kyma" ? "" : `${repositoryName}/`
   }${v}/${topic}/${DOCS_SPECIFICATIONS_PATH}`;
 
-  console.log(pagePath);
+  // console.log(pagePath);
 
   return {
     assetsPath,
