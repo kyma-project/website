@@ -1,0 +1,8 @@
+{
+  "spec":{
+    "id":"service-mesh",
+    "displayName":"Service Mesh",
+    "description":"Overall documentation for Service Mesh",
+    "type":"Components"
+  }
+}

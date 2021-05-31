@@ -1,0 +1,10 @@
+---
+metadata:
+  name: kyma-docs
+spec:
+  root:
+    displayName: Kyma
+    id: kyma
+  components:
+    - displayName: Service Mesh
+      id: service-mesh
