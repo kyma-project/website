@@ -38,6 +38,9 @@ export const createCommunityPages = async ({
       topic,
     });
 
+    // tslint:disable-next-line:no-console
+    console.log(pagePath);
+
     let sources = content[topic];
     if (buildFor !== BuildFor.COMMUNITY_PREVIEW) {
       sources = addCommunityPrefixInInternalLinks(sources);
