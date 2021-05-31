@@ -17,7 +17,6 @@ export interface DocsPathsArgs {
   repositoryName: string;
   version: string;
   topic: string;
-  latestVersion: string;
 }
 
 export interface DocsPaths {

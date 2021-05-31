@@ -21,6 +21,10 @@ import {
 
 const navigation = [
   {
+    path: "/docs/kyma/latest",
+    title: "Docs",
+  },
+  {
     path: "/blog/",
     title: "Blog",
   },
@@ -99,7 +103,7 @@ class Navigation extends Component<IntlInterface, State> {
           >
             <Button.Light iconName="times" iconPrefix="fas" />
           </NavigationItem>
-          <DocsNavigation toggleVisibility={this.toggleVisibility} />
+          {/*<DocsNavigation toggleVisibility={this.toggleVisibility} />*/}
           {navigation.map(navItem => (
             <NavigationItem key={navItem.title} onClick={this.toggleVisibility}>
               <NavigationIntLink to={navItem.path}>

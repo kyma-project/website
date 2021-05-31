@@ -216,13 +216,9 @@ export const sortGroupOfNavigation = (
 export const prepareWebsitePaths = ({
   repositoryName,
   version,
-  latestVersion,
   topic,
 }: DocsPathsArgs): DocsPaths => {
-  const v =
-    !version || version === DOCS_LATEST_VERSION ? latestVersion : version;
-
-  const basePath = join("/", DOCS_PATH_PREFIX, repositoryName, v);
+  const basePath = join("/", DOCS_PATH_PREFIX, repositoryName, version);
   const assetBasePath = join("/", ASSETS_DIR, DOCS_DIR, repositoryName);
 
   // we remove `index` for nodes
@@ -239,10 +235,10 @@ export const prepareWebsitePaths = ({
   tmp.pop();
   const subtopic = tmp.join("/");
 
-  const assetsPath = join(assetBasePath, v, subtopic, ASSETS_DIR);
+  const assetsPath = join(assetBasePath, version, subtopic, ASSETS_DIR);
   const specificationsPath = join(
     assetBasePath,
-    v,
+    version,
     subtopic,
     DOCS_SPECIFICATIONS_PATH,
   );
@@ -252,7 +248,7 @@ export const prepareWebsitePaths = ({
   // TODO: it's used for specification
   const modalUrlPrefix = `/${DOCS_PATH_PREFIX}${
     repositoryName === "kyma" ? "" : `${repositoryName}/`
-  }${v}/${topic}/${DOCS_SPECIFICATIONS_PATH}`;
+  }${version}/${topic}/${DOCS_SPECIFICATIONS_PATH}`;
 
   // console.log(pagePath);
 

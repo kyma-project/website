@@ -9,14 +9,14 @@ import {
   sortGroupOfNavigation,
   prepareWebsitePaths,
 } from "./helpers";
-import { DocsNavigation } from "../utils";
+import { DocsContent, DocsNavigation, DocsNavigationTopic } from "../utils";
 import {
   CreatePageFn,
   CreateRedirectFn,
   GraphQLFunction,
 } from "../../../types";
 import { BuildFor } from "../../../../src/types/common";
-import { DocsRepository } from "./types";
+import { DocsRepository, DocsVersions } from "./types";
 
 import config from "../../../../config.json";
 import { DocsNavigationElement } from "@typings/docs";
@@ -77,8 +77,13 @@ const createDocsPagesPerRepo = async (
     // const sortedNavigation: DocsNavigation = sortGroupOfNavigation({});
     // const sortedNavigation: DocsNavigationElement[] = navigation
 
-    const v =
-      !version || version === DOCS_LATEST_VERSION ? latestVersion : version;
+    const v = version;
+    // if (version === latestVersion) {
+    //     v = "latest1"
+    // }
+
+    // const v =
+    //   !version || version === DOCS_LATEST_VERSION ? latestVersion : version;
 
     Object.keys(content).map(topic => {
       const {
@@ -89,8 +94,7 @@ const createDocsPagesPerRepo = async (
         basePath,
       } = prepareWebsitePaths({
         repositoryName,
-        version,
-        latestVersion: latestVersion || "",
+        version: v,
         topic,
       });
 
@@ -98,7 +102,7 @@ const createDocsPagesPerRepo = async (
       if (buildFor !== BuildFor.DOCS_PREVIEW) {
         fixedContent = fixLinks({
           content: fixedContent,
-          version,
+          version: v,
         });
       }
       const specifications = fixedContent.specifications.map(specification => ({
@@ -112,7 +116,7 @@ const createDocsPagesPerRepo = async (
         navigation,
         manifest: navigation,
         versions,
-        version,
+        v,
         pagePath,
         assetsPath,
         basePath,
