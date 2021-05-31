@@ -1,0 +1,10 @@
+{
+  "releases": [],
+  "pre_releases": [],
+  "branches": [
+    {
+      "name": "master",
+      "commit": "easter-egg"
+    }
+  ]
+}
