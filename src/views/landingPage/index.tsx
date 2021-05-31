@@ -12,6 +12,7 @@ import { Manifesto } from "./Manifesto";
 import { Features } from "./Features";
 import { UsedBy } from "./UsedBy";
 import { Nutshell } from "./Nutshell";
+import { CheckItOut } from "./CheckItOut";
 
 const LandingPageView: React.FunctionComponent<PageContext<
   LandingPageContext
@@ -22,6 +23,7 @@ const LandingPageView: React.FunctionComponent<PageContext<
       {/* <Manifesto scrollRef={scrollRef} /> */}
       {/* <Features scrollRef={scrollRef} /> */}
       {/* <Nutshell /> */}
+      {/* <CheckItOut /> */}
       {/* <UsedBy adopters={adopters} /> */}
 
       <Headline />
