@@ -1,10 +1,12 @@
 {
   "releases": [
     {
-      "name": "1.0",
-      "tag": "1.0.0"
+      "name": "preview",
+      "commit": "dunno"
     }
+
   ],
+  "pre_releases": [],
   "branches": [
     {
       "name": "master",
