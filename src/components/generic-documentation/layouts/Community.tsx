@@ -35,6 +35,8 @@ export interface CommunityLayoutProps {
   content: DocsContentItem;
   sourcesLength: number;
   inPreview?: boolean;
+  basePath: string;
+  pagePath: string;
 }
 
 export const CommunityLayout: React.FunctionComponent<CommunityLayoutProps> = ({
@@ -43,11 +45,28 @@ export const CommunityLayout: React.FunctionComponent<CommunityLayoutProps> = ({
   content: { id: topic, type, displayName },
   sourcesLength,
   inPreview,
+  pagePath,
+  basePath,
 }) => {
-  const linkFn: linkSerializer = path =>
-    `/${!inPreview ? `community/` : ""}${path.join("/")}`;
-  const activeLinkFn: activeLinkChecker = path => ActiveState.INACTIVE; // TODO: check if current page
+  const linkFn: linkSerializer = path => path.join("/");
 
+  const activeLinkFn: activeLinkChecker = path => {
+    const toReduce = basePath.split("/").length;
+    const newPagePath = pagePath
+      .split("/")
+      .slice(toReduce)
+      .join("/");
+    path = path.slice(toReduce);
+
+    const slug = path.join("/");
+    if (newPagePath === slug) {
+      return ActiveState.ACTIVE_DIRECT;
+    }
+    if (newPagePath.startsWith(slug)) {
+      return ActiveState.ACTIVE_INDIRECT;
+    }
+    return ActiveState.INACTIVE;
+  };
   return (
     <CommunityLayoutWrapper>
       <MarkdownWrapper className="custom-markdown-styling">
@@ -67,7 +86,7 @@ export const CommunityLayout: React.FunctionComponent<CommunityLayoutProps> = ({
                         navigation={navigation}
                         linkFn={linkFn}
                         activeLinkFn={activeLinkFn}
-                        basePath=""
+                        basePath={basePath}
                       />
                     </StickyWrapperLeftNav>
                   )}

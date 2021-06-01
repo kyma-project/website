@@ -42,7 +42,8 @@ export const createCommunityPages = async ({
       manifest,
       assetsPath,
       docsType: "",
-      basePath: "",
+      basePath: "/community",
+      pagePath,
       topic,
     };
 

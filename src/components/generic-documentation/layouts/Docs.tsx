@@ -59,16 +59,7 @@ export const DocsLayout: React.FunctionComponent<DocsLayoutProps> = ({
   docsVersionSwitcher,
   inPreview,
 }) => {
-  const linkFn: linkSerializer = path => {
-    return path.join("/");
-    let out = `/${!inPreview ? `docs/` : ""}${
-      version ? `${version}/` : ""
-    }${path.join("/")}`;
-
-    out = path.join("/");
-    // tslint:disable-next-line:no-var-before-return
-    return out;
-  };
+  const linkFn: linkSerializer = path => path.join("/");
   const activeLinkFn: activeLinkChecker = path => {
     const toReduce = basePath.split("/").length;
     const newPagePath = pagePath

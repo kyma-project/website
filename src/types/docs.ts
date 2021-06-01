@@ -9,6 +9,7 @@ export interface DocsPageContext {
   navigation: DocsNavigation;
   content: DocsContentItem;
   pagePath: string;
+  basePath: string;
   manifest: DocsManifest;
   assetsPath: string;
   repoName: string;
