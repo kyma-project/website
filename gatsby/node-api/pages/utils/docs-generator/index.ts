@@ -138,6 +138,7 @@ export const addNavigationItem = <T extends ContentGQL>(
 
 export type DocsGeneratorReturnType = ReturnType<typeof docsGenerator>;
 
+// TODO: add adding DisplayName to lonely nodes.
 export const markNodes = (navigation: DocsNavigationTopic[]): void => {
   navigation.forEach(item => {
     if (item.children.length !== 0) {

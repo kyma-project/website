@@ -172,5 +172,8 @@ export default async (coreConfig: CoreConfig) => {
   if (coreConfig.prepareFor === PrepareFor.WEBSITE) {
     return prepareDocs(coreConfig);
   }
+  if (coreConfig.prepareFor === PrepareFor.COMMUNITY_PREVIEW) {
+    return undefined;
+  }
   return preparePreviewDocs(coreConfig);
 };
