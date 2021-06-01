@@ -1,4 +1,4 @@
-import { resolve } from "path";
+import { resolve, join } from "path";
 
 import {
   docsGenerator,
@@ -91,31 +91,16 @@ const extractFn = (
 
 // TODO: popatrzeć czy te linki są sensowne
 export const prepareWebsitePaths = ({
-  topicsKeys,
-  docsType,
   topic,
 }: CommunityPathsArgs): CommunityPaths => {
-  const assetsPath = `/${ASSETS_DIR}${COMMUNITY_DIR}${topic}/${DOCS_DIR}${ASSETS_DIR}`;
-  const rootPagePath = `/${COMMUNITY_PATH_PREFIX}`;
-  const pagePath = `/${COMMUNITY_PATH_PREFIX}${
-    topicsKeys.length > 1 ? `${docsType}/` : ""
-  }${topic}`;
+  const assetsPath = join("/", ASSETS_DIR, COMMUNITY_DIR, ASSETS_DIR);
+  const rootPagePath = join("/", COMMUNITY_PATH_PREFIX);
 
-  return {
-    assetsPath,
-    pagePath,
-    rootPagePath,
-  };
-};
-
-export const preparePreviewPaths = ({
-  topicsKeys,
-  docsType,
-  topic,
-}: CommunityPathsArgs): CommunityPaths => {
-  const assetsPath = `/${ASSETS_DIR}${COMMUNITY_DIR}${topic}/${DOCS_DIR}${ASSETS_DIR}`;
-  const rootPagePath = `/`;
-  const pagePath = `/${topicsKeys.length > 1 ? `${docsType}/` : ""}${topic}`;
+  // we remove `README` for nodes
+  if (topic.endsWith("README")) {
+    topic = topic.replace("README", "");
+  }
+  const pagePath = join("/", COMMUNITY_PATH_PREFIX, topic);
 
   return {
     assetsPath,

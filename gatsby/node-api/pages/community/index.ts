@@ -3,7 +3,6 @@ import {
   createCommunityPage,
   prepareData,
   prepareWebsitePaths,
-  preparePreviewPaths,
   addCommunityPrefixInInternalLinks,
 } from "./helpers";
 import { CreatePageFn, GraphQLFunction } from "../../../types";
@@ -21,22 +20,13 @@ export const createCommunityPages = async ({
   createPage: createPageFn,
   buildFor,
 }: CreateCommunityPages) => {
-  const preparePaths =
-    buildFor === BuildFor.COMMUNITY_PREVIEW
-      ? preparePreviewPaths
-      : prepareWebsitePaths;
+  const preparePaths = prepareWebsitePaths;
   const { content, navigation, manifest } = await prepareData(graphql);
 
-  // Object.keys(content).map(docsType => {
-  //   const topics = content[docsType];
   const topicsKeys = Object.keys(content);
 
   topicsKeys.map(topic => {
-    const { assetsPath, pagePath, rootPagePath } = preparePaths({
-      topicsKeys,
-      docsType: "",
-      topic,
-    });
+    const { assetsPath, pagePath, rootPagePath } = preparePaths({ topic });
 
     // tslint:disable-next-line:no-console
     console.log(pagePath);
@@ -64,5 +54,4 @@ export const createCommunityPages = async ({
       rootPath: rootPagePath,
     });
   });
-  // });
 };

@@ -21,8 +21,8 @@ export const onCreateCommunityNode = ({
 
   const splitted = relativePath.split("/");
 
-  const id = splitted[2];
-  const restPath = splitted.slice(3, splitted.length);
+  const id = splitted[1];
+  const restPath = splitted.slice(2, splitted.length);
   const fileName = splitted[splitted.length - 1];
 
   createNodeField({

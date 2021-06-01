@@ -221,7 +221,7 @@ export const prepareWebsitePaths = ({
   const basePath = join("/", DOCS_PATH_PREFIX, repositoryName, version);
   const assetBasePath = join("/", ASSETS_DIR, DOCS_DIR, repositoryName);
 
-  // we remove `index` for nodes
+  // we remove `README` for nodes
   if (topic.endsWith("README")) {
     topic = topic.replace("README", "");
   }
