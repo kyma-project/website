@@ -1,7 +1,6 @@
 import to from "await-to-js";
-import { VError } from "verror";
 import { exec } from "child_process";
-
+import { VError } from "verror";
 import { CoreConfig } from "../config";
 
 export class GitClient {

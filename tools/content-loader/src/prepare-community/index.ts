@@ -1,12 +1,11 @@
-import { resolve } from "path";
 import to from "await-to-js";
+import { resolve } from "path";
 import { VError } from "verror";
-
 import { CoreConfig, PrepareFor } from "../config";
-import communityConfig from "./config";
 import GitClient from "../github-client/git-client";
-import CopyCommunity from "./copy-community";
 import { makeDir } from "../helpers";
+import communityConfig from "./config";
+import CopyCommunity from "./copy-community";
 
 const prepareCommunity = async (coreConfig: CoreConfig) => {
   const outputPath = resolve(communityConfig.outputPath);
@@ -30,6 +29,12 @@ const prepareCommunity = async (coreConfig: CoreConfig) => {
       err,
       `while cloning ${coreConfig.organization}/${coreConfig.repository}`,
     );
+  }
+
+  const hash = "a65c7b2007c0568dd910a66581673ad9f05823dc";
+  [err] = await to(GitClient.checkout(hash));
+  if (err) {
+    throw new VError(err, `while checkingout out ${hash}`);
   }
 
   [err] = await to(CopyCommunity.do(sourcePath, outputPath));
