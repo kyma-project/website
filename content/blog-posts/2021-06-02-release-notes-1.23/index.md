@@ -36,6 +36,7 @@ As we announced some time ago, we removed Node.js 10 from the [list of supported
 
 We also updated Kyma CLI to reflect the new runtime changes. Kyma CLI 1.23 now sets Node.js 14 as the default runtime for your Functions. If you update Kyma CLI without updating Kyma, you will face an incompatibility when initiating Functions with Kyma CLI. To resolve it, override the runtime version with the [`--runtime` flag](https://kyma-project.io/docs/cli/commands/#kyma-init-function-kyma-init-function).
 
+
 ## Logging
 
 ### Loki volume size increased
