@@ -6,7 +6,7 @@ import {
   DocsNavigationTopic,
 } from "./types";
 
-import { resolve } from "path";
+import { join, resolve } from "path";
 
 import { Specification } from "@typings/docs";
 import { readFileSync } from "fs-extra";
@@ -40,7 +40,11 @@ export const docsGenerator = <T extends ContentGQL>(
     }
   });
 
-  markNodes(navigation);
+  const absPath = documents[0].fileAbsolutePath;
+  const slug = documents[0].fields.slug;
+  const basePath = absPath.replace(slug, "");
+
+  defaultMetadataForNodes(navigation, basePath, []);
 
   docsContentForNodes.forEach(item => {
     const filePath = item.fields.slug.replace("/README.md", "") as string;
@@ -50,28 +54,24 @@ export const docsGenerator = <T extends ContentGQL>(
 
   const newBetterContent = {} as DocsContent;
 
-  // const newBetterContent = {
-  //   component: {},
-  // } as DocsContent;
-
   documents.forEach(content => {
-    const tmpObj = {} as DocsContentItem;
+    const newItem = {} as DocsContentItem;
     const id = content.fields.slug.replace(".md", "");
-    tmpObj.id = id;
-    tmpObj.displayName = content.frontmatter.title;
-    tmpObj.type = "component";
+    newItem.id = id;
+    newItem.displayName = content.frontmatter.title;
+    newItem.type = "component";
 
-    const tmpDoc = {} as DocsContentDocs;
-    tmpDoc.order = content.fields.slug;
-    tmpDoc.title = content.frontmatter.title;
-    tmpDoc.source = content.rawMarkdownBody;
-    tmpDoc.imagesSpec = content.fields.imagesSpec;
-    tmpDoc.type = "";
+    const doc = {} as DocsContentDocs;
+    doc.order = content.fields.slug;
+    doc.title = content.frontmatter.title;
+    doc.source = content.rawMarkdownBody;
+    doc.imagesSpec = content.fields.imagesSpec;
+    doc.type = "";
 
-    tmpObj.docs = [tmpDoc];
-    tmpObj.specifications = [] as Specification[];
+    newItem.docs = [doc];
+    newItem.specifications = [] as Specification[];
 
-    newBetterContent[id] = tmpObj;
+    newBetterContent[id] = newItem;
   });
 
   return {
@@ -105,17 +105,6 @@ export const addNavigationItem = <T extends ContentGQL>(
   let displayName = "";
   if (navigationPath.length === 1) {
     displayName = item.frontmatter.title;
-  } else {
-    const path = item.fileAbsolutePath.split("/");
-    const dirPath = path.slice(0, path.length - 1);
-    dirPath.push("metadata.yaml");
-
-    const metadataPath = dirPath.join("/");
-
-    const file = readFileSync(resolve(metadataPath)).toString();
-    const data = safeLoad(file) as DirMetadata;
-
-    displayName = data.displayName;
   }
 
   // create if not found
@@ -138,14 +127,35 @@ export const addNavigationItem = <T extends ContentGQL>(
 
 export type DocsGeneratorReturnType = ReturnType<typeof docsGenerator>;
 
-// TODO: add adding DisplayName to lonely nodes.
-export const markNodes = (navigation: DocsNavigationTopic[]): void => {
+export const defaultMetadataForNodes = (
+  navigation: DocsNavigationTopic[],
+  basePath: string,
+  navigationPath: string[],
+): void => {
   navigation.forEach(item => {
     if (item.children.length !== 0) {
       item.noContent = true;
-      markNodes(item.children);
+      const currentNavigation = navigationPath.slice();
+      currentNavigation.push(item.id);
+      item.displayName = getDisplayNameForNode(basePath, currentNavigation);
+      defaultMetadataForNodes(item.children, basePath, currentNavigation);
     }
   });
+};
+
+export const getDisplayNameForNode = (
+  basePath: string,
+  navigationPath: string[],
+): string => {
+  const metadataPath = join(
+    basePath,
+    navigationPath.join("/"),
+    "metadata.yaml",
+  );
+  const file = readFileSync(resolve(metadataPath)).toString();
+  const data = safeLoad(file) as DirMetadata;
+
+  return data.displayName;
 };
 
 export const markNodeWithContent = (
