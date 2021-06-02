@@ -166,6 +166,22 @@ const preparePreviewDocs = async (coreConfig: CoreConfig) => {
   if (err) {
     throw err;
   }
+
+  // commit must be defined :(
+  const branches = new Map<string, string>([[branchName, ""]]);
+
+  console.log(`Generating documentation versions file to ${outputDocsVersion}`);
+  [err] = await to(
+    DocsVersions.generate(
+      {
+        branches,
+      },
+      outputDocsVersion,
+    ),
+  );
+  if (err) {
+    throw err;
+  }
 };
 
 export default async (coreConfig: CoreConfig) => {
