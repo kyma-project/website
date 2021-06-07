@@ -38,7 +38,7 @@ Starting with the 1.20 release, you can install or upgrade Kyma with one of thes
 - **Evaluation profile** with limited resources, suitable if you want to try out Kyma
 - **Production profile** with high availability and scalability, recommended if you use Kyma for your production workload
 
-For more details, read the [overview of both profiles](https://github.com/kyma-project/kyma/blob/main/docs/kyma/04-01-overview.md#profiles).
+For more details, read the [overview of both profiles](https://github.com/kyma-project/kyma/blob/1.20.0/docs/kyma/04-01-overview.md#profiles).
 
 ## Logging
 
@@ -61,8 +61,8 @@ Up until now, when you wanted to send logs to output plugins (such as Elastic Se
 Before 1.20, you could change the default internal Docker registry for your Function images to an external one only through overrides. You had to do it centrally for the whole cluster and trigger either a Kyma installation or an update process afterward. We have now extended this functionality by enabling registry switch at runtime. Changing the underlying Docker registry is now possible without the hassle of running an update. Moreover, you also get the flexibility to choose between different Docker registries for different Namespaces. This way, you can configure registries as you please. You can either opt for one central external registry in the cluster or switch to Docker Hub, Google Container Registry (GCR), or Azure Container Registry (ACR) in specific Namespaces. You can even have different repositories in different Namespaces. Sky is the limit.
 
 Learn more about:
-- [Internal and external registries in general](https://github.com/kyma-project/kyma/blob/main/docs/serverless/03-03-registries.md)
-- [How you can switch between registries](https://github.com/kyma-project/kyma/blob/main/docs/serverless/08-07-switch-to-external-registry.md)
-- [Admission webhook and its role in the whole process](https://github.com/kyma-project/kyma/blob/main/docs/serverless/03-05-supported-webhooks.md#admission-webhook)
+- [Internal and external registries in general](https://github.com/kyma-project/kyma/blob/1.20.0/docs/serverless/03-03-registries.md)
+- [How you can switch between registries](https://github.com/kyma-project/kyma/blob/1.20.0/docs/serverless/08-07-switch-to-external-registry.md)
+- [Admission webhook and its role in the whole process](https://github.com/kyma-project/kyma/blob/1.20.0/docs/serverless/03-05-supported-webhooks.md#admission-webhook)
 
 > **CAUTION:** Although you can now switch back and forth between Docker registries, bear in mind that the internal registry is suitable only for local development. For production purposes, always use an external one.
