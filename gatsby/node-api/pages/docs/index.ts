@@ -1,26 +1,17 @@
 import { existsSync } from "fs";
 import { resolve } from "path";
-import { createComponentDocsPage } from "./componentPage";
-import { createModalDocsPage } from "./modalPage";
-import { fixLinks } from "./fixLinks";
-import {
-  createDocsPage,
-  prepareData,
-  sortGroupOfNavigation,
-  prepareWebsitePaths,
-} from "./helpers";
-import { DocsContent, DocsNavigation, DocsNavigationTopic } from "../utils";
+import config from "../../../../config.json";
+import { BuildFor } from "../../../../src/types/common";
 import {
   CreatePageFn,
   CreateRedirectFn,
   GraphQLFunction,
 } from "../../../types";
-import { BuildFor } from "../../../../src/types/common";
-import { DocsRepository, DocsVersions } from "./types";
-
-import config from "../../../../config.json";
-import { DocsNavigationElement } from "@typings/docs";
-import { DOCS_LATEST_VERSION } from "../../../constants";
+import { createComponentDocsPage } from "./componentPage";
+import { fixLinks } from "./fixLinks";
+import { createDocsPage, prepareData, prepareWebsitePaths } from "./helpers";
+import { createModalDocsPage } from "./modalPage";
+import { DocsRepository } from "./types";
 
 export interface CreateDocsPages {
   graphql: GraphQLFunction;
@@ -74,6 +65,7 @@ const createDocsPagesPerRepo = async (
 
   Object.keys(docsArch).map(version => {
     const { content, navigation } = docsArch[version];
+    navigation.sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
     // const sortedNavigation: DocsNavigation = sortGroupOfNavigation({});
     // const sortedNavigation: DocsNavigationElement[] = navigation
 

@@ -1,24 +1,19 @@
-import React, { useContext, useState } from "react";
-
+import Icon from "@components/shared/Icon";
 import Link from "@components/shared/Link";
-
+import { DocsNavigationElement } from "@typings/docs";
+import React, { useContext, useState } from "react";
 import { GenericDocsContext } from "../../../services";
-
-import { DocsNavigation, DocsNavigationElement } from "@typings/docs";
-
 import {
-  NavigationWrapper,
-  NavigationListWrapper,
   NavigationList,
   NavigationListItem,
-  NavigationListItemName,
-  NavigationGroupName,
-  VersionSwitcherWrapper,
-  SubToggle,
   NavigationListItemMain,
+  NavigationListItemName,
+  NavigationListWrapper,
+  NavigationWrapper,
   NoContent,
+  SubToggle,
+  VersionSwitcherWrapper,
 } from "./styled";
-import Icon from "@components/shared/Icon";
 
 export type linkSerializer = (path: string[]) => string;
 export enum ActiveState {
