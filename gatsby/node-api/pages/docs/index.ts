@@ -111,6 +111,7 @@ const createDocsPagesPerRepo = async (
         pageUrl: `${modalUrlPrefix}/${specification.id}`,
       }));
 
+      console.log(`Register page path: ${pagePath}`);
       const context = {
         content: fixedContent,
         navigation,
