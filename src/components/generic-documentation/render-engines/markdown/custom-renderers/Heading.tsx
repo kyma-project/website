@@ -43,23 +43,25 @@ export const Heading: React.FunctionComponent<HeadingProps> = ({
   if (!heading) {
     return null;
   }
-
-  heading =
-    headingPrefix && !tabDataExists ? `${headingPrefix}-${heading}` : heading;
-  if (headings.has(heading)) {
-    if (/[1-9]$/.test(heading)) {
-      heading = `${heading}-${Number(heading[heading.length - 1]) + 1}`;
-    } else {
-      heading = `${heading}-1`;
-    }
-  }
-
   heading = removeMarkdownSyntax(heading);
-  headings.add(heading);
-  heading = toKebabCase(heading) || "";
-  if (!heading) {
-    return null;
-  }
+  heading = toKebabCase(heading);
+
+  // heading =
+  //   headingPrefix && !tabDataExists ? `${headingPrefix}-${heading}` : heading;
+  // if (headings.has(heading)) {
+  //   if (/[1-9]$/.test(heading)) {
+  //     heading = `${heading}-${Number(heading[heading.length - 1]) + 1}`;
+  //   } else {
+  //     heading = `${heading}-1`;
+  //   }
+  // }
+  //
+  // heading = removeMarkdownSyntax(heading);
+  // headings.add(heading);
+  // heading = toKebabCase(heading) || "";
+  // if (!heading) {
+  //   return null;
+  // }
 
   if (tabDataExists && tabData.group && tabData.label) {
     heading = `${toKebabCase(tabData.group)}--${toKebabCase(

@@ -91,12 +91,14 @@ const createDocsPagesPerRepo = async (
       });
 
       let fixedContent = content[topic];
-      if (buildFor !== BuildFor.DOCS_PREVIEW) {
-        fixedContent = fixLinks({
-          content: fixedContent,
-          version: v,
-        });
-      }
+      fixedContent = fixLinks({ content: fixedContent, version: v });
+      // if (buildFor !== BuildFor.DOCS_PREVIEW) {
+      //   fixedContent = fixLinks({
+      //     content: fixedContent,
+      //     version: v,
+      //   });
+      // }
+
       const specifications = fixedContent.specifications.map(specification => ({
         ...specification,
         assetPath: `${specificationsPath}/${specification.assetPath}`,

@@ -21,6 +21,7 @@ import { LayoutType } from "../../index";
 export const markdownRE = (
   layout: LayoutType,
   serializedSources: Sources,
+  basePath: string,
   specifications?: Specification[],
 ): RenderEngineWithOptions<MarkdownRenderEngineOptions> => {
   let imagesSpec: ImageSpec[] = [];
@@ -35,7 +36,12 @@ export const markdownRE = (
       customRenderers: {
         image: (props: any) => <Image {...props} imagesSpec={imagesSpec} />,
         link: (props: any) => (
-          <Link {...props} specifications={specifications} layout={layout} />
+          <Link
+            {...props}
+            basePath={basePath}
+            specifications={specifications}
+            layout={layout}
+          />
         ),
         heading: Heading,
       },
