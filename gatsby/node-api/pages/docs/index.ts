@@ -77,6 +77,7 @@ const createDocsPagesPerRepo = async (
     // const v =
     //   !version || version === DOCS_LATEST_VERSION ? latestVersion : version;
 
+    console.log(`version: ${v}`);
     Object.keys(content).map(topic => {
       const {
         assetsPath,
@@ -105,7 +106,7 @@ const createDocsPagesPerRepo = async (
         pageUrl: `${modalUrlPrefix}/${specification.id}`,
       }));
 
-      console.log(`Register page path: ${pagePath}`);
+      // console.log(`Register page path: ${pagePath}, asset: ${assetsPath}`);
       const context = {
         content: fixedContent,
         navigation,

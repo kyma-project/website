@@ -1,5 +1,6 @@
 import { resolve, join } from "path";
 import compareVersions from "compare-versions";
+import fs, { CopyOptions } from "fs-extra";
 
 import { DocsVersions, DocGQL, DocsPathsArgs, DocsPaths } from "./types";
 import {
@@ -108,11 +109,23 @@ export const prepareData = async ({
     }
   }
 
-  // for copying data
+  // // for copying data
   docsArch[DOCS_LATEST_VERSION] = JSON.parse(
     JSON.stringify(docsArch[latestVersion]),
   );
-  docsArch[""] = JSON.parse(JSON.stringify(docsArch[latestVersion]));
+
+  // copy assets
+  const assetBasePath = resolve(
+    `${__dirname}/../../../../public/assets/docs/${repositoryName}/`,
+  );
+  const latestVersionAssetSource = resolve(join(assetBasePath, latestVersion));
+  const latestAssetDestination = resolve(
+    join(assetBasePath, DOCS_LATEST_VERSION),
+  );
+
+  await fs.copy(latestVersionAssetSource, latestAssetDestination, {
+    recursive: true,
+  });
 
   return {
     versions,
