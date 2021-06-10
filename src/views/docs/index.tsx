@@ -26,15 +26,14 @@ const DocsView: React.FunctionComponent<PageContext<
     0,
   );
 
-  const docsVersionSwitcher =
-    numberOfVersions < 2 || inPreview ? null : (
-      <VersionSwitcher
-        version={version}
-        versions={versions}
-        docsType={docsType}
-        topic={topic}
-      />
-    );
+  const docsVersionSwitcher = (
+    <VersionSwitcher
+      version={version}
+      versions={versions}
+      docsType={docsType}
+      topic={topic}
+    />
+  );
 
   return (
     <GenericComponent
