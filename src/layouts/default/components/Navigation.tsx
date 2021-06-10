@@ -4,7 +4,6 @@ import throttle from "lodash.throttle";
 import Button from "@components/shared/Button";
 
 import Search from "./Search";
-import DocsNavigation from "./DocsNavigation";
 
 import { injectIntl, IntlInterface } from "@common/i18n";
 import { resolveSocialMedia } from "@common/utils";
