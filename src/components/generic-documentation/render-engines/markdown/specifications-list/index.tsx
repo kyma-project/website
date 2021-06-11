@@ -26,18 +26,22 @@ export const SpecificationList: React.FunctionComponent<Props> = ({
     return null;
   }
 
-  const list = specifications.map(specification => (
-    <SpecificationsListItem key={specification.id}>
-      <Link.Internal
-        to={specification.pageUrl}
-        state={{
-          scrollPosition,
-        }}
-      >
-        <span>{specification.info.title}</span>
-      </Link.Internal>
-    </SpecificationsListItem>
-  ));
+  //
+  const list = specifications.map(specification => {
+    const newTo = `specifications/${specification.id}`;
+    return (
+      <SpecificationsListItem key={specification.id}>
+        <Link.Internal
+          to={newTo}
+          state={{
+            scrollPosition,
+          }}
+        >
+          <span>{specification.info.title}</span>
+        </Link.Internal>
+      </SpecificationsListItem>
+    );
+  });
 
   return (
     <SpecificationsListWrapper>

@@ -1,5 +1,5 @@
 import { existsSync } from "fs";
-import { resolve } from "path";
+import { join, resolve } from "path";
 import config from "../../../../config.json";
 import { BuildFor } from "../../../../src/types/common";
 import {
@@ -100,13 +100,24 @@ const createDocsPagesPerRepo = async (
       //   });
       // }
 
-      const specifications = fixedContent.specifications.map(specification => ({
-        ...specification,
-        assetPath: `${specificationsPath}/${specification.assetPath}`,
-        pageUrl: `${modalUrlPrefix}/${specification.id}`,
-      }));
+      const specifications = fixedContent.specifications?.map(
+        specification => ({
+          ...specification,
+          assetPath: join(
+            assetsPath,
+            specification.assetPath.replace("assets", ""),
+          ),
+          pageUrl: join(modalUrlPrefix, specification.id),
+        }),
+      );
+      // fixedContent.specifications =
 
-      // console.log(`Register page path: ${pagePath}, asset: ${assetsPath}`);
+      if (specifications && specifications.length !== 0) {
+        console.log(
+          `assetPath: ${specifications[0].assetPath}, pageURL: ${specifications[0].pageUrl}`,
+        );
+      }
+
       const context = {
         content: fixedContent,
         navigation,

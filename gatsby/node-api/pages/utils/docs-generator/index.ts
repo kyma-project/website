@@ -1,16 +1,33 @@
-import {
-  ContentGQL,
-  DocsContent,
-  DocsContentItem,
-  DocsContentDocs,
-  DocsNavigationTopic,
-} from "./types";
-
-import { join, resolve } from "path";
-
 import { Specification } from "@typings/docs";
 import { readFileSync } from "fs-extra";
 import { safeLoad } from "js-yaml";
+import { dirname, join, resolve } from "path";
+import {
+  ContentGQL,
+  DocsContent,
+  DocsContentDocs,
+  DocsContentItem,
+  DocsNavigationTopic,
+} from "./types";
+
+const createSpecification = (values: { uri: string; fileAbsPath: string }) => {
+  const directoryName = dirname(values.fileAbsPath);
+  const specPath = join(directoryName, values.uri);
+  const spec = readFileSync(specPath);
+
+  const splittedURI = values.uri.split("/");
+  const specID = splittedURI[splittedURI.length - 1].replace(".yaml", "");
+  return {
+    id: specID,
+    assetPath: values.uri,
+    info: {
+      title: "the title",
+      version: "3.0",
+      description: "test me plz",
+    },
+    spec,
+  } as Specification;
+};
 
 export const docsGenerator = <T extends ContentGQL>(
   contentGQLs: T[],
@@ -69,7 +86,12 @@ export const docsGenerator = <T extends ContentGQL>(
     doc.type = "";
 
     newItem.docs = [doc];
-    newItem.specifications = [] as Specification[];
+    newItem.specifications = content.frontmatter.specifications
+      ?.map(uri => ({
+        uri,
+        fileAbsPath: content.fileAbsolutePath,
+      }))
+      .map(createSpecification);
 
     newBetterContent[id] = newItem;
   });

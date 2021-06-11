@@ -11,6 +11,7 @@ export interface ContentGQL<T = any> {
   frontmatter: {
     title: string;
     type: string;
+    specifications?: string[];
   };
   fileAbsolutePath: string;
 }
@@ -36,7 +37,7 @@ export interface DocsContentItem {
   displayName: string;
   description: string;
   docs: DocsContentDocs[];
-  specifications: Specification[];
+  specifications?: Specification[];
 }
 
 export interface DocsConfig {

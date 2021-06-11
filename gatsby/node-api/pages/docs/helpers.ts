@@ -258,12 +258,13 @@ export const prepareWebsitePaths = ({
 
   const pagePath = join(basePath, topic);
 
-  // TODO: it's used for specification
-  const modalUrlPrefix = `/${DOCS_PATH_PREFIX}${
-    repositoryName === "kyma" ? "" : `${repositoryName}/`
-  }${version}/${topic}/${DOCS_SPECIFICATIONS_PATH}`;
-
-  // console.log(pagePath);
+  const modalUrlPrefix = join(
+    DOCS_PATH_PREFIX,
+    repositoryName,
+    version,
+    topic,
+    DOCS_SPECIFICATIONS_PATH,
+  );
 
   return {
     assetsPath,

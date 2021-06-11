@@ -133,8 +133,8 @@ export const GenericComponent: React.FunctionComponent<GenericComponentProps> = 
     return null;
   }
   const [title, type] = extractDataFromFirstSources(serializedSources);
-  // @ts-ignore
-  const basePath = pageContext.basePath;
+
+  const basePath = (pageContext && pageContext.basePath) || "";
 
   const RENDER_ENGINES: RenderEngines = [
     markdownRE(
