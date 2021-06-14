@@ -19,21 +19,15 @@ const DocsView: React.FunctionComponent<PageContext<
     versions,
     content: { id: topic },
     repoName,
-    inPreview,
   } = pageContext;
 
-  const numberOfVersions = Object.keys(versions).reduce(
-    (acc, cur) => acc + versions[cur].length,
-    0,
-  );
-
   const docsVersionSwitcher = (
-      <VersionSwitcher
-        version={version}
-        versions={versions}
-        repoName={repoName}
-        topic={topic}
-      />
+    <VersionSwitcher
+      version={version}
+      versions={versions}
+      repoName={repoName}
+      topic={topic}
+    />
   );
 
   return (

@@ -5,6 +5,7 @@ export type DocsType = "root" | "component";
 /* Docs Page Context */
 export interface DocsPageContext {
   version: string;
+  v: string;
   versions: DocsVersions;
   navigation: DocsNavigation;
   content: DocsContentItem;

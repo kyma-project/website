@@ -68,9 +68,6 @@ export const DocsLayout: React.FunctionComponent<DocsLayoutProps> = ({
       .join("/");
     path = path.slice(toReduce);
 
-    // const slug = `${!inPreview ? `docs/` : ""}${
-    //   version ? `${version}/` : ""
-    // }${path.join("/")}`;
     const slug = path.join("/");
     if (newPagePath === slug) {
       return ActiveState.ACTIVE_DIRECT;

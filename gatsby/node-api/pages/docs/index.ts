@@ -67,18 +67,7 @@ const createDocsPagesPerRepo = async (
   Object.keys(docsArch).map(version => {
     const { content, navigation } = docsArch[version];
     navigation.sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
-    // const sortedNavigation: DocsNavigation = sortGroupOfNavigation({});
-    // const sortedNavigation: DocsNavigationElement[] = navigation
-
-    const v = version;
-    // if (version === latestVersion) {
-    //     v = "latest1"
-    // }
-
-    // const v =
-    //   !version || version === DOCS_LATEST_VERSION ? latestVersion : version;
-
-    console.log(`version: ${v}`);
+    console.log(`version: ${version}`);
     Object.keys(content).map(topic => {
       const {
         assetsPath,
@@ -88,18 +77,12 @@ const createDocsPagesPerRepo = async (
         basePath,
       } = prepareWebsitePaths({
         repositoryName,
-        version: v,
+        version,
         topic,
       });
 
       let fixedContent = content[topic];
-      fixedContent = fixLinks({ content: fixedContent, version: v });
-      // if (buildFor !== BuildFor.DOCS_PREVIEW) {
-      //   fixedContent = fixLinks({
-      //     content: fixedContent,
-      //     version: v,
-      //   });
-      // }
+      fixedContent = fixLinks({ content: fixedContent, version });
 
       let specifications = [] as Specification[];
       if (fixedContent.specifications) {
@@ -124,7 +107,7 @@ const createDocsPagesPerRepo = async (
         navigation,
         manifest: navigation,
         versions,
-        v,
+        version,
         pagePath,
         assetsPath,
         basePath,
