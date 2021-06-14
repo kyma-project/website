@@ -23,7 +23,6 @@ export const getDocsPath = (
   }
 
   return join("/", DOCS_PATH_NAME, toKebabCase(repoName), versionPathPart);
-  // return `/${DOCS_PATH_NAME}/${toKebabCase(type)}/${versionPathPart}/${toKebabCase(id)}/${hash ? `#${hash}` : ""}`;
 };
 
 export const getDocsPathLink = (version: string) => (content: {

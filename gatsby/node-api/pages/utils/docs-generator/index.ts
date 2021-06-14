@@ -13,17 +13,26 @@ import {
 const createSpecification = (values: { uri: string; fileAbsPath: string }) => {
   const directoryName = dirname(values.fileAbsPath);
   const specPath = join(directoryName, values.uri);
-  const spec = readFileSync(specPath);
+  const data = readFileSync(specPath).toString();
+  const spec = safeLoad(data) as {
+    info: {
+      title: string;
+      description: string;
+      version: string;
+    };
+    spec: any;
+  };
 
   const splittedURI = values.uri.split("/");
   const specID = splittedURI[splittedURI.length - 1].replace(".yaml", "");
   return {
     id: specID,
+    type: "openapi",
     assetPath: values.uri,
     info: {
-      title: "the title",
-      version: "3.0",
-      description: "test me plz",
+      title: spec.info.title,
+      version: spec.info.version,
+      description: spec.info.description,
     },
     spec,
   } as Specification;
