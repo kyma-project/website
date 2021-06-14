@@ -86,13 +86,10 @@ export const docsGenerator = <T extends ContentGQL>(
     doc.type = "";
 
     newItem.docs = [doc];
-    newItem.specifications = content.frontmatter.specifications
-      ?.map(uri => ({
-        uri,
-        fileAbsPath: content.fileAbsolutePath,
-      }))
-      .map(createSpecification);
-
+    newItem.specifications = extractSpecification(
+      content.fileAbsolutePath,
+      content.frontmatter.specifications,
+    );
     newBetterContent[id] = newItem;
   });
 
@@ -101,6 +98,21 @@ export const docsGenerator = <T extends ContentGQL>(
     navigation,
     manifest: navigation,
   };
+};
+
+const extractSpecification = (
+  absPath: string,
+  frontMatterSpecs?: string[],
+): Specification[] => {
+  if (!frontMatterSpecs) {
+    return [];
+  }
+  return frontMatterSpecs
+    .map(uri => ({
+      uri,
+      fileAbsPath: absPath,
+    }))
+    .map(createSpecification);
 };
 
 export const addNavigationItem = <T extends ContentGQL>(

@@ -12,6 +12,7 @@ import { fixLinks } from "./fixLinks";
 import { createDocsPage, prepareData, prepareWebsitePaths } from "./helpers";
 import { createModalDocsPage } from "./modalPage";
 import { DocsRepository } from "./types";
+import { Specification } from "@typings/docs";
 
 export interface CreateDocsPages {
   graphql: GraphQLFunction;
@@ -100,17 +101,17 @@ const createDocsPagesPerRepo = async (
       //   });
       // }
 
-      const specifications = fixedContent.specifications?.map(
-        specification => ({
+      let specifications = [] as Specification[];
+      if (fixedContent.specifications) {
+        specifications = fixedContent.specifications.map(specification => ({
           ...specification,
           assetPath: join(
             assetsPath,
             specification.assetPath.replace("assets", ""),
           ),
           pageUrl: join(modalUrlPrefix, specification.id),
-        }),
-      );
-      // fixedContent.specifications =
+        }));
+      }
 
       if (specifications && specifications.length !== 0) {
         console.log(
