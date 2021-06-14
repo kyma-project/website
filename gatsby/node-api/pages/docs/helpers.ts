@@ -75,7 +75,6 @@ export const prepareData = async ({
     `/content/docs/${repositoryName}/`,
     `docInfo {
       id
-#      type
       version
     }`,
   );

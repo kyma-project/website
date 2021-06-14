@@ -1,19 +1,28 @@
-import { PluginOptions, SourceNodesArgs } from "gatsby";
+import { SourceNodesArgs } from "gatsby";
 
-export const sourceNodes = (
-  args: SourceNodesArgs,
-  options: PluginOptions,
-): any => {
+export const sourceNodes = (args: SourceNodesArgs): any => {
   const { createTypes } = args.actions;
-  const typeDef = `
-        type MarkdownRemarkFrontmatter {
+  const additionalFieldsSchema = `
+      type MarkdownRemarkFrontmatter {
           displayName: String
           specifications: [String]
         }
-
-        type MarkdownRemark implements Node {
-            frontmatter: MarkdownRemarkFrontmatter
+      
+      type DocInfo {
+          id: String
+          version: String
         }
-    `;
-  createTypes(typeDef);
+      
+      type Fields {
+        docInfo: DocInfo
+        slug: String
+      }
+        
+      type MarkdownRemark implements Node {
+        fields: Fields
+        frontmatter: MarkdownRemarkFrontmatter
+        fileAbsolutePath: String
+      }`;
+
+  createTypes(additionalFieldsSchema);
 };

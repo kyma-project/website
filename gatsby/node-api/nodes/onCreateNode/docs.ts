@@ -13,12 +13,7 @@ export const onCreateDocsNode = ({
   relativePath,
   createNodeField,
 }: OnCreateDocsNode) => {
-  // TODO: Regex jest do śmieci
   const splitted = relativePath.split("/");
-  // if (splitted.length < 6) {
-  //   return;
-  // }
-
   const version = splitted[2];
   const id = splitted[3];
   const restPath = splitted.slice(4, splitted.length);
