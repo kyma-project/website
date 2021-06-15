@@ -128,5 +128,4 @@ const createDocsPagesPerRepo = async (
       createModalDocsPage({ createPage, context });
     });
   });
-  // });
 };

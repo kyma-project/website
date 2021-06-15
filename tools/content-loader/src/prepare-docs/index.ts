@@ -167,7 +167,6 @@ const preparePreviewDocs = async (coreConfig: CoreConfig) => {
     throw err;
   }
 
-  // commit must be defined :(
   const branches = new Map<string, string>([[branchName, ""]]);
 
   console.log(`Generating documentation versions file to ${outputDocsVersion}`);

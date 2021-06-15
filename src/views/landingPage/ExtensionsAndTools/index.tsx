@@ -1,21 +1,17 @@
-import React from "react";
-
-import Grid from "@styled/Grid";
-import Paragraph from "@components/shared/Paragraph";
-import H from "@components/shared/H";
-import Button from "@components/shared/Button";
-
 import { FormattedMessage, getTranslation } from "@common/i18n";
-
-import { UsedProjectIcons } from "./UsedProjectIcons";
-
-import { ExtensionsAndToolsWrapper, StyledGridUnit } from "./styled";
-import { CenteredLink } from "../styled";
+import Button from "@components/shared/Button";
+import H from "@components/shared/H";
+import Paragraph from "@components/shared/Paragraph";
 import config from "@config";
+import Grid from "@styled/Grid";
+import React from "react";
+import { CenteredLink } from "../styled";
+import { ExtensionsAndToolsWrapper, StyledGridUnit } from "./styled";
+import { UsedProjectIcons } from "./UsedProjectIcons";
 
 const gt = getTranslation("landingPage.extensionsAndTools");
 
-// yes, 21, it's so that "Docs" and "Features" buttons are aligned
+// to align "Docs" and "Features"
 const sidePadding = 21;
 
 export const ExtensionsAndTools: React.FunctionComponent = () => (

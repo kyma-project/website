@@ -1,24 +1,22 @@
-import { resolve, join } from "path";
-
+import { join, resolve } from "path";
 import {
-  docsGenerator,
-  DocsGeneratorReturnType,
-  getContent,
-  DocsContentDocs,
-  DocsContentItem,
-} from "../utils";
-import {
-  DOCS_DIR,
-  COMMUNITY_DIR,
   ASSETS_DIR,
+  COMMUNITY_DIR,
   COMMUNITY_PATH_PREFIX,
 } from "../../../constants";
-import { CommunityGQL, CommunityPathsArgs, CommunityPaths } from "./types";
 import {
   CreatePageFn,
   CreatePageFnArgs,
   GraphQLFunction,
 } from "../../../types";
+import {
+  DocsContentDocs,
+  DocsContentItem,
+  docsGenerator,
+  DocsGeneratorReturnType,
+  getContent,
+} from "../utils";
+import { CommunityGQL, CommunityPaths, CommunityPathsArgs } from "./types";
 
 export const createCommunityPage = (
   createPage: CreatePageFn,
@@ -89,14 +87,12 @@ const extractFn = (
   return obj;
 };
 
-// TODO: popatrzeć czy te linki są sensowne
 export const prepareWebsitePaths = ({
   topic,
 }: CommunityPathsArgs): CommunityPaths => {
   const assetsPath = join("/", ASSETS_DIR, COMMUNITY_DIR, ASSETS_DIR);
   const rootPagePath = join("/", COMMUNITY_PATH_PREFIX);
 
-  // we remove `README` for nodes
   if (topic.endsWith("README")) {
     topic = topic.replace("README", "");
   }

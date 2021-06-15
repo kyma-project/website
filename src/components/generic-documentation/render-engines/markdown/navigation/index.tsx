@@ -40,7 +40,6 @@ function renderListElement(
   const curPath = [...path, element.id];
   const isActive = activeLinkFn ? activeLinkFn(curPath) : ActiveState.INACTIVE;
 
-  // TODO: investigate it
   // tslint:disable-next-line:react-hooks-nesting
   const [subHidden, setSubHidden] = useState(
     isActive !== ActiveState.ACTIVE_INDIRECT,

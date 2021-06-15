@@ -67,11 +67,6 @@ export class ClusterDocsTopicSerializer {
     if (err) {
       throw err;
     }
-
-    // [err] = await to(this.writeManifest(output, manifest));
-    // if (err) {
-    //   throw err;
-    // }
   };
 
   private copyContentPerTopic = async (

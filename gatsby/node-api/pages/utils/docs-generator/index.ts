@@ -46,7 +46,6 @@ export const docsGenerator = <T extends ContentGQL>(
   const navigation: DocsNavigationTopic[] = [];
 
   const documents = contentGQLs.filter(val => {
-    // docs has versioning
     if (folder.startsWith("docs")) {
       return val.fields.docInfo.version === version;
     }

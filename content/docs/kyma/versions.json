@@ -1,16 +1,10 @@
 {
-  "releases": [
-    {
-      "name": "1.0"
-    },
-    {
-      "name": "2.0"
-    }
-  ],
+  "releases": [],
+  "pre_releases": [],
   "branches": [
     {
-      "name": "preview",
-      "commit": "easter-egg"
+      "name": "main",
+      "commit": ""
     }
   ]
 }

@@ -1,8 +1,4 @@
 import { Node } from "gatsby";
-import {
-  COMMUNITY_FILENAME_REGEX,
-  COMMUNITY_PATH_PREFIX,
-} from "../../../constants";
 import { CreateNodeField } from "../../../types";
 
 interface OnCreateCommunityNode {
@@ -16,9 +12,6 @@ export const onCreateCommunityNode = ({
   relativePath,
   createNodeField,
 }: OnCreateCommunityNode) => {
-  // const match = COMMUNITY_FILENAME_REGEX.exec(relativePath);
-  // if (!match || match.length < 3) return;
-
   const splitted = relativePath.split("/");
 
   const id = splitted[1];
@@ -35,7 +28,6 @@ export const onCreateCommunityNode = ({
   });
 
   const slug = [id].concat(restPath).join("/");
-  // const slug = `/${COMMUNITY_PATH_PREFIX}/${type}/${id}`;
 
   createNodeField({
     node,

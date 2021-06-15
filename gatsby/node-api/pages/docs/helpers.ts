@@ -1,33 +1,32 @@
-import { resolve, join } from "path";
 import compareVersions from "compare-versions";
-import fs, { CopyOptions } from "fs-extra";
-
-import { DocsVersions, DocGQL, DocsPathsArgs, DocsPaths } from "./types";
+import fs from "fs-extra";
+import { join, resolve } from "path";
+import { BuildFor } from "../../../../src/types/common";
 import {
-  DocsGeneratedVersions,
   DocsBranchesVersion,
+  DocsGeneratedVersions,
   DocsReleasesVersion,
 } from "../../../../tools/content-loader/src/prepare-docs/docs-versions";
 import {
-  docsGenerator,
-  DocsGeneratorReturnType,
-  getContent,
-  DocsContentDocs,
-  DocsNavigation,
-} from "../utils";
-import {
   ASSETS_DIR,
   DOCS_DIR,
-  DOCS_SPECIFICATIONS_PATH,
-  DOCS_PATH_PREFIX,
   DOCS_LATEST_VERSION,
+  DOCS_PATH_PREFIX,
+  DOCS_SPECIFICATIONS_PATH,
 } from "../../../constants";
 import {
-  GraphQLFunction,
   CreatePageFn,
   CreatePageFnArgs,
+  GraphQLFunction,
 } from "../../../types";
-import { BuildFor } from "../../../../src/types/common";
+import {
+  DocsContentDocs,
+  docsGenerator,
+  DocsGeneratorReturnType,
+  DocsNavigation,
+  getContent,
+} from "../utils";
+import { DocGQL, DocsPaths, DocsPathsArgs, DocsVersions } from "./types";
 
 export const createDocsPage = (
   createPage: CreatePageFn,
@@ -108,7 +107,6 @@ export const prepareData = async ({
     }
   }
 
-  // // for copying data
   docsArch[DOCS_LATEST_VERSION] = JSON.parse(
     JSON.stringify(docsArch[latestVersion]),
   );
@@ -233,16 +231,11 @@ export const prepareWebsitePaths = ({
   const basePath = join("/", DOCS_PATH_PREFIX, repositoryName, version);
   const assetBasePath = join("/", ASSETS_DIR, DOCS_DIR, repositoryName);
 
-  // we remove `README` for nodes
+  // remove `README` for nodes
   if (topic.endsWith("README")) {
     topic = topic.replace("README", "");
   }
 
-  // assetPath doesn't have markdown name, so we need to remove it
-  // Correct path in current implementation: assets/docs/kyma/main/deep-dive/assets/create-ssh-key.png
-  // and we have such markdown: my-super-tutorial
-  // so the topics looks like this: `deep-dive/my-super-tutorial`
-  // that's why we need to remove the last part.
   const tmp = topic.split("/");
   tmp.pop();
   const subtopic = tmp.join("/");
@@ -273,37 +266,3 @@ export const prepareWebsitePaths = ({
     modalUrlPrefix,
   };
 };
-
-//
-// export const preparePreviewPaths = ({
-//   repositoryName,
-//   version,
-//   latestVersion,
-//   topic,
-// }: DocsPathsArgs): DocsPaths => {
-//   const v =
-//     !version || version === DOCS_LATEST_VERSION ? latestVersion : version;
-//
-//   const tmp = topic.split("/");
-//   tmp.pop();
-//   const subtopic = tmp.join("/");
-//
-//   const assetsPath = `/${ASSETS_DIR}${DOCS_DIR}${repositoryName}/${v}/${subtopic}/${ASSETS_DIR}`;
-//   const specificationsPath = `/${ASSETS_DIR}${DOCS_DIR}${repositoryName}/${v}/${topic}/${DOCS_SPECIFICATIONS_PATH}`;
-//
-//   if (topic.endsWith("index")) {
-//     topic = topic.replace("index", "");
-//   }
-//   const pagePath = `${DOCS_DIR}${v}/${topic}`;
-//   //TODO: examine rootPagePath :)
-//   const rootPagePath = `${DOCS_DIR}${v}`;
-//   const modalUrlPrefix = `/${topic}/${DOCS_SPECIFICATIONS_PATH}`;
-//
-//   return {
-//     assetsPath,
-//     specificationsPath,
-//     pagePath,
-//     basePath,
-//     modalUrlPrefix,
-//   };
-// };
