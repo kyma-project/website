@@ -22,6 +22,7 @@ export const markdownRE = (
   layout: LayoutType,
   serializedSources: Sources,
   basePath: string,
+  pagePath: string,
   specifications?: Specification[],
 ): RenderEngineWithOptions<MarkdownRenderEngineOptions> => {
   let imagesSpec: ImageSpec[] = [];
@@ -38,7 +39,7 @@ export const markdownRE = (
         link: (props: any) => (
           <Link
             {...props}
-            basePath={basePath}
+            pagePath={pagePath}
             specifications={specifications}
             layout={layout}
           />

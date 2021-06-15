@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { join } from "path";
+import { join, normalize } from "path";
 import { useScrollPosition } from "@common/hooks";
 
 import { Specification } from "@typings/docs";
@@ -27,14 +27,14 @@ interface LinkProps {
   href: string;
   specifications?: Specification[];
   layout?: LayoutType;
-  basePath: string;
+  pagePath: string;
 }
 
 export const Link: React.FunctionComponent<LinkProps> = ({
   href,
   specifications = [],
   layout,
-  basePath,
+  pagePath: pagePath,
   children,
 }) => {
   const scrollPosition = useScrollPosition();
@@ -87,7 +87,7 @@ export const Link: React.FunctionComponent<LinkProps> = ({
     );
   }
 
-  href = join(basePath, href);
+  href = join(pagePath, "../", href);
   return (
     <L.Internal to={href} underline={true}>
       {children}
