@@ -65,6 +65,7 @@ export const docsGenerator = <T extends ContentGQL>(
     }
   });
 
+  //TODO check if document len is not 0
   const absPath = documents[0].fileAbsolutePath;
   const slug = documents[0].fields.slug;
   const basePath = absPath.replace(slug, "");
