@@ -3,7 +3,7 @@ import {
   createCommunityPage,
   prepareData,
   prepareWebsitePaths,
-  addCommunityPrefixInInternalLinks,
+  processInternalLinks,
 } from "./helpers";
 import { CreatePageFn, GraphQLFunction } from "../../../types";
 
@@ -32,7 +32,7 @@ export const createCommunityPages = async ({
     console.log(pagePath);
 
     let sources = content[topic];
-    sources = addCommunityPrefixInInternalLinks(sources);
+    sources = processInternalLinks(sources);
 
     const context = {
       content: sources,

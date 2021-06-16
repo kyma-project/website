@@ -47,44 +47,10 @@ export const prepareData = async (
     "/content/community/",
     `docInfo {
       id
-#      type
-#      fileName
     }`,
   );
 
   return docsGenerator<CommunityGQL>(docs, "community");
-};
-
-const extractFn = (
-  doc: CommunityGQL,
-  docsGroup: string,
-  topicId: string,
-): DocsContentDocs | null => {
-  const {
-    rawMarkdownBody,
-    fields: {
-      docInfo: { id, type, fileName },
-      imagesSpec,
-    },
-    frontmatter: { title, type: docType },
-  } = doc;
-
-  if (!(docsGroup === type && topicId === id)) {
-    return null;
-  }
-
-  const obj: DocsContentDocs = {
-    order: fileName,
-    title,
-    source: rawMarkdownBody,
-    imagesSpec,
-  };
-
-  if (docType) {
-    obj.type = docType;
-  }
-
-  return obj;
 };
 
 export const prepareWebsitePaths = ({
@@ -105,7 +71,7 @@ export const prepareWebsitePaths = ({
   };
 };
 
-export const addCommunityPrefixInInternalLinks = (
+export const processInternalLinks = (
   content: DocsContentItem,
 ): DocsContentItem => {
   const MD_LINKS_REGEX = /\[([^\[]+)\]\(([^\)]+)\)/g;
@@ -131,13 +97,7 @@ export const addCommunityPrefixInInternalLinks = (
         return occurrence;
       }
 
-      occurrence = occurrence.replace(h, oldHref =>
-        oldHref.startsWith("/")
-          ? `/community${oldHref}`
-          : `/community/${oldHref}`,
-      );
-      occurrence = occurrence.replace(".md", "");
-      return occurrence;
+      return occurrence.replace(".md", "");
     }),
   }));
 
