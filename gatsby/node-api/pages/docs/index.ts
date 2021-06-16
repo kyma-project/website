@@ -1,7 +1,7 @@
 import { existsSync } from "fs";
 import { join, resolve } from "path";
 import config from "../../../../config.json";
-import { BuildFor } from "../../../../src/types/common";
+import { BuildFor } from "@typings/common";
 import {
   CreatePageFn,
   CreateRedirectFn,
@@ -67,7 +67,6 @@ const createDocsPagesPerRepo = async (
   Object.keys(docsArch).map(version => {
     const { content, navigation } = docsArch[version];
     navigation.sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
-    console.log(`version: ${version}`);
     Object.keys(content).map(topic => {
       const {
         assetsPath,
@@ -94,12 +93,6 @@ const createDocsPagesPerRepo = async (
           ),
           pageUrl: join(modalUrlPrefix, specification.id),
         }));
-      }
-
-      if (specifications && specifications.length !== 0) {
-        console.log(
-          `assetPath: ${specifications[0].assetPath}, pageURL: ${specifications[0].pageUrl}`,
-        );
       }
 
       const context = {

@@ -14,6 +14,7 @@ export interface DocsPageContext {
   manifest: DocsManifest;
   assetsPath: string;
   repoName: string;
+  topic: string;
   specifications: Specification[];
 }
 

@@ -32,9 +32,7 @@ export const createCommunityPages = async ({
     console.log(pagePath);
 
     let sources = content[topic];
-    if (buildFor !== BuildFor.COMMUNITY_PREVIEW) {
-      sources = addCommunityPrefixInInternalLinks(sources);
-    }
+    sources = addCommunityPrefixInInternalLinks(sources);
 
     const context = {
       content: sources,

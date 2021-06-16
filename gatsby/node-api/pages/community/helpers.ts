@@ -136,7 +136,7 @@ export const addCommunityPrefixInInternalLinks = (
           ? `/community${oldHref}`
           : `/community/${oldHref}`,
       );
-
+      occurrence = occurrence.replace(".md", "");
       return occurrence;
     }),
   }));

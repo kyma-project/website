@@ -134,15 +134,14 @@ export const GenericComponent: React.FunctionComponent<GenericComponentProps> = 
   }
   const [title, type] = extractDataFromFirstSources(serializedSources);
 
-  const basePath = (pageContext && pageContext.basePath) || "";
   const pagePath = (pageContext && pageContext.pagePath) || "";
-
+  const topic = (pageContext && pageContext.topic) || "";
   const RENDER_ENGINES: RenderEngines = [
     markdownRE(
       layout,
       serializedSources,
-      basePath,
       pagePath,
+      topic,
       pageContext && pageContext.specifications,
     ),
     openApiRE,

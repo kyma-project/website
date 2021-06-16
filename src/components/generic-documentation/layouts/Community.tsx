@@ -34,7 +34,6 @@ export interface CommunityLayoutProps {
   manifest: DocsManifest;
   content: DocsContentItem;
   sourcesLength: number;
-  inPreview?: boolean;
   basePath: string;
   pagePath: string;
 }
@@ -44,7 +43,6 @@ export const CommunityLayout: React.FunctionComponent<CommunityLayoutProps> = ({
   navigation,
   content: { id: topic, type, displayName },
   sourcesLength,
-  inPreview,
   pagePath,
   basePath,
 }) => {

@@ -28,6 +28,7 @@ interface LinkProps {
   specifications?: Specification[];
   layout?: LayoutType;
   pagePath: string;
+  topic: string;
 }
 
 export const Link: React.FunctionComponent<LinkProps> = ({
@@ -35,6 +36,7 @@ export const Link: React.FunctionComponent<LinkProps> = ({
   specifications = [],
   layout,
   pagePath: pagePath,
+  topic,
   children,
 }) => {
   const scrollPosition = useScrollPosition();
@@ -87,10 +89,27 @@ export const Link: React.FunctionComponent<LinkProps> = ({
     );
   }
 
-  href = join(pagePath, "../", href);
+  const destination = determineDestination(topic, href);
+  const finalDestination = join(pagePath, destination);
   return (
-    <L.Internal to={href} underline={true}>
+    <L.Internal to={finalDestination} underline={true}>
       {children}
     </L.Internal>
   );
+};
+
+const determineDestination = (source: string, destination: string): string => {
+  let newDestination = destination;
+  if (destination.endsWith("README")) {
+    newDestination = destination.substring(
+      0,
+      destination.length - "README".length,
+    );
+  }
+
+  if (!source.endsWith("README")) {
+    newDestination = join("../", newDestination);
+  }
+
+  return newDestination;
 };
