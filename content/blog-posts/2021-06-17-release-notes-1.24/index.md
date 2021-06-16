@@ -30,5 +30,5 @@ For more details on the introduced changes, read the official [Istio 1.10.0 rele
 
 We also updated ORY charts, changing the Oathkeeper version to 0.38.11-beta.1. 
 
-For more details on the introduced changes, read the official [Oathkeeper 0.38-11-beta.1 release notes](https://github.com/ory/oathkeeper/releases/tag/v0.38.11-beta.1) 
+For more details on the introduced changes, read the official [Oathkeeper 0.38-11-beta.1 release notes](https://github.com/ory/oathkeeper/releases/tag/v0.38.11-beta.1). 
 
