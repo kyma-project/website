@@ -1,12 +1,9 @@
-import React, { ChangeEvent } from "react";
-import { navigate } from "gatsby";
-
-import { injectIntl, FunctionComponentIntl } from "@common/i18n";
-
+import { FunctionComponentIntl, injectIntl } from "@common/i18n";
 import { getDocsPath } from "@components/generic-documentation/helpers";
 import { DocsVersions } from "@typings/docs";
-
-import { Wrapper, Label, SelectWrapper, VersionSelect } from "./styled";
+import { navigate } from "gatsby";
+import React, { ChangeEvent } from "react";
+import { Label, SelectWrapper, VersionSelect, Wrapper } from "./styled";
 
 interface VersionSwitcherProps {
   versions: DocsVersions;
@@ -22,21 +19,22 @@ const VersionSwitcher: FunctionComponentIntl<VersionSwitcherProps> = ({
   topic,
   formatMessage,
 }) => {
-  const [ver, setVersion] = React.useState(version)
+  const [ver, setVersion] = React.useState(version);
   const changeDocsVersion = (e: ChangeEvent<HTMLSelectElement>) => {
-    const newVersion = e.target.value; 
-    if (newVersion === 'kyma 1.x') {
-      window.open('https://kyma-project-old.netlify.app/docs/', '_blank');
-    } else {
-      const { hash } = window.location;
-      const path = getDocsPath(newVersion, {
-        id: topic,
-      repoName,
-        hash: hash.substring(1),
-      });
-      navigate(path);
-      setVersion(newVersion);
+    const newVersion = e.target.value;
+    if (newVersion === "kyma 1.x") {
+      window.open("https://kyma-project-old.netlify.app/docs/", "_blank");
+      return;
     }
+
+    const { hash } = window.location;
+    const path = getDocsPath(newVersion, {
+      id: topic,
+      repoName,
+      hash: hash.substring(1),
+    });
+    navigate(path);
+    setVersion(newVersion);
   };
   const htmlID = "docs-version";
 
@@ -44,11 +42,7 @@ const VersionSwitcher: FunctionComponentIntl<VersionSwitcherProps> = ({
     <Wrapper>
       <Label htmlFor={htmlID}>{formatMessage({ id: "version" })}:</Label>
       <SelectWrapper>
-        <VersionSelect
-          id={htmlID}
-          onChange={changeDocsVersion}
-          value={ver}
-        >
+        <VersionSelect id={htmlID} onChange={changeDocsVersion} value={ver}>
           {Object.keys(versions).map((key: string, id: number) => (
             <optgroup key={key} label={formatMessage({ id: key })}>
               {(versions as any)[key].map((element: string, index: number) => {
