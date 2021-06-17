@@ -43,8 +43,6 @@ export const docsGenerator = <T extends ContentGQL>(
   folder: string,
   version?: string,
 ) => {
-  const navigation: DocsNavigationTopic[] = [];
-
   const documents = contentGQLs.filter(val => {
     if (folder.startsWith("docs")) {
       return val.fields.docInfo.version === version;
@@ -54,6 +52,7 @@ export const docsGenerator = <T extends ContentGQL>(
   });
 
   const docsContentForNodes = [] as ContentGQL[];
+  const navigation: DocsNavigationTopic[] = [];
 
   documents.forEach(item => {
     if (item.fields.slug.endsWith("README.md")) {
@@ -70,7 +69,8 @@ export const docsGenerator = <T extends ContentGQL>(
   const slug = documents[0].fields.slug;
   const basePath = absPath.replace(slug, "");
 
-  defaultMetadataForNodes(navigation, basePath, []);
+  navigation.sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
+  sortAndAddDefaultMetadata(navigation, basePath, []);
 
   docsContentForNodes.forEach(item => {
     const filePath = item.fields.slug.replace("/README.md", "") as string;
@@ -170,18 +170,19 @@ export const addNavigationItem = <T extends ContentGQL>(
 
 export type DocsGeneratorReturnType = ReturnType<typeof docsGenerator>;
 
-export const defaultMetadataForNodes = (
+export const sortAndAddDefaultMetadata = (
   navigation: DocsNavigationTopic[],
   basePath: string,
   navigationPath: string[],
 ): void => {
   navigation.forEach(item => {
     if (item.children.length !== 0) {
+      item.children.sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
       item.noContent = true;
       const currentNavigation = navigationPath.slice();
       currentNavigation.push(item.id);
       item.displayName = getDisplayNameForNode(basePath, currentNavigation);
-      defaultMetadataForNodes(item.children, basePath, currentNavigation);
+      sortAndAddDefaultMetadata(item.children, basePath, currentNavigation);
     }
   });
 };

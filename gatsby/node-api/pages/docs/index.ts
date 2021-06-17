@@ -66,7 +66,6 @@ const createDocsPagesPerRepo = async (
 
   Object.keys(docsArch).map(version => {
     const { content, navigation } = docsArch[version];
-    navigation.sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
     Object.keys(content).map(topic => {
       const {
         assetsPath,
