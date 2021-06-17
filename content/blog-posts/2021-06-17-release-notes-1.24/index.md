@@ -16,7 +16,7 @@ With engines on and all hands on deck, we are fully concentrated on the upcoming
 
 See the overview of all changes in this release:
 
-- [Installation](#installation) - Istio upgraded to 1.10.0, updated ORY charts
+- [Installation](#installation) - Istio upgraded to 1.10.0, ORY charts updated
 
 ## Installation 
 
@@ -26,7 +26,7 @@ In this release, we upgraded Istio from 1.9.5 to 1.10.0.
 
 For more details on the introduced changes, read the official [Istio 1.10.0 release notes](https://istio.io/latest/news/releases/1.10.x/announcing-1.10/).  
 
-### Updated ORY charts 
+### ORY charts updated
 
 We also updated ORY charts, changing the Oathkeeper version to 0.38.11-beta.1. 
 
