@@ -10,7 +10,7 @@ redirectFrom:
   - "/blog/release-notes-124"
 ---
 
-With engines on and all hands on deck, we are fully concentrated on the upcoming major release of Kyma 2.0. For this reason, this release is rather a short stop on a longer journey, meant to apply all patches that would allow us to continue a secure journey. Read on to find out what we had to fix in this release. 
+With engines on and all hands on deck, we are fully concentrated on the upcoming major release of Kyma 2.0. For this reason, this release is rather a short stop on a longer route, meant to apply all patches that would allow us to continue a secure journey. Read on to find out what we had to fix in this release. 
 
 <!-- overview -->
 
