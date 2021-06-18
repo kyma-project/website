@@ -64,7 +64,13 @@ export const docsGenerator = <T extends ContentGQL>(
     }
   });
 
-  // TODO check if document len is not 0
+  if (documents.length === 0) {
+    return {
+      content: {} as DocsContent,
+      navigation: [] as DocsNavigationTopic[],
+      manifest: [] as DocsNavigationTopic[],
+    };
+  }
   const absPath = documents[0].fileAbsolutePath;
   const slug = documents[0].fields.slug;
   const basePath = absPath.replace(slug, "");
