@@ -55,12 +55,11 @@ endif
 build-prod:
 	npm run build:prod
 	# build redirections for old website page
-	echo \\n/root/* https://kyma-project-old.netlify.app/docs/ >> public/_redirects 
+	echo \\n/root/* https://kyma-project-old.netlify.app/docs/ 302>> public/_redirects
+	echo \\n/components/* https://kyma-project-old.netlify.app/docs/ 302>> public/_redirects 
 
 build-website-preview:
 	npm run build:preview
-	# build redirections for old website page
-	echo \\n/root/* https://kyma-project-old.netlify.app/docs/ >> public/_redirects 
 
 build-docs-preview:
 	npm run build:preview:docs
