@@ -59,6 +59,8 @@ build-prod:
 
 build-website-preview:
 	npm run build:preview
+	# build redirections for old website page
+	echo \\n/root/* https://kyma-project-old.netlify.app/docs/ >> public/_redirects 
 
 build-docs-preview:
 	npm run build:preview:docs
