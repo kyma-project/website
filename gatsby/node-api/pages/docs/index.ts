@@ -94,6 +94,9 @@ const createDocsPagesPerRepo = async (
         }));
       }
 
+      // tslint:disable-next-line:no-console
+      console.log(`New Doc Page path: ${pagePath}`);
+
       const context = {
         content: fixedContent,
         navigation,
