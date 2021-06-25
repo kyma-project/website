@@ -49,7 +49,6 @@ export const NavigationListWrapper = styled.div`
   position: relative;
   overflow-y: auto;
   overflow-x: hidden;
-  max-height: calc(100vh - 74px);
   margin: 16px 0;
   padding-right: 2px;
   background: #fff;
