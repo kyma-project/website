@@ -78,18 +78,16 @@ export const CommunityLayout: React.FunctionComponent<CommunityLayoutProps> = ({
                 className="grid-unit-navigation"
                 withoutPadding={true}
               >
-                <Sticky>
-                  {({ style }: any) => (
-                    <StickyWrapperLeftNav style={{ ...style, zIndex: 200 }}>
-                      <Navigation
-                        navigation={navigation}
-                        linkFn={linkFn}
-                        activeLinkFn={activeLinkFn}
-                        basePath={basePath}
-                      />
-                    </StickyWrapperLeftNav>
-                  )}
-                </Sticky>
+                <div>
+                  <StickyWrapperLeftNav style={{ zIndex: 200 }}>
+                    <Navigation
+                      navigation={navigation}
+                      linkFn={linkFn}
+                      activeLinkFn={activeLinkFn}
+                      basePath={basePath}
+                    />
+                  </StickyWrapperLeftNav>
+                </div>
                 <MobileNavButton />
               </Grid.Unit>
               <Grid.Unit

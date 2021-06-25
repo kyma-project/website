@@ -90,19 +90,17 @@ export const DocsLayout: React.FunctionComponent<DocsLayoutProps> = ({
                 className="grid-unit-navigation"
                 withoutPadding={true}
               >
-                <Sticky>
-                  {({ style }: any) => (
-                    <StickyWrapperLeftNav style={{ ...style, zIndex: 200 }}>
-                      <Navigation
-                        navigation={navigation}
-                        linkFn={linkFn}
-                        activeLinkFn={activeLinkFn}
-                        basePath={basePath}
-                        docsVersionSwitcher={docsVersionSwitcher}
-                      />
-                    </StickyWrapperLeftNav>
-                  )}
-                </Sticky>
+                <div>
+                  <StickyWrapperLeftNav style={{ zIndex: 200 }}>
+                    <Navigation
+                      navigation={navigation}
+                      linkFn={linkFn}
+                      activeLinkFn={activeLinkFn}
+                      basePath={basePath}
+                      docsVersionSwitcher={docsVersionSwitcher}
+                    />
+                  </StickyWrapperLeftNav>
+                </div>
                 <MobileNavButton />
               </Grid.Unit>
               <Grid.Unit
