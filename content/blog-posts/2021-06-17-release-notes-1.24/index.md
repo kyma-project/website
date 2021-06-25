@@ -32,3 +32,11 @@ We also updated ORY charts, changing the Oathkeeper version to 0.38.11-beta.1.
 
 For more details on the introduced changes, read the official [Oathkeeper 0.38-11-beta.1 release notes](https://github.com/ory/oathkeeper/releases/tag/v0.38.11-beta.1). 
 
+## Serverless 
+
+### Introducing Python 3.9 and deprecating 3.8
+
+In this release we are intruducing a Python 3.9 serverless runtime. This is the latest feature release of Python and it is the recommended version of Python that gets the highest attention from Python's community and early security patches.
+Following this recommendation, we are deprecating our Python 3.8 based runtime as we plan to remove Python 3.8 from the list of supported runtimes **in the next release**. That's why we recommend that you configure all your Python 3.8 Functions to run on the Python 3.9 runtime. 
+
+
