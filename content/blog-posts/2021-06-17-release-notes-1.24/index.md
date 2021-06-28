@@ -17,6 +17,7 @@ With engines on and all hands on deck, we are fully concentrated on the upcoming
 See the overview of all changes in this release:
 
 - [Installation](#installation) - Istio upgraded to 1.10.0, ORY charts updated
+- [Serverless](#serverless) - Python 3.8 deprecated and new Python 3.9 runtime introduced
 
 ## Installation 
 
@@ -39,4 +40,3 @@ For more details on the introduced changes, read the official [Oathkeeper 0.38-1
 In this release, we introduced the Python 3.9 Serverless runtime, which is the latest feature release of Python. It is the recommended Python version, and it gets the highest attention from the community and early security patches.
 Following this recommendation, we are deprecating our Python 3.8-based runtime as we plan to remove Python 3.8 from the list of supported runtimes **in the next release**. That's why we recommend that you configure all your Python 3.8 Functions to run on the Python 3.9 runtime.
 Following this recommendation, we are deprecating our Python 3.8 based runtime as we plan to remove Python 3.8 from the list of supported runtimes **in the next release**. That's why we recommend that you configure all your Python 3.8 Functions to run on the Python 3.9 runtime. 
-
