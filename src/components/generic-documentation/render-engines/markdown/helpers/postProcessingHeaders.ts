@@ -71,11 +71,7 @@ export const postProcessingHeaders = (
   }
 
   if (!processedHeaders.length) {
-    const tmpheader = hoistingParents(headers);
-    tmpheader.forEach(item => {
-      item.id = toKebabCase(item.title);
-    });
-    return tmpheader;
+    return hoistingParents(headers);
   }
 
   headers.map(h => {

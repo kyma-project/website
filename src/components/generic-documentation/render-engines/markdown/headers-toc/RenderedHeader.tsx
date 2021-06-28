@@ -1,5 +1,6 @@
 import React from "react";
 import { plugins } from "@kyma-project/dc-markdown-render-engine";
+import { toKebabCase } from "@common/utils";
 
 export type Header = plugins.Header;
 export type ActiveAnchors = plugins.ActiveAnchors;

@@ -45,6 +45,21 @@ export const Heading: React.FunctionComponent<HeadingProps> = ({
   }
   heading = removeMarkdownSyntax(heading);
   heading = toKebabCase(heading);
+  heading = `${headingPrefix}-${heading}`;
+
+  if (headings.has(heading)) {
+    const splittedHeading = heading.split("-");
+    const lastPart = splittedHeading[splittedHeading.length - 1];
+    let output = Number(lastPart);
+    if (Number.isInteger(output)) {
+      output = output + 1;
+      splittedHeading.push(output.toString());
+    } else {
+      splittedHeading.push("1");
+    }
+    heading = splittedHeading.join("-");
+  }
+  headings.add(heading);
 
   if (tabDataExists && tabData.group && tabData.label) {
     heading = `${toKebabCase(tabData.group)}--${toKebabCase(
