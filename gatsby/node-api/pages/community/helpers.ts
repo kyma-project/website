@@ -3,6 +3,7 @@ import {
   ASSETS_DIR,
   COMMUNITY_DIR,
   COMMUNITY_PATH_PREFIX,
+  DOCS_DIR,
 } from "../../../constants";
 import {
   CreatePageFn,
@@ -56,7 +57,19 @@ export const prepareData = async (
 export const prepareWebsitePaths = ({
   topic,
 }: CommunityPathsArgs): CommunityPaths => {
-  const assetsPath = join("/", ASSETS_DIR, COMMUNITY_DIR, ASSETS_DIR);
+  // remove `README` for nodes
+  if (topic.endsWith("README")) {
+    topic = topic.replace("README", "");
+  }
+
+  // remove name of file
+  const tmp = topic.split("/");
+  tmp.pop();
+  const subtopic = tmp.join("/");
+
+  const assetBasePath = join("/", ASSETS_DIR, COMMUNITY_DIR);
+  const assetsPath = join(assetBasePath, subtopic, ASSETS_DIR);
+
   const rootPagePath = join("/", COMMUNITY_PATH_PREFIX);
 
   if (topic.endsWith("README")) {
