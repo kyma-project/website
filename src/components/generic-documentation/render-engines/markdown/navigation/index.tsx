@@ -42,7 +42,8 @@ function renderListElement(
 
   // tslint:disable-next-line:react-hooks-nesting
   const [subHidden, setSubHidden] = useState(
-    isActive !== ActiveState.ACTIVE_INDIRECT,
+    isActive !== ActiveState.ACTIVE_INDIRECT &&
+      isActive !== ActiveState.ACTIVE_DIRECT,
   );
   const toggleSub = () => setSubHidden(!subHidden);
 

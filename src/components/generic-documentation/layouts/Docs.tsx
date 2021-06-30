@@ -31,7 +31,6 @@ import {
   StickyWrapperRightNav,
 } from "./styled";
 import { MarkdownWrapper } from "../styled";
-import to from "await-to-js";
 
 export interface DocsLayoutProps {
   renderers: Renderers;
@@ -65,10 +64,11 @@ export const DocsLayout: React.FunctionComponent<DocsLayoutProps> = ({
     const newPagePath = pagePath
       .split("/")
       .slice(toReduce)
+      .filter(item => item !== "")
       .join("/");
-    path = path.slice(toReduce);
 
-    const slug = path.join("/");
+    const slug = path.slice(toReduce).join("/");
+
     if (newPagePath === slug) {
       return ActiveState.ACTIVE_DIRECT;
     }
