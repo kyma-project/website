@@ -10,7 +10,7 @@ import { GenericDocsContext } from "../../../services/GenericDocs.service";
 import { LayoutType } from "../../../index";
 
 const getAssetName = (path: string): [string, string] => {
-  const fileNameRegex = /(.*?)\/(.*?).(jpeg|jpg|gif|png|svg|json|yaml|yml)$/;
+  const fileNameRegex = /(.*?)\/(.*?).(jpeg|jpg|gif|png|svg|json|yaml|yml|pdf)$/;
   const match = fileNameRegex.exec(path);
 
   if (match && match[2]) {
