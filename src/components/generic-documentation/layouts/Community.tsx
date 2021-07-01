@@ -53,6 +53,7 @@ export const CommunityLayout: React.FunctionComponent<CommunityLayoutProps> = ({
     const newPagePath = pagePath
       .split("/")
       .slice(toReduce)
+      .filter(item => item !== "")
       .join("/");
     path = path.slice(toReduce);
 
