@@ -2,7 +2,7 @@
 title: "Accelerate innovation with Kyma"
 author:
   name: "Gopi Kannappan, Head of Product Management at Kyma"
-tags: 
+tags:
   - kyma
   - innovation
   - digitaltransformation
@@ -19,7 +19,7 @@ Is Tesla Model X still a car, or is it a smart device? This might sound like a s
 
 On our ongoing innovation journey, we have identified several challenges for companies that go through this process of digital transformation:
 
-- **Heterogeneous Product Portfolio:** Single-vendor solutions are a thing of the past. (ref: https://www.thoughtworks.com/de/insights/blog/implications-tech-stack-complexity-executives). Companies don't want to invest in a single vendor product stack. They need to have best of breed products. Heterogeneity is unavoidable, so software product companies need to be ready to embrace the diversity and be open to work hand in hand with the dreaded competition.
+- **Heterogeneous Product Portfolio:** Single-vendor solutions are a thing of the past. (ref: https://www.thoughtworks.com/insights/blog/implications-tech-stack-complexity-executives). Companies don't want to invest in a single vendor product stack. They need to have best of breed products. Heterogeneity is unavoidable, so software product companies need to be ready to embrace the diversity and be open to work hand in hand with the dreaded competition.
 
 - **Monolithic deployment:** Monolithic applications can be great, but as the size grows, so does the complexity. This slows down the time to market, adds complexity to testing and shipping, complicates adding new features or extensions, and makes scaling difficult. Currently many of the best available products are still monolithic.
 
