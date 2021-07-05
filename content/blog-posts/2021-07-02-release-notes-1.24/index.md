@@ -17,7 +17,6 @@ With engines on and all hands on deck, we are fully concentrated on the upcoming
 See the overview of all changes in this release:
 
 - [Installation](#installation) - Istio upgraded to 1.10.0, ORY charts updated
-- [Serverless](#serverless) - Python 3.8 deprecated and new Python 3.9 runtime introduced
 - [Observability](#observability) - Keycloak Gatekeeper replaced with OAuth2 Proxy
 
 ## Installation
