@@ -36,16 +36,16 @@ See the overview of all changes in this release:
 
 We've recently added new alpha commands: `alpha provision k3s`, `alpha deploy`, `alpha delete`, and  `alpha version`.
 In this release, we stabilized these commands, and they are now ready for beta testing.
-For more information, read the [alpha command usage examples](https://kyma-project.io/docs/1.21/cli/overview#details-kyma-cli-alpha-command-usage-examples) and the command help. 
- 
-### Run Functions locally 
+For more information, read the [alpha command usage examples](https://github.com/kyma-project/cli/tree/release-1.21/docs/03-02-examples.md) and the command help.
+
+### Run Functions locally
 
 Kyma CLI provides a set of helpful commands for Function developers.
 They support developers in starting development, pushing local code to the Runtime, and syncing Functions.
 In this release, we have added one more command to facilitate your developer experience even more.
 The `run` command allows you to run the Function's code locally, before applying it to the Kyma runtime.
 
-For more information, read the [Kyma CLI documentation](https://kyma-project.io/docs/1.21/cli/commands/#kyma-run-function-kyma-run-function). 
+For more information, read the [Kyma CLI documentation](https://github.com/kyma-project/cli/tree/release-1.21/docs/gen-docs/kyma_run_function.md).
 
 ## Monitoring
 
@@ -72,9 +72,9 @@ In this release, we removed Knative-based eventing.
 The new Eventing component is based on [NATS](https://github.com/nats-io/nats-server) with a Kyma-specific Subscription custom resource (CR). 
 For upgrade scenarios, refer to the [Migration Guide](https://github.com/kyma-project/kyma/blob/release-1.21/docs/migration-guides/1.20-1.21.md).
 
-For more information on the new eventing, read the [documentation](https://kyma-project.io/docs/1.21/components/eventing).
+For more information on the new eventing, read the [documentation](https://github.com/kyma-project/kyma/tree/release-1.21/docs/eventing).
 
-## Serverless 
+## Serverless
 
 ### Node.js 10 deprecation
 
@@ -89,6 +89,6 @@ For more information on Node.js 10 deprecation, read about [Node.js releases](ht
 
 ### Tracing not working with the new eventing
 
-Due to the [change from Knative to NATS eventing](#knative-based-eventing-replaced-by-nats), tracing is not working as expected for events sent to Kyma. 
+Due to the [change from Knative to NATS eventing](#knative-based-eventing-replaced-by-nats), tracing is not working as expected for events sent to Kyma.
 All traces stop at the [Event Publisher Proxy](https://github.com/kyma-project/kyma/tree/release-1.21/resources/eventing/charts/event-publisher-proxy).
-To learn more, see [issue #10957](https://github.com/kyma-project/kyma/issues/10957). 
+To learn more, see [issue #10957](https://github.com/kyma-project/kyma/issues/10957).
