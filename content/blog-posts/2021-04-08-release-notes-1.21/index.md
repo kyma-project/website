@@ -36,7 +36,7 @@ See the overview of all changes in this release:
 
 We've recently added new alpha commands: `alpha provision k3s`, `alpha deploy`, `alpha delete`, and  `alpha version`.
 In this release, we stabilized these commands, and they are now ready for beta testing.
-For more information, read the [alpha command usage examples](https://github.com/kyma-project/cli/tree/release-1.21/docs/03-02-examples.md) and the command help.
+For more information, read the [alpha command usage examples](https://github.com/kyma-project/cli/blob/release-1.21/docs/03-03-examples-alpha.md) and the command help.
 
 ### Run Functions locally
 
