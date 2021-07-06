@@ -21,10 +21,10 @@ See the overview of all changes in this release:
 
 ## Installation
 
-### Istio upgraded to 1.10.0
+### Istio upgraded to 1.10.2
 
-In this release, we upgraded Istio from 1.9.5 to 1.10.0.
-For more details on the introduced changes, read the official [Istio 1.10.0 release notes](https://istio.io/latest/news/releases/1.10.x/announcing-1.10/).  
+In this release, we upgraded Istio from 1.9.5 to 1.10.2.
+For more details on the introduced changes, read the official [Istio 1.10.2 release notes](https://istio.io/latest/news/releases/1.10.x/announcing-1.10.2/).  
 
 ### ORY charts updated
 
