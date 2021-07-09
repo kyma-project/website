@@ -114,7 +114,7 @@ We are aware of potential issues that may occur from time to time. That's why ou
 
 ### Knative Eventing replaced Channel Provisioners with Channel CRD controllers
 
-In the past, Knative Eventing introduced the general concept of Channel Provisioners. This concept assumed no concrete types for different channel implementations, such as NATS Streaming vs Kafka. Along with Knative Eventing 0.8, Channel Provisioners were deprecated and replaced with [Channel CRD](https://knative.dev/v0.8-docs/eventing/channels/channels-crds/) controllers. In Kyma 1.6, we updated our Event Bus implementation to use the new Channel CRDs. For more details on the recent updates in the Eventing architecture, read [this](https://github.com/kyma-project/kyma/blob/release-1.6/docs/event-bus/02-01-event-bus.md) document.
+In the past, Knative Eventing introduced the general concept of Channel Provisioners. This concept assumed no concrete types for different channel implementations, such as NATS Streaming vs Kafka. Along with Knative Eventing 0.8, Channel Provisioners were deprecated and replaced with [Channel CRD](https://github.com/knative/docs/blob/release-0.8/docs/eventing/channels/channels-crds.md) controllers. In Kyma 1.6, we updated our Event Bus implementation to use the new Channel CRDs. For more details on the recent updates in the Eventing architecture, read [this](https://github.com/kyma-project/kyma/blob/release-1.6/docs/event-bus/02-01-event-bus.md) document.
 
 ### Knative Eventing chart updated to 0.8
 
