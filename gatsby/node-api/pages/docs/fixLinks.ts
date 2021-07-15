@@ -30,6 +30,8 @@ export const changeVersion = ({
         : `/docs/${newHref}`;
     });
 
+    occurrence = occurrence.replace(".md", "");
+
     return occurrence;
   });
 

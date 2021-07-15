@@ -46,14 +46,17 @@ else
 endif
 
 prepare-content-community-preview:
-ifdef APP_PREVIEW_SOURCE_DIR
-	./scripts/prepare-content.sh --prepare-for "community-preview" --community-src-dir $(APP_PREVIEW_SOURCE_DIR)
+ifdef APP_COMMUNITY_SOURCE_DIR
+	./scripts/prepare-content.sh --prepare-for "community-preview" --community-src-dir $(APP_COMMUNITY_SOURCE_DIR)
 else
-	@echo "APP_PREVIEW_SOURCE_DIR is a required env!"
+	@echo "APP_COMMUNITY_SOURCE_DIR is a required env!"
 endif
 
 build-prod:
 	npm run build:prod
+	# build redirections for old website page
+	echo \\n/root/* https://kyma-project-old.netlify.app/docs/ 302>> public/_redirects
+	echo \\n/components/* https://kyma-project-old.netlify.app/docs/ 302>> public/_redirects 
 
 build-website-preview:
 	npm run build:preview

@@ -1,8 +1,7 @@
-import { join } from "path";
-import { copy } from "fs-extra";
 import to from "await-to-js";
+import { copy } from "fs-extra";
+import { join } from "path";
 import { VError } from "verror";
-
 import { getFilesPaths } from "./get-files-paths";
 import { removeDir } from "./remove-dir";
 

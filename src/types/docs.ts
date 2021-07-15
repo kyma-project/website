@@ -5,11 +5,16 @@ export type DocsType = "root" | "component";
 /* Docs Page Context */
 export interface DocsPageContext {
   version: string;
+  v: string;
   versions: DocsVersions;
   navigation: DocsNavigation;
   content: DocsContentItem;
+  pagePath: string;
+  basePath: string;
   manifest: DocsManifest;
   assetsPath: string;
+  repoName: string;
+  topic: string;
   specifications: Specification[];
 }
 
@@ -64,12 +69,14 @@ export interface DocsContentDocs {
 
 /* Navigation */
 export interface DocsNavigation {
-  [group: string]: DocsNavigationTopic[];
+  [group: string]: DocsNavigationElement[];
 }
 
-export interface DocsNavigationTopic {
+export interface DocsNavigationElement {
+  noContent?: boolean;
   displayName: string;
   id: string;
+  children?: DocsNavigationElement[];
 }
 
 /* Manifest */
@@ -77,7 +84,7 @@ export interface DocsManifest {
   spec: ManifestSpec;
 }
 export type ManifestSpec = DocsNavigation;
-export type ManifestItem = DocsNavigationTopic;
+export type ManifestItem = DocsNavigationElement;
 
 /* Specification */
 export enum SpecificationType {

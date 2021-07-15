@@ -2,13 +2,13 @@ import { resolve } from "path";
 import to from "await-to-js";
 
 import { CoreConfig, PrepareFor } from "../config";
-import roadmapConfig, { RoadmapConfig } from "./config";
+import roadmapConfig from "./config";
 
 import CapabilitiesFetcher from "./capabilities-fetcher";
 import TicketsFetcher from "./tickets-fetcher";
 import TicketsExtractor from "./tickets-extractor";
 
-import { Capability, Repository, Tickets, Milestone } from "./types";
+import { Capability, Repository, Tickets } from "./types";
 
 const prepareRoadmapContent = async (coreConfig: CoreConfig) => {
   const capabilitiesDir = resolve(
@@ -78,6 +78,9 @@ const prepareRoadmapContent = async (coreConfig: CoreConfig) => {
 export default async (coreConfig: CoreConfig) => {
   if (coreConfig.prepareFor === PrepareFor.WEBSITE) {
     return prepareRoadmapContent(coreConfig);
+  }
+  if (coreConfig.prepareFor === PrepareFor.COMMUNITY_PREVIEW) {
+    return undefined;
   }
   return;
 };

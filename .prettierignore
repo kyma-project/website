@@ -11,3 +11,5 @@ tools/content-loader/docs
 tools/content-loader/roadmap
 tools/content-loader/community
 coverage
+.vscode
+.idea

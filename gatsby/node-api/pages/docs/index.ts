@@ -1,25 +1,18 @@
 import { existsSync } from "fs";
-import { resolve } from "path";
-import { createComponentDocsPage } from "./componentPage";
-import { createModalDocsPage } from "./modalPage";
-import { fixLinks } from "./fixLinks";
-import {
-  createDocsPage,
-  prepareData,
-  sortGroupOfNavigation,
-  prepareWebsitePaths,
-  preparePreviewPaths,
-} from "./helpers";
-import { DocsNavigation } from "../utils";
+import { join, resolve } from "path";
+import config from "../../../../config.json";
+import { BuildFor } from "@typings/common";
 import {
   CreatePageFn,
   CreateRedirectFn,
   GraphQLFunction,
 } from "../../../types";
-import { BuildFor } from "../../../../src/types/common";
+import { createComponentDocsPage } from "./componentPage";
+import { fixLinks } from "./fixLinks";
+import { createDocsPage, prepareData, prepareWebsitePaths } from "./helpers";
+import { createModalDocsPage } from "./modalPage";
 import { DocsRepository } from "./types";
-
-import config from "../../../../config.json";
+import { Specification } from "@typings/docs";
 
 export interface CreateDocsPages {
   graphql: GraphQLFunction;
@@ -65,11 +58,6 @@ const createDocsPagesPerRepo = async (
     return;
   }
 
-  const preparePaths =
-    buildFor === BuildFor.DOCS_PREVIEW
-      ? preparePreviewPaths
-      : prepareWebsitePaths;
-
   const preparedData = await prepareData({ graphql, buildFor, repositoryName });
   if (!preparedData) {
     return;
@@ -78,65 +66,61 @@ const createDocsPagesPerRepo = async (
 
   Object.keys(docsArch).map(version => {
     const { content, navigation } = docsArch[version];
-    const sortedNavigation: DocsNavigation = sortGroupOfNavigation(navigation);
-
-    Object.keys(content).map(docsType => {
-      const topics = content[docsType];
-
-      Object.keys(topics).map(topic => {
-        const {
-          assetsPath,
-          specificationsPath,
-          modalUrlPrefix,
-          pagePath,
-          rootPagePath,
-        } = preparePaths({
-          repositoryName,
-          version,
-          latestVersion: latestVersion || "",
-          docsType,
-          topic,
-        });
-
-        let fixedContent = content[docsType][topic];
-        if (buildFor !== BuildFor.DOCS_PREVIEW) {
-          fixedContent = fixLinks({
-            content: fixedContent,
-            version,
-          });
-        }
-        const specifications = fixedContent.specifications.map(
-          specification => ({
-            ...specification,
-            assetPath: `${specificationsPath}/${specification.assetPath}`,
-            pageUrl: `${modalUrlPrefix}/${specification.id}`,
-          }),
-        );
-
-        const context = {
-          content: fixedContent,
-          navigation: sortedNavigation,
-          manifest: sortedNavigation,
-          versions,
-          version,
-          assetsPath,
-          docsType,
-          topic,
-          specifications,
-          repositoryName,
-        };
-
-        const createPage = createDocsPage(createPageFn, context);
-        createComponentDocsPage({
-          createPage,
-          createRedirect,
-          context,
-          path: pagePath,
-          rootPath: rootPagePath,
-          repository,
-        });
-        createModalDocsPage({ createPage, context });
+    Object.keys(content).map(topic => {
+      const {
+        assetsPath,
+        specificationsPath,
+        modalUrlPrefix,
+        pagePath,
+        basePath,
+      } = prepareWebsitePaths({
+        repositoryName,
+        version,
+        topic,
       });
+
+      let fixedContent = content[topic];
+      fixedContent = fixLinks({ content: fixedContent, version });
+
+      let specifications = [] as Specification[];
+      if (fixedContent.specifications) {
+        specifications = fixedContent.specifications.map(specification => ({
+          ...specification,
+          assetPath: join(
+            assetsPath,
+            specification.assetPath.replace("assets", ""),
+          ),
+          pageUrl: join(modalUrlPrefix, specification.id),
+        }));
+      }
+
+      // tslint:disable-next-line:no-console
+      console.log(`New Doc Page path: ${pagePath}`);
+
+      const context = {
+        content: fixedContent,
+        navigation,
+        manifest: navigation,
+        versions,
+        version,
+        pagePath,
+        assetsPath,
+        basePath,
+        repoName: repositoryName,
+        topic,
+        specifications,
+      };
+
+      const createPage = createDocsPage(createPageFn, context);
+      createComponentDocsPage({
+        createPage,
+        createRedirect,
+        context,
+        path: pagePath,
+        rootPath: "",
+        repository,
+      });
+      createModalDocsPage({ createPage, context });
     });
   });
 };

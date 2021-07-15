@@ -13,37 +13,28 @@ export const onCreateDocsNode = ({
   relativePath,
   createNodeField,
 }: OnCreateDocsNode) => {
-  const match = DOCS_FILENAME_REGEX.exec(relativePath);
-  if (!match || match.length < 6) return;
-
-  const repositoryName = match[2];
-  const version = match[3];
-  const id = match[4].split("/")[0];
-  const fileName = match[5];
-
-  let type = null;
-  try {
-    type = require(`../../../../content/docs/${repositoryName}/${version}/${id}/docs.config.json`).spec.type.toLowerCase();
-  } catch (err) {
-    console.error(err);
-    return;
-  }
+  const splitted = relativePath.split("/");
+  const version = splitted[2];
+  const id = splitted[3];
+  const restPath = splitted.slice(4, splitted.length);
+  const fileName = splitted[splitted.length - 1];
 
   createNodeField({
     node,
     name: "docInfo",
     value: {
       id,
-      type,
       version,
       fileName,
     },
   });
 
-  const slug = `/${DOCS_PATH_PREFIX}/${version}/${type}/${id}`;
+  const slug = [id].concat(restPath).join("/");
+
   createNodeField({
     node,
     name: "slug",
     value: slug,
+    filePath: relativePath,
   });
 };
