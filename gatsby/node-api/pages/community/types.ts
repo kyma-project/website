@@ -10,8 +10,6 @@ export type CommunityGQL = ContentGQL<{
 }>;
 
 export interface CommunityPathsArgs {
-  topicsKeys: string[];
-  docsType: string;
   topic: string;
 }
 

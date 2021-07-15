@@ -1,5 +1,6 @@
 import styled, { media, css } from "@styled";
 import { customScrollBar } from "@styled/mixins";
+import { ActiveState } from ".";
 
 interface NavigationWrapperProps {
   showMobileNav?: boolean;
@@ -24,6 +25,7 @@ export const NavigationWrapper = styled.div<NavigationWrapperProps>`
     position: fixed;
     padding: 9px 0 0 0;
     top: 0px;
+    margin-left: 10px;
     width: 15rem;
     max-width: 70vw;
     z-index: 10;
@@ -47,7 +49,6 @@ export const NavigationListWrapper = styled.div`
   position: relative;
   overflow-y: auto;
   overflow-x: hidden;
-  max-height: calc(100vh - 74px);
   margin: 16px 0;
   padding-right: 2px;
   background: #fff;
@@ -66,49 +67,59 @@ export const NavigationListWrapper = styled.div`
 
 export const NavigationList = styled.ul`
   padding: 0;
-  margin: 0;
   list-style: none;
+  font-size: 14px;
+  margin: 0;
 `;
 
-interface NavigationListItemProps {
-  active: boolean;
-}
-
 export const NavigationListItem = styled.li`
-  margin-bottom: 9px;
+  margin-bottom: 0px;
+  margin-left: 13px;
+  position: relative;
   ${media.tablet`
     padding: 0 8px;
   `};
+`;
+
+interface NavigationListItemMainProps {
+  active: ActiveState;
+}
+
+export const NavigationListItemMain = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: flex-start;
 
   > a {
     display: block;
     position: relative;
     width: 100%;
-    padding: 9px 16px;
-    font-size: 14px;
+    padding: 5px 5px;
     color: #485766;
     font-weight: 500;
     background-color: #fff;
     border-radius: 8px;
     transition: all 0.3s ease-in-out;
 
-    ${(props: NavigationListItemProps) =>
-      props.active
-        ? css`
+    ${(props: NavigationListItemMainProps) => {
+      switch (props.active) {
+        case ActiveState.ACTIVE_DIRECT:
+          return css`
             color: #0b74de;
-            background-color: rgba(11, 116, 222, 0.12);
-          `
-        : ""}
+            font-weight: 700;
+          `;
+        case ActiveState.ACTIVE_INDIRECT:
+          return css`
+            color: #0b74de;
+          `;
+      }
+      return "";
+    }}
 
     &:hover {
-      ${(props: NavigationListItemProps) =>
-        props.active
-          ? css`
-              background-color: rgba(11, 116, 222, 0.26);
-            `
-          : css`
-              background-color: rgba(11, 116, 222, 0.12);
-            `}
       color: #0b74de;
     }
 
@@ -121,6 +132,62 @@ export const NavigationListItem = styled.li`
       transform: translate(0, -50%);
     }
   }
+`;
+
+interface SubToggleProps {
+  active: ActiveState;
+}
+
+export const SubToggle = styled.div`
+  background-color: #fff;
+  border-radius: 8px;
+  position: absolute;
+  left: -13px;
+  padding: 5px 0px;
+  transition: all 0.3s ease-in-out;
+
+  ${(props: SubToggleProps) =>
+    props.active === ActiveState.ACTIVE_INDIRECT
+      ? css`
+          color: #0b74de;
+        `
+      : ""}
+
+  &:hover {
+    cursor: pointer;
+    color: #0b74de;
+  }
+`;
+
+interface NoContentProps {
+  active: ActiveState;
+}
+
+export const NoContent = styled.div`
+  display: block;
+  position: relative;
+  width: 100%;
+  padding: 5px 5px;
+  color: #485766;
+  font-weight: 500;
+  background-color: #fff;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+
+  ${(props: NoContentProps) => {
+    switch (props.active) {
+      case ActiveState.ACTIVE_DIRECT:
+        return css`
+          color: #0b74de;
+          font-weight: 700;
+        `;
+      case ActiveState.ACTIVE_INDIRECT:
+        return css`
+          color: #0b74de;
+        `;
+    }
+    return "";
+  }}
 `;
 
 export const NavigationListItemName = styled.div`

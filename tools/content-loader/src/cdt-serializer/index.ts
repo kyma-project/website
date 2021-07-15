@@ -1,32 +1,30 @@
 import to from "await-to-js";
+import { basename, join } from "path";
 import { VError } from "verror";
-import { join, basename } from "path";
-
 import {
-  getFilesPaths,
-  readYaml,
-  writeToYaml,
-  writeToJson,
   copyResources,
-  values,
-  fixSourceUrl,
   downloadAndSaveResource,
+  fixSourceUrl,
+  getFilesPaths,
   makeDir,
+  readYaml,
+  values,
+  writeToJson,
+  writeToYaml,
 } from "../helpers";
-
 import {
   ClusterDocsTopic,
-  DocsConfigs,
-  Manifest,
-  DocsConfigSpec,
-  DocsConfig,
-  CLUSTER_DOCS_TOPIC,
   CLUSTER_ASSET_GROUP,
+  CLUSTER_DOCS_TOPIC,
   CMS_GROUP_NAME_LABEL,
-  RAFTER_GROUP_NAME_LABEL,
   CMS_GROUP_ORDER_LABEL,
-  RAFTER_GROUP_ORDER_LABEL,
   CMS_ORDER_LABEL,
+  DocsConfig,
+  DocsConfigs,
+  DocsConfigSpec,
+  Manifest,
+  RAFTER_GROUP_NAME_LABEL,
+  RAFTER_GROUP_ORDER_LABEL,
   RAFTER_ORDER_LABEL,
   Source,
   Specification,
@@ -66,11 +64,6 @@ export class ClusterDocsTopicSerializer {
     [err] = await to(
       this.copyContentPerTopic(source, output, configs, copyRegex),
     );
-    if (err) {
-      throw err;
-    }
-
-    [err] = await to(this.writeManifest(output, manifest));
     if (err) {
       throw err;
     }

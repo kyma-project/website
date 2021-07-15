@@ -8,12 +8,14 @@ import {
   DocsManifest,
   DocsContentItem,
   Specification,
+  DocsNavigationElement,
 } from "@typings/docs";
 
 import {
   Navigation,
   linkSerializer,
   activeLinkChecker,
+  ActiveState,
 } from "../render-engines/markdown/navigation";
 import { HeadersNavigation } from "../render-engines/markdown/headers-toc";
 import { SpecificationList } from "../render-engines/markdown/specifications-list";
@@ -32,10 +34,12 @@ import { MarkdownWrapper } from "../styled";
 
 export interface DocsLayoutProps {
   renderers: Renderers;
-  navigation: DocsNavigation;
+  navigation: DocsNavigationElement[];
   manifest: DocsManifest;
   version: string;
   content: DocsContentItem;
+  pagePath: string;
+  basePath: string;
   sourcesLength: number;
   docsVersionSwitcher: React.ReactNode;
   specifications?: Specification[];
@@ -47,17 +51,32 @@ export const DocsLayout: React.FunctionComponent<DocsLayoutProps> = ({
   navigation,
   version,
   content: { id: topic, type, displayName },
+  pagePath,
+  basePath,
   sourcesLength,
   specifications,
   docsVersionSwitcher,
   inPreview,
 }) => {
-  const linkFn: linkSerializer = ({ group, id }) =>
-    `/${!inPreview ? `docs/` : ""}${
-      version ? `${version}/` : ""
-    }${group}/${id}`;
-  const activeLinkFn: activeLinkChecker = ({ group, id }) =>
-    topic === id && type === group;
+  const linkFn: linkSerializer = path => path.join("/");
+  const activeLinkFn: activeLinkChecker = path => {
+    const toReduce = basePath.split("/").length;
+    const newPagePath = pagePath
+      .split("/")
+      .slice(toReduce)
+      .filter(item => item !== "")
+      .join("/");
+
+    const slug = path.slice(toReduce).join("/");
+
+    if (newPagePath === slug) {
+      return ActiveState.ACTIVE_DIRECT;
+    }
+    if (newPagePath.startsWith(slug)) {
+      return ActiveState.ACTIVE_INDIRECT;
+    }
+    return ActiveState.INACTIVE;
+  };
 
   return (
     <DocsLayoutWrapper>
@@ -71,18 +90,17 @@ export const DocsLayout: React.FunctionComponent<DocsLayoutProps> = ({
                 className="grid-unit-navigation"
                 withoutPadding={true}
               >
-                <Sticky>
-                  {({ style }: any) => (
-                    <StickyWrapperLeftNav style={{ ...style, zIndex: 200 }}>
-                      <Navigation
-                        navigation={navigation}
-                        linkFn={linkFn}
-                        activeLinkFn={activeLinkFn}
-                        docsVersionSwitcher={docsVersionSwitcher}
-                      />
-                    </StickyWrapperLeftNav>
-                  )}
-                </Sticky>
+                <div>
+                  <StickyWrapperLeftNav style={{ zIndex: 200 }}>
+                    <Navigation
+                      navigation={navigation}
+                      linkFn={linkFn}
+                      activeLinkFn={activeLinkFn}
+                      basePath={basePath}
+                      docsVersionSwitcher={docsVersionSwitcher}
+                    />
+                  </StickyWrapperLeftNav>
+                </div>
                 <MobileNavButton />
               </Grid.Unit>
               <Grid.Unit

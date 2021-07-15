@@ -12,7 +12,7 @@ export const Link: React.FunctionComponent<LinkProps> = ({
   children,
 }) => {
   const getAssetName = (path: string): string => {
-    const fileNameRegex = /(.*?)\/(.*?).(jpeg|jpg|gif|png|svg|json|yaml|yml)$/;
+    const fileNameRegex = /(.*?)\/(.*?).(jpeg|jpg|gif|png|svg|json|yaml|yml|pdf)$/;
     const match = fileNameRegex.exec(path);
 
     if (match && match[2]) {

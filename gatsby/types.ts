@@ -46,6 +46,7 @@ export type CreateNodeField = (
     fieldValue?: string;
     name?: string;
     value: any;
+    filePath?: string;
   },
   plugin?: ActionPlugin,
   options?: ActionOptions,

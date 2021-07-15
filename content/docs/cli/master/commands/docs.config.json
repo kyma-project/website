@@ -1,9 +1,0 @@
-{
-  "spec": {
-    "id": "commands",
-    "displayName": "Commands",
-    "description": "Overall documentation for CLI Commands",
-    "type": "Cli"
-  },
-  "specifications": []
-}

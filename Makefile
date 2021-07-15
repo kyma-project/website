@@ -46,10 +46,10 @@ else
 endif
 
 prepare-content-community-preview:
-ifdef APP_PREVIEW_SOURCE_DIR
-	./scripts/prepare-content.sh --prepare-for "community-preview" --community-src-dir $(APP_PREVIEW_SOURCE_DIR)
+ifdef APP_COMMUNITY_SOURCE_DIR
+	./scripts/prepare-content.sh --prepare-for "community-preview" --community-src-dir $(APP_COMMUNITY_SOURCE_DIR)
 else
-	@echo "APP_PREVIEW_SOURCE_DIR is a required env!"
+	@echo "APP_COMMUNITY_SOURCE_DIR is a required env!"
 endif
 
 build-prod:

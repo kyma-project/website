@@ -1,5 +1,4 @@
 import to from "await-to-js";
-
 import { writeToJson } from "../helpers";
 
 export interface DocsVersionsInterface {
