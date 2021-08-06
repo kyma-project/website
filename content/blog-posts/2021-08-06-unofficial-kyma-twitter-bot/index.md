@@ -3,7 +3,7 @@ title: "Say hello to the unofficial Kyma Update Twitter Bot"
 author:
   name: "Christian Lechner, just another Kyma fan"
 tags:
-  - kmya
+  - kyma
   - updates
   - twitter
   - community
