@@ -25,7 +25,7 @@ The account of the Twitter Bot is [@KymaUpdates](https://twitter.com/KymaUpdates
 
 The bot currently only takes releases into account. Pre-releases are ignored.
 
-## Which repositories are watched
+## Which repositories are watched?
 
 I currently focus on Kyma and Kyma-related repositories. You can find the up-to-date list [here](https://github.com/lechnerc77/kyma-updates-twitter-bot#watched-repositories).
 
