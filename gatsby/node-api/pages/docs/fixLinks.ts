@@ -22,15 +22,15 @@ export const changeVersion = ({
       const r = DOCS_LINKS_REGEX.exec(oldHref);
 
       if (!r || !r[3]) return h;
-      const newHref =
+      let newHref =
         r[1] === "docs" || r[2] === "docs" ? r[3] : `${r[2]}/${r[3]}`;
+
+      newHref = newHref.replace(".md", "");
 
       return version && !newHref.includes(version)
         ? `/docs/${version}/${newHref}`
         : `/docs/${newHref}`;
     });
-
-    occurrence = occurrence.replace(".md", "");
 
     return occurrence;
   });
