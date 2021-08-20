@@ -39,3 +39,8 @@ export enum FeaturesI18nTarget {
   RUNTIME = "runtime",
   SUPPORT = "support",
 }
+
+export enum PersonasI18nTarget {
+  CODING = "coding",
+  EFFECTIVE = "effective",
+}

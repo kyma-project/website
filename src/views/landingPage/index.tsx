@@ -12,6 +12,7 @@ import { Manifesto } from "./Manifesto";
 import { Features } from "./Features";
 import { UsedBy } from "./UsedBy";
 import { Nutshell } from "./Nutshell";
+import { Personas } from "./Personas";
 import { CheckItOut } from "./CheckItOut";
 
 const LandingPageView: React.FunctionComponent<PageContext<
@@ -20,17 +21,18 @@ const LandingPageView: React.FunctionComponent<PageContext<
   const scrollRef = useRef<HTMLElement>(null);
   return (
     <>
-      {/* <Manifesto scrollRef={scrollRef} /> */}
-      {/* <Features scrollRef={scrollRef} /> */}
-      {/* <Nutshell /> */}
-      {/* <CheckItOut /> */}
-      {/* <UsedBy adopters={adopters} /> */}
+      <Manifesto scrollRef={scrollRef} />
+      <Features scrollRef={scrollRef} />
+      <Nutshell />
+      <Personas />
+      <CheckItOut />
+      <UsedBy adopters={adopters} />
 
-      <Headline />
-      <WhatIs />
-      <ExtensionsAndTools />
-      <Newsroom latestBlogPosts={latestBlogPosts} />
-      <Adopters adopters={adopters} />
+      {/* <Headline /> */}
+      {/* <WhatIs /> */}
+      {/* <ExtensionsAndTools /> */}
+      {/* <Newsroom latestBlogPosts={latestBlogPosts} /> */}
+      {/* <Adopters adopters={adopters} /> */}
     </>
   );
 };
