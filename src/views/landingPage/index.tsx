@@ -1,19 +1,12 @@
-import React, { useRef } from "react";
-
 import { PageContext } from "@typings/common";
 import { LandingPageContext } from "@typings/landingPage";
-
-import { Headline } from "./Headline";
-import { WhatIs } from "./WhatIs";
-import { ExtensionsAndTools } from "./ExtensionsAndTools";
-import { Adopters } from "./Adopters";
-import { Newsroom } from "./Newsroom";
-import { Manifesto } from "./Manifesto";
+import React, { useRef } from "react";
+import { CheckItOut } from "./CheckItOut";
 import { Features } from "./Features";
-import { UsedBy } from "./UsedBy";
+import { Manifesto } from "./Manifesto";
 import { Nutshell } from "./Nutshell";
 import { Personas } from "./Personas";
-import { CheckItOut } from "./CheckItOut";
+import { UsedBy } from "./UsedBy";
 
 const LandingPageView: React.FunctionComponent<PageContext<
   LandingPageContext
@@ -27,12 +20,6 @@ const LandingPageView: React.FunctionComponent<PageContext<
       <Personas />
       <CheckItOut />
       <UsedBy adopters={adopters} />
-
-      {/* <Headline /> */}
-      {/* <WhatIs /> */}
-      {/* <ExtensionsAndTools /> */}
-      {/* <Newsroom latestBlogPosts={latestBlogPosts} /> */}
-      {/* <Adopters adopters={adopters} /> */}
     </>
   );
 };

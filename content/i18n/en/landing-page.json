@@ -64,7 +64,7 @@
           "Kyma not only draws inspiration from CNCF projects but also fills the missing gaps between them by tailoring such solutions as external application connectivity.",
           "It is an extra integration tissue on top of k8s that helps me consume APIs and Events from external systems.",
           "With Kyma, I have the freedom I need to write k8s apps in a language and IDE of my choice. I can also deploy my source code on a cloud provider I prefer.",
-          "Kyma does the \"dirty\" job for me by providing the whole infrastructure and covering such areas as security, monitoring, and tracing."
+          "Kyma does all the \"heavy lifting\" for me by providing the whole infrastructure and covering such areas as security, monitoring, and tracing."
         ]
       },
       "effective": {
