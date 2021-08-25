@@ -55,6 +55,27 @@
     "paragraph": "With Kyma, your workloads are in the center. Kyma helps you expose their APIs, trigger them with events, enable them for external service consumption, and assure observability.",
     "githubButton": "Get it on GitHub"
   },
+  "personas": {
+    "headline": "Kyma convinced",
+    "personas": {
+      "coding": {
+        "title": "Helps focus on coding!",
+        "paragraphs": [
+          "Kyma not only draws inspiration from CNCF projects but also fills the missing gaps between them by tailoring such solutions as external application connectivity.",
+          "It is an extra integration tissue on top of Kubernetes that helps me consume APIs and Events from external systems.",
+          "With Kyma, I have the freedom I need to write Kubernetes apps in a language and IDE of my choice. I can also deploy my source code on a cloud provider I prefer.",
+          "Kyma does all the \"heavy lifting\" for me by providing the whole infrastructure and covering such areas as security, monitoring, and tracing."
+        ]
+      },
+      "effective": {
+        "title": "Time-saving & cost-effective",
+        "paragraphs": [
+          "Kyma allows me to design easy, fast, and lightweight extensions for my complex enterprise applications.",
+          "I need a solution that supports diverse business cases rather than utilizes a single pattern. Kyma gives me the architecture design that is complete but modular at the same time. Thanks to its high configurability, I'm able to plug in, unplug, and replace subcomponents whenever and however I wish."
+        ]
+      }
+    }
+  },
   "usedBy": {
     "headline": "Used by",
     "paragraph": "Discover the main use cases of our happy customers",
