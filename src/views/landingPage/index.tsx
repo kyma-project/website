@@ -1,12 +1,19 @@
+import React, { useRef } from "react";
+
 import { PageContext } from "@typings/common";
 import { LandingPageContext } from "@typings/landingPage";
-import React, { useRef } from "react";
-import { CheckItOut } from "./CheckItOut";
-import { Features } from "./Features";
+
+import { Headline } from "./Headline";
+import { WhatIs } from "./WhatIs";
+import { ExtensionsAndTools } from "./ExtensionsAndTools";
+import { Adopters } from "./Adopters";
+import { Newsroom } from "./Newsroom";
 import { Manifesto } from "./Manifesto";
+import { Features } from "./Features";
+import { UsedBy } from "./UsedBy";
 import { Nutshell } from "./Nutshell";
 import { Personas } from "./Personas";
-import { UsedBy } from "./UsedBy";
+import { CheckItOut } from "./CheckItOut";
 
 const LandingPageView: React.FunctionComponent<PageContext<
   LandingPageContext
@@ -14,12 +21,18 @@ const LandingPageView: React.FunctionComponent<PageContext<
   const scrollRef = useRef<HTMLElement>(null);
   return (
     <>
-      <Manifesto scrollRef={scrollRef} />
-      <Features scrollRef={scrollRef} />
-      <Nutshell />
-      <Personas />
-      <CheckItOut />
-      <UsedBy adopters={adopters} />
+      {/* <Manifesto scrollRef={scrollRef} /> */}
+      {/* <Features scrollRef={scrollRef} /> */}
+      {/* <Nutshell /> */}
+      {/* <Personas /> */}
+      {/* <CheckItOut /> */}
+      {/* <UsedBy adopters={adopters} /> */}
+
+      <Headline />
+      <WhatIs />
+      <ExtensionsAndTools />
+      <Newsroom latestBlogPosts={latestBlogPosts} />
+      <Adopters adopters={adopters} />
     </>
   );
 };
