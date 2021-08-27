@@ -40,13 +40,6 @@ const NutshellRaw: React.FunctionComponent = () => {
                 />
               </H>
               <FormattedMessage tagName="p" id={gt("paragraph")} />
-              <ButtonWrapper>
-                <Link.External to="https://github.com/kyma-project/kyma">
-                  <Button.Normal iconName="github-alt" iconPrefix="fab">
-                    <FormattedMessage id={gt("githubButton")} />
-                  </Button.Normal>
-                </Link.External>
-              </ButtonWrapper>
               <ImageWrapper>
                 {isMobile ? (
                   <img src={`${inTheNutshellPNG}`} />
