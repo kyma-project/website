@@ -13,8 +13,6 @@ import {
 } from "./styled";
 import { StyledGridContainer } from "../WhatIs/styled";
 import { StyledGridUnit } from "../ExtensionsAndTools/styled";
-import Link from "@components/shared/Link";
-import Button from "@components/shared/Button";
 
 import inTheNutshellPNG from "@views/landingPage/assets/landing-page/nutshell/in-the-nutshell.png";
 import { useWindowSize } from "react-use";
