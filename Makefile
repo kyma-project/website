@@ -43,6 +43,7 @@ ifdef APP_PREVIEW_SOURCE_DIR
 	./scripts/prepare-content.sh --prepare-for "docs-preview" --docs-src-dir $(APP_PREVIEW_SOURCE_DIR) --docs-branches "preview"
 else
 	@echo "APP_PREVIEW_SOURCE_DIR is a required env!"
+	exit 1
 endif
 
 prepare-content-community-preview:
@@ -50,6 +51,7 @@ ifdef APP_COMMUNITY_SOURCE_DIR
 	./scripts/prepare-content.sh --prepare-for "community-preview" --community-src-dir $(APP_COMMUNITY_SOURCE_DIR)
 else
 	@echo "APP_COMMUNITY_SOURCE_DIR is a required env!"
+	exit 1
 endif
 
 build-prod:
