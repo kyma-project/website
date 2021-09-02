@@ -14,7 +14,7 @@ import {
 import { StyledGridContainer } from "../WhatIs/styled";
 import { StyledGridUnit } from "../ExtensionsAndTools/styled";
 
-import inTheNutshellPNG from "@views/landingPage/assets/landing-page/nutshell/in-the-nutshell.png";
+import inTheNutshellPNG from "@views/landingPage/assets/landing-page/nutshell/in-the-nutshell2.png";
 import { useWindowSize } from "react-use";
 
 const gt = getTranslation("landingPage.inANutshell");
