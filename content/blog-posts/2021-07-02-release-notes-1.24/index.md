@@ -24,7 +24,9 @@ See the overview of all changes in this release:
 ### Istio upgraded to 1.10.2
 
 In this release, we upgraded Istio from 1.9.5 to 1.10.2.
-For more details on the introduced changes, read the official [Istio 1.10.2 release notes](https://istio.io/latest/news/releases/1.10.x/announcing-1.10.2/).  
+For more details on the introduced changes, read the official [Istio 1.10.2 release notes](https://istio.io/latest/news/releases/1.10.x/announcing-1.10.2/).
+
+> **NOTE:** As of 1.24.6 patch release, we upgraded Istio from 1.10.2 to 1.11.1. Find more details in the [Istio 1.11.1 release notes](https://istio.io/latest/news/releases/1.11.x/announcing-1.11/).  
 
 ### ORY charts updated
 
