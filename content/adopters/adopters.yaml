@@ -51,3 +51,7 @@ adopters:
     url: "https://www.sybit.de/unternehmen/news/referenz-benlink/"
     logo: "./logos/Sybit-Logo.svg"
     content: "With Kyma, we develop flexible SAP CX solutions for our customers. Kyma allows us to extend the CX Suite without touching the standard code."
+  - websiteUrl: "https://www.realcore.de/"
+    company: "RealCore Group"
+    logo: "./logos/realcore.svg"
+    content: "Kyma with its open-source best practices, backed by Kubernetes, enables us to bring flexible, cloud-native solutions to our SAP customers"
