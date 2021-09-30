@@ -1,24 +1,23 @@
-import { resolve } from "path";
-
+import { join, resolve } from "path";
 import {
-  docsGenerator,
-  DocsGeneratorReturnType,
-  getContent,
-  DocsContentDocs,
-  DocsContentItem,
-} from "../utils";
-import {
-  DOCS_DIR,
-  COMMUNITY_DIR,
   ASSETS_DIR,
+  COMMUNITY_DIR,
   COMMUNITY_PATH_PREFIX,
+  DOCS_DIR,
 } from "../../../constants";
-import { CommunityGQL, CommunityPathsArgs, CommunityPaths } from "./types";
 import {
   CreatePageFn,
   CreatePageFnArgs,
   GraphQLFunction,
 } from "../../../types";
+import {
+  DocsContentDocs,
+  DocsContentItem,
+  docsGenerator,
+  DocsGeneratorReturnType,
+  getContent,
+} from "../utils";
+import { CommunityGQL, CommunityPaths, CommunityPathsArgs } from "./types";
 
 export const createCommunityPage = (
   createPage: CreatePageFn,
@@ -49,56 +48,34 @@ export const prepareData = async (
     "/content/community/",
     `docInfo {
       id
-      type
-      fileName
     }`,
   );
 
-  return docsGenerator<CommunityGQL>(docs, "community", extractFn);
-};
-
-const extractFn = (
-  doc: CommunityGQL,
-  docsGroup: string,
-  topicId: string,
-): DocsContentDocs | null => {
-  const {
-    rawMarkdownBody,
-    fields: {
-      docInfo: { id, type, fileName },
-      imagesSpec,
-    },
-    frontmatter: { title, type: docType },
-  } = doc;
-
-  if (!(docsGroup === type && topicId === id)) {
-    return null;
-  }
-
-  const obj: DocsContentDocs = {
-    order: fileName,
-    title,
-    source: rawMarkdownBody,
-    imagesSpec,
-  };
-
-  if (docType) {
-    obj.type = docType;
-  }
-
-  return obj;
+  return docsGenerator<CommunityGQL>(docs, "community");
 };
 
 export const prepareWebsitePaths = ({
-  topicsKeys,
-  docsType,
   topic,
 }: CommunityPathsArgs): CommunityPaths => {
-  const assetsPath = `/${ASSETS_DIR}${COMMUNITY_DIR}${topic}/${DOCS_DIR}${ASSETS_DIR}`;
-  const rootPagePath = `/${COMMUNITY_PATH_PREFIX}`;
-  const pagePath = `/${COMMUNITY_PATH_PREFIX}/${
-    topicsKeys.length > 1 ? `${docsType}/` : ""
-  }${topic}`;
+  // remove `README` for nodes
+  if (topic.endsWith("README")) {
+    topic = topic.replace("README", "");
+  }
+
+  // remove name of file
+  const tmp = topic.split("/");
+  tmp.pop();
+  const subtopic = tmp.join("/");
+
+  const assetBasePath = join("/", ASSETS_DIR, COMMUNITY_DIR);
+  const assetsPath = join(assetBasePath, subtopic, ASSETS_DIR);
+
+  const rootPagePath = join("/", COMMUNITY_PATH_PREFIX);
+
+  if (topic.endsWith("README")) {
+    topic = topic.replace("README", "");
+  }
+  const pagePath = join("/", COMMUNITY_PATH_PREFIX, topic);
 
   return {
     assetsPath,
@@ -107,23 +84,7 @@ export const prepareWebsitePaths = ({
   };
 };
 
-export const preparePreviewPaths = ({
-  topicsKeys,
-  docsType,
-  topic,
-}: CommunityPathsArgs): CommunityPaths => {
-  const assetsPath = `/${ASSETS_DIR}${COMMUNITY_DIR}${topic}/${DOCS_DIR}${ASSETS_DIR}`;
-  const rootPagePath = `/`;
-  const pagePath = `/${topicsKeys.length > 1 ? `${docsType}/` : ""}${topic}`;
-
-  return {
-    assetsPath,
-    pagePath,
-    rootPagePath,
-  };
-};
-
-export const addCommunityPrefixInInternalLinks = (
+export const processInternalLinks = (
   content: DocsContentItem,
 ): DocsContentItem => {
   const MD_LINKS_REGEX = /\[([^\[]+)\]\(([^\)]+)\)/g;
@@ -149,13 +110,7 @@ export const addCommunityPrefixInInternalLinks = (
         return occurrence;
       }
 
-      occurrence = occurrence.replace(h, oldHref =>
-        oldHref.startsWith("/")
-          ? `/community${oldHref}`
-          : `/community/${oldHref}`,
-      );
-
-      return occurrence;
+      return occurrence.replace(".md", "");
     }),
   }));
 

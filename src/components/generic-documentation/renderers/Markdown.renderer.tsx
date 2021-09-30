@@ -2,6 +2,7 @@ import React from "react";
 import {
   SingleRenderer,
   SingleRendererComponent,
+  Source,
 } from "@kyma-project/documentation-component";
 
 import Link from "@components/shared/Link";

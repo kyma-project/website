@@ -1,9 +1,8 @@
 import to from "await-to-js";
+import { copy } from "fs-extra";
+import { join } from "path";
 import { VError } from "verror";
-
 import GitClient from "../github-client/git-client";
-
-import ClusterDocsTopicSerializer from "../cdt-serializer";
 
 export class CopyDocs {
   releases = async ({ releases, source, output }) => {
@@ -20,7 +19,7 @@ export class CopyDocs {
       }
 
       const out = `${output}/${release}`;
-      [err] = await to(this.do(source, out, release as string));
+      [err] = await to(this.do(join(source, "docs"), out, release as string));
       if (err) {
         throw new VError(err, `while copying sources from tag: ${tag}`);
       }
@@ -38,7 +37,7 @@ export class CopyDocs {
       }
 
       const out = `${output}/${branch}`;
-      [err] = await to(this.do(source, out, branch as string));
+      [err] = await to(copy(join(source, "docs"), out, { recursive: true }));
       if (err) {
         throw new VError(err, `while copying sources from branch: ${branch}`);
       }
@@ -48,7 +47,7 @@ export class CopyDocs {
   local = async ({ source, output }) => {
     console.log(`Copying local documentation from branch`);
 
-    const [err] = await to(this.do(source, output));
+    const [err] = await to(this.do(join(source, "docs"), output));
     if (err) {
       throw new VError(err, `while copying local documentation to ${output}`);
     }
@@ -59,23 +58,9 @@ export class CopyDocs {
 
     console.log(`Copy documentation to ${output}`);
 
-    [err] = await to(this.copy(source, output, version));
+    [err] = await to(copy(source, output, { recursive: true }));
     if (err) {
       throw new VError(err, `while copying documentation to ${output}`);
-    }
-  };
-
-  private copy = async (source: string, output: string, version: string) => {
-    const copyRegex: string = `([A-z0-9-_.&]*\.md|assets\/[A-z0-9-_.&]*\.(png|jpg|gif|jpeg|svg|yaml|yml|json))`;
-
-    const [err] = await to(
-      ClusterDocsTopicSerializer.do(source, output, {
-        docsVersion: version,
-        copyRegex,
-      }),
-    );
-    if (err) {
-      throw err;
     }
   };
 }

@@ -1,11 +1,12 @@
 import { DOCS_PATH_NAME } from "@common/constants";
+import { join } from "path";
 import { toKebabCase } from "@common/utils";
 
 export const getDocsPath = (
   version: string,
   content?: {
     id: string;
-    type: string;
+    repoName: string;
     hash: string;
   },
 ) => {
@@ -15,19 +16,17 @@ export const getDocsPath = (
     return `/${DOCS_PATH_NAME}/${versionPathPart}`;
   }
 
-  const { id, type, hash } = content;
+  const { id, repoName, hash } = content;
 
-  if (!id && !type) {
+  if (!id && !repoName) {
     return `/${DOCS_PATH_NAME}/${versionPathPart}`;
   }
 
-  return `/${DOCS_PATH_NAME}/${versionPathPart}${toKebabCase(
-    type,
-  )}/${toKebabCase(id)}/${hash ? `#${hash}` : ""}`;
+  return join("/", DOCS_PATH_NAME, toKebabCase(repoName), versionPathPart);
 };
 
 export const getDocsPathLink = (version: string) => (content: {
   id: string;
-  type: string;
+  repoName: string;
   hash: string;
 }) => getDocsPath(version, content);

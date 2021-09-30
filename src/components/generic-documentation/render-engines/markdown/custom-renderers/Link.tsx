@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-
+import { join, normalize } from "path";
 import { useScrollPosition } from "@common/hooks";
 
 import { Specification } from "@typings/docs";
@@ -10,7 +10,7 @@ import { GenericDocsContext } from "../../../services/GenericDocs.service";
 import { LayoutType } from "../../../index";
 
 const getAssetName = (path: string): [string, string] => {
-  const fileNameRegex = /(.*?)\/(.*?).(jpeg|jpg|gif|png|svg|json|yaml|yml)$/;
+  const fileNameRegex = /(.*?)\/(.*?).(jpeg|jpg|gif|png|svg|json|yaml|yml|pdf)$/;
   const match = fileNameRegex.exec(path);
 
   if (match && match[2]) {
@@ -27,12 +27,16 @@ interface LinkProps {
   href: string;
   specifications?: Specification[];
   layout?: LayoutType;
+  pagePath: string;
+  topic: string;
 }
 
 export const Link: React.FunctionComponent<LinkProps> = ({
   href,
   specifications = [],
   layout,
+  pagePath: pagePath,
+  topic,
   children,
 }) => {
   const scrollPosition = useScrollPosition();
@@ -85,9 +89,27 @@ export const Link: React.FunctionComponent<LinkProps> = ({
     );
   }
 
+  const destination = determineDestination(topic, href);
+  const finalDestination = join(pagePath, destination);
   return (
-    <L.Internal to={href} underline={true}>
+    <L.Internal to={finalDestination} underline={true}>
       {children}
     </L.Internal>
   );
+};
+
+const determineDestination = (source: string, destination: string): string => {
+  let newDestination = destination;
+  if (destination.endsWith("README")) {
+    newDestination = destination.substring(
+      0,
+      destination.length - "README".length,
+    );
+  }
+
+  if (!source.endsWith("README")) {
+    newDestination = join("../", newDestination);
+  }
+
+  return newDestination;
 };

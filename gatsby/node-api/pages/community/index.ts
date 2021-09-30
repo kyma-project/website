@@ -3,8 +3,7 @@ import {
   createCommunityPage,
   prepareData,
   prepareWebsitePaths,
-  preparePreviewPaths,
-  addCommunityPrefixInInternalLinks,
+  processInternalLinks,
 } from "./helpers";
 import { CreatePageFn, GraphQLFunction } from "../../../types";
 
@@ -21,44 +20,37 @@ export const createCommunityPages = async ({
   createPage: createPageFn,
   buildFor,
 }: CreateCommunityPages) => {
-  const preparePaths =
-    buildFor === BuildFor.COMMUNITY_PREVIEW
-      ? preparePreviewPaths
-      : prepareWebsitePaths;
+  const preparePaths = prepareWebsitePaths;
   const { content, navigation, manifest } = await prepareData(graphql);
 
-  Object.keys(content).map(docsType => {
-    const topics = content[docsType];
-    const topicsKeys = Object.keys(topics);
+  const topicsKeys = Object.keys(content);
 
-    topicsKeys.map(topic => {
-      const { assetsPath, pagePath, rootPagePath } = preparePaths({
-        topicsKeys,
-        docsType,
-        topic,
-      });
+  topicsKeys.map(topic => {
+    const { assetsPath, pagePath, rootPagePath } = preparePaths({ topic });
 
-      let sources = content[docsType][topic];
-      if (buildFor !== BuildFor.COMMUNITY_PREVIEW) {
-        sources = addCommunityPrefixInInternalLinks(sources);
-      }
+    // tslint:disable-next-line:no-console
+    console.log(pagePath);
 
-      const context = {
-        content: sources,
-        navigation,
-        manifest,
-        assetsPath,
-        docsType,
-        topic,
-      };
+    let sources = content[topic];
+    sources = processInternalLinks(sources);
 
-      const createPage = createCommunityPage(createPageFn, context);
-      createComponentCommunityPage({
-        createPage,
-        context,
-        path: pagePath,
-        rootPath: rootPagePath,
-      });
+    const context = {
+      content: sources,
+      navigation,
+      manifest,
+      assetsPath,
+      docsType: "",
+      basePath: "/community",
+      pagePath,
+      topic,
+    };
+
+    const createPage = createCommunityPage(createPageFn, context);
+    createComponentCommunityPage({
+      createPage,
+      context,
+      path: pagePath,
+      rootPath: rootPagePath,
     });
   });
 };

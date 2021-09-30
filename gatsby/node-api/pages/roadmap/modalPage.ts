@@ -1,9 +1,8 @@
-import { CreatePageFn, CreateRedirectFn } from "../../../types";
-import { ROADMAP_PATH_PREFIX } from "../../../constants";
-import { createModalPage } from "../utils/createModalPage";
-import { Tickets } from "../../../../tools/content-loader/src/prepare-roadmap/types";
-
 import allTickets from "../../../../content/roadmap/tickets.json";
+import { Tickets } from "../../../../tools/content-loader/src/prepare-roadmap/types";
+import { ROADMAP_PATH_PREFIX } from "../../../constants";
+import { CreatePageFn, CreateRedirectFn } from "../../../types";
+import { createModalPage } from "../utils/createModalPage";
 
 export interface CreateRoadmapModalPageArgs {
   createPage: CreatePageFn;

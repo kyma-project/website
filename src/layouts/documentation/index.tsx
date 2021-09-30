@@ -1,7 +1,5 @@
-import React from "react";
-
 import { DocsPageContext, SpecificationType } from "@typings/docs";
-
+import React from "react";
 import { DefaultLayout } from "../default";
 
 async function loadSwagger(): Promise<void> {

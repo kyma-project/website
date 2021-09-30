@@ -1,105 +1,115 @@
-import React, { useContext } from "react";
-
+import Icon from "@components/shared/Icon";
 import Link from "@components/shared/Link";
-
+import { DocsNavigationElement } from "@typings/docs";
+import React, { useContext, useState } from "react";
 import { GenericDocsContext } from "../../../services";
-
-import { DocsNavigation, DocsNavigationTopic } from "@typings/docs";
-
 import {
-  NavigationWrapper,
-  NavigationListWrapper,
   NavigationList,
   NavigationListItem,
+  NavigationListItemMain,
   NavigationListItemName,
-  NavigationGroupName,
+  NavigationListWrapper,
+  NavigationWrapper,
+  NoContent,
+  SubToggle,
   VersionSwitcherWrapper,
 } from "./styled";
 
-export type linkSerializer = ({
-  group,
-  items,
-  id,
-}: {
-  group: string;
-  items: DocsNavigationTopic[];
-  id: string;
-}) => string;
-
-export type activeLinkChecker = ({
-  group,
-  items,
-  id,
-}: {
-  group: string;
-  items: DocsNavigationTopic[];
-  id: string;
-}) => boolean;
+export type linkSerializer = (path: string[]) => string;
+export enum ActiveState {
+  INACTIVE = "inactive",
+  ACTIVE_INDIRECT = "indirect",
+  ACTIVE_DIRECT = "direct",
+}
+export type activeLinkChecker = (path: string[]) => ActiveState;
 
 export interface NavigationProps {
-  navigation: DocsNavigation;
+  navigation: DocsNavigationElement[];
   linkFn: linkSerializer;
   activeLinkFn?: activeLinkChecker;
+  basePath: string;
   docsVersionSwitcher?: React.ReactNode;
 }
 
-function renderList(
-  group: string,
-  items: DocsNavigationTopic[],
+function renderListElement(
+  element: DocsNavigationElement,
+  path: string[],
   linkFn: linkSerializer,
   activeLinkFn?: activeLinkChecker,
-  showGroups?: boolean,
 ): React.ReactNode {
-  const list = items.map(item => (
-    <NavigationListItem
-      active={
-        activeLinkFn ? activeLinkFn({ group, items, id: item.id }) : false
-      }
-      key={`${group}-${item.id}`}
-    >
-      <Link.Internal to={linkFn({ group, items, id: item.id })}>
-        <NavigationListItemName>
-          <span>{item.displayName}</span>
-        </NavigationListItemName>
-      </Link.Internal>
-    </NavigationListItem>
-  ));
+  const curPath = [...path, element.id];
+  const isActive = activeLinkFn ? activeLinkFn(curPath) : ActiveState.INACTIVE;
+
+  // tslint:disable-next-line:react-hooks-nesting
+  const [subHidden, setSubHidden] = useState(
+    isActive !== ActiveState.ACTIVE_INDIRECT &&
+      isActive !== ActiveState.ACTIVE_DIRECT,
+  );
+  const toggleSub = () => setSubHidden(!subHidden);
 
   return (
-    <div key={group}>
-      {showGroups && items.length > 1 && group.toLowerCase() !== "root" ? (
-        <NavigationGroupName>{group}</NavigationGroupName>
-      ) : null}
-      <NavigationList>{list}</NavigationList>
-    </div>
+    <NavigationListItem>
+      <NavigationListItemMain active={isActive}>
+        {element.children && element.children.length > 0 && (
+          <SubToggle onClick={toggleSub} active={isActive}>
+            <Icon
+              iconName={subHidden ? "chevron-right" : "chevron-down"}
+              iconPrefix="fas"
+            />
+          </SubToggle>
+        )}
+        {element.noContent ? (
+          <NoContent active={isActive}>
+            <NavigationListItemName>
+              <span>{element.displayName}</span>
+            </NavigationListItemName>
+          </NoContent>
+        ) : (
+          <Link.Internal to={linkFn(curPath)}>
+            <NavigationListItemName>
+              <span>{element.displayName}</span>
+            </NavigationListItemName>
+          </Link.Internal>
+        )}
+      </NavigationListItemMain>
+
+      {element.children && element.children.length > 0 && (
+        <NavigationList hidden={subHidden}>
+          {element.children.map(el =>
+            renderListElement(el, curPath, linkFn, activeLinkFn),
+          )}
+        </NavigationList>
+      )}
+    </NavigationListItem>
   );
 }
 
 export const Navigation: React.FunctionComponent<NavigationProps> = ({
   navigation,
   linkFn,
+  basePath,
   activeLinkFn,
   docsVersionSwitcher,
 }) => {
   const { showMobileLeftNav } = useContext(GenericDocsContext);
 
-  const numberOfGroups = Object.keys(navigation).length;
-  const lists = Object.keys(navigation).map(group =>
-    renderList(
-      group,
-      navigation[group],
-      linkFn,
-      activeLinkFn,
-      numberOfGroups > 1,
-    ),
-  );
+  let basicPath = [] as string[];
+  if (basePath !== "") {
+    basicPath = basePath.split("/");
+  }
 
   return (
     <NavigationWrapper showMobileNav={showMobileLeftNav}>
       {docsVersionSwitcher && (
         <VersionSwitcherWrapper>{docsVersionSwitcher}</VersionSwitcherWrapper>
       )}
-      <NavigationListWrapper>{lists}</NavigationListWrapper>
+      <NavigationListWrapper>
+        <NavigationList>
+          {navigation.map(el =>
+            renderListElement(el, basicPath, linkFn, activeLinkFn),
+          )}
+        </NavigationList>
+      </NavigationListWrapper>
     </NavigationWrapper>
   );
 };

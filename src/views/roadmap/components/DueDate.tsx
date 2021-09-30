@@ -1,9 +1,7 @@
-import React from "react";
-
-import { injectIntl, IntlInterface, FormattedMessage } from "@common/i18n";
 import { RICK_ROLLED } from "@common/constants";
-
+import { FormattedMessage, injectIntl, IntlInterface } from "@common/i18n";
 import Link from "@components/shared/Link";
+import React from "react";
 
 interface Props {
   date: string;

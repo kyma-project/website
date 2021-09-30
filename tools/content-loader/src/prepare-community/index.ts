@@ -41,6 +41,7 @@ const prepareCommunity = async (coreConfig: CoreConfig) => {
 const preparePreviewCommunity = async () => {
   const outputPath = resolve(communityConfig.outputPath);
   const sourcePath = resolve(communityConfig.sourcePath);
+  console.log(`${sourcePath}`);
 
   let [err] = await to(makeDir(outputPath));
   if (err) {

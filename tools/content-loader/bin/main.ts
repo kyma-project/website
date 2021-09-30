@@ -1,19 +1,15 @@
 import to from "await-to-js";
 import { VError } from "verror";
-
 import coreConfig, { CoreConfig } from "../src/config";
-import docsConfig from "../src/prepare-docs/config";
-import communityConfig from "../src/prepare-community/config";
-import roadmapConfig from "../src/prepare-roadmap/config";
-
 import GitClient from "../src/github-client/git-client";
 import GitHubClient from "../src/github-client/github-client";
 import GitHubGraphQLClient from "../src/github-client/github-graphql-client";
 import ZenHubCLient from "../src/github-client/zenhub-client";
-
-import prepareDocs from "../src/prepare-docs";
 import prepareCommunityContent from "../src/prepare-community";
+import communityConfig from "../src/prepare-community/config";
+import prepareDocs from "../src/prepare-docs";
 import prepareRoadmapContent from "../src/prepare-roadmap";
+import roadmapConfig from "../src/prepare-roadmap/config";
 
 const prepareDocsContentFn = async () => {
   const config: CoreConfig = {

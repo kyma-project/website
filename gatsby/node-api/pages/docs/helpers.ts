@@ -1,32 +1,32 @@
-import { resolve } from "path";
 import compareVersions from "compare-versions";
-
-import { DocsVersions, DocGQL, DocsPathsArgs, DocsPaths } from "./types";
+import fs from "fs-extra";
+import { join, resolve } from "path";
+import { BuildFor } from "../../../../src/types/common";
 import {
-  DocsGeneratedVersions,
   DocsBranchesVersion,
+  DocsGeneratedVersions,
   DocsReleasesVersion,
 } from "../../../../tools/content-loader/src/prepare-docs/docs-versions";
 import {
-  docsGenerator,
-  DocsGeneratorReturnType,
-  getContent,
-  DocsContentDocs,
-  DocsNavigation,
-} from "../utils";
-import {
   ASSETS_DIR,
   DOCS_DIR,
-  DOCS_SPECIFICATIONS_PATH,
-  DOCS_PATH_PREFIX,
   DOCS_LATEST_VERSION,
+  DOCS_PATH_PREFIX,
+  DOCS_SPECIFICATIONS_PATH,
 } from "../../../constants";
 import {
-  GraphQLFunction,
   CreatePageFn,
   CreatePageFnArgs,
+  GraphQLFunction,
 } from "../../../types";
-import { BuildFor } from "../../../../src/types/common";
+import {
+  DocsContentDocs,
+  docsGenerator,
+  DocsGeneratorReturnType,
+  DocsNavigation,
+  getContent,
+} from "../utils";
+import { DocGQL, DocsPaths, DocsPathsArgs, DocsVersions } from "./types";
 
 export const createDocsPage = (
   createPage: CreatePageFn,
@@ -74,24 +74,22 @@ export const prepareData = async ({
     `/content/docs/${repositoryName}/`,
     `docInfo {
       id
-      type
       version
-      fileName
     }`,
   );
   const docsArch: { [version: string]: DocsGeneratorReturnType } = {};
 
   if (buildFor === BuildFor.DOCS_PREVIEW) {
-    docsArch[""] = docsGenerator<DocGQL>(
+    const version = "preview";
+    docsArch[version] = docsGenerator<DocGQL>(
       docs,
       `docs/${repositoryName}`,
-      extractDocsFn(latestVersion),
-      latestVersion,
+      version,
     );
 
     return {
       versions,
-      latestVersion,
+      version,
       docsArch,
     };
   }
@@ -104,17 +102,27 @@ export const prepareData = async ({
       docsArch[version] = docsGenerator<DocGQL>(
         docs,
         `docs/${repositoryName}`,
-        extractDocsFn(version),
         version,
       );
     }
   }
 
-  // for copying data
   docsArch[DOCS_LATEST_VERSION] = JSON.parse(
     JSON.stringify(docsArch[latestVersion]),
   );
-  docsArch[""] = JSON.parse(JSON.stringify(docsArch[latestVersion]));
+
+  // copy assets
+  const assetBasePath = resolve(
+    `${__dirname}/../../../../public/assets/docs/${repositoryName}/`,
+  );
+  const latestVersionAssetSource = resolve(join(assetBasePath, latestVersion));
+  const latestAssetDestination = resolve(
+    join(assetBasePath, DOCS_LATEST_VERSION),
+  );
+
+  await fs.copy(latestVersionAssetSource, latestAssetDestination, {
+    recursive: true,
+  });
 
   return {
     versions,
@@ -174,7 +182,7 @@ const extractDocsFn = (version: string) => (
     frontmatter: { title, type: docType },
   } = doc;
 
-  if (version === v && docsGroup === type && topicId === id) {
+  if (version === v && topicId === id) {
     const obj: DocsContentDocs = {
       order: fileName,
       title,
@@ -218,55 +226,43 @@ export const sortGroupOfNavigation = (
 export const prepareWebsitePaths = ({
   repositoryName,
   version,
-  latestVersion,
-  docsType,
   topic,
 }: DocsPathsArgs): DocsPaths => {
-  const v =
-    !version || version === DOCS_LATEST_VERSION ? latestVersion : version;
+  const basePath = join("/", DOCS_PATH_PREFIX, repositoryName, version);
+  const assetBasePath = join("/", ASSETS_DIR, DOCS_DIR, repositoryName);
 
-  const assetsPath = `/${ASSETS_DIR}${DOCS_DIR}${repositoryName}/${v}/${topic}/${DOCS_DIR}${ASSETS_DIR}`;
-  const specificationsPath = `/${ASSETS_DIR}${DOCS_DIR}${repositoryName}/${v}/${topic}/${DOCS_SPECIFICATIONS_PATH}`;
-  const pagePath = `/${DOCS_PATH_PREFIX}/${
-    version ? `${version}/` : ""
-  }${docsType}/${topic}`;
-  const rootPagePath = `/${DOCS_PATH_PREFIX}/${
-    repositoryName === "kyma" ? "" : `${repositoryName}/`
-  }${version}`;
-  const modalUrlPrefix = `/${DOCS_PATH_PREFIX}/${
-    repositoryName === "kyma" ? "" : `${repositoryName}/`
-  }${v}/${docsType}/${topic}/${DOCS_SPECIFICATIONS_PATH}`;
+  // remove `README` for nodes
+  if (topic.endsWith("README")) {
+    topic = topic.replace("README", "");
+  }
+
+  const tmp = topic.split("/");
+  tmp.pop();
+  const subtopic = tmp.join("/");
+
+  const assetsPath = join(assetBasePath, version, subtopic, ASSETS_DIR);
+  const specificationsPath = join(
+    assetBasePath,
+    version,
+    subtopic,
+    DOCS_SPECIFICATIONS_PATH,
+  );
+
+  const pagePath = join(basePath, topic);
+
+  const modalUrlPrefix = join(
+    DOCS_PATH_PREFIX,
+    repositoryName,
+    version,
+    topic,
+    DOCS_SPECIFICATIONS_PATH,
+  );
 
   return {
     assetsPath,
     specificationsPath,
     pagePath,
-    rootPagePath,
-    modalUrlPrefix,
-  };
-};
-
-export const preparePreviewPaths = ({
-  repositoryName,
-  version,
-  latestVersion,
-  docsType,
-  topic,
-}: DocsPathsArgs): DocsPaths => {
-  const v =
-    !version || version === DOCS_LATEST_VERSION ? latestVersion : version;
-
-  const assetsPath = `/${ASSETS_DIR}${DOCS_DIR}${repositoryName}/${v}/${topic}/${DOCS_DIR}${ASSETS_DIR}`;
-  const specificationsPath = `/${ASSETS_DIR}${DOCS_DIR}${repositoryName}/${v}/${topic}/${DOCS_SPECIFICATIONS_PATH}`;
-  const pagePath = `/${version ? `${version}/` : ""}${docsType}/${topic}`;
-  const rootPagePath = `/${version}`;
-  const modalUrlPrefix = `/${docsType}/${topic}/${DOCS_SPECIFICATIONS_PATH}`;
-
-  return {
-    assetsPath,
-    specificationsPath,
-    pagePath,
-    rootPagePath,
+    basePath,
     modalUrlPrefix,
   };
 };

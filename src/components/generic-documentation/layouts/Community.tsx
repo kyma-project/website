@@ -3,12 +3,18 @@ import { Content, Renderers } from "@kyma-project/documentation-component";
 import { StickyContainer, Sticky } from "react-sticky";
 
 import Grid from "@styled/Grid";
-import { DocsNavigation, DocsManifest, DocsContentItem } from "@typings/docs";
+import {
+  DocsNavigation,
+  DocsManifest,
+  DocsContentItem,
+  DocsNavigationElement,
+} from "@typings/docs";
 
 import {
   Navigation,
   linkSerializer,
   activeLinkChecker,
+  ActiveState,
 } from "../render-engines/markdown/navigation";
 import { HeadersNavigation } from "../render-engines/markdown/headers-toc";
 
@@ -24,11 +30,12 @@ import { MarkdownWrapper } from "../styled";
 
 export interface CommunityLayoutProps {
   renderers: Renderers;
-  navigation: DocsNavigation;
+  navigation: DocsNavigationElement[];
   manifest: DocsManifest;
   content: DocsContentItem;
   sourcesLength: number;
-  inPreview?: boolean;
+  basePath: string;
+  pagePath: string;
 }
 
 export const CommunityLayout: React.FunctionComponent<CommunityLayoutProps> = ({
@@ -36,15 +43,29 @@ export const CommunityLayout: React.FunctionComponent<CommunityLayoutProps> = ({
   navigation,
   content: { id: topic, type, displayName },
   sourcesLength,
-  inPreview,
+  pagePath,
+  basePath,
 }) => {
-  const linkFn: linkSerializer = ({ group, items, id }) =>
-    `/${!inPreview ? `community/` : ""}${
-      items.length > 1 ? `${group}/` : ""
-    }${id}`;
-  const activeLinkFn: activeLinkChecker = ({ group, id }) =>
-    topic === id && type === group;
+  const linkFn: linkSerializer = path => path.join("/");
 
+  const activeLinkFn: activeLinkChecker = path => {
+    const toReduce = basePath.split("/").length;
+    const newPagePath = pagePath
+      .split("/")
+      .slice(toReduce)
+      .filter(item => item !== "")
+      .join("/");
+    path = path.slice(toReduce);
+
+    const slug = path.join("/");
+    if (newPagePath === slug) {
+      return ActiveState.ACTIVE_DIRECT;
+    }
+    if (newPagePath.startsWith(slug)) {
+      return ActiveState.ACTIVE_INDIRECT;
+    }
+    return ActiveState.INACTIVE;
+  };
   return (
     <CommunityLayoutWrapper>
       <MarkdownWrapper className="custom-markdown-styling">
@@ -57,17 +78,16 @@ export const CommunityLayout: React.FunctionComponent<CommunityLayoutProps> = ({
                 className="grid-unit-navigation"
                 withoutPadding={true}
               >
-                <Sticky>
-                  {({ style }: any) => (
-                    <StickyWrapperLeftNav style={{ ...style, zIndex: 200 }}>
-                      <Navigation
-                        navigation={navigation}
-                        linkFn={linkFn}
-                        activeLinkFn={activeLinkFn}
-                      />
-                    </StickyWrapperLeftNav>
-                  )}
-                </Sticky>
+                <div>
+                  <StickyWrapperLeftNav style={{ zIndex: 200 }}>
+                    <Navigation
+                      navigation={navigation}
+                      linkFn={linkFn}
+                      activeLinkFn={activeLinkFn}
+                      basePath={basePath}
+                    />
+                  </StickyWrapperLeftNav>
+                </div>
                 <MobileNavButton />
               </Grid.Unit>
               <Grid.Unit

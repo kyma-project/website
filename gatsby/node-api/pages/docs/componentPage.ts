@@ -10,11 +10,6 @@ export interface CreatDocsPageArgs {
   repository: DocsRepository;
 }
 
-interface RedirectFromLatestArgs {
-  createRedirect: CreateRedirectFn;
-  path: string;
-}
-
 export const createComponentDocsPage = ({
   createPage,
   createRedirect,
@@ -35,34 +30,4 @@ export const createComponentDocsPage = ({
       path: rootPath,
     });
   }
-
-  redirectFromLatest({ createRedirect, path });
 };
-
-function redirectFromLatest({ createRedirect, path }: RedirectFromLatestArgs) {
-  if (!path.includes("docs/latest")) {
-    return;
-  }
-
-  const toPath = path.replace("docs/latest", "docs");
-  createRedirect({
-    fromPath: path,
-    redirectInBrowser: true,
-    toPath,
-  });
-  createRedirect({
-    fromPath: path.endsWith("/") ? path.slice(0, -1) : `${path}/`,
-    redirectInBrowser: true,
-    toPath,
-  });
-  createRedirect({
-    fromPath: "/docs/latest/",
-    redirectInBrowser: true,
-    toPath: "/docs/",
-  });
-  createRedirect({
-    fromPath: "/docs/latest",
-    redirectInBrowser: true,
-    toPath: "/docs/",
-  });
-}

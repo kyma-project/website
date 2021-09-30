@@ -2,6 +2,7 @@ import { DocsContentItem } from "../utils";
 
 const MD_LINKS_REGEX = /\[([^\[]+)\]\(([^\)]+)\)/g;
 const DOCS_LINKS_REGEX = /^\/(docs|([a-zA-Z0-9_-]+))\/(.*?)$/g;
+const EXTERNAL_LINKS_REGEX = /^\[.+\]\((www\.|(http|ftp)s?:\/\/|[A-Za-z]:\\|\/\/).*/;
 
 export const changeVersion = ({
   source,
@@ -29,6 +30,10 @@ export const changeVersion = ({
         ? `/docs/${version}/${newHref}`
         : `/docs/${newHref}`;
     });
+
+    if (!EXTERNAL_LINKS_REGEX.test(occurrence)) {
+      occurrence = occurrence.replace(".md", "");
+    }
 
     return occurrence;
   });
