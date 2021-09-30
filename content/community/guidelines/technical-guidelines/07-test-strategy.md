@@ -71,7 +71,7 @@ Contract tests are Docker applications run by [Octopus](https://github.com/kyma-
 Contract tests are required to pass before merging a change into the `main` branch. As they should rely only on the solution that is being tested, they may be skipped by the CI server if the change is not related to the solution.
 
 ## Development
-Because tests are developed as code, some of the rules outlined above apply to them too. Every test must be covered at least by code quality checks. Tests run as applications can also be unit tested if applicable. Also, tests must pass a code review by one of Kyma maintainers. The code review process is documented in the [contributing guidelines](/contributing/02-contributing.md) in the `community` repository.
+Because tests are developed as code, some of the rules outlined above apply to them too. Every test must be covered at least by code quality checks. Tests run as applications can also be unit tested if applicable. Also, tests must pass a code review by one of Kyma maintainers. The code review process is documented in the [contributing guidelines](../../contributing/02-contributing.md) in the `community` repository.
 
 The reviewer should not only for the quality of the code implementing functionality but also for the code validating it. Reviewer should pay attention to the implemented test cases. Test coverage should give confidence that the software is working as expected. There are currently no requirements in terms of measuring test coverage.
 

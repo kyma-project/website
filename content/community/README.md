@@ -2,7 +2,7 @@
 title: Get started
 ---
 
-Welcome to the Kyma community page from website repository!
+Welcome to the Kyma community page!
 
 If you are looking for information on how to join us, you are in the right place. Read on to find out how you can get involved, contribute to Kyma code and documentation, and stay in touch with the latest Kyma news. Let's get started!
 
@@ -10,11 +10,11 @@ If you are looking for information on how to join us, you are in the right place
 
 ## Contribution rules
 
-Before you start contributing, read our [Code of Conduct](/contributing/#code-of-conduct-code-of-conduct) and learn about our [working model](/governance/#kyma-working-model-kyma-working-model) to understand the way Kyma community works. Get familiar with the [contributing rules](/contributing/#contributing-rules-contributing-rules), recommended [Git workflow](/contributing/#git-wokflow-git-wokflow), and [issues workflow](/governance/#issues-workflow-issues-workflow) we use in Kyma so you can apply them later in practice as an active contributor.
+Before you start contributing, read our [Code of Conduct](./contributing/01-code-of-conduct.md) and learn about our [working model](./governance/01-governance.md) to understand the way Kyma community works. Get familiar with the [contributing rules](./contributing/02-contributing.md), recommended [Git workflow](./contributing/03-git-workflow.md), and [issues workflow](./governance/03-issues-workflow.md) we use in Kyma so you can apply them later in practice as an active contributor.
 
 ## Guidelines
 
-Follow guidelines for writing [content](/guidelines/content/) and [code](/guidelines/technicalities/). See how to create a [new repository](/guidelines/repository/) or a [new release](/guidelines/release/), and use [templates](/guidelines/templates/) for various document types.
+Follow guidelines for writing [content](./guidelines/content-guidelines) and [code](./guidelines/technical-guidelines). See how to create a [new repository](./guidelines/repository-guidelines) or a [new release](./guidelines/releases-guidelines), and use [templates](./guidelines/templates/templates-type.md) for various document types.
 
 ## Bugs & features
 
@@ -22,7 +22,7 @@ Create an issue on [GitHub](https://github.com/kyma-project) to report a bug or 
 
 ## Special Interest Groups & Working Groups
 
-The Kyma community collaborates through Special Interest Groups and Working Groups ([SIGs and WGs](/collaboration/#overview-overview)). By joining the SIGs and WGs, you can meet other community members, exchange information on Kyma, provide feedback, raise interest, ask questions, and learn about the product. Join the SIGs or WGs meeting to learn more what each group works on.
+The Kyma community collaborates through Special Interest Groups and Working Groups ([SIGs and WGs](../collaboration/01-sig-and-wg.md)). By joining the SIGs and WGs, you can meet other community members, exchange information on Kyma, provide feedback, raise interest, ask questions, and learn about the product. Join the SIGs or WGs meeting to learn more what each group works on.
 
 # <img src="assets/stay-informed-icon.svg" width="120"> Stay Informed
 

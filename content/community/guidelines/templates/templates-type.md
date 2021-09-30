@@ -59,6 +59,4 @@ See the templates for providing input and writing release notes.
 | [`website/content/blog-posts`](https://github.com/kyma-project/website/tree/main/content/blog-posts) | [`release-notes.md`](https://github.com/kyma-project/community/blob/main/guidelines/templates/resources/release-notes.md) | Use the template to write release notes. | Technical Writers |
 | Internal use | [`release-notes-input.md`](https://github.com/kyma-project/community/blob/main/guidelines/templates/resources/release-notes-input.md) | Use the template to provide input for the release notes. | Product Owners |
 
->**NOTE:** Update the tables each time you add a new template to the `resources` folder.
-
-Go to the [repository guidelines](https://github.com/kyma-project/community/blob/main/guidelines/repository-guidelines/repository-template) section for the template of an exemplary Kyma repository.
+Go to the [repository guidelines](../repository-guidelines) section for the template of an exemplary Kyma repository.

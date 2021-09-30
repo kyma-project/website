@@ -49,14 +49,27 @@ To highlight a certain area of your screenshot, use **red** (HEX: #EF2727) 10pt 
 
 > **NOTE:** Use arrows and boxes sparingly, only to point to an exceptionally important area of the screenshot. Do not use more than one indicator in one screenshot to avoid visual noise.
 
+## Simplified User Interfaces (SUI)
+
+Wherever possible, present screenshots as simplified user interfaces ([SUI](https://www.techsmith.com/blog/simplified-user-interface/)). Basically, this means blurring or covering all UI elements that aren't essential for the task at hand. [Snagit](https://www.techsmith.com/screen-capture.html) supports SUI with some specialized tools.
+
+Use circles to cover icons, and rectangles with pointed corners to cover texts.
+
+- Light gray (#F2F2F2)​ for texts on a white background​
+- Dark gray (#D9D9D9)​ for headlines on a white background​
+
+Don't cover: The logo, the sandwich icon, the search icon, expand buttons, close buttons.
+
+For more information, see [tcworld: Simplified graphics and screenshots in software documentation](https://www.tcworld.info/e-magazine/technical-writing/simplified-graphics-and-screenshots-in-software-documentation-1102/)
+
 ## Examples
 
 See the exemplary screenshots for reference:
 
-* Example 1
+- Example
 
-![Example 1](./assets/screenshot-example1.png)
+![Example](./assets/screenshot-example1.png)
 
-* Example 2
+- Example SUI
 
-![Example 2](./assets/screenshot-example2.png)
+![Example SUI](./assets/screenshot-example-sui.png)

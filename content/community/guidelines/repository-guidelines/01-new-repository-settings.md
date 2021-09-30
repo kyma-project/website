@@ -9,11 +9,11 @@ All repositories in `kyma-project` and `kyma-incubator` organizations should be 
 
 ## Use the repository template
 
-After you create a new repository, copy the basic repository structure from the [`template`](https://github.com/kyma-project/community/tree/main/guidelines/repository-guidelines/repository-template) folder that is available in the `community` repository. It contains such files as the obligatory Apache license, the `CODEOWNERS` file that governs the review and approval flow in the repository, and the Stale Bot that handles inactive issues.
+After you create a new repository, copy the basic repository structure from the [`template`](https://github.com/kyma-project/community/tree/main/templates/repository-template) folder that is available in the `community` repository. It contains such files as the obligatory Apache license, the `CODEOWNERS` file that governs the review and approval flow in the repository, and the Stale Bot that handles inactive issues.
 
 After copying the folder's contents, modify these according to the instructions they contain:
-- [`CODEOWNERS`](https://github.com/kyma-project/community/tree/main/guidelines/repository-guidelines/repository-template/CODEOWNERS) to define who is responsible for the review and approval of specific repository parts
-- [`README.md`](https://github.com/kyma-project/community/tree/main/guidelines/repository-guidelines/repository-template/README.md) to describe the repository and explain how to use and develop it
+- [`CODEOWNERS`](https://github.com/kyma-project/community/tree/main/templates/repository-template/CODEOWNERS) to define who is responsible for the review and approval of specific repository parts
+- [`README.md`](https://github.com/kyma-project/community/tree/main/templates/repository-template/README.md) to describe the repository and explain how to use and develop it
 
 ## Adjust repository options
 
@@ -46,7 +46,7 @@ In Kyma, the protection rules are defined in the Prow [`config.yaml`](https://gi
 
 If you add a new repository in:
 - `kyma-project`, you do not need to add a new entry to the Prow `config.yaml` file as the branch protection is already defined for [all repositories](https://github.com/kyma-project/test-infra/blob/main/prow/config.yaml#L380) within this organization. The only exception is if you want to specify additional rules that are not handled by Prow.
-- `kyma-incubator`, add a new repository entry to the Prow `config.yaml` file, under **branch-protection.orgs.kyma-incubator.repos**. [See](https://github.com/kyma-project/test-infra/blob/main/templates/templates/prow-config.yaml) an example of such an entry for the `marketplaces` repository.
+- `kyma-incubator`, add a new repository entry to the Prow `config.yaml` file, under **branch-protection.orgs.kyma-incubator.repos**. See [an example](https://github.com/kyma-project/test-infra/blob/main/templates/templates/prow-config.yaml)  of such an entry for the `marketplaces` repository.
 
 ## Add webhooks
 
