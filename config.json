@@ -71,35 +71,11 @@
       "organization": "kyma-project",
       "repository": "kyma",
       "branches": ["main"],
-      "lastReleases": 3,
+      "lastReleases": 0,
       "navPath": "",
       "rootPath": {
         "docsType": "root",
         "docsTopic": "kyma"
-      }
-    },
-    "cli": {
-      "displayName": "CLI",
-      "organization": "kyma-project",
-      "repository": "cli",
-      "branches": ["main"],
-      "lastReleases": 3,
-      "navPath": "cli",
-      "rootPath": {
-        "docsType": "cli",
-        "docsTopic": "overview"
-      }
-    },
-    "control-plane": {
-      "displayName": "Control Plane",
-      "organization": "kyma-project",
-      "repository": "control-plane",
-      "branches": ["main"],
-      "lastReleases": 0,
-      "navPath": "control-plane",
-      "rootPath": {
-        "docsType": "control-plane",
-        "docsTopic": "kyma-control-plane"
       }
     }
   }
