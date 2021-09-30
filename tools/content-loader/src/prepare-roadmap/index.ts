@@ -76,11 +76,11 @@ const prepareRoadmapContent = async (coreConfig: CoreConfig) => {
 };
 
 export default async (coreConfig: CoreConfig) => {
-  if (coreConfig.prepareFor === PrepareFor.WEBSITE) {
-    return prepareRoadmapContent(coreConfig);
-  }
-  if (coreConfig.prepareFor === PrepareFor.COMMUNITY_PREVIEW) {
-    return undefined;
-  }
+  // if (coreConfig.prepareFor === PrepareFor.WEBSITE) {
+  //   return prepareRoadmapContent(coreConfig);
+  // }
+  // if (coreConfig.prepareFor === PrepareFor.COMMUNITY_PREVIEW) {
+  //   return undefined;
+  // }
   return;
 };
