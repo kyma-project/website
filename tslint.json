@@ -45,7 +45,7 @@
     "deprecation": true
   },
   "linterOptions": {
-    "exclude": ["*/node_modules/**/*"]
+    "exclude": ["*/node_modules/**/*", "tools/content-loader/kyma"]
   },
   "ban-types": [
     true,
