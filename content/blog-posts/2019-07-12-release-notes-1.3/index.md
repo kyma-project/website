@@ -127,7 +127,7 @@ We have successfully finished writing configuration documents for all Kyma compo
 
 ### Troubleshooting document type template
 
-If you need to add troubleshooting documentation to your component, our content guidelines can help you with that. We have published a template for creating Troubleshooting documents. Find more details regarding the new document type [here](https://github.com/kyma-project/community/blob/main/guidelines/templates/resources/troubleshooting.md).
+If you need to add troubleshooting documentation to your component, our content guidelines can help you with that. We have published a template for creating Troubleshooting documents. Find more details regarding the new document type [here](https://github.com/kyma-project/community/blob/main/templates/resources/troubleshooting.md).
 
 ### Upgrade process documentation
 

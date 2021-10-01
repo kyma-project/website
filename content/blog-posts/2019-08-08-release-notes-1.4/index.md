@@ -158,7 +158,7 @@ From now on, once you provide the **spec.sources.parameters.disableRelativeLinks
 
 ### Definition and guidelines
 
-We encourage you to read brand-new [documentation](https://github.com/kyma-project/community/blob/main/guidelines/technical-guidelines/05-helm.md#defining-metadata-schema-for-kyma-charts) defining standards for creating JSON schemas for Kyma components.
+We encourage you to read brand-new [documentation](https://github.com/kyma-project/community/blob/main/docs/guidelines/technical-guidelines/05-helm.md#defining-metadata-schema-for-kyma-charts) defining standards for creating JSON schemas for Kyma components.
 
 ### Governance
 
