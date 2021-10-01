@@ -100,7 +100,7 @@ So far, once you entered a Kubernetes cluster you could probably see quite a bun
 
 ### Documentation component
 
-The Kyma project puts a lot of effort into documentation and processes around it, not only with respect to [kyma-project.io](https://kyma-project.io/docs). As you know, you can also access Kyma documentation from the Console UI. In Kyma, we offer features that you can use to document your own services - that does not only relate to static docs provided with Markdown specs but also other formats, such as OpenAPI, AsyncAPI, and OData.
+The Kyma project puts a lot of effort into documentation and processes around it, not only with respect to [kyma-project.io](https://kyma-project.io/docs/kyma/latest). As you know, you can also access Kyma documentation from the Console UI. In Kyma, we offer features that you can use to document your own services - that does not only relate to static docs provided with Markdown specs but also other formats, such as OpenAPI, AsyncAPI, and OData.
 
 It basically means that at the moment we have 4 different views that render documentation, and you can expect more of them to come in the future releases. We decided that it was about time to consolidate our experience in this area into one component.
 
@@ -158,7 +158,7 @@ From now on, once you provide the **spec.sources.parameters.disableRelativeLinks
 
 ### Definition and guidelines
 
-We encourage you to read brand-new [documentation](https://github.com/kyma-project/community/blob/main/guidelines/technical-guidelines/05-helm.md#defining-metadata-schema-for-kyma-charts) defining standards for creating JSON schemas for Kyma components.
+We encourage you to read brand-new [documentation](https://github.com/kyma-project/community/blob/main/docs/guidelines/technical-guidelines/05-helm.md#defining-metadata-schema-for-kyma-charts) defining standards for creating JSON schemas for Kyma components.
 
 ### Governance
 

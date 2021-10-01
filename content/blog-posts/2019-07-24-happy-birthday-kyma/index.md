@@ -70,7 +70,7 @@ After creating an open governance model, we hosted our first public Core Special
 
 `youtube: https://youtu.be/1DD5aCBnywQ`
 
-So far, we have had 17 meetings and we are definitely not planning to stop organizing them. We meet regularly and you are welcome to join. Check more details at the [Core SIG landing page](https://github.com/kyma-project/community/tree/main/collaboration/sig-core), join our next meeting, and let us know what you think about Kyma.
+So far, we have had 17 meetings and we are definitely not planning to stop organizing them. We meet regularly and you are welcome to join. Check more details at the [Core SIG landing page](https://github.com/kyma-project/community/blob/main/collaboration/archive/sig-core), join our next meeting, and let us know what you think about Kyma.
 
 ## 10.10.2018 Kyma announced to SAP customers and partners
 
@@ -141,7 +141,7 @@ Kyma core developers, [Mateusz Szostok](https://github.com/mszostok) and [Piotr 
 
 ## 02.07.2019 Kyma dev became a chair of the Service Catalog SIG
 
-Kubernetes Service Catalog is one of our main dependencies. Kyma firmly states that [Service Catalog](https://github.com/kubernetes-sigs/service-catalog) and [Open Service Broker API](https://www.openservicebrokerapi.org/) are the only Service Management solutions for Kubernetes that bring the best developer experience. It is obvious that we are not only interested in contributing code, but we also want to help to run the project. As a result, [Mateusz Szostok](https://github.com/mszostok) became a chair of the [Kubernetes Service Catalog SIG](https://github.com/kubernetes/community/tree/master/sig-service-catalog).
+Kubernetes Service Catalog is one of our main dependencies. Kyma firmly states that [Service Catalog](https://github.com/kubernetes-sigs/service-catalog) and [Open Service Broker API](https://www.openservicebrokerapi.org/) are the only Service Management solutions for Kubernetes that bring the best developer experience. It is obvious that we are not only interested in contributing code, but we also want to help to run the project. As a result, [Mateusz Szostok](https://github.com/mszostok) became a chair of the [Kubernetes Service Catalog SIG](https://github.com/kubernetes/community/blob/master/sig-service-catalog).
 
 ![chair](./chair.png)
 

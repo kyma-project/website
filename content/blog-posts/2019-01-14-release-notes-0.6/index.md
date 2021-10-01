@@ -176,7 +176,7 @@ In short, there was a simple but not very useful text reference to other documen
 
 As a follow-up to this new improvement, we also added:
 
-- [Guidelines](https://github.com/kyma-project/community/blob/main/guidelines/content-guidelines/05-links.md) for all contributors on how to add links to documents under `kyma/docs`.
+- [Guidelines](https://github.com/kyma-project/community/blob/main/docs/guidelines/content-guidelines/05-links.md) for all contributors on how to add links to documents under `kyma/docs`.
 
 - The **chain link icon** on `kyma-project.io` that allows you to remember the link to a given document section easier. When you hover the cursor over any heading in the documentation, you can now see this icon. Once you click it, the address bar in the browser gets updated with the direct link to a given section.
 
@@ -184,7 +184,7 @@ As a follow-up to this new improvement, we also added:
 
 ### Master branch available in Docs
 
-Since we introduced a website-centric approach to linking in the documentation, we wanted to make sure you don't fail at reading it on GitHub as a contributor, by being constantly redirected to the website's Docs. Before Kyma 0.6 Cairo, we only rendered the release-related documentation on `kyma-project.io/docs`. Now, as one of few open-source projects, we also render documentation for the [`master`](https://kyma-project.io/docs/main) branch. This documentation is updated on the website automatically, approx. 10 minutes after every merge of changes to the `master` branch.
+Since we introduced a website-centric approach to linking in the documentation, we wanted to make sure you don't fail at reading it on GitHub as a contributor, by being constantly redirected to the website's Docs. Before Kyma 0.6 Cairo, we only rendered the release-related documentation on `kyma-project.io/docs`. Now, as one of few open-source projects, we also render documentation for the [`master`](https://kyma-project.io/docs/kyma/latest) branch. This documentation is updated on the website automatically, approx. 10 minutes after every merge of changes to the `master` branch.
 
 The good news is that we also render the documentation for pre-releases on `kyma-project.io/docs`, whenever they are available.
 
