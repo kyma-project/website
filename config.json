@@ -49,7 +49,7 @@
     "DOCS_OVERVIEW_NUTSHELL": "/docs/#overview-in-a-nutshell",
     "DOCS_DETAILS_COMPONENTS": "/docs/#details-components",
     "DOCS_INSTALLATION": "/docs/root/kyma#installation-installation",
-    "GETTING_STARTED": "/docs/root/getting-started",
+    "GETTING_STARTED": "/docs/kyma/latest/02-get-started/",
     "DOCS_INSTALL_CLI": "docs/cli/#installation-install-kyma-cli"
   },
   "landingPage": {
