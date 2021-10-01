@@ -105,7 +105,7 @@ The SIG/WG decison-making process is as follows:
 
 Take all necessary actions to reach a consensus no later than the decision due date:
 
-- Send a link to the **Decision record** issue to the related SIG or WG mailing list (For Core SIG the easiest way to do it is to add a new topic in [google group](https://groups.google.com/forum/#!forum/kyma-sig-core) as then it is automatically emailed to the mailing list) and post it in the relevant Slack channels. If people relevant for the decision are not part of the mailing list, add them explicitly to the email communication. Communicate the decision to be made clearly to the groups affected by it and invite them to check the proposal.
+- Send a link to the **Decision record** issue to the related SIG or WG mailing list and post it in the relevant Slack channels. If people relevant for the decision are not part of the mailing list, add them explicitly to the email communication. Communicate the decision to be made clearly to the groups affected by it and invite them to check the proposal.
 
 - Clarify and discuss the decision content and the proposal as needed. Use the mailing list, relevant Slack channels, the related pull request, or comment directly on the **Decision record** issue.
 
@@ -127,7 +127,7 @@ Once you reach the consensus:
 
 ### Lack of consensus
 
-Engage the [Core SIG leaders](/collaboration/#core-special-interest-group-core-special-interest-group-leaders) if there are still unresolved objections by the decision due date. They will work with the [Kyma Steering Committee](/governance/#kyma-steering-committee-kyma-steering-committee) if necessary to reach the final decision as soon as possible and close the issue.
+Engage the [Kyma Steering Committee](/governance/#kyma-steering-committee-kyma-steering-committee) if necessary to reach the final decision as soon as possible and close the issue.
 
 ### Revisit a decision
 

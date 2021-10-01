@@ -6,7 +6,7 @@ This document provides guidelines on writing CustomResourceDefinition (CRD) file
 
 ## Third party CRDs
 
-If you use a third-party CRD, apply the [location and file name](#custom-resource-definition-custom-resource-definition-location-and-file-name) recommendations from this guide. Keep the content unaltered if the technical requirements allow it. The content must comply with the company's software usage policy and the third-party CRD's license.
+If you use a third-party CRD, apply the [location and file name](#location-and-file-name) recommendations from this guide. Keep the content unaltered if the technical requirements allow it. The content must comply with the company's software usage policy and the third-party CRD's license.
 
 ## Location and file name
 
@@ -76,7 +76,7 @@ To define a CRD for Kyma, refer to the example and follow these guidelines:
 
 - **spec:group**: The API group should reflect the collection of logically related objects. For example, all batch objects, such as Job or ScheduledJob, can belong to the batch API Group, such as `batch.kyma-project.io`. As best practice, use the fully-qualified domain name of the organization (`kyma-project.io`) preceded by a subgroup if necessary, for example `crontab.kyma-project.io`. The group name should reflect a capability-related and not an implementation-related name. For example, for eventing use `eventing.kyma-project.io` and not `nats.kyma-project.io`. Avoid prefixing the name with more than a subgroup, like in this example: `user.crontab.kyma-project.io`. If the subgroup consists of multiple words, do not use spaces, hyphens, or CamelCase.
 
-- **spec:version**: Each API Group can exist in multiple versions. Use the version name in the URL, for example `v1alpha1`, `v1beta1`, or `v1`. For more details, see the [Consideration](#custom-resource-definition-custom-resource-definition-consideration) section. For more information on versioning CRDs, see the [Versioning](#custom-resource-definition-custom-resource-definition-versioning) section.
+- **spec:version**: Each API Group can exist in multiple versions. Use the version name in the URL, for example `v1alpha1`, `v1beta1`, or `v1`. For more details, see the [Consideration](#consideration) section. For more information on versioning CRDs, see the [Versioning](#versioning) section.
 
 - **names:plural**: Use the plural name in the URL. The **plural** field must be the same as the resource in an API URL, for example `crontabs`. If the name consists of multiple words, do not use spaces, hyphens, or CamelCase.
 

@@ -20,7 +20,7 @@ Whenever the committee is involved and needs to make a decision, the decision is
 
 See the list of all current members of the Kyma Steering Committee:
 
-* [Ralf Hofmann](https://github.com/ormos) (SAP)
+* [Piotr Kopczynski](https://github.com/PK85) (SAP)
 * [Piotr Bochynski](https://github.com/pbochynski) (SAP)
 * [Andreas Thaler](https://github.com/a-thaler) (SAP)
 

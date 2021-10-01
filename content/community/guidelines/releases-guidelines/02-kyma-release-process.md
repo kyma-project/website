@@ -3,7 +3,7 @@ title: Kyma release process
 label: internal
 ---
 
-This document describes how to create a Kyma release. Start from defining release jobs as described in the [**Preparation**](#kyma-release-process-kyma-release-process-preparation) section. Then proceed to the [**Steps**](#kyma-release-process-kyma-release-process-steps).
+This document describes how to create a Kyma release. Start from defining release jobs as described in the [**Preparation**](#preparation) section. Then proceed to the [**Steps**](#steps).
 
 A Kyma release includes the following items:
 
@@ -25,7 +25,7 @@ The table below includes placeholders used throughout this document. When execut
 
 ## Preparation
 
-> **NOTE:** This section applies only to new major and minor versions. If you release a patch, skip the preparation and go to the [**Steps**](#kyma-release-process-kyma-release-process-steps) section.
+> **NOTE:** This section applies only to new major and minor versions. If you release a patch, skip the preparation and go to the [**Steps**](#steps) section.
 
 ### kyma-project/kyma
 
@@ -179,7 +179,7 @@ The tag must have the same name as in the `RELEASE_VERSION` file. Creating a new
 
    For installation instructions, use the links from the previous release and update the version number in URLs. If contributors want you to change something in the instructions, they would address you directly. Contact technical writers for the link to release notes.
 
-> **NOTE:** After the Kyma release is complete, proceed with [releasing Kyma CLI](/guidelines/releases-guidelines/03-kyma-cli-release-process.md).
+> **NOTE:** After the Kyma release is complete, proceed with [releasing Kyma CLI](./03-kyma-cli-release-process.md).
 
 ## Post-release tasks
 

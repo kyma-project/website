@@ -6,13 +6,13 @@ As a Kyma contributor, you must follow certain guidelines and rules.
 
 ## Guidelines
 
-Go to the **Guidelines** section to read about rules and tips for providing [content](/guidelines/content/) and [code](/guidelines/technicalities/) to the Kyma repositories. Also, learn how to create a new [repository](/guidelines/repository/), and how the [release process](/guidelines/release/) looks in Kyma. Make your life easier using various document types [templates](/guidelines/templates/) prepared for those who would like to contribute.
+Go to the **Guidelines** section to read about rules and tips for providing [content](../guidelines/content-guidelines) and [code](../guidelines/technical-guidelines) to the Kyma repositories. Also, learn how to create a new [repository](../guidelines/repository-guidelines), and how the [release process](../guidelines/releases-guidelines) looks in Kyma. Make your life easier using various document types [templates](../../templates/resources) prepared for those who would like to contribute.
 
 ## Documentation types
 
-Read an [overview](/guidelines/templates/#overview-overview) of document templates used in specific Kyma repositories. The templates themselves are collected in the [`resources`](https://github.com/kyma-project/community/tree/main/guidelines/templates/resources/) subfolder in the `community` repository.
+Read about [template types](../guidelines/templates/templates-type.md) used in specific Kyma repositories. The templates themselves are collected in the [`templates/resources`](https://github.com/kyma-project/community/tree/main/templates/resources) subfolder in the `community` repository.
 
-Extend the list whenever you define a new template for other document types. Make sure to update one of the tables in the [**Document types templates**](/guidelines/templates/#document-types-templates-document-types-templates) document after you add new templates to the [`resources`](https://github.com/kyma-project/community/tree/main/guidelines/templates/resources/) subfolder.
+Extend the list whenever you define a new template for other document types. Make sure to update one of the tables in the [**Document types templates**](../guidelines/templates/templates-type.md) document after you add new templates to the [`templates/resources`](https://github.com/kyma-project/community/tree/main/templates/resources) subfolder.
 
 ## Agreements and licenses
 
@@ -56,9 +56,9 @@ To contribute code or content to a given Kyma repository, follow these steps:
 
 1. Make sure that the change is valid and approved. If you are an external contributor, **open a GitHub issue** before you make a contribution.
 2. Fork the Kyma repository that you want to contribute to.
-3. Clone it locally, add a remote upstream repository for the original repository, and set up the `main` branch to track the remote `main` branch from the upstream repository. See the [**Git Workflow**](#git-wokflow-git-wokflow) document to learn how to configure your fork.
+3. Clone it locally, add a remote upstream repository for the original repository, and set up the `main` branch to track the remote `main` branch from the upstream repository. See the [**Git Workflow**](./03-git-workflow.md) document to learn how to configure your fork.
 4. Create a new branch out of the local `main` branch of the forked repository.
-5. Commit and push changes to your new branch. Create a clear and descriptive commit message in which you specify what you have changed. See the [**Git workflow**](#git-wokflow-git-wokflow) document for commit message guidelines.
+5. Commit and push changes to your new branch. Create a clear and descriptive commit message in which you specify what you have changed. See the [**Git workflow**](./03-git-workflow.md) document for commit message guidelines.
 6. Create a PR from your branch on the forked repository to the `main` branch of the original, upstream repository. Fill in the PR template according to instructions.
 7. Read and accept the Contributor Licence Agreement (CLA).
 8. If there are merge conflicts on your PR, squash your commits and rebase the `main` branch.
@@ -82,7 +82,7 @@ If you find a bug to report or you want to propose a new feature, go to the GitH
 
 > **NOTE:** The repository maintainers handle only well-documented, valid issues that have not been reported yet. Before you create one, check if there are no duplicates. Provide all details and include examples. When you report a bug, list the exact steps necessary to reproduce it.
 
-See the [**Issues workflow**](/governance/#issues-workflow-issues-workflow) document for details on issues triage and processing workflow.
+See the [**Issues workflow**](../governance/03-issues-workflow.md) document for details on issues triage and processing workflow.
 
 > **NOTE:** The community is relentless about Kyma security. To report a sensitive security issue, send an email with details directly to [kyma-security@googlegroups.com](mailto:kyma-security@googlegroups.com) instead of using a public issue tracker.
 
@@ -92,7 +92,7 @@ Every maintainer reviews each contribution according to the rules listed in this
 
 Although it is the responsibility of the owner of the PR to ensure that the maintainers review and approve the PR, maintainers need to coordinate the overall number of unreviewed and unapproved PRs in their queue, and, if required, take appropriate measures to handle them effectively.
 
-To learn more about maintainers' responsibilities and rules for appointing new maintainers, and removing the existing ones, refer to the [**Kyma working model**](/governance/#kyma-working-model-kyma-working-model) document.
+To learn more about maintainers' responsibilities and rules for appointing new maintainers, and removing the existing ones, refer to the [**Kyma working model**](../governance/01-governance.md) document.
 
 ## Maintainers
 
