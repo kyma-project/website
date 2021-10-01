@@ -91,7 +91,9 @@
         "release-1.19",
         "release-1.20",
         "release-1.21",
-        "release-1.22"
+        "release-1.22",
+        "release-1.23",
+        "release-1.24"
       ],
       "lastReleases": 0,
       "navPath": "",
@@ -111,7 +113,10 @@
         "release-1.18",
         "release-1.19",
         "release-1.20",
-        "release-1.21"
+        "release-1.21",
+        "release-1.22",
+        "release-1.23",
+        "release-1.24"
       ],
       "lastReleases": 0,
       "navPath": "cli",
