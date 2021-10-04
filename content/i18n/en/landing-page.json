@@ -33,7 +33,7 @@
         "title": "Serverless",
         "paragraphs": [
           "Kyma empowers developers to easily deploy workloads in form of Functions. With Kyma, you can focus on coding.",
-          "Simply write your Function code, add a configuration manifest, and push it to Kyma using supporting CLI or directly to git."
+          "Simply write your Function code, add a configuration manifest, and push it to Kyma using our supporting CLI or directly to git."
         ]
       },
       "runtime": {
@@ -52,7 +52,7 @@
   },
   "inANutshell": {
     "headline": "In a nutshell",
-    "paragraph": "With Kyma, your workloads are in the center. Kyma helps you expose their APIs, trigger them with events, enable them for external service consumption, and assure observability.",
+    "paragraph": "With Kyma, running your application on Kubernetes is much easier. Focus on your applications and Kyma helps you expose their APIs, trigger them with events, enable them for external service consumption, and assure observability. Kyma Dashboard and Kyma CLI will guide you through those common tasks and help you utilize the full power of Kubernetes and Kyma.",
     "githubButton": "Get it on GitHub"
   },
   "personas": {

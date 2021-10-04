@@ -13,8 +13,6 @@ import {
 } from "./styled";
 import { StyledGridContainer } from "../WhatIs/styled";
 import { StyledGridUnit } from "../ExtensionsAndTools/styled";
-import Link from "@components/shared/Link";
-import Button from "@components/shared/Button";
 
 import inTheNutshellPNG from "@views/landingPage/assets/landing-page/nutshell/in-the-nutshell.png";
 import { useWindowSize } from "react-use";
@@ -40,13 +38,6 @@ const NutshellRaw: React.FunctionComponent = () => {
                 />
               </H>
               <FormattedMessage tagName="p" id={gt("paragraph")} />
-              <ButtonWrapper>
-                <Link.External to="https://github.com/kyma-project/kyma">
-                  <Button.Normal iconName="github-alt" iconPrefix="fab">
-                    <FormattedMessage id={gt("githubButton")} />
-                  </Button.Normal>
-                </Link.External>
-              </ButtonWrapper>
               <ImageWrapper>
                 {isMobile ? (
                   <img src={`${inTheNutshellPNG}`} />
