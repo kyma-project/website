@@ -80,7 +80,7 @@ const main = async () => {
 
   if (errors.length) {
     errors.forEach(e => {
-      console.error(e.stack);
+      console.error(`msg: ${e.message}, stack: ${e.stack}`);
     });
     throw new VError("while preparing content for website");
   }
