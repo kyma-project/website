@@ -29,12 +29,12 @@ See the overview of all changes in this release:
 
 ### Node.js runtime changes - v14 in, v10 out
 
-As we announced some time ago, we removed Node.js 10 from the [list of supported runtimes](https://kyma-project.io/docs/1.23/components/serverless/#details-runtimes) for Functions. At the same time, we introduced a new runtime, Node.js 14, and set it as the default one. From now on, you can create Functions using:
+As we announced some time ago, we removed Node.js 10 from the list of supported runtimes for Functions. At the same time, we introduced a new runtime, Node.js 14, and set it as the default one. From now on, you can create Functions using:
 - Node.js 12
 - Node.js 14
 - Python 3.8
 
-We also updated Kyma CLI to reflect the new runtime changes. Kyma CLI 1.23 now sets Node.js 14 as the default runtime for your Functions. If you update Kyma CLI without updating Kyma, you will face an incompatibility when initiating Functions with Kyma CLI. To resolve it, override the runtime version with the [`--runtime` flag](https://kyma-project.io/docs/cli/commands/#kyma-init-function-kyma-init-function).
+We also updated Kyma CLI to reflect the new runtime changes. Kyma CLI 1.23 now sets Node.js 14 as the default runtime for your Functions. If you update Kyma CLI without updating Kyma, you will face an incompatibility when initiating Functions with Kyma CLI. To resolve it, override the runtime version with the [`--runtime`](https://github.com/kyma-project/cli/blob/main/docs/gen-docs/kyma_init_function.md) flag.
 
 ## Logging
 

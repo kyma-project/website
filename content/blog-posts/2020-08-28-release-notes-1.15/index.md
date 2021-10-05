@@ -84,6 +84,6 @@ This feature allows you to easily manage event subscriptions not only for Functi
 
 In response to numerous requests, we extended the **Docs** view and now display various documentation sources on the website.
 From now on, when you hover over **Docs** in the main navigation panel, you can select the repository from which you want to read the documentation.
-You can choose from the documentation for [Kyma](https://kyma-project.io/docs/), [CLI](https://kyma-project.io/docs/cli/), and [Control Plane](https://kyma-project.io/docs/control-plane/).
+You can choose from the documentation for [Kyma](https://kyma-project.io/docs/kyma/latest), [CLI](https://kyma-project.io/docs/cli/), and [Control Plane](https://kyma-project.io/docs/control-plane/).
 
 ![Documentation from various repositories](./docs-different-repos.png)
