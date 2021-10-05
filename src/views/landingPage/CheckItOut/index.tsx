@@ -44,12 +44,6 @@ const imageCLI = {
   alt: "CLI",
 };
 
-const getPanelType = (): NotePanelPropsType => {
-  const type: any = "caution";
-  // tslint:disable-next-line:no-var-before-return
-  return type;
-};
-
 const CheckItOutRaw: FunctionComponentIntl = ({ formatMessage }) => (
   <StyledGridContainer as="section">
     <HeaderWrapper>
