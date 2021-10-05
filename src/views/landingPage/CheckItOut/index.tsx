@@ -1,7 +1,6 @@
 import React from "react";
 import Grid from "@styled/Grid";
 import { Termynal } from "./Termynal/Termynal";
-import NotePanel, { NotePanelPropsType } from "@components/shared/NotePanel";
 import H from "@components/shared/H";
 import config from "@config";
 
