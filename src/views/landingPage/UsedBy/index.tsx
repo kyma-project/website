@@ -47,7 +47,7 @@ const UsedByRaw: FunctionComponentIntl<UsedByProps> = ({ adopters }) => {
   };
 
   return (
-    <StyledWrapper>
+    <StyledWrapper id={config.landingPage.ids.usedBy}>
       <StyledGridContainer as="section">
         {isMobile ? (
           <Grid.Row>
