@@ -78,7 +78,7 @@ The following improvements were done in the installation area:
 
 ## Documentation
 
-A few weeks after the Kyma announcement, we published the official documentation on our `https://kyma-project.io/docs/` website. It is worth remembering, however, that this is not the only place where you can read the docs. Since the very beginning, the Kyma documentation has been an integral part of the Console UI, so whenever you provision a Kyma cluster, docs for a given Kyma version are always there for you. In the last few months we have improved the following features in that area:
+A few weeks after the Kyma announcement, we published the official documentation on our `https://kyma-project.io/docs/kyma/latest/` website. It is worth remembering, however, that this is not the only place where you can read the docs. Since the very beginning, the Kyma documentation has been an integral part of the Console UI, so whenever you provision a Kyma cluster, docs for a given Kyma version are always there for you. In the last few months we have improved the following features in that area:
 - The [Kyma overview](/docs/root/kyma#overview-overview) documentation and many other sections, like consistency of the [Custom Resource reference](/docs/components/service-catalog#custom-resource-custom-resource) documents.
 - The general feel and look of the documentation, its navigation, consistency, and the readability of the content.
 ![](./docs-ui.png)
