@@ -1,9 +1,9 @@
 import React from "react";
 import Grid from "@styled/Grid";
 import { Termynal } from "./Termynal/Termynal";
-import { StyledGridUnit } from "../ExtensionsAndTools/styled";
 import H from "@components/shared/H";
 import config from "@config";
+
 import {
   ParagraphWrapper,
   ParagraphTitleWrapper,
@@ -13,6 +13,7 @@ import {
   LearnMoreButton,
   StyledGridContainer,
   HeaderWrapper,
+  VersionNote,
 } from "./styled";
 import { CenteredLink } from "../styled";
 
@@ -24,7 +25,7 @@ import {
 } from "@common/i18n";
 import imagePNG1 from "../assets/landing-page/checkItOut/1.png";
 import imagePNG2 from "../assets/landing-page/checkItOut/2.png";
-import imagePNGCLI from "../assets/landing-page/checkItOut/terminal.png";
+import imagePNGCLI from "../assets/landing-page/checkItOut/terminal.svg";
 
 const gt = getTranslation("landingPage.checkItOut");
 
@@ -50,6 +51,15 @@ const CheckItOutRaw: FunctionComponentIntl = ({ formatMessage }) => (
         <FormattedMessage id={gt("headline")} tagName={React.Fragment} />
       </H>
     </HeaderWrapper>
+    <VersionNote>
+      <FormattedMessage
+        id={gt("versionDisclaimer")}
+        values={{
+          here: <CenteredLink to={config.links.KYMA_1_HOME}>here</CenteredLink>,
+        }}
+        tagName={React.Fragment}
+      />
+    </VersionNote>
 
     <Grid.Row space={true}>
       <Grid.Unit df={6} lg={6} md={12} withoutMargin={true}>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="653px" height="442px" viewBox="0 0 653 442" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group 18</title>
+    <defs>
+        <path d="M576.251358,457 L90.7916654,442.904397 C86.6456655,442.996953 83.4623808,438.685284 83.6810999,433.273337 L91.5576213,20.716437 C91.7754619,15.3034509 95.3127377,10.8399472 99.4578592,10.7484308 L577.400292,0 C581.544535,-0.0921008748 584.72782,4.21956878 584.509101,9.63255492 L584.151596,447.030954 C583.932877,452.4429 580.39648,456.906404 576.251358,457" id="path-1"></path>
+        <filter x="-19.6%" y="-16.8%" width="139.9%" height="143.8%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="2" dy="23" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="29.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.389532343 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <path d="M656.067329,399.215564 L383.331329,394.231808 C380.258329,394.129128 377.860329,391.326508 378.006329,388.008327 L385.030329,216.87991 C385.169329,213.733583 387.554329,211.249811 390.469329,211.218467 L656.182329,212.091786 C659.240329,212.059361 661.735329,214.730118 661.735329,218.035329 L661.735329,393.275264 C661.735329,396.628031 659.169329,399.319325 656.067329,399.215564" id="path-3"></path>
+        <filter x="-34.5%" y="-41.0%" width="170.5%" height="206.4%" filterUnits="objectBoundingBox" id="filter-4">
+            <feOffset dx="2" dy="23" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="29.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.389532343 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <polygon id="path-5" points="0 0.559562032 570.19 0.559562032 570.19 440 0 440"></polygon>
+        <polygon id="path-7" points="0 440.456 652.798 440.456 652.798 1 0 1"></polygon>
+    </defs>
+    <g id="Home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Kyma-–-LP-Wide" transform="translate(-1581.000000, -4596.000000)">
+            <g id="Group-27" transform="translate(1581.000000, 4596.000000)">
+                <g id="Shadow" fill="black" fill-opacity="1">
+                    <use filter="url(#filter-2)" xlink:href="#path-1"></use>
+                </g>
+                <g id="Shadow" fill="black" fill-opacity="1">
+                    <use filter="url(#filter-4)" xlink:href="#path-3"></use>
+                </g>
+                <g id="Group-18" transform="translate(0.000000, 0.279781)">
+                    <g id="Group-3" transform="translate(0.000000, 0.456000)">
+                        <mask id="mask-6" fill="white">
+                            <use xlink:href="#path-5"></use>
+                        </mask>
+                        <g id="Clip-2"></g>
+                        <path d="M560.7769,440 L8.1069,426.446 C3.3869,426.535 -0.2371,422.389 0.0119,417.185 L8.9789,20.48 C9.2269,15.275 13.2539,10.983 17.9729,10.895 L562.0849,0.559562032 C566.8029,0.471 570.4269,4.617 570.1779,9.822 L569.7709,430.414 C569.5219,435.618 565.4959,439.91 560.7769,440" id="Fill-1" fill="#3D4554" mask="url(#mask-6)"></path>
+                    </g>
+                    <path d="M569.7983,31.1943 L7.1433,41.8803 L8.1523,20.7493 C8.3953,15.6563 12.3343,11.4573 16.9513,11.3693 L562.8873,1.0023 C567.5043,0.9143 571.0503,4.9703 570.8073,10.0633 L569.7983,31.1943 Z" id="Fill-4" fill="#FFFFFF"></path>
+                    <path d="M23.5542,27.1552 C23.6892,24.3312 26.0262,21.9992 28.7742,21.9462 C31.5222,21.8942 33.6412,24.1412 33.5062,26.9672 C33.3712,29.7912 31.0332,32.1232 28.2852,32.1762 C25.5372,32.2272 23.4192,29.9802 23.5542,27.1552" id="Fill-6" fill="#61D8A4"></path>
+                    <path d="M37.3511,26.8935 C37.4871,24.0695 39.8241,21.7375 42.5721,21.6845 C45.3201,21.6325 47.4381,23.8795 47.3031,26.7055 C47.1681,29.5295 44.8311,31.8615 42.0831,31.9135 C39.3351,31.9655 37.2161,29.7175 37.3511,26.8935" id="Fill-8" fill="#61D8A4"></path>
+                    <path d="M51.149,26.6318 C51.284,23.8068 53.621,21.4748 56.369,21.4228 C59.117,21.3698 61.235,23.6178 61.1,26.4428 C60.965,29.2678 58.628,31.5998 55.88,31.6518 C53.132,31.7038 51.014,29.4558 51.149,26.6318" id="Fill-10" fill="#61D8A4"></path>
+                    <mask id="mask-8" fill="white">
+                        <use xlink:href="#path-7"></use>
+                    </mask>
+                    <g id="Clip-12"></g>
+                    <!-- <text id="$-brew-install-kyma-" mask="url(#mask-8)" font-family="Courier" font-size="22.0426" font-weight="normal" fill="#FFFFFF">
+                        <tspan x="36.1227" y="96.8202">$ brew install kyma-cli</tspan>
+                    </text> -->
+                    <text id="$-kyma-provision-k3d" mask="url(#mask-8)" font-family="Courier" font-size="22.0426" font-weight="normal" fill="#FFFFFF">
+                        <tspan x="35.6578256" y="134.109902">$ kyma provision k3d</tspan>
+                    </text>
+                    <text id="$-kyma-deploy" mask="url(#mask-8)" font-family="Courier" font-size="22.0426" font-weight="normal" fill="#FFFFFF">
+                        <tspan x="35.1929512" y="171.399605">$ kyma deploy</tspan>
+                    </text>
+                    <text id="$-kyma-dashboard" mask="url(#mask-8)" font-family="Courier" font-size="22.0426" font-weight="normal" fill="#FFFFFF">
+                        <tspan x="35" y="206.720219">$ kyma dashboard</tspan>
+                    </text>
+                    <text id="Installation-successful!-" mask="url(#mask-8)" font-family="Courier" font-size="22.0426" font-weight="normal" fill="#FFFFFF">
+                        <tspan x="34.2435552" y="245.979383">Installation successful! </tspan>
+                    </text>
+                    <text id="Happy-Kyma-ing-:)" mask="url(#mask-8)" font-family="Courier" font-size="22.0426" font-weight="normal" fill="#FFFFFF">
+                        <tspan x="33.7786808" y="283.269085">Happy Kyma-ing :)</tspan>
+                    </text>
+                    <path d="M647.1304,385.5898 L374.3944,380.9788 C371.3214,380.8838 368.9234,378.2908 369.0694,375.2208 L376.0934,216.8918 C376.2324,213.9808 378.6174,211.6828 381.5324,211.6538 L647.2454,212.4618 C650.3034,212.4318 652.7984,214.9028 652.7984,217.9608 L652.7984,380.0938 C652.7984,383.1958 650.2324,385.6858 647.1304,385.5898" id="Fill-13" fill="#FFFFFF" mask="url(#mask-8)"></path>
+                    <path d="M614.3237,346.4823 L413.9107,342.9843 C406.4167,342.8533 400.3417,336.6713 400.3417,329.1773 C400.3417,321.6833 406.4167,315.7133 413.9107,315.8443 L614.3237,319.3423 C621.8177,319.4733 627.8927,325.6553 627.8927,333.1493 C627.8927,340.6433 621.8177,346.6133 614.3237,346.4823" id="Fill-14" fill="#61D8A4" mask="url(#mask-8)"></path>
+                    <path d="M551.7798,301.2939 L405.9968,298.7499 C404.3138,298.7209 402.9508,297.3329 402.9508,295.6499 L402.9508,295.4219 C402.9508,293.7389 404.3138,292.3989 405.9968,292.4289 L551.7798,294.9739 C553.4628,295.0029 554.8258,296.3909 554.8258,298.0729 L554.8258,298.3019 C554.8258,299.9829 553.4628,301.3239 551.7798,301.2939" id="Fill-15" fill="#A8A8A8" mask="url(#mask-8)"></path>
+                    <path d="M620.5581,279.2167 L406.1111,275.4737 C404.3661,275.4437 402.9511,274.0037 402.9511,272.2587 C402.9511,270.5127 404.3661,269.1227 406.1111,269.1537 L620.5581,272.8967 C622.3031,272.9267 623.7181,274.3657 623.7181,276.1127 C623.7181,277.8577 622.3031,279.2477 620.5581,279.2167" id="Fill-16" fill="#A8A8A8" mask="url(#mask-8)"></path>
+                    <path d="M510.2964,254.0146 L405.9884,252.1946 C404.3114,252.1646 402.9504,250.7806 402.9504,249.1026 L402.9504,248.8586 C402.9504,247.1806 404.3114,245.8436 405.9884,245.8726 L510.2964,247.6946 C511.9744,247.7236 513.3344,249.1076 513.3344,250.7856 L513.3344,251.0296 C513.3344,252.7066 511.9744,254.0436 510.2964,254.0146" id="Fill-17" fill="#A8A8A8" mask="url(#mask-8)"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

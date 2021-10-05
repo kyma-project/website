@@ -127,6 +127,7 @@
     "firstParagraph2": "With Kyma CLI, you are only two steps away from having the local Kyma installed.",
     "secondParagraphTitle": "Explore Kyma",
     "secondParagraph1": "Check out our Getting Started guides that will help you get familiar with Kyma and discover your own use cases.",
-    "learnMore": "Learn more"
+    "learnMore": "Learn more",
+    "versionDisclaimer": "The following section describes how to install Kyma from the main branch (which corresponds to a preview of Kyma 2.0). The content for the most current stable Kyma version is available {here}"
   }
 }
