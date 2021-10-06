@@ -21,8 +21,7 @@ const REPOSITORY_NAMES: string[] = [
 ];
 
 const REGEX = {
-  KYMA: /^(docs\/)|(resources\/core\/charts\/docs\/charts\/content-ui\/templates\/)/,
-  OTHERS: /^(docs\/)|(\.kyma-project-io\/)/,
+  KYMA: /^(docs\/)|(\/.kyma-project-io\/)/,
 };
 
 export const checkPullRequestEvent = async (
@@ -58,7 +57,7 @@ const checkChangedFiles = (
     case RepositoryName.COMMUNITY:
       return true;
     default:
-      return checkChangedFileNames(files, REGEX.OTHERS);
+      return checkChangedFileNames(files, REGEX.KYMA);
   }
 };
 
