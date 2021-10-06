@@ -21,7 +21,7 @@ const REPOSITORY_NAMES: string[] = [
 ];
 
 const REGEX = {
-  KYMA: /^(docs\/)|(\/.kyma-project-io\/)/,
+  KYMA: /^(docs|.kyma-project-io)/,
 };
 
 export const checkPullRequestEvent = async (
