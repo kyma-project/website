@@ -113,7 +113,7 @@ These steps are now performed automatically, without any manual configuration re
 
 ### Installation of components from remote locations
 
-The Kyma Installer has a new feature that allows you to install your components from remote locations that are either GitHub repositories or HTTP servers. Previously, in order to install a new component using Installer, you had to build the Installer on your own. Currently, the Installation CR contains the **source.url** field in which you can specify the remote location of your Helm chart. The Installer tries to fetch sources from this location three times before the installation or upgrade fails. To learn more, see our [docs](https://kyma-project.io/docs/root/kyma/#configuration-install-components-from-user-defined-ur-ls).
+The Kyma Installer has a new feature that allows you to install your components from remote locations that are either GitHub repositories or HTTP servers. Previously, in order to install a new component using Installer, you had to build the Installer on your own. Currently, the Installation CR contains the **source.url** field in which you can specify the remote location of your Helm chart. The Installer tries to fetch sources from this location three times before the installation or upgrade fails. To learn more, see our [docs](https://github.com/kyma-project/kyma/blob/release-1.10/docs/kyma/05-04-component-source-url.md).
 
 ### Kubernetes 1.16 compatibility
 

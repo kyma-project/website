@@ -120,7 +120,7 @@ We prepared a self-contained example that shows how to configure an Event trigge
 
 ### Early integration of Kiali
 
-Early integration of Kiali is available as part of Istio. To enable Kiali, ensure that the monitoring module is installed and set the **kiali.enabled** parameter to `true`. The Kiali UI will be accessible under the `kiali` subdomain. The early integration is based on static user security. To learn how to get the Kiali UI password, see [this](https://github.com/kyma-project/kyma/tree/main/resources/istio) document.
+Early integration of Kiali is available as part of Istio. To enable Kiali, ensure that the monitoring module is installed and set the **kiali.enabled** parameter to `true`. The Kiali UI will be accessible under the `kiali` subdomain. The early integration is based on static user security. To learn how to get the Kiali UI password, see [this](https://github.com/kyma-project/kyma/tree/release-1.2/resources/istio) document.
 
 ### Known issues
 
