@@ -79,10 +79,6 @@ fetch() {
     APP_DOCS_VERSIONS_CONFIG_FILE="versions.json" \
     APP_COMMUNITY_REPOSITORY="community" \
     APP_COMMUNITY_OUTPUT="${CONTENT_DIR}/community" \
-    APP_ROADMAP_REPOSITORY="community" \
-    APP_ROADMAP_OUTPUT="${CONTENT_DIR}/roadmap" \
-    APP_ROADMAP_CAPABILITIES_OUTPUT="${CONTENT_DIR}/roadmap/capabilities" \
-    APP_ROADMAP_TICKETS_OUTPUT="${CONTENT_DIR}/roadmap/tickets.json" \
     APP_TOKEN="${BOT_GITHUB_TOKEN}" \
     APP_ZEN_HUB_TOKEN="${BOT_ZENHUB_TOKEN}" \
     APP_DOCS_RELEASE_NUMBER="3" \

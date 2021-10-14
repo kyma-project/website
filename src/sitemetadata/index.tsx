@@ -4,12 +4,10 @@ import {
   extractBlogMetadata,
   extractDocsMetadata,
   extractCommunityMetadata,
-  extractRoadmapMetadata,
 } from "./extractor";
 
 const blogPath = /^\/blog/;
 const docsPath = /^\/docs/;
-const roadmapPath = /^\/roadmap/;
 const communityPath = /^\/community/;
 const notFoundPath = /^\/404/;
 
@@ -22,9 +20,6 @@ function extractMetadata(uri: string, pageContext: any) {
   }
   if (communityPath.test(uri)) {
     return extractCommunityMetadata(pageContext);
-  }
-  if (roadmapPath.test(uri)) {
-    return extractRoadmapMetadata();
   }
   if (notFoundPath.test(uri)) {
     return {
