@@ -31,10 +31,6 @@ const navigation = [
     path: "/community/",
     title: "Community",
   },
-  {
-    path: "/roadmap/",
-    title: "Roadmap",
-  },
 ];
 
 interface State {

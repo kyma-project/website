@@ -83,7 +83,6 @@ Each view on the website takes its sources from a different repository.
 - **Docs** — the `docs` folder in the `kyma` repository
 - **Blog** — the `content/blog-post` folder in the `website` repository
 - **Community** — the `community` repository
-- **Roadmap** — the `capabilities` folder in the `community` repository for descriptions of our project areas, and GitHub issues with `Epic` and a given capability labels for the roadmap details
 - **Landing page** — the `content` folder in the `website` repository, including the banner, and the **Used by** section with Kyma adopters
 
 Before the website is built, all this content is copied to the `website` repository by the [content loader](https://github.com/kyma-project/website/tree/main/tools/content-loader) — our own TypeScript tool we use for fetching content from various repositories and getting issue details from ZenHub and GitHub APIs.
@@ -149,7 +148,5 @@ The fun may begin when you try to figure out where we keep the sources for all t
 | **Docs** | Document or topic | [`kyma/docs`](https://github.com/kyma-project/kyma/tree/main/docs) | Add a document that follows one of the [templates](https://kyma-project.io/community/guidelines/templates/#document-types-templates-document-types-templates-document-types-for-kyma-components), or follow the instructions to [add a new topic](https://kyma-project.io/community/guidelines/content/#add-new-documentation-to-the-website-add-new-documentation-to-the-website). |
 | **Blogs** | Blog post | [`website/content/blog-post`](https://github.com/kyma-project/website/tree/main/content/blog-posts) | Follow the [instruction](https://github.com/kyma-project/website/blob/main/docs/write-blog-posts.md). |
 | **Community** | Document | [`community`](https://github.com/kyma-project/community) | Create a PR. |
-| **Roadmap** | Epic | All repositories | Log an issue, assign it to the proper release on GitHub, and add your [capability](https://github.com/kyma-project/community/tree/main/capabilities) and `Epic` labels. |
-| **Roadmap** | Capability | [`community/capabilities`](https://github.com/kyma-project/community/tree/main/capabilities) | Create a PR. |
 
-Apart from contribution, we also cherish feedback. If you have any thoughts to share or questions to ask, contact us directly on the [`#kyma-project-io`](http://slack.kyma-project.io/) Slack channel.
+Apart from contribution, we also cherish feedback. If you have any thoughts to share or questions to ask, contact us directly on the [`#kyma-project-io`](https://kyma-community.slack.com/join/shared_invite/zt-8tutz88i-Yks~UH37YxJ26fa0qo~Qvw#/shared-invite/email) Slack channel.

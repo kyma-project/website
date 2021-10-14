@@ -11,7 +11,6 @@ This repository has the following structure:
   │    ├── docs                   # Raw content with assets for /docs/* pages
   │    ├── early-adopters         # Raw content for the "Early adopters" section on the landing page
   │    ├── i18n                   # Localization files
-  │    └── roadmap                # Raw content with assets for /roadmap/* pages
   ├── docs                        # Directory with project-related documents
   ├── gatsby                      # Directory with files using the Gatsby API for creating static pages or creating nodes
   ├── netlify                     # Sources of lambdas running on the Netlify platform
