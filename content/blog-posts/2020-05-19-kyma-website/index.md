@@ -149,4 +149,4 @@ The fun may begin when you try to figure out where we keep the sources for all t
 | **Blogs** | Blog post | [`website/content/blog-post`](https://github.com/kyma-project/website/tree/main/content/blog-posts) | Follow the [instruction](https://github.com/kyma-project/website/blob/main/docs/write-blog-posts.md). |
 | **Community** | Document | [`community`](https://github.com/kyma-project/community) | Create a PR. |
 
-Apart from contribution, we also cherish feedback. If you have any thoughts to share or questions to ask, contact us directly on the [`#kyma-project-io`](http://slack.kyma-project.io/) Slack channel.
+Apart from contribution, we also cherish feedback. If you have any thoughts to share or questions to ask, contact us directly on the [`#kyma-project-io`](https://kyma-community.slack.com/join/shared_invite/zt-8tutz88i-Yks~UH37YxJ26fa0qo~Qvw#/shared-invite/email) Slack channel.
