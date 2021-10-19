@@ -3,6 +3,8 @@ external-links-to-ignore:
   - kyma.local
   - http://xip.io
   - https://twitter.com/*
+  - http://slack.kyma-project.io
+  - http://slack.kyma-project.io/
 files-to-ignore:
   - node_modules
   - content/docs
