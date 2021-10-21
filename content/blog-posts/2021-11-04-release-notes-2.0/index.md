@@ -22,10 +22,10 @@ See the overview of all changes in this release:
 
 - [Application Connectivity](#application-connectivity) - New way to reach registered services, Application Connector improvements
 - [CLI](#cli) - From Minikube to K3d, Revamped way of installation, Deploy values instead of configuration overrides, Kyma installation now entirely client-side, Obsolete command: `kyma test`  /  New way to test Kyma
-- [Documentation](#documentation) -
 - [Observability](#observability) - Authentication for Grafana, Kiali, and Jaeger UIs, Improved security for logs in Kyma Dashboard, Prometheus mTLS, Observability services updated
 - [Security](#security) - Leveraging basic kubernetes authentication, ORY oathkeeper will no longer use dex
 - [Service Management](#service-management) - Service Catalog deprecation
+- [Website](#website) - New landing page, new documentation structure, removed roadmap
 
 
 - [Known issues](#known-issues) - {List of all known issues}
@@ -131,6 +131,18 @@ As we deprecated Service Catalog, in Kyma 2.0 we recommend using service operato
 Note that with the Service Catalog removal, it will no longer be possible to manage the existing hyperscalers' instances using Kyma, and the migration for these instances will not be provided. You will only be able to manage them from the hyperscalers' side. All the existing Secrets with credentials to services will stay in the cluster and will be still injected to you deployments and Functions.
 
 Service Catalog removal will also affect Application Connectivity in the Kyma Environment. Service Catalog objects will not be used anymore, and both ServiceInstances and ServiceBindings will not be required.
+
+
+## Website
+
+### New landing page
+TBD
+
+### New documentation structure
+TBD
+
+### Removed roadmap
+TBD
 
 
 ## Fixed security vulnerabilities
