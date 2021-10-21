@@ -114,7 +114,6 @@ The full list of removed autn/authz components:
 	• uaa-activator
 As the list is quite big it doesn't affect most of the production use cases. The components were used mainly for exposing Kyma UI in the development/standalone mode (static users). For such use cases we have provided refactored, better, and faster Kyma Dashboard described in another section.
 
-
 ### ORY oathkeeper will no longer use dex
 
 Within Kyma 2.0, dex will be deprecated. Therefore ORY oathkeeper will no longer use dex to verify jwt tokens.  Existing APIRules which do have an access strategy "jwt" defined need to be enriched with an individual jwks_url pointing to your custom OpenID Connect-compliant identity provider.
