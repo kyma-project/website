@@ -144,6 +144,8 @@ TBD
 ### Removed roadmap
 TBD
 
+## Known issues
+
 
 ## Fixed security vulnerabilities
 
