@@ -132,7 +132,10 @@ Note that with the Service Catalog removal, it will no longer be possible to man
 
 Service Catalog removal will also affect Application Connectivity in the Kyma Environment. Service Catalog objects will not be used anymore, and both ServiceInstances and ServiceBindings will not be required.
 
+### Serverless
+Python 38 deprecation
 
+We are planning to remove Python 3.8 as Kyma has Python 3.9 available in Kyma serverless. From this release, python 3.8 is deprecated and will be removed in next release. We recommend that you configure all your Python 3.8 Functions to run on the Python 3.9 runtime
 ## Website
 
 ### New landing page
