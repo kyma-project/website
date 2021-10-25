@@ -2,7 +2,7 @@
 ---
 title: "Kyma 2.0"
 author:
-  name: "{Name and surname}, Technical Writers @Kyma"
+  name: "Technical Writers @Kyma"
 tags:
   - release-notes
 type: release
@@ -24,6 +24,7 @@ See the overview of all changes in this release:
 - [CLI](#cli) - From Minikube to K3d, Revamped way of installation, Deploy values instead of configuration overrides, Kyma installation now entirely client-side, Obsolete command: `kyma test`  /  New way to test Kyma
 - [Observability](#observability) - Authentication for Grafana, Kiali, and Jaeger UIs, Improved security for logs in Kyma Dashboard, Prometheus mTLS, Observability services updated
 - [Security](#security) - Leveraging basic kubernetes authentication, ORY oathkeeper will no longer use dex
+- [Serverless](#serverless) - Python 3.8 deprecation
 - [Service Management](#service-management) - Service Catalog deprecation
 - [Website](#website) - New landing page, new documentation structure, removed roadmap
 
@@ -119,6 +120,13 @@ As the list is quite big it doesn't affect most of the production use cases. The
 Within Kyma 2.0, dex will be deprecated. Therefore ORY oathkeeper will no longer use dex to verify jwt tokens.  Existing APIRules which do have an access strategy "jwt" defined need to be enriched with an individual jwks_url pointing to your custom OpenID Connect-compliant identity provider.
 
 
+## Serverless
+
+### Python 3.8 deprecation
+
+We are planning to remove Python 3.8 as Kyma has Python 3.9 available in Kyma serverless. From this release, python 3.8 is deprecated and will be removed in next release. We recommend that you configure all your Python 3.8 Functions to run on the Python 3.9 runtime
+
+
 ## Service Management
 
 ### Service Catalog deprecation
@@ -132,10 +140,7 @@ Note that with the Service Catalog removal, it will no longer be possible to man
 
 Service Catalog removal will also affect Application Connectivity in the Kyma Environment. Service Catalog objects will not be used anymore, and both ServiceInstances and ServiceBindings will not be required.
 
-### Serverless
-Python 38 deprecation
 
-We are planning to remove Python 3.8 as Kyma has Python 3.9 available in Kyma serverless. From this release, python 3.8 is deprecated and will be removed in next release. We recommend that you configure all your Python 3.8 Functions to run on the Python 3.9 runtime
 ## Website
 
 ### New landing page
