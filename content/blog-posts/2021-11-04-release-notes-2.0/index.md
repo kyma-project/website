@@ -76,7 +76,7 @@ The test framework changed and now, testing happens entirely client-side. The `k
 
 ### `kyma dashboard` instead of `kyma console`
 
-To open the graphical user interface for Kyma, use the `kyma dashboard` command. The `kyma console command is deprecated. 
+To open the graphical user interface for Kyma, use the `kyma dashboard` command. The `kyma console` command is deprecated. 
 
 
 ## Observability
