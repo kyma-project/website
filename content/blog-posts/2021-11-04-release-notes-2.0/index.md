@@ -60,7 +60,9 @@ Switching the local Kubernetes tool from minikube to k3d allows a faster and mor
 
 ### Revamped way of installation
 
-We simplified the way to install Kyma and changed the following commands:
+We fundamentally improved and simplified the way to install Kyma, phasing out the Kyma Installer component. With this change, Kyma is up to date with the current Kubernetes security, authorization, and identity standards. Cluster admins can restrict user permissions as desired; the permissions are evaluated based on the kubeconfig. There is no god-mode Service Account within the cluster anymore, and the Kyma installation is now entirely client-side.
+
+The commands for installation have been updated as well: 
 	• The `deploy` command replaces the `install` and `upgrade` commands.
 	• The `undeploy` command replaces the `uninstall` command.
 
@@ -68,11 +70,13 @@ We simplified the way to install Kyma and changed the following commands:
 
 Instead of the deprecated `--override` flag, use the `deploy` command to change the Kyma settings: With the `--values-file` flag, you can provide a plain yaml file. Alternatively, you can provide values inline with the `--value` flag. Learn more in Change Kyma Settings.
 
-### Kyma installation now entirely client-side
-TBD
+### New way to test Kyma - command: `kyma test` is obsolete
 
-### Obsolete command: `kyma test`  /  New way to test Kyma
-TBD
+The test framework changed and now, testing happens entirely client-side. The `kyma test` command is deprecated.  	
+
+### `kyma dashboard` instead of `kyma console`
+
+To open the graphical user interface for Kyma, use the `kyma dashboard` command. The `kyma console command is deprecated. 
 
 
 ## Observability
@@ -95,7 +99,7 @@ By enabling Prometheus mTLs, you can improve the security in your Service Mesh: 
 
 	• FluentBit has been bumped up to the latest version 1.8.
 	• Loki and Grafana are using the latest version with Apache 2 license: Loki 2.2. and Grafana 7.5.
-	• Prometheus Node Exporter uses ???
+	• Prometheus Node Exporter uses version 1.1
 
 
 ## Security
@@ -124,7 +128,7 @@ Within Kyma 2.0, dex will be deprecated. Therefore ORY oathkeeper will no longer
 
 ### Python 3.8 deprecation
 
-We are planning to remove Python 3.8 as Kyma has Python 3.9 available in Kyma serverless. From this release, python 3.8 is deprecated and will be removed in next release. We recommend that you configure all your Python 3.8 Functions to run on the Python 3.9 runtime
+We are planning to remove Python 3.8 as Kyma has Python 3.9 available in Kyma Serverless. From this release, python 3.8 is deprecated and will be removed in the next release. We recommend that you configure all your Python 3.8 Functions to run on the Python 3.9 runtime.
 
 
 ## Service Management
@@ -139,6 +143,55 @@ As we deprecated Service Catalog, in Kyma 2.0 we recommend using service operato
 Note that with the Service Catalog removal, it will no longer be possible to manage the existing hyperscalers' instances using Kyma, and the migration for these instances will not be provided. You will only be able to manage them from the hyperscalers' side. All the existing Secrets with credentials to services will stay in the cluster and will be still injected to you deployments and Functions.
 
 Service Catalog removal will also affect Application Connectivity in the Kyma Environment. Service Catalog objects will not be used anymore, and both ServiceInstances and ServiceBindings will not be required.
+
+## Kyma Dashboard
+
+### New technology
+
+Kyma Dashboard, based on the Busola project, replaces Kyma Console. For more information, see [link to repo].
+
+Kyma Dashboard now is decoupled from the Kyma cluster. Kyma Dashboard is not part of the initial Kyma installation, but you can add it to the cluster manually or run it on your local machine using Kyma CLI. 
+We have removed the console-backend service and we are connecting directly with the Kubernetes API.
+
+### New features
+
+With Kyma Dashboard, you can work with multiple clusters and switch between them, and add external clusters.
+
+You have a better overview of your apps and the resources involved, because the new deep linking functionality enables you to jump between them easily.
+
+For a better accesibility, you can choose between the light and dark mode, and high contrast themes . 
+
+### New list views
+
+You can now view all Kyma and most of the Kubernetes resources in the Kyma Dashboard:
+- Service Accounts
+- Cluster Nodes
+- Jobs
+- Cron Jobs
+- Stateful Sets
+- Damon Sets
+- Gateways
+- Issuers
+- Certificates
+- DNS Providers
+- DNS Entries
+
+### Easier creation of resources
+
+We introduced new create resource views for:
+- Roles
+- RolesBindings
+- Service Accounts
+- Deployment 
+- CronJobs
+- Jobs
+- ConfigMaps
+- Secrets
+- Issuers 
+- Certificates
+- DNS Providers
+- DNS Entries
+Gateways![image](https://user-images.githubusercontent.com/76950046/139088730-e2ff7db9-9e66-4583-9a88-6f92a32cd369.png)
 
 
 ## Website
