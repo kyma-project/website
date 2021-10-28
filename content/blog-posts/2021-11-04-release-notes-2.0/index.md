@@ -26,6 +26,7 @@ See the overview of all changes in this release:
 - [Security](#security) - Leveraging basic kubernetes authentication, ORY oathkeeper will no longer use dex
 - [Serverless](#serverless) - Python 3.8 deprecation
 - [Service Management](#service-management) - Service Catalog deprecation
+- [Kyma Dashboard](#kyma-dashboard) - New technology, New features, New list views, Easier resource creation
 - [Website](#website) - New landing page, new documentation structure, removed roadmap
 
 
