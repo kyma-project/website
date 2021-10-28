@@ -21,7 +21,7 @@ redirectFrom:
 See the overview of all changes in this release:
 
 - [Application Connectivity](#application-connectivity) - New way to reach registered services, Application Connector improvements
-- [CLI](#cli) - From Minikube to K3d, Revamped way of installation, Deploy values instead of configuration overrides, Kyma installation now entirely client-side, Obsolete command: `kyma test`  /  New way to test Kyma
+- [CLI](#cli) - From Minikube to K3d, Revamped way of installation, Deploy values instead of configuration overrides, New way to test Kyma, kyma dashboard command
 - [Observability](#observability) - Authentication for Grafana, Kiali, and Jaeger UIs, Improved security for logs in Kyma Dashboard, Prometheus mTLS, Observability services updated
 - [Security](#security) - Leveraging basic kubernetes authentication, ORY oathkeeper will no longer use dex
 - [Serverless](#serverless) - Python 3.8 deprecation
