@@ -123,9 +123,9 @@ See the full list of removed autentication and authorization components:
 
 The list is quite big but it doesn't affect most of the production use cases. The components were used mainly for exposing Kyma UI in the development/standalone mode (static users). For such use cases, we have provided refactored, better, and faster [Kyma Dashboard](#kyma-dashboard) described in another section.
 
-### ORY oathkeeper will no longer use dex
+### ORY Oathkeeper without Dex
 
-Within Kyma 2.0, Dex will be deprecated. Therefore ORY Oathkeeper will no longer use Dex to verify JWT tokens. Existing API Rules that do have an access strategy JWT defined need to be enriched with an individual **jwks_url** pointing to your custom OpenID Connect-compliant identity provider.
+With Kyma 2.0, Dex will be deprecated. Therefore, ORY Oathkeeper will no longer use Dex to verify JWT tokens. Existing API Rules that have a JWT access strategy defined need to be enriched with an individual **jwks_url** pointing to a custom OpenID Connect-compliant identity provider.
 
 
 ## Serverless
