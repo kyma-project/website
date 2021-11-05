@@ -23,7 +23,7 @@ See the overview of all changes in this release:
 - [Application Connectivity](#application-connectivity) - New way to reach registered services, Application Connector improvements
 - [CLI](#cli) - From Minikube to K3d, Revamped way of installation, Deploy values instead of configuration overrides, New way to test Kyma, kyma dashboard command
 - [Observability](#observability) - Authentication for Grafana, Kiali, and Jaeger UIs, Improved security for logs in Kyma Dashboard, Prometheus mTLS, Observability services updated
-- [Security](#security) - Leveraging basic kubernetes authentication, ORY oathkeeper will no longer use dex
+- [Security](#security) - Leveraging basic Kubernetes authentication, ORY Oathkeeper will no longer use Dex
 - [Serverless](#serverless) - Python 3.8 deprecation
 - [Service Management](#service-management) - Service Catalog deprecation
 - [Kyma Dashboard](#kyma-dashboard) - New technology, New features, New list views, Easier resource creation
@@ -105,24 +105,27 @@ By enabling Prometheus mTLs, you can improve the security in your Service Mesh: 
 
 ## Security
 
-### Leveraging basic kubernetes authentication
+### Leveraging basic Kubernetes authentication
 
-With 2.0, we untangled authentication concepts in Kyma. We removed the complexity of having a built-in authentication component (dex) and proxies to the Kubernetes API server ("apiserver-proxy" and "console-backend-service"). We decided to just use plain kubernetes authentication and authorization options:
-	• [OpenID Connect tokens](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#openid-connect-tokens])
-	• Role Based Access Control ([RBAC](https://kubernetes.io/docs/reference/access-authn-authz/rbac/))
-With such change, we were able to remove many service accounts with high privileges and several other attack vectors that could lead to unauthorized access to your cluster resources (like static users in dex configuration - admin@kyma.cx or kubeconfig pointing apiserver-proxy with the token valid for several hours).
-The full list of removed autn/authz components:
-	• apiserver-proxy
-	• console-backend
-	• dex
-	• iam-kubeconfig-service
-	• permission-controller
-	• uaa-activator
-As the list is quite big it doesn't affect most of the production use cases. The components were used mainly for exposing Kyma UI in the development/standalone mode (static users). For such use cases we have provided refactored, better, and faster Kyma Dashboard described in another section.
+With 2.0, we untangled authentication concepts in Kyma. We removed the complexity of having a built-in authentication component - Dex, and proxies to the Kubernetes API server - API Server Proxy and Console Backend Service. We decided to use plain Kubernetes authentication and authorization options:
+- [OpenID Connect tokens](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#openid-connect-tokens)
+- [Role Based Access Control (RBAC)](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)
+
+With such a change, we were able to remove many service accounts with high privileges and several other attack vectors that could lead to unauthorized access to your cluster resources. For example, static users in Dex configuration - `admin@kyma.cx` or kubeconfig pointing to `apiserver-proxy` with a token valid for several hours.
+
+See the full list of removed autentication and authorization components:
+- API Server Proxy
+- Console Backend Service
+- Dex
+- IAM Kubeconfig Service
+- Permission Controller
+- UAA Activator
+
+The list is quite big but it doesn't affect most of the production use cases. The components were used mainly for exposing Kyma UI in the development/standalone mode (static users). For such use cases, we have provided refactored, better, and faster [Kyma Dashboard](#kyma-dashboard) described in another section.
 
 ### ORY oathkeeper will no longer use dex
 
-Within Kyma 2.0, dex will be deprecated. Therefore ORY oathkeeper will no longer use dex to verify jwt tokens.  Existing APIRules which do have an access strategy "jwt" defined need to be enriched with an individual jwks_url pointing to your custom OpenID Connect-compliant identity provider.
+Within Kyma 2.0, Dex will be deprecated. Therefore ORY Oathkeeper will no longer use Dex to verify JWT tokens. Existing API Rules that do have an access strategy JWT defined need to be enriched with an individual **jwks_url** pointing to your custom OpenID Connect-compliant identity provider.
 
 
 ## Serverless
