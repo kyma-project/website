@@ -12,7 +12,7 @@ redirectFrom:
 ---
 ```
 
-> Write an introductory paragraph and present the most important release highlights from all components. List the highlights as bullet points and provide relative links to their corresponding sections.
+We are happy to announce the release of the long-awaited Kyma 2.0! This major release brings a lot of simplification and improvements to the product.
 
 <!-- overview -->
 
@@ -21,12 +21,12 @@ redirectFrom:
 See the overview of all changes in this release:
 
 - [Application Connectivity](#application-connectivity) - New way to reach registered services, Application Connector improvements
-- [CLI](#cli) - From Minikube to K3d, Revamped way of installation, Deploy values instead of configuration overrides, New way to test Kyma, kyma dashboard command
-- [Observability](#observability) - Authentication for Grafana, Kiali, and Jaeger UIs, Improved security for logs in Kyma Dashboard, Prometheus mTLS, Observability services updated
+- [CLI](#cli) - From Minikube to K3d, revamped way of installation, Deploy values instead of configuration overrides, new way to test Kyma, the `kyma dashboard` command
+- [Observability](#observability) - Authentication for Grafana, Kiali, and Jaeger UIs, improved security for logs in Kyma Dashboard, Prometheus mTLS, Observability services updated
 - [Security](#security) - Leveraging basic Kubernetes authentication, ORY Oathkeeper will no longer use Dex
 - [Serverless](#serverless) - Python 3.8 deprecation
 - [Service Management](#service-management) - Service Catalog deprecation
-- [Kyma Dashboard](#kyma-dashboard) - New technology, New features, New list views, Easier resource creation
+- [Kyma Dashboard](#kyma-dashboard) - New technology, new features, new list views, easier resource creation
 - [Website](#website) - New landing page, new documentation structure, removed roadmap
 
 
@@ -36,11 +36,11 @@ See the overview of all changes in this release:
 
 ## Application Connectivity
 
-### New way to reach registered services!
+### New way to reach registered services
 
-Kyma 2.0 brings some fresh air to the Application Connector area as well. There is now a possibility to call an external registered service without the need of creating ServiceInstances and binding them to the workload. Central Application Gateway is a new component responsible for this part. Read about how to do that [here](https://github.com/kyma-project/kyma/tree/main/components/central-application-gateway).
+Kyma 2.0 brings some fresh air to the Application Connector area. There is now a possibility to call an external registered service without the need of creating ServiceInstances and binding them to the workload. Central Application Gateway is a new component responsible for this part. Read about how to do that [here](https://github.com/kyma-project/kyma/tree/main/components/central-application-gateway).
 
-In the future, this will be the default way of creating Application-related flows as Service Catalog will be removed and the option to create ServiceInstances and bindings will go away. While we will support already existing flows for some time, we highly recommend that the users try out the new, simplified approach now.
+In the future, this will be the default way of creating Application-related flows as Service Catalog will be removed and the option to create ServiceInstances and bindings will go away. While we will support the already existing flows for some time, we highly recommend that the users try out the new, simplified approach now.
 
 ### Application Connector improvements
 
@@ -63,7 +63,7 @@ Switching the local Kubernetes tool from minikube to k3d allows a faster and mor
 
 We fundamentally improved and simplified the way to install Kyma, phasing out the Kyma Installer component. With this change, Kyma is up to date with the current Kubernetes security, authorization, and identity standards. Cluster admins can restrict user permissions as desired; the permissions are evaluated based on the kubeconfig. There is no god-mode Service Account within the cluster anymore, and the Kyma installation is now entirely client-side.
 
-The commands for installation have been updated as well: 
+The commands for installation have been updated as well:
 	• The `deploy` command replaces the `install` and `upgrade` commands.
 	• The `undeploy` command replaces the `uninstall` command.
 
@@ -77,7 +77,7 @@ The test framework changed and now, testing happens entirely client-side. The `k
 
 ### `kyma dashboard` instead of `kyma console`
 
-To open the graphical user interface for Kyma, use the `kyma dashboard` command. The `kyma console` command is deprecated. 
+To open the graphical user interface for Kyma, use the `kyma dashboard` command. The `kyma console` command is deprecated.
 
 
 ## Observability
@@ -154,7 +154,7 @@ Service Catalog removal will also affect Application Connectivity in the Kyma En
 
 Kyma Dashboard, based on the Busola project, replaces Kyma Console. For more information, see [link to repo].
 
-Kyma Dashboard now is decoupled from the Kyma cluster. Kyma Dashboard is not part of the initial Kyma installation, but you can add it to the cluster manually or run it on your local machine using Kyma CLI. 
+Kyma Dashboard now is decoupled from the Kyma cluster. Kyma Dashboard is not part of the initial Kyma installation, but you can add it to the cluster manually or run it on your local machine using Kyma CLI.
 We have removed the console-backend service and we are connecting directly with the Kubernetes API.
 
 ### New features
@@ -163,7 +163,7 @@ With Kyma Dashboard, you can work with multiple clusters and switch between them
 
 You have a better overview of your apps and the resources involved, because the new deep linking functionality enables you to jump between them easily.
 
-For a better accesibility, you can choose between the light and dark mode, and high contrast themes . 
+For a better accesibility, you can choose between the light and dark mode, and high contrast themes .
 
 ### New list views
 
@@ -186,12 +186,12 @@ We introduced new create resource views for:
 - Roles
 - RolesBindings
 - Service Accounts
-- Deployment 
+- Deployment
 - CronJobs
 - Jobs
 - ConfigMaps
 - Secrets
-- Issuers 
+- Issuers
 - Certificates
 - DNS Providers
 - DNS Entries
