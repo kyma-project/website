@@ -23,7 +23,7 @@ By enabling a special toggle you will be able to delegate the eventing and messa
 The [Prow Working Group](https://kyma-community.slack.com/messages/CD7GJ41QE) is also firing on all cylinders. Soon all contributors will be able to see the build status and the logs for their pull requests. What's even more exciting, Cairo will be built using the new CI architecture!
 
 We're also working on a more consistent naming scheme for all of our components. As Kyma users are well familiar with Kubernetes Namespaces, we decided to abandon our custom term "Environment" and use the Kubernetes standard instead.  
-The renaming will also affect the Application Connector, as we'll say goodbye to "Remote Environments" and start using the "Application" name instead. This is an important step that follows our [Application Connectivity vision](https://github.com/kyma-project/community/blob/main/capabilities/application-connectivity.md). You can read more about both renaming efforts in [this](https://kyma-community.slack.com/archives/CD0K2NSQZ/p1544519219008800) Slack post. 
+The renaming will also affect the Application Connector, as we'll say goodbye to "Remote Environments" and start using the "Application" name instead. This is an important step that follows our Application Connectivity vision. You can read more about both renaming efforts in [this](https://kyma-community.slack.com/archives/CD0K2NSQZ/p1544519219008800) Slack post. 
 
 In parallel, we are working continuously on the Kyma UI/UX - you can expect a better navigation structure and technical foundation for UI modularization and extensibility, achieved by switching Console UI to Luigi framework.
 

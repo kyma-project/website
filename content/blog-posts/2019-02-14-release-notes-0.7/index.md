@@ -62,7 +62,7 @@ If you run Kyma on Minikube, you must expose the Nginx Ingress Controller on the
 
 We have introduced the alpha version of a new, Kubernetes-native solution for storing assets, such as documents, files, images, or API specifications.
 
-This version of the Asset Store brings you the following features included in the [Asset Store proposal](https://github.com/kyma-project/community/blob/main/collaboration/archive/sig-core/proposals/asset-store-proposal.md):
+This version of the Asset Store brings you the following features included in the [Asset Store proposal](https://github.com/kyma-project/community/blob/main/sigs-and-wgs/archive/sig-core/proposals/asset-store-proposal.md):
 
 * Fetching single files and packages (zip and tar files are supported for unpacking).
 * Starting Minio in the Minio Gateway mode to push resources to cloud providers, such as Azure or Google Cloud.

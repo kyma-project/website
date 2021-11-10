@@ -20,9 +20,9 @@ This one-liner intro already clarifies why we, the Kyma people, want to be there
 These Kyma experts are comming:
 - Ralf Hofmann, our Product Lead
 - Krassimir Semerdzhiev, our Strategist
-- Ahmed Abdalla, [the leader of the Kyma's Core SIG](https://github.com/kyma-project/community/blob/main/collaboration/archive/sig-core) and our Lead Product Engineer
-- Piotr Kopczynski, [the leader of the Kyma's Core SIG](https://github.com/kyma-project/community/blob/main/collaboration/archive/sig-core) and the owner of the Kyma's Service Catalog capability
-- Lukasz Gornicki, [the leader of the Kyma's Core SIG](https://github.com/kyma-project/community/blob/main/collaboration/archive/sig-core) and the owner of the Kyma's Core and Supporting capability
+- Ahmed Abdalla, [the leader of the Kyma's Core SIG](https://github.com/kyma-project/community/tree/main/sigs-and-wgs/archive/sig-core) and our Lead Product Engineer
+- Piotr Kopczynski, [the leader of the Kyma's Core SIG](https://github.com/kyma-project/community/tree/main/sigs-and-wgs/archive/sig-core) and the owner of the Kyma's Service Catalog capability
+- Lukasz Gornicki, [the leader of the Kyma's Core SIG](https://github.com/kyma-project/community/tree/main/sigs-and-wgs/archive/sig-core) and the owner of the Kyma's Core and Supporting capability
 
 The easiest way to talk to us before the event is to do it through [Slack](http://slack.kyma-project.io).
 During the event, you can easily find all Kyma members that travel to Seattle at the SAP booth. Why SAP? Kyma was donated to the open-source community a few months ago by [SAP](/blog/introducing-project-kyma). Stop by and find us at the SAP booth together with another great Kubernetes-native project called [Gardener](https://gardener.cloud/).
