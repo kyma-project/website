@@ -92,7 +92,9 @@ As a result, all users are logged on anonymously and see the same UI. If you pre
 ### Improved security for logs in Kyma Dashboard
 
 The logs displayed in Kyma Dashboard are now based on the Kubernetes API server. This way, Loki is no longer exposed to the external network, reducing an attack vector.
+### Containerd support
 
+With the update of Fluent Bit to version 1.8, we activated the new multiline support feature and configured support for Docker and containerd.
 ### Prometheus mTLS
 
 By enabling Prometheus mTLs, you can improve the security in your Service Mesh: You can keep the strict mTLS mode for custom metrics. You don't have to weaken the authentication policy when you're scraping workloads  deployed in the Service Mesh. Learn more in Enable mTLS for custom metrics.
