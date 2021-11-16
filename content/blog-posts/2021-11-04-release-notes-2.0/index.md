@@ -45,7 +45,7 @@ Kyma 2.0 allows users to expose Istio workloads using custom, user-managed domai
 
 Kyma 2.0 brings some fresh air to the Application Connector area. There is now a possibility to call an external registered service without the need of creating ServiceInstances and binding them to the workload. Central Application Gateway is a new component responsible for this part. Read about how to do that [here](https://github.com/kyma-project/kyma/tree/main/components/central-application-gateway).
 
-In the future, this will be the default way of creating Application-related flows as Service Catalog will be removed and the option to create ServiceInstances and bindings will go away. While we will support the already existing flows for some time, we highly recommend that the users try out the new, simplified approach now.
+In the future, this will be the default way of creating Application-related flows, as Service Catalog will be removed and the option to create ServiceInstances and bindings will go away. While we will support the already existing flows for some time, we highly recommend that the users try out the new, simplified approach now.
 
 ### Application Connector improvements
 
