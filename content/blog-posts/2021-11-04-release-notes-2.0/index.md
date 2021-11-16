@@ -20,19 +20,26 @@ We are happy to announce the release of the long-awaited Kyma 2.0! This major re
 
 See the overview of all changes in this release:
 
+- [API Exposure](#api-exposure) - Exposing workloads on custom domains, different from the Kyma main domain
 - [Application Connectivity](#application-connectivity) - New way to reach registered services, Application Connector improvements
 - [CLI](#cli) - From Minikube to K3d, revamped way of installation, Deploy values instead of configuration overrides, new way to test Kyma, the `kyma dashboard` command
 - [Observability](#observability) - Authentication for Grafana, Kiali, and Jaeger UIs, improved security for logs in Kyma Dashboard, Prometheus mTLS, Observability services updated
 - [Security](#security) - Leveraging basic Kubernetes authentication, ORY Oathkeeper will no longer use Dex
-- [Api Exposure](#api-exposure) - Exposing workloads on custom domains, different from Kyma main domain.
 - [Serverless](#serverless) - Python 3.8 deprecation
 - [Service Management](#service-management) - Service Catalog deprecation
 - [Kyma Dashboard](#kyma-dashboard) - New technology, new features, new list views, easier resource creation
 - [Website](#website) - New landing page, new documentation structure, removed roadmap
-
-
 - [Known issues](#known-issues) - {List of all known issues}
 - [Fixed security vulnerabilities](#fixed-security-vulnerabilities) - {List of all fixed security vulnerabilities}
+
+## Api Exposure
+
+### Exposing workloads on custom domains
+
+Kyma 2.0 allows users to expose Istio workloads using custom, user-managed domains. In previous Kyma versions the only supported scenario was to use the main Kyma domain for API exposure.
+Now, provided you own a domain, you can expose any Kyma-hosted workload using this domain. In addition, a TLS Certificate may be automatically generated for you.
+You can have multiple workloads using multiple custom domains.
+See the [Use a custom domain to expose a service](https://kyma-project.io/docs/kyma/latest/03-tutorials/00-api-exposure/apix-01-own-domain/) tutorial for details.
 
 
 ## Application Connectivity
@@ -129,15 +136,6 @@ The list is quite big but it doesn't affect most of the production use cases. Th
 ### ORY Oathkeeper without Dex
 
 With Kyma 2.0, Dex will be deprecated. Therefore, ORY Oathkeeper will no longer use Dex to verify JWT tokens. Existing API Rules that have a JWT access strategy defined need to be enriched with an individual **jwks_url** pointing to a custom OpenID Connect-compliant identity provider.
-
-## Api Exposure
-
-### Exposing workloads on custom domains
-
-Kyma 2.0 allows users to expose Istio workloads using custom, user-managed domains. In previous Kyma versions the only supported scenario was to use the main Kyma domain for API exposure.
-Now, provided you own a domain, you can expose any Kyma-hosted workload using this domain. In addition, a TLS Certificate may be automatically generated for you.
-You can have multiple workloads using multiple custom domains.
-See [Use a custom domain to expose a service](https://kyma-project.io/docs/kyma/latest/03-tutorials/00-api-exposure/apix-01-own-domain/) tutorial for details.
  
 ## Serverless
 
