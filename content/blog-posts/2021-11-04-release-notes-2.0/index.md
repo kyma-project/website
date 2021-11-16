@@ -32,14 +32,11 @@ See the overview of all changes in this release:
 - [Known issues](#known-issues) - {List of all known issues}
 - [Fixed security vulnerabilities](#fixed-security-vulnerabilities) - {List of all fixed security vulnerabilities}
 
-## Api Exposure
+## API Exposure
 
 ### Exposing workloads on custom domains
 
-Kyma 2.0 allows users to expose Istio workloads using custom, user-managed domains. In previous Kyma versions the only supported scenario was to use the main Kyma domain for API exposure.
-Now, provided you own a domain, you can expose any Kyma-hosted workload using this domain. In addition, a TLS Certificate may be automatically generated for you.
-You can have multiple workloads using multiple custom domains.
-See the [Use a custom domain to expose a service](https://kyma-project.io/docs/kyma/latest/03-tutorials/00-api-exposure/apix-01-own-domain/) tutorial for details.
+Kyma 2.0 allows users to expose Istio workloads using custom, user-managed domains. In previous Kyma versions the only supported scenario was to use the main Kyma domain for API exposure. Now, provided you own a domain, you can expose any Kyma-hosted workload using this domain. In addition, a TLS Certificate may be automatically generated for you. You can have multiple workloads using multiple custom domains. See the [Use a custom domain to expose a service](https://kyma-project.io/docs/kyma/latest/03-tutorials/00-api-exposure/apix-01-own-domain/) tutorial for details.
 
 
 ## Application Connectivity
