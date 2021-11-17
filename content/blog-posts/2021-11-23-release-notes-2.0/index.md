@@ -23,7 +23,7 @@ See the overview of all changes in this release:
 - [API Exposure](#api-exposure) - Exposing workloads on custom domains
 - [Application Connectivity](#application-connectivity) - New way to reach registered services, Application Connectivity improvements
 - [CLI](#cli) - Switching from Minikube to k3d, revamped way of installation, values instead of configuration overrides, the `kyma test` command deprecated, the `kyma dashboard` command instead of `kyma console`
-- [Observability](#observability) - Authentication for Grafana, Kiali, and Jaeger UIs, improved security for logs in Kyma Dashboard, Prometheus mTLS, Observability services updated
+- [Observability](#observability) - Authentication for Grafana, Kiali, and Jaeger UIs, improved security for logs in Kyma Dashboard, containerd support, Prometheus mTLS, Observability services updated
 - [Security](#security) - Leveraging basic Kubernetes authentication, ORY Oathkeeper will no longer use Dex
 - [Serverless](#serverless) - Python 3.8 deprecation
 - [Service Management](#service-management) - Service Catalog deprecation
@@ -90,25 +90,29 @@ To open the graphical user interface for Kyma, use the `kyma dashboard` command.
 
 ### Authentication for Grafana, Kiali, and Jaeger UIs
 
-The deprecation of dex allows a simpler and more consistent authentication concept for the observability user interfaces. Grafana, Kiali, and Jaeger UIs are no longer exposed by default. Instead, you have the flexibility to set up your preferred OIDC provider for each service. Learn how to expose the services securely.
+The deprecation of Dex allows a simpler and more consistent authentication for the Observability user interfaces. Grafana, Kiali, and Jaeger UIs are no longer exposed by default. Instead, you have the flexibility to set up your preferred OIDC provider for each service. Learn how to [expose a services securely](https://kyma-project.io/docs/kyma/latest/04-operation-guides/security/sec-06-access-expose-kiali-grafana).
 
 As a result, all users are logged on anonymously and see the same UI. If you prefer a user-specific configuration for Grafana UI, use the Grafana login solution and switch off the OAuth proxy.
 
 ### Improved security for logs in Kyma Dashboard
 
-The logs displayed in Kyma Dashboard are now based on the Kubernetes API server. This way, Loki is no longer exposed to the external network, reducing an attack vector.
+Logs displayed in Kyma Dashboard are now based on the Kubernetes API server. This way, Loki is no longer exposed to the external network, which reduces an attack vector.
+
 ### Containerd support
 
 With the update of Fluent Bit to version 1.8, we activated the new multiline support feature and configured support for Docker and containerd.
+
 ### Prometheus mTLS
 
-By enabling Prometheus mTLs, you can improve the security in your Service Mesh: You can keep the strict mTLS mode for custom metrics. You don't have to weaken the authentication policy when you're scraping workloads  deployed in the Service Mesh. Learn more in Enable mTLS for custom metrics.
+By enabling Prometheus mTLs, you can improve the security in your Service Mesh and keep the strict mTLS mode for custom metrics. You don't have to weaken the authentication policy when you're scraping workloads deployed in the Service Mesh. Learn more in [Enable mTLS for custom metrics](https://kyma-project.io/docs/kyma/latest/01-overview/main-areas/observability/obsv-03-istio-monitoring#enable-m-tls-for-custom-metrics).
 
 ### Observability services updated
 
-	• FluentBit has been bumped up to the latest version 1.8.
-	• Loki and Grafana are using the latest version with Apache 2 license: Loki 2.2. and Grafana 7.5.
-	• Prometheus Node Exporter uses version 1.1
+Moreover, these Observability services have been updated:
+
+- FluentBit has been bumped up to the latest version 1.8.
+- Loki and Grafana use the latest version with Apache 2 license: Loki 2.2. and Grafana 7.5.
+- Prometheus Node Exporter uses version 1.1
 
 
 ## Security
@@ -122,6 +126,7 @@ With 2.0, we untangled authentication concepts in Kyma. We removed the complexit
 With such a change, we were able to remove many service accounts with high privileges and several other attack vectors that could lead to unauthorized access to your cluster resources. For example, static users in Dex configuration - `admin@kyma.cx` or kubeconfig pointing to `apiserver-proxy` with a token valid for several hours.
 
 See the full list of removed autentication and authorization components:
+
 - API Server Proxy
 - Console Backend Service
 - Dex
