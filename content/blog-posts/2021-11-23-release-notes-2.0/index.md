@@ -25,7 +25,7 @@ See the overview of all changes in this release:
 - [CLI](#cli) - Switching from Minikube to k3d, revamped way of installation, values instead of configuration overrides, the `kyma test` command deprecated, the `kyma dashboard` command instead of `kyma console`
 - [Kyma Dashboard](#kyma-dashboard) - Kyma Console replaced with new technology, Kyma Dashboard new features, new list views, easier resource creation
 - [Observability](#observability) - Authentication for Grafana, Kiali, and Jaeger UIs, improved security for logs in Kyma Dashboard, containerd support, Prometheus mTLS, Observability services updated
-- [Security](#security) - Basic Kubernetes authentication in Kyma, ORY Oathkeeper without Dex
+- [Security](#security) - Native Kubernetes authentication in Kyma, ORY Oathkeeper without Dex, ORY components update
 - [Serverless](#serverless) - Python 3.8 deprecation
 - [Service Management](#service-management) - Service Catalog deprecation
 - [Website](#website) - New landing page, new documentation structure, removed roadmap
@@ -104,7 +104,7 @@ Kyma Dashboard provides you with many new, useful features:
 - The new deep linking functionality allows you to easily jump between your apps and the resources involved.
 - For a better accessibility, you can choose between the light and dark mode, and high contrast themes.
 
-### New list views
+### New resources view
 
 You can now view all Kyma and most of the Kubernetes resources in the Kyma Dashboard:
 - Service Accounts
@@ -168,7 +168,7 @@ Moreover, these Observability services have been updated:
 
 ## Security
 
-### Basic Kubernetes authentication in Kyma
+### Native Kubernetes authentication in Kyma
 
 With 2.0, we untangled authentication concepts in Kyma. We removed the complexity of having a built-in authentication component - Dex, and proxies to the Kubernetes API server - API Server Proxy and Console Backend Service. We decided to use plain Kubernetes authentication and authorization options:
 - [OpenID Connect tokens](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#openid-connect-tokens)
@@ -190,6 +190,18 @@ The list is quite big but it doesn't affect most of the production use cases. Th
 ### ORY Oathkeeper without Dex
 
 With Kyma 2.0, the Dex component becomes deprecated. Therefore, ORY Oathkeeper will no longer use Dex to verify JWT tokens. Existing API Rules that have a JWT access strategy defined must be enriched with an individual **jwks_url** pointing to a custom OpenID Connect-compliant identity provider.
+
+### ORY components update
+
+As of the Kyma 2.0 release, we upgraded the following ORY components:
+
+- ORY Oathkeeper from 0.38.11 to 0.38.15
+- ORY Hydra from 1.8.5 to 1.10.7
+- ORY Hydra Maester from 0.0.21 to 0.0.24
+- ORY Oathkeeper Maester from 0.1.4 to 0.1.5
+
+See the official list of changes for [ORY Oathkeeper](https://github.com/ory/oathkeeper/releases/tag/v0.38.15-beta.1), [ORY Hydra](https://github.com/ory/hydra/releases/tag/v1.10.7), [ORY Hydra Maester](https://github.com/ory/hydra-maester/releases/tag/v0.0.24), [ORY Oathkeeper Maester](https://github.com/ory/oathkeeper-maester/releases/tag/v0.1.5).
+
 
 ## Serverless
 
@@ -215,13 +227,16 @@ Service Catalog removal will also affect [Application Connectivity](#application
 ## Website
 
 ### New landing page
-TBD
+
+[Kyma website](https://kyma-project.io/) now has a brand new landing page. The new content explains at first glance what Kyma is, what its main features are, and what problems it solves.
 
 ### New documentation structure
-TBD
+
+We have restructured [Kyma documentation](https://kyma-project.io/docs/kyma/latest/) quite significantly in the 2.0 release. We no longer divide the left navigation based on Kyma components. Instead, we structured the navigation based on the tasks you would normally face when using Kyma. We split rather long documents into shorter, more digestible chunks. On top of that, the collapsible tabs on the left-side navigation group the content into categories that help you find answers to your questions quicker.
 
 ### Removed roadmap
-TBD
+
+We removed the **Roadmap** section from the Kyma website. Refer to [Kyma GitHub issues](https://github.com/kyma-project/kyma/issues) to find the details about planned features.
 
 ## Known issues
 
