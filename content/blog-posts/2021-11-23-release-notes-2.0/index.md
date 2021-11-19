@@ -12,11 +12,11 @@ redirectFrom:
 ---
 ```
 
-We are happy to announce the release of the long-awaited Kyma 2.0! This major release brings a lot of simplification and improvements to the product.
+We are happy to announce the release of the long-awaited Kyma 2.0! This major release brings a lot of fresh air to the project: we simplified and improved many areas, and also provided some brand new features, such as Kyma Dashboard. Read on to find out what Kyma 2.0 has to offer!
 
 <!-- overview -->
 
-> Add a **CAUTION** at the beginning of the release notes whenever there are any important migration and/or update steps required for users to perform before migrating to the new Kyma version. Link to a separate migration guide under `kyma/docs/migration-guides` in which you provide these steps, describe the changes and reasons behind them, and list potential benefits for the users.  
+> **CAUTION:** In this release, authentication and authorization methods in Kyma have changed. Before upgrading to Kyma 2.0, read the [Migration Guide](https://kyma-project.io/docs/kyma/latest/migration-guide-1.24-2.0).
 
 See the overview of all changes in this release:
 
@@ -238,7 +238,14 @@ We have restructured [Kyma documentation](https://kyma-project.io/docs/kyma/late
 
 We removed the **Roadmap** section from the Kyma website. Refer to [Kyma GitHub issues](https://github.com/kyma-project/kyma/issues) to find the details about planned features.
 
+
 ## Known issues
+
+> Describe any known issues that the users can face, together with the way on how to solve these issues.
+
+### {Area name and a brief issue description}
+
+> Describe related known issues here. Add a link to a GitHub issue for tracking purposes, if applicable.
 
 
 ## Fixed security vulnerabilities
