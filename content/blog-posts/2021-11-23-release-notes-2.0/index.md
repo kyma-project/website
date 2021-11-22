@@ -90,7 +90,7 @@ To open the graphical user interface for Kyma, use the `kyma dashboard` command.
 
 ### Removing NATS Operator
 
-In Kyma 2.0, we removed the [NATS Operator](https://github.com/kyma-project/kyma/tree/release-1.24/components/nats-operator) from Eventing and replaced it with standard Helm charts. 
+In Kyma 2.0, we removed the [NATS Operator](https://github.com/kyma-project/kyma/tree/release-1.24/components/nats-operator) and its CRDs from Eventing. Instead, we use the [NATS Helm chart](https://github.com/nats-io/k8s/tree/main/helm/charts/nats). This has no impact on the user, since all configurations have been mapped to the new NATS Helm chart.
 
 ## Kyma Dashboard
 
