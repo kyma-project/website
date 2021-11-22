@@ -23,7 +23,7 @@ See the overview of all changes in this release:
 - [API Exposure](#api-exposure) - Exposing workloads on custom domains
 - [Application Connectivity](#application-connectivity) - New way to reach registered services, Application Connectivity improvements
 - [CLI](#cli) - Switching from Minikube to k3d, revamped way of installation, values instead of configuration overrides, the `kyma test` command deprecated, the `kyma dashboard` command instead of `kyma console`
-- [Eventing](#eventing) - Removing NATS Operator
+- [Eventing](#eventing) - NATS Operator replaced with NATS Helm chart
 - [Kyma Dashboard](#kyma-dashboard) - Kyma Console replaced with new technology, Kyma Dashboard new features, new list views, easier resource creation
 - [Observability](#observability) - Authentication for Grafana, Kiali, and Jaeger UIs, improved security for logs in Kyma Dashboard, containerd support, Prometheus mTLS, Observability services updated
 - [Security](#security) - Native Kubernetes authentication in Kyma, ORY Oathkeeper without Dex
@@ -86,11 +86,13 @@ The test framework changed and now, testing happens entirely client-side. The `k
 
 To open the graphical user interface for Kyma, use the `kyma dashboard` command. The `kyma console` command is now deprecated.
 
+
 ## Eventing 
 
-### Removing NATS Operator
+### NATS Operator replaced with NATS Helm chart
 
 In Kyma 2.0, we removed the [NATS Operator](https://github.com/kyma-project/kyma/tree/release-1.24/components/nats-operator) and its CRDs from Eventing. Instead, we use the [NATS Helm chart](https://github.com/nats-io/k8s/tree/main/helm/charts/nats). This has no impact on the user, since all configurations have been mapped to the new NATS Helm chart.
+
 
 ## Kyma Dashboard
 
