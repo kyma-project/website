@@ -25,7 +25,7 @@ See the overview of all changes in this release:
 - [CLI](#cli) - Switching from Minikube to k3d, revamped way of installation, values instead of configuration overrides, the `kyma test` command deprecated, the `kyma dashboard` command instead of `kyma console`
 - [Kyma Dashboard](#kyma-dashboard) - Kyma Console replaced with new technology, Kyma Dashboard new features, new list views, easier resource creation
 - [Observability](#observability) - Authentication for Grafana, Kiali, and Jaeger UIs, improved security for logs in Kyma Dashboard, containerd support, Prometheus mTLS, Observability services updated
-- [Security](#security) - Native Kubernetes authentication in Kyma, ORY Oathkeeper without Dex, ORY components update
+- [Security](#security) - Native Kubernetes authentication in Kyma, ORY Oathkeeper without Dex
 - [Serverless](#serverless) - Python 3.8 deprecation
 - [Service Management](#service-management) - Service Catalog deprecation
 - [Website](#website) - New landing page, new documentation structure, removed roadmap
@@ -190,17 +190,6 @@ The list is quite big but it doesn't affect most of the production use cases. Th
 ### ORY Oathkeeper without Dex
 
 With Kyma 2.0, the Dex component becomes deprecated. Therefore, ORY Oathkeeper will no longer use Dex to verify JWT tokens. Existing API Rules that have a JWT access strategy defined must be enriched with an individual **jwks_url** pointing to a custom OpenID Connect-compliant identity provider.
-
-### ORY components update
-
-As of the Kyma 2.0 release, we upgraded the following ORY components:
-
-- ORY Oathkeeper from 0.38.11 to 0.38.15
-- ORY Hydra from 1.8.5 to 1.10.7
-- ORY Hydra Maester from 0.0.21 to 0.0.24
-- ORY Oathkeeper Maester from 0.1.4 to 0.1.5
-
-See the official list of changes for [ORY Oathkeeper](https://github.com/ory/oathkeeper/releases/tag/v0.38.15-beta.1), [ORY Hydra](https://github.com/ory/hydra/releases/tag/v1.10.7), [ORY Hydra Maester](https://github.com/ory/hydra-maester/releases/tag/v0.0.24), [ORY Oathkeeper Maester](https://github.com/ory/oathkeeper-maester/releases/tag/v0.1.5).
 
 
 ## Serverless
