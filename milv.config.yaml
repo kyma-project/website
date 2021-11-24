@@ -14,7 +14,7 @@ files-to-ignore-internal-links-in:
   - ./website/content/blog-posts/
 timeout: 60
 request-repeats: 5
-backoff: 2s
+backoff: 5s
 files:
   - path: "./website/.github/ISSUE_TEMPLATE/security-vulnerability.md"
     config:
