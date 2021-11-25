@@ -35,15 +35,6 @@ For more details on the introduced changes, read the official [Istio 1.10.2 rele
 We also updated ORY charts, changing the Oathkeeper version to 0.38.11-beta.1.
 For more details on the introduced changes, read the official [Oathkeeper 0.38-11-beta.1 release notes](https://github.com/ory/oathkeeper/releases/tag/v0.38.11-beta.1).
 
-> **NOTE:** As of the Kyma 1.24.9 patch release, we upgraded the following ORY components:
->
-> - ORY Oathkeeper from 0.38.11 to 0.38.15
-> - ORY Hydra from 1.8.5 to 1.10.7
-> - ORY Hydra Maester from 0.0.21 to 0.0.24
-> - ORY Oathkeeper Maester from 0.1.4 to 0.1.5
->
-> See the official list of changes for [ORY Oathkeeper](https://github.com/ory/oathkeeper/releases/tag/v0.38.15-beta.1), [ORY Hydra](https://github.com/ory/hydra/releases/tag/v1.10.7), [ORY Hydra Maester](https://github.com/ory/hydra-maester/releases/tag/v0.0.24), [ORY Oathkeeper Maester](https://github.com/ory/oathkeeper-maester/releases/tag/v0.1.5).
-
 ## Observability
 
 ### Keycloak Gatekeeper replaced with OAuth2 Proxy
