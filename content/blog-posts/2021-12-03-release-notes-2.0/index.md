@@ -117,7 +117,7 @@ Kyma Dashboard provides you with many new, useful features:
 You can now view all Kyma and most Kubernetes resources in the left navigation panel of Kyma Dashboard. These are the new resources views:
 
 - Service Accounts
-- Cluster Nodes
+- Cluster Overview -> Nodes
 - Jobs
 - Cron Jobs
 - Stateful Sets
