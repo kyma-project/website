@@ -87,7 +87,7 @@ The test framework changed and now, testing happens entirely client-side. The `k
 To open the graphical user interface for Kyma, use the `kyma dashboard` command. The `kyma console` command is now deprecated.
 
 
-## Eventing 
+## Eventing
 
 ### NATS Operator replaced with NATS Helm chart
 
@@ -149,7 +149,7 @@ We introduced new create resource views for:
 
 ### Authentication for Grafana, Kiali, and Jaeger UIs
 
-The deprecation of Dex allows a simpler and more consistent authentication for the Observability user interfaces. Grafana, Kiali, and Jaeger UIs are no longer exposed by default. Instead, you have the flexibility to set up your preferred OIDC provider for each service. Learn how to [expose a services securely](https://kyma-project.io/docs/kyma/latest/04-operation-guides/security/sec-06-access-expose-kiali-grafana).
+The deprecation of Dex allows a simpler and more consistent authentication for the Observability user interfaces. Grafana, Kiali, and Jaeger UIs are no longer exposed by default. Instead, you have the flexibility to set up your preferred OIDC provider for each service. Learn how to [expose services securely](https://kyma-project.io/docs/kyma/latest/04-operation-guides/security/sec-06-access-expose-kiali-grafana).
 
 As a result, all users are logged on anonymously and see the same UI. If you prefer a user-specific configuration for Grafana UI, use the Grafana login solution and switch off the OAuth proxy.
 
