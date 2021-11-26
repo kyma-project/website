@@ -24,7 +24,7 @@ See the overview of all changes in this release:
 - [Application Connectivity](#application-connectivity) - New way to reach registered services, Application Connectivity improvements
 - [CLI](#cli) - Switching from Minikube to k3d, revamped way of installation, values instead of configuration overrides, the `kyma test` command deprecated, the `kyma dashboard` command instead of `kyma console`
 - [Eventing](#eventing) - NATS Operator replaced with NATS Helm chart
-- [Kyma Dashboard](#kyma-dashboard) - Kyma Console replaced with new technology, Kyma Dashboard new features, new list views, easier resource creation
+- [Kyma Dashboard](#kyma-dashboard) - Kyma Console replaced with new technology, Kyma Dashboard new features, new resources views, easier resources creation
 - [Observability](#observability) - Authentication for Grafana, Kiali, and Jaeger UIs, improved security for logs in Kyma Dashboard, containerd support, Prometheus mTLS, Observability services updated
 - [Security](#security) - Native Kubernetes authentication in Kyma, ORY Oathkeeper without Dex
 - [Serverless](#serverless) - Python 3.8 deprecation
@@ -112,37 +112,39 @@ Kyma Dashboard provides you with many new, useful features:
 - The new deep linking functionality allows you to easily jump between your apps and the resources involved.
 - For a better accessibility, you can choose between the light and dark mode, and high contrast themes.
 
-### New resources view
+### New resources views
 
-You can now view all Kyma and most of the Kubernetes resources in the Kyma Dashboard:
+You can now view all Kyma and most Kubernetes resources in the left navigation panel of Kyma Dashboard. These are the new resources views:
+
 - Service Accounts
 - Cluster Nodes
 - Jobs
 - Cron Jobs
 - Stateful Sets
-- Damon Sets
+- Daemon Sets
 - Gateways
 - Issuers
 - Certificates
 - DNS Providers
 - DNS Entries
 
-### Easier creation of resources
+### Easier resources creation
 
-We introduced new create resource views for:
+Kyma Dashboard also allows you to easily create new resources. These are the resources you can create directly on UI, by going to the appropriate resource view in the left navigation panel:
+
 - Roles
-- RolesBindings
+- Role Bindings
 - Service Accounts
 - Deployment
-- CronJobs
+- Cron Jobs
 - Jobs
-- ConfigMaps
+- Config Maps
 - Secrets
 - Issuers
 - Certificates
 - DNS Providers
 - DNS Entries
-- ReplicaSets
+- Replica Sets
 
 
 ## Observability
