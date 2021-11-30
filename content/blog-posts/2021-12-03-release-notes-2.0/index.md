@@ -16,19 +16,19 @@ We are happy to announce the release of Kyma 2.0! This major release brings a lo
 
 <!-- overview -->
 
-> **CAUTION:** In this release, authentication and authorization methods in Kyma have changed. Before upgrading to Kyma 2.0, read the [Migration Guide](https://kyma-project.io/docs/kyma/latest/migration-guide-1.24-2.0).
+> **CAUTION:** In this release, authentication and authorization methods in Kyma have changed. Before upgrading to Kyma 2.0, read the [Migration Guide](https://kyma-project.io/docs/kyma/latest/migration-guide-1.25-2.0).
 
 See the overview of all changes in this release:
 
 - [API Exposure](#api-exposure) - Exposing workloads on custom domains
 - [Application Connectivity](#application-connectivity) - New way to reach registered services, Application Connectivity improvements
-- [CLI](#cli) - Switch from Minikube to k3d, revamped way of installation, values instead of configuration overrides, `kyma test` command deprecated, `kyma dashboard` command instead of `kyma console`
+- [CLI](#cli) - Switch from Minikube to k3d, revamped way of installation, values instead of configuration overrides, `kyma test` command deprecated, `kyma console` command replaced  with `kyma dashboard`
 - [Eventing](#eventing) - NATS Operator replaced with NATS Helm chart
 - [Kyma Dashboard](#kyma-dashboard) - Kyma Console replaced with new technology, Kyma Dashboard features, new resources views, easier resource creation
 - [Observability](#observability) - Authentication for Grafana, Kiali, and Jaeger UIs, improved security for logs in Kyma Dashboard, containerd support, Prometheus mTLS, Observability services updated
 - [Security](#security) - Native Kubernetes authentication in Kyma, Ory Oathkeeper without Dex
 - [Serverless](#serverless) - Support for Python 3.8 deprecated
-- [Service Management](#service-management) - Service Catalog deprecation
+- [Service Management](#service-management) - Service Catalog deprecation update
 - [Website](#website) - New landing page, new documentation structure, roadmap removed
 
 - [Known issues](#known-issues) - {List of all known issues}
@@ -61,7 +61,7 @@ With these changes, some of the components, such as Application Operator, will b
 
 ## CLI
 
-### Switching from Minikube to k3d
+### Switch from Minikube to k3d
 
 With Kyma 2.0, we have switched the local Kubernetes tool from Minikube to k3d, which allows for a faster and more lightweight installation. The steps needed to set up a local and remote cluster are now the same.
 
@@ -127,9 +127,9 @@ You can now view all Kyma and most Kubernetes resources in the left navigation p
 - **DNS Providers**
 - **DNS Entries**
 
-### Easier resources creation
+### Easier resource creation
 
-Kyma Dashboard also allows you to easily create new resources. You can create these resources directly in the UI by going to the appropriate resource view in the left navigation panel:
+Kyma Dashboard also allows you to easily create new resources:
 
 - Roles
 - Role Bindings
@@ -144,6 +144,8 @@ Kyma Dashboard also allows you to easily create new resources. You can create th
 - DNS Providers
 - DNS Entries
 - Replica Sets
+
+ You can create these resources directly in the UI by going to the appropriate resource view in the left navigation panel.
 
 
 ## Observability
@@ -210,9 +212,9 @@ In this release, we deprecate support for Python 3.8, and in the upcoming releas
 
 ## Service Management
 
-### Service Catalog deprecation
+### Service Catalog deprecation update
 
-As we deprecated Service Catalog, in Kyma 2.0 we recommend using service operators for Service Management. These are the examples of service operators provided by hyperscale cloud providers that you can use:
+As we announced the [deprecation of Service Catalog](https://kyma-project.io/blog/2021/6/2/release-notes-123/#service-management) in Kyma 1.23 Dhahran release, in Kyma 2.0 we recommend using service operators for Service Management. These are the examples of service operators provided by hyperscale cloud providers that you can use:
 - [Google Cloud](https://cloud.google.com/config-connector/docs/how-to/getting-started)
 - [Azure](https://github.com/Azure/azure-service-operator)
 - [AWS](https://github.com/aws-controllers-k8s/community)
