@@ -11,8 +11,8 @@ redirectFrom:
 ---
 
 Salve!
-If you're wondering why the salutation in Latin and why we're using the *lingua franca* at the moment:
-after we left Berlin, we decided to stop exploration for just a little while and land on this unnamed island to patch our boat a bit and boost our security. This release is not big, but it's an important one, as it brings you updated Ory stack and upgraded Observability components.
+If you're wondering why the salutation in Latin and why we're using the _lingua franca_ at the moment:
+after we left Ekibastuz, we decided to stop exploration for just a little while and land on this unnamed island to patch our boat a bit and boost our security. This release is not big, but it's an important one, as it brings you updated Ory stack and upgraded Observability components.
 
 <!-- overview -->
 
