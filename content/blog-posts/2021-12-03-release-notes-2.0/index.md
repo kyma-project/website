@@ -1,4 +1,3 @@
-```
 ---
 title: "Kyma 2.0"
 author:
@@ -10,7 +9,6 @@ releaseTag: "2.0"
 redirectFrom:
   - "/blog/release-notes-20"
 ---
-```
 
 We are happy to announce the release of Kyma 2.0! This major release brings a lot of fresh air to the project: we simplified and improved many areas, and also provided some brand new features, such as Kyma Dashboard. Read on to find out what Kyma 2.0 has to offer!
 
@@ -152,7 +150,7 @@ Kyma Dashboard also allows you to easily create new resources:
 
 ### Authentication for Grafana, Kiali, and Jaeger UIs
 
-With the deprecation of Dex, now authentication for the Observability user interfaces is much simpler and more consistent. Grafana, Kiali, and Jaeger UIs are no longer exposed by default. Instead, you have the flexibility to set up your preferred OIDC provider for each service. 
+With the deprecation of Dex, now authentication for the Observability user interfaces is much simpler and more consistent. Grafana, Kiali, and Jaeger UIs are no longer exposed by default. Instead, you have the flexibility to set up your preferred OIDC provider for each service.
 
 As a result, all users are logged on anonymously and see the same UI. If you prefer a user-specific configuration for Grafana UI, use the Grafana login solution and switch off the OAuth proxy.
 
