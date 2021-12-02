@@ -36,7 +36,7 @@ See the overview of all changes in this release:
 
 ### Exposing workloads on custom domains
 
-Kyma 2.0 allows you to expose Istio workloads using custom, user-managed domains. In the previous Kyma versions, the only supported scenario was to use the main Kyma domain for API exposure. Now, provided you own a domain, you can expose any Kyma-hosted workload using your domain. In addition, a TLS certificate can be automatically generated for you. You can have multiple workloads using multiple custom domains. Read how to [use a custom domain to expose a service](https://kyma-project.io/docs/kyma/latest/03-tutorials/00-api-exposure/apix-01-own-domain/) for details.
+Kyma 2.0 allows you to expose Istio workloads using custom, user-managed domains. In previous Kyma versions, the only supported scenario was to use the main Kyma domain for API exposure. Now, provided you own a domain, you can expose any Kyma-hosted workload using your domain. In addition, a TLS certificate can be automatically generated for you. You can have multiple workloads using multiple custom domains. Read how to [use a custom domain to expose a service](https://kyma-project.io/docs/kyma/latest/03-tutorials/00-api-exposure/apix-01-own-domain/) for details.
 
 ## Application Connectivity
 
@@ -50,9 +50,9 @@ In the future, this will be the default way of creating Application-related flow
 
 We are reducing the complexity and resource usage of the whole Application Connectivity area. For this reason, two new components were introduced:
 - Central Application Gateway
-- Central Connectivity Application Validator
+- Central Application Connectivity Validator
 
-The changes allow us to drop per-application deployments (Gateways and Validators). We are looking at detaching Application Connector from Service Catalog and Rafter as well.
+The changes allow us to drop per-application deployments (Gateways and Validators). We are also looking at detaching Application Connector from Service Catalog and Rafter.
 
 With these changes, some of the components, such as Application Operator, will become obsolete. We will remove them in the following releases. This, however, will have no effect on the existing functionality.
 
@@ -61,7 +61,7 @@ With these changes, some of the components, such as Application Operator, will b
 
 ### Switch from Minikube to k3d
 
-With Kyma 2.0, we have switched the local Kubernetes tool from Minikube to k3d, which allows for a faster and more lightweight installation. The steps needed to set up a local and remote cluster are now the same.
+With Kyma 2.0, we switched the local Kubernetes tool from Minikube to k3d, which allows for a faster and more lightweight installation. The steps needed to set up a local and remote cluster are now the same.
 
 ### Revamped way of installation
 
@@ -99,7 +99,7 @@ Kyma 2.0 brings you a new user interface. Kyma Dashboard, based on the [Busola p
 
 Kyma Dashboard is decoupled from the Kyma cluster. It is not part of the initial Kyma installation, but you can add it to the cluster manually, or run it on your local machine using Kyma CLI.
 
-Moreover, we removed the Console Backend Service and now we connect directly with the Kubernetes API.
+Moreover, we removed the Console Backend Service and now we connect with the Kubernetes API directly.
 
 ### Kyma Dashboard features
 
@@ -107,7 +107,7 @@ Kyma Dashboard provides many new features:
 
 - You can work with multiple clusters, switch between them, and add external clusters.
 - The new deep linking functionality allows you to easily jump between your apps and the related resources.
-- For better accessibility, you can choose between light and dark mode, and high contrast themes.
+- For better accessibility, you can choose from the light, dark, and high contrast themes.
 
 ### New resources views
 
@@ -150,15 +150,15 @@ Kyma Dashboard also allows you to easily create new resources:
 
 ### Authentication for Grafana, Kiali, and Jaeger UIs
 
-With the deprecation of Dex, now authentication for the Observability user interfaces is much simpler and more consistent. Grafana, Kiali, and Jaeger UIs are no longer exposed by default. Instead, you have the flexibility to set up your preferred OIDC provider for each service.
+With the deprecation of Dex, authentication for the Observability user interfaces is now much simpler and more consistent. Grafana, Kiali, and Jaeger UIs are no longer exposed by default. Instead, you have the flexibility to set up your preferred OIDC provider for each service.
 
-As a result, all users are logged on anonymously and see the same UI. If you prefer a user-specific configuration for Grafana UI, use the Grafana login solution and switch off the OAuth proxy.
+As a result, all users are logged on anonymously and see the same UI. If you prefer a user-specific configuration for Grafana UI, use the Grafana log-in solution and switch off the OAuth proxy.
 
 Read our documentation to learn how to [expose services securely](https://kyma-project.io/docs/kyma/latest/04-operation-guides/security/sec-06-access-expose-kiali-grafana).
 
 ### Improved security for logs in Kyma Dashboard
 
-Logs displayed in Kyma Dashboard are now based on the Kubernetes API server. This way, Loki is no longer exposed to the external network, which reduces an attack vector.
+Logs displayed in Kyma Dashboard are now based on the Kubernetes API server. This way, Loki is no longer exposed to the external network, which reduces the attack vector.
 
 ### Containerd support
 
@@ -181,7 +181,7 @@ With this release, we have also updated these Observability services:
 
 ### Native Kubernetes authentication in Kyma
 
-With 2.0, we untangled authentication concepts in Kyma. We removed the complexity of having a built-in authentication component - Dex, and proxies to the Kubernetes API server - API Server Proxy and Console Backend Service. We decided to use plain Kubernetes authentication and authorization options:
+With 2.0, we untangled authentication concepts in Kyma. We removed the complexity of having a built-in authentication component (Dex) and proxies to the Kubernetes API server (API Server Proxy and Console Backend Service). We decided to use plain Kubernetes authentication and authorization options:
 - [OpenID Connect tokens](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#openid-connect-tokens)
 - [Role Based Access Control (RBAC)](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)
 
@@ -196,7 +196,7 @@ See the full list of removed authentication and authorization components:
 - Permission Controller
 - UAA Activator
 
-The list is quite long, but it doesn't affect most of the production use cases. The components were used mainly for exposing Kyma UI in the development/standalone mode (static users). For such use cases, we provide the refactored, better, and faster [Kyma Dashboard](#kyma-dashboard).
+The list is quite long, but it doesn't affect most of the production use cases. The components were used mainly for exposing Kyma UI in the development/standalone mode (static users). For such use cases, we provide the refactored, better and faster [Kyma Dashboard](#kyma-dashboard).
 
 ### Ory Oathkeeper without Dex
 
@@ -214,7 +214,7 @@ In this release, we deprecate support for Python 3.8, and in the upcoming releas
 
 ### Service Catalog deprecation update
 
-As we announced the [deprecation of Service Catalog](https://kyma-project.io/blog/2021/6/2/release-notes-123/#service-management) in Kyma 1.23 Dhahran release, in Kyma 2.0 we recommend using service operators for Service Management. These are the examples of service operators provided by hyperscale cloud providers that you can use:
+As we announced the [deprecation of Service Catalog](https://kyma-project.io/blog/2021/6/2/release-notes-123/#service-management) in Kyma 1.23 Dhahran, in Kyma 2.0 we recommend using service operators for Service Management. These are the examples of service operators provided by hyperscale cloud providers that you can use:
 - [Google Cloud](https://cloud.google.com/config-connector/docs/how-to/getting-started)
 - [Azure](https://github.com/Azure/azure-service-operator)
 - [AWS](https://github.com/aws-controllers-k8s/community)
@@ -228,11 +228,11 @@ The Service Catalog removal will also affect [Application Connectivity](#applica
 
 ### New landing page
 
-[Kyma website](https://kyma-project.io/) now has a brand new landing page. The new content gives you an overview of what Kyma is, what its main features are, and what problems it solves.
+The [Kyma website](https://kyma-project.io/) now has a brand new landing page. The new content gives you an overview of what Kyma is, what its main features are, and what problems it solves.
 
 ### New documentation structure
 
-We have restructured [Kyma documentation](https://kyma-project.io/docs/kyma/latest/) quite significantly in the 2.0 release. We no longer divide the left navigation based on Kyma components. Instead, it's structured based on the tasks you would normally face when using Kyma. We split rather long documents into shorter, more digestible chunks. On top of that, the collapsible tabs in the left navigation panel group the content into categories that help you find answers to your questions faster.
+We restructured the [Kyma documentation](https://kyma-project.io/docs/kyma/latest/) quite significantly in the 2.0 release. We no longer divide the left navigation based on Kyma components. Instead, it's structured based on the tasks you would normally face when using Kyma. We split rather long documents into shorter, more digestible chunks. On top of that, the collapsible tabs in the left navigation panel group the content into categories that help you find answers to your questions faster.
 
 ### Roadmap removed
 
