@@ -172,7 +172,7 @@ By enabling Prometheus mTLS, you can improve the security in your Service Mesh a
 
 With this release, we have also refreshed Observability a bit (no pun intended). Fluent Bit has been upgraded to the latest version 1.8.10, Grafana got a minor upgrade to 7.5.11, Loki was bumped to 2.2.1, and OAuth2 Proxy was bumped to version 7.2.0.
 
-For more information, read the release notes for [Fluent Bit](https://fluentbit.io/announcements/v1.8.10/), [Grafana](https://grafana.com/docs/grafana/v7.5/whatsnew/whats-new-in-v7-5/), [Loki](https://github.com/grafana/loki/releases/tag/v2.2.1), and [OAuth2 Proxy](https://github.com/oauth2-proxy/oauth2-proxy/releases/tag/v7.2.0).```
+For more information, read the release notes for [Fluent Bit](https://fluentbit.io/announcements/v1.8.10/), [Grafana](https://grafana.com/docs/grafana/v7.5/whatsnew/whats-new-in-v7-5/), [Loki](https://github.com/grafana/loki/releases/tag/v2.2.1), and [OAuth2 Proxy](https://github.com/oauth2-proxy/oauth2-proxy/releases/tag/v7.2.0).
 
 
 ## Security
