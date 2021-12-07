@@ -14,7 +14,7 @@ We are happy to announce the release of Kyma 2.0! This major release brings a lo
 
 <!-- overview -->
 
-> **CAUTION:** In this release, authentication and authorization methods in Kyma have changed. Before upgrading to Kyma 2.0, read the [Migration Guide](https://kyma-project.io/docs/kyma/latest/migration-guide-1.25-2.0).
+> **CAUTION:** In this release, authentication and authorization methods in Kyma have changed. Before upgrading to Kyma 2.0, read the [Migration Guide](https://kyma-project.io/docs/kyma/latest/migration-guide-1.24-2.0).
 
 See the overview of all changes in this release:
 
