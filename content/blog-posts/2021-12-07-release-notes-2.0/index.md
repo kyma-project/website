@@ -190,7 +190,6 @@ See the full list of removed authentication and authorization components:
 - Dex
 - IAM Kubeconfig Service
 - Permission Controller
-- UAA Activator
 
 The list is quite long, but it doesn't affect most of the production use cases. The components were used mainly for exposing Kyma UI in the development/standalone mode (static users). For such use cases, we provide the refactored, better and faster [Kyma Dashboard](#kyma-dashboard).
 
