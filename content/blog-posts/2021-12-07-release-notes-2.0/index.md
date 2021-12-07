@@ -29,8 +29,6 @@ See the overview of all changes in this release:
 - [Service Management](#service-management) - Service Catalog deprecation update
 - [Website](#website) - New landing page, new documentation structure, roadmap removed
 
-- [Known issues](#known-issues) - {List of all known issues}
-- [Fixed security vulnerabilities](#fixed-security-vulnerabilities) - {List of all fixed security vulnerabilities}
 
 ## API Exposure
 
@@ -235,12 +233,3 @@ We restructured the [Kyma documentation](https://kyma-project.io/docs/kyma/lates
 ### Roadmap removed
 
 We removed the **Roadmap** section from the Kyma website. Refer to [Kyma GitHub issues](https://github.com/kyma-project/kyma/issues) to find the details about planned features.
-
-
-## Known issues
-
-> Describe any known issues that the users can face, together with the way on how to solve these issues.
-
-### {Area name and a brief issue description}
-
-> Describe related known issues here. Add a link to a GitHub issue for tracking purposes, if applicable.
