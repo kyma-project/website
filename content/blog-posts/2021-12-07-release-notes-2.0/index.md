@@ -227,7 +227,7 @@ The [Kyma website](https://kyma-project.io/) now has a brand new landing page. T
 
 ### New documentation structure
 
-We restructured the [Kyma documentation](https://kyma-project.io/docs/kyma/latest/) quite significantly in the 2.0 release. We no longer divide the left navigation based on Kyma components. Instead, it's structured based on the tasks you would normally face when using Kyma. We split rather long documents into shorter, more digestible chunks. On top of that, the collapsible tabs in the left navigation panel group the content into categories that help you find answers to your questions faster.
+We restructured the [Kyma documentation](https://kyma-project.io/docs/kyma/2.0/) quite significantly in the 2.0 release. We no longer divide the left navigation based on Kyma components. Instead, it's structured based on the tasks you would normally face when using Kyma. We split rather long documents into shorter, more digestible chunks. On top of that, the collapsible tabs in the left navigation panel group the content into categories that help you find answers to your questions faster.
 
 ### Roadmap removed
 
