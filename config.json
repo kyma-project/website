@@ -72,7 +72,7 @@
       "organization": "kyma-project",
       "repository": "kyma",
       "branches": ["main"],
-      "lastReleases": 0,
+      "lastReleases": 1,
       "navPath": "",
       "rootPath": {
         "docsType": "root",
