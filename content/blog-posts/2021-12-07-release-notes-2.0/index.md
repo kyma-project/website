@@ -14,7 +14,7 @@ We are happy to announce the release of Kyma 2.0! This major release brings a lo
 
 <!-- overview -->
 
-> **CAUTION:** In this release, authentication and authorization methods in Kyma have changed. Before upgrading to Kyma 2.0, read the [Migration Guide](https://kyma-project.io/docs/kyma/latest/migration-guide-1.24-2.0).
+> **CAUTION:** In this release, authentication and authorization methods in Kyma have changed. Before upgrading to Kyma 2.0, read the [Migration Guide](https://kyma-project.io/docs/kyma/2.0/migration-guide-1.24-2.0).
 
 See the overview of all changes in this release:
 
@@ -34,13 +34,13 @@ See the overview of all changes in this release:
 
 ### Exposing workloads on custom domains
 
-Kyma 2.0 allows you to expose Istio workloads using custom, user-managed domains. In previous Kyma versions, the only supported scenario was to use the main Kyma domain for API exposure. Now, provided you own a domain, you can expose any Kyma-hosted workload using your domain. In addition, a TLS certificate can be automatically generated for you. You can have multiple workloads using multiple custom domains. Read how to [use a custom domain to expose a service](https://kyma-project.io/docs/kyma/latest/03-tutorials/00-api-exposure/apix-01-own-domain/) for details.
+Kyma 2.0 allows you to expose Istio workloads using custom, user-managed domains. In previous Kyma versions, the only supported scenario was to use the main Kyma domain for API exposure. Now, provided you own a domain, you can expose any Kyma-hosted workload using your domain. In addition, a TLS certificate can be automatically generated for you. You can have multiple workloads using multiple custom domains. Read how to [use a custom domain to expose a service](https://kyma-project.io/docs/kyma/2.0/03-tutorials/00-api-exposure/apix-01-own-domain/) for details.
 
 ## Application Connectivity
 
 ### New way to reach registered services
 
-Kyma 2.0 brings some fresh air to the Application Connectivity area. There is now a possibility to call an external registered service without creating ServiceInstances and binding them to the workload. [Central Application Gateway](https://github.com/kyma-project/kyma/tree/main/components/central-application-gateway) is a new component responsible for this part.
+Kyma 2.0 brings some fresh air to the Application Connectivity area. There is now a possibility to call an external registered service without creating ServiceInstances and binding them to the workload. [Central Application Gateway](https://github.com/kyma-project/kyma/tree/2.0.0/components/central-application-gateway) is a new component responsible for this part.
 
 In the future, this will be the default way of creating Application-related flows, as [Service Catalog will be removed](#service-management) and the option to create ServiceInstances and bindings will go away. While we will support the existing flows for some time, we highly recommend you try out the new, simplified approach now.
 
@@ -71,7 +71,7 @@ The commands for installation have been updated as well:
 
 ### Values instead of configuration overrides
 
-Instead of the deprecated `--override` flag, we now use the `deploy` command to change Kyma settings. With the `--values-file` flag, you can change Kyma settings by providing a plain YAML file. Alternatively, you can provide values inline with the `--value` flag. Learn more in [Change Kyma Settings](https://kyma-project.io/docs/kyma/latest/04-operation-guides/operations/03-change-kyma-config-values/).
+Instead of the deprecated `--override` flag, we now use the `deploy` command to change Kyma settings. With the `--values-file` flag, you can change Kyma settings by providing a plain YAML file. Alternatively, you can provide values inline with the `--value` flag. Learn more in [Change Kyma Settings](https://kyma-project.io/docs/kyma/2.0/04-operation-guides/operations/03-change-kyma-config-values/).
 
 ### The `kyma test` command deprecated
 
@@ -152,7 +152,7 @@ With the deprecation of Dex, authentication for the Observability user interface
 
 As a result, all users are logged on anonymously and see the same UI. If you prefer a user-specific configuration for Grafana UI, use the Grafana log-in solution and switch off the OAuth proxy.
 
-Read our documentation to learn how to [expose services securely](https://kyma-project.io/docs/kyma/latest/04-operation-guides/security/sec-06-access-expose-kiali-grafana).
+Read our documentation to learn how to [expose services securely](https://kyma-project.io/docs/kyma/2.0/04-operation-guides/security/sec-06-access-expose-kiali-grafana/).
 
 ### Improved security for logs in Kyma Dashboard
 
@@ -164,7 +164,7 @@ With the update of Fluent Bit to version 1.8, we activated the new multiline sup
 
 ### Prometheus mTLS
 
-By enabling Prometheus mTLS, you can improve the security in your Service Mesh and keep the strict mTLS mode for custom metrics. You don't have to weaken the authentication policy when you are scraping workloads deployed in the Service Mesh. Learn more in [Enable mTLS for custom metrics](https://kyma-project.io/docs/kyma/latest/01-overview/main-areas/observability/obsv-03-istio-monitoring#enable-m-tls-for-custom-metrics).
+By enabling Prometheus mTLS, you can improve the security in your Service Mesh and keep the strict mTLS mode for custom metrics. You don't have to weaken the authentication policy when you are scraping workloads deployed in the Service Mesh. Learn more in [Enable mTLS for custom metrics](https://kyma-project.io/docs/kyma/2.0/01-overview/main-areas/observability/obsv-03-istio-monitoring/#enable-m-tls-for-custom-metrics).
 
 ### Observability services updated
 
@@ -227,7 +227,7 @@ The [Kyma website](https://kyma-project.io/) now has a brand new landing page. T
 
 ### New documentation structure
 
-We restructured the [Kyma documentation](https://kyma-project.io/docs/kyma/latest/) quite significantly in the 2.0 release. We no longer divide the left navigation based on Kyma components. Instead, it's structured based on the tasks you would normally face when using Kyma. We split rather long documents into shorter, more digestible chunks. On top of that, the collapsible tabs in the left navigation panel group the content into categories that help you find answers to your questions faster.
+We restructured the [Kyma documentation](https://kyma-project.io/docs/kyma/2.0/) quite significantly in the 2.0 release. We no longer divide the left navigation based on Kyma components. Instead, it's structured based on the tasks you would normally face when using Kyma. We split rather long documents into shorter, more digestible chunks. On top of that, the collapsible tabs in the left navigation panel group the content into categories that help you find answers to your questions faster.
 
 ### Roadmap removed
 
