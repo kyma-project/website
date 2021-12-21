@@ -15,12 +15,6 @@ const modalLocationRegExp: LocationRegExp[] = [
     currentLocation: /^((?!(\/docs\/(.*?)\/specifications)).)*$/,
     previousLocation: /^\/docs\/(.*?)\/specifications/,
   },
-  // for roadmap
-  {
-    modalPath: /^\/roadmap\/[a-z]/,
-    currentLocation: /^\/roadmap/,
-    previousLocation: /^\/roadmap\/[a-z]/,
-  },
 ];
 
 function checkCorrectLocationForModal({

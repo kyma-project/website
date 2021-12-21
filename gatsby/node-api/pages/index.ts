@@ -11,7 +11,6 @@ import { createPageNotFound } from "./404";
 import { createBlogPages } from "./blog";
 import { createDocsPages } from "./docs";
 import { createCommunityPages } from "./community";
-import { createRoadmapPages } from "./roadmap";
 
 import { BuildFor } from "../../../src/types/common";
 
@@ -36,7 +35,7 @@ const createWebsitePages = async ({
     createPage,
     buildFor: BuildFor.WEBSITE,
   });
-  await createRoadmapPages({ graphql, createPage, createRedirect });
+
 };
 
 const createWebsitePreviewPages = async ({
@@ -65,7 +64,6 @@ const createWebsitePreviewPages = async ({
     createPage,
     buildFor: BuildFor.WEBSITE,
   });
-  await createRoadmapPages({ graphql, createPage, createRedirect });
 };
 
 const createDocsPreviewPages = async (

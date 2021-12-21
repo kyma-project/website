@@ -6,12 +6,11 @@
 import React from "react";
 
 import { DocsSpecificationModal } from "./docs-specification";
-import { RoadmapModal } from "./roadmap";
+
 
 type ModalRegex = Array<[RegExp, React.ElementType<any>]>;
 const modalRegex: ModalRegex = [
   [/^\/(.*?)\/specifications/, DocsSpecificationModal],
-  [/^\/roadmap/, RoadmapModal],
 ];
 
 export function getProperModal(path: string): React.ElementType<any> | null {

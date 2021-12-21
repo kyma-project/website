@@ -2,8 +2,6 @@ import { CreateNodeArgs } from "gatsby";
 import {
   BLOG_POST_DIR,
   DOCS_DIR,
-  ROADMAP_CAPABILITIES_DIR,
-  ROADMAP_TICKETS_DIR,
   COMMUNITY_PATH_PREFIX,
 } from "../../constants";
 
@@ -11,7 +9,6 @@ import {
   onCreateBlogPostNode,
   onCreateDocsNode,
   onCreateCommunityNode,
-  onCreateRoadmapNode,
   copyAssets,
   onCreateImagesSpecNode,
   NodeType,
@@ -66,10 +63,7 @@ export const onCreateNode = async ({
           nodeType: NodeType.DOCS,
         });
       }
-      if (relativePath.startsWith(ROADMAP_CAPABILITIES_DIR)) {
-        onCreateRoadmapNode.capability({ node, relativePath, createNodeField });
-      }
-
+      
       return;
     }
     case "File": {

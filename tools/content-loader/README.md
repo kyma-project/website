@@ -2,14 +2,14 @@
 
 ## Overview
 
-The Content Loader prepares content for the **Docs**, **Community**, and **Roadmap** sections on the `kyma-project.io` website. It uses GitHub API to detect:
+The Content Loader prepares content for the **Docs** and  **Community** sections on the `kyma-project.io` website. It uses GitHub API to detect:
 
 - New releases in the `kyma` repository
 - Documentation changes under [`kyma/docs`](https://github.com/kyma-project/kyma/tree/master/docs) merged to the `main` branch of the `kyma` repository
 - Documentation changes merged to the `main` branch of the `community` repository
 - GitHub issues with the `epic` label
 
-Once detected, the Content Loader prepares content for the **Docs**, **Community**, and **Roadmap** sections and publishes it on the website.
+Once detected, the Content Loader prepares content for the **Docs** and **Community** sections and publishes it on the website.
 
 ## Prerequisites
 
@@ -47,12 +47,4 @@ The configuration options are as follows:
 | **APP_COMMUNITY_OUTPUT**                | **YES**  | `community`              | Path for storing the community content results                    |
 | **APP_COMMUNITY_REPOSITORY**            | **YES**  | `community`              | Repository with the community content                             |
 | **APP_COMMUNITY_TEMP_DIR**              | **YES**  | `tempCommunityDir`       | Path for storing temporary data for the community content         |
-| **APP_ROADMAP_REPOSITORY**              | **YES**  | `community`              | Repository with capabilities descriptions                         |
-| **APP_ROADMAP_OUTPUT**                  | **YES**  | `roadmap`                | Path for storing the roadmap content results                      |
-| **APP_ROADMAP_TEMP_DIR**                | **YES**  | `tempRoadmapDir`         | Path for storing temporary data for the roadmap content           |
-| **APP_ROADMAP_CAPABILITIES_DIR**        | **YES**  | `capabilities`           | Capabilities location in the `community` repository               |
-| **APP_ROADMAP_CAPABILITIES_OUTPUT**     | **YES**  | `roadmap/capabilities`   | Path for storing the capabilities results                         |
-| **APP_ROADMAP_TICKETS_OUTPUT**          | **YES**  | `roadmap/tickets.json`   | Path for storing the tickets results                              |
-| **APP_ROADMAP_LABELS**                  | **YES**  | `["Epic"]`               | Labels for tickets                                                |
-| **APP_ROADMAP_NON_CATEGORIZED_ISSUES**  | **YES**  | `Future`                 | Release name for non-categorized issues                           |
 | **APP_ZENHUB_URL_PREFIX**               | **YES**  | `https://app.zenhub.com/workspaces/kyma---all-repositories-5b6d5985084045741e744dea/issues` | Prefix to a ZenHub issue URL |
