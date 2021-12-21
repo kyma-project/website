@@ -39,7 +39,7 @@ const Search: React.FunctionComponent<IntlInterface> = ({ formatMessage }) => {
     //     ? `${url.pathname}`
     //     : `${url.pathname}${url.hash}`;
 
-    //navigate(path);
+    // navigate(path);
     navigate(url.toString());
   };
 
