@@ -32,14 +32,15 @@ const Search: React.FunctionComponent<IntlInterface> = ({ formatMessage }) => {
     }
     const url = new URL(event._args[0].url);
 
-    const paths = url.pathname.split(`/`).filter(el => el !== ``);
-    const slug = paths[paths.length - 1];
-    const path =
-      `#${slug}` === url.hash
-        ? `${url.pathname}`
-        : `${url.pathname}${url.hash}`;
+    // const paths = url.pathname.split(`/`).filter(el => el !== ``);
+    // const slug = paths[paths.length - 1];
+    // const path =
+    //   `#${slug}` === url.hash
+    //     ? `${url.pathname}`
+    //     : `${url.pathname}${url.hash}`;
 
-    navigate(path);
+    //navigate(path);
+    navigate(url.toString());
   };
 
   const transformData = (suggestions: any[]) => {
