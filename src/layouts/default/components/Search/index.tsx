@@ -30,17 +30,7 @@ const Search: React.FunctionComponent<IntlInterface> = ({ formatMessage }) => {
     ) {
       return;
     }
-    const url = new URL(event._args[0].url);
-
-    // const paths = url.pathname.split(`/`).filter(el => el !== ``);
-    // const slug = paths[paths.length - 1];
-    // const path =
-    //   `#${slug}` === url.hash
-    //     ? `${url.pathname}`
-    //     : `${url.pathname}${url.hash}`;
-
-    // navigate(path);
-    navigate(url.toString());
+    window.open(event._args[0].url, "_blank");
   };
 
   const transformData = (suggestions: any[]) => {
