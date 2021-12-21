@@ -63,7 +63,7 @@ export const onCreateNode = async ({
           nodeType: NodeType.DOCS,
         });
       }
-      
+
       return;
     }
     case "File": {

@@ -5,7 +5,6 @@ import { LandingPageLayout } from "./landingPage";
 import { NotFoundLayout } from "./404";
 import { DocumentationLayout } from "./documentation";
 import { BlogLayout } from "./blog";
-import { RoadmapLayout } from "./roadmap";
 import { CommunityLayout } from "./community";
 
 import { ModalWrapper } from "../modals";
@@ -17,7 +16,6 @@ const layoutRegex: LayoutRegex = [
   [/^\/404/, NotFoundLayout],
   [/^\/docs/, DocumentationLayout],
   [/^\/blog/, BlogLayout],
-  [/^\/roadmap/, RoadmapLayout],
   [/^\/community/, CommunityLayout],
 ];
 

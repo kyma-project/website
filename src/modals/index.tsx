@@ -7,7 +7,6 @@ import React from "react";
 
 import { DocsSpecificationModal } from "./docs-specification";
 
-
 type ModalRegex = Array<[RegExp, React.ElementType<any>]>;
 const modalRegex: ModalRegex = [
   [/^\/(.*?)\/specifications/, DocsSpecificationModal],

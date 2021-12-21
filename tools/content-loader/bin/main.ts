@@ -34,7 +34,6 @@ const prepareCommunityContentFn = async () => {
   if (err) throw err;
 };
 
-
 const main = async () => {
   const errors: Error[] = [];
   let err: Error | null = null;
@@ -45,7 +44,6 @@ const main = async () => {
     );
   }
 
-
   [err] = await to(prepareDocsContentFn());
   if (err) {
     errors.push(new VError(err, "while preparing documentation"));
@@ -55,7 +53,6 @@ const main = async () => {
   if (err) {
     errors.push(new VError(err, "while preparing content for community"));
   }
-
 
   if (errors.length) {
     errors.forEach(e => {

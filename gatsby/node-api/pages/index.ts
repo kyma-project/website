@@ -35,7 +35,6 @@ const createWebsitePages = async ({
     createPage,
     buildFor: BuildFor.WEBSITE,
   });
-
 };
 
 const createWebsitePreviewPages = async ({
