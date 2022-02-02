@@ -14,7 +14,7 @@ redirectFrom:
   - "/blog/start-with-person-service"
 ---
 
-Now that Kyma is out there available to the world you are most probably keen on testing and implementing your own scenarios leveraging Kyma. Well, we are happy to introduce you to a getting started guide for developers which is [a sample application based on Spring Boot](https://github.com/kyma-incubator/examples/tree/master/personservice) showing the features on Kyma.
+Now that Kyma is out there available to the world you are most probably keen on testing and implementing your own scenarios leveraging Kyma. Well, we are happy to introduce you to a getting started guide for developers which is [a sample application based on Spring Boot](https://github.com/kyma-incubator/examples/tree/master/archive/personservice) showing the features on Kyma.
 
 <!-- overview -->
 
