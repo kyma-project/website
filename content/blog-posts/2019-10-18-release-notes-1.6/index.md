@@ -159,7 +159,7 @@ After a couple of months of hard work with development and integrations in the u
     - requested by 43% (from 350m to 200m)
     - limits by 75% (from 800m to 200m)
 
-See [this](https://svc-cat.io/docs/design/#service-catalog-design) document for more information about the new Service Catalog design. What is more, in this release we provided a migration job that handles managed Service Catalog data upgrade between 1.5 and 1.6 Kyma versions. For more information, read [this](https://svc-cat.io/docs/migration-apiserver-to-crds/) document as well as the [migration guide](https://github.com/kyma-project/kyma/blob/release-1.6/docs/migration-guides/1.5-1.6.md).
+See [Kubernetes SIGs: Service Catalog](https://github.com/kubernetes-sigs/service-catalog) for more information about the new Service Catalog design. What is more, in this release we provided a migration job that handles managed Service Catalog data upgrade between 1.5 and 1.6 Kyma versions. For more information, read [this](https://svc-cat.io/docs/migration-apiserver-to-crds/) document as well as the [migration guide](https://github.com/kyma-project/kyma/blob/release-1.6/docs/migration-guides/1.5-1.6.md).
 
 
 ### GCP Service Broker no longer in the preview mode
