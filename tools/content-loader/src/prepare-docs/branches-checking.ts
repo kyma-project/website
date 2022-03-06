@@ -1,4 +1,3 @@
-import { ReposGetReleaseResponse } from "@octokit/rest";
 import to from "await-to-js";
 import { VError } from "verror";
 
