@@ -1,3 +1,4 @@
+import { ReposGetReleaseResponse } from "@octokit/rest";
 import to from "await-to-js";
 import { VError } from "verror";
 
@@ -35,6 +36,15 @@ export class BranchesChecking {
     const prereleases = ReleaseFetcher.groupReleaseByName(
       releasesByType.get("prereleases"),
     );
+    // const newReleases = validReleases.sort((first, second) => {
+    //   const firstDate = first.tag_name;
+    //   const secondDate = second.tag_name;
+    //   return Number.parseFloat(secondDate) - Number.parseFloat(firstDate);
+    // });
+    // const mappedReleases = new Map<string, ReposGetReleaseResponse>();
+    // newReleases.forEach(release =>
+    //   mappedReleases.set(release.tag_name, release),
+    // );
 
     const newestReleases = ReleaseFetcher.getNewestReleases(releases);
     const newestPrereleases = ReleaseFetcher.getNewestReleases(prereleases);
@@ -44,10 +54,29 @@ export class BranchesChecking {
       newestReleases,
       numberOfReleases,
     );
+    //   const tempTags = new Map<string, string>();
 
+    //   mappedReleases.forEach((releaseInfo, tagName) => {
+    //     tempTags.set(tagName, tagName);
+    //   });
+    //   const extractedtags = new Map([...tempTags.entries()].slice(0, 1));
+
+    //   return {
+    //     releases: extractedtags,
+    //     prereleases: extractedtags,
+    //   };
+    // };
+
+    const extractedTagsRel = ReleaseFetcher.extractTags(
+      newestReleases,
+      numberOfReleases,
+    );
+    const extractedTagsPre = ReleaseFetcher.extractTags(filteredPrereleases);
+    console.log("tags rel", extractedTagsRel);
+    console.log("tags pre", extractedTagsPre);
     return {
-      releases: ReleaseFetcher.extractTags(newestReleases, numberOfReleases),
-      prereleases: ReleaseFetcher.extractTags(filteredPrereleases),
+      releases: extractedTagsRel,
+      prereleases: extractedTagsPre,
     };
   };
 
