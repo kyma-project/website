@@ -16,6 +16,8 @@ Use the following tools to set up the project:
 
 - [Node.js](https://nodejs.org/en/) v12.20.1
 
+If you have newer Node version, you can install NVM.
+
 ## Usage
 
 ### Install dependencies
@@ -32,6 +34,22 @@ Launch the development server with the hot reloading functionality that allows a
 
 ``` bash
 npm run develop
+```
+
+To fetch `docs` from the `Kyma` repository, go to the `scripts/prepare-content.sh` file and change  `APP_DOCS_OUTPUT` to:
+```
+APP_DOCS_OUTPUT="{FULL_PATH_TO_REPOSITORY}/content/docs"
+```
+Then go to the root directory of the repostory and run the following command:
+
+```
+make prepare-content-website
+```
+
+To debug and develop the process of fetching content, go to the `tools/content-fetcher` directory and run the following command:
+
+```
+npm start
 ```
 
 ### Build the production-ready website

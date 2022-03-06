@@ -75,9 +75,6 @@ export class ReleaseFetcher {
 
     groupedReleases.forEach((value, key) => {
       const sorted = value.sort((first, second) => {
-        console.log("first", Number.parseFloat(first.tag_name));
-        console.log("second", Number.parseFloat(second.tag_name));
-
         const firstTag = first.tag_name;
         const secondTag = second.tag_name;
         return Number.parseFloat(secondTag) - Number.parseFloat(firstTag);
@@ -91,7 +88,6 @@ export class ReleaseFetcher {
           Number.parseFloat(second[0]) - Number.parseFloat(first[0]),
       ),
     );
-    console.log("resultkeys", sortedResult.keys());
     return sortedResult;
   }
 
