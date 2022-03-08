@@ -77,15 +77,14 @@ export class ReleaseFetcher {
       const sorted = value.sort((first, second) => {
         const firstTag = first.tag_name;
         const secondTag = second.tag_name;
-        return Number.parseFloat(secondTag) - Number.parseFloat(firstTag);
+        return semverGt(secondTag, firstTag) ? 1 : -1;
       });
 
       result.set(key, sorted[0]);
     });
     const sortedResult = new Map(
-      [...result.entries()].sort(
-        (first, second) =>
-          Number.parseFloat(second[0]) - Number.parseFloat(first[0]),
+      [...result].sort((first, second) =>
+        semverGt(semverCoerce(second[0]), semverCoerce(first[0])) ? 1 : -1,
       ),
     );
     return sortedResult;
