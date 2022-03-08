@@ -84,7 +84,7 @@ export class ReleaseFetcher {
     });
     const sortedResult = new Map(
       [...result].sort((first, second) =>
-        semverGt(semverCoerce(second[0]), semverCoerce(first[0])) ? 1 : -1,
+        semverGt(semverCoerce(second[0])!, semverCoerce(first[0])!) ? 1 : -1,
       ),
     );
     return sortedResult;
