@@ -82,12 +82,11 @@ export class ReleaseFetcher {
 
       result.set(key, sorted[0]);
     });
-    const sortedResult = new Map(
+    return new Map(
       [...result].sort((first, second) =>
         semverGt(semverCoerce(second[0])!, semverCoerce(first[0])!) ? 1 : -1,
       ),
     );
-    return sortedResult;
   }
 
   handlePreReleasesWithoutRelease(
