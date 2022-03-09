@@ -74,18 +74,19 @@ export class ReleaseFetcher {
     const result = new Map<string, ReposGetReleaseResponse>();
 
     groupedReleases.forEach((value, key) => {
-      const sorted = value
-        .sort((first, second) => {
-          const firstDate = new Date(first.published_at);
-          const secondDate = new Date(second.published_at);
-          return firstDate.getTime() - secondDate.getTime();
-        })
-        .reverse();
+      const sorted = value.sort((first, second) => {
+        const firstTag = first.tag_name;
+        const secondTag = second.tag_name;
+        return semverGt(secondTag, firstTag) ? 1 : -1;
+      });
 
       result.set(key, sorted[0]);
     });
-
-    return result;
+    return new Map(
+      [...result].sort((first, second) =>
+        semverGt(semverCoerce(second[0])!, semverCoerce(first[0])!) ? 1 : -1,
+      ),
+    );
   }
 
   handlePreReleasesWithoutRelease(
