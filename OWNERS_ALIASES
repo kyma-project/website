@@ -1,15 +1,13 @@
 aliases:
   documentation-reviewers:
-    - kazydek
     - klaudiagrz
-    - bszwarc
     - mmitoraj
     - majakurcius
-    - alexandra-simeonova
+    - NHingerl
+    - grego952
   documentation-approvers:
-    - kazydek
     - klaudiagrz
-    - bszwarc
     - mmitoraj
     - majakurcius
-    - alexandra-simeonova
+    - NHingerl
+    - grego952
