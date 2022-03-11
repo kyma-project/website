@@ -57,21 +57,3 @@ export const HeaderWrapper = styled.div`
     margin: 0 auto;
   }
 `;
-
-export const VersionNote = styled.div`
-  margin-left: 0;
-  margin-right: 0;
-  padding: 16px;
-  margin: 8px 0;
-  font-size: 14px;
-  border-left: 3px solid rgb(221, 0, 0);
-  background: rgba(221, 0, 0, 0.08);
-  .dc-markdown__text {
-    font-size: 14px;
-  }
-
-  p {
-    margin: 3px 0;
-  }
-}
-`;

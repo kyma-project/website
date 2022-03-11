@@ -13,7 +13,6 @@ import {
   LearnMoreButton,
   StyledGridContainer,
   HeaderWrapper,
-  VersionNote,
 } from "./styled";
 import { CenteredLink } from "../styled";
 
@@ -51,15 +50,6 @@ const CheckItOutRaw: FunctionComponentIntl = ({ formatMessage }) => (
         <FormattedMessage id={gt("headline")} tagName={React.Fragment} />
       </H>
     </HeaderWrapper>
-    <VersionNote>
-      <FormattedMessage
-        id={gt("versionDisclaimer")}
-        values={{
-          here: <CenteredLink to={config.links.KYMA_1_HOME}>here</CenteredLink>,
-        }}
-        tagName={React.Fragment}
-      />
-    </VersionNote>
 
     <Grid.Row space={true}>
       <Grid.Unit df={6} lg={6} md={12} withoutMargin={true}>
