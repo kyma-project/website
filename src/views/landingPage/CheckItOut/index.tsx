@@ -1,6 +1,5 @@
 import React from "react";
 import Grid from "@styled/Grid";
-import { Termynal } from "./Termynal/Termynal";
 import H from "@components/shared/H";
 import config from "@config";
 
@@ -77,7 +76,6 @@ const CheckItOutRaw: FunctionComponentIntl = ({ formatMessage }) => (
         <ParagraphWrapper>
           <FormattedMessage id={gt("firstParagraph2")} />
         </ParagraphWrapper>
-        <Termynal />
 
         <SvgWrapper>
           <ProjectIcon src={image2.src} alt={image2.alt} />
