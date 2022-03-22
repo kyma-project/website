@@ -10,7 +10,7 @@ tags:
 - "/blog/release-notes-21"
 ---
 
-{INTRO}
+Ahoy, mateys! We're calling at the port again to load up with a fresh portion of new features, improvements, and upgrades, but also to unload stuff that we no longer need on this journey and that's been slowing us down. Support for Kubernetes 1.21, a new alpha option for the `deploy` command, support for non-alphanumeric characters in event types, restructure of metrics, and Istio refactorization are just some of those things that we happily brought aboard. Read on to find out more about this Kyma 2.1 ship!
 
 <!-- overview -->
 
