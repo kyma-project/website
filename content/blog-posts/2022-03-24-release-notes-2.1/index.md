@@ -19,7 +19,7 @@ Ahoy, mateys! We're calling at the port again to load up with a fresh portion of
 See the overview of all changes in this release:
 
 - [General](#general) - Support for Kubernetes 1.21.
-- [CLI](#cli) - Dry-run option for the `deploy` command in alpha, specifying components with **downloadURL** and **version**, generating schema for Function manifests
+- [CLI](#cli) - Dry-run option for the `deploy` command in alpha, specifying components with **downloadURL** and **version**, generating schema for Function manifests, support for Gardener cluster hibernation, provisioning commands for GKE, AKS, and AWS removed
 - [Eventing](#eventing) - Support for non-alphanumeric characters in event types
 - [Observability](#observability) - Kiali and Jaeger upgraded, monitoring upgraded, metrics restructured, Grafana dashboards improved, the `alertmanager` chart revamped, logging chart updated and Loki improved
 - [Serverless](#serverless) - Node.js 12 deprecated
@@ -57,6 +57,14 @@ We improved the development experience for Functions developers. We added schema
   ```
 
   This will print out the JSON schema so that you can import it in your preferred IDE.
+
+### Support for Gardener cluster hibernation added
+
+Starting with Kyma 2.1, it is now possible to hibernate a Kyma cluster which was created via Gardener. 
+
+### Provisioning commands for GKE, AKS, and AWS removed
+
+With this release, we removed the support for provisiong Kyma clusters on the GKE, AWS, and AKS hyperscalers. Provisioning of a cluster via Gardener or k3d is still possible.
 
 ## Eventing
 
