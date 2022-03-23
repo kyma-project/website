@@ -93,30 +93,9 @@ Speaking of upgrades, the different components of the monitoring area also got o
 
 ### Metrics restructured
 
-As the kube-state-metrics component got a major upgrade to version 2.x, some metrics got restructured. The following metrics were affected:
+As the kube-state-metrics component got a major upgrade to version 2.x, some metrics got restructured. 
 
-- The `kube_pod_container_resource_requests` and `kube_pod_container_resource_limits` metrics replaced the following metrics:
-  - `kube_pod_container_resource_requests_cpu_cores`
-  - `kube_pod_container_resource_limits_cpu_cores`
-  - `kube_pod_container_resource_requests_memory_bytes`
-  - `kube_pod_container_resource_limits_memory_byte`
-
-- The `kube_node_status_capacity` and `kube_node_status_allocatable` metrics replaced the following metrics:
-  - `kube_node_status_capacity_pods`
-  - `kube_node_status_capacity_cpu_cores`
-  - `kube_node_status_capacity_memory_bytes`
-  - `kube_node_status_allocatable_pods`
-  - `kube_node_status_allocatable_cpu_cores`
-  - `kube_node_status_allocatable_memory_bytes`
-
-- The following metrics got renamed:
-
-  - `kube_daemonset_updated_number_scheduled` → `kube_daemonset_status_updated_number_scheduled`
-  - `kube_hpa_*` → `kube_horizontalpodautoscaler_*`
-
-<!-- TODO: is it better as a table? -->
-
-The following table shows how the labels were restructured:
+The following table shows how the affected labels were restructured:
 
 | Previously  | Now |
 |-------------|-----|
