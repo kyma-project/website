@@ -104,7 +104,7 @@ The following table shows how the affected labels were restructured:
 | `kube_hpa_*`            | `kube_horizontalpodautoscaler_*`    |
 
 Furthermore, the `envoy_` metrics exposed by the istio-sidecar running with every workload are not collected by default anymore. 
-However, we continue to collect the more relevant `istio_` metrics which are used in the Istio-specific dashboards. 
+However, we continue to collect the more relevant `istio_` metrics, which are used in the Istio-specific dashboards. 
 It turned out that the `envoy_` metrics were helpful only in advanced troubleshooting scenarios and introduced too big a cardinality, resulting in big resource consumption. Still, you can enable them optionally. 
 See [#issue 13659](https://github.com/kyma-project/kyma/issues/13659) for more details.
 
