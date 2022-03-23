@@ -47,7 +47,7 @@ We improved development experience for Functions developers. We added schema gen
   ```bash
   kyma init function --vscode
   ```
-  This command  creates the `.vscode` folder, which contains the schema for `config.yaml`. Install a [YAML plugin](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml) in your IDE and the VSCode will automatically pick it up for validation and autocompletion.
+  This command  creates the `.vscode` folder, which contains the schema for `config.yaml`. Install a [YAML plugin](https://github.com/redhat-developer/vscode-yaml) in your IDE and the VSCode will automatically pick it up for validation and autocompletion.
 
 
 - If you just want to generate the schema, use the following command:
