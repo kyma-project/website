@@ -1,16 +1,16 @@
 ---
 title: "Kyma 2.1"
 author:
-name: "Maja Kurcius, Technical Writer @Kyma"
+  name: "Maja Kurcius, Technical Writer @Kyma"
 tags:
-- release-notes
-  type: release
-  releaseTag: "2.1.0"
-  redirectFrom:
-- "/blog/release-notes-21"
+  - release-notes 
+type: release
+releaseTag: "2.0.0"
+redirectFrom:
+  - "/blog/release-notes-20"
 ---
 
-Ahoy, mateys! We're calling at the port again to load up with a fresh portion of new features, improvements, and upgrades, but also to unload stuff that we no longer need on this journey and that's been slowing us down. Support for Kubernetes 1.21, a new alpha option for the `deploy` command, support for non-alphanumeric characters in event types, restructure of metrics, and Istio refactorization are just some of those things that we happily brought aboard. Read on to find out more about this Kyma 2.1 ship!
+Ahoy, mateys! We're calling at the port again to load up with a fresh portion of new features, improvements, and upgrades, but also to unload stuff that we no longer need on this journey and that's been slowing us down. Support for Kubernetes 1.21, a new alpha option for the `deploy` command, support for non-alphanumeric characters in event types, restructure of metrics, and Istio refactorization are just some of those things that we happily bring aboard. Read on to find out more about this Kyma 2.1 ship!
 
 <!-- overview -->
 
@@ -167,6 +167,9 @@ With that, the following changes were applied:
   - `AggregatedAPIErrors` → `KubeAggregatedAPIErrors`
 
 ### Logging chart updated and Loki improved
+
+<!-- COMMENT: The "app" label available in Loki as log stream filter was based on the values of the kubernetes "app" labels. Now, we also mapped the  "app.kubernetes.io/name" label to the loki "app" label.
+There is a mistake in my sentence. We mapped the "app.kubernetes.io/name" kubernetes label to a new loki label called "component" -->
 
 We updated the logging component to the latest available FluentBit version 1.8.13.
 Furthermore, the label map for the Loki integration got improved by:
