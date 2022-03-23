@@ -31,13 +31,13 @@ With release 2.1, we now officially support and test against Kubernetes 1.21.
 
 ## CLI
 
-### `deploy` command has the dry-run option in an alpha version
+### The `deploy` command: try the new `dry-run` option in an alpha version
 
-<!-- TODO: waiting for input -->
+With this release, a new `dry-run` option was added to the `deploy` command. It lets you trial-run the YAMLs for your Kubernetes resources and see what the output would be if they were deployed. Mind that for now, the option is in the alpha version. See the [Kyma CLI documentation](https://github.com/kyma-project/cli/blob/main/docs/gen-docs/kyma_deploy.md) for more details.
 
-### Specify components with **downloadURL** and **version**
+### The `deploy` command: specify components with **downloadURL** and **version**
 
-<!-- TODO: waiting for input -->
+Another addition to the `deploy` command is an extension to the `--component` flag. Previously you could specify the **name** and **namespace** for the component. Now you can also specify the two additional parameters: **downloadURL** and **version**. Again, refer to the [CLI documentation](https://github.com/kyma-project/cli/blob/main/docs/gen-docs/kyma_deploy.md) for more details. 
 
 ### Generate schema for Function manifests
 
@@ -147,13 +147,11 @@ With that, the following changes were applied:
 
 ### Logging chart updated and Loki improved
 
-<!-- COMMENT: The "app" label available in Loki as log stream filter was based on the values of the kubernetes "app" labels. Now, we also mapped the  "app.kubernetes.io/name" label to the loki "app" label.
-There is a mistake in my sentence. We mapped the "app.kubernetes.io/name" kubernetes label to a new loki label called "component" -->
-
 We updated the logging component to the latest available FluentBit version 1.8.13.
-Furthermore, the label map for the Loki integration got improved by:
-- Mapping additionally the labels `app.kubernetes.io/component` and `app.kubernetes.io/name` to the `app` label
-- Removing the `release` and `serverless.kyma-project.io/uuid` labels to improve the chunk size handling in Loki 
+Furthermore, the label map for the Loki integration got improved:
+- Previously, we had the Kubernetes `app` label mapped to the Loki `app` label. Now, on top of that, we also mapped the label `app.kubernetes.io/name` to the Loki `app` label.
+- We mapped the label `app.kubernetes.io/component` to the Loki `component` label.
+- We removed the `release` and `serverless.kyma-project.io/uuid` labels to improve the chunk size handling in Loki.
 
 Moreover, besides having data retention **by time**, we introduced a new sidecar taking care of data retention **by size**. With that, Loki will not crash anymore when reaching the volume size limit. Oldest data gets deleted first.
 
