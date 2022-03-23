@@ -41,9 +41,9 @@ Another addition to the `deploy` command is an extension to the `--component` fl
 
 ### Generate schema for Function manifests
 
-We improved development experience for Functions developers. We added schema generation for the `config.yaml` manifests. This, when combined with dedicated plugins in your IDE, helps you avoid mistakes via validation and auto-completion.
+We improved the development experience for Functions developers. We added schema generation for the `config.yaml` manifests. This, when combined with dedicated plugins in your IDE, helps you avoid mistakes via validation and auto-completion.
 
-- If you use the VSCode IDE to develop Function code, just  use the `--vscode` option when generating the Function project:
+- If you use the VSCode IDE to develop Function code, just use the `--vscode` option when generating the Function project:
   ```bash
   kyma init function --vscode
   ```
@@ -58,15 +58,14 @@ We improved development experience for Functions developers. We added schema gen
 
   This will print out the JSON schema so that you can import it in your preferred IDE.
 
-
 ## Eventing
 
 ### Support for non-alphanumeric characters in event types
 
 The naming in event types comes with certain restrictions.
-Previously, we only supported ASCII alphanumeric characters from the range `[a-zA-Z0-9]+`. If your name contained an offensive character, the event sending was failed.
+Previously, we only supported ASCII alphanumeric characters from the range `[a-zA-Z0-9]+`. If your name contained an unsupported character, the event sending was failed.
 
-Starting from this release, we no longer fail sending such events. Instead, unsupported characters are automatically dropped from events sent to Kyma and also from event types specified in the Subscription CRD.
+Starting from this release, we no longer fail sending such events. Instead, the unsupported characters are automatically dropped from events sent to Kyma and also from event types specified in the Subscription CRD.
 
 Read about the [event names](https://kyma-project.io/docs/kyma/2.1/05-technical-reference/evnt-01-event-names) and [Subscription CRD](https://kyma-project.io/docs/kyma/2.1/05-technical-reference/00-custom-resources/evnt-01-subscription) in more detail.
 
@@ -104,16 +103,16 @@ The following table shows how the affected labels were restructured:
 | `kube_daemonset_updated_number_scheduled`            | `kube_daemonset_status_updated_number_scheduled`    |
 | `kube_hpa_*`            | `kube_horizontalpodautoscaler_*`    |
 
-Furthermore, the `envoy_` metrics exposed by the istio-sidecar running with every workload are not getting collected by default anymore. 
+Furthermore, the `envoy_` metrics exposed by the istio-sidecar running with every workload are not collected by default anymore. 
 However, we continue to collect the more relevant `istio_` metrics which are used in the Istio-specific dashboards. 
-It turned out that the `envoy_` metrics were helpful only in advanced troubleshooting scenarios and introduced too big a cardinality, resulting in big resource consumption. Still, you can enable them as optional. 
+It turned out that the `envoy_` metrics were helpful only in advanced troubleshooting scenarios and introduced too big a cardinality, resulting in big resource consumption. Still, you can enable them optionally. 
 See [#issue 13659](https://github.com/kyma-project/kyma/issues/13659) for more details.
 
 ### Grafana dashboards improved
 
-Several improvements were applied to the dashboards coming with the Grafana in Kyma.
+Several improvements were applied to the dashboards that come with the Grafana in Kyma.
 
-- The Loki dashboard got improved by adding a new top section with the most relevant metrics displayed.
+- The Loki dashboard was improved by adding a new top section with the most relevant metrics displayed.
 - All dashboards were adjusted to the metric changes coming with the major upgrade of kube-state-metrics.
 - The dashboards tagged as `kubernetes-mixins` were updated to the latest available version from the community.
 - `node-exporter` and Prometheus dashboards were replaced by the version provided by the community.
@@ -122,7 +121,7 @@ Several improvements were applied to the dashboards coming with the Grafana in K
 
 ### The `alertmanager` chart revamped
 
-The Kyma `alertmanager` chart, which is a sub-chart of the monitoring component, got refactored more heavily. Mainly, we tried to remove customizations that were in contrast to the available community chart, to simplify future updates.
+The Kyma `alertmanager` chart, which is a sub-chart of the monitoring component, was refactored more heavily. Mainly, we tried to remove customizations that were in contrast to the available community chart, to simplify future updates.
 
 With that, the following changes were applied:
 
@@ -148,12 +147,12 @@ With that, the following changes were applied:
 ### Logging chart updated and Loki improved
 
 We updated the logging component to the latest available FluentBit version 1.8.13.
-Furthermore, the label map for the Loki integration got improved:
+Furthermore, the label map for the Loki integration was improved:
 - Previously, we had the Kubernetes `app` label mapped to the Loki `app` label. Now, on top of that, we also mapped the label `app.kubernetes.io/name` to the Loki `app` label.
 - We mapped the label `app.kubernetes.io/component` to the Loki `component` label.
 - We removed the `release` and `serverless.kyma-project.io/uuid` labels to improve the chunk size handling in Loki.
 
-Moreover, besides having data retention **by time**, we introduced a new sidecar taking care of data retention **by size**. With that, Loki will not crash anymore when reaching the volume size limit. Oldest data gets deleted first.
+Moreover, besides having data retention **by time**, we introduced a new sidecar taking care of data retention **by size**. With that, Loki will not crash anymore when reaching the volume size limit. Oldest data is deleted first.
 
 ## Serverless
 
@@ -175,5 +174,5 @@ With this release, we upgraded Istio from 1.11.4 to 1.12.3. For more details on 
 
 ### Istio refactored
 
-With Kyma 2.1, we improved the Istio component, splitting it into Istio and Istio Resources charts. The Istio component is now solely responsible for pure Istio installatoion. The Istio Resources chart includes Kyma-specific configuration.
+With Kyma 2.1, we improved the Istio component, splitting it into Istio and Istio Resources charts. The Istio component is now solely responsible for pure Istio installation. The Istio Resources chart includes Kyma-specific configuration.
 The Istio Configuration chart was renamed to Istio. 
