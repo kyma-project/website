@@ -23,7 +23,7 @@ See the overview of all changes in this release:
 - [Eventing](#eventing) - Support for non-alphanumeric characters in event types
 - [Observability](#observability) - Kiali and Jaeger upgraded, monitoring upgraded, metrics restructured, Grafana dashboards improved, the `alertmanager` chart revamped, logging chart updated and Loki improved
 - [Serverless](#serverless) - Node.js 12 deprecated
-- [Service Mesh](#service-mesh) - FIPS distroless Istio images provided by Solo,  Istio upgraded to 1.12.3, Istio refactored
+- [Service Mesh](#service-mesh) - FIPS distroless Istio images provided by Solo, Istio refactored and upgraded to 1.12.3
 
 ## General
 
@@ -64,7 +64,7 @@ We improved development experience for Functions developers. We added schema gen
 ### Support for non-alphanumeric characters in event types
 
 The naming in event types comes with certain restrictions.
-Previously, we only supported ASCII-alphanumeric characters from the range `[a-zA-Z0-9]+`. If your name contained an offensive character, the event sending was failed.
+Previously, we only supported ASCII alphanumeric characters from the range `[a-zA-Z0-9]+`. If your name contained an offensive character, the event sending was failed.
 
 Starting from this release, we no longer fail sending such events. Instead, unsupported characters are automatically dropped from events sent to Kyma and also from event types specified in the Subscription CRD.
 
@@ -120,8 +120,8 @@ The following table shows how the labels were restructured:
 
 | Previously  | Now |
 |-------------|-----|
-| - `kube_pod_container_resource_requests_cpu_cores` <br /> - `kube_pod_container_resource_limits_cpu_cores` <br /> - `kube_pod_container_resource_requests_memory_bytes` <br /> - `kube_pod_container_resource_limits_memory_byte`            |  - `kube_pod_container_resource_requests` <br /> - `kube_pod_container_resource_limits`   |
-| - `kube_node_status_capacity_pods` <br /> - `kube_node_status_capacity_cpu_cores`<br />- `kube_node_status_capacity_memory_bytes` <br /> - `kube_node_status_allocatable_pods` <br /> - `kube_node_status_allocatable_cpu_cores` <br /> - `kube_node_status_allocatable_memory_bytes`            |  - `kube_node_status_capacity` <br /> - `kube_node_status_allocatable`   |
+| `kube_pod_container_resource_requests_cpu_cores`, <br /> `kube_pod_container_resource_limits_cpu_cores`, <br /> `kube_pod_container_resource_requests_memory_bytes`, <br /> `kube_pod_container_resource_limits_memory_byte`            | `kube_pod_container_resource_requests`, <br /> `kube_pod_container_resource_limits`   |
+| `kube_node_status_capacity_pods`, <br /> `kube_node_status_capacity_cpu_cores`, <br /> `kube_node_status_capacity_memory_bytes`, <br /> `kube_node_status_allocatable_pods`, <br /> `kube_node_status_allocatable_cpu_cores`, <br /> `kube_node_status_allocatable_memory_bytes`,            | `kube_node_status_capacity`, <br /> `kube_node_status_allocatable`   |
 | `kube_daemonset_updated_number_scheduled`            | `kube_daemonset_status_updated_number_scheduled`    |
 | `kube_hpa_*`            | `kube_horizontalpodautoscaler_*`    |
 
