@@ -41,7 +41,7 @@ Another addition to the `deploy` command is an extension to the `--component` fl
 
 ### Generate schema for Function manifests
 
-We improved the development experience for Functions developers. We added schema generation for the `config.yaml` manifests. This, when combined with dedicated plugins in your IDE, helps you avoid mistakes via validation and auto-completion.
+We improved the development experience for Functions developers. We added schema generation for the `config.yaml` manifests. This, when combined with dedicated plugins in your IDE, helps you avoid mistakes via validation and autocompletion.
 
 - If you use the VSCode IDE to develop Function code, just use the `--vscode` option when generating the Function project:
   ```bash
