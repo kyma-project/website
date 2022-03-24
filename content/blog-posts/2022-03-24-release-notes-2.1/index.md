@@ -60,7 +60,13 @@ We improved the development experience for Functions developers. We added schema
 
 ### Support for Gardener cluster hibernation added
 
-Starting with Kyma 2.1, it is now possible to hibernate a Kyma cluster which was created via Gardener. 
+Starting with Kyma 2.1, it is now possible to hibernate a Kyma cluster which was created via Gardener. To do so, specify a hibernation schedule by providing [cron expressions](https://en.wikipedia.org/wiki/Cron) for the start and end of the hibernation, and the timezone on which to base the schedule:
+
+```bash
+kyma provision gardener gcp -n my-cluster -p my-project -c /path/to/credentials.yaml -s gcp-secret --hibernation-start="00 18 * * 1,2,3,4,5" hibernation-end="00 09 * * 1,2,3,4,5" hibernation-location="Europe/Berlin" 
+``` 
+
+By default, all Gardener clusters have hibernation scheduled for weekdays at 6pm (18:00).
 
 ### Provisioning commands for GKE, AKS, and AWS removed
 
