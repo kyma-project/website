@@ -70,7 +70,7 @@ By default, all Gardener clusters have hibernation scheduled for weekdays at 6pm
 
 ### Provisioning commands for GKE, AKS, and AWS removed
 
-With this release, we removed the support for provisiong Kyma clusters on the GKE, AWS, and AKS hyperscalers. Provisioning of a cluster via Gardener or k3d is still possible.
+With this release, we removed the support for provisioning Kyma clusters on the GKE, AWS, and AKS hyperscalers. Provisioning of a cluster via Gardener or k3d is still possible.
 
 ## Eventing
 
