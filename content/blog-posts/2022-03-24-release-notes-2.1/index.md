@@ -87,7 +87,7 @@ Read about the [event names](https://kyma-project.io/docs/kyma/2.1/05-technical-
 
 ### Kiali and Jaeger upgraded
 
-With Kyma 2.1, the Kiali and Tracing components got updated to the following recent versions:
+With Kyma 2.1, the Kiali and Tracing components were updated to the following recent versions:
 - Kiali 1.44
 - Jaeger 1.30.0
 
@@ -108,7 +108,7 @@ Speaking of upgrades, the different components of the monitoring area also got o
 
 As the kube-state-metrics component got a major upgrade to version 2.x, some metrics were restructured. 
 
-The following table shows how the affected labels were restructured:
+The following table shows how the labels were affected:
 
 | Previously  | Now |
 |-------------|-----|
@@ -124,7 +124,7 @@ See [#issue 13659](https://github.com/kyma-project/kyma/issues/13659) for more d
 
 ### Grafana dashboards improved
 
-Several improvements were applied to the dashboards that come with the Grafana in Kyma.
+Several improvements were applied to the dashboards that come with Grafana in Kyma.
 
 - The Loki dashboard was improved by adding a new top section with the most relevant metrics displayed.
 - All dashboards were adjusted to the metric changes coming with the major upgrade of kube-state-metrics.
@@ -160,7 +160,7 @@ With that, the following changes were applied:
 
 ### Logging chart updated and Loki improved
 
-We updated the logging component to the latest available FluentBit version 1.8.13.
+We updated the logging component to the latest available FluentBit version, 1.8.13.
 Furthermore, the label map for the Loki integration was improved:
 - Previously, we had the Kubernetes `app` label mapped to the Loki `app` label. Now, on top of that, we also mapped the label `app.kubernetes.io/name` to the Loki `app` label.
 - We mapped the label `app.kubernetes.io/component` to the Loki `component` label.
@@ -172,7 +172,7 @@ Moreover, besides having data retention **by time**, we introduced a new sidecar
 
 ### Node.js 12 deprecated
 
-The base image for [Node.js 12 will be maintained only until April 2022](https://nodejs.org/en/about/releases/). Thus, following the recommendations from Node.js, we are planning to remove Node.js 12 from the list of supported runtimes soon. This basically means that Node.js 12-based Functions will continue to work, but you won’t be able to create a new Function on this runtime or edit the existing Function to run on it.
+The base image for [Node.js 12 will be maintained only until April 2022](https://nodejs.org/en/about/releases/). Thus, following the recommendations from Node.js, we are planning to remove Node.js 12 from the list of supported runtimes soon. This basically means that Node.js 12-based Functions will continue to work, but you won’t be able to create a new Function on this runtime or edit an existing Function to run on it.
 
 For now, we recommend that you re-configure all your Node.js 12 Functions to run on the Node.js 14 runtime.
 
@@ -180,7 +180,7 @@ For now, we recommend that you re-configure all your Node.js 12 Functions to run
 
 ### FIPS distroless Istio images provided by Solo
 
-With the Kyma 2.1, both [Istio control plane and data plane](https://istio.io/latest/docs/ops/deployment/architecture/) now use distroless images compliant with Federal Information Processing Standards (FIPS). [Solo](https://www.solo.io/) provides the FIPS-certified images. To learn more, read about [Distroless FIPS-compliant Istio](https://www.solo.io/blog/distroless-fips-compliant-istio/).
+With Kyma 2.1, both [Istio control plane and data plane](https://istio.io/latest/docs/ops/deployment/architecture/) now use distroless images compliant with Federal Information Processing Standards (FIPS). [Solo](https://www.solo.io/) provides the FIPS-certified images. To learn more, read about [Distroless FIPS-compliant Istio](https://www.solo.io/blog/distroless-fips-compliant-istio/).
 
 ### Istio upgraded to 1.12.3
 
