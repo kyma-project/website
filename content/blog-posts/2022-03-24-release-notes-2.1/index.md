@@ -10,7 +10,7 @@ redirectFrom:
   - "/blog/release-notes-21"
 ---
 
-Ahoy, mateys! We're calling at the port again to load up with a fresh portion of new features, improvements, and upgrades, but also to unload stuff that we no longer need on this journey and that's been slowing us down. Support for Kubernetes 1.21, a new alpha option for the `deploy` command, support for non-alphanumeric characters in event types, restructure of metrics, and Istio refactorization are just some of those things that we happily bring aboard. Read on to find out more about this Kyma 2.1 ship!
+Ahoy, mateys! We're calling at the port again to load up with a fresh portion of new features, improvements, and upgrades, but also to unload stuff that we no longer need on this journey and that's been slowing us down. Support for Kubernetes 1.21, a new alpha option for the `deploy` command, support for non-alphanumeric characters in event types, restructure of metrics, and Istio refactoring are just some of those things that we happily bring aboard. Read on to find out more about this Kyma 2.1 ship!
 
 <!-- overview -->
 
@@ -47,7 +47,7 @@ We improved the development experience for Functions developers. We added schema
   ```bash
   kyma init function --vscode
   ```
-  This command  creates the `.vscode` folder, which contains the schema for `config.yaml`. Install a [YAML plugin](https://github.com/redhat-developer/vscode-yaml) in your IDE and VSCode will automatically pick it up for validation and autocompletion.
+  This command creates the `.vscode` folder, which contains the schema for `config.yaml`. Install the [YAML plugin](https://github.com/redhat-developer/vscode-yaml) in your IDE and VSCode will automatically pick it up for validation and autocompletion.
 
 
 - If you just want to generate the schema, use the following command:
@@ -66,7 +66,7 @@ Starting with Kyma 2.1, it is now possible to hibernate a Kyma cluster which was
 kyma provision gardener gcp -n my-cluster -p my-project -c /path/to/credentials.yaml -s gcp-secret --hibernation-start="00 18 * * 1,2,3,4,5" hibernation-end="00 09 * * 1,2,3,4,5" hibernation-location="Europe/Berlin" 
 ``` 
 
-By default, all Gardener clusters have hibernation scheduled for weekdays at 6pm (18:00).
+By default, all Gardener clusters have hibernation scheduled for weekdays at 6pm (18:00) in the Europe/Berlin timezone.
 
 ### Provisioning commands for GKE, AKS, and AWS removed
 
@@ -87,7 +87,7 @@ Read about the [event names](https://kyma-project.io/docs/kyma/2.1/05-technical-
 
 ### Kiali and Jaeger upgraded
 
-With Kyma 2.1, the Kiali and Tracing components were updated to the following recent versions:
+With Kyma 2.1, the Kiali and Jaeger components were updated to the following recent versions:
 - Kiali 1.44
 - Jaeger 1.30.0
 
@@ -98,11 +98,11 @@ Speaking of upgrades, the different components of the monitoring area also got o
 - Node-exporter 1.3.1
 - Kube-state-metrics 2.3.0
 - Prometheus 2.32.1
-- Prometheus-operator 0.53.1
+- Prometheus Operator 0.53.1
 - Alertmanager 0.23.0
 - Pushgateway 1.4.2
 - Grafana 7.5.15
-- Oauth2-proxy 7.2.1
+- Oauth2 Proxy 7.2.1
 
 ### Metrics restructured
 
@@ -117,14 +117,14 @@ The following table shows how the labels were affected:
 | `kube_daemonset_updated_number_scheduled`            | `kube_daemonset_status_updated_number_scheduled`    |
 | `kube_hpa_*`            | `kube_horizontalpodautoscaler_*`    |
 
-Furthermore, the `envoy_` metrics exposed by the istio-sidecar running with every workload are not collected by default anymore. 
+Furthermore, the `envoy_` metrics exposed by the Istio sidecar running with every workload are not collected by default anymore. 
 However, we continue to collect the more relevant `istio_` metrics, which are used in the Istio-specific dashboards. 
 It turned out that the `envoy_` metrics were helpful only in advanced troubleshooting scenarios and introduced too big a cardinality, resulting in big resource consumption. Still, you can enable them optionally. 
 See [#issue 13659](https://github.com/kyma-project/kyma/issues/13659) for more details.
 
 ### Grafana dashboards improved
 
-Several improvements were applied to the dashboards that come with Grafana in Kyma.
+Several improvements were applied to the dashboards that come with Grafana in Kyma:
 
 - The Loki dashboard was improved by adding a new top section with the most relevant metrics displayed.
 - All dashboards were adjusted to the metric changes coming with the major upgrade of kube-state-metrics.
@@ -140,7 +140,7 @@ The Kyma `alertmanager` chart, which is a sub-chart of the monitoring component,
 With that, the following changes were applied:
 
 - The dedicated configuration options for VictorOps were removed. Use the typical options for configuration of notification channels instead.
-- New alert rules were added.
+- New alert rules were added:
   - `AlertmanagerFailedToSendAlerts`
   - `AlertmanagerClusterFailedToSendAlerts`
   - `AlertmanagerClusterFailedToSendAlerts Warning`
@@ -160,7 +160,7 @@ With that, the following changes were applied:
 
 ### Logging chart updated and Loki improved
 
-We updated the logging component to the latest available FluentBit version, 1.8.13.
+We updated the Logging component to the latest available FluentBit version, 1.8.13.
 Furthermore, the label map for the Loki integration was improved:
 - Previously, we had the Kubernetes `app` label mapped to the Loki `app` label. Now, on top of that, we also mapped the label `app.kubernetes.io/name` to the Loki `app` label.
 - We mapped the label `app.kubernetes.io/component` to the Loki `component` label.
@@ -184,7 +184,7 @@ With Kyma 2.1, both [Istio control plane and data plane](https://istio.io/latest
 
 ### Istio upgraded to 1.12.3
 
-With this release, we upgraded Istio from 1.11.4 to 1.12.3. For more details on the introduced changes, read the official [Istio 1.12.3 release notes](https://istio.io/latest/news/releases/1.12.x/announcing-1.12.2/).
+With this release, we upgraded Istio from 1.11.4 to 1.12.3. For more details on the introduced changes, read the official [Istio 1.12.3 release notes](https://istio.io/latest/news/releases/1.12.x/announcing-1.12.3/).
 
 ### Istio refactored
 
