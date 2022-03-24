@@ -47,7 +47,7 @@ We improved the development experience for Functions developers. We added schema
   ```bash
   kyma init function --vscode
   ```
-  This command  creates the `.vscode` folder, which contains the schema for `config.yaml`. Install a [YAML plugin](https://github.com/redhat-developer/vscode-yaml) in your IDE and the VSCode will automatically pick it up for validation and autocompletion.
+  This command  creates the `.vscode` folder, which contains the schema for `config.yaml`. Install a [YAML plugin](https://github.com/redhat-developer/vscode-yaml) in your IDE and VSCode will automatically pick it up for validation and autocompletion.
 
 
 - If you just want to generate the schema, use the following command:
@@ -106,7 +106,7 @@ Speaking of upgrades, the different components of the monitoring area also got o
 
 ### Metrics restructured
 
-As the kube-state-metrics component got a major upgrade to version 2.x, some metrics got restructured. 
+As the kube-state-metrics component got a major upgrade to version 2.x, some metrics were restructured. 
 
 The following table shows how the affected labels were restructured:
 
