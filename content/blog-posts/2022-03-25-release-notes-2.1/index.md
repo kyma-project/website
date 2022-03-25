@@ -21,7 +21,7 @@ See the overview of all changes in this release:
 - [General](#general) - Support for Kubernetes 1.21.
 - [CLI](#cli) - Dry-run option for the `deploy` command in alpha, specifying components with **downloadURL** and **version**, generating schema for Function manifests, support for Gardener cluster hibernation, provisioning commands for GKE, AKS, and AWS removed
 - [Eventing](#eventing) - Support for non-alphanumeric characters in event types
-- [Observability](#observability) - Kiali and Jaeger upgraded, monitoring upgraded, Grafana dashboards improved, the `alertmanager` chart revamped, Logging chart updated and Loki improved
+- [Observability](#observability) - Kiali and Jaeger upgraded, Monitoring upgraded, Grafana dashboards improved, the `alertmanager` chart revamped, Logging chart updated and Loki improved
 - [Serverless](#serverless) - Node.js 12 deprecated
 - [Service Mesh](#service-mesh) - FIPS distroless Istio images provided by Solo, Istio refactored and upgraded to 1.12.3
 
@@ -60,7 +60,7 @@ We improved the development experience for Functions developers. We added schema
 
 ### Support for Gardener cluster hibernation added
 
-Starting with Kyma 2.1, it is now possible to specify a hibernation schedule for a Kyma cluster which was created via the `kyma provision gardener` command. To do so, specify a hibernation schedule by providing [cron expressions](https://en.wikipedia.org/wiki/Cron) for the start and end of the hibernation, and the timezone on which to base the schedule:
+Starting with Kyma 2.1, it is now possible to specify a hibernation schedule for a Kyma cluster which was created using the `kyma provision gardener` command. To do so, specify a hibernation schedule by providing [cron expressions](https://en.wikipedia.org/wiki/Cron) for the start and end of the hibernation, and the timezone on which to base the schedule:
 
 ```bash
 kyma provision gardener gcp -n my-cluster -p my-project -c /path/to/credentials.yaml -s gcp-secret --hibernation-start="00 18 * * 1,2,3,4,5" hibernation-end="00 09 * * 1,2,3,4,5" hibernation-location="Europe/Berlin" 
@@ -93,7 +93,7 @@ With Kyma 2.1, the Kiali and Jaeger components were updated to the following rec
 
 ### Monitoring upgraded
 
-Speaking of upgrades, the different components of the monitoring area also got one. While doing that, we felt inspired and updated the used Helm chart, too, and adapted it to the upstream charts. The components were upgraded to the following versions:
+Speaking of upgrades, the different components of the Monitoring area also got one. While doing that, we felt inspired and updated the used Helm chart, too, and adapted it to the upstream charts. The components were upgraded to the following versions:
 
 - Node-exporter 1.3.1
 - Kube-state-metrics 2.3.0
@@ -128,12 +128,12 @@ Several improvements were applied to the dashboards that come with Grafana in Ky
 - All dashboards were adjusted to the metric changes coming with the major upgrade of kube-state-metrics.
 - The dashboards tagged as `kubernetes-mixins` were updated to the latest available version from the community.
 - `node-exporter` and Prometheus dashboards were replaced by the version provided by the community.
-- The Kyma `frontends` and `backends` dashboards were removed, as they had no additional value to existing dashboards.
+- The Kyma `frontends` and `backends` dashboards were removed, as they had no additional value to the existing dashboards.
 - The Kyma `Controllers` dashboards were revamped to have relevant reconciliation metrics included, and they were rolled out to all Kyma controllers.
 
 ### The `alertmanager` chart revamped
 
-The Kyma `alertmanager` chart, which is a sub-chart of the monitoring component, was refactored more heavily. Mainly, we tried to remove customizations that were in contrast to the available community chart, to simplify future updates.
+The Kyma `alertmanager` chart, which is a sub-chart of the Monitoring component, was refactored more heavily. Mainly, we tried to remove customizations that were in contrast to the available community chart, to simplify future updates.
 
 With that, the following changes were applied:
 
