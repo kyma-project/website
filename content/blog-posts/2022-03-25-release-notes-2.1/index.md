@@ -186,4 +186,4 @@ With this release, we upgraded Istio from 1.11.4 to 1.12.3. For more details on 
 
 ### Istio refactored
 
-With Kyma 2.1, we improved the Istio component, splitting it into two charts: Istio (previously Istio Configuration) and Istio Resources. The Istio component, with the Istio chart, is now solely responsible for pure Istio installation. The Istio Resources chart includes Kyma-specific configuration, and it is not a prerequisite for Kyma.
+With Kyma 2.1, we improved the Istio component, splitting it into two charts: `istio` (previously `istio-configuration`) and `istio-resources`. The Istio component, with the `istio` chart, is now solely responsible for pure Istio installation. The `istio-resources` chart includes Kyma-specific configuration, and it is not a prerequisite for Kyma.
