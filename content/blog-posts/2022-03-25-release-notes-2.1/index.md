@@ -10,7 +10,7 @@ redirectFrom:
   - "/blog/release-notes-21"
 ---
 
-Ahoy, mateys! We're calling at the port again to load up with a fresh portion of new features, improvements, and upgrades, but also to unload stuff that we no longer need on this journey and that's been slowing us down. Support for Kubernetes 1.21, a new alpha option for the `deploy` command, support for non-alphanumeric characters in event types, restructure of metrics, and Istio refactoring are just some of those things that we happily bring aboard. Read on to find out more about this Kyma 2.1 ship!
+Ahoy, mateys! We're calling at the port again to load up with a fresh portion of new features, improvements, and upgrades, but also to unload stuff that we no longer need on this journey and that's been slowing us down. Support for Kubernetes 1.21, a new alpha option for the `deploy` command, support for non-alphanumeric characters in event types, upgrade of the whole Monitoring component, and Istio refactoring are just some of those things that we happily bring aboard. Read on to find out more about this Kyma 2.1 ship!
 
 <!-- overview -->
 
@@ -21,7 +21,7 @@ See the overview of all changes in this release:
 - [General](#general) - Support for Kubernetes 1.21.
 - [CLI](#cli) - Dry-run option for the `deploy` command in alpha, specifying components with **downloadURL** and **version**, generating schema for Function manifests, support for Gardener cluster hibernation, provisioning commands for GKE, AKS, and AWS removed
 - [Eventing](#eventing) - Support for non-alphanumeric characters in event types
-- [Observability](#observability) - Kiali and Jaeger upgraded, monitoring upgraded, metrics restructured, Grafana dashboards improved, the `alertmanager` chart revamped, logging chart updated and Loki improved
+- [Observability](#observability) - Kiali and Jaeger upgraded, monitoring upgraded, Grafana dashboards improved, the `alertmanager` chart revamped, Logging chart updated and Loki improved
 - [Serverless](#serverless) - Node.js 12 deprecated
 - [Service Mesh](#service-mesh) - FIPS distroless Istio images provided by Solo, Istio refactored and upgraded to 1.12.3
 
@@ -103,8 +103,6 @@ Speaking of upgrades, the different components of the monitoring area also got o
 - Pushgateway 1.4.2
 - Grafana 7.5.15
 - Oauth2 Proxy 7.2.1
-
-### Metrics restructured
 
 As the kube-state-metrics component got a major upgrade to version 2.x, some metrics were restructured. 
 
