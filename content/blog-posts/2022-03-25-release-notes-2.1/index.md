@@ -31,9 +31,9 @@ With release 2.1, we now officially support and test against Kubernetes 1.21.
 
 ## CLI
 
-### The `deploy` command: try the new `dry-run` option in an alpha version
+### The `deploy` command: try the new `dry-run` option in the alpha version
 
-With this release, a new `dry-run` option was added to the `deploy` command. It lets you trial-run the YAMLs for your Kubernetes resources and see what the output would be if they were deployed. Mind that for now, the option is in the alpha version. See the [Kyma CLI documentation](https://github.com/kyma-project/cli/blob/main/docs/gen-docs/kyma_deploy.md) for more details.
+With this release, a new `dry-run` option was added to the `deploy` command. It lets you trial-run the YAMLs for your Kubernetes resources and see what the output would be if they were deployed. Mind that for now, the option is in the alpha version. It cannot be used yet to apply a full Kyma installation, as the components having custom installation routines (such as Istio) are not included in the generated manifests. See the [Kyma CLI documentation](https://github.com/kyma-project/cli/blob/main/docs/gen-docs/kyma_deploy.md) for more details.
 
 ### The `deploy` command: specify components with **downloadURL** and **version**
 
