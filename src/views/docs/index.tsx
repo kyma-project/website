@@ -21,7 +21,7 @@ const DocsView: React.FunctionComponent<PageContext<
     repoName,
   } = pageContext;
 
-  console.log(pageContext);
+  console.info(pageContext);
 
   const docsVersionSwitcher = (
     <VersionSwitcher
