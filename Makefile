@@ -4,7 +4,6 @@
 	netlify-community-preview \
 	clear-cache \
 	resolve \
-	validate \
 	test \
 	prepare-content-website \
 	prepare-content-docs-preview \
