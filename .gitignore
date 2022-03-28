@@ -64,6 +64,7 @@ typings/
 .cache/
 public
 yarn-error.log
+content
 
 # temporary folder
 temp-*/
