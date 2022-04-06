@@ -106,7 +106,7 @@ Speaking of upgrades, the different components of the Monitoring area also got o
 
 As the kube-state-metrics component got a major upgrade to version 2.x, some metrics were restructured. 
 
-The following table shows how the labels were affected:
+The following table shows how the metrics were affected:
 
 | Previously  | Now |
 |-------------|-----|
