@@ -60,7 +60,7 @@ We've continued to clean up rules and dashboards. Several rules for Kubernetes i
 
 ### Complete Istio metrics
 
-The Istio metrics setup now follows the recommended approach of Istio and provides all Istio metrics as aggregations over workload.
+The Istio metrics setup now follows the approach recommended by Istio and provides all Istio metrics as aggregations over workload. Read [Observability Best Practicies](https://istio.io/latest/docs/ops/best-practices/observability/) for more information.
 
 ## Serverless
 
