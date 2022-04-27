@@ -10,7 +10,7 @@ redirectFrom:
   - "/blog/release-notes-22"
 ---
 
-Not so long ago in a galaxy not so far away, there was a friendly kingdom of Kyma-land ruled by king Kyma the Wise. The king once said: “It is time to improve our kingdom so that we all can lead even happier lives”. As the king had never made an empty promise, he introduced many features, such as a complete setup of the Istio metrics, Istio upgrade to 1.13.2, overriding Function runtime image and improved Eventing backend CR status. Read more, if you want to learn about other ideas the king came up with!
+Not so long ago in a galaxy not so far away, there was a friendly kingdom of Kyma-land ruled by king Kyma the Wise. The king once said: “It is time to improve our kingdom so that we all can lead even happier lives”. As the king had never made an empty promise, he introduced many features, such as a complete setup of the Istio metrics, Istio upgrade to 1.13.2, overriding Function runtime image and improved Eventing backend CR status. Read more if you want to learn about other ideas the king came up with!
 
 <!-- overview -->
 
@@ -37,16 +37,16 @@ The changes will be introduced gradually. We plan to provide as much automigrati
 
 As announced in the Kyma 2.0 release notes, starting from the version 2.2, Kyma CLI no longer supports Kyma 1.x versions. All the deprecated commands have been removed and are no longer available: 
 
-- `kyma install`: Kyma 2 equivalent is `kyma deploy`
-- `kyma upgrade`: Kyma 2 equivalent is `kyma deploy`
-- `kyma console`: Kyma 2 equivalent is `kyma dashboard`
-- `kyma provision minikube`: Kyma 2 equivalent is `kyma provision k3d`
+- `kyma install`: Kyma 2.x equivalent is `kyma deploy`
+- `kyma upgrade`: Kyma 2.x equivalent is `kyma deploy`
+- `kyma console`: Kyma 2.x equivalent is `kyma dashboard`
+- `kyma provision minikube`: Kyma 2.x equivalent is `kyma provision k3d`
 
 ## Eventing
 
 ### Improved Eventing backend CR status
 
-With Kyma 2.2, we have made the Eventing backend CR status more verbose. We've replaced two of the three booleans, `publisherProxyReady` and `subscriptionControllerReady`, with the Kubernetes conditions. The `eventingReady` boolean remains unchanged.
+We have made the Eventing backend CR status more verbose. We've replaced two of the three booleans, `publisherProxyReady` and `subscriptionControllerReady`, with the Kubernetes conditions. The `eventingReady` boolean remains unchanged.
 
 ## Observability
 
@@ -66,7 +66,7 @@ The Istio metrics setup now follows the approach recommended by Istio and provid
 
 ### Overrides for the Function runtime image
 
-With Kyma 2.2, we've extended the definition of the Function custom resource. Now it allows you to override the base image of the Serverless runtime with a custom Docker image.
+We've extended the definition of the Function custom resource. Now you can override the base image of the Serverless runtime with a custom Docker image.
  
 You may need this feature if you want to build your Functions on top of a runtime with tooling that is not included in the default Alpine-based runtime (for example, the GCC compiler). 
  
@@ -82,4 +82,4 @@ With the 2.2 Kyma release, both [Istio control plane and data plane](https://ist
 
 ### Istio upgraded to 1.13.2
 
-With this release, we've upgraded Istio from 1.12.3 to 1.13.2. For more details on the introduced changes, read the official [Istio 1.13.2 release notes](https://istio.io/latest/news/releases/1.13.x/announcing-1.13.2/).
+We've upgraded Istio from 1.12.3 to 1.13.2. For more details on the introduced changes, read the official [Istio 1.13.2 release notes](https://istio.io/latest/news/releases/1.13.x/announcing-1.13.2/).
