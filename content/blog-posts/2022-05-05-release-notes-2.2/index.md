@@ -10,7 +10,7 @@ redirectFrom:
   - "/blog/release-notes-22"
 ---
 
-Not so long ago in a galaxy not so far away, there was a friendly kingdom of Kyma-land ruled by king Kyma the Wise. The king once said: “It is time to improve our kingdom so that we all can lead even happier lives”. As the king had never made an empty promise, he introduced many features, such as a complete setup of the Istio metrics, Istio upgrade to 1.13.2, overriding Function runtime image and improved Eventing backend CR status. Read more if you want to learn about other ideas the king came up with!
+Not so long ago in a galaxy not so far away, there was a friendly kingdom of Kyma-land ruled by king Kyma the Wise. The king once said: “It is time to improve our kingdom so that we all can lead even happier lives”. As the king had never made an empty promise, he introduced many features, such as a complete setup of the Istio metrics, Istio upgrade to 1.13.2, overriding Function runtime image and improved Eventing backend custom resource (CR) status. Read more if you want to learn about other ideas the king came up with!
 
 <!-- overview -->
 
@@ -66,7 +66,7 @@ The Istio metrics setup now follows the approach recommended by Istio and provid
 
 ### Overrides for the Function runtime image
 
-We've extended the definition of the Function custom resource. Now you can override the base image of the Serverless runtime with a custom Docker image.
+We've extended the definition of the Function CR. Now you can override the base image of the Serverless runtime with a custom Docker image.
  
 You may need this feature if you want to build your Functions on top of a runtime with tooling that is not included in the default Alpine-based runtime (for example, the GCC compiler). 
  
