@@ -10,14 +10,13 @@ redirectFrom:
   - "/blog/release-notes-22"
 ---
 
-Not so long ago in a galaxy not so far away, there was a friendly kingdom of Kyma-land ruled by the wise Kyma king. The king once said: “It is time to improve our kingdom, so that everyone can lead even happier lives”. As the king has never made an empty promise, he introduced many features, such as complete setup of the Istio metrics, Istio upgrade to 1.13.2, overriding Function runtime image and improved Eventing backened CR status. Read more, if you want to learn about other ideas the king came up with!
+Not so long ago in a galaxy not so far away, there was a friendly kingdom of Kyma-land ruled by king Kyma the Wise. The king once said: “It is time to improve our kingdom, so that everyone can lead even happier lives”. As the king has never made an empty promise, he introduced many features, such as complete setup of the Istio metrics, Istio upgrade to 1.13.2, overriding Function runtime image and improved Eventing backened CR status. Read more, if you want to learn about other ideas the king came up with!
 
 <!-- overview -->
 
 See the overview of all changes in this release:
 
 - [API Gateway](#api-gateway) - ORY stack deprecation
-- [Application Connectivity](#application-connectivity) - Removal of Application Registry and Connector Service
 - [CLI](#cli) - Removed support for Kyma 1.x
 - [Eventing](#eventing) - Improved Eventing Backend CR status
 - [Observability](#observability) - Improved documentation on limitiations, cleanup of rules and dashboards, complete Istio metrics
@@ -31,14 +30,6 @@ See the overview of all changes in this release:
 Due to the growing demand for a closer integration with our Service Mesh Istio implementation, we decided to gradually switch from the current implementation behind Kyma API Gateway ([ORY Hydra](https://www.ory.sh/docs/hydra) and [ORY Oathkeeper](https://www.ory.sh/docs/oathkeeper)) to [Authentication](https://istio.io/latest/docs/concepts/security/#authentication) and [Authorization](https://istio.io/latest/docs/concepts/security/#authorization) features that Istio provides out of the box. With this change, we introduce more options in terms of configuration, flexibility, and performance to our customers. Additionally, we want to keep the Kyma stack as lean as possible. 
 
 The changes will be introduced gradually. We plan to provide as much automigration as possible to ensure a smooth growth of Kyma API Gateway. This is just an intial information, no actions are required.
-
-## Application Connectivity
-
-### Removal of Application Registry and Connector Service
-
-Kyma 2.2 brings a big change in the Application Connectivity area – almost 2 years ago we published a note about the [deprecation of those services](https://kyma-project.io/blog/2020/5/29/release-notes-113#deprecated-connector-and-application-registry-ap-is) and now they have been removed. The functionality of connecting and registering external services is no longer available in the [standalone mode](https://kyma-project.io/docs/kyma/2.2/01-overview/main-areas/application-connectivity/) of Kyma. Worry not though, if you want to keep the old flow available in your cluster, you can make use of [Compass](https://github.com/kyma-incubator/compass) and Kyma integration. 
- 
-We strongly encourage you to explore other options – [Central Application Gateway](https://github.com/kyma-project/kyma/tree/main/components/central-application-gateway#api) provides an easier way for reaching external APIs. All you need to do is apply a simple YAML file with Application CR instead of going through cumbersome certificate flow. Eventing can also be easily exposed with an API Rule.
 
 ## CLI
 
