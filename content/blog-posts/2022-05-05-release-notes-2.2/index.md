@@ -19,7 +19,7 @@ See the overview of all changes in this release:
 - [API Gateway](#api-gateway) - ORY stack deprecation
 - [CLI](#cli) - Removed support for Kyma 1.x
 - [Eventing](#eventing) - Improved Eventing backend CR status
-- [Observability](#observability) - Improved documentation on limitiations, cleanup of rules and dashboards, complete Istio metrics, minor upgrade of Fluent Bit, minor upgrade of Kiali
+- [Observability](#observability) - Improved documentation on monitoring limitations, cleanup of rules and dashboards, complete Istio metrics, minor upgrade of Fluent Bit, minor upgrade of Kiali
 - [Serverless](#serverless) - Overrides for the Function runtime image
 - [Service Mesh](#service-mesh) - Revert to distroless Istio images provided by Istio, Istio upgraded to 1.13.2
 
@@ -50,7 +50,7 @@ We have made the Eventing backend CR status more verbose. We've replaced two of 
 
 ## Observability
 
-### Improved documentation on limitations
+### Improved documentation on monitoring limitations
 
 We added a new section outlining the limits of the shipped monitoring stack running on the production profile with the default settings. Read [Monitoring limitations](https://kyma-project.io/docs/kyma/2.2/01-overview/main-areas/observability/obsv-01-monitoring-in-kyma/#limitations) for more information.
 
