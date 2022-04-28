@@ -29,7 +29,7 @@ See the overview of all changes in this release:
 
 Due to the growing demand for a closer integration with our Service Mesh Istio implementation, we decided to gradually switch from the current implementation behind Kyma API Gateway ([ORY Hydra](https://www.ory.sh/docs/hydra) and [ORY Oathkeeper](https://www.ory.sh/docs/oathkeeper)) to [Authentication](https://istio.io/latest/docs/concepts/security/#authentication) and [Authorization](https://istio.io/latest/docs/concepts/security/#authorization) features that Istio provides out of the box. With this change, we introduce more options in terms of configuration, flexibility, and performance to our customers. Additionally, we want to keep the Kyma stack as lean as possible. 
 
-The changes will be introduced gradually. We plan to provide as much automigration as possible to ensure a smooth growth of Kyma API Gateway. This is just an intial information, no action is required.
+The changes will be introduced gradually. We plan to provide as much automated migration as possible to ensure the smooth growth of Kyma API Gateway. This is just initial information, no action is required.
 
 ## CLI
 
@@ -52,7 +52,7 @@ We have made the Eventing backend CR status more verbose. We've replaced two of 
 
 ### Improved documentation on limitations
 
-We added a new section outlining the limits of the shipped monitoring stack running on the production profile with the default settings. Read [Monitoring](https://kyma-project.io/docs/kyma/2.2/01-overview/main-areas/observability/obsv-01-monitoring-in-kyma/#limitations) for more information.
+We added a new section outlining the limits of the shipped monitoring stack running on the production profile with the default settings. Read [Monitoring limitations](https://kyma-project.io/docs/kyma/2.2/01-overview/main-areas/observability/obsv-01-monitoring-in-kyma/#limitations) for more information.
 
 ### Cleanup of rules and dashboards
 
@@ -60,7 +60,7 @@ We've continued to clean up Prometheus rules and Grafana dashboards. Several rul
 
 ### Complete Istio metrics
 
-The Istio metrics setup, coming with the Kyma monitoring feature, now follows the approach recommended by Istio and provides all Istio metrics as aggregations over workload. Read [Observability Best Practicies](https://istio.io/latest/docs/ops/best-practices/observability/) for more information.
+The Istio metrics setup, coming with the Kyma monitoring feature, now follows the approach recommended by Istio and provides all Istio metrics as aggregations over workload. Read [Observability Best Practices](https://istio.io/latest/docs/ops/best-practices/observability/) for more information.
 
 ### Minor upgrade of Fluent Bit
 
@@ -68,7 +68,7 @@ The Fluent Bit log collector, included in the Kyma logging stack, has been updat
 
 ### Minor upgrade of Kiali
 
-Kiali has been been upgraded to version 1.49, and is fully supporting Istio 1.13.
+Kiali has been upgraded to version 1.49 and is fully supporting Istio 1.13.
 
 ## Serverless
 
