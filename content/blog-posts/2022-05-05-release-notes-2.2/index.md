@@ -60,7 +60,7 @@ We've continued to clean up Prometheus rules and Grafana dashboards. Several rul
 
 ### Complete Istio metrics
 
-The Istio metrics setup now follows the approach recommended by Istio and provides all Istio metrics as aggregations over workload. Read [Observability Best Practicies](https://istio.io/latest/docs/ops/best-practices/observability/) for more information.
+The Istio metrics setup, coming with the Kyma monitoring feature, now follows the approach recommended by Istio and provides all Istio metrics as aggregations over workload. Read [Observability Best Practicies](https://istio.io/latest/docs/ops/best-practices/observability/) for more information.
 
 ### Minor upgrade of Fluent Bit
 
