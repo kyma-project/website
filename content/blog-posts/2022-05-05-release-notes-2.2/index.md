@@ -19,7 +19,7 @@ See the overview of all changes in this release:
 - [API Gateway](#api-gateway) - ORY stack deprecation
 - [CLI](#cli) - Removed support for Kyma 1.x
 - [Eventing](#eventing) - Improved Eventing backend CR status
-- [Observability](#observability) - Improved documentation on limitiations, cleanup of rules and dashboards, complete Istio metrics
+- [Observability](#observability) - Improved documentation on limitiations, cleanup of rules and dashboards, complete Istio metrics, minor upgrade of Fluent Bit, minor upgrade of Kiali
 - [Serverless](#serverless) - Overrides for the Function runtime image
 - [Service Mesh](#service-mesh) - Revert to distroless Istio images provided by Istio, Istio upgraded to 1.13.2
 
@@ -61,6 +61,14 @@ We've continued to clean up rules and dashboards. Several rules for Kubernetes i
 ### Complete Istio metrics
 
 The Istio metrics setup now follows the approach recommended by Istio and provides all Istio metrics as aggregations over workload. Read [Observability Best Practicies](https://istio.io/latest/docs/ops/best-practices/observability/) for more information.
+
+### Minor upgrade of Fluent Bit
+
+The Fluent Bit log collector, included in the Kyma logging stack, has been updated to the 1.9 release series. It brings major improvements in stability and performance.
+
+### Minor upgrade of Kiali
+
+Kiali has been been upgraded to version 1.49, and is fully supporting Istio 1.13.
 
 ## Serverless
 
