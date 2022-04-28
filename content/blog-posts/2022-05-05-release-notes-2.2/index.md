@@ -56,7 +56,7 @@ We added a new section outlining the limits of the shipped monitoring stack runn
 
 ### Cleanup of rules and dashboards
 
-We've continued to clean up rules and dashboards. Several rules for Kubernetes introduced by Kyma itself have been removed, as they overlapped with the community-based rules. With that, the monitoring chart is fully based on the rules provided by the community upstream chart. Also, one more Kubernetes-related Grafana dashboard called **Kyma / Pods** has been removed, as it overlapped with the existing dashboards.
+We've continued to clean up Prometheus rules and Grafana dashboards. Several rules for Kubernetes introduced by Kyma itself have been removed, as they overlapped with the community-based rules. With that, the monitoring chart is fully based on the rules provided by the community upstream chart. Also, one more Kubernetes-related Grafana dashboard called **Kyma / Pods** has been removed, as it overlapped with the existing dashboards.
 
 ### Complete Istio metrics
 
