@@ -10,7 +10,7 @@ redirectFrom:
   - "/blog/release-notes-23"
 ---
 
-Summer is just around the corner. The days are longer and brighter and we can't help but think about the upcoming holidays. That's why with Kyma 2.3 we say goodbye to the good old spring days (and to some Kyma components) and we already look forward to new challenges. Read the full release notes to learn about all the improvements and fixes we provided with the Kyma 2.3 release.
+Summer is just around the corner. The days are longer and brighter and we can't help but think about the upcoming holidays. That's why with Kyma 2.3 we say goodbye to the good old spring days (and to some Kyma components), and we already look forward to new challenges. Read the full release notes to learn about all the improvements and fixes we provided with the Kyma 2.3 release.
 
 <!-- overview -->
 
