@@ -39,7 +39,7 @@ Also, due to the removal of the mentioned components, we recommend you to delete
 
 ### Ory stack upgrade
 
-As of the Kyma 2.3 release, we upgraded:
+As of the Kyma 2.3 release, we have upgraded:
 - Ory Oathkeeper from 0.38.15 to v0.38.25. For more details, read the official [Oathkeeper v0.38.25-beta.1](https://github.com/ory/oathkeeper/releases/tag/v0.38.25-beta.1) release notes.
 - Ory Hydra from 1.10.7 to 1.11.8. For more details, read the official [Hydra v1.11.8](https://github.com/ory/hydra/releases/tag/v1.11.8) release notes.
 - Ory Hydra-Maester from 0.0.24 to 0.0.25. For more details, read the official [Hydra-Maester v0.0.25](https://github.com/ory/hydra-maester/releases/tag/v0.0.25) release notes.
