@@ -21,7 +21,7 @@ See the overview of all changes in this release:
 - [Application Connectivity](#application-connectivity) - Removal of Application Registry and Connector Service
 - [API Gateway](#api-gateway) - Ory stack upgrade
 - [Observability](#observability) - Monitoring upgrade
-- [Serverless](#serverless) - Improved Git Functions handling, fixed the expired certificate of the Serverless defaulting webhook, fixed rescheduling of a failed Function's build jobs
+- [Serverless](#serverless) - Improved Git Functions handling, fixed the incorrect lifecycle management of the Serverless defaulting webhook certificate, additional rescheduling of Function's failed build jobs
 
 
 ## Application Connectivity
@@ -63,10 +63,10 @@ In 2.3, we also upgraded monitoring component to the latest version of the `kube
 
 We improved the reconciliation of Git Functions and removed redundant `git fetch` operations, which improves the stability of Function Controller.
 
-### Fixed the expired certificate of the Serverless defaulting webhook
+### Fixed the incorrect lifecycle management of the Serverless defaulting webhook certificate
 
-With 2.3, we fixed the incorrect lifecycle management of the Serverless defaulting webhook service certificate.
+With 2.3, we fixed the incorrect lifecycle management of the Serverless defaulting webhook service certificate. Previously, the certificate was expiring after few days and it wasn't renewed. Now, the certificate is renewed automatically after expiration.
 
-### Fixed rescheduling of a failed Function's build jobs
+### Additional rescheduling of Function's failed build jobs
 
-2.3 brings yet another fix in the Serverless area. Now, if a Function build fails, it is rescheduled with an exponential backoff. This improves consistency and integrity of the Function's state after Kyma upgrade.
+2.3 brings yet another improvement in the Serverless area. Now, if a Function build fails, it is rescheduled after some time, which wasn't the case in the previous release. This improves consistency and integrity of the Function's state after Kyma upgrade.
