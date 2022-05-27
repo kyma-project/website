@@ -10,7 +10,7 @@ redirectFrom:
   - "/blog/release-notes-23"
 ---
 
-Summer is just around the corner. The days are longer and brighter and we can't help but think about the upcoming holidays. That's why with Kyma 2.3 we say goodbye to the good old spring days (and to some Kyma components) and we already look forward to new challenges. Read the full release notes to learn about all the improvements and fixes we provided with the Kyma 2.3 release.
+Summer is just around the corner. The days are longer and brighter and we can't help but think about the upcoming holidays. That's why with Kyma 2.3 we say goodbye to the good old spring days (and to some Kyma components), and we already look forward to new challenges. Read the full release notes to learn about all the improvements and fixes we provided with the Kyma 2.3 release.
 
 <!-- overview -->
 
@@ -39,7 +39,7 @@ Also, due to the removal of the mentioned components, we recommend you to delete
 
 ### Ory stack upgrade
 
-As of the Kyma 2.3 release, we upgraded:
+As of the Kyma 2.3 release, we have upgraded:
 - Ory Oathkeeper from 0.38.15 to v0.38.25. For more details, read the official [Oathkeeper v0.38.25-beta.1](https://github.com/ory/oathkeeper/releases/tag/v0.38.25-beta.1) release notes.
 - Ory Hydra from 1.10.7 to 1.11.8. For more details, read the official [Hydra v1.11.8](https://github.com/ory/hydra/releases/tag/v1.11.8) release notes.
 - Ory Hydra-Maester from 0.0.24 to 0.0.25. For more details, read the official [Hydra-Maester v0.0.25](https://github.com/ory/hydra-maester/releases/tag/v0.0.25) release notes.
@@ -50,7 +50,7 @@ As of the Kyma 2.3 release, we upgraded:
 
 ### Monitoring upgrade
 
-In 2.3, we also upgraded monitoring component to the latest version of the `kube-prometheus-stack` chart. With that,  multiple Prometheus rules got updated and the components were upgraded to the following versions:
+In 2.3, we have also upgraded monitoring component to the latest version of the `kube-prometheus-stack` chart. With that, multiple Prometheus rules got updated and the components were upgraded to the following versions:
 - Prometheus-operator v0.56.2
 - Alertmanager 0.24.0
 - Prometheus 2.35.0
