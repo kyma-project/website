@@ -50,7 +50,7 @@ As of the Kyma 2.3 release, we have upgraded:
 
 ### Monitoring upgrade
 
-In 2.3, we have also upgraded monitoring component to the latest version of the `kube-prometheus-stack` chart. With that, multiple Prometheus rules got updated and the components were upgraded to the following versions:
+In 2.3, we have also upgraded monitoring component to the latest version of the [`kube-prometheus-stack`](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack) chart. With that, multiple Prometheus rules got updated and the components were upgraded to the following versions:
 - Prometheus-operator v0.56.2
 - Alertmanager 0.24.0
 - Prometheus 2.35.0
