@@ -14,7 +14,7 @@ Ahoy, mateys! We're calling at the port again to load up with a fresh portion of
 
 <!-- overview -->
 
-> **CAUTION:** Before upgrading to Kyma 2.1, read the [Migration Guide](https://kyma-project.io/docs/kyma/2.1/migration-guide-2.0-2.1).
+> **CAUTION:** Before upgrading to Kyma 2.1, read the [Migration Guide](https://github.com/kyma-project/kyma/blob/release-2.1/docs/migration-guide-2.0-2.1.md).
 
 See the overview of all changes in this release:
 
@@ -81,7 +81,7 @@ Previously, we only supported ASCII alphanumeric characters from the range `[a-z
 
 Starting from this release, we no longer fail sending such events. Instead, the unsupported characters are automatically dropped from events sent to Kyma and also from event types specified in the Subscription CRD.
 
-Read about the [event names](https://kyma-project.io/docs/kyma/2.1/05-technical-reference/evnt-01-event-names) and [Subscription CRD](https://kyma-project.io/docs/kyma/2.1/05-technical-reference/00-custom-resources/evnt-01-subscription) in more detail.
+Read about the [event names](https://kyma-project.io/docs/kyma/latest/05-technical-reference/evnt-01-event-names/) and [Subscription CRD](https://kyma-project.io/docs/kyma/2.1/05-technical-reference/00-custom-resources/evnt-01-subscription) in more detail.
 
 ## Observability
 
