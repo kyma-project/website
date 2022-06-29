@@ -2,7 +2,6 @@
 
 See the overview of all changes in this release:
 
-- [General](#general) - Removal of Rafter
 - [Application Connectivity](#application-connectivity) - Application connectivity adjusted to Service Catalog removal, Application Gateway support for mTLS-OAuth
 - [Eventing](#eventing) - Introduced NATS Jetstream as the default Eventing Backend 
 - [Observability](#observability) - Kiali upgrade to 1.51.1
@@ -10,13 +9,7 @@ See the overview of all changes in this release:
 - [Service Management](#service-management) - Service Catalog removed
 - [Service Mesh](#service-mesh) - Istio upgraded to 1.14.1
 
-## General 
  
-### Rafter removed from Kyma components 
- 
-With Kyma 2.4, we removed Rafter from the list of installed components. Rafter handles asset storage and is used internally by Helm Broker and Runtime Agent. 
-When you upgrade from Kyma 2.3 to 2.4, Rafter is not removed automatically - you can continue using it if you prefer. If you dont need Rafter (or any of the removed components), refer to the [migration guide](ADD LINK HERE) that describes how to get rid of them. 
-
 ## Application Connectivity 
  
 ### Application Connectivity adjusted to Service Catalog removal 
