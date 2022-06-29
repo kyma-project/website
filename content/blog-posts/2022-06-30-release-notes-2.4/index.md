@@ -76,6 +76,7 @@ Note that your Service Catalog resources will not be migrated to any other solut
  
 If you already switched to another solution and want to remove the obsolete CRDs from your cluster, run the cleanup script provided in the [Migration Guide](https://kyma-project.io/docs/kyma/2.4/migration-guide-2.3-2.4) **after** you upgrade from Kyma 2.3 to 2.4. 
  
+ Service Catalog removal also affects Application Connectivity. We removed some components that interacted with Service Catalog, which means that Application Operator and Application Broker are no longer installed on new clusters. This also means that on fresh clusters, or after executing the migration script we provide, the old Application flow will no longer be present, and you will need to use the new way of connecting the external Systems. 
 ## Service Mesh 
 
 ### Istio upgraded to 1.14.1 
