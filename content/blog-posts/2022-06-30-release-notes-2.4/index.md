@@ -74,7 +74,7 @@ With Kyma 1.23, we announced the [deprecation of Service Catalog](https://kyma-p
 Note that your Service Catalog resources will not be migrated to any other solution. As mentioned in the [Service Catalog deprecation update](https://kyma-project.io/blog/2021/12/7/release-notes-20#service-catalog-deprecation-update), we recommend you to use [service operators for Service Management in Kyma](https://kyma-project.io/docs/kyma/main/01-overview/main-areas/service-management/smgt-01-overview/). 
 
  
-If you already switched to another solution and want to remove the obsolete CRDs from your cluster, run the cleanup script provided in the [Migration Guide](link) **after** you upgrade from Kyma 2.3 to 2.4. 
+If you already switched to another solution and want to remove the obsolete CRDs from your cluster, run the cleanup script provided in the [Migration Guide](https://kyma-project.io/docs/kyma/2.4/migration-guide-2.3-2.4) **after** you upgrade from Kyma 2.3 to 2.4. 
  
 ## Service Mesh 
 
