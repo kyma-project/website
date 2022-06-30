@@ -2,7 +2,7 @@
 
 See the overview of all changes in this release:
 
-- [Application Connectivity](#application-connectivity) - Application connectivity adjusted to Service Catalog removal, Application Gateway support for mTLS-OAuth
+- [Application Connectivity](#application-connectivity) - Application Gateway support for mTLS-OAuth
 - [Eventing](#eventing) - Introduced NATS Jetstream as the default Eventing Backend 
 - [Observability](#observability) - Kiali upgrade to 1.51.1
 - [Serverless](#serverless) - Added support to NodeJS16, improved scheduling of Function build jobs
@@ -20,28 +20,28 @@ Note that executing the migration script is optional, and if you would like to k
 
 ### Application Gateway support for mTLS-OAuth 
 
-We introduced support for mTLS OAuth-secured APIs in Application Gateway. You can now configure your Application CRs so that Application Gateway fetches the OAuth token with the help of a TLS certificate as a credential. To learn how to do that, see Register an OAuth 2.0 mTLS-secured API. 
+We introduced support for [mTLS OAuth](https://datatracker.ietf.org/doc/html/rfc8705)-secured APIs in Application Gateway. You can now configure your Application CRs so that Application Gateway fetches the OAuth token with the help of a TLS certificate as a credential. To learn how to do that, see [Register an OAuth 2.0 mTLS-secured API](https://kyma-project.io/docs/kyma/main/03-tutorials/00-application-connectivity/ac-04-register-secured-api/#register-an-o-auth-2-0-m-tls-secured-api). 
 
 ## Eventing 
 
 ### Introduced NATS Jetstream as the default Eventing Backend 
 
-With Kyma 2.4, we changed the NATS eventing backend to use `NATS Jetstream` instead of just `Core NATS`. This updated backend improves the delivery guarantees from previously AT-MOST-ONCE to now AT-LEAST-ONCE. To facilitate this change, the NATS cluster now relies on backing storage by default.  
+With Kyma 2.4, we changed the NATS eventing backend to use [`NATS Jetstream`](https://docs.nats.io/nats-concepts/jetstream) instead of just [`Core NATS`](https://docs.nats.io/nats-concepts/core-nats). This updated backend improves the delivery guaranteed from previously AT-MOST-ONCE to now AT-LEAST-ONCE. To facilitate this change, the NATS cluster now relies on backing storage by default.  
 
 
 ## Observability 
 
-To ensure compatibility after to the upgrade of Istio to 1.14, we upgraded Kiali to 1.51.1. It contains name changes of most Kiali resources; so we added a clean-up script to delete old resources after the upgrade. 
+To ensure compatibility after the Istio upgrade to v1.14, we upgraded Kiali to 1.51.1. It contains name changes of most Kiali resources, so we added a clean-up script to delete old resources after the upgrade. 
  
 ## Serverless 
  
-### Added support to NodeJS16 
+### Added support to NodeJS 16 
 
-With Kym 2.4, you have a new serverless runtime available – nodejs16. 
-This new runtime not only brings a new version of nodejs, but also new versions of  bundled OpenTelemetry SDK. All this enhances the development experience for nodejs developers and improves traceability of the requests handled by your nodejs functions. 
+With Kym 2.4, you have a new Serverless runtime available – NodeJS 16. 
+This new runtime not only brings a new version of NodeJS but also new versions of bundled OpenTelemetry SDK. All this enhances the development experience for NodeJS developers and improves the traceability of the requests handled by your NodeJS functions. 
  
 ### Improved scheduling of Function build jobs 
-We have fixed the resource configuration for some of the Kyma components to reduce their cpu overcommitment. Additionally, we have removed the fixed requirements for computation resources for Function build jobs. With those changes, Function build jobs have better conditions to be scheduled, and your Functions won't be stuck in building phase. 
+We have fixed the resource configuration for some of the Kyma components to reduce their CPU overcommitment. Additionally, we have removed the fixed requirements for computation resources for Function build jobs. With those changes, Function build jobs have better conditions to be scheduled, and your Functions won't be stuck in the building phase. 
 
 
 ## Service Management 
@@ -74,4 +74,4 @@ If you already switched to another solution and want to remove the obsolete CRDs
 
 ### Istio upgraded to 1.14.1 
 
-In this release, we upgraded Istio from 1.13.2 to 1.14.1. For more details on the changes, read the official [Istio 1.14.1 release notes](https://istio.io/latest/news/releases/1.14.x/announcing-1.14.1/). 
+In this release, we upgraded Istio from 1.13.2 to 1.14.1. For more details, read the official [Istio 1.14.1 release notes](https://istio.io/latest/news/releases/1.14.x/announcing-1.14.1/). 
