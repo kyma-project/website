@@ -21,10 +21,10 @@ See the overview of all changes in this release:
 
 - [Application Connectivity](#application-connectivity) - Application Gateway support for mTLS-OAuth
 - [Eventing](#eventing) - Introduced NATS Jetstream as the default Eventing Backend 
-- [Observability](#observability) - Kiali upgrade to 1.51.1
-- [Serverless](#serverless) - Added support to NodeJS16, improved scheduling of Function build jobs
+- [Serverless](#serverless) - Added support to NodeJS 16, improved scheduling of Function build jobs
 - [Service Management](#service-management) - Service Catalog removed
 - [Service Mesh](#service-mesh) - Istio upgraded to 1.14.1
+- [Observability](#observability) - Kiali upgrade to 1.51.1
 
  
 ## Application Connectivity 
@@ -40,9 +40,7 @@ We introduced support for [mTLS OAuth](https://datatracker.ietf.org/doc/html/rfc
 With Kyma 2.4, we changed the NATS eventing backend to use [`NATS Jetstream`](https://docs.nats.io/nats-concepts/jetstream) instead of just [`Core NATS`](https://docs.nats.io/nats-concepts/core-nats). This updated backend improves the delivery guarantees from previously AT-MOST-ONCE to now AT-LEAST-ONCE. To facilitate this change, the NATS cluster now relies on backing storage by default.  
 
 
-## Observability 
 
-To ensure compatibility after the Istio upgrade to v1.14, we upgraded Kiali to 1.51.1. It contains name changes of most Kiali resources, so we added a clean-up script to delete old resources after the upgrade. 
  
 ## Serverless 
  
@@ -85,3 +83,7 @@ Service Catalog removal also affects Application Connectivity. We removed some c
 ### Istio upgraded to 1.14.1 
 
 In this release, we upgraded Istio from 1.13.2 to 1.14.1. For more details, read the official [Istio 1.14.1 release notes](https://istio.io/latest/news/releases/1.14.x/announcing-1.14.1/). 
+
+## Observability 
+
+To ensure compatibility after the Istio upgrade to v1.14, we upgraded Kiali to 1.51.1. It contains name changes of most Kiali resources, so we added a clean-up script to delete old resources after the upgrade. 
