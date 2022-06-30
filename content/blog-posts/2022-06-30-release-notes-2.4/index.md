@@ -1,3 +1,20 @@
+---
+title: "Kyma 2.4"
+author:
+  name: "Nina Hingerl, Technical Writer @Kyma"
+tags:
+  - release-notes
+type: release
+releaseTag: "2.4.0"
+redirectFrom:
+  - "/blog/release-notes-24"
+---
+
+Swooosh… wow that was fast - the first half of 2022 is over already, and we’re at Kyma release 2.4!
+We hope this summery update finds you well; maybe you’re going through your wardrobe and packing for vacation right now? No matter if you’re already sipping a cocktail on the beach or busy planning your vacation, find some time to read our hot news.
+To name just a few of the improvements and updates that we packed into this release, Eventing got a new backend and Serverless supports a new runtime.
+We’ve also finalized our spring cleaning and completely removed Service Catalog and Rafter. The Application Connectivity and Observability components have been adjusted accordingly.
+
 <!-- overview -->
 
 See the overview of all changes in this release:
