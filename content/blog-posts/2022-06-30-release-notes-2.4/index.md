@@ -24,7 +24,7 @@ See the overview of all changes in this release:
 - [Serverless](#serverless) - Added support to NodeJS 16, improved scheduling of Function build jobs
 - [Service Management](#service-management) - Service Catalog removed
 - [Service Mesh](#service-mesh) - Istio upgraded to 1.14.1
-- [Observability](#observability) - Kiali upgrade to 1.51.1
+- [Observability](#observability) - Kiali upgraded to 1.51.1
 
  
 ## Application Connectivity 
@@ -85,5 +85,7 @@ Service Catalog removal also affects Application Connectivity. We removed some c
 In this release, we upgraded Istio from 1.13.2 to 1.14.1. For more details, read the official [Istio 1.14.1 release notes](https://istio.io/latest/news/releases/1.14.x/announcing-1.14.1/). 
 
 ## Observability 
+
+### Kiali upgraded to 1.51.1
 
 To ensure compatibility after the Istio upgrade to v1.14, we upgraded Kiali to 1.51.1. It contains name changes of most Kiali resources, so we added a clean-up script to delete old resources after the upgrade. 
