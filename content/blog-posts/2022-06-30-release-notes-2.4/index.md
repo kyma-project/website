@@ -12,12 +12,6 @@ See the overview of all changes in this release:
  
 ## Application Connectivity 
  
-### Application Connectivity adjusted to Service Catalog removal 
-
-Kyma 2.4 [no longer contains Service Catalog deployments](#service-catalog-removed). To keep up with that change in Application Connector, we removed some components that interacted with Service Catalog. This means that Application Operator and Application Broker are no longer installed on new clusters.  
-This also means that on a fresh cluster, or after executing the migration script we provide, the old Application flow will no longer be present, and you will need to use the new way of connecting the external Systems.  
-Note that executing the migration script is optional, and if you would like to keep the old components on the cluster, you're free to do so. 
-
 ### Application Gateway support for mTLS-OAuth 
 
 We introduced support for [mTLS OAuth](https://datatracker.ietf.org/doc/html/rfc8705)-secured APIs in Application Gateway. You can now configure your Application CRs so that Application Gateway fetches the OAuth token with the help of a TLS certificate as a credential. To learn how to do that, see [Register an OAuth 2.0 mTLS-secured API](https://kyma-project.io/docs/kyma/main/03-tutorials/00-application-connectivity/ac-04-register-secured-api/#register-an-o-auth-2-0-m-tls-secured-api). 
@@ -26,7 +20,7 @@ We introduced support for [mTLS OAuth](https://datatracker.ietf.org/doc/html/rfc
 
 ### Introduced NATS Jetstream as the default Eventing Backend 
 
-With Kyma 2.4, we changed the NATS eventing backend to use [`NATS Jetstream`](https://docs.nats.io/nats-concepts/jetstream) instead of just [`Core NATS`](https://docs.nats.io/nats-concepts/core-nats). This updated backend improves the delivery guaranteed from previously AT-MOST-ONCE to now AT-LEAST-ONCE. To facilitate this change, the NATS cluster now relies on backing storage by default.  
+With Kyma 2.4, we changed the NATS eventing backend to use [`NATS Jetstream`](https://docs.nats.io/nats-concepts/jetstream) instead of just [`Core NATS`](https://docs.nats.io/nats-concepts/core-nats). This updated backend improves the delivery guarantees from previously AT-MOST-ONCE to now AT-LEAST-ONCE. To facilitate this change, the NATS cluster now relies on backing storage by default.  
 
 
 ## Observability 
@@ -37,12 +31,11 @@ To ensure compatibility after the Istio upgrade to v1.14, we upgraded Kiali to 1
  
 ### Added support to NodeJS 16 
 
-With Kym 2.4, you have a new Serverless runtime available – NodeJS 16. 
+With Kyma 2.4, you have a new Serverless runtime available – NodeJS 16. 
 This new runtime not only brings a new version of NodeJS but also new versions of bundled OpenTelemetry SDK. All this enhances the development experience for NodeJS developers and improves the traceability of the requests handled by your NodeJS functions. 
  
 ### Improved scheduling of Function build jobs 
 We have fixed the resource configuration for some of the Kyma components to reduce their CPU overcommitment. Additionally, we have removed the fixed requirements for computation resources for Function build jobs. With those changes, Function build jobs have better conditions to be scheduled, and your Functions won't be stuck in the building phase. 
-
 
 ## Service Management 
 
@@ -65,11 +58,11 @@ With Kyma 1.23, we announced the [deprecation of Service Catalog](https://kyma-p
 
 
 Note that your Service Catalog resources will not be migrated to any other solution. As mentioned in the [Service Catalog deprecation update](https://kyma-project.io/blog/2021/12/7/release-notes-20#service-catalog-deprecation-update), we recommend you to use [service operators for Service Management in Kyma](https://kyma-project.io/docs/kyma/main/01-overview/main-areas/service-management/smgt-01-overview/). 
-
  
 If you already switched to another solution and want to remove the obsolete CRDs from your cluster, run the cleanup script provided in the [Migration Guide](https://kyma-project.io/docs/kyma/2.4/migration-guide-2.3-2.4) **after** you upgrade from Kyma 2.3 to 2.4. 
  
- Service Catalog removal also affects Application Connectivity. We removed some components that interacted with Service Catalog, which means that Application Operator and Application Broker are no longer installed on new clusters. This also means that on fresh clusters, or after executing the migration script we provide, the old Application flow will no longer be present, and you will need to use the new way of connecting the external Systems. 
+Service Catalog removal also affects Application Connectivity. We removed some components that interacted with Service Catalog, which means that Application Operator and Application Broker are no longer installed on new clusters. This also means that on fresh clusters, or after executing the migration script we provide, the old Application flow will no longer be present, and you will need to use the new way of connecting the external Systems. 
+
 ## Service Mesh 
 
 ### Istio upgraded to 1.14.1 
