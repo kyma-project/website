@@ -1,7 +1,7 @@
 ---
 title: "Kyma 2.4"
 author:
-  name: "Nina Hingerl, Technical Writer @Kyma"
+  name: "Varban Vasilev, PM/PO @Kyma"
 tags:
   - release-notes
 type: release
