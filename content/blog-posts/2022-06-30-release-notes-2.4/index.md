@@ -20,7 +20,7 @@ We’ve also finalized our spring cleaning and completely removed Service Catalo
 See the overview of all changes in this release:
 
 - [Application Connectivity](#application-connectivity) - Application Gateway support for mTLS-OAuth
-- [Eventing](#eventing) - Introduced NATS Jetstream as the default Eventing Backend 
+- [Eventing](#eventing) - Introduced NATS JetStream as the default Eventing backend 
 - [Serverless](#serverless) - Added support to NodeJS 16, improved scheduling of Function build jobs
 - [Service Management](#service-management) - Service Catalog removed
 - [Service Mesh](#service-mesh) - Istio upgraded to 1.14.1
@@ -35,9 +35,9 @@ We introduced support for [mTLS OAuth](https://datatracker.ietf.org/doc/html/rfc
 
 ## Eventing 
 
-### Introduced NATS Jetstream as the default Eventing Backend 
+### Introduced NATS JetStream as the default Eventing backend 
 
-With Kyma 2.4, we changed the NATS eventing backend to use [`NATS Jetstream`](https://docs.nats.io/nats-concepts/jetstream) instead of just [`Core NATS`](https://docs.nats.io/nats-concepts/core-nats). This updated backend improves the delivery guarantees from previously AT-MOST-ONCE to now AT-LEAST-ONCE. To facilitate this change, the NATS cluster now relies on backing storage by default.  
+With Kyma 2.4, we changed the NATS eventing backend to use [`NATS JetStream`](https://docs.nats.io/nats-concepts/jetstream) instead of just [`Core NATS`](https://docs.nats.io/nats-concepts/core-nats). This updated backend improves the delivery guarantees from previously AT-MOST-ONCE to now AT-LEAST-ONCE. To facilitate this change, the NATS cluster now relies on backing storage by default.  
 
 
 
@@ -74,7 +74,7 @@ With Kyma 1.23, we announced the [deprecation of Service Catalog](https://kyma-p
 
 Note that your Service Catalog resources will not be migrated to any other solution. As mentioned in the [Service Catalog deprecation update](https://kyma-project.io/blog/2021/12/7/release-notes-20#service-catalog-deprecation-update), we recommend you to use [service operators for Service Management in Kyma](https://kyma-project.io/docs/kyma/main/01-overview/main-areas/service-management/smgt-01-overview/). 
  
-If you already switched to another solution and want to remove the obsolete CRDs from your cluster, run the cleanup script provided in the [Migration Guide](https://kyma-project.io/docs/kyma/2.4/migration-guide-2.3-2.4) **after** you upgrade from Kyma 2.3 to 2.4. 
+If you already switched to another solution and want to remove the obsolete CRDs from your cluster, run Service Catalog cleanup script provided in the [Migration Guide](https://kyma-project.io/docs/kyma/2.4/migration-guide-2.3-2.4#service-catalog-cleanup-script) **after** you upgrade from Kyma 2.3 to 2.4. 
  
 Service Catalog removal also affects Application Connectivity. We removed some components that interacted with Service Catalog, which means that Application Operator and Application Broker are no longer installed on new clusters. This also means that on fresh clusters, or after executing the migration script we provide, the old Application flow will no longer be present, and you will need to use the new way of connecting the external Systems. 
 
@@ -88,4 +88,4 @@ In this release, we upgraded Istio from 1.13.2 to 1.14.1. For more details, read
 
 ### Kiali upgraded to 1.51.1
 
-To ensure compatibility after the Istio upgrade to v1.14, we upgraded Kiali to 1.51.1. It contains name changes of most Kiali resources, so we added a clean-up script to delete old resources after the upgrade. 
+To ensure compatibility after the Istio upgrade to v1.14, we upgraded Kiali to 1.51.1. It contains name changes of most Kiali resources, so we added [Kiali cleanup script](https://kyma-project.io/docs/kyma/2.4/migration-guide-2.3-2.4#kiali-cleanup-script) to delete old resources after the upgrade. 
