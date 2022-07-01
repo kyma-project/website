@@ -80,7 +80,7 @@ You may need this feature if you want to build your Functions on top of a runtim
 
 Remember that, if you use a custom base image for your Functions, you are responsible for scanning and assessing any potential risks related to commonly known vulnerabilities that are potentially exploitable.
 
-There is a dedicated [example](https://github.com/kyma-project/examples/tree/main/custom-serverless-runtime-image) defining a custom runtime and a [tutorial](https://kyma-project.io/docs/kyma/main/03-tutorials/00-serverless/svls-13-override-runtime-image) explaining how to use it in your Functions.
+There is a dedicated [example](https://github.com/kyma-project/examples/tree/main/custom-serverless-runtime-image) defining a custom runtime and a [tutorial](https://github.com/kyma-project/kyma/blob/release-2.2/docs/03-tutorials/00-serverless/svls-13-override-runtime-image.md) explaining how to use it in your Functions.
 
 ## Service Mesh
 
