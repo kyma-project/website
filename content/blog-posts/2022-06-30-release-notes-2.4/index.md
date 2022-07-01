@@ -17,6 +17,7 @@ We’ve also finalized our spring cleaning and completely removed Service Catalo
 
 <!-- overview -->
 
+
 See the overview of all changes in this release:
 
 - [Application Connectivity](#application-connectivity) - Application Gateway support for mTLS-OAuth
