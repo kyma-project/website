@@ -3,7 +3,7 @@ title: "Kyma 2.2"
 author:
   name: "Grzegorz Karaluch, Technical Writer @Kyma"
 tags:
-  - release-notes 
+  - release-notes
 type: release
 releaseTag: "2.2.0"
 redirectFrom:
@@ -27,7 +27,7 @@ See the overview of all changes in this release:
 
 ### ORY stack deprecation note
 
-Due to the growing demand for a closer integration with our Service Mesh Istio implementation, we decided to gradually switch from the current implementation behind Kyma API Gateway ([ORY Hydra](https://www.ory.sh/docs/hydra) and [ORY Oathkeeper](https://www.ory.sh/docs/oathkeeper)) to [Authentication](https://istio.io/latest/docs/concepts/security/#authentication) and [Authorization](https://istio.io/latest/docs/concepts/security/#authorization) features that Istio provides out of the box. With this change, we introduce more options in terms of configuration, flexibility, and performance to our customers. Additionally, we want to keep the Kyma stack as lean as possible. 
+Due to the growing demand for a closer integration with our Service Mesh Istio implementation, we decided to gradually switch from the current implementation behind Kyma API Gateway ([ORY Hydra](https://www.ory.sh/docs/hydra) and [ORY Oathkeeper](https://www.ory.sh/docs/oathkeeper)) to [Authentication](https://istio.io/latest/docs/concepts/security/#authentication) and [Authorization](https://istio.io/latest/docs/concepts/security/#authorization) features that Istio provides out of the box. With this change, we introduce more options in terms of configuration, flexibility, and performance to our customers. Additionally, we want to keep the Kyma stack as lean as possible.
 
 The changes will be introduced gradually. We plan to provide as much automated migration as possible to ensure the smooth growth of Kyma API Gateway. This is just initial information, no action is required.
 
@@ -35,7 +35,7 @@ The changes will be introduced gradually. We plan to provide as much automated m
 
 ### Removed support for Kyma 1.x
 
-As announced in the Kyma 2.0 release notes, starting from the version 2.2, Kyma CLI no longer supports Kyma 1.x versions. All the deprecated commands have been removed and are no longer available: 
+As announced in the Kyma 2.0 release notes, starting from the version 2.2, Kyma CLI no longer supports Kyma 1.x versions. All the deprecated commands have been removed and are no longer available:
 
 - `kyma install`: Kyma 2.x equivalent is `kyma deploy`
 - `kyma upgrade`: Kyma 2.x equivalent is `kyma deploy`
@@ -52,7 +52,7 @@ We have made the Eventing backend CR status more verbose. We've replaced two of 
 
 ### Improved documentation on monitoring limitations
 
-We added a new section outlining the limits of the shipped monitoring stack running on the production profile with the default settings. Read [Monitoring limitations](https://kyma-project.io/docs/kyma/2.2/01-overview/main-areas/observability/obsv-01-monitoring-in-kyma/#limitations) for more information.
+We added a new section outlining the limits of the shipped monitoring stack running on the production profile with the default settings. Read [Monitoring limitations](https://github.com/kyma-project/kyma/blob/2.2.0/docs/01-overview/main-areas/observability/obsv-01-monitoring-in-kyma.md#limitations) for more information.
 
 ### Cleanup of rules and dashboards
 
@@ -75,12 +75,12 @@ Kiali has been upgraded to version 1.49 and is fully supporting Istio 1.13.
 ### Overrides for the Function runtime image
 
 We've extended the definition of the Function CR. Now you can override the base image of the Serverless runtime with a custom Docker image.
- 
-You may need this feature if you want to build your Functions on top of a runtime with tooling that is not included in the default Alpine-based runtime (for example, the GCC compiler). 
- 
+
+You may need this feature if you want to build your Functions on top of a runtime with tooling that is not included in the default Alpine-based runtime (for example, the GCC compiler).
+
 Remember that, if you use a custom base image for your Functions, you are responsible for scanning and assessing any potential risks related to commonly known vulnerabilities that are potentially exploitable.
- 
-There is a dedicated [example](https://github.com/kyma-project/examples/tree/main/custom-serverless-runtime-image) defining a custom runtime and a [tutorial](https://kyma-project.io/docs/kyma/main/03-tutorials/00-serverless/svls-13-override-runtime-image) explaining how to use it in your Functions. 
+
+There is a dedicated [example](https://github.com/kyma-project/examples/tree/main/custom-serverless-runtime-image) defining a custom runtime and a [tutorial](https://github.com/kyma-project/kyma/blob/release-2.2/docs/03-tutorials/00-serverless/svls-13-override-runtime-image.md) explaining how to use it in your Functions.
 
 ## Service Mesh
 
