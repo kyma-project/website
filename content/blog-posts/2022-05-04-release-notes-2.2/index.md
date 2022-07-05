@@ -21,7 +21,7 @@ See the overview of all changes in this release:
 - [Eventing](#eventing) - Improved Eventing backend CR status
 - [Observability](#observability) - Improved documentation on monitoring limitations, cleanup of rules and dashboards, complete Istio metrics, minor upgrade of Fluent Bit, minor upgrade of Kiali
 - [Serverless](#serverless) - Overrides for the Function runtime image
-- [Service Management](#service-management) - PodPreset deprecation
+- [Service Management](#service-management) - PodPreset deprecation note
 - [Service Mesh](#service-mesh) - Revert to distroless Istio images provided by Istio, Istio upgraded to 1.13.2
 
 ## API Gateway
@@ -86,7 +86,7 @@ There is a dedicated [example](https://github.com/kyma-project/examples/tree/mai
 
 ## Service Management
 
-### PodPreset deprecation
+### PodPreset deprecation note
 
 Due to the [Service Catalog removal](https://kyma-project.io/blog/2021/6/2/release-notes-123#service-catalog-deprecation), Kyma will stop manage PodPresets by the end of October, 2022. Make sure to migrate your resources until then.
 
