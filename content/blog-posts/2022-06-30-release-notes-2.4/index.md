@@ -80,7 +80,7 @@ Service Catalog removal also affects Application Connectivity. We removed some c
 
 ### PodPreset deprecation note
 
-Due to the [Service Catalog removal](https://kyma-project.io/blog/2021/6/2/release-notes-123#service-catalog-deprecation), Kyma will stop manage PodPresets by the end of October, 2022. Make sure to migrate your resources until then.
+Due to the Service Catalog removal, Kyma will stop manage PodPresets by the end of October, 2022. Make sure to migrate your resources until then.
 
 Once the PodPresets are removed, the Secrets consumed by your existing Pods will only last until the restart. Upon the next Pods creation, the auto-injecting mechanism will be gone and you will have to mount the Secrets using these solutions:
 - Mounting Secrets to Kyma Functions
