@@ -80,7 +80,7 @@ Service Catalog removal also affects Application Connectivity. We removed some c
 
 ### PodPreset deprecation note
 
-Due to the Service Catalog removal, Kyma will stop manage PodPresets by the end of October, 2022. Make sure to migrate your resources until then.
+Due to the Service Catalog removal, Kyma will stop managing PodPresets by the end of October, 2022. Make sure to migrate your resources until then.
 
 Once the PodPresets are removed, the Secrets consumed by your existing Pods will only last until the restart. Upon the next Pods creation, the auto-injecting mechanism will be gone and you will have to mount the Secrets using these solutions:
 - Mounting Secrets to Kyma Functions
@@ -89,7 +89,7 @@ Once the PodPresets are removed, the Secrets consumed by your existing Pods will
 #### Mounting Secrets to Kyma Functions
 
 Mounting Secret data to Kyma Function ensures that the data is preserved in the Function despite the configuration changes you may provide in the future. In this method, all Secret keys become environment variables. You can provide them to your Function using Kyma Dashboard:
-1. Go to the **Functions** view in Kyma Dashboard and select a Function.
+1. In Kyma Dashboard, go to the **Functions** view and select a Function.
 2. In the **Environment Variables** section, click **Add Environment Variable**.
 3. Select **Secret Variable** and provide the required details.
 
@@ -109,7 +109,7 @@ env:
         name: test-secret
 ```
 
-Alternatively, you can add the env property by editing Function's specification directly.
+Alternatively, you can add the env property by editing a Function's specification directly.
 
 #### Mounting Secrets to Kubernetes Deployments
 
