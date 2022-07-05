@@ -109,7 +109,7 @@ env:
         name: test-secret
 ```
 
-Alternatively, you can add the env property by editing a Function's specification directly.
+Alternatively, you can add the env property by editing the Function's specification directly.
 
 #### Mounting Secrets to Kubernetes Deployments
 
