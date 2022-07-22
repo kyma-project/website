@@ -3,11 +3,11 @@ title: "Kyma 2.5"
 author:
 name: "Maja Szostok, Technical Writer @Kyma"
 tags:
-- release-notes
-  type: release
-  releaseTag: "2.5.0"
-  redirectFrom:
-- "/blog/release-notes-25"
+  - release-notes 
+type: release 
+releaseTag: "2.5.0"
+redirectFrom:
+  - "/blog/release-notes-25"
 ---
 
 In this release, we're [rowing our boat gently down the stream](https://www.youtube.com/watch?v=2d_GLxa4_bg), introducing support for Kubernetes 1.23, new alpha functionalities, updates, and deprecation and changes in preparation for the new and better. Read on to find out exactly what Kyma 2.5 has to offer!
