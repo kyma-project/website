@@ -1,7 +1,7 @@
 ---
 title: "Kyma 2.5"
 author:
-name: "Maja Szostok, Technical Writer @Kyma"
+  name: "Maja Szostok, Technical Writer @Kyma"
 tags:
   - release-notes 
 type: release 
