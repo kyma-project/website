@@ -28,11 +28,15 @@ With Kyma 2.5, we now officially support Kubernetes in version 1.23. For more de
 
 ## API Exposure
 
+### APIRule version deprecation
+
 This Kyma release comes with deprecation of the APIRule CR in version `gateway.kyma-project.io./v1alpha1`. 
 
 In the future releases, we will work on supporting [exposure of multiple services under the same host](https://github.com/kyma-project/kyma/issues/9936) and on the first version of [securing workloads with Istio](https://github.com/kyma-project/kyma/issues/12669). Stay tuned!
 
 ## CLI
+
+### New `kyma alpha create module` command
 
 In Kyma 2.5, we added an alpha `kyma alpha create module` command for creating an OCI-based Kyma module. For more details, read the [documentation](https://github.com/kyma-project/cli/blob/release-2.5/docs/gen-docs/kyma_alpha_create_module.md).
 
