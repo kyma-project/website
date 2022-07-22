@@ -30,7 +30,7 @@ With Kyma 2.5, we now officially support Kubernetes in version 1.23. For more de
 
 This Kyma release comes with deprecation of the APIRule CR in version `gateway.kyma-project.io./v1alpha1`. 
 
-In the future releases, we will work on supporting exposure of multiple services under the same host and on the first version of securing workloads with Istio. Stay tuned!
+In the future releases, we will work on supporting [exposure of multiple services under the same host](https://github.com/kyma-project/kyma/issues/9936) and on the first version of [securing workloads with Istio](https://github.com/kyma-project/kyma/issues/12669). Stay tuned!
 
 ## CLI
 
