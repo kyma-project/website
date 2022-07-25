@@ -39,7 +39,12 @@ In the future releases, we will work on supporting [exposure of multiple service
 
 With release 2.5, we introduced an exciting alpha feature: Kyma’s telemetry component.
 
-It opens up the logging stack by separating the log collection and shipment from storage and analysis, and offers configuration possibilities at runtime. To ship logs to your preferred external logging backend, simply provide your own Fluent Bit output configuration. Of course, you can still use Kyma’s pre-configured Loki component as logging backend within the cluster.
+It opens up the logging stack by separating the log collection and shipment from storage and analysis, and offers configuration possibilities at runtime. 
+To ship logs to your preferred external logging backend, simply provide your own Fluent Bit output configuration. 
+
+Of course, you can still use Kyma’s pre-configured Loki component as logging backend within the cluster.
+
+For more information, read the [telemetry component](https://kyma-project.io/docs/kyma/main/01-overview/main-areas/observability/obsv-04-telemetry-in-kyma/) documentation.
 
 ### Fluent Bit updated to version 1.9.6
 
