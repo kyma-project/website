@@ -31,17 +31,15 @@ With Kyma 2.5, we now officially support Kubernetes in version 1.23. For more de
 
 This Kyma release comes with deprecation of the APIRule CR in version `gateway.kyma-project.io./v1alpha1`. 
 
-In the future releases, we will work on supporting [exposure of multiple services under the same host](https://github.com/kyma-project/kyma/issues/9936) and on the first version of [securing workloads with Istio](https://github.com/kyma-project/kyma/issues/12669). Stay tuned!
+In the future releases, we will work on supporting [exposure of multiple services under the same host](https://github.com/kyma-project/kyma/issues/9936), and on the first version of [securing workloads with Istio](https://github.com/kyma-project/kyma/issues/12669). Stay tuned!
 
 ## Observability
 
 ### Configurable Logging in the alpha version
 
-With release 2.5, we introduced an exciting alpha feature: Kyma’s Telemetry component.
-
+With release 2.5, we introduced an exciting alpha feature: Kyma’s Telemetry component.  
 It opens up the logging stack by separating the log collection and shipment from storage and analysis, and offers configuration possibilities at runtime. 
-To ship logs to your preferred external logging backend, simply provide your own Fluent Bit output configuration. 
-
+To ship logs to your preferred external logging backend, simply provide your own Fluent Bit output configuration.
 Of course, you can still use Kyma’s pre-configured Loki component as the logging backend within the cluster.
 
 For more information, read the [Telemetry component](https://kyma-project.io/docs/kyma/2.5/01-overview/main-areas/observability/obsv-04-telemetry-in-kyma/) documentation.
@@ -55,9 +53,8 @@ With Kyma 2.5, we updated Fluent Bit to version 1.9.6. For more details on this 
 ### Istio Helm chart changes
 
 In this release, we introduced a temporary parameter: **global.sidecarMigration**.
-The parameter is to support the [migration of existing runtimes from enabled sidecar injection to sidecar injection disabled by default](https://github.com/kyma-project/kyma/issues/11637), which we're doing to match the default sidecar injection settings in Istio.
+The parameter is to support the [migration of existing runtimes from enabled sidecar injection to sidecar injection disabled by default](https://github.com/kyma-project/kyma/issues/11637), which we're doing to match the default sidecar injection settings in Istio.  
 As the migration is ongoing, for now this new parameter is set to `true`, so there aren't any changes to sidecar injection in Kyma 2.5 yet.
-
-The parameter is here only for the migration purposes and will be removed in a future Kyma version.
+The parameter is here only for the migration purposes and will be removed in a future Kyma version.  
 
 To learn more about this topic, read about [Istio sidecars and why you want them](https://kyma-project.io/docs/kyma/2.5/01-overview/main-areas/service-mesh/smsh-03-istio-sidecars-in-kyma/).
