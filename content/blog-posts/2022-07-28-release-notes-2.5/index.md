@@ -10,7 +10,7 @@ redirectFrom:
   - "/blog/release-notes-25"
 ---
 
-In this release, we're [rowing our boat gently down the stream](https://www.youtube.com/watch?v=2d_GLxa4_bg), introducing support for Kubernetes 1.23, new alpha functionalities, updates, and deprecation and changes in preparation for the new and better. Read on to find out exactly what Kyma 2.5 has to offer!
+In this release, we're [rowing our boat gently down the stream](https://www.youtube.com/watch?v=2d_GLxa4_bg), introducing support for Kubernetes 1.23, new alpha functionality, updates, and deprecation and changes in preparation for the new and better. Read on to find out exactly what Kyma 2.5 has to offer!
 
 <!-- overview -->
 
@@ -18,7 +18,6 @@ See the overview of all changes in this release:
 
 - [General](#general) - Support for Kubernetes 1.23.
 - [API Exposure](#api-exposure) - APIRule version deprecation
-- [CLI](#cli) - New alpha command for creating an OCI-based Kyma module
 - [Observability](#observability) - Configurable Logging in alpha, Fluent Bit updated to 1.9.6
 - [Service Mesh](#service-mesh) - Istio Helm chart changes
 
@@ -33,12 +32,6 @@ With Kyma 2.5, we now officially support Kubernetes in version 1.23. For more de
 This Kyma release comes with deprecation of the APIRule CR in version `gateway.kyma-project.io./v1alpha1`. 
 
 In the future releases, we will work on supporting [exposure of multiple services under the same host](https://github.com/kyma-project/kyma/issues/9936) and on the first version of [securing workloads with Istio](https://github.com/kyma-project/kyma/issues/12669). Stay tuned!
-
-## CLI
-
-### New `kyma alpha create module` command
-
-In Kyma 2.5, we added an alpha `kyma alpha create module` command for creating an OCI-based Kyma module. For more details, read the [documentation](https://github.com/kyma-project/cli/blob/release-2.5/docs/gen-docs/kyma_alpha_create_module.md).
 
 ## Observability
 
