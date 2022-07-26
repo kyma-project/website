@@ -38,6 +38,7 @@ In the future releases, we will work on supporting [exposure of multiple service
 ### Configurable Logging in the alpha version
 
 With release 2.5, we introduced an exciting alpha feature: Kyma’s Telemetry component. 
+
 It opens up the logging stack by separating the log collection and shipment from storage and analysis, and offers configuration possibilities at runtime. 
 To ship logs to your preferred external logging backend, simply provide your own Fluent Bit output configuration. 
 Of course, you can still use Kyma’s pre-configured Loki component as the logging backend within the cluster.
@@ -53,6 +54,7 @@ With Kyma 2.5, we updated Fluent Bit to version 1.9.6. For more details on this 
 ### Istio Helm chart changes
 
 In this release, we introduced a temporary parameter: **global.sidecarMigration**. 
+
 The parameter is to support the [migration of existing runtimes from enabled sidecar injection to sidecar injection disabled by default](https://github.com/kyma-project/kyma/issues/11637), which we're doing to match the default sidecar injection settings in Istio. 
 As the migration is ongoing, for now this new parameter is set to `true`, so there aren't any changes to sidecar injection in Kyma 2.5 yet. 
 The parameter is here only for the migration purposes and will be removed in a future Kyma version.
