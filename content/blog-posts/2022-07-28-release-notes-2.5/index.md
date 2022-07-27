@@ -55,6 +55,7 @@ With Kyma 2.5, we updated Fluent Bit to version 1.9.6. For more details on this 
 
 In this release, we're starting the journey to change the default sidecar injection settings so that they match the defaults in Istio.
 
-We are not making any changes to the sidecar injection with Kyma 2.5, but to prepare for the upcoming [migration of existing runtimes](https://github.com/kyma-project/kyma/issues/11637), we introduced a temporary parameter: **global.sidecarMigration**. For now, this new parameter is set to `true`, so the injection stays enabled.
+We are not making any changes to the sidecar injection with Kyma 2.5, but to prepare for the upcoming [migration of existing runtimes](https://github.com/kyma-project/kyma/issues/11637), we introduced a temporary parameter: **global.sidecarMigration**. 
+For now, this new parameter is set to `true`, so the injection stays enabled.
 
 To learn more about this topic, read about [Istio sidecars and why you want them](https://kyma-project.io/docs/kyma/2.5/01-overview/main-areas/service-mesh/smsh-03-istio-sidecars-in-kyma/).
