@@ -16,7 +16,7 @@ In this release, we're [rowing our boat gently down the stream](https://www.yout
 
 See the overview of all changes in this release:
 
-- [General](#general) - Support for Kubernetes 1.23.
+- [General](#general) - Support for Kubernetes 1.23
 - [API Exposure](#api-exposure) - APIRule version deprecation
 - [Observability](#observability) - Configurable Logging in alpha, Fluent Bit updated to 1.9.6
 - [Service Mesh](#service-mesh) - Istio Helm chart changes
