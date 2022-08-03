@@ -14,7 +14,7 @@ Summer is just around the corner. The days are longer and brighter and we can't 
 
 <!-- overview -->
 
-> **CAUTION:** Before upgrading to Kyma 2.3, read the [Migration Guide](https://kyma-project.io/docs/kyma/2.3/migration-guide-2.2-2.3).
+> **CAUTION:** Before upgrading to Kyma 2.3, read the [Migration Guide](https://github.com/kyma-project/kyma/blob/release-2.3/docs/migration-guide-2.2-2.3.md).
 
 See the overview of all changes in this release:
 
