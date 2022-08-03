@@ -14,7 +14,7 @@ Summer is just around the corner. The days are longer and brighter and we can't 
 
 <!-- overview -->
 
-> **CAUTION:** Before upgrading to Kyma 2.3, read the [Migration Guide](https://kyma-project.io/docs/kyma/2.3/migration-guide-2.2-2.3).
+> **CAUTION:** Before upgrading to Kyma 2.3, read the [Migration Guide](https://github.com/kyma-project/kyma/blob/release-2.3/docs/migration-guide-2.2-2.3.md).
 
 See the overview of all changes in this release:
 
@@ -32,7 +32,7 @@ Kyma 2.3 brings a big change in the Application Connectivity area – almost 2 y
 
 We strongly encourage you to explore other options – [Central Application Gateway](https://github.com/kyma-project/kyma/tree/main/components/central-application-gateway#api) provides an easier way of reaching external APIs, and all you need to do is apply a simple YAML file with an Application custom resource (CR) instead of going through the cumbersome certificate flow. Eventing can also be easily exposed with an API Rule.
 
-Also, due to the removal of the mentioned components, we recommend you to delete the obsolete resources when upgrading to Kyma 2.3. Read the [Migration Guide](https://kyma-project.io/docs/kyma/2.3/migration-guide-2.2-2.3) to learn more.
+Also, due to the removal of the mentioned components, we recommend you to delete the obsolete resources when upgrading to Kyma 2.3. Read the [Migration Guide](https://github.com/kyma-project/kyma/blob/release-2.3/docs/migration-guide-2.2-2.3.md) to learn more.
 
 
 ## API Gateway
