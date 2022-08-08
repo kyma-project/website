@@ -12,8 +12,6 @@ Use the following tools to set up the project:
 
 - [Node.js](https://nodejs.org/en/) v12.20.1
 
-If you have newer Node version, you can install NVM.
-
 ## Usage
 
 ### Install dependencies
