@@ -21,10 +21,7 @@ import {
 } from "./layouts";
 import { serializer } from "./serializer";
 import { replaceImagePathsMutationPlugin } from "./render-engines/markdown/plugins";
-import {
-  headingPrefix,
-  customFirstNode,
-} from "./render-engines/markdown/helpers";
+import { customFirstNode } from "./render-engines/markdown/helpers";
 import { GenericDocsProvider } from "./services";
 import { types, setHideTitleHeader } from "./constants";
 
@@ -34,7 +31,6 @@ const PLUGINS: Plugins = [
   {
     plugin: markdownPlugins.headersExtractorPlugin,
     options: {
-      headerPrefix: headingPrefix,
       customFirstNode,
     },
   },

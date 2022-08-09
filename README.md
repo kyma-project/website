@@ -12,7 +12,7 @@ Use the following tools to set up the project:
 
 - [Node.js](https://nodejs.org/en/) v12.20.1
 
-If you have newer Node version, you can install NVM.
+If your Node is in a different version than required, install NVM to switch to an older version.
 
 ## Usage
 
