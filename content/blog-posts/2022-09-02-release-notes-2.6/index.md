@@ -54,6 +54,7 @@ The v1alpha2 changes include:
 The following versions of CustomResourceDefintions are deprecated:
 * serverless.kyma-project.io/v1alpha1/Function
 * serverless.kyma-project.io/v1alpha1/GitRepository
+
 There is no need to update your Function templates immediately. We have installed a conversion webhook that handles the conversion on the fly between the deprecated v1alpha1 and the new v1alpha2 versions. Consider this as a temporary convenience, as the automatic conversion will be removed after 6 months depreciation period.
 
 ## Service Mesh
