@@ -26,7 +26,7 @@ See the overview of all changes in this release:
 
 ### Exposing and securing multiple services
 
-This Kyma release comes with the new version of APIRule featuring exposing and securing multiple services. Now it’s possible to define service per rule. Read more about [APIRule CR](https://kyma-project.io/docs/kyma/latest/05-technical-reference/00-custom-resources/apix-01-apirule).
+This Kyma release comes with the new version of APIRule featuring exposing and securing multiple services. Now it’s possible to define a service per rule. Read more about [APIRule CR](https://kyma-project.io/docs/kyma/latest/05-technical-reference/00-custom-resources/apix-01-apirule).
 
 ## Observability
 
@@ -43,18 +43,18 @@ This Kyma release comes with a consolidated Grafana dashboard for Eventing calle
 
 ### Improved CRD
 
-With Kyma 2.6, the new version (v1alpha2) of function.kyma-project.io CRD is available. With this, we improve usability and come one step closer to a stable v1 version.
+With Kyma 2.6, the new version (v1alpha2) of function.kyma-project.io CRD is available. It improves usability, and thanks to it, a stable v1 version is just around the corner.
 
 The v1alpha2 changes include:
 
-   • More structured information about the Function source.  The source subobject describes either the sources, in the case of inline Functions, or Git reference in the case of Git Functions. GitRepository CRD will no longer be used to store information about the Git sources.
-   • build-time and run-time resource configuration were moved under a common parent field called `resourceConfiguration`.
-   • Experimental support for external Kubernetes resource scalers (for example via KEDA ScaledObject API) using scale subresource.
+• More structured information about the Function source.  The source subobject describes either the sources, in the case of inline Functions, or Git reference in the case of Git Functions. GitRepository CRD will no longer be used to store information about the Git sources.
+• Build-time and run-time resource configuration were moved under a common parent field called `resourceConfiguration`.
+• Experimental support for external Kubernetes resource scalers (for example via KEDA ScaledObject API) using scale subresource.
 
 The following versions of CustomResourceDefintions are deprecated:
-   • serverless.kyma-project.io/v1alpha1/Function
-   • serverless.kyma-project.io/v1alpha1/GitRepository
-There is no need to update your Function templates immediately. We have installed a conversion webhook that handles the conversion on the fly between the deprecated v1alpha1 and the new v1alpha2 versions. This convenience must be considered temporary, and the automatic conversion will be removed after 6 months depreciation period.
+• serverless.kyma-project.io/v1alpha1/Function
+• serverless.kyma-project.io/v1alpha1/GitRepository
+There is no need to update your Function templates immediately. We have installed a conversion webhook that handles the conversion on the fly between the deprecated v1alpha1 and the new v1alpha2 versions. Consider this as a temporary convenience, as the automatic conversion will be removed after 6 months depreciation period.
 
 ## Service Mesh
 
