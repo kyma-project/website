@@ -10,7 +10,7 @@ redirectFrom:
   - "/blog/release-notes-26"
 ---
 
-You probably know the song ["Kyma, Kyma, Kyma, Kyma, Kyma chameleon"](https://www.youtube.com/watch?v=JmcA9LIIXWw). Like chameleons, Kyma easily adapts to new surroundings, as you can see in the new release. In 2.6 we introduce a new version of APIRule, improved function.kyma-project.io CRD, and configurable logging. But that's not all! Read on to find out more about the 2.6 release!
+You probably know the song ["Kyma, Kyma, Kyma, Kyma, Kyma chameleon"](https://www.youtube.com/watch?v=JmcA9LIIXWw). As you can see in the new release, Kyma, like chameleons, easily adapts to new surroundings. In 2.6 we introduce a new version of APIRule, improved function.kyma-project.io CRD, and configurable logging. But that's not all! Read on to find out more about the 2.6 release!
 
 <!-- overview -->
 
