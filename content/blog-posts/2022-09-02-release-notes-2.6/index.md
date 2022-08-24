@@ -1,7 +1,7 @@
 ---
 title: "Kyma 2.6"
 author:
-  name: Andreas Thaler PO @Kyma, and Grzegorz Karaluch, Technical Writer @Kyma"
+  name: Andreas Thaler, PO @Kyma, and Grzegorz Karaluch, Technical Writer @Kyma"
 tags:
   - release-notes 
 type: release 
@@ -32,8 +32,8 @@ This Kyma release comes with the new version of APIRule featuring exposing and s
 
 ### Configurable Logging
 
-With the new [telemetry component](https://kyma-project.io/docs/kyma/main/01-overview/main-areas/observability/obsv-04-telemetry-in-kyma/), Kyma 2.6 introduces configurable logging. Now you can configure how logs are processed. Besides pushing all application logs to the in-cluster Loki service, you can integrate your own logging backends with Kyma. Furthermore, you can now define criteria for log collection, parsers, filters, and outputs. 
-For more information, see the [migration guide]().
+With the new [Telemetry component](https://kyma-project.io/docs/kyma/main/01-overview/main-areas/observability/obsv-04-telemetry-in-kyma/), Kyma 2.6 introduces configurable logging. Now you can configure how logs are processed. Besides pushing all application logs to the in-cluster Loki service, you can integrate your own logging backends with Kyma. Furthermore, you can now define criteria for log collection, parsers, filters, and outputs. 
+For more information, see the [migration guide](https://github.com/kyma-project/kyma/blob/release-2.6/docs/migration-guide-2.5-2.6.md).
 
 ### Eventing Dashboard
 
@@ -41,27 +41,27 @@ This Kyma release comes with a consolidated Grafana dashboard for Eventing calle
 
 ## Serverless
 
-### Improved CRD
+### Improved Function CRD
 
-With Kyma 2.6, the new version (v1alpha2) of function.kyma-project.io CRD is available. It improves usability, and thanks to it, a stable v1 version is just around the corner.
+With Kyma 2.6, the new `v1alpha2` version of the `function.kyma-project.io` CRD is available. It improves usability, and paves the way for a stable `v1` version, which is just around the corner.
 
-The v1alpha2 changes include:
+The `v1alpha2` changes include:
 
 * More structured information about the Function source.  The source subobject describes either the sources, in the case of inline Functions, or Git reference in the case of Git Functions. GitRepository CRD will no longer be used to store information about the Git sources.
-* Build-time and run-time resource configuration were moved under a common parent field called `resourceConfiguration`.
+- Build-time and run-time resource configuration were moved under the common parent field called **resourceConfiguration**.
 * Experimental support for external Kubernetes resource scalers (for example via KEDA ScaledObject API) using scale subresource.
 
-The following versions of CustomResourceDefintions are deprecated:
-* serverless.kyma-project.io/v1alpha1/Function
-* serverless.kyma-project.io/v1alpha1/GitRepository
+The following versions of CRDs are deprecated:
+- `serverless.kyma-project.io/v1alpha1/Function`
+- `serverless.kyma-project.io/v1alpha1/GitRepository`
 
-You don't need to update your Function templates immediately. Kyma provides a conversion webhook that handles the conversion on the fly between the deprecated v1alpha1 and the new v1alpha2 versions. This automatic conversion is a temporary convenience; it will be removed after 6 months depreciation period.
+You don't need to update your Function templates immediately. Kyma provides a conversion webhook that handles the conversion on the fly between the deprecated `v1alpha1` and the new `v1alpha2` versions. This automatic conversion is a temporary convenience; it will be removed after a 6-month depreciation period.
 
 ## Service Mesh
 
 ### Istio Sidecar injection
 
-Starting with this Kyma version, new workloads no longer have Istio sidecars injected by default; if you want automatic sidecar injection, you must enable it. Learn more about the [benefits of having your workload as a part of the Istio service mesh](https://kyma-project.io/docs/kyma/latest/01-overview/main-areas/service-mesh/smsh-03-istio-sidecars-in-kyma/). See also the [Istio documentation on how to enable sidecar injection](https://istio.io/latest/docs/setup/additional-setup/sidecar-injection/). 
+Starting with this Kyma version, new workloads no longer have Istio sidecars injected by default. If you want automatic sidecar injection, you must [enable it](https://istio.io/latest/docs/setup/additional-setup/sidecar-injection/) yourself. Learn more about the [benefits of having your workload as a part of the Istio service mesh](https://kyma-project.io/docs/kyma/latest/01-overview/main-areas/service-mesh/smsh-03-istio-sidecars-in-kyma/). 
   
 Apart from that, Kyma continues to update the sidecars of workloads that are part of the Istio service mesh.
 
