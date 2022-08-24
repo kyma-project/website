@@ -63,7 +63,7 @@ You don't need to update your Function templates immediately. Kyma provides a co
 
 Starting with this Kyma version, new workloads no longer have Istio sidecars injected by default; if you want automatic sidecar injection, you must enable it. Learn more about the [benefits of having your workload as a part of the Istio service mesh](https://kyma-project.io/docs/kyma/latest/01-overview/main-areas/service-mesh/smsh-03-istio-sidecars-in-kyma/). See also the [Istio documentation on how to enable sidecar injection](https://istio.io/latest/docs/setup/additional-setup/sidecar-injection/). 
   
-Apart from that, Kyma continues to keep the sidecars of workloads that are part of the Istio service mesh updated.
+Apart from that, Kyma continues to update the sidecars of workloads that are part of the Istio service mesh.
 
 ### Istio upgraded to 1.14.3
 
