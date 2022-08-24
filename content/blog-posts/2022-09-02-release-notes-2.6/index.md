@@ -26,7 +26,7 @@ See the overview of all changes in this release:
 
 ### Exposing and securing multiple services
 
-This Kyma release comes with the new version of APIRule featuring exposing and securing multiple services. Now it’s possible to define a service per rule. Read more about [APIRule CR](https://kyma-project.io/docs/kyma/latest/05-technical-reference/00-custom-resources/apix-01-apirule).
+This Kyma release comes with a new version of APIRule, featuring exposing and securing multiple services. Now it’s possible to define a service per rule. Read more about the [APIRule custom resource (CR)](https://kyma-project.io/docs/kyma/latest/05-technical-reference/00-custom-resources/apix-01-apirule).
 
 ## Observability
 
