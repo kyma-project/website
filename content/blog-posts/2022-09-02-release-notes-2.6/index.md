@@ -10,7 +10,7 @@ redirectFrom:
   - "/blog/release-notes-26"
 ---
 
-You probably know the song ["Kyma, Kyma, Kyma, Kyma, Kyma chameleon"](https://www.youtube.com/watch?v=JmcA9LIIXWw). As you can see in the new release, Kyma, like chameleons, easily adapts to new surroundings. In 2.6 we introduce a new version of APIRule, improved function.kyma-project.io CRD, and configurable logging. But that's not all! Read on to find out more about the 2.6 release!
+You probably know the song ["Kyma, Kyma, Kyma, Kyma, Kyma chameleon"](https://youtu.be/JmcA9LIIXWw?t=44). As you can see with the new release, Kyma, like chameleons, easily adapts to new surroundings. In 2.6 we introduced a new version of APIRule, improved the `function.kyma-project.io` CustomResourceDefinition (CRD) and, provided configurable logging. But that's not all! Read on to find out more about the 2.6 release!
 
 <!-- overview -->
 
@@ -63,7 +63,7 @@ You don't need to update your Function templates immediately. Kyma provides a co
 
 Starting with this Kyma version, new workloads no longer have Istio sidecars injected by default. If you want automatic sidecar injection, you must [enable it](https://istio.io/latest/docs/setup/additional-setup/sidecar-injection/) yourself. Learn more about the [benefits of having your workload as a part of the Istio service mesh](https://kyma-project.io/docs/kyma/latest/01-overview/main-areas/service-mesh/smsh-03-istio-sidecars-in-kyma/). 
   
-Apart from that, Kyma continues to update the sidecars of workloads that are part of the Istio service mesh.
+Despite the change, Kyma continues to update the sidecars of workloads that are part of the Istio service mesh.
 
 ### Istio upgraded to 1.14.3
 
