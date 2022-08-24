@@ -55,16 +55,16 @@ The following versions of CustomResourceDefintions are deprecated:
 * serverless.kyma-project.io/v1alpha1/Function
 * serverless.kyma-project.io/v1alpha1/GitRepository
 
-There is no need to update your Function templates immediately. We have installed a conversion webhook that handles the conversion on the fly between the deprecated v1alpha1 and the new v1alpha2 versions. Consider this as a temporary convenience, as the automatic conversion will be removed after 6 months depreciation period.
+You don't need to update your Function templates immediately. Kyma provides a conversion webhook that handles the conversion on the fly between the deprecated v1alpha1 and the new v1alpha2 versions. This automatic conversion is a temporary convenience; it will be removed after 6 months depreciation period.
 
 ## Service Mesh
 
 ### Istio Sidecar injection
 
-Starting with this Kyma version, new workloads no longer have Istio sidecars injected automatically, unless configured otherwise. To learn more, read about the [benefits of having your workload as a part of the Istio service mesh](https://kyma-project.io/docs/kyma/latest/01-overview/main-areas/service-mesh/smsh-03-istio-sidecars-in-kyma/). See also the [Istio documentation on how to enable sidecar injection](https://istio.io/latest/docs/setup/additional-setup/sidecar-injection/). 
+Starting with this Kyma version, new workloads no longer have Istio sidecars injected by default; if you want automatic sidecar injection, you must enable it. Learn more about the [benefits of having your workload as a part of the Istio service mesh](https://kyma-project.io/docs/kyma/latest/01-overview/main-areas/service-mesh/smsh-03-istio-sidecars-in-kyma/). See also the [Istio documentation on how to enable sidecar injection](https://istio.io/latest/docs/setup/additional-setup/sidecar-injection/). 
   
 Apart from the described changes, Kyma continues to make sure that the workloads that are part of the Istio service mesh have sidecars up to date.
 
 ### Istio upgraded to 1.14.3
 
-In this release, we upgraded Istio from 1.14.1 to 1.14.3. For more details on the changes, read the official [Istio 1.14.3 release notes](https://istio.io/latest/news/releases/1.14.x/announcing-1.14.3/).
+In this release, Kyma upgraded Istio from 1.14.1 to 1.14.3. For more details, read the official [Istio 1.14.3 release notes](https://istio.io/latest/news/releases/1.14.x/announcing-1.14.3/).
