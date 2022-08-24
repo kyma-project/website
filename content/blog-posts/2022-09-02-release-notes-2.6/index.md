@@ -16,10 +16,10 @@ You probably know the song ["Kyma, Kyma, Kyma, Kyma, Kyma chameleon"](https://yo
 
 See the overview of all changes in this release:
 
-- [API Exposure](#api-exposure) -  Exposing and securing multiple services
-- [Observability](#observability) - Configurable Logging, Eventing Dashboard
-- [Serverless](#serverless) - Improved CRD
-- [Service Mesh](#service-mesh) - Istio Sidecar Injection, Istio 1.14.3
+- [API Exposure](#api-exposure) -  Support for exposing and securing multiple services
+- [Observability](#observability) - New Configurable Logging and new Eventing Dashboard
+- [Serverless](#serverless) - Function CRD improved
+- [Service Mesh](#service-mesh) - Istio Sidecar Injection disabled by default, Istio upgraded to 1.14.3
 
 
 ## API Exposure
