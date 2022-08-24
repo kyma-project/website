@@ -37,7 +37,7 @@ For more information, see the [migration guide](https://github.com/kyma-project/
 
 ### Eventing Dashboard
 
-This Kyma release comes with a consolidated Grafana dashboard for Eventing called **NATS Delivery**, so you can monitor the published and dispatched events in one, holistic view.
+This Kyma release comes with a consolidated Grafana dashboard for Eventing called NATS delivery, so you can monitor the published and dispatched events in one, holistic view.
 
 ## Serverless
 
