@@ -49,7 +49,7 @@ The `v1alpha2` changes include:
 
 - The **source** parameter provides more structured information. For inline Functions, it provides the source. For Git Functions, it provides the Git reference. This information is no longer stored in the GitRepository CR.
 - Build-time and run-time resource configuration were moved under the common parent field called **resourceConfiguration**.
-* Experimental support for external Kubernetes resource scalers (for example via KEDA ScaledObject API) using scale subresource.
+- Experimental support for external Kubernetes resource scalers (for example via KEDA ScaledObject API) using scale subresource.
 
 The following versions of CRDs are deprecated:
 - `serverless.kyma-project.io/v1alpha1/Function`
