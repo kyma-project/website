@@ -10,7 +10,7 @@ redirectFrom:
   - "/blog/release-notes-26"
 ---
 
-You probably know the song ["Kyma, Kyma, Kyma, Kyma, Kyma chameleon"](https://youtu.be/JmcA9LIIXWw?t=44). As you can see with the new release, Kyma, like chameleons, easily adapts to new surroundings. In 2.6 we introduced a new version of APIRule, improved the `function.kyma-project.io` CustomResourceDefinition (CRD), and provided configurable logging. But that's not all! Read on to find out more about the 2.6 release!
+You probably know the song ["Kyma, Kyma, Kyma, Kyma, Kyma chameleon"](https://youtu.be/JmcA9LIIXWw?t=44). As you can see with the new release, Kyma, like chameleons, easily adapts to new surroundings. In 2.6, we introduced a new version of APIRule, improved the `function.kyma-project.io` CustomResourceDefinition (CRD), and provided configurable logging. But that's not all! Read on to find out more about the 2.6 release!
 
 <!-- overview -->
 
@@ -19,7 +19,7 @@ See the overview of all changes in this release:
 - [API Exposure](#api-exposure) -  Support for exposing and securing multiple services
 - [Observability](#observability) - New Configurable Logging and new Eventing Dashboard
 - [Serverless](#serverless) - Function CRD improved
-- [Service Mesh](#service-mesh) - Istio Sidecar Injection disabled by default, Istio upgraded to 1.14.3
+- [Service Mesh](#service-mesh) - Istio sidecar injection disabled by default, Istio upgraded to 1.14.3
 
 
 ## API Exposure
@@ -32,12 +32,12 @@ This Kyma release comes with a new version of APIRule, featuring exposing and se
 
 ### Configurable Logging
 
-With the new [Telemetry component](https://kyma-project.io/docs/kyma/2.6/01-overview/main-areas/observability/obsv-04-telemetry-in-kyma/), Kyma 2.6 introduces configurable logging. Now you can configure how logs are processed. Besides pushing all application logs to the in-cluster Loki service, you can integrate your own logging backends with Kyma. Furthermore, you can now define criteria for log collection, parsers, filters, and outputs. 
-For more information, see the [migration guide](https://github.com/kyma-project/kyma/blob/release-2.6/docs/migration-guide-2.5-2.6.md).
+With the new [Telemetry component](https://kyma-project.io/docs/kyma/2.6/01-overview/main-areas/observability/obsv-04-telemetry-in-kyma/), Kyma 2.6 introduces configurable logging. Now you can configure how logs are processed. Besides pushing all application logs to the in-cluster Loki service, you can integrate your own logging backends with Kyma. Furthermore, you can now define criteria for log collections, parsers, filters, and outputs. 
+For more information, see the [migration guide](https://kyma-project.io/docs/kyma/2.6/migration-guide-2.5-2.6.md).
 
 ### Eventing Dashboard
 
-This Kyma release comes with a consolidated Grafana dashboard for Eventing called NATS delivery, so you can monitor the published and dispatched events in one, holistic view.
+This Kyma release comes with a consolidated Grafana dashboard for Eventing called NATS delivery, so now you can monitor the published and dispatched events in one, holistic view.
 
 ## Serverless
 
@@ -47,8 +47,8 @@ With Kyma 2.6, the new `v1alpha2` version of the `function.kyma-project.io` CRD 
 
 The `v1alpha2` changes include:
 
-- The **source** parameter provides more structured information. For inline Functions, it provides the source. For Git Functions, it provides the Git reference. This information is no longer stored in the GitRepository CR.
-- Build-time and run-time resource configuration were moved under the common parent field called **resourceConfiguration**.
+- The **source** parameter now providing more structured information. For inline Functions, it provides the source. For Git Functions, it provides the Git reference. This information is no longer stored in the GitRepository CR.
+- Build-time and run-time resource configurations moved under the common parent field called **resourceConfiguration**.
 - Experimental support for external Kubernetes resource scalers (for example via KEDA ScaledObject API) using scale subresource.
 
 The following versions of CRDs are deprecated:
