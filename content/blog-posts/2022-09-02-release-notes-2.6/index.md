@@ -10,7 +10,7 @@ redirectFrom:
   - "/blog/release-notes-26"
 ---
 
-You probably know the song ["Kyma, Kyma, Kyma, Kyma, Kyma chameleon"](https://youtu.be/JmcA9LIIXWw?t=44). As you can see with the new release, Kyma, like chameleons, easily adapts to new surroundings. In 2.6 we introduced a new version of APIRule, improved the `function.kyma-project.io` CustomResourceDefinition (CRD) and, provided configurable logging. But that's not all! Read on to find out more about the 2.6 release!
+You probably know the song ["Kyma, Kyma, Kyma, Kyma, Kyma chameleon"](https://youtu.be/JmcA9LIIXWw?t=44). As you can see with the new release, Kyma, like chameleons, easily adapts to new surroundings. In 2.6 we introduced a new version of APIRule, improved the `function.kyma-project.io` CustomResourceDefinition (CRD), and provided configurable logging. But that's not all! Read on to find out more about the 2.6 release!
 
 <!-- overview -->
 
@@ -26,7 +26,7 @@ See the overview of all changes in this release:
 
 ### Exposing and securing multiple services
 
-This Kyma release comes with a new version of APIRule, featuring exposing and securing multiple services. Now it’s possible to define a service per rule. Read more about the [APIRule custom resource (CR)](https://kyma-project.io/docs/kyma/latest/05-technical-reference/00-custom-resources/apix-01-apirule).
+This Kyma release comes with a new version of APIRule, featuring exposing and securing multiple services. Now it’s possible to define a service per rule. Read more about the [APIRule custom resource (CR)](https://kyma-project.io/docs/kyma/2.6/05-technical-reference/00-custom-resources/apix-01-apirule/).
 
 ## Observability
 
@@ -47,7 +47,7 @@ With Kyma 2.6, the new `v1alpha2` version of the `function.kyma-project.io` CRD 
 
 The `v1alpha2` changes include:
 
-* More structured information about the Function source.  The source subobject describes either the sources, in the case of inline Functions, or Git reference in the case of Git Functions. GitRepository CRD will no longer be used to store information about the Git sources.
+- The **source** parameter provides more structured information. For inline Functions, it provides the source. For Git Functions, it provides the Git reference. This information is no longer stored in the GitRepository CR.
 - Build-time and run-time resource configuration were moved under the common parent field called **resourceConfiguration**.
 * Experimental support for external Kubernetes resource scalers (for example via KEDA ScaledObject API) using scale subresource.
 
@@ -61,7 +61,7 @@ You don't need to update your Function templates immediately. Kyma provides a co
 
 ### Istio Sidecar injection
 
-Starting with this Kyma version, new workloads no longer have Istio sidecars injected by default. If you want automatic sidecar injection, you must [enable it](https://istio.io/latest/docs/setup/additional-setup/sidecar-injection/) yourself. Learn more about the [benefits of having your workload as a part of the Istio service mesh](https://kyma-project.io/docs/kyma/latest/01-overview/main-areas/service-mesh/smsh-03-istio-sidecars-in-kyma/). 
+Starting with this Kyma version, new workloads no longer have Istio sidecars injected by default. If you want automatic sidecar injection, you must [enable it](https://kyma-project.io/docs/kyma/2.6/04-operation-guides/operations/smsh-01-istio-enable-sidecar-injection/) yourself. Learn more about the [benefits of having your workload as a part of the Istio service mesh](https://kyma-project.io/docs/kyma/latest/01-overview/main-areas/service-mesh/smsh-03-istio-sidecars-in-kyma/). 
   
 Despite the change, Kyma continues to update the sidecars of workloads that are part of the Istio service mesh.
 
