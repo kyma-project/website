@@ -33,7 +33,7 @@ This Kyma release comes with a new version of APIRule, featuring exposing and se
 ### Configurable Logging
 
 With the new [Telemetry component](https://kyma-project.io/docs/kyma/2.6/01-overview/main-areas/observability/obsv-04-telemetry-in-kyma/), Kyma 2.6 introduces configurable logging. Now you can configure how logs are processed. Besides pushing all application logs to the in-cluster Loki service, you can integrate your own logging backends with Kyma. Furthermore, you can now define criteria for log collections, parsers, filters, and outputs. 
-For more information, see the [migration guide](https://kyma-project.io/docs/kyma/2.6/migration-guide-2.5-2.6.md).
+For more information, see the [migration guide](https://kyma-project.io/docs/kyma/2.6/migration-guide-2.5-2.6).
 
 ### Eventing Dashboard
 
@@ -59,7 +59,7 @@ You don't need to update your Function templates immediately. Kyma provides a co
 
 ## Service Mesh
 
-### Istio Sidecar injection
+### Istio sidecar injection
 
 Starting with this Kyma version, new workloads no longer have Istio sidecars injected by default. If you want automatic sidecar injection, you must [enable it](https://kyma-project.io/docs/kyma/2.6/04-operation-guides/operations/smsh-01-istio-enable-sidecar-injection/) yourself. Learn more about the [benefits of having your workload as a part of the Istio service mesh](https://kyma-project.io/docs/kyma/2.6/01-overview/main-areas/service-mesh/smsh-03-istio-sidecars-in-kyma/). 
   
