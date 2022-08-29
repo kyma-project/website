@@ -74,7 +74,7 @@ With Kyma 1.23, we announced the [deprecation of Service Catalog](https://kyma-p
 
 Note that your Service Catalog resources will not be migrated to any other solution. As mentioned in the [Service Catalog deprecation update](https://kyma-project.io/blog/2021/12/7/release-notes-20#service-catalog-deprecation-update), we recommend you to use [service operators for Service Management in Kyma](https://kyma-project.io/docs/kyma/main/01-overview/main-areas/service-management/smgt-01-overview/).
 
-If you already switched to another solution and want to remove the obsolete CRDs from your cluster, run Service Catalog cleanup script provided in the [Migration Guide](https://kyma-project.io/docs/kyma/2.4/migration-guide-2.3-2.4#service-catalog-cleanup-script) **after** you upgrade from Kyma 2.3 to 2.4.
+If you already switched to another solution and want to remove the obsolete CRDs from your cluster, run Service Catalog cleanup script provided in the [Migration Guide](https://github.com/kyma-project/kyma/blob/release-2.4/docs/migration-guide-2.3-2.4.md#service-catalog-cleanup-script) **after** you upgrade from Kyma 2.3 to 2.4.
 
 Service Catalog removal also affects Application Connectivity. We removed some components that interacted with Service Catalog, which means that Application Operator and Application Broker are no longer installed on new clusters. This also means that on fresh clusters, or after executing the migration script we provide, the old Application flow will no longer be present, and you will need to use the new way of connecting the external Systems.
 
@@ -176,4 +176,4 @@ In this release, we upgraded Istio from 1.13.2 to 1.14.1. For more details, read
 
 ### Kiali upgraded to 1.51.1
 
-To ensure compatibility after the Istio upgrade to v1.14, we upgraded Kiali to 1.51.1. It contains name changes of most Kiali resources, so we added [Kiali cleanup script](https://kyma-project.io/docs/kyma/2.4/migration-guide-2.3-2.4#kiali-cleanup-script) to delete old resources after the upgrade.
+To ensure compatibility after the Istio upgrade to v1.14, we upgraded Kiali to 1.51.1. It contains name changes of most Kiali resources, so we added [Kiali cleanup script](https://github.com/kyma-project/kyma/blob/release-2.4/docs/migration-guide-2.3-2.4.md#kiali-cleanup-script) to delete old resources after the upgrade.
