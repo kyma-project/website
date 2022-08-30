@@ -49,6 +49,7 @@ Starting from this release, you can use the `kyma alpha deploy` command to speci
 Following [good practices from GitHub](https://github.com/github/renaming), we adjusted our repositories to use more inclusive language and got rid of phrases such as "whitelist", "blacklist", and "slave" wherever possible. We also renamed the `master` branches to `main` in the following repositories:
 
 - `kyma-project` organization:
+  - [`api-gateway`](https://github.com/kyma-project/api-gateway)
   - [`busola`](https://github.com/kyma-project/busola)
   - [`busola-migrator`](https://github.com/kyma-project/busola-migrator)
   - [`cli`](https://github.com/kyma-project/cli)
@@ -62,7 +63,6 @@ Following [good practices from GitHub](https://github.com/github/renaming), we a
   - [`website`](https://github.com/kyma-project/website)
 
 - `kyma-incubator` organization:
-  - [`api-gateway`](https://github.com/kyma-project/api-gateway)
   - [`documentation-component`](https://github.com/kyma-incubator/documentation-component)
   - [`metris`](https://github.com/kyma-incubator/metris)
 
