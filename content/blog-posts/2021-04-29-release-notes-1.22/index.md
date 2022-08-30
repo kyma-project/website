@@ -62,7 +62,7 @@ Following [good practices from GitHub](https://github.com/github/renaming), we a
   - [`website`](https://github.com/kyma-project/website)
 
 - `kyma-incubator` organization:
-  - [`api-gateway`](https://github.com/kyma-incubator/api-gateway)
+  - [`api-gateway`](https://github.com/kyma-project/api-gateway)
   - [`documentation-component`](https://github.com/kyma-incubator/documentation-component)
   - [`metris`](https://github.com/kyma-incubator/metris)
 
