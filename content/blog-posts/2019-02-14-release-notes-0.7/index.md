@@ -110,7 +110,7 @@ As a result of continuous Kyma-Knative integration, you can now deploy Kyma with
 
 ### Upgrade to Minikube v0.33.0
 
-We have upgraded Minikube to version [0.33.0](https://github.com/kubernetes/minikube/blob/master/CHANGELOG.md#version-0330---2019-01-17). This means we can now use the stable `kubeadm` bootstrapper instead of the deprecated `localkube`. This helps us to leverage new features and improves the stability of local installations.
+We have upgraded Minikube to version [0.33.0](https://github.com/kubernetes/minikube/releases/tag/v0.33.0). This means we can now use the stable `kubeadm` bootstrapper instead of the deprecated `localkube`. This helps us to leverage new features and improves the stability of local installations.
 
 ### Upgrade to Kubernetes v1.11.5
 
