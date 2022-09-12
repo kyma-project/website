@@ -51,7 +51,7 @@ Following [good practices from GitHub](https://github.com/github/renaming), we a
 - `kyma-project` organization:
   - [`api-gateway`](https://github.com/kyma-project/api-gateway)
   - [`busola`](https://github.com/kyma-project/busola)
-  - [`busola-migrator`](https://github.com/kyma-project/busola-migrator)
+  - [`busola-migrator`](https://github.com/kyma-project/kyma/pull/15414/files)
   - [`cli`](https://github.com/kyma-project/cli)
   - [`community`](https://github.com/kyma-project/community)
   - [`control-plane`](https://github.com/kyma-project/control-plane)
