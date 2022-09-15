@@ -12,7 +12,7 @@ redirectFrom:
 
 We’re heading into autumn, the season of cozy evenings with a mug of tea (or your preferred hot drink), a soft blanket, and maybe a good book or two. If you like, you could start off with reading our release notes for Kyma 2.7, which bring a richt harvest of feature updates and improvements:
 
-- [Observability](#observability) - Improved Monitoring Dashboard and updated infrastructure
+- [Observability](#observability) - Multiple improvements around LogPipelines and updated monitoring stack
 - [Serverless](#serverless) - API cleanup
 - [Security](#security) - Cluster users deprecation
 
