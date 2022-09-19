@@ -170,7 +170,7 @@ Moreover, besides having data retention **by time**, we introduced a new sidecar
 
 ### Node.js 12 deprecated
 
-The base image for [Node.js 12 will be maintained only until April 2022](https://nodejs.org/en/about/releases/). Thus, following the recommendations from Node.js, we are planning to remove Node.js 12 from the list of supported runtimes soon. This basically means that Node.js 12-based Functions will continue to work, but you won’t be able to create a new Function on this runtime or edit an existing Function to run on it.
+The base image for [Node.js 12 will be maintained only until April 2022](https://nodejs.org/en/download/releases/). Thus, following the recommendations from Node.js, we are planning to remove Node.js 12 from the list of supported runtimes soon. This basically means that Node.js 12-based Functions will continue to work, but you won’t be able to create a new Function on this runtime or edit an existing Function to run on it.
 
 For now, we recommend that you re-configure all your Node.js 12 Functions to run on the Node.js 14 runtime.
 
