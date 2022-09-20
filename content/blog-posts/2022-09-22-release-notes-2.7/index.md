@@ -26,7 +26,7 @@ We’re heading into autumn, the season of cozy evenings with a mug of tea (or y
     - Attributes of the spec were generated with empty values [bug 15134](https://github.com/kyma-project/kyma/issues/15134)
     - When selecting logs by container names, the default Namespaces setting was reset to include system Namespaces [bug 15490](https://github.com/kyma-project/kyma/issues/15490)
  - Update to Fluent Bit 1.9.7
- - Improved Monitoring Dashboard [issue 14460](https://github.com/kyma-project/kyma/issues/14460)
+ - Improved monitoring dashboard [issue 14460](https://github.com/kyma-project/kyma/issues/14460)
 	
 ### Monitoring
 
