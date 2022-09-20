@@ -31,9 +31,9 @@ We’re heading into autumn, the season of cozy evenings with a mug of tea (or y
 ### Monitoring
 
 The monitoring stack was upgraded to the following:
- - Prometheus version 2.38
- - prometheus-operator version 0.58
- - Kube-state-metrics 2.5.0
+ - Prometheus 2.38
+ - Prometheus Operator 0.58
+ - Kube State Metrics 2.5.0
  - Kubernetes dashboards were updated to the latest upstream versions
 
 ## Serverless
