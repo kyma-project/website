@@ -10,7 +10,7 @@ redirectFrom:
   - "/blog/observability-strategy"
 ---
 
-I’m part of the Kyma team working on the Observability feature, and I’ve seen the Kyma project evolving over time into a runtime that provides Kubernetes building blocks with enterprise-grade quality. In this blog post, I want to show you how this evolution is going to apply to Kyma’s observability features.
+I’m part of the Kyma team working on the Observability feature, and I’ve seen the Kyma project evolve over time from an extensibility framework with "batteries included" into a runtime that provides Kubernetes building blocks with enterprise-grade quality. In this blog post, I want to show you how this evolution is going to apply to Kyma’s observability features.
 
 Up until now, we have been providing an out-of-the box in-cluster Observability stack that gets you started really quickly. It’s quite feature-rich, but if you look a little bit closer, it doesn’t qualify for enterprise-grade qualities.
 
@@ -32,7 +32,7 @@ In the future, the classic Kyma observability backends and user interfaces will 
 
 For more details, have a look at the [strategy document](https://github.com/kyma-project/community/blob/main/concepts/observability-strategy/strategy.md).
 
-![Telemetry Architecture](./assets/architecture.png)
+![Telemetry Architecture](./architecture.png)
 
 ## Integration Options
 
@@ -46,7 +46,7 @@ With a custom configuration (a Kubernetes resource for a Kyma CRD), you can set 
 
 To get you started quickly, Kyma will provide a blueprint to get the classic in-cluster setup deployed.
 
-![Direct Integration](./assets/direct.png)
+![Direct Integration](./direct.png)
 
 ### Indirect Integration
 
@@ -54,7 +54,7 @@ If the system you want to connect does not support the vendor-neutral protocol n
 
 You run a collector that supports OTLP and configure it as target for Kyma’s Telemetry component. Your collector then takes care of the conversion into your target system’s custom protocol and integration with the target system. Typically, you would use a custom [Otel Collector](https://opentelemetry.io/docs/collector/) instance for this task.
 
-![Indirect Integration](./assets/indirect.png)
+![Indirect Integration](./indirect.png)
 
 ### Custom Integration
 
@@ -62,7 +62,7 @@ If the configuration options of the collector layer are still too limiting for y
 
 With such custom setup, you get full flexibility but also full responsibility.
 
-![Custom Integration](./assets/custom.png)
+![Custom Integration](./custom.png)
 
 ### Conclusion
 
