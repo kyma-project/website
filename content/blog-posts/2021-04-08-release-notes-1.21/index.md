@@ -83,7 +83,7 @@ Following the recommendations from Node.js, we are planning to remove Node.js 10
  That's why we recommend that you configure all your Node.js 10 Functions to run on the Node.js 12 runtime. 
 See the [list of notable changes since Node.js 10 LTS](https://nodejs.org/tr/blog/uncategorized/10-lts-to-12-lts/).
 
-For more information on Node.js 10 deprecation, read about [Node.js releases](https://nodejs.org/en/about/releases/).
+For more information on Node.js 10 deprecation, read about [Node.js releases](https://nodejs.org/en/download/releases/).
 
 ## Known issues
 
