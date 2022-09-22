@@ -1,7 +1,7 @@
 ---
 title: "Kyma 2.6.3"
 author:
-  name: Magdalena Strek, PO @Kyma, and TBD, Technical Writer @Kyma"
+  name: Magdalena Strek, PO @Kyma, and Maja Szostok, Technical Writer @Kyma"
 tags:
   - release-notes 
 type: release 
@@ -10,7 +10,6 @@ redirectFrom:
   - "/blog/release-notes-26"
 ---
 
-TBD
 
 - [API Exposure](#api-exposure) -  Bug fix for APIRule v1alpha handling sub-resources
 
