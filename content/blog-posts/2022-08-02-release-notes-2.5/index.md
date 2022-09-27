@@ -43,7 +43,7 @@ It opens up the logging stack by separating the log collection and shipment from
 To ship logs to your preferred external logging backend, simply provide your own Fluent Bit output configuration. 
 Of course, you can still use Kyma’s pre-configured Loki component as the logging backend within the cluster.
 
-For more information, read the [Telemetry component](https://kyma-project.io/docs/kyma/2.5/01-overview/main-areas/observability/obsv-04-telemetry-in-kyma/) documentation.
+For more information, read the [Telemetry component](https://github.com/kyma-project/kyma/blob/release-2.5/docs/01-overview/main-areas/observability/obsv-04-telemetry-in-kyma.md) documentation.
 
 ### Fluent Bit updated to version 1.9.6
 
@@ -58,4 +58,4 @@ In this release, we're starting the journey to change the default sidecar inject
 We are not making any changes to the sidecar injection with Kyma 2.5, but to prepare for the upcoming [migration of existing runtimes](https://github.com/kyma-project/kyma/issues/11637), we introduced a temporary parameter: **global.sidecarMigration**. 
 For now, this new parameter is set to `true`, so the injection stays enabled.
 
-To learn more about this topic, read about [Istio sidecars and why you want them](https://kyma-project.io/docs/kyma/2.5/01-overview/main-areas/service-mesh/smsh-03-istio-sidecars-in-kyma/).
+To learn more about this topic, read about [Istio sidecars and why you want them](https://github.com/kyma-project/kyma/blob/release-2.5/docs/01-overview/main-areas/service-mesh/smsh-03-istio-sidecars-in-kyma.md).
