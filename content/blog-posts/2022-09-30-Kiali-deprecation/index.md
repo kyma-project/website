@@ -19,7 +19,7 @@ In my recent [blog post](https://kyma-project.io/blog/2022/9/21/observability-st
 
 Now, we'll apply the same principle to Kiali. Kyma's current Kiali component is very lightweight and does not provide well-defined configuration options at runtime. The Kyma team supports the Kiali project, but doesn't want to become an active contributor with the goal of running Kiali with managed qualities inside a Kyma cluster. Instead, Kyma wants to assure that the users can connect with Kiali whenever they want.
 
-## The Facts & Alternatives
+## The Future
 
 The Kiali component will be marked as deprecated with Kyma version 2.8. 
 Instructions on [how to install Kiali on your own](https://github.com/kyma-project/examples/tree/main/kiali) have already been provided and will be maintained on a best-effort base. After you transitioned to a custom Kiali installation, Kyma's Kiali component is planned to be removed with Kyma 2.11.
