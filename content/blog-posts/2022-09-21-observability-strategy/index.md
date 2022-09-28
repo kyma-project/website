@@ -1,7 +1,7 @@
 ---
 title: "From Observability to Telemetry – a strategy shift in Kyma"
 author:
-  name: Andreas Thaler, PO @Kyma"
+  name: "Andreas Thaler, PO @Kyma"
 tags:
   - kyma
   - observability

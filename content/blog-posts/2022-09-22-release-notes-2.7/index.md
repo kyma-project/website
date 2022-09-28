@@ -1,7 +1,7 @@
 ---
 title: "Kyma 2.7"
 author:
-  name: Korbinian Stoemmer, PO @Kyma, and Nina Hingerl, Technical Writer @Kyma"
+  name: "Korbinian Stoemmer, PO @Kyma, and Nina Hingerl, Technical Writer @Kyma"
 tags:
   - release-notes 
 type: release 
