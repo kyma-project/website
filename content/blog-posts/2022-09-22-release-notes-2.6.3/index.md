@@ -1,7 +1,7 @@
 ---
 title: "Kyma 2.6.3"
 author:
-  name: Magdalena Stręk, PO @Kyma, and Maja Szostok, Technical Writer @Kyma"
+  name: "Magdalena Stręk, PO @Kyma, and Maja Szostok, Technical Writer @Kyma"
 tags:
   - release-notes 
 type: release 

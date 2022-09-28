@@ -1,7 +1,7 @@
 ---
 title: "Kyma 2.6"
 author:
-  name: Andreas Thaler, PO @Kyma, and Grzegorz Karaluch, Technical Writer @Kyma"
+  name: "Andreas Thaler, PO @Kyma, and Grzegorz Karaluch, Technical Writer @Kyma"
 tags:
   - release-notes 
 type: release 
