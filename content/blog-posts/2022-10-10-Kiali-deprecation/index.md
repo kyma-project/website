@@ -24,7 +24,7 @@ Instead of running Kiali with managed qualities inside a Kyma cluster, Kyma want
 ## The Future
 
 The Kiali component will be marked as deprecated with Kyma version 2.8. 
-Instructions on [how to install Kiali on your own](https://github.com/kyma-project/examples/tree/main/kiali) have already been provided and will be maintained on a best-effort base. After you transitioned to a custom Kiali installation, Kyma's Kiali component is planned to be removed with Kyma 2.11.
+Instructions on [how to install Kiali on your own](https://github.com/kyma-project/examples/tree/main/kiali) have already been provided and will be maintained on a best-effort base. Kyma's Kiali component is planned to be removed with Kyma release 2.11, so you'll want to transition to a custom Kiali installation before that.
 
 
 To sharpen the focus of the Kyma project, the Kiali component is transformed into a simple set of instructions. You can start the transformation already today.
