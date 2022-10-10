@@ -17,7 +17,9 @@ As part of the Kyma team working on the Observability capabilities, I'd like to 
 
 In my recent [blog post](https://kyma-project.io/blog/2022/9/21/observability-strategy/), I outlined the new strategy for the Observability domain in Kyma. To summarize, the shift towards providing enterprise-grade qualities for Kyma modules moved the focus to enable the users to stream telemetry data into their centralized (outer-cluster) observability backends. Hereby, Kyma explicitly decided to support open and easy integration into existing solutions instead of being yet another provider of a specific observability stack in enterprise-grade quality.
 
-Now, we'll apply the same principle to Kiali. Kyma's current Kiali component is very lightweight and does not meet enterprise-grade qualities and with that the current approach does not fit our strategy. The Kyma team supports the Kiali project, but doesn't want to become an active member having the goal of running Kiali with managed qualities inside a Kyma cluster. Instead, Kyma wants to assure that the users can connect with Kiali whenever they want.
+Now, we'll apply the same principle to Kiali. Kyma's current Kiali component is very lightweight and does not meet enterprise-grade qualities. Thus, the current approach does not fit our strategy. 
+
+Instead of running Kiali with managed qualities inside a Kyma cluster, Kyma wants to enable users to connect with Kiali whenever they want.
 
 ## The Future
 
