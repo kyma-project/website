@@ -109,3 +109,8 @@ For more information on what status codes are currently used, see the [documenta
  
 Nothing here. OPTL changes mentioned already in the Observalibility section. 
 Verification of advanced templating fetures is still pending and will most like be shifted to 2.9 
+
+
+## Eventing 
+
+The Eventing stack has been upgraded to NATS 2.9.0. 
