@@ -11,70 +11,101 @@ redirectFrom:
   - "/blog/release-notes-28"
 ---
 
-We’re heading into autumn, the season of cozy evenings with a mug of tea (or your preferred hot drink), a soft blanket, and maybe a good book or two. If you like, you could start off with reading our release notes for Kyma 2.7, which bring a rich harvest of feature updates and improvements:
+## Observability 
 
-- [Observability](#observability) - Multiple improvements around LogPipelines and updated monitoring stack
-- [Serverless](#serverless) - API cleanup
-- [Security](#security) - Cluster Users component deprecation
+ 
 
-<!-- overview -->
+### Jaeger 
 
-## Observability
+ 
 
-### Logging - LogPipeline
+As preparation for the bigger changes planned in the tracing area (see https://github.com/kyma-project/community/tree/main/concepts/observability-strategy/configurable-tracing) we updated the Jaeger stack to the latest version 1.37 and enabled OTLP support. At the same time the serverless engine switched to OTLP as well and is ready for the awesome future 
 
- - Several bugs have been fixed, especially:
-    - Attributes of the spec were generated with empty values [bug 15134](https://github.com/kyma-project/kyma/issues/15134)
-    - When selecting logs by container names, the default Namespaces setting was reset to include system Namespaces [bug 15490](https://github.com/kyma-project/kyma/issues/15490)
- - Update to Fluent Bit 1.9.7
- - Improved monitoring dashboard [issue 14460](https://github.com/kyma-project/kyma/issues/14460)
-	
-### Monitoring
+ 
 
-The monitoring stack was upgraded to the following:
- - Prometheus 2.38
- - Prometheus Operator 0.58
- - Kube State Metrics 2.5.0
- - Kubernetes dashboards were updated to the latest upstream versions
+### Monitoring 
 
-## Serverless
+ 
 
-With Kyma 2.7, we are still on the mission to continue the API cleanup for the Serverless API group towards a stable version. This time, we changed the runtime field type from enum to string, which decouples the list of available runtimes from the Function CRD itself. Also, we prepared a concept to enable advanced templating of Function resources (that is, Function Pod and build jobs) using the Function CR specification.
+Update to node-exporter 1.4.0 
 
-Additionally, as a follow-up to the scaling features of `serverless.kyma-project.io/v1alpha2` released with Kyma 2.6, we have added an additional tutorial and example, so now you can scale your Function with KEDA according to your business or technical needs.
+ 
 
-## Security 
-	
-### Cluster Users component deprecated
+### Logging 
 
-Because Kyma 2 brings a lot of flexibility in shaping Kubernetes Roles and Cluster Roles, we want to encourage our users to model access rights to Kyma resources and their own resources. 
-With this Kyma release, the Cluster Users component is deprecated. 
-"
-author:
-  name: Andreas Thaler, PO @Kyma"
-tags:
-  - kyma
-  - observability
-  - Kiali
+ 
 
-redirectFrom:
-  - "/blog/kiali-deprecation"
----
+Update to Fluent Bit 1.9.9 
 
-As part of the Kyma team working on the Observability capabilities, I'd like to let you know that we decided to deprecate the Kyma Kiali component. In this blog post, I'm going to give you our reasoning behind that decision.
+ 
 
-## The Background
+Improved secret rotation support for LogPipelines. A rotated secret will be detected instantly now. 
 
-In my recent [blog post](https://kyma-project.io/blog/2022/9/21/observability-strategy/), I outlined the new strategy for the Observability domain in Kyma. To summarize, the shift towards providing enterprise-grade qualities for Kyma modules moved the focus to enable the users to stream telemetry data into their centralized (outer-cluster) observability backends. Hereby, Kyma explicitly decided to support open and easy integration into existing solutions instead of being yet another provider of a specific observability stack in enterprise-grade quality.
+ 
 
-Now, we'll apply the same principle to Kiali. Kyma's current Kiali component is very lightweight and does not meet enterprise-grade qualities. Thus, the current approach does not fit our strategy. 
+Reminder: with https://kyma-project.io/blog/2022/8/25/release-notes-26/ the fluent-bit part of the logging component got replaced by the new telemetry component. It will be removed with next kyma release. If you have not adopted to the change yet, please do so now. 
 
-Instead of running Kiali with managed qualities inside a Kyma cluster, Kyma wants to enable users to connect with Kiali whenever they want.
+ 
 
-## The Future
+### Deprecation of Kiali 
 
-The Kiali component will be marked as deprecated with Kyma version 2.8. 
-Instructions on [how to install Kiali on your own](https://github.com/kyma-project/examples/tree/main/kiali) have already been provided and will be maintained on a best-effort base. Kyma's Kiali component is planned to be removed with Kyma release 2.11, so you'll want to transition to a custom Kiali installation before that.
+ 
 
+The Kyma Observabaility feature got a shift into the direction of integration and openness, to enable enterprise-grade qualities based on external services, see https://kyma-project.io/blog/2022/9/21/observability-strategy for more details. As part of that, a tutorial got introduced on how to integrate Kiali on your own (see this links) with the consequence of getting the Kiali component removed with kyma 2.10.  
 
-To sharpen the focus of the Kyma project, the Kiali component is transformed into a simple set of instructions. You can start the transformation already today.
+ 
+
+## API Gateway 
+ 
+This Kyma release comes with an update to APIRule featuring exposing and securing services in multiple namespaces. Now it’s possible to specify service namespace on the `spec.service` level or individually for each service in `spec.rules`. This new field is optional, if you do not specify it the default APIRule Namespace is used. Read more about APIRule CR [here](https://kyma-project.io/docs/kyma/latest/05-technical-reference/00-custom-resources/apix-01-apirule). There is also a new tutorial on how to use it [here](https://kyma-project.io/docs/kyma/latest/03-tutorials/00-api-exposure/apix-09-expose-workloads-multiple-namespaces/) 
+ 
+## Security  
+
+ 
+
+### Istio upgraded to 1.15.0 
+ 
+
+In this Kyma release Istio was upgraded to 1.15.0 version. For more details on the changes, read the official [Istio 1.15.0 release notes](https://istio.io/latest/news/releases/1.15.x/announcing-1.15.0/). 
+
+ 
+
+### Istio CNI plugin 
+
+ 
+
+This Kyma version introduces Istio CNI plugin, which replaces Istio `istio-init` container elevated Kubernetes RBAC permission. To learn more read about [Istio CNI plugin.](https://istio.io/latest/docs/setup/additional-setup/cni/) 
+
+ 
+
+ 
+
+## Application Connectivity 
+
+ 
+
+### Response rewriting in Application Gateway  
+
+ 
+
+From this release, Application Gateway in Kyma supports redirects for the HTTP requests in which the URL host remains unchanged.  
+
+The functionality makes the HTTP clients that originally called Application Gateway follow redirects through the Gateway, passing authorization, custom headers, URL parameters, and the body without an issue. 
+
+For more details, see [Application Gateway details](https://kyma-project.io/docs/kyma/main/05-technical-reference/ac-01-application-gateway-details/).  
+
+ 
+
+### Status codes returned by Application Gateway  
+
+ 
+This release of Kyma brings changes that include HTTP status codes returned by Application Gateway. This has been implemented in cases: when the application specified in the path does not exist, the application, service or entry is not passed in the path, or when call to target API timeouts.  
+ 
+For more information on what status codes are currently used, see the [documentation](https://github.com/kyma-project/kyma/blob/main/components/central-application-gateway/README.md)  
+
+ 
+
+## Serverless 
+ 
+Nothing here. OPTL changes mentioned already in the Observalibility section. 
+Verification of advanced templating fetures is still pending and will most like be shifted to 2.9 
