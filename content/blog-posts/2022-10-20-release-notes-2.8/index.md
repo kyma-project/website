@@ -81,7 +81,7 @@ We also improved Secret rotation support for LogPipelines. A rotated Secret is n
 
 The Kyma Observability feature was shifted in the direction of integration and openness to enable enterprise-grade qualities based on external services. 
 See the blog post on [Observability strategy](https://kyma-project.io/blog/2022/9/21/observability-strategy) for more details. 
-As a consequence, Kiali is going to be removed from Kyma in a future release. 
+As a consequence, Kiali will be removed in Kyma 2.10. See the blog post on [Kiali deprecation](https://kyma-project.io/blog/2022/10/10/Kiali-deprecation/).
 
 Worry not, though, as you can still integrate it on your own. 
 We've got you covered, and we've prepared a tutorial on how to [install custom Kiali in Kyma](https://github.com/kyma-project/examples/blob/main/kiali/README.md).
