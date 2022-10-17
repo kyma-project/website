@@ -21,7 +21,7 @@ See the overview of all changes in this release:
 - [API Gateway](#api-gateway) - exposing workloads in multiple Namespaces with one APIRule
 - [Application Connectivity](#application-connectivity) - response rewriting and updated status codes in Application Gateway
 - [Eventing](#eventing) - upgrade to NATS 2.9.0
-- [Observability](#observability) - update to Jaeger 1.37, `node-exporter` 1.4.0, and Fluent Bit 1.9.9; OTLP support enabled, Secret rotation support for LogPipelines improved, Kiali deprecation
+- [Observability](#observability) - component updates, improved secret rotation support for LogPipelines, Kiali deprecation
 - [Security](#security) - upgrade to Istio 1.15.0, `istio-init` container replaced with Istio CNI plugin
 
 ## API Gateway
@@ -65,9 +65,9 @@ At the same time, the Serverless engine switched to OTLP as well, and is ready f
 
 ### Monitoring 
 
-In this release, we also updated Prometheus `node-exporter` to version 1.4.0.
+In this release, we also updated the Prometheus `node-exporter` to version 1.4.0, and `kube-state-metrics` to version 2.6.0.
 
-See the [`node-exporter` release notes](https://github.com/prometheus/node_exporter/releases) for more details. 
+For more details, see the release notes for [`node-exporter`](https://github.com/prometheus/node_exporter/releases) and [`kube-state-metrics`](https://github.com/kubernetes/kube-state-metrics/releases/tag/v2.6.0).
 
 ### Logging 
 
@@ -75,7 +75,7 @@ Yet another update that we made in this release is bumping Fluent Bit to [versio
 
 We also improved Secret rotation support for LogPipelines. A rotated Secret is now detected instantly.
 
-> **NOTE:** Mind that with [Kyma 2.6](https://kyma-project.io/blog/2022/8/25/release-notes-26/), the Fluent-Bit part of the Logging component was replaced by the new Telemetry component. Fluent Bit will be removed with the next Kyma release. If you have not adopted the change yet, do so now, or be rid of logs forever. 
+> **NOTE:** Mind that with [Kyma 2.6](https://kyma-project.io/blog/2022/8/25/release-notes-26/), the Fluent Bit part of the Logging component was replaced by the new Telemetry component. This Fluent Bit part will be removed with the next Kyma release. If you have not adopted the change yet, do so now. 
 
 ### Deprecation of Kiali
 
