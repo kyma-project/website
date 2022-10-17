@@ -30,8 +30,8 @@ See the overview of all changes in this release:
 
 This Kyma release comes with an update to the APIRule CR that lets you expose and secure services in multiple Namespaces. Now it’s possible to specify the service Namespace either on the **spec.service** level or individually for each service in **spec.rules**. This new field is optional. If you do not specify it, the default APIRule Namespace is used. 
 
-For more details, see the [APIRule CR documentation](https://kyma-project.io/docs/kyma/latest/05-technical-reference/00-custom-resources/apix-01-apirule).
-Check out also our new tutorial on how to [expose workloads in multiple Namespaces with a single APIRule definition](https://kyma-project.io/docs/kyma/latest/03-tutorials/00-api-exposure/apix-09-expose-workloads-multiple-namespaces/).
+For more details, see the [APIRule CR documentation](https://kyma-project.io/docs/kyma/2.8/05-technical-reference/00-custom-resources/apix-01-apirule).
+Check out also our new tutorial on how to [expose workloads in multiple Namespaces with a single APIRule definition](https://kyma-project.io/docs/kyma/2.8/03-tutorials/00-api-exposure/apix-09-expose-workloads-multiple-namespaces/).
 
 ## Application Connectivity
 
@@ -41,7 +41,7 @@ From this release, Application Gateway in Kyma supports redirects for the HTTP r
 
 The functionality makes the HTTP clients that originally called Application Gateway follow redirects through the Gateway, passing authorization, custom headers, URL parameters, and the body without an issue.
 
-For more details, see [Application Gateway details](https://kyma-project.io/docs/kyma/main/05-technical-reference/ac-01-application-gateway-details/).
+For more details, see [Application Gateway details](https://kyma-project.io/docs/kyma/2.8/05-technical-reference/ac-01-application-gateway-details/).
 
 ### Status codes returned by Application Gateway
 
@@ -50,7 +50,7 @@ In this release, we also updated the HTTP status codes that Application Gateway 
 - When the Application, service or entry is not passed in the path, or 
 - When a call to target API times out.
 
-For more details, see [Status codes for errors returned by Application Gateway](https://github.com/kyma-project/kyma/blob/main/components/central-application-gateway/README.md#status-codes-for-errors-returned-by-application-gateway).
+For more details, see [Status codes for errors returned by Application Gateway](https://github.com/kyma-project/kyma/blob/release-2.8/components/central-application-gateway/README.md#status-codes-for-errors-returned-by-application-gateway).
 
 ## Eventing
 
