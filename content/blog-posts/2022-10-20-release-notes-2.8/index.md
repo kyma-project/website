@@ -26,6 +26,8 @@ See the overview of all changes in this release:
 
 ## API Gateway
 
+### Exposing workloads in multiple Namespaces with one APIRule
+
 This Kyma release comes with an update to the APIRule CR that lets you expose and secure services in multiple Namespaces. Now it’s possible to specify the service Namespace either on the **spec.service** level or individually for each service in **spec.rules**. This new field is optional. If you do not specify it, the default APIRule Namespace is used. 
 
 For more details, see the [APIRule CR documentation](https://kyma-project.io/docs/kyma/latest/05-technical-reference/00-custom-resources/apix-01-apirule).
@@ -51,6 +53,8 @@ In this release, we also updated the HTTP status codes that Application Gateway 
 For more details, see [Status codes for errors returned by Application Gateway](https://github.com/kyma-project/kyma/blob/main/components/central-application-gateway/README.md#status-codes-for-errors-returned-by-application-gateway).
 
 ## Eventing
+
+### NATS upgraded to 2.9.0
 
 In Kyma 2.8, we upgraded the Eventing stack to NATS 2.9.0.
 
