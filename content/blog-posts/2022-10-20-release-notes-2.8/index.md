@@ -45,9 +45,9 @@ For more details, see [Application Gateway details](https://kyma-project.io/docs
 
 ### Status codes returned by Application Gateway
 
-In this release, we also updated the HTTP status codes that Application Gateway returns:
-- When the Application specified in the path does not exist,
-- When the Application, service or entry is not passed in the path, or 
+In this release, we also updated the HTTP status codes that Application Gateway returns in the following cases:
+- When the Application specified in the path does not exist.
+- When the Application, service or entry is not passed in the path.
 - When a call to target API times out.
 
 For more details, see [Status codes for errors returned by Application Gateway](https://github.com/kyma-project/kyma/blob/release-2.8/components/central-application-gateway/README.md#status-codes-for-errors-returned-by-application-gateway).
