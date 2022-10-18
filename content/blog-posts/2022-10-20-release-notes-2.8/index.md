@@ -21,7 +21,7 @@ See the overview of all changes in this release:
 - [API Gateway](#api-gateway) - exposing workloads in multiple Namespaces with one APIRule
 - [Application Connectivity](#application-connectivity) - response rewriting and updated status codes in Application Gateway
 - [Eventing](#eventing) - upgrade to NATS 2.9.0
-- [Observability](#observability) - component updates, improved secret rotation support for LogPipelines, Kiali deprecation
+- [Observability](#observability) - component updates, improved Secret rotation support for LogPipelines, Kiali deprecation
 - [Security](#security) - upgrade to Istio 1.15.0, `istio-init` container replaced with Istio CNI plugin
 - [Serverless](#serverless) - Serverless engine switched to OTLP
 
