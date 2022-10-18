@@ -100,6 +100,6 @@ For more details on the changes, read the official [Istio 1.15.0 release notes](
 
 ### Istio CNI plugin
 
-This Kyma version introduces the Istio CNI plugin. The plugin replaces the Istio `istio-init` container, and it provides the same networking functionality, but it doesn't require Istio users to have elevated Kubernetes RBAC permission. 
+This Kyma version introduces the Istio CNI plugin. The plugin replaces the `istio-init` container, and it provides the same networking functionality, but it doesn't require Istio users to have elevated Kubernetes RBAC permission. 
 
 To learn more, read about the [Istio CNI plugin](https://istio.io/latest/docs/setup/additional-setup/cni/).
