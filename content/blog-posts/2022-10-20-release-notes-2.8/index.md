@@ -23,6 +23,7 @@ See the overview of all changes in this release:
 - [Eventing](#eventing) - upgrade to NATS 2.9.0
 - [Observability](#observability) - component updates, improved secret rotation support for LogPipelines, Kiali deprecation
 - [Security](#security) - upgrade to Istio 1.15.0, `istio-init` container replaced with Istio CNI plugin
+- [Serverless](#serverless) - Serverless engine switched to OTLP
 
 ## API Gateway
 
@@ -39,7 +40,8 @@ Check out also our new tutorial on how to [expose workloads in multiple Namespac
 
 From this release, Application Gateway in Kyma supports redirects for the HTTP requests in which the URL host remains unchanged.
 
-The functionality makes the HTTP clients that originally called Application Gateway follow redirects through the Gateway, passing authorization, custom headers, URL parameters, and the body without an issue.
+With this functionality, the HTTP client has the option to resolve redirects within the scope of the same API.
+If so configured, the HTTP client that originally called Application Gateway follows redirects through the Gateway, passing authorization, custom headers, URL parameters, and the body.
 
 For more details, see [Application Gateway details](https://kyma-project.io/docs/kyma/2.8/05-technical-reference/ac-01-application-gateway-details/).
 
@@ -64,8 +66,9 @@ For more details on this version, see the official [NATS 2.9.0 release notes](ht
 
 ### Jaeger 
 
-In preparation for the [bigger changes planned in the tracing area](https://github.com/kyma-project/community/tree/main/concepts/observability-strategy/configurable-tracing), we updated the Jaeger stack to [version 1.37](https://github.com/jaegertracing/jaeger/releases/tag/v1.37.0), and enabled [OTLP](https://opentelemetry.io/docs/reference/specification/protocol/) support. 
-At the same time, the Serverless engine switched to OTLP as well, and is ready for the awesome future.
+In preparation for the [bigger changes planned in the Tracing area](https://github.com/kyma-project/community/tree/main/concepts/observability-strategy/configurable-tracing), we updated the Jaeger stack to [version 1.37](https://github.com/jaegertracing/jaeger/releases/tag/v1.37.0), and enabled [OTLP](https://opentelemetry.io/docs/reference/specification/protocol/) support.
+
+At the same time, the [Serverless engine switched to OTLP](#serverless-engine-switched-to-otlp) as well, and is ready for the awesome future.
 
 ### Monitoring 
 
@@ -103,3 +106,12 @@ For more details on the changes, read the official [Istio 1.15.0 release notes](
 This Kyma version introduces the Istio CNI plugin. The plugin replaces the `istio-init` container, and it provides the same networking functionality, but it doesn't require Istio users to have elevated Kubernetes RBAC permission. 
 
 To learn more, read about the [Istio CNI plugin](https://istio.io/latest/docs/setup/additional-setup/cni/).
+
+## Serverless
+
+### Serverless engine switched to OTLP
+
+Following the [changes in Observability](#jaeger) and opening new [OTLP](https://opentelemetry.io/docs/reference/specification/protocol/)-compliant endpoints in Jaeger, the Serverless engine now configures Functions to send trace data to this new endpoint.
+Functions built before releasing Kyma 2.8 will continue sending trace data to the previous endpoint.
+
+For more information, see the [Environment variables in Serverless](https://kyma-project.io/docs/kyma/main/05-technical-reference/00-configuration-parameters/svls-02-environment-variables).
