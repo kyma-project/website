@@ -114,4 +114,4 @@ To learn more, read about the [Istio CNI plugin](https://istio.io/latest/docs/se
 Following the [changes in Observability](#jaeger) and opening new [OTLP](https://opentelemetry.io/docs/reference/specification/protocol/)-compliant endpoints in Jaeger, the Serverless engine now configures Functions to send trace data to this new endpoint.
 Functions built before releasing Kyma 2.8 will continue sending trace data to the previous endpoint.
 
-For more information, see the [Environment variables in Serverless](https://kyma-project.io/docs/kyma/main/05-technical-reference/00-configuration-parameters/svls-02-environment-variables).
+For more information, see the [Environment variables in Serverless](https://kyma-project.io/docs/kyma/2.8/05-technical-reference/00-configuration-parameters/svls-02-environment-variables).
