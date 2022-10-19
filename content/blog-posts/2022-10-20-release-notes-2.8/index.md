@@ -20,7 +20,6 @@ See the overview of all changes in this release:
 
 - [API Gateway](#api-gateway) - exposing workloads in multiple Namespaces with one APIRule
 - [Application Connectivity](#application-connectivity) - response rewriting and updated status codes in Application Gateway
-- [Eventing](#eventing) - upgrade to NATS 2.9.0
 - [Observability](#observability) - component updates, improved Secret rotation support for LogPipelines, Kiali deprecation
 - [Security](#security) - upgrade to Istio 1.15.0, `istio-init` container replaced with Istio CNI plugin
 - [Serverless](#serverless) - Serverless engine switched to OTLP
@@ -53,14 +52,6 @@ In this release, we also updated the HTTP status codes that Application Gateway 
 - When a call to target API times out.
 
 For more details, see [Status codes for errors returned by Application Gateway](https://github.com/kyma-project/kyma/blob/release-2.8/components/central-application-gateway/README.md#status-codes-for-errors-returned-by-application-gateway).
-
-## Eventing
-
-### NATS upgraded to 2.9.0
-
-In Kyma 2.8, we upgraded the Eventing stack to NATS 2.9.0.
-
-For more details on this version, see the official [NATS 2.9.0 release notes](https://docs.nats.io/release-notes/whats_new#server-release-v2.9.0).
 
 ## Observability
 
