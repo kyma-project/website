@@ -15,7 +15,7 @@ redirectFrom:
 <!-- overview -->
 ## Eventing
 
-### NATS upgraded to 2.9.3
+### NATS upgraded to 2.9
 
 To improve stability of the bundled eventing solution, we upgraded the NATS server from version 2.8 to 2.9.
 
