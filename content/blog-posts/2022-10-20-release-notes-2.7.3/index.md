@@ -10,7 +10,7 @@ redirectFrom:
   - "/blog/release-notes-27"
 ---
 
-- [Eventing](#eventing) -  upgrade to NATS 2.9.3
+- [Eventing](#eventing) -  upgrade to NATS 2.9
 
 <!-- overview -->
 ## Eventing
