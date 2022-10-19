@@ -17,8 +17,6 @@ redirectFrom:
 
 ### NATS upgraded to 2.9.3
 
-To improve stability of the bundled eventing solution we upgrade NATS-server from version 2.8.4 to 2.9.3.
+To improve stability of the bundled eventing solution, we upgraded the NATS server from version 2.8.4 to 2.9.3.
 
-For more details on this version, see the official [NATS 2.9.0 release notes](https://docs.nats.io/release-notes/whats_new#server-release-v2.9.0).
-
-> **TIP:** See also [Release Notes for Kyma 2.7](https://kyma-project.io/blog/2022/9/22/release-notes-27/).
+For more details on this version, see the official [NATS 2.9 release notes](https://docs.nats.io/release-notes/whats_new#server-release-v2.9.0).
