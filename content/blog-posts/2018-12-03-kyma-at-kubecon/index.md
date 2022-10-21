@@ -10,7 +10,7 @@ redirectFrom:
   - "/blog/kyma-at-kubecon"
 ---
 
-As you may already know, the [KubeCon](https://events.linuxfoundation.org/events/kubecon-cloudnativecon-north-america-2018/) conference, known among the whole Kubernetes and CNCF community, is taking place in Seattle on December 10.
+As you may already know, the KubeCon conference, known among the whole Kubernetes and CNCF community, is taking place in Seattle on December 10.
 This one-liner intro already clarifies why we, the Kyma people, want to be there too. Our main focus is:
 - To meet you, show you what Kyma is, and answer all your questions
 - Meet with other communities. For now, we are planning to meet with the Kubernetes' Testing SIG and the Service Catalog SIG and talk about our future contributions.
