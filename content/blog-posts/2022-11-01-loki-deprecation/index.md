@@ -11,7 +11,7 @@ redirectFrom:
   - "/blog/loki-deprecation"
 ---
 
-I'm part of the Kyma team working on the Observability feature, and in my previous [blog post](https://kyma-project.io/blog/2022/9/21/observability-strategy/) I talked a bit about the general shift we are planning to do in the Kyma project in regards to Observability. As a first but important step, we are going to deprecate the logging functionality in Kyma based on Loki, that is, the capability to query application logs for up to 5 days using the integrated Grafana view. In this blog post, I'm going to give you more details why we made that decision, and present the alternatives.
+I'm part of the Kyma team working on the Observability feature, and in my previous blog post: [From Observability to Telemetry – a strategy shift in Kyma](https://kyma-project.io/blog/2022/9/21/observability-strategy/), I talked a bit about the general shift we are planning to do in the Kyma project in regards to Observability. As a first but important step, we are going to deprecate the logging functionality in Kyma based on Loki, that is, the capability to query application logs for up to 5 days using the integrated Grafana view. In this blog post, I'm going to give you more details why we made that decision, and present the alternatives.
 
 ## The Background
 
@@ -35,7 +35,7 @@ Still, the following options will not be affected:
 ## New API
 To unburden you from the details of how to reliably fetch and ship all relevant logs for your application to a managed logging backend, we introduced a first version of a new Kubernetes API extension: the LogPipeline API. With this API, you can select the application logs you are interested in by namespaces and containers, and define an output based on a plain HTTP/JSON integration. If you want to find out more, hop over to the product documentation for [Kyma's Telemetry component](https://kyma-project.io/docs/kyma/main/01-overview/main-areas/observability/obsv-04-telemetry-in-kyma).
 
-A remark: After you read my previous [blog post](https://kyma-project.io/blog/2022/9/21/observability-strategy/), you might wonder why Kyma uses a protocol that's very specific to the Fluent Bit ecosystem and not as vendor-neutral as expected. The reason is that in the OpenTelemetry ecosystem, the parts related to logs are just about to become stable (while for the other data types, they are already stable). Because the Fluent Bit ecosystem is very mature and widely adopted, we decided to go with that in a first version but will evolve it to support the OTLP specification later.
+A remark: After you read my previous blog post: [From Observability to Telemetry – a strategy shift in Kyma](https://kyma-project.io/blog/2022/9/21/observability-strategy/), you might wonder why Kyma uses a protocol that's very specific to the Fluent Bit ecosystem and not as vendor-neutral as expected. The reason is that in the OpenTelemetry ecosystem, the parts related to logs are just about to become stable (while for the other data types, they are already stable). Because the Fluent Bit ecosystem is very mature and widely adopted, we decided to go with that in a first version but will evolve it to support the OTLP specification later.
 
 ## Integration Options
 With the new API, you get the following integration options:
