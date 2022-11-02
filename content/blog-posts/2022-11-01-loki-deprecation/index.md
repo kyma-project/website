@@ -33,7 +33,7 @@ Still, the following options will not be affected:
 - Also, you can continue to bring your custom solution for collection and long-term storage of application logs within or outside the cluster.
 
 ## New API
-To unburden you from the details of how to reliably fetch and ship all relevant logs for your application to a managed logging backend, we introduced a first version of a new Kubernetes API extension: the LogPipeline API. With this API, you can select the application logs you are interested in by namespaces and containers, and define an output based on a plain HTTP/JSON integration. If you want to find out more, hop over to the product documentation for [Kyma's Telemetry component](https://kyma-project.io/docs/kyma/main/01-overview/main-areas/observability/obsv-04-telemetry-in-kyma).
+To unburden you from the details of how to reliably fetch and ship all relevant logs for your application to a managed logging backend, we introduced a first version of a new Kubernetes API extension: the LogPipeline API. With this API, you can select the application logs you are interested in by Namespaces and containers, and define an output based on a plain HTTP/JSON integration. If you want to find out more, hop over to the product documentation for [Kyma's Telemetry component](https://kyma-project.io/docs/kyma/main/01-overview/main-areas/observability/obsv-04-telemetry-in-kyma).
 
 A remark: After you read my previous blog post: [From Observability to Telemetry – a strategy shift in Kyma](https://kyma-project.io/blog/2022/9/21/observability-strategy/), you might wonder why Kyma uses a protocol that's very specific to the Fluent Bit ecosystem and not as vendor-neutral as expected. The reason is that in the OpenTelemetry ecosystem, the parts related to logs are just about to become stable (while for the other data types, they are already stable). Because the Fluent Bit ecosystem is very mature and widely adopted, we decided to go with that in a first version but will evolve it to support the OTLP specification later.
 
@@ -41,14 +41,14 @@ A remark: After you read my previous blog post: [From Observability to Telemetry
 With the new API, you get the following integration options:
 
 1. The LogPipeline API enables the integration into systems that natively support HTTP/JSON as input. Typically, such systems use Fluentd as ingestor.
-1. If direct integration is not possible, you can run Fluntd in your custom namespace and leverage the full ecosystem of output plugins to connect with nearly any vendor available.
+1. If direct integration is not possible, you can run Fluntd in your custom Namespace and leverage the full ecosystem of output plugins to connect with nearly any vendor available.
 1. If your scenario is more advanced, or you anyway want to run your own log collector, you still can do that as well.
 If you prefer the classic in-cluster Loki solution, read [Installing a custom Loki stack in Kyma](https://github.com/kyma-project/examples/tree/main/loki).
 
 ![Integration Options](./architecture.png)
 
 ## Conclusion
-Kyma's feature for retrieving application logs based on Loki will be marked as deprecated with an upcoming Kyma release. About six months or later, the feature will be removed. We'll announce the deprecation and removal in the release notes.
+Kyma's feature for retrieving application logs based on Loki will be marked as deprecated with an upcoming Kyma release. After about six months or later, the feature will be removed. We'll announce the deprecation and removal in the release notes.
 
 So, if you have no external logging system integrated yet, you might want to start evaluating that option or follow the provided instructions on installing Loki on your own.
 
