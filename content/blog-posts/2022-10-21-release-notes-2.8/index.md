@@ -100,7 +100,7 @@ This Kyma version introduces the Istio CNI plugin. The plugin replaces the `isti
 	
 To learn more, read about the [Istio CNI plugin](https://istio.io/latest/docs/setup/additional-setup/cni/).
 
-If `init` containers starting in a Pod with sidecar injection enabled need to have networking capabilities, you must follow one of the these migration guides:
+If `initContainers` starting in a Pod with sidecar injection enabled need to have networking capabilities, you must follow one of the these migration guides:
  
 - Set the UID of the `init` container to `1337` using `runAsUser`. `1337` is the UID used by the sidecar proxy. The traffic sent by this UID is not captured by the Istio's iptables rule. Application container traffic is captured as usual. 
 	
