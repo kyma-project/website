@@ -102,11 +102,11 @@ To learn more, read about the [Istio CNI plugin](https://istio.io/latest/docs/se
 
 If `initContainers` starting in a Pod with sidecar injection enabled need to have networking capabilities, you must follow one of the these migration guides:
  
-- Set the UID of the `init` container to `1337` using `runAsUser`. `1337` is the UID used by the sidecar proxy. The traffic sent by this UID is not captured by the Istio's iptables rule. Application container traffic is captured as usual. 
+- Set the UID of the `initContainer` to `1337` using `runAsUser`. `1337` is the UID used by the sidecar proxy. The traffic sent by this UID is not captured by the Istio's iptables rule. Application container traffic is captured as usual. 
 	
 - Set the `traffic.sidecar.istio.io/excludeOutboundIPRanges` annotation to `disable`. It disables redirecting traffic to any CIDRs that the `init` containers communicate with. 
 	
-- Set the `traffic.sidecar.istio.io/excludeOutboundPorts` annotation to `disable`. It disables redirecting traffic to the specific outbound ports that the `init` containers use. 
+- Set the `traffic.sidecar.istio.io/excludeOutboundPorts` annotation to `disable`. It disables redirecting traffic to the specific outbound ports that the `initContainers` use. 
 
 ## Serverless
 
