@@ -94,16 +94,19 @@ For more details on the changes, read the official [Istio 1.15.0 release notes](
 
 ### Istio CNI plugin
 
-**Breaking Changes**
-This Kyma version introduces the Istio CNI plugin. The plugin replaces the `istio-init` container, and it provides the same networking functionality, but it doesn't require Istio users to have elevated Kubernetes RBAC permission. To learn more, read about the [Istio CNI plugin](https://istio.io/latest/docs/setup/additional-setup/cni/).
+**Breaking news**  
+	
+This Kyma version introduces the Istio CNI plugin. The plugin replaces the `istio-init` container, and it provides the same networking functionality, but it doesn't require Istio users to have elevated Kubernetes RBAC permission.  
+	
+To learn more, read about the [Istio CNI plugin](https://istio.io/latest/docs/setup/additional-setup/cni/).
 
-To avoid issues it is necessary to follow one of the below migration guides: 
+If init-containers starting in a Pod with sidecar injection enabled need to have networking capabilities, you must follow one of the below migration guides:
  
-1. Set the `uid` of the init container to `1337` using `runAsUser`. `1337` is the `uid` used by the sidecar proxy. Traffic sent by this `uid` is not captured by the Istio's iptables rule. Application container traffic will still be captured as usual. 
-
-2. Set the `traffic.sidecar.istio.io/excludeOutboundIPRanges` annotation to `disable` it disables redirecting traffic to any CIDRs the `init containers` communicate with. 
-
-3. Set the `traffic.sidecar.istio.io/excludeOutboundPorts` annotation to `disable` it disables redirecting traffic to the specific outbound ports the `init containers` use. 
+- Set the UID of the `init` container to `1337` using `runAsUser`. `1337` is the UID used by the sidecar proxy. The traffic sent by this UID is not captured by the Istio's iptables rule. Application container traffic is captured as usual. 
+	
+- Set the `traffic.sidecar.istio.io/excludeOutboundIPRanges` annotation to `disable`. It disables redirecting traffic to any CIDRs that the `init` containers communicate with. 
+	
+- Set the `traffic.sidecar.istio.io/excludeOutboundPorts` annotation to `disable`. It disables redirecting traffic to the specific outbound ports that the `init` containers use. 
 
 ## Serverless
 
