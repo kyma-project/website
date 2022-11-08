@@ -1,3 +1,4 @@
+---
 title: "Kyma 2.8.2"
 author:
   name: "Magdalena Stręk, PO @Kyma, and Iwona Langer, Technical Writer @Kyma"
