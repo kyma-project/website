@@ -13,7 +13,7 @@ redirectFrom:
 ---
 
 <!-- overview -->
-With the release of Kyma 2.8 we enthusiastically announced the numerous and varied upgrades, updates, improvements and changes it brought into use. One change, however, **the breaking change**, deserves to be presented in its own blog post, so that you do not miss it. Let us properly introduce **the Istio Container Network Interface (CNI) plugin**. 
+With the release of Kyma 2.8, we enthusiastically announced the numerous and varied upgrades, updates, improvements, and changes it brought into use. One change, however, **the breaking change**, deserves to be presented in its own blog post so that you do not miss it. Let us properly introduce **the Istio Container Network Interface (CNI) plugin**. 
 
 > NOTE For SAP BTP Kyma Runtime, the change will be implemented with version 2.10.
 
