@@ -14,9 +14,9 @@ redirectFrom:
 
 With the release of Kyma 2.8, we enthusiastically announced the numerous and varied upgrades, updates, improvements, and changes it brought into use. One change, however, **the breaking change**, deserves to be presented in its own blog post so that you do not miss it. Let us properly introduce **the Istio Container Network Interface (CNI) plugin**.
 
-<!-- overview --> 
+>**NOTE:** For SAP BTP Kyma Runtime, the change will be implemented with version 2.10.
 
-> NOTE For SAP BTP Kyma Runtime, the change will be implemented with version 2.10.
+<!-- overview --> 
 
  ## The problem
 Before version 2.8, Kyma Istio was installed in a default way, which meant that workloads being part of the Service Mesh were injected with the `istio-init` container. The `istio-init` container was responsible for setting up the networking functionality for the Istio sidecar proxy. Unfortunately, setting up the networking functionality required elevated Kubernetes RBAC permissions for the workloads owner.
