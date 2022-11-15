@@ -10,8 +10,9 @@ redirectFrom:
   - "/blog/release-notes-28"
 ---
 
-<!-- overview -->
 While bears have started to seek the sanctuary of lairs, we are not slowing down. Here we are with Kyma 2.8.2 and the security fixes you will find useful.
+
+<!-- overview -->
 
 ## Security
 
