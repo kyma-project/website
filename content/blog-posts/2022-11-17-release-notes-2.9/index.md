@@ -32,9 +32,9 @@ While working on that, we've already taken major steps towards the next Kubernet
 
 ### Logging 
 
-As announced in this [blog post](https://kyma-project.io/blog/2022/11/2/loki-deprecation/), we decided to deprecate the Loki installation, which is part of the Logging component. Please start the transition to alternative solutions. The actual removal will happen not earlier than in six months, with Kyma 2.15 at the earliest. 
+As you've probably learned from this [blog post](https://kyma-project.io/blog/2022/11/2/loki-deprecation/), we decided to deprecate the Loki installation which is part of the Logging component. Please start the transition to alternative solutions. The actual removal will not happen sooner than in six months, with Kyma 2.15 at the earliest. 
 
-As announced in the release notes for [Kyma 2.6](https://kyma-project.io/blog/2022/8/25/release-notes-26/#configurable-logging), the Fluent Bit component got migrated from the Logging component to the Telemetry component. With this Kyma version, the old Fluent Bit setup finally got removed from the Logging component. Before you can upgrade to Kyma 2.9, you must follow this [migration guide](https://kyma-project.io/docs/kyma/2.6/migration-guide-2.5-2.6), if you have not switched to the telemetry component yet. 
+As announced in the release notes for [Kyma 2.6](https://kyma-project.io/blog/2022/8/25/release-notes-26/#configurable-logging), the Fluent Bit component got migrated from the Logging component to the Telemetry component. With this Kyma version, the old Fluent Bit setup finally got removed from the Logging component. Before you can upgrade to Kyma 2.9, you must follow this [migration guide](https://kyma-project.io/docs/kyma/2.6/migration-guide-2.5-2.6) if you have not switched to the telemetry component yet. 
 
 ### Monitoring 
 
@@ -46,7 +46,7 @@ For more details, see the release notes for [Prometheus](https://github.com/prom
 
 ### Tracing preview 
 
-We are actively working on the possibility of [integrating your trace backend based on OTLP](https://github.com/kyma-project/kyma/issues/11231). You can try out a first preview version by following this new [trace demo](https://github.com/kyma-project/examples/tree/main/trace-demo). Give it a try and feel free to provide feedback on the related [Github issue](https://github.com/kyma-project/kyma/issues/11231).
+We are actively working on the possibility of [integrating your trace backend based on OTLP](https://github.com/kyma-project/kyma/issues/11231). You can try out the first preview version by following this new [trace demo](https://github.com/kyma-project/examples/tree/main/trace-demo). Give it a try and feel free to provide feedback on the related [GitHub issue](https://github.com/kyma-project/kyma/issues/11231).
 
 ## Serverless
 
