@@ -56,7 +56,7 @@ Node.js 12 has reached the end of its life. Therefore, followed by the depreciat
 
 ## CLI
 
-### Adjust function commands to the new API version
+### Adjust Function commands to the new API version
 
 Following the recent API changes in Serverless, the related Kyma CLI commands were adjusted to comply with the `serverless.kyma.project.io/v1alpha2` API version.
 
