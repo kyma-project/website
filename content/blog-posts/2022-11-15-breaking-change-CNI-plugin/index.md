@@ -14,7 +14,7 @@ redirectFrom:
 
 With the release of Kyma 2.8, we enthusiastically announced the numerous and varied upgrades, updates, improvements, and changes it brought into use. One change, however, **the breaking change**, deserves to be presented in its own blog post so that you do not miss it. Let us properly introduce **the Istio Container Network Interface (CNI) plugin**.
 
->**NOTE:** For SAP BTP Kyma Runtime, the change will be implemented with version 2.10.
+>**NOTE:** For SAP BTP Kyma Runtime, we are planning to implement the change with version 2.10. If that is the case, you must apply the changes described in this blog post **before** upgrading SAP BTP Kyma Runtime to version 2.10.
 
 <!-- overview --> 
 
@@ -30,7 +30,5 @@ To eliminate the risk of having networking errors, you must configure workloads 
 - Set the UID of the `initContainer` to `1337` using `runAsUser`. `1337` is the UID used by the sidecar proxy. The traffic sent by this UID is not captured by the Istio’s iptables rule. Application container traffic is still captured as usual.
 - Set the `traffic.sidecar.istio.io/excludeOutboundIPRanges` annotation to `disable`. It disables redirecting traffic to any CIDRs the `initContainers` communicate with.
 - Set the `traffic.sidecar.istio.io/excludeOutboundPorts` annotation to `disable`. It disables redirecting traffic to the specific outbound ports the `initContainers` use.
-
-> **NOTE** In case of SAP BTP Kyma Runtime, you must apply the described changes **before** upgrading to version 2.10.
  
-For more information on installing the Istio CNI plugin, read the [original documentation](https://istio.io/latest/docs/setup/additional-setup/cni/).
+For more details, read the [Istio documentation](https://istio.io/latest/docs/setup/additional-setup/cni/).
