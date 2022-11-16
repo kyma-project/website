@@ -24,7 +24,7 @@ Before version 2.8, Kyma Istio was installed in a default way, which meant that 
 ## The solution
 Enabling the Istio CNI plugin allows Kyma users to skip the requirement for elevated permissions. This, being an obvious security improvement, also has its consequences. Workloads relying on network in `initContainers` face connectivity errors.  
 
-> **CAUTION** To prepare for **the breaking change** workloads configuration, you must apply the following changes **before** upgrading to Kyma 2.8.
+> **CAUTION** To prepare for **the breaking change**, you must apply the following workloads configuration changes **before** upgrading to Kyma 2.8.
 
 To eliminate the risk of having networking errors, you must configure workloads with one of the following settings:
 - Set the UID of the `initContainer` to `1337` using `runAsUser`. `1337` is the UID used by the sidecar proxy. The traffic sent by this UID is not captured by the Istio’s iptables rule. Application container traffic is still captured as usual.
