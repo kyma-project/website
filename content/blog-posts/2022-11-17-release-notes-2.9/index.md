@@ -16,7 +16,7 @@ Roses are red, violets are blue, and Kyma is ready with the new updates for you.
 
 See the overview of all changes in this release:
 
-- [General](#general) - Support for Kubernetes 1.24
+- [General](#general) - support for Kubernetes 1.24
 - [Observability](#observability) - Loki deprecation, Fluent Bit migration, component updates
 - [Telemetry](#telemetry) - a preview of a new tracing solution
 - [Serverless](#serverless) - Node.js 12 runtime deprecation
