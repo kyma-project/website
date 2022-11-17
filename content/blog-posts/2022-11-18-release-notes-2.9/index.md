@@ -10,7 +10,7 @@ redirectFrom:
   - "/blog/release-notes-29"
 ---
 
-Roses are red, violets are blue, and Kyma is ready with the new updates for you. This release comes with a lot of changes. For example, we migrated the Fluent Bit component from Logging to Telemetry, and we're working on integrating your trace backend on OTLP. Read on to find out more about the 2.9 release!
+Roses are red, violets are blue, and Kyma is ready with the new updates for you. This release comes some interesting changes. For example, now we officially support Kubernetes in version 1.24. Read on to find out more about the 2.9 release!
 
 <!-- overview -->
 
@@ -18,7 +18,7 @@ See the overview of all changes in this release:
 
 - [General](#general) - support for Kubernetes 1.24
 - [Observability](#observability) - Loki deprecation, component updates
-- [Telemetry](#telemetry) - a preview of a new tracing solution
+- [Telemetry](#telemetry) - a preview of how a trace backend can be integrated in the future
 - [Serverless](#serverless) - Node.js 12 runtime deprecation
 - [CLI](#cli) - Function commands adjusted to the new API version
 - [Eventing](#eventing) - NATS server updated to `v2.9.6`
