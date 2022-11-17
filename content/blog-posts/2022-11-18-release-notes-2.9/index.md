@@ -17,11 +17,11 @@ Roses are red, violets are blue, and Kyma is ready with the new updates for you.
 See the overview of all changes in this release:
 
 - [General](#general) - support for Kubernetes 1.24
-- [Observability](#observability) - Loki deprecation, Fluent Bit migration, component updates
+- [Observability](#observability) - Loki deprecation, component updates
 - [Telemetry](#telemetry) - a preview of a new tracing solution
 - [Serverless](#serverless) - Node.js 12 runtime deprecation
 - [CLI](#cli) - Function commands adjusted to the new API version
-
+- [Eventing](#eventing) - NATS server updated to `v2.9.6`
 ## General
 
 With this Kyma release, Kubernetes gets officially supported in version 1.24. The default settings for the provision commands, provided by Kyma CLI, were also adjusted. For more details on this version, read the [Kubernetes release notes](https://kubernetes.io/blog/2022/05/03/kubernetes-1-24-release-announcement/).
@@ -59,4 +59,8 @@ Node.js 12 has reached the end of its life. Therefore, followed by the depreciat
 ### Adjust Function commands to the new API version
 
 Following the recent API changes in Serverless, the related Kyma CLI commands were adjusted to comply with the `serverless.kyma.project.io/v1alpha2` API version.
+## Eventing
 
+### NATS server
+
+NATS server was updated to version 2.9.6. For more information read the [NATS server v2.9.6 release notes](https://github.com/nats-io/nats-server/releases/tag/v2.9.6).
