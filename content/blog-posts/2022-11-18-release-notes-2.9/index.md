@@ -58,6 +58,10 @@ We are actively working on the possibility of [integrating your trace backend ba
 
 Node.js 12 has reached the end of its life. Therefore, followed by the depreciation of Node.js 12 Serverless runtime, we decided to finally remove it from the list of the available Function runtimes. 
 
+Your Node.js 12 Functions' workloads will continue to run, but you will not be able to edit them without changing the `runtime` field. Sooner or later, you must change the spec of your existing Node.js 12-based Functions and change the `runtime` field to either `nodejs14` or `nodejs16`.
+
+For more information about the Node.js 12 deprecation, see the [Kyma 2.1 release notes](https://kyma-project.io/blog/2022/3/25/release-notes-21#node-js-12-deprecated).
+
 ## CLI
 
 ### Adjust Function commands to the new API version
