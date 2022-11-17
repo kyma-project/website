@@ -28,6 +28,8 @@ With this Kyma release, Kubernetes gets officially supported in version 1.24. Th
 
 While working on that, we've already taken major steps towards the next Kubernetes version 1.25 by cleaning all PodSecurityPolicies (PSP) and revising all SecurityContexts. Remember that you may need to replace your custom PSPs with the new security standards; click [here](https://kubernetes.io/docs/tasks/configure-pod-container/migrate-from-psp/) for more information. 
 
+As we removed the generic Kyma PSP, your Pods may be prevented from being deployed now as the providers’ default policies are not fitting. During the upgrade to this Kyma version, you might need to introduce proper PSPs to compensate for the removal, or you already disable the PSP admission controller and switch to the new security admission model.
+
 Follow this [migration guide](https://github.com/kyma-project/kyma/blob/release-2.9/docs/migration-guide-2.8-2.9.md) to learn how to clean up your Kyma resources from the PSP leftovers when you upgrade from Kyma 2.8 to 2.9.
 
 ## Observability
