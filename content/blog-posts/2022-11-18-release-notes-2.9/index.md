@@ -24,7 +24,7 @@ See the overview of all changes in this release:
 - [Eventing](#eventing) - NATS server updated to `v2.9.6`
 ## General
 
-With this Kyma release, Kubernetes gets officially supported in version 1.24. The default settings for the provision commands, provided by Kyma CLI, were also adjusted. For more details on this version, read the [Kubernetes release notes](https://kubernetes.io/blog/2022/05/03/kubernetes-1-24-release-announcement/).
+With this Kyma release, Kubernetes gets officially supported in version 1.24. The default settings for the provision commands provided by Kyma CLI were also adjusted. For more details on this version, read the [Kubernetes release notes](https://kubernetes.io/blog/2022/05/03/kubernetes-1-24-release-announcement/).
 
 While working on that, we've already taken major steps towards the next Kubernetes version 1.25 by cleaning all PodSecurityPolicies (PSP) and revising all SecurityContexts. Remember that you may need to replace your custom PSPs with the new security standards; click [here](https://kubernetes.io/docs/tasks/configure-pod-container/migrate-from-psp/) for more information. 
 
@@ -38,7 +38,7 @@ Follow this [migration guide](https://github.com/kyma-project/kyma/blob/release-
 
 As you've probably learned from this [blog post](https://kyma-project.io/blog/2022/11/2/loki-deprecation/), we decided to deprecate the Loki installation which is part of the Logging component. Please start the transition to alternative solutions. The actual removal will not happen sooner than in six months, with Kyma 2.15 at the earliest. 
 
-As announced in the release notes for [Kyma 2.6](https://kyma-project.io/blog/2022/8/25/release-notes-26/#configurable-logging), the Fluent Bit component got migrated from the Logging component to the Telemetry component. With this Kyma version, the old Fluent Bit setup finally got removed from the Logging component. Before you can upgrade to Kyma 2.9, you must follow this [migration guide](https://kyma-project.io/docs/kyma/2.6/migration-guide-2.5-2.6) if you have not switched to the telemetry component yet. 
+As announced in the release notes for [Kyma 2.6](https://kyma-project.io/blog/2022/8/25/release-notes-26/#configurable-logging), the Fluent Bit component got migrated from the Logging component to the Telemetry component. With this Kyma version, the old Fluent Bit setup finally got removed from the Logging component. Before you can upgrade to Kyma 2.9, you must follow this [migration guide](https://github.com/kyma-project/kyma/blob/release-2.6/docs/migration-guide-2.5-2.6.md) if you have not switched to the telemetry component yet. 
 
 ### Monitoring 
 
