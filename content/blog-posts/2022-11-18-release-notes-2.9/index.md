@@ -73,3 +73,5 @@ Following the recent API changes in Serverless, the related Kyma CLI commands we
 ### NATS server
 
 NATS server was updated to version 2.9.6. For more information read the [NATS server v2.9.6 release notes](https://github.com/nats-io/nats-server/releases/tag/v2.9.6).
+
+The stream setup was modified for the case of full message storages. This state will now lead to the rejection of new messages and the return of error code `507`. These changes were introduced to prevent the deletion of old messages.
