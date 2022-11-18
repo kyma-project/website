@@ -67,6 +67,7 @@ For more information about the Node.js 12 deprecation, see the [Kyma 2.1 release
 ### Adjust Function commands to the new API version
 
 Following the recent API changes in Serverless, the related Kyma CLI commands were adjusted to comply with the `serverless.kyma.project.io/v1alpha2` API version.
+
 ## Eventing
 
 ### NATS server
