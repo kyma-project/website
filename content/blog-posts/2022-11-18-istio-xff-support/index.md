@@ -112,6 +112,6 @@ The above output shows the request headers that the `httpbin` workload received.
 
 Workload then should consider the `X-Envoy-External-Address` IP address as the client IP.
 
-## Conclusion
+## Final words
 
 Stay tuned for more blog posts on new features we will release with Kyma Istio and API Gateway.
