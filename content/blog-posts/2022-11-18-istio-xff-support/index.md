@@ -47,12 +47,12 @@ You may take a look at the [Kyma Istio CR reference documentation](https://kyma-
 - Check if the Istio CR exists, with:
 
 ```bash
-kubectl get istios
+kubectl get istios -n kyma-system
 ```
 
 > **NOTE:** There must be only **one** Kyma Istio CR in the cluster.
 
-- If the CR is not applied already, you must create it with a specified `numTrustedProxies` value:
+- If the CR does not exist already, you must create it with a specified `numTrustedProxies` value:
 
 ```bash
 cat <<EOF | kubectl apply -f -
@@ -78,17 +78,22 @@ kubectl patch istios/istio-operator -n kyma-system --type merge -p '{"spec":{"co
 2. Allow Kyma Istio Reconciler to apply the changes to Istio ConfigMap. It runs every minute. You may check if `numTrustedProxies` was applied within Istio ConfigMap with:
 
 ```bash
-kubectl get cm -n istio-system istio --output=jsonpath={.data} | jq '.mesh'
+kubectl get configmap -n istio-system istio --output=jsonpath={.data} | jq '.mesh'
 ```
 
-3. Expose a `httpbin` workload as described in our [Expose a workload](https://kyma-project.io/docs/kyma/latest/03-tutorials/00-api-exposure/apix-03-expose-workload-apigateway/) developer tutorial.
-
-> **NOTE:** If you want to apply to already running workloads you need to restart pods injected with Istio proxies in order for the new configuration to take effect.
-
-4. Run the following curl command to simulate a request with proxy addresses in the XFF header:
+3. Restart Istio Ingress Gateway for the configuration to take effect:
 
 ```bash
-curl -s -H 'X-Forwarded-For: 56.5.6.7,72.9.5.6,98.1.2.3' "https://httpbin.$DOMAIN_TO_EXPOSE_WORKLOADS/get?show_env=true"
+kubectl rollout restart deployment istio-ingressgateway -n istio-system
+```
+
+4. Expose and secure the `httpbin` workload as described in our [Expose and secure a workload with Istio](https://kyma-project.io/docs/kyma/latest/03-tutorials/00-api-exposure/apix-07-expose-and-secure-workload-istio/) developer tutorial.
+
+
+5. Run the following curl command to simulate a request with proxy addresses in the XFF header:
+
+```bash
+curl -s -H "Authorization:Bearer $ACCESS_TOKEN" -H "X-Forwarded-For: 98.1.2.3" "https://httpbin.$DOMAIN_TO_EXPOSE_WORKLOADS/get?show_env=true"
 {
   "args": {
     "show_env": "true"
@@ -114,7 +119,7 @@ curl -s -H 'X-Forwarded-For: 56.5.6.7,72.9.5.6,98.1.2.3' "https://httpbin.$DOMAI
 }
 ```
 
-> **NOTE:** In the above example Istio ingress gateway resolved to 10.180.0.3. This will not be the case in your environment.
+> **NOTE:** In the above example Istio Ingress Gateway resolved to 10.180.0.3. This will not be the case in your environment.
 
 The above output shows the request headers that the `httpbin` workload received. When the Istio gateway received this request, it set the `X-Envoy-External-Address` header to the second to last (`numTrustedProxies`: 2) address in the XFF header from your curl command. Additionally, the gateway appends its own IP to the XFF header before forwarding it to the `httpbin` workload.
 
