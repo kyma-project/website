@@ -15,7 +15,7 @@ I'm part of the Kyma team working on Istio and API Gateway features. In this blo
 
 ## Background
 
-Many applications require knowing the client IP address of the originating request to behave properly. Usual use-cases include workloads that require the client IP address to restrict its access. The ability to provide client attributes to services has long been a staple of reverse proxies. To forward these client attributes to destination workloads, proxies use the `X-Forwarded-For` (XFF) header. For more information on XFF, see the [IETF’s RFC](https://tools.ietf.org/html/rfc7239) and [Envoy documentation](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#x-forwarded-for).
+Many applications need to know the client IP address of an originating request to behave properly. Usual use-cases include workloads that require the client IP address to restrict their access. The ability to provide client attributes to services has long been a staple of reverse proxies. To forward client attributes to destination workloads, proxies use the `X-Forwarded-For` (XFF) header. For more information on XFF, see the [IETF’s RFC documentaion](https://tools.ietf.org/html/rfc7239) and [Envoy documentation](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#x-forwarded-for).
 
 Until now managed Kyma Istio installation did not allow to configure Istio Service Mesh in a way that client attributes are forwarded to the destination workloads. For managed Kyma installations changes applied directly by the user to Istio Service Mesh configuration are being reset to the default settings by the Kyma Reconciler.
 
