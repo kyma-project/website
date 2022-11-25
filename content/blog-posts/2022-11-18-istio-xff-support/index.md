@@ -121,7 +121,8 @@ curl -s -H "Authorization:Bearer $ACCESS_TOKEN" -H "X-Forwarded-For: 98.1.2.3" "
 
 > **NOTE:** In the above example Istio Ingress Gateway resolved to 10.180.0.3. This will not be the case in your environment.
 
-The above output shows the request headers that the `httpbin` workload received. When the Istio gateway received this request, it set the `X-Envoy-External-Address` header to the second to last (`numTrustedProxies`: 2) address in the XFF header from your curl command. Additionally, the gateway appends its own IP to the XFF header before forwarding it to the `httpbin` workload.
+The above output shows the request headers that the `httpbin` workload received. 
+When the Istio gateway receives a request, it sets the `X-Envoy-External-Address` header to the second to last address in the XFF header from your curl command (`numTrustedProxies`: 2). Additionally, the gateway appends its own IP to the XFF header before forwarding it to the `httpbin` workload.
 
 Workload then should consider the `X-Envoy-External-Address` IP address as the client IP.
 
