@@ -19,7 +19,7 @@ Many applications require knowing the client IP address of the originating reque
 
 Until now managed Kyma Istio installation did not allow to configure Istio Service Mesh in a way that client attributes are forwarded to the destination workloads. For managed Kyma installations changes applied directly by the user to Istio Service Mesh configuration are being reset to the default settings by the Kyma Reconciler.
 
-## The Solution
+## Solution
 
 We want to introduce simplified and reliable way for applying changes to Istio Service Mesh by introducing Kyma Istio Custom Resource (CR). This adds another layer of configuration abstraction for the user and will allow us in the future to utilize the Kubernetes controller pattern.
 
