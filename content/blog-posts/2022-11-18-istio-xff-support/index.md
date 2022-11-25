@@ -21,7 +21,7 @@ Until now, managed Kyma Istio installation did not allow configuring Istio Servi
 
 ## Solution
 
-We want to introduce simplified and reliable way for applying changes to Istio Service Mesh by introducing Kyma Istio Custom Resource (CR). This adds another layer of configuration abstraction for the user and will allow us in the future to utilize the Kubernetes controller pattern.
+In order to provide a simplified and reliable way for applying changes to Istio Service Mesh, we introduced the Kyma Istio Custom Resource (CR). This improvement adds another layer of configuration abstraction for the user and provides us with the possibility of utilizing the Kubernetes controller pattern in the future.
 
 Applications rely on reverse proxies to forward client IP address in a request via the XFF header. However, due to the variety of network topologies, user must specify a new configuration property `numTrustedProxies` to the number of trusted proxies deployed in front of the Istio gateway proxy, so that the client address can be extracted correctly. This can be set globally for all gateway workloads in the Kyma Istio CR. Here it is an example:
 
