@@ -128,4 +128,4 @@ The workload then should consider the `X-Envoy-External-Address` IP address as t
 
 ## Final words
 
-Stay tuned for more blog posts on new features we will release with Kyma Istio and API Gateway.
+Stay tuned for more blog posts on new Kyma Istio and API Gateway features.
