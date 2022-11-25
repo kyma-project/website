@@ -13,7 +13,7 @@ redirectFrom:
 
 I'm part of the Kyma team working on the Istio and API Gateway features. As a highly requested feature, we like to introduce configuration support in Kyma Istio for forwarding external client IP address to destination workloads. In this blog post, I'm going to give you more details on how to configure it, and present examples.
 
-## The Background
+## Background
 
 Many applications require knowing the client IP address of the originating request to behave properly. Usual use-cases include workloads that require the client IP address to restrict its access. The ability to provide client attributes to services has long been a staple of reverse proxies. To forward these client attributes to destination workloads, proxies use the `X-Forwarded-For` (XFF) header. For more information on XFF, see the [IETF’s RFC](https://tools.ietf.org/html/rfc7239) and [Envoy documentation](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#x-forwarded-for).
 
