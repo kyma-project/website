@@ -87,7 +87,7 @@ kubectl get configmap -n istio-system istio --output=jsonpath={.data} | jq '.mes
 kubectl rollout restart deployment istio-ingressgateway -n istio-system
 ```
 
-4. Expose and secure the `httpbin` workload as described in our [Expose and secure a workload with Istio](https://kyma-project.io/docs/kyma/latest/03-tutorials/00-api-exposure/apix-07-expose-and-secure-workload-istio/) developer tutorial.
+4. Expose and secure the `httpbin` workload as described in the [Expose and secure a workload with Istio developer tutorial](https://kyma-project.io/docs/kyma/latest/03-tutorials/00-api-exposure/apix-07-expose-and-secure-workload-istio/).
 
 
 5. Run the following curl command to simulate a request with proxy addresses in the XFF header:
