@@ -50,7 +50,7 @@ Take a look at the [Kyma Istio CR reference documentation](https://kyma-project.
 kubectl get istios -n kyma-system
 ```
 
-> **NOTE:** There must be only **one** Kyma Istio CR in the cluster.
+> **NOTE:** There must be only **one** Kyma Istio CR in a cluster.
 
 - If the CR does not exist already, you must create it with a specified `numTrustedProxies` value:
 
