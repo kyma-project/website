@@ -44,7 +44,7 @@ Take a look at the [Kyma Istio CR reference documentation](https://kyma-project.
 
 1. Configure Kyma Istio with the newly introduced `numTrustedProxies` property in the CR.
 
-- Check if the Istio CR exists, with:
+- To check if the Istio CR already exists, run:
 
 ```bash
 kubectl get istios -n kyma-system
