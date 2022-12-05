@@ -38,7 +38,7 @@ spec:
     numTrustedProxies: 2
 ```
 
-You may take a look at the [Kyma Istio CR reference documentation](https://kyma-project.io/docs/kyma/latest/05-technical-reference/00-custom-resources/oper-01-istio/) for further details.
+Take a look at the [Kyma Istio CR reference documentation](https://kyma-project.io/docs/kyma/main/05-technical-reference/00-custom-resources/oper-01-istio/) for further details.
 
 ## Example
 
