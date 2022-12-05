@@ -52,7 +52,7 @@ kubectl get istios -n kyma-system
 
 > **NOTE:** There must be only **one** Kyma Istio CR in a cluster.
 
-- If the CR does not exist already, you must create it with a specified `numTrustedProxies` value:
+- If the CR does not already exist, create it with the specified `numTrustedProxies` value:
 
 ```bash
 cat <<EOF | kubectl apply -f -
