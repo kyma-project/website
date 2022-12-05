@@ -69,7 +69,7 @@ spec:
 EOF
 ```
 
-- Otherwise you may adapt the value of the `numTrustedProxies` with:
+- Otherwise, adapt the value of the `numTrustedProxies`. Run:
 
 ```bash
 kubectl patch istios/istio-operator -n kyma-system --type merge -p '{"spec":{"config":{"numTrustedProxies": 2}}}'
