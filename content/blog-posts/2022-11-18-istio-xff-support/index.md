@@ -11,7 +11,7 @@ redirectFrom:
   - "/blog/istio-xff-support"
 ---
 
-I'm part of the Kyma team working on Istio and API Gateway features. In this blog post, we would like to introduce the highly requested configuration support in Kyma Istio for forwarding an external client IP address to destination workloads. Read on learn more details about this improvement and see how to configure it.
+I'm part of the Kyma team working on Istio and API Gateway features. In this blog post, we would like to introduce the highly requested configuration support in Kyma Istio for forwarding an external client IP address to destination workloads. Read on to learn more about this improvement and see how to configure it.
 
 ## Background
 
