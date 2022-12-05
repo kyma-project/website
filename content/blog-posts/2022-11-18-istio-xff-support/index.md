@@ -126,6 +126,6 @@ When the Istio gateway receives a request, it sets the `X-Envoy-External-Address
 
 The workload then should consider the `X-Envoy-External-Address` IP address as the client IP.
 
-## Final words
+## Final remarks
 
 Stay tuned for more blog posts on new Kyma Istio and API Gateway features.
