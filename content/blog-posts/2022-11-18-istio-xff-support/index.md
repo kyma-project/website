@@ -75,7 +75,7 @@ EOF
 kubectl patch istios/istio-operator -n kyma-system --type merge -p '{"spec":{"config":{"numTrustedProxies": 2}}}'
 ```
 
-2. Allow Kyma Istio Reconciler to apply the changes to Istio ConfigMap. It runs every minute. You may check if `numTrustedProxies` was applied within Istio ConfigMap with:
+2. Allow Kyma Istio Reconciler to apply the changes to Istio ConfigMap. It runs every minute. To check if `numTrustedProxies` was applied within Istio ConfigMap, run:
 
 ```bash
 kubectl get configmap -n istio-system istio --output=jsonpath={.data} | jq '.mesh'
