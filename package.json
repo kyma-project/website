@@ -82,7 +82,7 @@
     "netlify-lambda": "^1.4.5",
     "node-fetch": "^2.6.1",
     "prism-react-renderer": "^0.1.5",
-    "qs": "^6.7.0",
+    "qs": "^6.7.3",
     "react": "^16.13.1",
     "react-alice-carousel": "^1.19.3",
     "react-cookie-banner": "^4.0.0",
