@@ -65,7 +65,7 @@ metadata:
     app.kubernetes.io/name: istio-operator
 spec:
   config:
-    numTrustedProxies: 2
+    numTrustedProxies: 1
 EOF
 ```
 
@@ -75,22 +75,16 @@ EOF
 kubectl patch istios/istio-operator -n kyma-system --type merge -p '{"spec":{"config":{"numTrustedProxies": 2}}}'
 ```
 
-2. Allow Kyma Istio Reconciler to apply the changes to Istio ConfigMap. It runs every minute. To check if `numTrustedProxies` was applied within Istio ConfigMap, run:
+2. Allow Kyma Istio Reconciler to apply the changes to Istio ConfigMap. To check if `numTrustedProxies` was applied within Istio ConfigMap, run:
 
 ```bash
 kubectl get configmap -n istio-system istio --output=jsonpath={.data} | jq '.mesh'
 ```
 
-3. Restart Istio Ingress Gateway for the configuration to take effect:
-
-```bash
-kubectl rollout restart deployment istio-ingressgateway -n istio-system
-```
-
-4. Expose and secure the `httpbin` workload as described in the [Expose and secure a workload with Istio developer tutorial](https://kyma-project.io/docs/kyma/latest/03-tutorials/00-api-exposure/apix-07-expose-and-secure-workload-istio/).
+3. Expose and secure the `httpbin` workload as described in the [Expose and secure a workload with Istio developer tutorial](https://kyma-project.io/docs/kyma/latest/03-tutorials/00-api-exposure/apix-07-expose-and-secure-workload-istio/).
 
 
-5. Run the following curl command to simulate a request with proxy addresses in the XFF header:
+4. Run the following curl command to simulate a request with proxy addresses in the XFF header:
 
 ```bash
 curl -s -H "Authorization:Bearer $ACCESS_TOKEN" -H "X-Forwarded-For: 98.1.2.3" "https://httpbin.$DOMAIN_TO_EXPOSE_WORKLOADS/get?show_env=true"
@@ -107,24 +101,47 @@ curl -s -H "Authorization:Bearer $ACCESS_TOKEN" -H "X-Forwarded-For: 98.1.2.3" "
     "X-B3-Spanid": ...,
     "X-B3-Traceid": ...,
     "X-Envoy-Attempt-Count": ...,
-    "X-Envoy-External-Address": "72.9.5.6",
+    "X-Envoy-External-Address": "98.1.2.3",
     "X-Forwarded-Client-Cert": ...,
-    "X-Forwarded-For": "56.5.6.7,72.9.5.6,98.1.2.3,10.180.0.3",
+    "X-Forwarded-For": "98.1.2.3,10.180.0.3",
     "X-Forwarded-Host": ...,
     "X-Forwarded-Proto": ...,
     "X-Request-Id": ...
   },
-  "origin": "56.5.6.7,72.9.5.6,98.1.2.3,10.180.0.3",
+  "origin": "98.1.2.3,10.180.0.3",
   "url": ...
 }
 ```
 
 > **NOTE:** In the above example Istio Ingress Gateway resolved to 10.180.0.3. This will not be the case in your environment.
 
-The above output shows the request headers that the `httpbin` workload received. 
-When the Istio gateway receives a request, it sets the `X-Envoy-External-Address` header to the second to last address in the XFF header from your curl command (`numTrustedProxies`: 2). Additionally, the gateway appends its own IP to the XFF header before forwarding it to the `httpbin` workload.
+The above output shows the request headers that the `httpbin` workload received.
+When the Istio gateway receives a request, it sets the `X-Envoy-External-Address` header to the first to last address in the XFF header from the request. Please note that the gateway appends its own IP to the XFF header.
 
 The workload then should consider the `X-Envoy-External-Address` IP address as the client IP.
+
+5. You can also secure the workload access by IP with applying an `AuthorizationPolicy` for Istio Gateway. Run:
+
+```bash
+cat <<EOF | kubectl apply -f -
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: ingress-policy
+  namespace: istio-system
+spec:
+  selector:
+    matchLabels:
+      app: istio-ingressgateway
+  action: ALLOW
+  rules:
+  - from:
+    - source:
+       remoteIpBlocks: ["1.2.3.0/24","98.1.2.3"]
+EOF
+```
+
+> **NOTE:** In the above example client IP resolved to 98.1.2.3. This will not be the case in your environment.
 
 ## Final remarks
 
