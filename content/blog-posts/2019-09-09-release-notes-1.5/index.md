@@ -59,7 +59,7 @@ In previous Kyma versions, it was only possible to configure cluster-wide addons
 
 ### Improved monitoring tutorials
 
-Based on the existing [`monitoring-custom-metrics`](https://github.com/kyma-project/examples/tree/main/monitoring-custom-metrics) Kyma example and its `cpu_temperature_celsius` custom metric, we have created unified monitoring tutorials. Thanks to them you can see how Kyma applies monitoring tools to manage application metrics. More specifically, these tutorials show how you can observe the custom metric's changing values, create a Grafana dashboard for the metric, and set up a corresponding alerting rule for it.
+Based on the existing [`monitoring-custom-metrics`](https://github.com/kyma-project/examples/tree/main/prometheus/monitoring-custom-metrics) Kyma example and its `cpu_temperature_celsius` custom metric, we have created unified monitoring tutorials. Thanks to them you can see how Kyma applies monitoring tools to manage application metrics. More specifically, these tutorials show how you can observe the custom metric's changing values, create a Grafana dashboard for the metric, and set up a corresponding alerting rule for it.
 
 Follow these links to see the improved monitoring tutorials:
 - [Observe application metrics](/docs/components/monitoring/#tutorials-observe-application-metrics)
