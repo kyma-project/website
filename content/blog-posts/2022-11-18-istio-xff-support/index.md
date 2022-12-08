@@ -72,7 +72,7 @@ EOF
 - Otherwise, adapt the value of the `numTrustedProxies`. Run:
 
 ```bash
-kubectl patch istios/istio-operator -n kyma-system --type merge -p '{"spec":{"config":{"numTrustedProxies": 2}}}'
+kubectl patch istios/istio-operator -n kyma-system --type merge -p '{"spec":{"config":{"numTrustedProxies": 1}}}'
 ```
 
 2. Allow Kyma Istio Reconciler to apply the changes to Istio ConfigMap. To check if `numTrustedProxies` was applied within Istio ConfigMap, run:
