@@ -75,7 +75,7 @@ EOF
 kubectl patch istios/istio-operator -n kyma-system --type merge -p '{"spec":{"config":{"numTrustedProxies": 1}}}'
 ```
 
-2. Allow Kyma Istio Reconciler to apply the changes to Istio ConfigMap. To trigger it without waiting, run:
+2. Allow Kyma Istio Reconciler to apply the changes to Istio ConfigMap. To trigger it right away, run:
 
 ```bash
 kyma deploy --components istio
