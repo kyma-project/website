@@ -31,7 +31,7 @@ For now, nothing has changed as it is a deprecation notice only. However, in hal
 Still, you have the following options:
 - You can manually install the classic in-cluster monitoring solution. Read [Installing a custom Prometheus stack](https://github.com/kyma-project/examples/tree/main/prometheus) in Kyma for more details.
 - You can continue bringing your custom solution for the collection and long-term storage of metrics inside or outside the cluster.
-You can continue integrating with commercial monitoring offerings as outlined in an SAP-specific mission to [Extend a Kyma Based Multitenant Application With Day 2 Operations](https://discovery-center.cloud.sap/missiondetail/3999/).
+- You can continue integrating with commercial monitoring offerings as outlined in an SAP-specific mission to [Extend a Kyma Based Multitenant Application With Day 2 Operations](https://discovery-center.cloud.sap/missiondetail/3999/).
 
 ## Conclusion
 Kyma's feature for storing and browsing application logs based on Prometheus and Grafana will be marked as deprecated with an upcoming Kyma release. In about six months or later, the feature will be removed. We'll announce the deprecation and removal in the release notes.
