@@ -11,7 +11,7 @@ redirectFrom:
   - "/blog/monitoring-deprecation"
 ---
 
-I'm part of the Kyma team working on the Observability feature. In my previous [blog post](https://kyma-project.io/blog/2022/9/21/observability-strategy/), I talked about the general shift we plan to do in Kyma, regarding Observability. As a first step, I informed you about [the deprecation of the Loki based logging](https://kyma-project.io/blog/loki-deprecation). As the second and last step regarding deprecations, we are going to deprecate the Grafana/Prometheus-based monitoring functionality in Kyma. That is, the capability to store and query metrics using Grafana and Prometheus. In this blog post, I'm going to give you more details about why we made this decision and present the alternatives.
+I'm part of the Kyma team working on the Observability feature. In my previous [blog post](https://kyma-project.io/blog/2022/9/21/observability-strategy/), I talked about the general shift we plan to do in Kyma, regarding Observability. As a first step, I informed you about [the deprecation of the Loki based logging](https://kyma-project.io/blog/loki-deprecation). As the second and last step regarding deprecations, we are going to deprecate the Grafana/Prometheus-based monitoring functionality in Kyma. In this blog post, I'm going to give you more details about why we made this decision and present the alternatives.
 
 ## Background
 
@@ -27,12 +27,10 @@ Overall, we no longer believe that a managed in-cluster solution meets the typic
 
 ## Impact
 For now, nothing has changed as it is a deprecation notice only. However, in half a year or later:
-
-We will remove the Prometheus and Grafana setup in it's current shape and with that, the ability to browse your metrics.
+- We will remove the Prometheus and Grafana setup in it's current shape and with that, the ability to browse your metrics.
 Still, you have the following options:
-
-You can manually install the classic in-cluster monitoring solution. Read [Installing a custom Prometheus stack(https://github.com/kyma-project/examples/tree/main/prometheus) in Kyma for more details.
-You can continue bringing your custom solution for the collection and long-term storage of metrics inside or outside the cluster.
+- You can manually install the classic in-cluster monitoring solution. Read [Installing a custom Prometheus stack(https://github.com/kyma-project/examples/tree/main/prometheus) in Kyma for more details.
+- You can continue bringing your custom solution for the collection and long-term storage of metrics inside or outside the cluster.
 You can continue integrating with commercial monitoring offerings as outlined in an SAP specific mission to [Extend a Kyma Based Multitenant Application With Day 2 Operations](https://discovery-center.cloud.sap/missiondetail/3999/).
 
 ## Conclusion
