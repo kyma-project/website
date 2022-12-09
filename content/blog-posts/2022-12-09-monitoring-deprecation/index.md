@@ -34,7 +34,7 @@ Still, you have the following options:
 - You can continue integrating with commercial monitoring offerings as outlined in an SAP-specific mission to [Extend a Kyma Based Multitenant Application With Day 2 Operations](https://discovery-center.cloud.sap/missiondetail/3999/).
 
 ## Conclusion
-Kyma's feature for storing and browsing application logs based on Prometheus and Grafana will be marked as deprecated with an upcoming Kyma release. In about six months or later, the feature will be removed. We'll announce the deprecation and removal in the release notes.
+Kyma's feature for storing and browsing metrics based on Prometheus and Grafana will be marked as deprecated with an upcoming Kyma release. In about six months or later, the feature will be removed. We'll announce the deprecation and removal in the release notes.
 
 So, if you have no external monitoring system integrated yet, you might want to start evaluating that option or follow the provided instructions on [installing Prometheus/Grafana](https://github.com/kyma-project/examples/tree/main/prometheus).
 
