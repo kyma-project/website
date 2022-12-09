@@ -126,7 +126,7 @@ When the Istio gateway receives a request, it sets the `X-Envoy-External-Address
 
 The workload then should consider the `X-Envoy-External-Address` IP address as the client IP.
 
-5. You can also apply the `AuthorizationPolicy` for the Istio gateway to secure workload access by the IP address. To do so, run:
+5. You can also apply the `AuthorizationPolicy` to the Istio gateway in order to secure workload access by the IP address. To do so, run:
 
 ```bash
 cat <<EOF | kubectl apply -f -
