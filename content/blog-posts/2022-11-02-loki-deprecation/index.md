@@ -15,7 +15,7 @@ I'm part of the Kyma team working on the Observability feature, and in my previo
 
 ## The Background
 
-SAP BTP, Kyma Runtime shifted the focus towards providing enterprise-grade components as building blocks that you can use to connect your productive workloads with the SAP ecosystem. Kyma's classic in-cluster Logging component does not qualify for enterprise-grade criteria because it does not scale with your application log load. Furthermore, you cannot configure it in any way, like for data retention times. Lastly, running a logging backend in-cluster (in the same cluster where your workload is running) has several flaws:
+Kyma shifted the focus towards providing enterprise-grade components as building blocks that you can use to connect your productive workloads with the SAP ecosystem. Kyma's classic in-cluster Logging component does not qualify for enterprise-grade criteria because it does not scale with your application log load. Furthermore, you cannot configure it in any way, like for data retention times. Lastly, running a logging backend in-cluster (in the same cluster where your workload is running) has several flaws:
 
 - Ecosystem: It does not support a multi-environment scenario, where you want to store and analyze logs from multiple environments in one solution.
 - Security: Your historic application logs are exposed to a potential attacker of the cluster, and with that, cannot be used for forensic analysis.
