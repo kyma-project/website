@@ -91,8 +91,8 @@ exports.onPostBuild = async function onPostBuild({ graphql }, pluginOptions) {
   const policy = [
     {
       userAgent: "*",
-      disallow: ["/docs/"],
-      allow: ["/docs/latest"],
+      disallow: ["/docs/kyma/2*", "/docs/kyma/main"],
+      allow: ["/docs"],
     },
   ];
 
