@@ -91,10 +91,10 @@ exports.onPostBuild = async function onPostBuild({ graphql }, pluginOptions) {
   const policy = [
     {
       userAgent: "*",
-      allow: ["/docs/"],
       disallow: [
-        ...distintDocs.allDirectory.distinct.map(version => `/${version}/`),
+        "/docs/"
       ],
+      allow: ["/docs/latest"],
     },
   ];
 
