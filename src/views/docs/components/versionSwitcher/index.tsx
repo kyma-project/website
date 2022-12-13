@@ -22,11 +22,6 @@ const VersionSwitcher: FunctionComponentIntl<VersionSwitcherProps> = ({
   const [ver, setVersion] = React.useState(version);
   const changeDocsVersion = (e: ChangeEvent<HTMLSelectElement>) => {
     const newVersion = e.target.value;
-    if (newVersion === "kyma 1.x") {
-      window.open("https://kyma-project-old.netlify.app/docs/", "_blank");
-      return;
-    }
-
     const { hash } = window.location;
     const path = getDocsPath(newVersion, {
       id: topic,
@@ -57,11 +52,6 @@ const VersionSwitcher: FunctionComponentIntl<VersionSwitcherProps> = ({
               })}
             </optgroup>
           ))}
-          <optgroup key="Archive" label="Archive">
-            <option key="kyma 1.x" value="kyma 1.x">
-              {"kyma 1.x"}
-            </option>
-          </optgroup>
         </VersionSelect>
       </SelectWrapper>
     </Wrapper>
