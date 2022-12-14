@@ -89,7 +89,7 @@ We restyled the existing UI component to match SAP Fiori 3 and updated the compo
 
 > **NOTE:** Support for more Gateway modes by Asset Store was deprecated. For more information, read about [Deprecation of the MinIO gateway](https://blog.min.io/deprecation-of-the-minio-gateway/).
 
-One of the most important features of Asset Store is multi-cloud storage support. Now you can easily save your assets to Azure Blob, AWS S3, or Alibaba Object Storage Service. Read this tutorial to learn how to set Minio to the desired Gateway mode.
+One of the most important features of Asset Store is multi-cloud storage support. Now you can easily save your assets to Azure Blob, AWS S3, or Alibaba Object Storage Service.
 
 Additionally, the automated pipeline makes sure the cooperation between Asset Store and Azure Blob remains stable after each change introduced to the component. This means that from now on we regularly test Asset Store with not only Google Cloud Storage but also Azure Blob.
 
