@@ -61,7 +61,7 @@ spec:
 
 ## Change the sidecar injection annotations to labels
 
-You must replace `sidecar.istio.io/inject` annotation with the `sidecar.istio.io/inject` label on each of the Pods listed after executing the previous commands. In order to do so, ...
+You must replace `sidecar.istio.io/inject` annotation with the `sidecar.istio.io/inject` label on each of the Pods listed after executing the previous commands. In order to do so, you must replace annotation in favour of label in your workload's Pod's template.
 
 ```
 Insert instructions
