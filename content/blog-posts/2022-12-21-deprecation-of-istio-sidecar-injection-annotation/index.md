@@ -9,7 +9,7 @@ tags:
 redirectFrom:
   - "/blog/deprecation-of-sidecar-injection-annotation"
 ---
-Years go by, seasons change, and every new release brings some updates, fixes, and deprecation notes to which we need to adjust our workloads. With Istio 1.16 the `sidecar.istio.io/inject` annotation was deprecated in favor of the `sidecar.istio.io/inject` label. Read on to find out how to configure your Pods so that the Istio sidecar injection remains fully supported.
+Years go by, seasons change, and every new release brings some updates and fixes to which we need to adjust our workloads. With Istio 1.16 the `sidecar.istio.io/inject` annotation was deprecated in favor of the `sidecar.istio.io/inject` label. Read on to find out how to configure your Pods so that the Istio sidecar injection remains fully supported.
 
 ## Overview
 To enable injecting the Istio sidecar proxy into a Pod, you can label the entire Namespace the Pod belongs to or the Pod itself. For more information about the Istio sidecar proxy injection, read the [Istio documentation](https://istio.io/latest/docs/setup/additional-setup/sidecar-injection/) and visit [this blog post](https://kyma-project.io/docs/kyma/main/04-operation-guides/operations/smsh-01-istio-enable-sidecar-injection/).
