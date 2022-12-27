@@ -18,14 +18,27 @@ So far, you could modify a workloads's configuration using either the `sidecar.i
 
 ## Verify which Pods use the sidecar injection annotation
 
-To see which Pods in your namespace have the `sidecar.istio.io/inject` annotation set, run the following kubectl command:
+To see which Pods in your Namespace have the `sidecar.istio.io/inject` annotation set, run the following command:
+
+<div tabs name="kubectl-and-istioctl-commands">
+  <details open>
+    <summary label="kubectl">
+    kubectl
+    </summary>
 ```
 kubectl get po -o=jsonpath='{.items[?(@.metadata.annotations.sidecar\.istio\.io/inject)].metadata.name}' -n {NAMESPACE}
 ```
-Or the following istioctl command:
+  </details>
+  <details>
+    <summary label="istioctl">
+    istioctl
+    </summary>
+
 ```
 istioctl analyze -n {NAMESPACE}
 ```
+  </details>
+</div>
 
 Here's an example of a Pod with the `sidecar.istio.io/inject` annotation set to `true`:
 ```
