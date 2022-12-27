@@ -14,11 +14,11 @@ Years go by, seasons change, and every new release brings some updates and fixes
 ## Overview
 To enable injecting the Istio sidecar proxy into a Pod, you can label the entire Namespace the Pod belongs to or the Pod itself. For more information about the Istio sidecar proxy injection, read the [Istio documentation](https://istio.io/latest/docs/setup/additional-setup/sidecar-injection/) and visit [this blog post](https://kyma-project.io/docs/kyma/main/04-operation-guides/operations/smsh-01-istio-enable-sidecar-injection/).
 
-So far, you could modify a workloads's configuration using either the `sidecar.istio.io/inject` annotation or the `sidecar.istio.io/inject` label. From version 1.16 of Istio, **using the annotation is no longer fully supported**. Therefore, you must verify which of your Pods have the Istio sidecar injection annotation defined and replace each of these annotations with the `sidecar.istio.io/inject` label.
+So far, you could modify a workloads's configuration using either the `sidecar.istio.io/inject` annotation or the `sidecar.istio.io/inject` label. From version 1.16 of Istio, **the annotation is deprecated** in favour of the label. Therefore, you must verify which of your Pods have the Istio sidecar injection annotation defined and replace each of these annotations with the `sidecar.istio.io/inject` label.
 
 ## Verify which Pods use the sidecar injection annotation
 
-To see which Pods in your workloads have the `sidecar.istio.io/inject` annotation set, run the following kubectl command:
+To see which Pods in your namespace have the `sidecar.istio.io/inject` annotation set, run the following kubectl command:
 ```
 kubectl get po -o=jsonpath='{.items[?(@.metadata.annotations.sidecar\.istio\.io/inject)].metadata.name}' -n {NAMESPACE}
 ```
