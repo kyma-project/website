@@ -20,16 +20,30 @@ So far, you could modify a workloads's configuration using either the `sidecar.i
 
 To see which Pods in your workloads have the `sidecar.istio.io/inject` annotation set, run the following kubectl command:
 ```
-Insert a kubectl command
+kubectl get po -o=jsonpath='{.items[?(@.metadata.annotations.sidecar\.istio\.io/inject)].metadata.name}' -n {NAMESPACE}
 ```
 Or the following istioctl command:
 ```
-Insert a istioctl command
+istioctl analyze -n {NAMESPACE}
 ```
 
 Here's an example of a Pod with the `sidecar.istio.io/inject` annotation set to `true`:
 ```
-Insert an example
+apiVersion: v1
+kind: Pod
+metadata:
+  name: example-workload
+  namespace: test-namespace
+  annotations:
+    sidecar.istio.io/inject: "true"
+spec:
+  containers:
+  - name: istio-proxy
+    image: eu.gcr.io/kyma-project/external/istio/proxyv2:1.16.1-distroless
+    ...
+  - image: docker.io/kennethreitz/httpbin
+    name: example-workload
+  ...
 ```
 
 ## Change the sidecar injection annotations to labels
@@ -42,7 +56,21 @@ Insert instructions
 
 Here's an example of a Pod that has the Istio sidecar injection annotation successfully replaced with the label:
 ```
-Insert an example
+apiVersion: v1
+kind: Pod
+metadata:
+  name: example-workload
+  namespace: test-namespace
+  labels:
+    sidecar.istio.io/inject: "true"
+spec:
+  containers:
+  - name: istio-proxy
+    image: eu.gcr.io/kyma-project/external/istio/proxyv2:1.16.1-distroless
+    ...
+  - image: docker.io/kennethreitz/httpbin
+    name: example-workload
+  ...
 ```
 
 ## Final remarks
