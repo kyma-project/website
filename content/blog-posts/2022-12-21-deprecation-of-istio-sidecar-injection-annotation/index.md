@@ -20,26 +20,26 @@ So far, you could modify a workload's configuration using either the `sidecar.is
 
 To see which Pods in your Namespace have the `sidecar.istio.io/inject` annotation set, run one of the following commands:
 
-<div tabs name="kubectl-and-istioctl-commands">
-  <details open>
-    <summary label="kubectl">
-    kubectl
-    </summary>
+<div tabs name="list-pods-which-use-annotations" group="commands">
+  <details>
+  <summary label="kubectl">
+  kubectl
+  </summary>
 
-    ```bash
-    kubectl get po -o=jsonpath='{.items[?(@.metadata.annotations.sidecar\.istio\.io/inject)].metadata.name}' -n {NAMESPACE}
-    ```
-    
+  ```bash
+  kubectl get po -o=jsonpath='{.items[?(@.metadata.annotations.sidecar\.istio\.io/inject)].metadata.name}' -n {NAMESPACE}
+  ```
+
   </details>
   <details>
-    <summary label="istioctl">
-    istioctl
-    </summary>
+  <summary label="istioctl">
+  istioctl
+  </summary>
 
-    ```bash
-    istioctl analyze -n {NAMESPACE}
-    ```
-
+  ```bash
+  istioctl analyze -n {NAMESPACE}
+  ```
+  
   </details>
 </div>
 
