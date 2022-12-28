@@ -14,7 +14,7 @@ Years go by, seasons change, and every new release brings some updates and fixes
 ## Overview
 To enable injecting the Istio sidecar proxy into a Pod, you can label the entire Namespace the Pod belongs to or the Pod itself. For more information about the Istio sidecar proxy injection, read the [Istio documentation](https://istio.io/latest/docs/setup/additional-setup/sidecar-injection/) and visit [this blog post](https://kyma-project.io/docs/kyma/main/04-operation-guides/operations/smsh-01-istio-enable-sidecar-injection/).
 
-So far, you could modify a workload's configuration using either the `sidecar.istio.io/inject` annotation or the `sidecar.istio.io/inject` label. With the 1.16 release of Istio, **the annotation was deprecated** in favor of the label. Therefore, you must verify which of your Pods have the Istio sidecar injection annotation set and replace each of these annotations with the `sidecar.istio.io/inject` label. **Istio will be upgraded to version 1.16 with the release of Kyma 2.10**, but you can start the necessary preparations already. 
+So far, you could modify a workload's configuration using either the `sidecar.istio.io/inject` annotation or the `sidecar.istio.io/inject` label. With the 1.16 release of Istio, **the annotation was deprecated** in favor of the label. Therefore, you must verify which of your Pods have the Istio sidecar injection annotation set and replace each of these annotations with the `sidecar.istio.io/inject` label. **Istio will be upgraded to version 1.16 in the 2.10 release of Kyma**, but you can start the necessary preparations already. 
 
 ## Verify which Pods use the Istio sidecar injection annotation
 
