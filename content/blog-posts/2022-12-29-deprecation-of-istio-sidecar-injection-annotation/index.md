@@ -1,7 +1,7 @@
 ---
 title: "Deprecation of the Istio sidecar injection annotation"
-author:
-  name: 
+author: 
+  name: "Magdalena Stręk, PO @Kyma, and Natalia Sitko, Technical Writer @Kyma"
 tags:
   - Kyma
   - Service Mesh
