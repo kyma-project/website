@@ -25,18 +25,21 @@ To see which Pods in your Namespace have the `sidecar.istio.io/inject` annotatio
     <summary label="kubectl">
     kubectl
     </summary>
-    ```
+
+    ```bash
     kubectl get po -o=jsonpath='{.items[?(@.metadata.annotations.sidecar\.istio\.io/inject)].metadata.name}' -n {NAMESPACE}
     ```
+    
   </details>
   <details>
     <summary label="istioctl">
     istioctl
     </summary>
 
-    ```
+    ```bash
     istioctl analyze -n {NAMESPACE}
     ```
+
   </details>
 </div>
 
