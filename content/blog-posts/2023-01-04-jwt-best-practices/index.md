@@ -1,5 +1,5 @@
 ---
-title: "JWT security best practices"
+title: "Issuing JWT security best practices"
 author: 
   name: "Karol Szwaj, Istio and API Gateway @Kyma"
 tags:
@@ -45,10 +45,6 @@ JWTs rely on the security of the underlying cryptographic keys. Keyed MAC algori
 It's important to use secure key management practices, such as rotating keys on a regular basis and protecting keys from unauthorized access. This includes using strong passwords or passphrases for symmetric keys and protecting private keys with appropriate permissions and access controls. 
 Cryptographic keys used in JWTs should be of sufficient size to ensure their security. For example, the minimum recommended size for an RSA key is 2048 bits. It's important to use keys of adequate size to avoid potential vulnerabilities.
 
-### Validate all cryptographic input used in JWT
-
-It's important to validate all cryptographic inputs used in JWTs to ensure that they are legitimate and not maliciously constructed. This includes verifying that elliptic curve points used in key agreement algorithms are on the specified curve and that other inputs conform to the requirements of the cryptographic operation.
-
 ### Avoid compression before encryption
 
 Data should not be compressed before encryption, as it can reveal information about the plaintext and weaken the security of the JWT.
@@ -74,6 +70,7 @@ A "nonce" is a random value that is used only once. Including a nonce in authent
 Make sure to use JWT claims appropriately and only include the minimum amount of information necessary. For example, don't include sensitive information like passwords in the JWT.
 
 ### Prevent replay attacks
+
 Replay attacks can occur when an attacker intercepts a JWT and tries to use it multiple times to gain unauthorized access to protected resources. To prevent this type of attack,consider using the "jti" (JWT ID) claim. This claim is a unique identifier that can be used to prevent a JWT from being used more than once.
 Another idea would be to include a "nonce" in authenticated requests. A "nonce" is a random value that is used only once and including it also can prevent this type of attack.
 
