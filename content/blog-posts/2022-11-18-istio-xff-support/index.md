@@ -41,7 +41,7 @@ spec:
 Take a look at the [Kyma Istio CR reference documentation](https://kyma-project.io/docs/kyma/main/05-technical-reference/00-custom-resources/oper-01-istio/) for further details.
 
 ## Example
-
+Follow this example to learn how to forward an external client IP address to the destination workload using the newly introduced configuration support in Kyma Istio. To be able to replicate the steps, you need to have Kyma 2.10 installed. If you're reading the blog post before Kyma 2.10 is available, please come back after the release.
 1. Configure Kyma Istio with the newly introduced `numTrustedProxies` property in the CR.
 
 - To check if the Istio CR already exists, run:
