@@ -50,7 +50,7 @@ Data should not be compressed before encryption, as it can reveal information ab
 
 ### Use only UTF-8 encoding
 
-JWTs should only use UTF-8 encoding, as other encodings such as UTF-16 and UTF-32 are not allowed by the latest JSON standard (RFC 8259). It's also important to ensure that the JWT is properly encoded and not susceptible to injection attacks.
+JWTs should only use UTF-8 encoding because other encodings, such as UTF-16 and UTF-32, are not allowed by the latest JSON standard (RFC 8259). Ensure that each JWT is properly encoded and not susceptible to injection attacks.
 
 ### Always use HTTPS
 
