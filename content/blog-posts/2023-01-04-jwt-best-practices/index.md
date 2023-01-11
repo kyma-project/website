@@ -78,7 +78,7 @@ Finally, follow good security practices in general to protect JWTs against threa
 Following these best practices can help ensure that your JWTs are secure and can be trusted. Remember to properly validate algorithms, use strong keys, verify public keys, and use HTTPS to transmit JWTs. Regularly review and update your JWT issuance process to stay up-to-date with the latest security practices.
 By following these guidelines, you can help protect JWTs against potential vulnerabilities and ensure their security. 
 
-I hope you will find this blog post helpful, and please don't hesitate to reach out to us if you have any questions or comments.
+I hope you find this blog post helpful. Please don't hesitate to reach out to us if you have any questions or comments.
 
 ## References
 
