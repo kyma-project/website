@@ -10,7 +10,6 @@ tags:
 redirectFrom:
   - "/blog/jwt-best-practices"
 ---
-## Introduction
 
 I'm part of the Kyma team working on Istio and API Gateway features. In this blog post, I'll be discussing best practices for issuing JSON Web Tokens (JWTs).
 
