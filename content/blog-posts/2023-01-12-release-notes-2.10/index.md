@@ -44,7 +44,7 @@ Kyma 2.10 brings the update to the latest Prometheus images (version 2.40.7), wh
 With Kyma 2.10, we offer solutions to the following issues:
 - Improved implementation so that [unnecessary restarts of fluetn-bit daemonset are avoided on LogPipeline changes](https://github.com/kyma-project/kyma/issues/15956)
 - Improved certificate [handling of LogPipeline and LogParser webhook](https://github.com/kyma-project/kyma/issues/15765) so that there are no webhook downtimes caused by improper certificates 
-- [Dashboard support]((https://github.com/kyma-project/kyma/issues/15894)) for defining LogPipelines and LogParser 
+- [Dashboard support](https://github.com/kyma-project/kyma/issues/15894) for defining LogPipelines and LogParser 
  
 ### Traces
 The first version of the [revamped tracing](https://kyma-project.io/docs/kyma/main/01-overview/main-areas/telemetry/telemetry-03-traces/) feature is out. Under the umbrella of the telemetry module, a new CRD TracePipeline is available. That new API will manage an OpenTelemetry Collector which supports you in integrating into OTLP-based backends. For now, Basic Authentication is supported, and further ways of authentication will be added soon.
