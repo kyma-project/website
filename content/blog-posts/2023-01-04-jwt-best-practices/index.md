@@ -41,7 +41,7 @@ The algorithm used to sign a JWT should be appropriate for the needed level of s
 ### Remember about key management practices
 
 JWTs rely on the security of the underlying cryptographic keys. Keyed MAC algorithms can be vulnerable to brute-force attacks if they are used to sign tokens with weak symmetric keys, such as human-memorizable passwords. To mitigate this risk, avoid using symmetric signing whenever possible. Nowadays, there are not many use cases where using symmetric instead of asymmetric signing is needed. If symmetric signing must be used,  make sure that human-memorizable passwords are not directly used as the key to a keyed-MAC algorithm like HS256.
-It's important to use secure key management practices, such as rotating keys on a regular basis and protecting keys from unauthorized access. This includes using strong passwords or passphrases for symmetric keys and protecting private keys with appropriate permissions and access controls. 
+Use secure key management practices, such as rotating keys regularly and protecting them from unauthorized access. To prevent unauthorized access, use strong passwords or passphrases for symmetric keys and protect private keys with appropriate permissions and access controls. 
 Cryptographic keys used in JWTs should be of sufficient size to ensure their security. For example, the minimum recommended size for an RSA key is 2048 bits. It's important to use keys of adequate size to avoid potential vulnerabilities.
 
 ### Avoid compression before encryption
