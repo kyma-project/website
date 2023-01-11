@@ -31,7 +31,7 @@ Similarly to the `alg` header in JWSs, the `enc` (encryption) header parameter i
 
 ### Avoid using the `none` algorithm in JWT
 
-Unless JWT will be cryptographically protected end-to-end by a TLS in the transport layer or by any other means, the "none" algorithm should not be used in production environments, as it does not provide any cryptographic protection for the JWT. It should only be used for development purposes, and even then it should be used with caution.
+Unless a JWT is cryptographically protected end-to-end by TLS in the transport layer or by any other means, the `none` algorithm should not be used in production environments, as it does not provide any cryptographic protection for the JWT. Use the `none` algorithm only for development purposes, and even in this case, proceed with caution.
 
 ### Avoid using unsafe or deprecated algorithms
 
