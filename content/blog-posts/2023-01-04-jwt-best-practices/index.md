@@ -60,10 +60,6 @@ JWTs should be transmitted over HTTPS to ensure their confidentiality and integr
 
 JWTs should have short expiration times to reduce the window of opportunity for attackers to use them. This also helps mitigate the impact of a JWT being compromised. It's generally a good idea to set the expiration time to no more than a few hours. This can be done using the "exp" (expiration) claim in the JWT.
 
-### Include a "nonce" in authenticated requests
-
-A "nonce" is a random value that is used only once. Including a nonce in authenticated requests can help prevent replay attacks, in which an attacker captures a JWT and attempts to use it multiple times.
-
 ### Use JWT claims appropriately
 
 Make sure to use JWT claims appropriately and only include the minimum amount of information necessary. For example, don't include sensitive information like passwords in the JWT.
@@ -71,7 +67,7 @@ Make sure to use JWT claims appropriately and only include the minimum amount of
 ### Prevent replay attacks
 
 Replay attacks occur when an attacker intercepts a JWT and tries to use it multiple times to gain unauthorized access to protected resources. To prevent this type of attack, consider using the `jti` (JWT ID) claim. This claim is a unique identifier that can be used to prevent a JWT from being used more than once.
-You can also prevent replay attacks by including a nonce in authenticated requests.
+You can also prevent replay attacks by including a `nonce` in authenticated requests.
 
 ### Follow good security practices
 
