@@ -58,7 +58,7 @@ JWTs should be transmitted over HTTPS to ensure their confidentiality and integr
 
 ### Use short expiration times 
 
-JWTs should have short expiration times to reduce the window of opportunity for attackers to use them. The short expiration times also help mitigate the impact of a JWT being compromised. It's generally advised not to set the expiration time to more than a few hours. You can adjust it using the **exp** (expiration) claim in a JWT.
+JWTs should have short expiration times to reduce the window of opportunity for attackers to use them. The short expiration times also help mitigate the impact of a JWT being compromised. It's generally advised not to set the expiration time to more than a few hours. You can adjust it using the `exp` (expiration) claim in a JWT.
 
 ### Use JWT claims appropriately
 
