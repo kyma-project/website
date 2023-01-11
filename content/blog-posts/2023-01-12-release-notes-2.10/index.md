@@ -28,7 +28,13 @@ From now Application Gateway will use the `kyma-system` Namespace instead of the
 
 ## Eventing
 
-The NATS server update to version 2.9.9 improves overall stability and performance, and prevents security issues. For more details, see the NATS server [Release v2.9.9]( https://github.com/nats-io/nats-server/releases/tag/v2.9.9).
+### NATS
+We introduced a `system account` user to allow full leverage of the NATS CLI. For more information, read about [Acquiring NATS server system account credentials](https://kyma-project.io/docs/kyma/2.10/04-operation-guides/operations/evnt-03-nats-server-system-events). 
+
+### Metrics 
+We exposed new metrics for backend latency.
+We also introduced consistent naming for all metrics exposed by Eventing Publisher Proxy (EPP). 
+Read [Kyma Eventing Metrics](https://kyma-project.io/docs/kyma/2.10/04-operation-guides/operations/evnt-02-eventing-metrics) for more details.
 
 ## Observability
  
