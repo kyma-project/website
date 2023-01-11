@@ -46,7 +46,7 @@ Cryptographic keys used in JWTs should be of sufficient size to ensure their sec
 
 ### Avoid compression before encryption
 
-Data should not be compressed before encryption, as it can reveal information about the plaintext and weaken the security of the JWT.
+Data should not be compressed before encryption, as it can reveal information about the plaintext and weaken the security of a JWT.
 
 ### Use only UTF-8 encoding
 
