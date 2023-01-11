@@ -28,7 +28,7 @@ From now Application Gateway will use the `kyma-system` Namespace instead of the
 
 ## Eventing
 
-NATS server update to version 2.9.9 improves overall stability and performance, and prevents security issues. For more details, see the NATS server [Release v2.9.9]( https://github.com/nats-io/nats-server/releases/tag/v2.9.9).
+The NATS server update to version 2.9.9 improves overall stability and performance, and prevents security issues. For more details, see the NATS server [Release v2.9.9]( https://github.com/nats-io/nats-server/releases/tag/v2.9.9).
 
 ## Observability
  
