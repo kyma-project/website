@@ -17,7 +17,7 @@ I'm part of the Kyma team working on Istio and API Gateway features. In this blo
 ## Overview
 
 JSON Web Tokens (JWTs) are a popular way to securely transmit information between parties. Because the tokens can be signed and encrypted to ensure their integrity and confidentiality, they're often used for authentication and authorization purposes.
-As the use of JSON Web Tokens (JWTs) becomes more widespread, it's important to follow best practices to ensure that they are secure and can be trusted. The Internet Engineering Task Force (IETF) has published a set of best practices for JWTs in RFC 8725. In this blog post, we'll highlight some key points from the RFC to help you issue secure JWTs.
+As the use of JSON Web Tokens (JWTs) is becoming more widespread, it's important to follow best practices to ensure that the tokens are secure and can be trusted. The Internet Engineering Task Force (IETF) has published a set of best practices for JWTs in RFC 8725. In this blog post, I'd like to highlight some key points from the RFC to help you issue secure JWTs.
 
 ## Best practices
 
