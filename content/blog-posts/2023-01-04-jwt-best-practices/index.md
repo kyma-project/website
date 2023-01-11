@@ -29,7 +29,7 @@ The `alg` (algorithm) header parameter in JSON Web Signature (JWS) specifies the
 
 Similarly to the `alg` header in JWSs, the `enc` (encryption) header parameter in a JSON Web Encryption (JWE) specifies the cryptographic algorithm used to encrypt a JWT. It's important to ensure that a JWT is encrypted with the intended algorithm. The server should also verify that the algorithm is on the allowlist of approved algorithms and reject any JWTs with an unrecognized algorithm.
 
-### Avoid using "none" algorithm in JWT
+### Avoid using the `none` algorithm in JWT
 
 Unless JWT will be cryptographically protected end-to-end by a TLS in the transport layer or by any other means, the "none" algorithm should not be used in production environments, as it does not provide any cryptographic protection for the JWT. It should only be used for development purposes, and even then it should be used with caution.
 
