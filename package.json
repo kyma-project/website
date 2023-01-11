@@ -73,7 +73,7 @@
     "gatsby-plugin-typography": "^2.2.5",
     "gatsby-remark-embed-video": "^1.7.0",
     "gatsby-source-filesystem": "^2.1.5",
-    "gatsby-transformer-remark": "^2.16.0",
+    "gatsby-transformer-remark": "^5.25.1",
     "generate-robotstxt": "^8.0.3",
     "image-size": "^0.8.3",
     "lazysizes": "^5.2.2",
