@@ -62,7 +62,7 @@ JWTs should have short expiration times to reduce the window of opportunity for 
 
 ### Use JWT claims appropriately
 
-Make sure to use JWT claims appropriately and only include the minimum amount of information necessary. For example, don't include sensitive information like passwords in the JWT.
+Use JWT claims appropriately and only include the necessary amount of information. For example, don't include sensitive information like passwords in a JWT.
 
 ### Prevent replay attacks
 
