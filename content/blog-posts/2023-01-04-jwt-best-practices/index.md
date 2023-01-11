@@ -21,7 +21,7 @@ As the use of JSON Web Tokens (JWTs) becomes more widespread, it's important to 
 
 ## Best practices
 
-### Set "alg" header parameter in JWSs
+### Set the `alg` header parameter in JWSs
 
 Signed JWTs carry an explicit indication of the signing algorithm in the "alg" header parameter. However, this can lead to vulnerabilities if the algorithm is not properly validated. For example, an attacker might change the algorithm to "none" and some libraries might trust this value and "validate" the JWT without checking any signature. To mitigate this risk, ensure that "alg" or "enc" JWT header specifies the same algorithm that is used for cryptographic operation.
 The "alg" (algorithm) header parameter in a JSON Web Signature (JWS) specifies the cryptographic algorithm used to sign the JWT. It's important to ensure that the JWT is signed with the intended algorithm. This also should be verified by the server that the algorithm is on an allowlist of approved algorithms and rejecting any JWTs with an unrecognized algorithm.
