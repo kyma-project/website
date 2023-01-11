@@ -75,7 +75,7 @@ Another idea would be to include a "nonce" in authenticated requests. A "nonce" 
 
 ### Follow good security practices
 
-Finally, it's important to follow good security practices in general to protect against threats to JWTs. This includes keeping your software and libraries up to date, following secure coding practices, and properly configuring your servers and infrastructure.
+Finally, follow good security practices in general to protect JWTs against threats. Keep your software and libraries up to date, follow secure coding practices, and properly configure your servers and infrastructure.
 
 ## Conclusion
 
