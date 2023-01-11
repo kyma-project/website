@@ -48,7 +48,7 @@ With Kyma 2.10, we offer solutions to the following issues:
  
 ### Traces
 The first version of the [revamped tracing](https://kyma-project.io/docs/kyma/main/01-overview/main-areas/telemetry/telemetry-03-traces/) feature is out. Under the umbrella of the telemetry module, a new CRD TracePipeline is available. That new API will manage an OpenTelemetry Collector which supports you in integrating into OTLP-based backends. For now, Basic Authentication is supported, and further ways of authentication will be added soon.
-The Serverless and tracing module was adjusted to the new approach.
+The Serverless and tracing modules were adjusted to the new approach.
 Also, Istio got switched to the new approach. Thus, the trace propagation protocol was changed to the W3C Trace Context. Furthermore, the new Istio Telemetry API got activated to configure tracing settings selectively.
  
  
