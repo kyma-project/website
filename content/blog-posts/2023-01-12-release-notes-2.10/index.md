@@ -61,7 +61,7 @@ With Kyma 2.10, we stop supporting the configuration of the previous Jaeger endp
 
 ### Istio upgraded to 1.16.1  
 
-With release 2.10, we upgrade Istio from 1.15.3 to 1.16.1. For more details on the changes, read the official [Istio 1.16. Upgrade Notes](https://istio.io/latest/news/releases/1.16.x/announcing-1.16/upgrade-notes/).
+With this release, we upgraded Istio from 1.15.3 to 1.16.1. For more details on the changes, read the official [Istio 1.16 Upgrade Notes](https://istio.io/latest/news/releases/1.16.x/announcing-1.16/upgrade-notes/).
 
 ### Istio sidecar injection annotation deprecated  
 
