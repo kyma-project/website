@@ -54,7 +54,7 @@ Also, Istio got switched to the new approach. Thus, the trace propagation protoc
  
 ## Serverless
 
-With Kyma 2.10, we stop supporting the configuration of the previous Jaeger endpoint (at port 14268) as an option for Serverless Functions to send trace data. This endpoint was deprecated with 2.8 and replaced with one (at port 4318) that is compliant with Open Telemetry Protocol (OTLP). Functions don’t receive the previous endpoint as a configuration variable. Thus, if not rebuilt, they cannot send proper trace data. Functions built before Kyma 2.8 need to be re-built so that their trace data can be properly collected at the new OTLP endpoint introduced with 2.8.
+With Kyma 2.10, we stop supporting the configuration of the previous Jaeger endpoint (at port `14268`) as an option for Serverless Functions to send trace data. This endpoint was deprecated with Kyma 2.8 and replaced with one (at port `4318`) that is compliant with Open Telemetry Protocol (OTLP). Functions don’t receive the previous endpoint as a configuration variable. Thus, if not rebuilt, they cannot send proper trace data. Functions built before Kyma 2.8 need to be rebuilt so that their trace data can be properly collected at the new OTLP endpoint introduced with the 2.8 release.
 
 
 ## Service Mesh
