@@ -70,4 +70,4 @@ As of version 1.16 of Istio, the `sidecar.istio.io/inject` annotation was deprec
 
 ### Support for XFF header  
 
-With this version of Kyma, we introduce [Istio CR](https://kyma-project.io/docs/kyma/main/05-technical-reference/00-custom-resources/oper-01-istio/) supporting the configuration of `numTrustedProxies` Read about the [Support for XFF with Istio](https://github.com/kyma-project/website/blob/main/content/blog-posts/2023-01-11-istio-xff-support/index.md) to learn how to configure Istio CR and secure your workload on a forwarded client IP.
+With this version of Kyma, we introduced [Istio custom resource (CR)](https://kyma-project.io/docs/kyma/main/05-technical-reference/00-custom-resources/oper-01-istio/) supporting the configuration of `numTrustedProxies`. Read about the [Support for XFF with Istio](https://github.com/kyma-project/website/blob/main/content/blog-posts/2023-01-11-istio-xff-support/index.md) to learn how to configure Istio CR and secure your workload on a forwarded client IP.
