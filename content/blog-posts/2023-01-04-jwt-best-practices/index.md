@@ -70,7 +70,7 @@ Make sure to use JWT claims appropriately and only include the minimum amount of
 
 ### Prevent replay attacks
 
-Replay attacks can occur when an attacker intercepts a JWT and tries to use it multiple times to gain unauthorized access to protected resources. To prevent this type of attack,consider using the "jti" (JWT ID) claim. This claim is a unique identifier that can be used to prevent a JWT from being used more than once.
+Replay attacks occur when an attacker intercepts a JWT and tries to use it multiple times to gain unauthorized access to protected resources. To prevent this type of attack, consider using the `jti` (JWT ID) claim. This claim is a unique identifier that can be used to prevent a JWT from being used more than once.
 You can also prevent replay attacks by including a nonce in authenticated requests.
 
 ### Follow good security practices
