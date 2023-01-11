@@ -27,7 +27,7 @@ The **alg** (algorithm) header parameter in JSON Web Signature (JWS) specifies t
 
 ### Set the **enc** header parameter in JWEs
 
-Similarly to the `alg` header in JWSs, the `enc` (encryption) header parameter in a JSON Web Encryption (JWE) specifies the cryptographic algorithm used to encrypt a JWT. It's important to ensure that a JWT is encrypted with the intended algorithm. The server should also verify that the algorithm is on the allowlist of approved algorithms and reject any JWTs with an unrecognized algorithm.
+Similarly to the **alg** header in JWSs, the **enc** (encryption) header parameter in a JSON Web Encryption (JWE) specifies the cryptographic algorithm used to encrypt a JWT. It's important to ensure that a JWT is encrypted with the intended algorithm. The server should also verify that the algorithm is on the allowlist of approved algorithms and reject any JWTs with an unrecognized algorithm.
 
 ### Avoid using the `none` algorithm in JWT
 
