@@ -24,7 +24,7 @@ See the overview of all changes in this release:
 - [Service Mesh](#service-mesh) – Istio upgrade, Istio sidecar annotation deprecated, support for XFF header
 
 ## Application Connectivity
-From now Application Gateway will use the `kyma-system` Namespace instead of the `kyma-integration` Namespace. The secrets related to the Namespace are not removed automatically in the process of upgrading Kyma to version 2.10. To remove them, you must run the [migration script]( https://github.com/kyma-project/kyma/blob/main/docs/assets/2.9-2.10-OS-copy-secrets-to-system-namespace.sh) after successfully migrating from Kyma 2.9 to Kyma 2.10. 
+From now Application Gateway will use the `kyma-system` Namespace instead of the `kyma-integration` Namespace. The Secrets related to the Namespace are not removed automatically in the process of upgrading Kyma to version 2.10. To remove them, you must run the [migration script]( https://github.com/kyma-project/kyma/blob/release-2.10/docs/assets/2.9-2.10-OS-copy-secrets-to-system-namespace.sh) after successfully migrating from Kyma 2.9 to Kyma 2.10. 
 
 ## Eventing
 
