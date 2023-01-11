@@ -35,7 +35,7 @@ Unless a JWT is cryptographically protected end-to-end by TLS in the transport l
 
 ### Avoid using unsafe or deprecated algorithms
 
-It's important to avoid using unsafe or deprecated algorithms in JWTs. This includes algorithms that have known vulnerabilities or have been superseded by newer, more secure algorithms.
+Avoid using unsafe or deprecated algorithms in JWTs. As unsafe, consider those algorithms which have known vulnerabilities or are superseded by newer and more secure ones.
 The algorithm used to sign a JWT should be appropriate for the level of security needed. As an example RSA-PKCS1 v1.5 encryption algorithms should be avoided.
 
 ### Remember about key management practices
