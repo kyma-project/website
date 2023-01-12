@@ -18,7 +18,7 @@ See the overview of all changes in this release:
 
 - [Application Connectivity](#application-connectivity) – replacing `kyma-integration` Namespace with `kyma-system` Namespace
 - [Eventing](#eventing) – NATS server updated to version 2.9.9
-- [Observability](#observability) – Kiali and monitoring deprecation
+- [Observability](#observability) – Monitoring deprecation
 - [Telemetry](#telemetry) – logs improvements, configurable tracing
 - [Serverless](#serverless) – previous Jaeger endpoint no longer supported 
 - [Service Mesh](#service-mesh) – Istio upgrade, Istio sidecar annotation deprecated, support for XFF header
@@ -40,6 +40,9 @@ Read [Kyma Eventing Metrics](https://kyma-project.io/docs/kyma/2.10/04-operation
  
 ### Kiali
 Kiali was deprecated with Kyma 2.8 and will be removed in Kyma 2.11. For more details, see the blog post on [Kiali deprecation](https://kyma-project.io/blog/2022/10/10/Kiali-deprecation).
+
+### Deprecation of Monitoring  
+As announced in this [blog post](https://kyma-project.io/blog/2022/12/9/monitoring-deprecation/), we decided to deprecate the monitoring component based on Prometheus/Grafana. Please start the transition to alternative solutions now. The actual removal will happen in half a year or later, with Kyma 2.16 at the earliest.
  
 ### Monitoring
 Kyma 2.10 brings the update to the latest Prometheus images (version 2.40.7), which resolves the security vulnerabilities.
