@@ -39,10 +39,10 @@ Read [Kyma Eventing Metrics](https://kyma-project.io/docs/kyma/2.10/04-operation
 ## Observability
  
 ### Kiali
-Kiali was deprecated with Kyma 2.8 and will be removed in Kyma 2.11. For more details, see the blog post on [Kiali deprecation](https://kyma-project.io/blog/2022/10/10/Kiali-deprecation).
+As announced in the blog post on [Kiali deprecation](https://kyma-project.io/blog/2022/10/10/Kiali-deprecation), Kiali was deprecated with Kyma 2.8 and will be removed in Kyma 2.11.
 
 ### Deprecation of Monitoring  
-As announced in this [blog post](https://kyma-project.io/blog/2022/12/9/monitoring-deprecation/), we decided to deprecate the monitoring component based on Prometheus/Grafana. Please start the transition to alternative solutions now. The actual removal will happen in half a year or later, with Kyma 2.16 at the earliest.
+We decided to deprecate the monitoring component based on Prometheus/Grafana. Please start the transition to alternative solutions now. The actual removal will happen in half a year or later, with Kyma 2.16 at the earliest. For more information, read [this blog post](https://kyma-project.io/blog/2022/12/9/monitoring-deprecation/).
  
 ### Monitoring
 Kyma 2.10 brings the update to the latest Prometheus images (version 2.40.7), which resolves the security vulnerabilities.
@@ -56,7 +56,7 @@ With Kyma 2.10, we offer solutions to the following issues:
 - [Dashboard support](https://github.com/kyma-project/kyma/issues/15894) for defining LogPipelines and LogParser 
  
 ### Traces
-The first version of the [revamped tracing](https://kyma-project.io/docs/kyma/main/01-overview/main-areas/telemetry/telemetry-03-traces/) feature is out. Under the umbrella of the telemetry module, a new CRD TracePipeline is available. That new API will manage an OpenTelemetry Collector which supports you in integrating into OTLP-based backends. For now, Basic Authentication is supported, and further ways of authentication will be added soon.
+The first version of the new [configurable tracing](https://kyma-project.io/docs/kyma/main/01-overview/main-areas/telemetry/telemetry-03-traces/) feature is available. Under the umbrella of the telemetry module, a new CRD TracePipeline is available as well. That new API will manage an OpenTelemetry Collector which supports you in integrating the trace aspects within a runtime into OTLP-based backends. For now, Basic Authentication is supported, and further ways of authentication will be added soon.
 The Serverless and tracing modules were adjusted to the new approach.
 Also, Istio got switched to the new approach. Thus, the trace propagation protocol was changed to the W3C Trace Context. Furthermore, the new Istio Telemetry API got activated to configure tracing settings selectively.
  
