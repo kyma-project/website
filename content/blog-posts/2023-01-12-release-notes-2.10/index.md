@@ -50,7 +50,7 @@ Kyma 2.10 brings the update to the latest Prometheus images (version 2.40.7), wh
 ## Telemetry
  
 ### Logs
-With Kyma 2.10, we offer solutions to the following issues:
+With this version of Kyma, we offer solutions to the following issues:
 - Improved implementation so that [unnecessary restarts of Fluent Bit DaemonSet are avoided on the LogPipeline changes](https://github.com/kyma-project/kyma/issues/15956)
 - Improved [certificate handling of LogPipeline and LogParser webhook](https://github.com/kyma-project/kyma/issues/15765) so that there are no webhook downtimes caused by improper certificates 
 - [Dashboard support](https://github.com/kyma-project/kyma/issues/15894) for defining LogPipelines and LogParser 
