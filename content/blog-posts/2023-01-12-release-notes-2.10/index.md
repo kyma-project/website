@@ -45,7 +45,7 @@ As announced in the blog post on [Kiali deprecation](https://kyma-project.io/blo
 We decided to deprecate the monitoring component based on Prometheus/Grafana. Please start the transition to alternative solutions now. The actual removal will happen in half a year or later, with Kyma 2.16 at the earliest. For more information, read [this blog post](https://kyma-project.io/blog/2022/12/9/monitoring-deprecation/).
  
 ### Monitoring
-Kyma 2.10 brings the update to the latest Prometheus images (version 2.40.7), which resolves the security vulnerabilities.
+Kyma 2.10 brings the update to the latest Prometheus images (version 2.40.7).
  
 ## Telemetry
  
