@@ -30,8 +30,8 @@ See the overview of all changes in this release:
 
 This Kyma release comes with an update to the APIRule CR that lets you expose and secure services in multiple Namespaces. Now it’s possible to specify the service Namespace either on the **spec.service** level or individually for each service in **spec.rules**. This new field is optional. If you do not specify it, the default APIRule Namespace is used. 
 
-For more details, see the [APIRule CR documentation](https://kyma-project.io/docs/kyma/2.8/05-technical-reference/00-custom-resources/apix-01-apirule).
-Check out also our new tutorial on how to [expose workloads in multiple Namespaces with a single APIRule definition](https://kyma-project.io/docs/kyma/2.8/03-tutorials/00-api-exposure/apix-09-expose-workloads-multiple-namespaces/).
+For more details, see the [APIRule CR documentation](https://github.com/kyma-project/kyma/blob/2.8/docs/05-technical-reference/00-custom-resources/apix-01-apirule.md).
+Check out also our new tutorial on how to [expose workloads in multiple Namespaces with a single APIRule definition](https://github.com/kyma-project/kyma/blob/2.8/docs/03-tutorials/00-api-exposure/apix-09-expose-workloads-multiple-namespaces.md).
 
 ## Application Connectivity
 
@@ -42,7 +42,7 @@ From this release, Application Gateway in Kyma supports redirects for the HTTP r
 With this functionality, the HTTP client has the option to resolve redirects within the scope of the same API.
 If so configured, the HTTP client that originally called Application Gateway follows redirects through the Gateway, passing authorization, custom headers, URL parameters, and the body.
 
-For more details, see [Application Gateway details](https://kyma-project.io/docs/kyma/2.8/05-technical-reference/ac-01-application-gateway-details/).
+For more details, see [Application Gateway details](https://github.com/kyma-project/kyma/blob/2.8/docs/05-technical-reference/ac-01-application-gateway-details.md).
 
 ### Status codes returned by Application Gateway
 
@@ -115,4 +115,4 @@ If `initContainers` starting in a Pod with sidecar injection enabled need to hav
 Following the [changes in Observability](#jaeger) and opening new [OTLP](https://opentelemetry.io/docs/reference/specification/protocol/)-compliant endpoints in Jaeger, the Serverless engine now configures Functions to send trace data to this new endpoint.
 Functions built before releasing Kyma 2.8 will continue sending trace data to the previous endpoint.
 
-For more information, see the [Environment variables in Serverless](https://kyma-project.io/docs/kyma/2.8/05-technical-reference/00-configuration-parameters/svls-02-environment-variables).
+For more information, see the [Environment variables in Serverless](https://github.com/kyma-project/kyma/blob/2.8/docs/05-technical-reference/00-configuration-parameters/svls-02-environment-variables.md).
