@@ -20,11 +20,11 @@ See the overview of all changes in this release:
 - [Observability](#observability) – Kiali removed, Jaeger deprecated
 - [Telemetry](#telemetry) – FluentBit upgraded to version 2.0.8, FluentBit Deamon Set fully managed by the operator, system traces filtering, TracePipelines extension
 - [API Gateway](#api-gateway) – improved status handling and CPU reconciling, new finalizer for APIRule CR, APIRule CR conversion bug fixed
-- [Security](#security) – Istio upgraded to version 1.16.2, **pod-preset** functionality removed
+- [Security](#security) – Istio upgraded to version 1.16.2, PodPreset functionality removed
 - [Eventing](#eventing) – NATS image updated to version 2.9.11
 
 ## Application Connectivity 
-With Kyma 2.11, we introduced the **encodeUrl** parameter, which allows you to control whether Application Gateway encodes URL characters. Set the parameter to `false` so that the URL path remains unchanged or to `true` to enable the encoding. For example, if the **encodeUrl** is set to `true`, the **/app/api/sample(1%2C2%2C3)%2FescapingURL** path changes to **/app/api/sample%281%2C2%2C3%29/escaping**. When it is set to `false`, the **/app/api/sample(1%2C2%2C3)%2Fescaping** path stays intact. 
+With Kyma 2.11, we introduced the **encodeUrl** parameter, which allows you to control whether Application Gateway encodes URL characters. Set the parameter to `false` so that the URL path remains unchanged or to `true` to enable the encoding. For example, if the **encodeUrl** is set to `true`, the `/app/api/sample(1%2C2%2C3)%2FescapingURL` path changes to `/app/api/sample%281%2C2%2C3%29/escaping`. When it is set to `false`, the `/app/api/sample(1%2C2%2C3)%2Fescaping` path stays intact. 
 
 ## Observability
 
@@ -58,7 +58,7 @@ With this version of API Gateway, we improved the status handling, added the fin
 With Kyma 2.11, we upgraded Istio 1.16.1 to version 1.16.2. Read the official [Istio 1.16.2 release notes](https://istio.io/latest/news/releases/1.16.x/announcing-1.16/upgrade-notes/) to learn about the changes introduced with the new Istio release.
 
 ### Pod Preset 
-We finally removed the **pod-preset** functionality that was deprecated with Kyma 2.4. For more information, read the [deprecation note](https://kyma-project.io/blog/2022/6/30/release-notes-24/#pod-preset-deprecation-note).
+We finally removed the PodPreset functionality that was deprecated with Kyma 2.4. For more information, read the [deprecation note](https://kyma-project.io/blog/2022/6/30/release-notes-24/#pod-preset-deprecation-note).
 
 ## Eventing
 
