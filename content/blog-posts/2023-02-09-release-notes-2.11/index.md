@@ -29,7 +29,7 @@ With Kyma 2.11, we introduced the **encodeUrl** parameter, which allows you to c
 ## Observability
 
 ### Kiali 
-Kiali was deprecated with Kyma 2.8 and removed with Kyma 2.11. If you want to continue using Kiali, follow the steps in the [Kiali example](https://github.com/kyma-project/examples/tree/main/kiali) to deploy your custom Kilai. 
+Kiali was deprecated with Kyma 2.8 and removed with Kyma 2.11. If you want to continue using it, follow the steps in the [Kiali example](https://github.com/kyma-project/examples/tree/main/kiali) to deploy your custom Kiali. 
 
 ### Tracing 
 The tracing component was deprecated and will be removed with Kyma 2.14. If you want to continue using Jaeger, follow the steps in the [Jaeger example](https://github.com/kyma-project/examples/tree/main/jaeger) to deploy your custom Jaeger. 
@@ -37,7 +37,7 @@ The tracing component was deprecated and will be removed with Kyma 2.14. If you 
 ## Telemetry
 
 ### Logging 
-To be able to run the telemetry module as a fully self-contained solution with all the resources managed by the module operator, we have introduced a series of changes and improvements. With Kyma 2.11, we completed this process and released FluentBit Daemon Set [fully managed by the operator](https://github.com/kyma-project/kyma/issues/16570). From now, the FluentBit installation is responsible for serving LogPipeline resources and can be provisioned on-demand only if the user requests a LogPipeline. The FluentBit settings are managed by the module operator and can no longer be influenced directly using the module helm values. 
+To be able to run the telemetry module as a fully self-contained solution with all the resources managed by the module operator, we introduced a series of changes and improvements. With Kyma 2.11, we completed the process and released FluentBit Daemon Set [fully managed by the operator](https://github.com/kyma-project/kyma/issues/16570). From now, the FluentBit installation is responsible for serving LogPipeline resources and can be provisioned on-demand only if the user requests a LogPipeline. The FluentBit settings are managed by the module operator and can no longer be influenced directly using the module Helm values. 
 
 The FluentBit Daemon Set [got upgraded to the new major version 2](https://github.com/kyma-project/kyma/issues/15932). Besides the performance improvements, the 2.0.8 version introduces OTLP support and enables the Kyma team to start working on the official [OTLP support for LogPipelines](https://github.com/kyma-project/kyma/issues/16307).
 
@@ -55,7 +55,7 @@ With this version of API Gateway, we improved the status handling, added the fin
 ## Security
  
 ### Service Mesh 
-With Kyma 2.11, we upgraded Istio 1.16.1 to version 1.16.2. Read the official [Istio 1.16.2 release notes](https://istio.io/latest/news/releases/1.16.x/announcing-1.16/upgrade-notes/) to learn about the changes introduced with the new Istio release.
+With Kyma 2.11, we upgraded Istio 1.16.1 to version 1.16.2. Read the official [Istio 1.16.2 release notes](https://istio.io/latest/news/releases/1.16.x/announcing-1.16/upgrade-notes/) to learn more about the changes. 
 
 ### Pod Preset 
 We finally removed the PodPreset functionality that was deprecated with Kyma 2.4. For more information, read the [deprecation note](https://kyma-project.io/blog/2022/6/30/release-notes-24/#pod-preset-deprecation-note).
