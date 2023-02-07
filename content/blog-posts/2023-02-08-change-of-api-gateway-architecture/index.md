@@ -1,5 +1,5 @@
 ---
-title: "AP BTP, Kyma Runtime API Gateway future architecture based on Istio"
+title: "Kyma API Gateway future architecture based on Istio"
 author:
   name: Magdalena Stręk, PO @Kyma"
 tags:
@@ -15,7 +15,7 @@ I'm part of the Kyma team responsible for API Exposure topics. My team and I wor
 
 ## Background
 
-The API Gateway component is a Kubernetes controller responsible for watching the APIRule CR and creating the subresources needed to expose and secure a workload. The API Gateway controller utilizes Istio VirtualService and ORY Oathkeeper Rule under the hood. As of Kyma 2.2 ORY stack, Hydra and Oathkeeper will be deprecated, and Istio CRs will provide the equivalent functionalities. The new solution based on Istio will improve the stability and reliability of an exposed workload as well as simplify the API Gateway architecture. 
+The API Gateway component is a Kubernetes controller responsible for watching the APIRule CR and creating the subresources needed to expose and secure a workload. The API Gateway controller utilizes Istio VirtualService and ORY Oathkeeper Rule under the hood. As of Kyma 2.2 ORY stack, Hydra and Oathkeeper are deprecated, and Istio CRs will provide the equivalent functionalities. The new solution based on Istio will improve the stability and reliability of an exposed workload as well as simplify the API Gateway architecture. 
 
 ## Current architecture
 
@@ -33,7 +33,7 @@ When the user sends a request with the token to the workload, the request reache
 
 ## Where are we heading?
 
-Our goal is to provide a component that will enable our users to expose their workloads in a reliable and secure way. Conducted research on available solutions convinced us that it is time to part ways with ORY stack and start using Istio - the component which Kyma already provides. The APIRule JWT handler's implementation based on ORY Oauthkeeper Rule will be replaced with the implementation based on Istio AuthorizationPolicy and RequestAuthentication CRs. APIRule OAuth2 handler's implementation will be replaced with Istio's external authorization provided by the oauth2-proxy component. 
+Our goal is to provide a component that will enable our users to expose their workloads in a reliable and secure way. Conducted research on available solutions convinced us that it is time to part ways with ORY stack and start using Istio - the component which Kyma already provides. The APIRule JWT handler's implementation based on ORY Oauthkeeper Rule will be replaced with the implementation based on Istio AuthorizationPolicy and RequestAuthentication CRs. APIRule OAuth2 handler's implementation will be replaced with Istio's external authorization functionality utilising the oauth2-proxy component. 
 
   ![API Gateway future dependancies](./api-gateway-future-deps.png)
 
