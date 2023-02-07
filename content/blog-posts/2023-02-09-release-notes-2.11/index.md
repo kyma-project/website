@@ -57,7 +57,7 @@ With this version of API Gateway, we improved the status handling, added the fin
 ### Service Mesh 
 With Kyma 2.11, we upgraded Istio 1.16.1 to version 1.16.2. Read the official [Istio 1.16.2 release notes](https://istio.io/latest/news/releases/1.16.x/announcing-1.16/upgrade-notes/) to learn more about the changes. 
 
-### Pod Presets
+## PodPresets
 We finally removed the PodPreset functionality that was deprecated with Kyma 2.4. For more information, read the [deprecation note](https://kyma-project.io/blog/2022/6/30/release-notes-24/#pod-preset-deprecation-note).
 
 ## Eventing
