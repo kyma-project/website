@@ -33,7 +33,7 @@ When the user sends a request with the token to the workload, the request reache
 
 ## Where are we heading?
 
-Our goal is to provide a component that will enable users to expose their workloads reliably and securely. The research we conducted on available solutions convinced us that it is time to part ways with ORY stack and start using Istio - the component which Kyma already provides. The APIRule JWT handler's implementation based on ORY Oauthkeeper Rule will be replaced with the implementation based on Istio Authorization Policy and RequestAuthentication CRs. APIRule OAuth2 handler's implementation will be replaced with Istio's external authorization functionality utilizing the oauth2-proxy component. 
+Our goal is to provide a component that will enable users to expose their workloads reliably and securely. The research we conducted on available solutions convinced us that it is time to part ways with ORY stack and start using Istio - the component which Kyma already provides. The APIRule JWT handler's implementation based on ORY Oauthkeeper Rule will be replaced with the implementation based on Istio AuthorizationPolicy and RequestAuthentication CRs. APIRule OAuth2 handler's implementation will be replaced with Istio's external authorization functionality utilizing the oauth2-proxy component. 
 
   ![API Gateway future dependancies](./api-gateway-future-deps.png)
 
@@ -51,6 +51,6 @@ Leveraging Istio saves us one hop to the additional component and makes the proc
 
 Improving the architecture of the API Exposure functionalities necessitates a few profound changes. We plan to introduce the changes in phases in order to reduce the risk they might entail. We will support and guide our customers at every step of the process. We are actively working on the alternative implementation of the APIRule JWT handler based on Istio AuthorizationPolicy and RequestAuthentication CRs. We consider JWT best practices on the token verifier side and identify the breaking changes. Our goal is to release this implementation as early as possible so that users can start testing it as soon as possible and we can collect feedback and features requests. The changes will be released as a feature available for users who want to participate in early adoption. In parallel, we are working on alternatives for the ORY Hydra component, which will be followed by the changes to the APIRule OAuth2 handlers. All the improvements will be backed up with migration procedures and scripts.
 
-## Sum-up
+## Summary
 
 The API Exposure domain is subject to some significant and consequential architectural changes which will be released alongside functionality and stability updates. This blog post is the first one of a series in which I explain the future of the API Gateway component and APIRule CR. Visit [our blog](https://kyma-project.io/blog/) to stay up to date with Kyma news.
