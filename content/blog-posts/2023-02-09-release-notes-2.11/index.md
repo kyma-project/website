@@ -18,7 +18,7 @@ See the overview of all changes in this release:
 
 - [Application Connectivity](#application-connectivity) - **encodeUrl** parameter
 - [Observability](#observability) – Kiali removed, Jaeger deprecated
-- [Telemetry](#telemetry) – FluentBit upgraded to version 2.0.8, FluentBit DaemonSet fully managed by the operator, system traces filtering, TracePipelines extension
+- [Telemetry](#telemetry) – FluentBit upgraded to version 2.0.8, FluentBit DaemonSet fully managed by the operator, improvements for TracePipeline
 - [API Gateway](#api-gateway) – improved status handling and CPU reconciling, new finalizer for APIRule CR, APIRule CR conversion bug fixed
 - [Security](#security) – Istio upgraded to version 1.16.2, PodPreset functionality removed
 - [Eventing](#eventing) – NATS image updated to version 2.9.11
@@ -37,7 +37,7 @@ From this Kyma release, the tracing component is deprecated. It will be removed 
 ## Telemetry
 
 ### Logging 
-To run the Telemetry module as a fully self-contained solution with all the resources managed by the module operator, we introduced a series of changes and improvements. With Kyma 2.11, we completed the process and released FluentBit DaemonSet [fully managed by the operator](https://github.com/kyma-project/kyma/issues/16570). From now, the FluentBit installation is responsible for serving LogPipeline resources and can be provisioned on-demand only if the user requests a LogPipeline. The FluentBit settings are managed by the module operator and can no longer be influenced directly using the module Helm values. 
+To run the Telemetry module as a fully self-contained solution with all the resources managed by the module operator, we introduced a series of changes and improvements. With Kyma 2.11, we completed the process and released FluentBit DaemonSet [fully managed by the operator](https://github.com/kyma-project/kyma/issues/16570). From now, the FluentBit installation can be provisioned on-demand only if the user requests a LogPipeline. The FluentBit settings are managed by the module operator and can no longer be influenced directly using the module Helm values. 
 
 The FluentBit DaemonSet [got upgraded to the new major version 2](https://github.com/kyma-project/kyma/issues/15932). Besides the performance improvements, the 2.0.8 version introduces OTLP support and enables the Kyma team to start working on the official [OTLP support for LogPipelines](https://github.com/kyma-project/kyma/issues/16307).
 
@@ -45,7 +45,9 @@ We fixed a bug so that the [log files are always read from the beginning](https:
 
 ### Traces 
 
-System traces emitted by Istio, for example, while communicating with the trace-collector, are now [filtered out by default](https://github.com/kyma-project/kyma/issues/16514). We also added the [extension for TracePipelines](https://github.com/kyma-project/kyma/issues/16393) to Kyma Dashboard and fixed a [bug](https://github.com/kyma-project/kyma/issues/16531) that caused the TracePipeline status not to reflect the status of the managed trace-collector properly. With version 2.11 of Kyma, we introduced support for [custom headers on the OTLP output](https://github.com/kyma-project/kyma/issues/16554) that enables integrations to providers with native OTLP support, such as [Dynatrace](https://www.dynatrace.com/support/help/extend-dynatrace/opentelemetry#tabgroup--opentelemetry--instrument-without-oneagent). 
+System traces emitted by Istio, for example, while communicating with the trace-collector, are now [filtered out by default](https://github.com/kyma-project/kyma/issues/16514). We also added the [extension for TracePipelines](https://github.com/kyma-project/kyma/issues/16393) to Kyma Dashboard and fixed a [bug](https://github.com/kyma-project/kyma/issues/16531) that caused the TracePipeline status not to reflect the status of the managed trace-collector properly.
+
+With version 2.11 of Kyma, we introduced support for [custom headers on the OTLP output](https://github.com/kyma-project/kyma/issues/16554) that enables integrations to providers with native OTLP support, such as [Dynatrace](https://www.dynatrace.com/support/help/extend-dynatrace/opentelemetry#tabgroup--opentelemetry--instrument-without-oneagent). 
  
  
 ## API Gateway
