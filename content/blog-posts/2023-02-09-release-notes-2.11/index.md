@@ -32,7 +32,7 @@ With Kyma 2.11, we introduced the **encodeUrl** parameter, which allows you to c
 Kiali was deprecated with Kyma 2.8 and removed with Kyma 2.11. If you want to continue using it, follow the steps in the [Kiali example](https://github.com/kyma-project/examples/tree/main/kiali) to deploy your custom Kiali. 
 
 ### Tracing 
-The tracing component was deprecated and will be removed with Kyma 2.14. If you want to continue using Jaeger, follow the steps in the [Jaeger example](https://github.com/kyma-project/examples/tree/main/jaeger) to deploy your custom Jaeger. 
+The tracing component is deprecated and will be removed with Kyma 2.14. If you want to continue using Jaeger, follow the steps in the [Jaeger example](https://github.com/kyma-project/examples/tree/main/jaeger) to deploy your custom Jaeger. 
  
 ## Telemetry
 
