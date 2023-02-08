@@ -33,7 +33,7 @@ When the user sends a request with the token to the workload, the request reache
 
 ## Where are we heading?
 
-Our goal is to provide a component that will enable our users to expose their workloads in a reliable and secure way. Conducted research on available solutions convinced us that it is time to part ways with ORY stack and start using Istio - the component which Kyma already provides. The APIRule JWT handler's implementation based on ORY Oauthkeeper Rule will be replaced with the implementation based on Istio AuthorizationPolicy and RequestAuthentication CRs. APIRule OAuth2 handler's implementation will be replaced with Istio's external authorization functionality utilising the oauth2-proxy component. 
+Our goal is to provide a component that will enable users to expose their workloads reliably and securely. The research we conducted on available solutions convinced us that it is time to part ways with ORY stack and start using Istio - the component which Kyma already provides. The APIRule JWT handler's implementation based on ORY Oauthkeeper Rule will be replaced with the implementation based on Istio Authorization Policy and RequestAuthentication CRs. APIRule OAuth2 handler's implementation will be replaced with Istio's external authorization functionality utilizing the oauth2-proxy component. 
 
   ![API Gateway future dependancies](./api-gateway-future-deps.png)
 
@@ -41,7 +41,7 @@ The following diagram showcases the API Gateway controller, which creates the re
 
   ![Oauth2 future flow](./oauth2-future.png)
 
-In the future, Istio Ingress Gateway will be a component responsible for authorization in the JWT flow. It will validate the token against the configuration defined in RequestAuthentication CR and authorize the request as described in AuthorizationPolicy CR. If allowed, the request will be forwarded to the workload.
+In the future, Istio Ingress Gateway will be responsible for authorization in the JWT flow. It will validate the token against the configuration defined in RequestAuthentication CR and authorize the request as described in AuthorizationPolicy CR. If allowed, the request will be forwarded to the workload.
 
   ![JWT future flow](./jwt-future.png)
 
