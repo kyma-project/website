@@ -10,7 +10,7 @@ redirectFrom:
   - "/blog/release-notes-211"
 ---
 
-With love for cloud-native technologies in our hearts and lots of cool ideas in our minds, we've got through the middle of this snowy and cloudy winter season. Now that we have reached the 2.11 milestone, we can share what we accomplished during this part of the journey. Version 2.11 of Kyma comes with a few exciting improvements, such as FluentBit DaemonSet fully managed by the operator, Istio and FluentBit upgrades, the new finalizer for APIRule CR, and that is by no means all. Read on to find out the rest of the news.
+With love for cloud-native technologies in our hearts and lots of cool ideas in our minds, we've got through the middle of this snowy and cloudy winter season. Now that we have reached the 2.11 milestone, we can share what we accomplished during this part of the journey. Version 2.11 of Kyma comes with a few exciting improvements, such as Fluent Bit DaemonSet fully managed by the operator, Istio and Fluent Bit upgrades, the new finalizer for APIRule CR, and that is by no means all. Read on to find out the rest of the news.
 
 <!-- overview -->
 
@@ -18,7 +18,7 @@ See the overview of all changes in this release:
 
 - [Application Connectivity](#application-connectivity) - **encodeUrl** parameter
 - [Observability](#observability) – Kiali removed, Jaeger deprecated
-- [Telemetry](#telemetry) – FluentBit upgraded to version 2.0.8, FluentBit DaemonSet fully managed by the operator, improvements for TracePipeline
+- [Telemetry](#telemetry) – Fluent Bit upgraded to version 2.0.8, Fluent Bit DaemonSet fully managed by the operator, improvements for TracePipeline
 - [API Gateway](#api-gateway) – improved status handling and CPU reconciling, new finalizer for APIRule CR, APIRule CR conversion bug fixed
 - [Security](#security) – Istio upgraded to version 1.16.2, PodPreset functionality removed
 - [Eventing](#eventing) – NATS image updated to version 2.9.11
@@ -37,11 +37,11 @@ From this Kyma release, the tracing component is deprecated. It will be removed 
 ## Telemetry
 
 ### Logging 
-To run the Telemetry module as a fully self-contained solution with all the resources managed by the module operator, we introduced a series of changes and improvements. With Kyma 2.11, we completed the process and released FluentBit DaemonSet [fully managed by the operator](https://github.com/kyma-project/kyma/issues/16570). From now, the FluentBit installation can be provisioned on-demand only if the user requests a LogPipeline. The FluentBit settings are managed by the module operator and can no longer be influenced directly using the module Helm values. 
+To run the Telemetry module as a fully self-contained solution with all the resources managed by the module operator, we introduced a series of changes and improvements. With Kyma 2.11, we completed the process and released Fluent Bit DaemonSet [fully managed by the operator](https://github.com/kyma-project/kyma/issues/16570). From now, the Fluent Bit installation can be provisioned on-demand only if the user requests a LogPipeline. The Fluent Bit settings are managed by the module operator and can no longer be influenced directly using the module Helm values. 
 
-The FluentBit DaemonSet [got upgraded to the new major version 2](https://github.com/kyma-project/kyma/issues/15932). Besides the performance improvements, the 2.0.8 version introduces OTLP support and enables the Kyma team to start working on the official [OTLP support for LogPipelines](https://github.com/kyma-project/kyma/issues/16307).
+The Fluent Bit DaemonSet [got upgraded to the new major version 2](https://github.com/kyma-project/kyma/issues/15932). Besides the performance improvements, the 2.0.8 version introduces OTLP support and enables the Kyma team to start working on the official [OTLP support for LogPipelines](https://github.com/kyma-project/kyma/issues/16307).
 
-We fixed a bug so that the [log files are always read from the beginning](https://github.com/kyma-project/kyma/issues/16645) when starting a FluentBit instance on a newly provisioned node.
+We fixed a bug so that the [log files are always read from the beginning](https://github.com/kyma-project/kyma/issues/16645) when starting a Fluent Bit instance on a newly provisioned node.
 
 ### Traces 
 
