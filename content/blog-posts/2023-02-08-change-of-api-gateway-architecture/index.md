@@ -1,7 +1,7 @@
 ---
 title: "Kyma API Gateway future architecture based on Istio"
 author:
-  name: Magdalena Stręk, PO @Kyma"
+  name: "Magdalena Stręk, PO @Kyma"
 tags:
   - kyma
   - observability
