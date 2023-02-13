@@ -1,11 +1,11 @@
 ---
-title: "Kyma 2.11.0"
+title: "Kyma 2.11"
 author:
   name: "Zhoujing Wang, RM @Kyma, and Natalia Sitko, Technical Writer @Kyma"
 tags:
   - release-notes 
 type: release 
-releaseTag: "2.11"
+releaseTag: "2.11.0"
 redirectFrom:
   - "/blog/release-notes-211"
 ---
