@@ -5,7 +5,7 @@ author:
 tags:
   - release-notes 
 type: release 
-releaseTag: "2.11"
+releaseTag: "2.11.0"
 redirectFrom:
   - "/blog/release-notes-211"
 ---
