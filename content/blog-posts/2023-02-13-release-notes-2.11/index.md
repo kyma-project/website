@@ -1,5 +1,5 @@
 ---
-title: "Kyma 2.11"
+title: "Kyma 2.11.0"
 author:
   name: "Zhoujing Wang, RM @Kyma, and Natalia Sitko, Technical Writer @Kyma"
 tags:
