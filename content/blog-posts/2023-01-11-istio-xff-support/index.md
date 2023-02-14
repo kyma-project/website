@@ -95,7 +95,7 @@ To check if `numTrustedProxies` was successfully applied within Istio ConfigMap,
 kubectl get configmap -n istio-system istio --output=jsonpath={.data} | jq '.mesh'
 ```
 
-3. Expose and secure the `httpbin` workload as described in the [Expose and secure a workload with Istio developer tutorial](https://kyma-project.io/docs/kyma/latest/03-tutorials/00-api-exposure/apix-07-expose-and-secure-workload-istio/).
+3. Expose and secure the `httpbin` workload as described in the [Expose and secure a workload with Istio developer tutorial](https://kyma-project.io/docs/kyma/latest/03-tutorials/00-api-exposure/apix-05-expose-and-secure-a-workload/apix-05-04-expose-and-secure-workload-istio/).
 
 
 4. Run the following curl command to simulate a request with proxy addresses in the XFF header:
