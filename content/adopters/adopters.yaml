@@ -3,7 +3,7 @@ adopters:
     company: "SAP"
     url: "https://community.sap.com/topics/kyma"
     logo: "./logos/sap.svg"
-    content: "SAP BTP, Kyma runtime is a fully managed Kubernetes runtime based on the open-source project "Kyma""
+    content: "SAP BTP, Kyma runtime is a fully managed Kubernetes runtime based on the open-source project Kyma"
     cssProperties:
       padding: 8px 0
   - websiteUrl: "https://netconomy.net/"
