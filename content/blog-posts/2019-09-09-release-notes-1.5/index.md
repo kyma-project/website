@@ -68,7 +68,7 @@ Follow these links to see the improved monitoring tutorials:
 
 ### Telepresence guide
 
-We know how difficult of a task developing and debugging locally can be. That is why we created a general guide for local development with Telepresence to make your work faster and your workflow smoother. Check this [link](https://kyma-project.io/community/guidelines/technical-guidelines/08-telepresence-guide/) for details.
+We know how difficult of a task developing and debugging locally can be. That is why we created a general guide for local development with Telepresence to make your work faster and your workflow smoother.
 
 ### Troubleshooting guides for the Application Connector
 
