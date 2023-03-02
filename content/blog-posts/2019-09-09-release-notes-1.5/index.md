@@ -15,6 +15,7 @@ Our next, sunny stop - Lima may falsely suggest that the Kyma crew eased off a b
 <!-- overview -->
 
 See the overview of all changes in this release:
+
 - [API Gateway](#api-gateway) - Kubernetes-native client registration with the Hydra Maester controller, new API Gateway controller
 - [Application Connector](#application-connector) - Fix for invalid arguments order in the Connector Service header parser
 - [Console](#console) - Namespace-level addons configurations
@@ -62,6 +63,7 @@ In previous Kyma versions, it was only possible to configure cluster-wide addons
 Based on the existing [`monitoring-custom-metrics`](https://github.com/kyma-project/examples/tree/main/prometheus/monitoring-custom-metrics) Kyma example and its `cpu_temperature_celsius` custom metric, we have created unified monitoring tutorials. Thanks to them you can see how Kyma applies monitoring tools to manage application metrics. More specifically, these tutorials show how you can observe the custom metric's changing values, create a Grafana dashboard for the metric, and set up a corresponding alerting rule for it.
 
 Follow these links to see the improved monitoring tutorials:
+
 - [Observe application metrics](/docs/components/monitoring/#tutorials-observe-application-metrics)
 - [Create a Grafana dashboard](/docs/components/monitoring/#tutorials-create-a-grafana-dashboard)
 - [Define alerting rules](/docs/components/monitoring/#tutorials-define-alerting-rules)
