@@ -19,18 +19,18 @@ import {
 } from "./styled";
 
 const navigation = [
-  // {
-  //   path: "/docs/kyma/latest",
-  //   title: "Docs",
-  // },
-  // {
-  //   path: "/blog/",
-  //   title: "Blog",
-  // },
-  // {
-  //   path: "/community/",
-  //   title: "Community",
-  // },
+  {
+    path: "/docs/kyma/latest",
+    title: "Docs",
+  },
+  {
+    path: "/blog/",
+    title: "Blog",
+  },
+  {
+    path: "/community/",
+    title: "Community",
+  },
 ];
 
 interface State {
@@ -98,13 +98,13 @@ class Navigation extends Component<IntlInterface, State> {
             <Button.Light iconName="times" iconPrefix="fas" />
           </NavigationItem>
           {/*<DocsNavigation toggleVisibility={this.toggleVisibility} />*/}
-          {navigation.map(navItem => (
+          {/* {navigation.map(navItem => (
             <NavigationItem key={navItem.title} onClick={this.toggleVisibility}>
               <NavigationIntLink to={navItem.path}>
                 {navItem.title}
               </NavigationIntLink>
             </NavigationItem>
-          ))}
+          ))} */}
 
           <NavigationItem key="search">
             {!isOnMobile ? <Search /> : null}
