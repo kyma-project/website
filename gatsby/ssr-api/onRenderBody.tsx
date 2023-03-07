@@ -10,7 +10,6 @@ export const onRenderBody = ({
       rel="dns-prefetch"
       key="dns-prefetch-api-github"
       href="https://api.github.com"
-    />
+    />,
   ]);
-
 };
