@@ -23,14 +23,14 @@ const navigation = [
     path: "/docs/kyma/latest",
     title: "Docs",
   },
-  {
-    path: "/blog/",
-    title: "Blog",
-  },
-  {
-    path: "/community/",
-    title: "Community",
-  },
+  // {
+  //   path: "/blog/",
+  //   title: "Blog",
+  // },
+  // {
+  //   path: "/community/",
+  //   title: "Community",
+  // },
 ];
 
 interface State {
