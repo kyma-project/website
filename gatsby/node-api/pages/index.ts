@@ -6,11 +6,11 @@ import {
   createPreviewPage,
 } from "./utils";
 
-import { createLandingPages } from "./landingPage";
+// import { createLandingPages } from "./landingPage";
 import { createPageNotFound } from "./404";
-import { createBlogPages } from "./blog";
+// import { createBlogPages } from "./blog";
 import { createDocsPages } from "./docs";
-import { createCommunityPages } from "./community";
+// import { createCommunityPages } from "./community";
 
 import { BuildFor } from "../../../src/types/common";
 
@@ -21,7 +21,7 @@ const createWebsitePages = async ({
   let createPage = createIntlPage(otherActions.createPage, createRedirect);
   createPage = addToContextSlidesBanner(createPage, extractSlidesBanner());
 
-  await createLandingPages({ graphql, createPage, createRedirect });
+  // await createLandingPages({ graphql, createPage, createRedirect });
   await createPageNotFound({ createPage, createRedirect });
   // await createBlogPages({ graphql, createPage, createRedirect });
   await createDocsPages({
@@ -44,25 +44,25 @@ const createWebsitePreviewPages = async ({
   let createPage = createIntlPage(otherActions.createPage, createRedirect);
   createPage = addToContextSlidesBanner(createPage, extractSlidesBanner());
 
-  await createLandingPages({ graphql, createPage, createRedirect });
+  // await createLandingPages({ graphql, createPage, createRedirect });
   await createPageNotFound({ createPage, createRedirect });
-  await createBlogPages({
-    graphql,
-    createPage,
-    createRedirect,
-    options: { numberOfLatestPosts: 4 },
-  });
+  // await createBlogPages({
+  //   graphql,
+  //   createPage,
+  //   createRedirect,
+  //   options: { numberOfLatestPosts: 4 },
+  // });
   await createDocsPages({
     graphql,
     createPage,
     createRedirect,
     buildFor: BuildFor.WEBSITE,
   });
-  await createCommunityPages({
-    graphql,
-    createPage,
-    buildFor: BuildFor.WEBSITE,
-  });
+  // await createCommunityPages({
+  //   graphql,
+  //   createPage,
+  //   buildFor: BuildFor.WEBSITE,
+  // });
 };
 
 const createDocsPreviewPages = async (
@@ -87,11 +87,11 @@ const createCommunityPreviewPages = async ({
   let createPage = createIntlPage(otherActions.createPage, createRedirect);
   createPage = createPreviewPage(createPage);
 
-  await createCommunityPages({
-    graphql,
-    createPage,
-    buildFor: BuildFor.COMMUNITY_PREVIEW,
-  });
+  // await createCommunityPages({
+  //   graphql,
+  //   createPage,
+  //   buildFor: BuildFor.COMMUNITY_PREVIEW,
+  // });
 };
 
 export const createPages = async (createPagesArgs: CreatePagesArgs) => {
@@ -111,10 +111,10 @@ export const createPages = async (createPagesArgs: CreatePagesArgs) => {
       );
       return;
     }
-    case BuildFor.COMMUNITY_PREVIEW: {
-      await createCommunityPreviewPages(createPagesArgs);
-      return;
-    }
+    // case BuildFor.COMMUNITY_PREVIEW: {
+    //   await createCommunityPreviewPages(createPagesArgs);
+    //   return;
+    // }
     default: {
       await createWebsitePages(createPagesArgs);
     }
