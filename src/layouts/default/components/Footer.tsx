@@ -28,7 +28,6 @@ const Footer: React.FunctionComponent = () => {
   const socialMedia = [
     resolveSocialMedia("twitter"),
     resolveSocialMedia("github"),
-    resolveSocialMedia("slack"),
     resolveSocialMedia("linkedIn"),
     resolveSocialMedia("youTube"),
   ];

@@ -73,7 +73,6 @@ class Navigation extends Component<IntlInterface, State> {
   render() {
     const { mobileMenuVisible, isOnMobile, initial } = this.state;
 
-    const slackMedia = resolveSocialMedia("slack");
     const slackAriaLabel = this.props.formatMessage({
       id: "navigation.socialLinks.slack",
     });
@@ -106,16 +105,6 @@ class Navigation extends Component<IntlInterface, State> {
               </NavigationIntLink>
             </NavigationItem>
           ))}
-          <NavigationItem>
-            <NavigationExtLink to={slackMedia.url} ariaLabel={slackAriaLabel}>
-              <Button.Light
-                iconName={slackMedia.icon}
-                ariaLabel={slackAriaLabel}
-              >
-                <span>{slackMedia.name}</span>
-              </Button.Light>
-            </NavigationExtLink>
-          </NavigationItem>
 
           <NavigationItem key="search">
             {!isOnMobile ? <Search /> : null}

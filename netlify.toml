@@ -7,3 +7,15 @@
 
 [context.deploy-preview]
   command = "make netlify-deploy-preview"
+
+[[redirects]]
+  from = "/blog/*"
+  to = "https://community.sap.com/topics/kyma?lng=en&tab=content"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/community/*"
+  to = "https://github.com/kyma-project/community"
+  status = 301
+  force = true
