@@ -23,18 +23,18 @@ const createWebsitePages = async ({
 
   await createLandingPages({ graphql, createPage, createRedirect });
   await createPageNotFound({ createPage, createRedirect });
-  await createBlogPages({ graphql, createPage, createRedirect });
+  // await createBlogPages({ graphql, createPage, createRedirect });
   await createDocsPages({
     graphql,
     createPage,
     createRedirect,
     buildFor: BuildFor.WEBSITE,
   });
-  await createCommunityPages({
-    graphql,
-    createPage,
-    buildFor: BuildFor.WEBSITE,
-  });
+  // await createCommunityPages({
+  //   graphql,
+  //   createPage,
+  //   buildFor: BuildFor.WEBSITE,
+  // });
 };
 
 const createWebsitePreviewPages = async ({
