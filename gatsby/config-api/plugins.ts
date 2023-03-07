@@ -39,14 +39,6 @@ export const plugins: Plugins = [
       icon: "static/android-chrome-512x512.png",
     },
   },
-  {
-    resolve: `gatsby-plugin-google-analytics`,
-    options: {
-      trackingId: "UA-122665881-1",
-      anonymize: true,
-      allowLinker: true,
-    },
-  },
   `gatsby-plugin-netlify`,
   `gatsby-plugin-netlify-cache`,
   {
