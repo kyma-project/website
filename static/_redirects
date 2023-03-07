@@ -1,5 +1,6 @@
 /community/*        https://github.com/kyma-project/community
 /blog/*             https://community.sap.com/topics/kyma?lng=en&tab=content
-/docs/root/*        /docs/kyma/latest/ 302
-/docs/components/*  /docs/kyma/latest/ 302
-/docs/              /docs/kyma/latest/ 302
+/docs/root/*        /docs/kyma/latest/
+/docs/components/*  /docs/kyma/latest/
+/docs/              /docs/kyma/latest/
+/                   /docs/kyma/latest/
