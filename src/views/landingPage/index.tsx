@@ -16,7 +16,6 @@ const LandingPageView: React.FunctionComponent<PageContext<
   return (
     <>
       <Manifesto scrollRef={scrollRef} />
-      <Features scrollRef={scrollRef} />
       <Nutshell />
       <Personas />
       <CheckItOut />

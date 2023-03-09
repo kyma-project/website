@@ -1,0 +1,10 @@
+{
+  "name": "kyma-website",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu", // Any generic, debian-based image.
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "12",
+      "nodeGypDependencies": true
+    }
+  }
+}

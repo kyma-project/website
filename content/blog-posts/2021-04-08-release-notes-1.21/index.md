@@ -62,7 +62,7 @@ If it finds this `traceId`, it displays the link to the corresponding Jaeger tra
 
 ![Logs with traceId](./logs-traceId.png)
 
-For more information about derived fields, read the [Grafana documentation](https://grafana.com/docs/grafana/latest/datasources/loki/#derived-fields).
+For more information about derived fields, read the [Grafana documentation](https://grafana.com/docs/grafana/latest/datasources/loki/##configure-derived-fields).
 
 ## Eventing
 
@@ -81,7 +81,6 @@ For more information on the new eventing, read the [documentation](https://githu
 Node.js 10 release reaches end-of-life on Apr 30, 2021, and its base image will be deprecated.
 Following the recommendations from Node.js, we are planning to remove Node.js 10 from the list of supported runtimes **in the next release**. 
  That's why we recommend that you configure all your Node.js 10 Functions to run on the Node.js 12 runtime. 
-See the [list of notable changes since Node.js 10 LTS](https://nodejs.org/tr/blog/uncategorized/10-lts-to-12-lts/).
 
 For more information on Node.js 10 deprecation, read about [Node.js releases](https://nodejs.org/en/download/releases/).
 

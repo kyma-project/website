@@ -1,9 +1,9 @@
 adopters:
-  - websiteUrl: "https://sap.com/index.html"
+  - websiteUrl: "https://discovery-center.cloud.sap/serviceCatalog/kyma-runtime"
     company: "SAP"
-    url: "https://blogs.sap.com/2019/10/05/making-development-of-extensions-easier-sap-cloud-platform-extension-factory/"
+    url: "https://community.sap.com/topics/kyma"
     logo: "./logos/sap.svg"
-    content: "The SAP Cloud Platform Extension Factory, Kyma runtime will provide developers with the open source project Kyma"
+    content: "SAP BTP, Kyma runtime is a fully managed Kubernetes runtime based on the open-source project Kyma"
     cssProperties:
       padding: 8px 0
   - websiteUrl: "https://netconomy.net/"

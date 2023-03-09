@@ -135,8 +135,7 @@ spec:
       labels:
         app: wordpress
         tier: frontend
-      annotations:
-        sidecar.istio.io/inject: "true"
+        sidecar.istio.io/inject: "true" 
     spec:
       containers:
       - image: wordpress:5.2-php7.2 
