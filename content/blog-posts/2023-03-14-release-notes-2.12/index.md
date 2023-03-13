@@ -71,13 +71,11 @@ The NATS server image has been updated to `v2.9.14`. For more details, see the [
 ### Updated Subscription CRD
 With this release, we have upgraded event Subscriptions from `v1alpha1` to `v1alpha2`. This simplifies subscribing to events by removing the need for a prefix on the NATS/Jetstream backend. With the new version, we have also removed the previous modification of the event type during dispatching. The old Subscriptions will be upgraded automatically. For more details, check the [updated tutorials](https://kyma-project.io/docs/kyma/2.12/03-tutorials/00-eventing/).
 
-
 ## Serverless
 
 ### Introducing Node.js 18 Serverless runtime
 
 With Kyma 2.12, we have introduced new Node.js 18 runtime for your Functions.
-
 
 ### Deprecation of Node.js 14 Serverless runtime
 
