@@ -10,7 +10,7 @@ redirectFrom:
   - "/blog/release-notes-212"
 ---
 
-Winter is almost over, and spring is just around the corner. If you look carefully, you’ll notice that [here comes the Sun](https://youtube.com/watch?v=TmBTYK7XZQk&feature=shares&t=14), and with it, many interesting Kyma changes. Read on to find out more!
+Winter is almost over, and spring is just around the corner. If you look carefully, you’ll notice that [here comes the sun](https://youtube.com/watch?v=TmBTYK7XZQk&feature=shares&t=14), and with it, many interesting Kyma changes. Read on to find out more!
 
 <!-- overview -->
 
