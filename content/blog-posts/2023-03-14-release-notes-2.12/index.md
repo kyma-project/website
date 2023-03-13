@@ -21,7 +21,7 @@ See the overview of all changes in this release:
 - [Observability](#observability) -  Monitoring updates
 - [Telemetry](#telemetry) - Logging and tracing updates
 - [Eventing](#eventing) - NATS server updated to `v2.9.14`, Subscription updates
-- [Serverless](#serverless) - Nodejs.18 runtime introduction, deprecation of Nodejs.14 runtime, a new version of Serverless API
+- [Serverless](#serverless) - Node.js 18 runtime introduction, deprecation of Node.js 14 runtime, a new version of Serverless API
 ## General
 
 ### Kubernetes 1.25 support
