@@ -46,7 +46,7 @@ For more information, read the 2.11-2.12 [Migration Guide](https://kyma-project.
 ## Observability
 ### Monitoring
 
-To decouple the Kyma components from the monitoring stack, all components have been refactored to use an annotation-based metrics scraping instead of leveraging ServiceMonitors. As a consequence ServiceMonitors of the system components must be cleaned up following the 2.11-2.12 [Migration Guide](https://kyma-project.io/docs/kyma/2.12/migration-guide-2.11-2.12). Also, the bundled rules for Loki have already been removed. With that, the system components have no direct dependency on the Monitoring module anymore.
+To decouple the Kyma components from the monitoring stack, all components have been refactored to use an annotation-based metrics scraping instead of leveraging ServiceMonitors. As a consequence, you must follow the the 2.11-2.12 [Migration Guide](https://kyma-project.io/docs/kyma/2.12/migration-guide-2.11-2.12) to clean up ServiceMonitors of the system components. Also, the bundled rules for Loki have already been removed. With that, the system components have no direct dependency on the Monitoring module anymore.
 
 As announced in the release notes of Kyma 2.11, the monitoring module has been deprecated. A deprecation note was added to all relevant [documentation pages](https://github.com/kyma-project/kyma/issues/16392).
 
@@ -54,13 +54,13 @@ A [new example](https://github.com/kyma-project/examples/tree/main/metrics-otlp)
 
 ## Telemetry
 ### Logging
-- A bug that caused FluentBit to print errors on startup has been fixed. Check [this issue](https://github.com/kyma-project/kyma/issues/16733) for more information.
-- FluentBit has been updated to the [2.0.9 version](https://github.com/kyma-project/kyma/pull/16764).
+- A bug that caused Fluent Bit to print errors on startup has been fixed. Check [this issue](https://github.com/kyma-project/kyma/issues/16733) for more information.
+- Fluent Bit has been updated to the [2.0.9 version](https://github.com/kyma-project/kyma/pull/16764).
 
 ### Tracing
 - Since this release, the Kyma Dashboard extension for TracePipeline [supports custom headers for OTLP outputs](https://github.com/kyma-project/kyma/pull/16760).
 - Warnings at the startup of `otel-collector` [have been removed](https://github.com/kyma-project/kyma/issues/16736).
-- `otel-collector` has been updated to [0.72.0](https://github.com/kyma-project/kyma/pull/16943).
+- `otel-collector` has been updated to version [0.72.0](https://github.com/kyma-project/kyma/pull/16943).
 
 
 ## Eventing
@@ -76,7 +76,7 @@ With this release, we have upgraded event Subscriptions from `v1alpha1` to `v1al
 
 ### Introducing Node.js 18 Serverless runtime
 
-With Kyma 2.12 we have introduced new Node.js 18 runtime for your Functions.
+With Kyma 2.12, we have introduced new Node.js 18 runtime for your Functions.
 
 
 ### Deprecation of Node.js 14 Serverless runtime
