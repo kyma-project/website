@@ -10,7 +10,7 @@ redirectFrom:
   - "/blog/release-notes-212"
 ---
 
-Winter is almost over, and Spring is just around the corner. If you look carefully, you’ll notice that [here comes the Sun](https://youtube.com/watch?v=TmBTYK7XZQk&feature=shares&t=14), and with it, many interesting Kyma changes. Read on to find out more!
+Winter is almost over, and spring is just around the corner. If you look carefully, you’ll notice that [here comes the Sun](https://youtube.com/watch?v=TmBTYK7XZQk&feature=shares&t=14), and with it, many interesting Kyma changes. Read on to find out more!
 
 <!-- overview -->
 
@@ -46,9 +46,9 @@ For more information, read the 2.11-2.12 [Migration Guide](https://kyma-project.
 ## Observability
 ### Monitoring
 
-To decouple the Kyma components from the monitoring stack, all components have been refactored to use an annotation-based metrics scraping instead of leveraging ServiceMonitors. As a consequence, you must follow the the 2.11-2.12 [Migration Guide](https://kyma-project.io/docs/kyma/2.12/migration-guide-2.11-2.12) to clean up ServiceMonitors of the system components. Also, the bundled rules for Loki have already been removed. With that, the system components have no direct dependency on the Monitoring module anymore.
+To decouple the Kyma components from the monitoring stack, all components have been refactored to use an annotation-based metrics scraping instead of leveraging ServiceMonitors. Therefore, you must follow the 2.11-2.12 [Migration Guide](https://kyma-project.io/docs/kyma/2.12/migration-guide-2.11-2.12) to clean up ServiceMonitors of the system components. Also, the bundled rules for Loki have already been removed. With that, the system components have no direct dependency on the Monitoring module anymore.
 
-As announced in the release notes of Kyma 2.11, the monitoring module has been deprecated. A deprecation note was added to all relevant [documentation pages](https://github.com/kyma-project/kyma/issues/16392).
+As announced in the release notes of Kyma 2.11, the monitoring module has been deprecated. The deprecation note was added to all relevant [documentation pages](https://github.com/kyma-project/kyma/issues/16392).
 
 A [new example](https://github.com/kyma-project/examples/tree/main/metrics-otlp) illustrating collecting and exporting metrics using only OpenTelemetry technology has been added.
 
@@ -87,7 +87,7 @@ See this [blog post](https://blogs.sap.com/2022/03/09/changing-the-function-runt
 
 ### Reminder about new Serverless API version
 
-As of [Kyma 2.6](https://kyma-project.io/blog/2022/8/25/release-notes-26#serverless), the `serverless.kyma-project.io/v1alpha1` API is deprecated.
+As of [Kyma 2.6](https://kyma-project.io/blog/2022/8/25/release-notes-26#serverless), the `serverless.kyma-project.io/v1alpha1` API has been deprecated.
 We are getting close to the 6-month depreciation period. Therefore, with the next Kyma release (2.13), we plan to stop supporting the deprecated API and support only `serverless.kyma-project.io/v1alpha2`. 
 
 The conversion webhook that handles the conversion between the versions on the fly will be removed with Kyma 2.13.
