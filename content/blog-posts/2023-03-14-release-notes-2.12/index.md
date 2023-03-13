@@ -33,7 +33,7 @@ You'll need a few cleanup actions when updating to the newest version, For more 
 ### Blog and Community sections removal
 
 We're planning to restructure our Kyma website. Soon, the Community section will be removed, and the whole content will be kept in our [Kyma `community` repository](https://github.com/kyma-project/community).
-In addition, the Blog section will also be removed in the future. Worry not! All Kyma release notes will be available on the [Kyma release page on GitHub](https://github.com/kyma-project/kyma/releases).
+In addition, the Blog section will also be removed in the future. Worry not! All Kyma release notes will be available on the [Kyma release page on GitHub](https://github.com/kyma-project/kyma/releases) and the blog posts on the [SAP community portal](https://community.sap.com/topics/kyma).
 Stay tuned for more information.
 
 ## Application Connectivity
