@@ -16,19 +16,19 @@ Winter is almost over, and Spring is just around the corner. If you look careful
 
 See the overview of all changes in this release:
 
-- [General](#general) - support for Kubernetes 1.25, migration guide actions, plans to remove the Blog and Community sections from website
+- [General](#general) - support for Kubernetes 1.25, migration guide actions, plans to remove the Blog and Community sections from the website
 - [Application Connectivity](#application-connectivity) - use the `kyma-system` Namespace for Compass Runtime Agent
 - [Observability](#observability) -  Monitoring updates
 - [Telemetry](#telemetry) - Logging and tracing updates
 - [Eventing](#eventing) - NATS server updated to `v2.9.14`, Subscription updates
-- [Serverless](#serverless) - Nodejs.18 runtime introduction, deprecation of Nodejs.14 runtime, new version of Serverless API version
+- [Serverless](#serverless) - Nodejs.18 runtime introduction, deprecation of Nodejs.14 runtime, a new version of Serverless API
 ## General
 
 ### Kubernetes 1.25 support
-Now, we officially support Kubernetes in version 1.25, For more information about changes in the version 1.25, see the [2.9 release notes](https://kyma-project.io/blog/2022/11/22/release-notes-29#general).
+Now, we officially support Kubernetes in version 1.25. For more information about changes in version 1.25, see the [2.9 release notes](https://kyma-project.io/blog/2022/11/22/release-notes-29#general).
 
 ### Migration
-You'll need a few cleanup actions when updating to the newest version, For more information, read the 2.11-2.12 [Migration Guide](https://kyma-project.io/docs/kyma/2.12/migration-guide-2.11-2.12).
+You'll need a few cleanup actions when updating to the newest version. For more information, read the 2.11-2.12 [Migration Guide](https://kyma-project.io/docs/kyma/2.12/migration-guide-2.11-2.12).
 
 ### Blog and Community sections removal
 
@@ -39,7 +39,7 @@ Stay tuned for more information.
 ## Application Connectivity
 With Kyma 2.12, the Compass Runtime Agent component will use the `kyma-system` Namespace instead of `compass-system`. 
  
-When you upgrade Kyma from the version 2.11 to 2.12, the old component deployed in the `compass-system` Namespace won't be removed automatically. 
+When you upgrade Kyma from version 2.11 to 2.12, the old component deployed in the `compass-system` Namespace won't be removed automatically. 
 If you're using Compass Runtime Agent, you must execute the script after successfully migrating from Kyma 2.11 to Kyma 2.12. If not, no additional action is required.
 For more information, read the 2.11-2.12 [Migration Guide](https://kyma-project.io/docs/kyma/2.12/migration-guide-2.11-2.12). 
 
@@ -59,7 +59,7 @@ A [new example](https://github.com/kyma-project/examples/tree/main/metrics-otlp)
 
 ### Tracing
 - Since this release, the Kyma Dashboard extension for TracePipeline [supports custom headers for OTLP outputs](https://github.com/kyma-project/kyma/pull/16760).
-- Warnings at startup of `otel-collector` [has been removed](https://github.com/kyma-project/kyma/issues/16736).
+- Warnings at the startup of `otel-collector` [have been removed](https://github.com/kyma-project/kyma/issues/16736).
 - `otel-collector` has been updated to [0.72.0](https://github.com/kyma-project/kyma/pull/16943).
 
 
@@ -88,7 +88,7 @@ See this [blog post](https://blogs.sap.com/2022/03/09/changing-the-function-runt
 ### Reminder about new Serverless API version
 
 As of [Kyma 2.6](https://kyma-project.io/blog/2022/8/25/release-notes-26#serverless), the `serverless.kyma-project.io/v1alpha1` API is deprecated.
-We are getting close to the 6-month depreciation period. Therefore, with next Kyma release (2.13), we plan to stop supporting the deprecated API and support only `serverless.kyma-project.io/v1alpha2`. 
+We are getting close to the 6-month depreciation period. Therefore, with the next Kyma release (2.13), we plan to stop supporting the deprecated API and support only `serverless.kyma-project.io/v1alpha2`. 
 
 The conversion webhook that handles the conversion between the versions on the fly will be removed with Kyma 2.13.
 Don't wait that long and adjust your Function manifests (YAML files) to the new version of the `serverless.kyma-project.io/v1alpha2` as soon as possible.
