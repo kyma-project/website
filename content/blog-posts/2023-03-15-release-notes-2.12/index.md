@@ -19,7 +19,7 @@ See the overview of all changes in this release:
 - [General](#general) - support for Kubernetes 1.25, migration guide actions, plans to remove the Blog and Community sections from the website
 - [Application Connectivity](#application-connectivity) - use the `kyma-system` Namespace for Compass Runtime Agent
 - [Observability](#observability) -  New example on how to collect and export metrics based on OpenTelemetry
-- [Telemetry](#telemetry) - Logging and tracing updates
+- [Telemetry](#telemetry) - Fixes and an update to third-party versions for logging and tracing
 - [Eventing](#eventing) - NATS server updated to `v2.9.14`, Subscription updates
 - [Serverless](#serverless) - Node.js 18 runtime introduction, deprecation of Node.js 14 runtime, forthcoming removal of `serverless.kyma-project.io/v1alpha1`
 ## General
