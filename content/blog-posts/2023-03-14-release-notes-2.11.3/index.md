@@ -10,7 +10,7 @@ redirectFrom:
   - "/blog/release-notes-211"
 ---
 
-As you can see, we're constantly striving to improve user experience. Here we are with Kyma 2.11.3 and the security upgrades you will find useful.
+As you can see, we're constantly striving to improve user experience. Here we are with Kyma 2.11.3 and the upgrades you will find useful.
 
 <!-- overview -->
 
