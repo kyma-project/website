@@ -14,8 +14,6 @@ As you can see, we're constantly striving to improve user experience. Here we ar
 
 <!-- overview -->
 
-## Security
-
-### Istio Ingress Gateway HorizontalPodAutoscaler (HPA) supporting `autoscaling/v2`
+## Istio Ingress Gateway HorizontalPodAutoscaler (HPA) supporting `autoscaling/v2`
 
 The default values for the Istio Ingress Gateway HPA configuration have been adapted to support `autoscaling/v2` as part of removing `autoscaling/v2beta1` for Kubernetes v1.25.  
