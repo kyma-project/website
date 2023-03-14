@@ -86,7 +86,7 @@ kubectl patch istios/istio-operator -n kyma-system --type merge -p '{"spec":{"co
 2. Allow Kyma Istio Reconciler to apply the changes to Istio ConfigMap. To trigger it right away, run:
 
 ```bash
-kyma deploy --components istio
+kyma deploy --component istio
 ```
 
 To check if `numTrustedProxies` was successfully applied within Istio ConfigMap, run:
