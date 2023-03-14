@@ -18,14 +18,14 @@ See the overview of all changes in this release:
 
 - [General](#general) - support for Kubernetes 1.25, migration guide actions, plans to remove the Blog and Community sections from the website
 - [Application Connectivity](#application-connectivity) - use the `kyma-system` Namespace for Compass Runtime Agent
-- [Observability](#observability) -  Monitoring updates
+- [Observability](#observability) -  New example on how to collect and export metrics based on OpenTelemetry
 - [Telemetry](#telemetry) - Logging and tracing updates
 - [Eventing](#eventing) - NATS server updated to `v2.9.14`, Subscription updates
-- [Serverless](#serverless) - Node.js 18 runtime introduction, deprecation of Node.js 14 runtime,  forthcoming removal of `serverless.kyma-project.io/v1alpha1`
+- [Serverless](#serverless) - Node.js 18 runtime introduction, deprecation of Node.js 14 runtime, forthcoming removal of `serverless.kyma-project.io/v1alpha1`
 ## General
 
 ### Kubernetes 1.25 support
-Now, we officially support Kubernetes in version 1.25. For more information about changes in version 1.25, see the [2.9 release notes](https://kyma-project.io/blog/2022/11/22/release-notes-29#general).
+Now, we officially support Kubernetes in version 1.25. For more information about changes in Kubernetes version 1.25, see the [Kyma 2.9 release notes](https://kyma-project.io/blog/2022/11/22/release-notes-29#general).
 
 ### Migration
 You'll need a few cleanup actions when updating to the newest version. For more information, read the 2.11-2.12 [Migration Guide](https://kyma-project.io/docs/kyma/2.12/migration-guide-2.11-2.12).
@@ -46,11 +46,9 @@ For more information, read the 2.11-2.12 [Migration Guide](https://kyma-project.
 ## Observability
 ### Monitoring
 
-To decouple the Kyma components from the monitoring stack, all components have been refactored to use an annotation-based metrics scraping instead of leveraging ServiceMonitors. Therefore, you must follow the 2.11-2.12 [Migration Guide](https://kyma-project.io/docs/kyma/2.12/migration-guide-2.11-2.12) to clean up ServiceMonitors of the system components. Also, the bundled rules for Loki have already been removed. With that, the system components have no direct dependency on the Monitoring module anymore.
-
-As announced in the release notes of Kyma 2.11, the monitoring module has been deprecated. The deprecation note was added to all relevant [documentation pages](https://github.com/kyma-project/kyma/issues/16392).
-
-A [new example](https://github.com/kyma-project/examples/tree/main/metrics-otlp) illustrating collecting and exporting metrics using only OpenTelemetry technology has been added.
+- We have added a [new example](https://github.com/kyma-project/examples/tree/main/metrics-otlp) that illustrates collecting and exporting metrics using only OpenTelemetry technology.
+- To decouple the Kyma components from the monitoring stack, all components have been refactored to use annotation-based metrics scraping instead of leveraging ServiceMonitors. Therefore, you must follow the 2.11-2.12 [Migration Guide](https://kyma-project.io/docs/kyma/2.12/migration-guide-2.11-2.12) to clean up ServiceMonitors of the system components. Also, the bundled rules for Loki have already been removed. With that, the system components have no direct dependency on the Monitoring module anymore.
+- As announced in the release notes of Kyma 2.11, the Monitoring module has been deprecated. All relevant [documentation pages](https://github.com/kyma-project/kyma/issues/16392) contain the deprecation note.
 
 ## Telemetry
 ### Logging
