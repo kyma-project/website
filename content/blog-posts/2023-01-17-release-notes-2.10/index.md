@@ -29,12 +29,12 @@ From now Application Gateway will use the `kyma-system` Namespace instead of the
 ## Eventing
 
 ### NATS
-We introduced a `system account` user to allow full leverage of the NATS CLI. For more information, read about [Acquiring NATS server system account credentials](https://kyma-project.io/docs/kyma/2.10/04-operation-guides/operations/evnt-03-nats-server-system-events). 
+We introduced a `system account` user to allow full leverage of the NATS CLI. For more information, read about [Acquiring NATS server system account credentials](https://github.com/kyma-project/kyma/blob/release-2.10/docs/04-operation-guides/operations/evnt-03-nats-server-system-events.md). 
 
 ### Metrics 
 We exposed new metrics for backend latency.
 We also introduced consistent naming for all metrics exposed by Eventing Publisher Proxy (EPP). 
-Read [Kyma Eventing Metrics](https://kyma-project.io/docs/kyma/2.10/04-operation-guides/operations/evnt-02-eventing-metrics) for more details.
+Read [Kyma Eventing Metrics](https://github.com/kyma-project/kyma/blob/release-2.10/docs/04-operation-guides/operations/evnt-02-eventing-metrics.md) for more details.
 
 ## Observability
  
