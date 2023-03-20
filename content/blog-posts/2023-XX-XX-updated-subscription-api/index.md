@@ -34,9 +34,9 @@ Example:
 
 An application sent events of event type `object.operation`. To allow sending such event to EventMesh, we had to introduce a prefix as part of the EventMesh requirements. Then, we sent those events to the Eventing backend with eventtype `prefix.object.operation`. When these events were delivered to our internal subscribers, they were not of type `object.operation` (the original eventtype), but they were delivered with eventtype `prefix.object.operation`.
 
-Modifying the subscriptions that way also limited to which events you could subscribe. It was only possible to subscribe to events that had 
+Modifying the subscriptions that way also limited to which events you could subscribe. You could only subscribe to events that had the prefix that had been configured in the Kyma cluster. 
 
-The updated Subscription CR simplifies this for the user.
+To simplify this for our users, we are now introducing the updated subscription CR.
 
 ## The new subscription CR
 
