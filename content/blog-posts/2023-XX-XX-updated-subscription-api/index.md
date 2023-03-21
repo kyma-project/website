@@ -12,19 +12,19 @@ redirectFrom:
 ---
 
 As part of the Kyma team working on the Eventing components, I'd like to let you know that we're updating the Subscription API used to subscribe to events in Kyma.
-In this blog post, I'd like explain the how and the why.
+In this blog post, I will explain the how and the why.
 
 ## Why change the subscription CR
 
 At the moment, Kyma supports two backends for Eventing:
 - NATS Jetstream, a high-performance messaging infrastructure running inside the Kyma cluster
-- EventMesh, an external service used to interconnect multiple applications
+- EventMesh, an external service used to connect multiple applications
 
 Both backends have their own benefits and limitations:
 
-NATS Jetstream is only accessible within the Kyma cluster. This brings the limitation that all events handled by it must originate from the cluster and must be subscribed to in the cluster. The benefit is that those events never leave the cluster.
+- NATS Jetstream is only accessible within the Kyma cluster. This brings the limitation that all events handled by it must originate from the cluster and must be subscribed to in the cluster. The benefit is that those events never leave the cluster.
 
-EventMesh allows subscribing to events that to not originate from the cluster, and it also means that you can send events there and subscribe to them in a different, connected application. The drawback is that in order to subscribe to such events, your workload must be exposed to the internet.
+- EventMesh allows subscribing to events that do not originate from the cluster, and it also means that you can send events there and subscribe to them in a different, connected application. The drawback is that in order to subscribe to such events, your workload must be exposed to the internet.
 
 With those different use cases in mind, it makes sense that EventMesh imposes stricter naming conventions on the CloudEvents. With NATS Jetstream as the active backend, we are in control of these limitations.
 
@@ -32,7 +32,7 @@ Previously, we followed the same strict rules on both backends. While this simpl
 
 Example:
 
-An application sent events of event type `object.operation`. To allow sending such event to EventMesh, we had to introduce a prefix as part of the EventMesh requirements. Then, we sent those events to the Eventing backend with eventtype `prefix.object.operation`. When these events were delivered to our internal subscribers, they were not of type `object.operation` (the original eventtype), but they were delivered with eventtype `prefix.object.operation`.
+An application sent events of event type `object.operation`. To allow sending such event to EventMesh, we had to introduce a prefix as part of the EventMesh requirements. Then, we sent those events to the Eventing backend with event type `prefix.object.operation`. When these events were delivered to our internal subscribers, they were not of type `object.operation` (the original event type), but they were delivered with event type `prefix.object.operation`.
 
 Modifying the subscriptions that way also limited to which events you could subscribe. You could only subscribe to events that had the prefix that had been configured in the Kyma cluster. 
 
