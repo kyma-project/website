@@ -10,7 +10,7 @@ redirectFrom:
   - "/blog/release-notes-2121"
 ---
 
-Each release, small or big, brings precious improvements to the Kyma world. With Kyma 2.12.1, we've updated NATS and Istio to their newer versions and made a few security fixes to the API Gateway component. Read on to find out the details.
+Each release, small or big, brings precious improvements to the Kyma world. With Kyma 2.12.1, we've updated NATS and Istio to their newer versions and fixed a few security vulnerabilities in the API Gateway component. Read on to find out the details.
 
 <!-- overview -->
 
