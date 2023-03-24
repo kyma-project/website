@@ -10,7 +10,7 @@ redirectFrom:
   - "/blog/release-notes-2121"
 ---
 
-intro - to be added
+Each release, small or big, brings precious improvements to the Kyma world. With Kyma 2.12.1, we've updated NATS and Istio to their newer versions and made a few security fixes to the API Gateway component. Read on to find out the details.
 
 <!-- overview -->
 
@@ -21,7 +21,7 @@ See the overview of all changes in this release:
 - [Security](#security) - Istio upgraded to version 1.16.3
 
 ## API Gateway
-The version of API Gateway released with Kyma 2.12.1 contains a few vital security fixes.
+The version of API Gateway released with Kyma 2.12.1 contains a few necessary security fixes.
 
 ## Eventing  
 ### NATS server 
