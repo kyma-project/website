@@ -30,4 +30,4 @@ With Kyma 2.12.1, we updated the NATS server image to `v2.9.15`. For more detail
 
 ## Security
 ### Service Mesh
-This release comes with Istio upgraded from version 1.16.2 to 1.16.3. To learn more, read the official [Istio 1.16.3 release notes](https://istio.io/latest/news/releases/1.16.x/announcing-1.16/upgrade-notes/).
+This release comes with Istio upgraded from version 1.16.2 to 1.16.3. To learn more, read the official [Istio 1.16.3 release notes](https://istio.io/latest/news/releases/1.16.x/announcing-1.16.3/).
