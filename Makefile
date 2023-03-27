@@ -1,18 +1,15 @@
 .PHONY: netlify-deploy-preview \
 	netlify-production \
 	netlify-docs-preview \
-	netlify-community-preview \
 	clear-cache \
 	resolve \
 	validate \
 	test \
 	prepare-content-website \
 	prepare-content-docs-preview \
-	prepare-content-community-preview \
 	build-prod \
 	build-website-preview \
 	build-docs-preview \
-	build-community-preview \
 	prepare-functions
 
 netlify-production: clear-cache prepare-content-website build-prod prepare-functions
