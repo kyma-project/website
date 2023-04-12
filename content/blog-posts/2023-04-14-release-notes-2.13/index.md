@@ -69,7 +69,7 @@ We have introduced multiple security patches and fixed a [bug](https://github.co
 - Improved validation of LogPipelines by the webhook so that you get feedback more early (https://github.com/kyma-project/kyma/issues/15480)
 - The CRD reference documentation gets generated out of the CRD description and with that will not be outdated anymore (https://github.com/kyma-project/kyma/issues/15663)
 - Improved resiliency if the setup by recovering an unattended deletion of fluent-bit  (https://github.com/kyma-project/telemetry-manager/pull/99)
--
+
 ### Tracing
 - Update of components:
 - Otel-collector 0.74.0 https://github.com/kyma-project/kyma/pull/17058
