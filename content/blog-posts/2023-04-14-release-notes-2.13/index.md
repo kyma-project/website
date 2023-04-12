@@ -40,20 +40,20 @@ With this Kyma release API Gateway was updated to version 1.5.0, which introduce
 ## Telemetry
 
 ### Manager
-- The way how the Telemetry manager caches Kubernetes resources has been improved, which reduces the memory footprint. Also, the manager now needs fewer roles (https://github.com/kyma-project/kyma/issues/17001).
-- Improved validation of LogPipelines by the webhook, so that you get feedback earlier (https://github.com/kyma-project/kyma/issues/15480).
+- The way how the Telemetry manager caches Kubernetes resources has been improved, so it needs fewer permissions for access to Kubernetes resources. Also, this reduces the memory footprint (https://github.com/kyma-project/kyma/issues/17001).
+- Improved validation of LogPipelines by the webhook (https://github.com/kyma-project/kyma/issues/15480).
 - The CRD reference documentation is generated from the CRD description, so it's always up to date (https://github.com/kyma-project/kyma/issues/15663).
-- Improved resiliency if the setup by recovering an unattended deletion of fluent-bit  (https://github.com/kyma-project/telemetry-manager/pull/99)
+- Improved resiliency of the setup: If Fluent Bit was deleted, it’s automatically recovered (https://github.com/kyma-project/telemetry-manager/pull/99).
 
 ### Tracing
 - Update of components:
-- Otel-collector 0.74.0 https://github.com/kyma-project/kyma/pull/17058
+  - Otel Collector 0.74.0 https://github.com/kyma-project/kyma/pull/17058
 
 ### Logging
-- Consolidated profiles https://github.com/kyma-project/kyma/issues/16853
+- Profiles have been removed and production settings are the new default (https://github.com/kyma-project/kyma/issues/16853).
 - Update of components:
-  - Fluentbit 2.0.10 https://github.com/kyma-project/kyma/pull/17109
-  - Improved retry handling https://github.com/kyma-project/kyma/issues/17113
+  - Fluent Bit 2.0.10 (https://github.com/kyma-project/kyma/pull/17109)
+  - Improved retry handling (https://github.com/kyma-project/kyma/issues/17113)
 
 
 ## Serverless
