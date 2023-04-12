@@ -54,7 +54,6 @@ With this Kyma release API Gateway was updated to version 1.5.0, which introduce
 - Improved retry handling (https://github.com/kyma-project/kyma/issues/17113).
 - Update of components:
   - Fluent Bit 2.0.10 (https://github.com/kyma-project/kyma/pull/17109)
-  - Improved retry handling (https://github.com/kyma-project/kyma/issues/17113)
 
 
 ## Serverless
