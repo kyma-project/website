@@ -18,9 +18,9 @@ See the overview of all changes in this release:
 
 - [API Gateway](#api-gateway) - #TODO
 - [Observability](#observability) -  #TODO 
-- [Security](#security) - #TODO
-- [Serverless](#serverless) - #TODO
 - [Telemetry](#telemetry) - #TODO
+- [Serverless](#serverless) - #TODO
+- [Security](#security) - #TODO
 
 
 ## API Gateway
@@ -37,11 +37,23 @@ With this Kyma release API Gateway was updated to version 1.5.0, which introduce
     - Kube-state-metrics 2.8.1 https://github.com/kyma-project/kyma/pull/17058
 
 
-## Security
+## Telemetry
 
-### Istio upgraded to 1.17.1
+### Manager
+- The way how the Telemetry manager caches Kubernetes resources has been improved, which reduces the memory footprint. Also, the manager now needs fewer roles (https://github.com/kyma-project/kyma/issues/17001).
+- Improved validation of LogPipelines by the webhook, so that you get feedback earlier (https://github.com/kyma-project/kyma/issues/15480).
+- The CRD reference documentation is generated from the CRD description, so it's always up to date (https://github.com/kyma-project/kyma/issues/15663).
+- Improved resiliency if the setup by recovering an unattended deletion of fluent-bit  (https://github.com/kyma-project/telemetry-manager/pull/99)
 
-In this release, we upgraded Istio from 1.16.3 to 1.17.1. For more details on the changes, read the official [Istio 1.17.1 release notes](https://istio.io/latest/news/releases/1.17.x/announcing-1.17/upgrade-notes/).
+### Tracing
+- Update of components:
+- Otel-collector 0.74.0 https://github.com/kyma-project/kyma/pull/17058
+
+### Logging
+- Consolidated profiles https://github.com/kyma-project/kyma/issues/16853
+- Update of components:
+  - Fluentbit 2.0.10 https://github.com/kyma-project/kyma/pull/17109
+  - Improved retry handling https://github.com/kyma-project/kyma/issues/17113
 
 
 ## Serverless
@@ -62,20 +74,8 @@ This is a step towards kyma modularisation where independant modules are the bas
 We have introduced multiple security patches and fixed a [bug](https://github.com/kyma-project/kyma/issues/17147) related to premature Function CR creation
 
 
-## Telemetry
+## Security
 
-### Manager
-- The way how the Telemetry manager caches Kubernetes resources has been improved, which reduces the memory footprint. Also, the manager now needs fewer roles (https://github.com/kyma-project/kyma/issues/17001).
-- Improved validation of LogPipelines by the webhook, so that you get feedback earlier (https://github.com/kyma-project/kyma/issues/15480).
-- The CRD reference documentation is generated from the CRD description, so it's always up to date (https://github.com/kyma-project/kyma/issues/15663).
-- Improved resiliency if the setup by recovering an unattended deletion of fluent-bit  (https://github.com/kyma-project/telemetry-manager/pull/99)
+### Istio upgraded to 1.17.1
 
-### Tracing
-- Update of components:
-- Otel-collector 0.74.0 https://github.com/kyma-project/kyma/pull/17058
-
-### Logging
-- Consolidated profiles https://github.com/kyma-project/kyma/issues/16853
-- Update of components:
-    - Fluentbit 2.0.10 https://github.com/kyma-project/kyma/pull/17109
-    - Improved retry handling https://github.com/kyma-project/kyma/issues/17113
+In this release, we upgraded Istio from 1.16.3 to 1.17.1. For more details on the changes, read the official [Istio 1.17.1 release notes](https://istio.io/latest/news/releases/1.17.x/announcing-1.17/upgrade-notes/).
