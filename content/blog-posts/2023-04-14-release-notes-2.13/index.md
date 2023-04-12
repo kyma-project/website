@@ -65,9 +65,9 @@ We have introduced multiple security patches and fixed a [bug](https://github.co
 ## Telemetry
 
 ### Manager
-- The way how the manage is caching kubernetes resources got improved and with that it has a reduced the memory footprint and a reduced set of roles is required by the manager (https://github.com/kyma-project/kyma/issues/17001)
-- Improved validation of LogPipelines by the webhook so that you get feedback more early (https://github.com/kyma-project/kyma/issues/15480)
-- The CRD reference documentation gets generated out of the CRD description and with that will not be outdated anymore (https://github.com/kyma-project/kyma/issues/15663)
+- The way how the Telemetry manager caches Kubernetes resources has been improved, which reduces the memory footprint. Also, the manager now needs fewer roles (https://github.com/kyma-project/kyma/issues/17001).
+- Improved validation of LogPipelines by the webhook, so that you get feedback earlier (https://github.com/kyma-project/kyma/issues/15480).
+- The CRD reference documentation is generated from the CRD description, so it's always up to date (https://github.com/kyma-project/kyma/issues/15663).
 - Improved resiliency if the setup by recovering an unattended deletion of fluent-bit  (https://github.com/kyma-project/telemetry-manager/pull/99)
 
 ### Tracing
