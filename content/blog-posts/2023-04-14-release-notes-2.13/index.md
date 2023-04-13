@@ -51,9 +51,9 @@ With Kyma 2.13, we've [updated OTel Collector to version 0.73.0](https://github.
 
 ### Logging  
 
-With this release, [Telemetry production profiles have been removed](https://github.com/kyma-project/kyma/issues/16853), and production settings are the new default managed by dedicated module managers.
-We have [updated Fluent Bit to version 2.0.10](https://github.com/kyma-project/kyma/pull/17109) and also, [improved its retry handling](https://github.com/kyma-project/kyma/issues/17113) by increasing the Fluent Bit retry limit.
+With this release, [the profiles for the Telemetry component have been consolidated](https://github.com/kyma-project/kyma/issues/16853), and no specialized settings for profiles are in use anymore. The settings from the previous production profile are the new default.
 
+We have [updated Fluent Bit to version 2.0.10](https://github.com/kyma-project/kyma/pull/17109) and also, [improved its retry handling](https://github.com/kyma-project/kyma/issues/17113) by increasing the Fluent Bit retry limit.
 
 ## Serverless  
 ###  `serverless.kyma-project.io/v1alpha1` API version removed  
