@@ -16,23 +16,23 @@ Like the sea that relentlessly sends waves softly shaping the shore, we also inc
 
 See the overview of all changes in this release:
 
-- [API Gateway](#api-gateway) - local host `trust` authentication restricted in favor of MD5 authentication
-- [Observability](#observability) -  Kube-state-metrics update
-- [Telemetry](#telemetry) - improved caching of Kubernetes resources; improved validation of LogPipelines; auto-generated CRD reference documentation; improved setup resiliency; OTel Collector update
-- [Serverless](#serverless) - `serverless.kyma-project.io/v1alpha1` API version and dependencies to cluster-essentials removed
+- [API Gateway](#api-gateway) - version 1.5.0 released; localhost connections without password no longer allowed
+- [Observability](#observability) -  updated kube-state-metrics 
+- [Telemetry](#telemetry) - improved caching of Kubernetes resources and validation of LogPipelines; auto-generated CRD reference documentation; improved setup resiliency; updated OTel Collector 
+- [Serverless](#serverless) - removed `serverless.kyma-project.io/v1alpha1` API version and dependencies to cluster-essentials 
 - [Security](#security) - Istio upgraded to 1.17.1
 
 
 ## API Gateway  
 
-From now, the Ory Hydra Postgres database refuses localhost connections without a password, as we have introduced MD5 authentication. Check [here](https://github.com/kyma-project/kyma/pull/17138) for more details.
+From now on, the Ory Hydra Postgres database refuses localhost connections without a password, as we have introduced MD5 authentication. Check [this PR](https://github.com/kyma-project/kyma/pull/17138) for more details.
 
 Also, we have updated API Gateway to version 1.5.0 and thus introduced a default request time for the exposed workload.
 
 ## Observability  
 ### Monitoring  
 
-  With the 2.13 version of Kyma, we've [updated Kube-state-metrics to version 2.8.1](https://github.com/kyma-project/kyma/pull/17058).
+  With the 2.13 version of Kyma, we've [updated kube-state-metrics to version 2.8.1](https://github.com/kyma-project/kyma/pull/17058).
 
 ## Telemetry  
 ### Manager  
@@ -41,17 +41,17 @@ This release brings improvement in the way Telemetry Manager caches Kubernetes r
 
 We have also [improved the validation of LogPipelines by the webhook](https://github.com/kyma-project/kyma/issues/15480), which allows for earlier feedback reception. 
 
-From now, the CRD reference documentation is always up-to-date as it's [automatically generated from the CRD description](https://github.com/kyma-project/kyma/issues/15663).
+As of now, the CRD reference documentation is always up-to-date as it's [automatically generated from the CRD description](https://github.com/kyma-project/kyma/issues/15663).
 
-We have improved the resiliency of the setup. Consequently, Fluent Bit DaemonSet is automatically recovered in case of unattended deletion. Check [here](https://github.com/kyma-project/telemetry-manager/pull/99) for more details.
+We have improved the resiliency of the setup. Consequently, Fluent Bit DaemonSet is automatically recovered in case of unattended deletion. See [this PR](https://github.com/kyma-project/telemetry-manager/pull/99) for more details.
 
 ### Tracing  
 
-With Kyma 2.13, we've [updated OTel Collector to version 0.74.0](https://github.com/kyma-project/kyma/pull/17058).
+With Kyma 2.13, we've [updated OTel Collector to version 0.73.0](https://github.com/kyma-project/kyma/pull/17058).
 
 ### Logging  
 
-With this release, [Telemetry production profiles have been removed](https://github.com/kyma-project/kyma/issues/16853), and production settings are the new default.
+With this release, [Telemetry production profiles have been removed](https://github.com/kyma-project/kyma/issues/16853), and production settings are the new default managed by dedicated module managers.
 We have [updated Fluent Bit to version 2.0.10](https://github.com/kyma-project/kyma/pull/17109) and also, [improved its retry handling](https://github.com/kyma-project/kyma/issues/17113) by increasing the Fluent Bit retry limit.
 
 
@@ -62,7 +62,7 @@ Following the depreciation of the `serverless.kyma-project.io/v1alpha1` API vers
 
 ### Removed dependencies to cluster-essentials
 
-From now, the Serverless module brings all its belongings within its Helm Chart and becomes independent of the cluster-essentials module. It is a step towards the modularization of Kyma, in which independent modules are the basic concept.
+From now on, the Serverless module brings all its belongings within its Helm Chart and becomes independent of the cluster-essentials module. It is a step towards the modularization of Kyma, in which independent modules are the basic concept.
 
 ### Maintenance  
 
