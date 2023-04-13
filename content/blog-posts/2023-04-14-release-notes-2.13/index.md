@@ -53,14 +53,14 @@ With Kyma 2.13, we've [updated OTel Collector to version 0.73.0](https://github.
 
 With this release, [the profiles for the Telemetry component have been consolidated](https://github.com/kyma-project/kyma/issues/16853), and no specialized settings for profiles are in use anymore. The settings from the previous production profile are the new default.
 
-We have [updated Fluent Bit to version 2.0.10](https://github.com/kyma-project/kyma/pull/17109) and also, [improved its retry handling](https://github.com/kyma-project/kyma/issues/17113) by increasing the Fluent Bit retry limit.
+We have [updated Fluent Bit to version 2.0.10](https://github.com/kyma-project/kyma/pull/17109) and also [improved its retry handling](https://github.com/kyma-project/kyma/issues/17113) by increasing the Fluent Bit retry limit.
 
 ## Serverless  
 ###  `serverless.kyma-project.io/v1alpha1` API version removed  
 
 Following the depreciation of the `serverless.kyma-project.io/v1alpha1` API version with [Kyma 2.6](https://kyma-project.io/blog/2022/8/25/release-notes-26/#serverless), we've finally removed it in this release. The conversion webhook responsible for converting v1alpha1 to v1alpha2 during the grace period has also been removed.
 
-### Removed dependencies to cluster-essentials
+### Dependencies to cluster-essentials removed
 
 From now on, the Serverless module brings all its belongings within its Helm Chart and becomes independent of the cluster-essentials module. It is a step towards the modularization of Kyma, in which independent modules are the basic concept.
 
