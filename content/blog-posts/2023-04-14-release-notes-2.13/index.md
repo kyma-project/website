@@ -72,3 +72,17 @@ We have introduced multiple security patches and fixed the [bug](https://github.
 ### Istio upgraded to 1.17.1  
 
 With this release, we have upgraded the Istio version from 1.16.3 to 1.17.1. For more details on the changes, read the official [Istio 1.17.1 release notes](https://istio.io/latest/news/releases/1.17.x/announcing-1.17.1/).  
+
+## Troubleshooting
+### Failed to PATCH `functions.serverless.kyma-project.io` CustomResourceDefinition during upgrade
+
+With Kyma 2.13, we have removed the `v1alpha1` version from `functions.serverless.kyma-project.io` Custom Resource Definition.
+If you deploy the 2.13.0 version on top of the previous Kyma version, you see the following error:
+```
+kubeClient failed to update CustomResourceDefinition 'functions.serverless.kyma-project.io' (namespace: )  with strategy 'PATCH': cannot patch "functions.serverless.kyma-project.io" with kind CustomResourceDefinition: CustomResourceDefinition.apiextensions.k8s.io "functions.serverless.kyma-project.io" is invalid: status.storedVersions[0]: Invalid value: "v1alpha1": must appear in spec.versions
+```
+
+To overcome this problem, you must manually delete the `v1alpha1` version from the function CRD status with this command:
+```
+kubectl patch customresourcedefinitions functions.serverless.kyma-project.io --subresource='status' --type='merge' -p '{"status":{"storedVersions":["v1alpha2"]}}'
+```
