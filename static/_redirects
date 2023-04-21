@@ -1,5 +1,25 @@
 /docs/root/* /docs/kyma/latest/ 302
 /docs/components/* /docs/kyma/latest/ 302
 /docs/ /docs/kyma/latest/ 302
-/community/* https://github.com/kyma-project/community
-/blog/* https://community.sap.com/topics/kyma?lng=en&tab=content
+/community/* https://github.com/kyma-project/community 301
+/blog/2023/4/14/release-notes-213 https://github.com/kyma-project/kyma/releases/tag/2.13 301
+/blog/2023/3/30/release-notes-2121 https://github.com/kyma-project/kyma/releases/tag/2.12.1 301
+/blog/2023/3/15/release-notes-212 https://github.com/kyma-project/kyma/releases/tag/2.12 301
+/blog/2023/3/14/release-notes-2113 https://github.com/kyma-project/kyma/releases/tag/2.11.3 301
+/blog/2023/2/13/release-notes-211 https://github.com/kyma-project/kyma/releases/tag/2.11 301
+/blog/2023/1/17/release-notes-210 https://github.com/kyma-project/kyma/releases/tag/2.10 301
+/blog/2022/11/22/release-notes-29 https://github.com/kyma-project/kyma/releases/tag/2.9 301
+/blog/2022/11/8/release-notes-282 https://github.com/kyma-project/kyma/releases/tag/2.8.2 301
+/blog/2022/10/21/release-notes-28 https://github.com/kyma-project/kyma/releases/tag/2.8 301
+/blog/2022/10/20/release-notes-273 https://github.com/kyma-project/kyma/releases/tag/2.7.3 301
+/blog/2022/9/26/release-notes-271 https://github.com/kyma-project/kyma/releases/tag/2.7.1 301
+/blog/2022/9/22/release-notes-27 https://github.com/kyma-project/kyma/releases/tag/2.7 301
+/blog/2022/9/22/release-notes-263 https://github.com/kyma-project/kyma/releases/tag/2.6.3 301
+/blog/2022/8/25/release-notes-26 https://github.com/kyma-project/kyma/releases/tag/2.6 301
+/blog/2022/8/2/release-notes-25 https://github.com/kyma-project/kyma/releases/tag/2.5 301
+/blog/2022/6/30/release-notes-24 https://github.com/kyma-project/kyma/releases/tag/2.4 301
+/blog/2022/6/8/release-notes-23 https://github.com/kyma-project/kyma/releases/tag/2.3 301
+/blog/2022/5/4/release-notes-22 https://github.com/kyma-project/kyma/releases/tag/2.2 301
+/blog/2022/3/25/release-notes-21 https://github.com/kyma-project/kyma/releases/tag/2.1 301
+/blog/2021/12/7/release-notes-20 https://github.com/kyma-project/kyma/releases/tag/2.0 301
+/blog/* https://community.sap.com/topics/kyma?lng=en&tab=content 301
