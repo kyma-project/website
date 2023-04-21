@@ -8,9 +8,7 @@ import {
 
 import { createLandingPages } from "./landingPage";
 import { createPageNotFound } from "./404";
-import { createBlogPages } from "./blog";
 import { createDocsPages } from "./docs";
-import { createCommunityPages } from "./community";
 
 import { BuildFor } from "../../../src/types/common";
 
@@ -23,16 +21,10 @@ const createWebsitePages = async ({
 
   await createLandingPages({ graphql, createPage, createRedirect });
   await createPageNotFound({ createPage, createRedirect });
-  await createBlogPages({ graphql, createPage, createRedirect });
   await createDocsPages({
     graphql,
     createPage,
     createRedirect,
-    buildFor: BuildFor.WEBSITE,
-  });
-  await createCommunityPages({
-    graphql,
-    createPage,
     buildFor: BuildFor.WEBSITE,
   });
 };
@@ -46,21 +38,11 @@ const createWebsitePreviewPages = async ({
 
   await createLandingPages({ graphql, createPage, createRedirect });
   await createPageNotFound({ createPage, createRedirect });
-  await createBlogPages({
-    graphql,
-    createPage,
-    createRedirect,
-    options: { numberOfLatestPosts: 4 },
-  });
+
   await createDocsPages({
     graphql,
     createPage,
     createRedirect,
-    buildFor: BuildFor.WEBSITE,
-  });
-  await createCommunityPages({
-    graphql,
-    createPage,
     buildFor: BuildFor.WEBSITE,
   });
 };
@@ -86,12 +68,6 @@ const createCommunityPreviewPages = async ({
 }: CreatePagesArgs) => {
   let createPage = createIntlPage(otherActions.createPage, createRedirect);
   createPage = createPreviewPage(createPage);
-
-  await createCommunityPages({
-    graphql,
-    createPage,
-    buildFor: BuildFor.COMMUNITY_PREVIEW,
-  });
 };
 
 export const createPages = async (createPagesArgs: CreatePagesArgs) => {
