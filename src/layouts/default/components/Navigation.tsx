@@ -23,10 +23,6 @@ const navigation = [
     path: "/docs/kyma/latest",
     title: "Docs",
   },
-  {
-    path: "/blog/",
-    title: "Blog",
-  },
 ];
 
 interface State {
