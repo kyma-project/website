@@ -26,7 +26,6 @@ See the overview of all changes in this release:
 - [Service Mesh](#service-mesh) - Istio upgraded to 1.14.1
 - [Observability](#observability) - Kiali upgraded to 1.51.1
 
-
 ## Application Connectivity
 
 ### Application Gateway support for mTLS-OAuth
@@ -39,9 +38,6 @@ We introduced support for [mTLS OAuth](https://datatracker.ietf.org/doc/html/rfc
 
 With Kyma 2.4, we changed the NATS eventing backend to use [`NATS JetStream`](https://docs.nats.io/nats-concepts/jetstream) instead of just [`Core NATS`](https://docs.nats.io/nats-concepts/core-nats). This updated backend improves the delivery guarantees from previously AT-MOST-ONCE to now AT-LEAST-ONCE. To facilitate this change, the NATS cluster now relies on backing storage by default.  
 
-
-
-
 ## Serverless
 
 ### Added support to NodeJS 16
@@ -50,14 +46,14 @@ With Kyma 2.4, you have a new Serverless runtime available – NodeJS 16.
 This new runtime not only brings a new version of NodeJS but also new versions of bundled OpenTelemetry SDK. All this enhances the development experience for NodeJS developers and improves the traceability of the requests handled by your NodeJS functions.
 
 ### Improved scheduling of Function build jobs
+
 We have fixed the resource configuration for some of the Kyma components to reduce their CPU overcommitment. Additionally, we have removed the fixed requirements for computation resources for Function build jobs. With those changes, Function build jobs have better conditions to be scheduled, and your Functions won't be stuck in the building phase.
 
 ## Service Management
 
-
 ### Service Catalog removed
 
-With Kyma 1.23, we announced the [deprecation of Service Catalog](https://kyma-project.io/blog/2021/6/2/release-notes-123#service-management). Now in Kyma 2.4, we completely removed it. That's why in the 2.4 release, the following Service Catalog-related components are no longer installed as part of Kyma:
+With Kyma 1.23, we announced the [deprecation of Service Catalog](https://github.com/kyma-project/website/blob/main/content/blog-posts/2021-06-02-release-notes-1.23/index.md#service-management). Now in Kyma 2.4, we completely removed it. That's why in the 2.4 release, the following Service Catalog-related components are no longer installed as part of Kyma:
 
 - Service Catalog
 
@@ -71,8 +67,7 @@ With Kyma 1.23, we announced the [deprecation of Service Catalog](https://kyma-p
 
 - Rafter
 
-
-Note that your Service Catalog resources will not be migrated to any other solution. As mentioned in the [Service Catalog deprecation update](https://kyma-project.io/blog/2021/12/7/release-notes-20#service-catalog-deprecation-update), we recommend you to use [service operators for Service Management in Kyma](https://kyma-project.io/docs/kyma/main/01-overview/main-areas/service-management/smgt-01-overview/).
+Note that your Service Catalog resources will not be migrated to any other solution. As mentioned in the [Service Catalog deprecation update](https://github.com/kyma-project/website/blob/main/content/blog-posts/2021-12-07-release-notes-2.0/index.md#service-management), we recommend you to use [service operators for Service Management in Kyma](https://kyma-project.io/docs/kyma/main/01-overview/main-areas/service-management/smgt-01-overview/).
 
 If you already switched to another solution and want to remove the obsolete CRDs from your cluster, run Service Catalog cleanup script provided in the [Migration Guide](https://github.com/kyma-project/kyma/blob/release-2.4/docs/migration-guide-2.3-2.4.md#service-catalog-cleanup-script) **after** you upgrade from Kyma 2.3 to 2.4.
 
@@ -83,12 +78,14 @@ Service Catalog removal also affects Application Connectivity. We removed some c
 Due to the Service Catalog removal, Kyma will stop managing PodPresets by the end of October, 2022. Make sure to migrate your resources until then.
 
 Once the PodPresets are removed, the Secrets consumed by your existing Pods will only last until the restart. Upon the next Pods creation, the auto-injecting mechanism will be gone and you will have to mount the Secrets using these solutions:
+
 - Mounting Secrets to Kyma Functions
 - Mounting Secrets to Kubernetes Deployments (using either volume or environment variable mounting)
 
 #### Mounting Secrets to Kyma Functions
 
 Mounting Secret data to Kyma Function ensures that the data is preserved in the Function despite the configuration changes you may provide in the future. In this method, all Secret keys become environment variables. You can provide them to your Function using Kyma Dashboard:
+
 1. In Kyma Dashboard, go to the **Functions** view and select a Function.
 2. In the **Environment Variables** section, click **Add Environment Variable**.
 3. Select **Secret Variable** and provide the required details.
