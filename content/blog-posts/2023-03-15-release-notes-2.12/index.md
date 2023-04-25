@@ -25,7 +25,7 @@ See the overview of all changes in this release:
 ## General
 
 ### Kubernetes 1.25 support
-Now, we officially support Kubernetes in version 1.25. For more information about changes in Kubernetes version 1.25, see the [Kyma 2.9 release notes](https://github.com/kyma-project/website/blob/main/content/blog-posts/2022-11-22-release-notes-2.9/index.md).
+Now, we officially support Kubernetes in version 1.25. For more information about changes in Kubernetes version 1.25, see the [Kyma 2.9 release notes](https://github.com/kyma-project/website/blob/main/content/blog-posts/2022-11-22-release-notes-2.9/index.md#general).
 
 ### Migration
 You'll need a few cleanup actions when updating to the newest version. For more information, read the 2.11-2.12 [Migration Guide](https://kyma-project.io/docs/kyma/2.12/migration-guide-2.11-2.12).
@@ -83,7 +83,7 @@ See this [blog post](https://blogs.sap.com/2022/03/09/changing-the-function-runt
 
 ### Reminder about new Serverless API version
 
-As of [Kyma 2.6](https://github.com/kyma-project/website/blob/main/content/blog-posts/2022-08-25-release-notes-2.6/index.md), the `serverless.kyma-project.io/v1alpha1` API has been deprecated.
+As of [Kyma 2.6](https://github.com/kyma-project/website/blob/main/content/blog-posts/2022-08-25-release-notes-2.6/index.md#serverless), the `serverless.kyma-project.io/v1alpha1` API has been deprecated.
 We are getting close to the end of the 6-month depreciation period. Therefore, with the next Kyma release (2.13), we plan to stop supporting the deprecated API and support only `serverless.kyma-project.io/v1alpha2`.
 
 The conversion webhook that handles the conversion between the versions on the fly will be removed with Kyma 2.13.
