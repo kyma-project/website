@@ -58,7 +58,7 @@ We have [updated Fluent Bit to version 2.0.10](https://github.com/kyma-project/k
 ## Serverless  
 ###  `serverless.kyma-project.io/v1alpha1` API version removed  
 
-Following the depreciation of the `serverless.kyma-project.io/v1alpha1` API version with [Kyma 2.6](https://kyma-project.io/blog/2022/8/25/release-notes-26/#serverless), we've finally removed it in this release. The conversion webhook responsible for converting v1alpha1 to v1alpha2 during the grace period has also been removed.
+Following the depreciation of the `serverless.kyma-project.io/v1alpha1` API version with [Kyma 2.6](https://github.com/kyma-project/website/blob/main/content/blog-posts/2022-08-25-release-notes-2.6/index.md#serverless), we've finally removed it in this release. The conversion webhook responsible for converting v1alpha1 to v1alpha2 during the grace period has also been removed.
 
 ### Dependencies to cluster-essentials removed
 

@@ -208,7 +208,7 @@ In this release, we deprecate support for Python 3.8, and in the upcoming releas
 
 ### Service Catalog deprecation update
 
-As we announced the [deprecation of Service Catalog](https://kyma-project.io/blog/2021/6/2/release-notes-123/#service-management) in Kyma 1.23 Dhahran, in Kyma 2.0 we recommend using service operators for Service Management. These are the examples of service operators provided by hyperscale cloud providers that you can use:
+As we announced the [deprecation of Service Catalog](https://github.com/kyma-project/website/blob/main/content/blog-posts/2021-06-02-release-notes-1.23/index.md#service-management) in Kyma 1.23 Dhahran, in Kyma 2.0 we recommend using service operators for Service Management. These are the examples of service operators provided by hyperscale cloud providers that you can use:
 - [Google Cloud](https://cloud.google.com/config-connector/docs/how-to/getting-started)
 - [Azure](https://github.com/Azure/azure-service-operator)
 - [AWS](https://github.com/aws-controllers-k8s/community)
