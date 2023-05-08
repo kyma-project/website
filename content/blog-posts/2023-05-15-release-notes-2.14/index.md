@@ -11,7 +11,8 @@ redirectFrom:
 ---
 ## Observability
 ### Tracing
-    - Removal of component (https://github.com/kyma-project/kyma/issues/15852)
+    - Tracing was deprecated with release 2.11 (https://github.com/kyma-project/website/blob/main/content/blog-posts/2023-01-16-jaeger-deprecation/index.md) and has been removed (https://github.com/kyma-project/kyma/issues/15852). If you want to continue using Jaeger, follow the steps in our [Jaeger example](https://github.com/kyma-project/examples/tree/main/jaeger) to deploy your custom Jaeger installation.
+
 ## Telemetry
 ### Manager
     - Improved resiliency to modifications to the logging setup (https://github.com/kyma-project/telemetry-manager/issues/107)
