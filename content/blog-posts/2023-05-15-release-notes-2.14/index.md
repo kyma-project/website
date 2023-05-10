@@ -14,13 +14,13 @@ redirectFrom:
     - Tracing was deprecated with release 2.11 (https://github.com/kyma-project/website/blob/main/content/blog-posts/2023-01-16-jaeger-deprecation/index.md) and has been removed (https://github.com/kyma-project/kyma/issues/15852). If you want to continue using Jaeger, follow the steps in our [Jaeger example](https://github.com/kyma-project/examples/tree/main/jaeger) to deploy your custom Jaeger installation. It is recommended to remove any existing installation of the tracing component by running the related [cleanup script](https://github.com/kyma-project/kyma/blob/release-2.14/docs/assets/2.13-2.14-cleanup-jaeger.sh).
 
 ### Monitoring
-	- Update of components (https://github.com/kyma-project/kyma/issues/17378)
-		- Prometheus 2.43.1
-		- Prometheus-operator 0.64.1
-		- Alertmanager 0.25.0
-	- Switching to custom binaries to update base dependencies independent of the release cycle for (https://github.com/kyma-project/kyma/issues/17378)
-		- Alertmanager
-    - Node-exporter
+    - Update of components (https://github.com/kyma-project/kyma/issues/17378)
+	- Prometheus 2.43.1
+	- Prometheus-operator 0.64.1
+	- Alertmanager 0.25.0
+    - Switching to custom binaries to update base dependencies independent of the release cycle for (https://github.com/kyma-project/kyma/issues/17378)
+	- Alertmanager
+        - Node-exporter
 
 ## Telemetry
 ### Manager
