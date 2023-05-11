@@ -30,6 +30,6 @@ This hands-on guide provides an end-to-end example application implementation in
 
 We would like to hear your feedback. If you face any issues or have any comments while testing Kyma, feel free to report them on [GitHub](https://github.com/kyma-incubator/examples).  
 
-We also invite you to join the Kyma community on [Twitter](https://twitter.com/kymaproject) and [LinkedIn](https://www.linkedin.com/company/kyma-project/).
+We also invite you to join the Kyma community on Twitter and [LinkedIn](https://www.linkedin.com/company/kyma-project/).
 
 Have fun with Kyma!

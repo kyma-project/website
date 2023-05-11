@@ -21,7 +21,7 @@ Yes, there is one main SIG called **Core** that is the entry point. The Core SIG
 
 **Who are the Core SIG leaders?**
 
-The Core SIG leaders are Piotr Kopczynski ([@PK85](https://twitter.com/PiotrasPk)), Mateusz Szostok [(@mszostok](https://twitter.com/m_szostok)), Ahmed Abdalla ([@Abd4llA](https://twitter.com/Abd4llA)), and Lukasz Gornicki ([@derberg](https://twitter.com/derberq)).
+The Core SIG leaders are Piotr Kopczynski, Mateusz Szostok, Ahmed Abdalla, and Lukasz Gornicki.
 
 **What is the purpose of the Core SIG?**
 

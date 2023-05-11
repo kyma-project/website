@@ -19,7 +19,7 @@ As you pushed the **Read more** button, you would like to get informed about Kym
 
 ## Which Twitter account to follow?
 
-The account of the Twitter Bot is [@KymaUpdates](https://twitter.com/KymaUpdates).
+The account of the Twitter Bot is @KymaUpdates.
 
 ## Which updates are taken into account?
 

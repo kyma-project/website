@@ -30,6 +30,6 @@ This collaboration gives us the chance to focus Kyma on the higher-level enterpr
 
 We strongly believe in open technologies and open collaboration. Our goal is to join forces with interested parties out there and to build the most flexible extension framework for any SaaS applications to be customized and extended.  
 
-Got you interested? Want to get involved? Get in touch with us via [Twitter](https://twitter.com/kymaproject), [GitHub](https://github.com/kyma-project) or our [Slack](http://slack.kyma-project.io) channel. We would also be very happy if you simply let us know your take on this!
+Got you interested? Want to get involved? Get in touch with us via Twitter, [GitHub](https://github.com/kyma-project) or our [Slack](http://slack.kyma-project.io) channel. We would also be very happy if you simply let us know your take on this!
 
 Stay tuned for more updates... and have a great #GoogleNext2018!
