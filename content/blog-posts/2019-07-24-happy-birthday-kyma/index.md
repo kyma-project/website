@@ -66,7 +66,7 @@ We are definitely not planning to stop at 500 stars. This number was growing pre
 
 ## 12.09.2018 First Core Special Interest Group meeting
 
-After creating an open governance model, we hosted our first public Core Special Interest Group meeting. It was hosted by our stars, Piotr Kopczynskiand Mateusz Szostok.
+After creating an open governance model, we hosted our first public Core Special Interest Group meeting. It was hosted by our stars, Piotr Kopczynski and Mateusz Szostok.
 
 `youtube: https://youtu.be/1DD5aCBnywQ`
 
