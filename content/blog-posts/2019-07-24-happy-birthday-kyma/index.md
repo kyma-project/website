@@ -78,7 +78,7 @@ Kyma was announced to SAP customers and partners as the future of extensibility 
 
 ![kyma-sap-cx](./kyma-sap.png)
 
-[Moritz Zimmermann](https://twitter.com/moritzzimmerman), CTO of SAP CX, mentioned how Kyma shows SAP's commitment to openness.
+Moritz Zimmermann, CTO of SAP CX, mentioned how Kyma shows SAP's commitment to openness.
 
 <iframe border=0 frameborder=0 height=585 width=550
  src="https://twitframe.com/show?url=https://twitter.com/moritzzimmerman/status/1050427826221051905"></iframe>
