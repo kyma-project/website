@@ -68,7 +68,7 @@ To ensure secure communication between Compass, Runtimes, and Applications we pr
 
 ### Support for the AsyncAPI 2.0 specification
 
-Only three weeks after its official release, [AsyncAPI 2.0](https://twitter.com/AsyncAPISpec/status/1171831790887211011) is already a standard in Kyma. How did we manage to achieve this so fast? We have worked closely with the AsyncAPI community and actively contributed to their tooling. For details, have a look at the [AsyncAPI Converter](https://github.com/asyncapi/converter-go) and [AsyncAPI React](https://github.com/asyncapi/asyncapi-react) repositories maintained by Kyma developers.
+Only three weeks after its official release, AsyncAPI 2.0 is already a standard in Kyma. How did we manage to achieve this so fast? We have worked closely with the AsyncAPI community and actively contributed to their tooling. For details, have a look at the [AsyncAPI Converter](https://github.com/asyncapi/converter-go) and [AsyncAPI React](https://github.com/asyncapi/asyncapi-react) repositories maintained by Kyma developers.
 
 Although you can register any AsyncAPI version in Kyma, 2.0 is the only specification supported in the Kyma cluster. To make sure you are using the right version, we automatically validate your specification and convert it to 2.0.
 

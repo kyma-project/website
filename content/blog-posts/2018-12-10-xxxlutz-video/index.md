@@ -26,6 +26,6 @@ Getting feedback and contributions from the open-source community remains our fo
 - [Install](/docs/root/kyma#installation-installation) Kyma and test it.
 - Explore the examples on [GitHub](https://github.com/kyma-project).
 - Share your feedback on [Slack](http://slack.kyma-project.io). 
-- Join the Kyma community on [Twitter](https://twitter.com/kymaproject) and [LinkedIn](https://www.linkedin.com/authwall?trk=ripf&amp;trkInfo=AQFL2ZrSEnYW9gAAAWd9pfdAKay9_IjJ5fE58rtE5CvgTVY1LQicYsSOd52ICurd4z7RsU4dhbqiMrP5IKO70z1OmhxEUJyreAQsmDllpNYlAY334UVCr-5T7_cvzf15RfP5LtA=&amp;originalReferer=&amp;sessionRedirect=https%3A%2F%2Fwww.linkedin.com%2Fcompany%2Fkyma-project%2F) for the latest news.
+- Join the Kyma community on Twitter and [LinkedIn](https://www.linkedin.com/authwall?trk=ripf&amp;trkInfo=AQFL2ZrSEnYW9gAAAWd9pfdAKay9_IjJ5fE58rtE5CvgTVY1LQicYsSOd52ICurd4z7RsU4dhbqiMrP5IKO70z1OmhxEUJyreAQsmDllpNYlAY334UVCr-5T7_cvzf15RfP5LtA=&amp;originalReferer=&amp;sessionRedirect=https%3A%2F%2Fwww.linkedin.com%2Fcompany%2Fkyma-project%2F) for the latest news.
 
 We are looking forward to your feedback and engagement!

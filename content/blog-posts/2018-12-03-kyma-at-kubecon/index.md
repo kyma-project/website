@@ -29,4 +29,4 @@ During the event, you can easily find all Kyma members that travel to Seattle at
 
 So what are you waiting for? [Install Kyma now](/docs/root/kyma#installation-installation) and prepare your questions.
 
-See you there and follow us for any updates on [Twitter](https://twitter.com/kymaproject).
+See you there and follow us for any updates on Twitter.

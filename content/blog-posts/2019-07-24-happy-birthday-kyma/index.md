@@ -40,7 +40,7 @@ Kyma is already 1 year old and we have a feeling it has only recently been open-
 
 ## 24.07.2018 Open source - day one
 
-We know what we did last summer and we are very proud of it. We opened our repositories to the outside world and published the first version of our website. We introduced our project in a [blog post](https://kyma-project.io/blog/2018/7/24/introduction-project-kyma) and took first steps on [Twitter](https://twitter.com/kymaproject), growing to over 700 followers.
+We know what we did last summer and we are very proud of it. We opened our repositories to the outside world and published the first version of our website. We introduced our project in a [blog post](https://kyma-project.io/blog/2018/7/24/introduction-project-kyma) and took first steps on Twitter, growing to over 700 followers.
 
 <iframe border=0 frameborder=0 height=520 width=550 align="middle"
  src="https://twitframe.com/show?url=https://twitter.com/kymaproject/status/1021830148948193280"></iframe>
@@ -66,7 +66,7 @@ We are definitely not planning to stop at 500 stars. This number was growing pre
 
 ## 12.09.2018 First Core Special Interest Group meeting
 
-After creating an open governance model, we hosted our first public Core Special Interest Group meeting. It was hosted by our stars, [Piotr Kopczynski](https://twitter.com/PiotrasPk) and [Mateusz Szostok](https://twitter.com/m_szostok).
+After creating an open governance model, we hosted our first public Core Special Interest Group meeting. It was hosted by our stars, Piotr Kopczynski and Mateusz Szostok.
 
 `youtube: https://youtu.be/1DD5aCBnywQ`
 
@@ -74,18 +74,18 @@ So far, we have had 17 meetings and we are definitely not planning to stop organ
 
 ## 10.10.2018 Kyma announced to SAP customers and partners
 
-Kyma was announced to SAP customers and partners as the future of extensibility at the SAP CX Live event in Barcelona. [Alex Atzberger](https://twitter.com/aatzberger), president of SAP Customer Experience (SAP CX), talked about the important role Kyma plays for SAP.
+Kyma was announced to SAP customers and partners as the future of extensibility at the SAP CX Live event in Barcelona. Alex Atzberger, president of SAP Customer Experience (SAP CX), talked about the important role Kyma plays for SAP.
 
 ![kyma-sap-cx](./kyma-sap.png)
 
-[Moritz Zimmermann](https://twitter.com/moritzzimmerman), CTO of SAP CX, mentioned how Kyma shows SAP's commitment to openness.
+Moritz Zimmermann, CTO of SAP CX, mentioned how Kyma shows SAP's commitment to openness.
 
 <iframe border=0 frameborder=0 height=585 width=550
  src="https://twitframe.com/show?url=https://twitter.com/moritzzimmerman/status/1050427826221051905"></iframe>
 
 ## 10-13.12.2018 Kyma at KubeCon Seattle
 
-Thanks to SAP sponsorship, we made it to KubeCon Seattle. Together with our brothers from the [Gardener](https://gardener.cloud) project, we could have a lot of valuable conversations at the SAP Open Source booth. We were represented by [Ahmed](https://twitter.com/Abd4llA), [Lukasz](https://twitter.com/derberq), and [Piotr](https://twitter.com/PiotrasPk).
+Thanks to SAP sponsorship, we made it to KubeCon Seattle. Together with our brothers from the [Gardener](https://gardener.cloud) project, we could have a lot of valuable conversations at the SAP Open Source booth. We were represented by Ahmed, Lukasz, and Piotr.
 
 ![seattle](./lysy-seattle.png)
 
@@ -113,7 +113,7 @@ We did not wait too long and a few days after the 1.0 release we got confirmatio
 
 ## 07.05.2019 Kyma released with SAP C/4HANA Foundation to the production environment
 
-SAP, another early adopter that started using the Kyma project, made a big announcement of the production-ready offering for all SAP CX customers. The product is called SAP C/4HANA Foundation and you can read more about it in the [blog post](https://www.linkedin.com/pulse/introducing-sap-c4hana-foundation-thomas-hertz/) by [Thomas Hertz](https://twitter.com/primtom), Head of Technology at SAP CX.
+SAP, another early adopter that started using the Kyma project, made a big announcement of the production-ready offering for all SAP CX customers. The product is called SAP C/4HANA Foundation and you can read more about it in the [blog post](https://www.linkedin.com/pulse/introducing-sap-c4hana-foundation-thomas-hertz/) by Thomas Hertz, Head of Technology at SAP CX.
 
 <iframe border=0 frameborder=0 height=800 width=550
  src="https://twitframe.com/show?url=https://twitter.com/Abd4llA/status/1125857596789993473"></iframe>
@@ -160,9 +160,9 @@ We just keep walking, not planning to stop. Since day one, we have known that [C
 We understand how important it is to make friends in the open-source community. Leaving in isolation brings loneliness and we definitely do not want that for our project. Fortunately, we have a lot of visitors to our main [Slack  channel](http://slack.kyma-project.io). Apart from making friends among users, we also want to make friends among the projects we depend on, especially those that play or will play an important role in Kyma.
 
 A few of us regularly help the following communities:
-- [Ahmed Abdalla](https://twitter.com/Abd4llA) in [Knative](https://github.com/knative)
-- [Lukasz Gornicki](https://twitter.com/derberq) in [AsyncAPI](https://www.asyncapi.org/)
-- [Piotr Kopczynski](https://twitter.com/PiotrasPk) and [Mateusz Szostok](https://twitter.com/m_szostok) in [Kubernetes Service Catalog](https://github.com/kubernetes-sigs/service-catalog)
+- Ahmed Abdalla in [Knative](https://github.com/knative)
+- Lukasz Gornicki in [AsyncAPI](https://www.asyncapi.org/)
+- Piotr Kopczynski and Mateusz Szostok in [Kubernetes Service Catalog](https://github.com/kubernetes-sigs/service-catalog)
 - [Piotr Mscichowski](https://github.com/piotrmsc) in [Ory](https://github.com/ory), [Hydra](https://github.com/ory/hydra), and [Oathkeeper](https://github.com/ory/oathkeeper) projects.
 
 # We contribute back
@@ -186,7 +186,7 @@ Birthdays are always connected with presents. This time we plan to give away som
 - Contribute an issue using one of our templates. We equally value a well-described bug that is easy to replicate and an enhancement request with a well-described use case.
 
 All Kyma repositories are located [here](https://github.com/kyma-project/kyma/).
-Once you contribute, let us know about it on [Twitter](https://twitter.com/kymaproject) or on the **#general** channel on [Slack](http://slack.kyma-project.io). We will evaluate all contributions on Thursday, August 1, and announce all accepted contributions and happy winners. Happy contributing!
+Once you contribute, let us know about it on Twitter or on the **#general** channel on [Slack](http://slack.kyma-project.io). We will evaluate all contributions on Thursday, August 1, and announce all accepted contributions and happy winners. Happy contributing!
 
 If you don't know what to contribute, I'm sure we can help - just contact us through one of the above communication channels and we will point you in the right direction.
 
@@ -196,7 +196,6 @@ If you don't know what to contribute, I'm sure we can help - just contact us thr
 
 If you did not have a chance to contribute to our history, you can still join us and become a part of Kyma's future. We have many channels that you can use to interact with us:
 
-- Twitter: https://twitter.com/kymaproject
 - Core SIG public meetings: https://docs.google.com/document/d/1vWleTon7sJIk0teee4SoVezS4mR3K8TlkvXkgLJwRD8/
 - Slack: http://slack.kyma-project.io
 - GitHub issues: https://github.com/kyma-project/kyma/issues
