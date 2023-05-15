@@ -41,13 +41,13 @@ With Kyma 2.12, the Compass Runtime Agent component will use the `kyma-system` N
  
 When you upgrade Kyma from version 2.11 to 2.12, the old component deployed in the `compass-system` Namespace won't be removed automatically. 
 If you're using Compass Runtime Agent, you must execute the script after successfully migrating from Kyma 2.11 to Kyma 2.12. If not, no additional action is required.
-For more information, read the 2.11-2.12 [Migration Guide](https://kyma-project.io/docs/kyma/2.12/migration-guide-2.11-2.12). 
+For more information, read the 2.11-2.12 [Migration Guide](https://github.com/kyma-project/kyma/blob/release-2.12/docs/migration-guide-2.11-2.12.md). 
 
 ## Observability
 ### Monitoring
 
 - We have added a [new example](https://github.com/kyma-project/examples/tree/main/metrics-otlp) that illustrates collecting and exporting metrics using only OpenTelemetry technology.
-- To decouple the Kyma components from the monitoring stack, all components have been refactored to use annotation-based metrics scraping instead of leveraging ServiceMonitors. Therefore, you must follow the 2.11-2.12 [Migration Guide](https://kyma-project.io/docs/kyma/2.12/migration-guide-2.11-2.12) to clean up ServiceMonitors of the system components. Also, the bundled rules for Loki have already been removed. With that, the system components have no direct dependency on the Monitoring module anymore.
+- To decouple the Kyma components from the monitoring stack, all components have been refactored to use annotation-based metrics scraping instead of leveraging ServiceMonitors. Therefore, you must follow the 2.11-2.12 [Migration Guide](https://github.com/kyma-project/kyma/blob/release-2.12/docs/migration-guide-2.11-2.12.md) to clean up ServiceMonitors of the system components. Also, the bundled rules for Loki have already been removed. With that, the system components have no direct dependency on the Monitoring module anymore.
 - As announced in the release notes of Kyma 2.11, the Monitoring module has been deprecated. All relevant [documentation pages](https://github.com/kyma-project/kyma/issues/16392) contain the deprecation note.
 
 ## Telemetry
