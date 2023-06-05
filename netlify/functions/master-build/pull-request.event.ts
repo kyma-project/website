@@ -12,11 +12,13 @@ enum PullRequestActionType {
 enum RepositoryName {
   KYMA = "kyma",
   COMMUNITY = "community",
+  BUSOLA = "busola",
 }
 
 const REPOSITORY_NAMES: string[] = [
   RepositoryName.KYMA,
   RepositoryName.COMMUNITY,
+  RepositoryName.BUSOLA,
   ...Object.keys(configJSON.docs),
 ];
 
@@ -56,6 +58,8 @@ const checkChangedFiles = (
       return checkChangedFileNames(files, REGEX.KYMA);
     case RepositoryName.COMMUNITY:
       return true;
+    case RepositoryName.BUSOLA:
+      return checkChangedFileNames(files, REGEX.KYMA);
     default:
       return checkChangedFileNames(files, REGEX.KYMA);
   }
