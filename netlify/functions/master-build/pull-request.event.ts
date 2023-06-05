@@ -12,13 +12,13 @@ enum PullRequestActionType {
 enum RepositoryName {
   KYMA = "kyma",
   COMMUNITY = "community",
-  BUSOLA = "busola",
+  KEDA = "keda-manager",
 }
 
 const REPOSITORY_NAMES: string[] = [
   RepositoryName.KYMA,
   RepositoryName.COMMUNITY,
-  RepositoryName.BUSOLA,
+  RepositoryName.KEDA,
   ...Object.keys(configJSON.docs),
 ];
 
