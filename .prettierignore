@@ -8,6 +8,8 @@ tools/content-loader/tempDocsDir
 tools/content-loader/tempCommunityDir
 tools/content-loader/docs
 tools/content-loader/kyma
+tools/content-loader/keda
+tools/content-loader/busola
 tools/content-loader/community
 coverage
 .vscode
