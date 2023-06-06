@@ -78,16 +78,16 @@
         "docsTopic": "kyma"
       }
     },
-    "keda": {
-      "displayName": "Keda",
-      "organization": "mrCherry97",
-      "repository": "keda-manager",
-      "branches": ["test"],
+    "busola": {
+      "displayName": "Busola",
+      "organization": "kyma-project",
+      "repository": "busola",
+      "branches": ["mrCherry97-patch-1"],
       "lastReleases": 1,
       "navPath": "",
       "rootPath": {
         "docsType": "root",
-        "docsTopic": "keda-manager"
+        "docsTopic": "busola"
       }
     }
   }
