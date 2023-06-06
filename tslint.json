@@ -45,7 +45,12 @@
     "deprecation": true
   },
   "linterOptions": {
-    "exclude": ["*/node_modules/**/*"]
+    "exclude": [
+      "*/node_modules/**/*",
+      ".cache/**",
+      "tools/content-loader/**",
+      "public/**"
+    ]
   },
   "ban-types": [
     true,
