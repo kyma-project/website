@@ -80,9 +80,9 @@
     },
     "keda": {
       "displayName": "Keda",
-      "organization": "kyma-project",
+      "organization": "mrCherry97",
       "repository": "keda-manager",
-      "branches": ["main"],
+      "branches": ["test"],
       "lastReleases": 1,
       "navPath": "",
       "rootPath": {
