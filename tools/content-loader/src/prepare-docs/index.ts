@@ -25,10 +25,21 @@ const prepareDocsPerSource = async (
   repository: DocsRepository,
   coreConfig: CoreConfig,
 ) => {
-  const outputPath = resolve(`${docsConfig.outputPath}/${repositoryName}`);
-  const outputDocsVersion = resolve(
-    `${docsConfig.outputPath}/${repositoryName}/${docsConfig.outputDocsVersion}`,
-  );
+  let outputPath;
+  let outputDocsVersion;
+
+  if (repositoryName === "kyma") {
+    outputPath = resolve(`${docsConfig.outputPath}/${repositoryName}`);
+    outputDocsVersion = resolve(
+      `${docsConfig.outputPath}/${repositoryName}/${docsConfig.outputDocsVersion}`,
+    );
+  } else {
+    outputPath = resolve(`${docsConfig.outputModulePath}/${repositoryName}`);
+    outputDocsVersion = resolve(
+      `${docsConfig.outputModulePath}/${repositoryName}/${docsConfig.outputDocsVersion}`,
+    );
+  }
+
   const sourcePath = resolve(repositoryName);
 
   let err: Error | null = null;
@@ -101,6 +112,8 @@ const prepareDocsPerSource = async (
   }
 
   let branches;
+  const skipVersion = repository?.skipVersions;
+
   [err, branches] = await to(CheckingDocs.branches(repository.branches));
   if (err) {
     throw new VError(err, `while checking branches`);
@@ -111,6 +124,7 @@ const prepareDocsPerSource = async (
       branches,
       source: sourcePath,
       output: outputPath,
+      skipVersions: skipVersion,
     }),
   );
   if (err) {
@@ -141,7 +155,14 @@ const preparePreviewDocs = async (coreConfig: CoreConfig) => {
     throw new Error(`for preview APP_PREPARE_FOR_REPO env must be defined`);
   }
 
-  let outputPath = resolve(`${docsConfig.outputPath}/${sourceName}`);
+  let outputPath;
+
+  if (sourceName === "kyma") {
+    outputPath = resolve(`${docsConfig.outputPath}/${sourceName}`);
+  } else {
+    outputPath = resolve(`${docsConfig.outputModulePath}/${sourceName}`);
+  }
+
   if (!outputPath.endsWith(branchName)) {
     outputPath = outputPath.endsWith("/")
       ? `${outputPath}${branchName}`

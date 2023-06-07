@@ -26,7 +26,7 @@ export class CopyDocs {
     }
   };
 
-  branches = async ({ branches, source, output }) => {
+  branches = async ({ branches, source, output, skipVersions = false }) => {
     for (const branch of Array.from(branches.keys())) {
       console.log(`Copying documentation from branch ${branch}`);
 
@@ -36,7 +36,7 @@ export class CopyDocs {
         throw err;
       }
 
-      const out = `${output}/${branch}`;
+      const out = skipVersions ? output : `${output}/${branch}`;
       [err] = await to(copy(join(source, "docs"), out, { recursive: true }));
       if (err) {
         throw new VError(err, `while copying sources from branch: ${branch}`);

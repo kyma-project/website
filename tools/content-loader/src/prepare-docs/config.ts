@@ -6,6 +6,7 @@ export interface DocsRepository {
   repository: string;
   branches: string[];
   lastReleases?: number;
+  skipVersions?: boolean;
 }
 
 export interface DocsRepositories {
@@ -16,6 +17,7 @@ export interface DocsConfig {
   branches: string[];
   docsRepositories: DocsRepositories;
   outputPath: string;
+  outputModulePath: string;
   outputDocsVersion: string;
   sourcePreviewPath: string;
 }
@@ -26,6 +28,8 @@ const config: DocsConfig = {
     : ["main"],
   docsRepositories: configJSON.docs,
   outputPath: process.env.APP_DOCS_OUTPUT || "docs",
+  outputModulePath:
+    process.env.APP_MODULE_DOCS_OUTPUT || "docs/kyma/main/01-overview/modules",
   sourcePreviewPath: process.env.APP_PREVIEW_SOURCE_DIR || "kyma",
   outputDocsVersion:
     process.env.APP_DOCS_VERSIONS_CONFIG_FILE || "versions.json",

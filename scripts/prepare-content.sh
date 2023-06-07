@@ -75,7 +75,8 @@ init() {
 
 fetch() {
     APP_PREPARE_FOR="${PREPARE_FOR}" \
-    APP_DOCS_OUTPUT="${CONTENT_DIR}/docs" \
+    APP_DOCS_OUTPUT="/Users/I551160/github/website/content/docs" \
+    APP_MODULE_DOCS_OUTPUT="/Users/I551160/github/website/content/docs/kyma/main/01-overview/modules" \
     APP_DOCS_VERSIONS_CONFIG_FILE="versions.json" \
     APP_COMMUNITY_REPOSITORY="community" \
     APP_COMMUNITY_OUTPUT="${CONTENT_DIR}/community" \
