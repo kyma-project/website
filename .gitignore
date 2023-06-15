@@ -78,3 +78,5 @@ tools/content-loader/temp*
 tools/content-loader/docs
 tools/content-loader/community
 tools/content-loader/versions.json
+content/community
+content/docs/kyma
