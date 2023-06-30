@@ -85,4 +85,4 @@ spec:
 ```
 
 ## Final remarks
- Read [this blog post](https://kyma-project.io/docs/kyma/latest/01-overview/main-areas/service-mesh/smsh-03-istio-sidecars-in-kyma) to discover the benefits that the Istio sidecar proxy brings. In [the blog](https://kyma-project.io/blog/) on the Kyma website, you can find all the essential news and tutorials related to Kyma Istio.
+ Read [this document](https://github.com/kyma-project/kyma/blob/release-2.9/docs/01-overview/main-areas/service-mesh/smsh-03-istio-sidecars-in-kyma.md) to discover the benefits that the Istio sidecar proxy brings. In [the blog](https://kyma-project.io/blog/) on the Kyma website, you can find all the essential news and tutorials related to Kyma Istio.

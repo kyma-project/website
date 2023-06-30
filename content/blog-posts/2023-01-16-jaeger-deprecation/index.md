@@ -21,7 +21,7 @@ Now, we will apply the same principle to the Jaeger component and the tracing co
 
 ## The Alternative
 
-With Kyma 2.10, we introduced the first version of [telemetry tracing](https://kyma-project.io/docs/kyma/latest/01-overview/main-areas/telemetry/telemetry-03-traces/), which enables you to [perform a custom Jaeger installation](https://github.com/kyma-project/examples/tree/main/jaeger). Besides that, you can also start integrating any other trace backend based on native OTLP.
+With Kyma 2.10, we introduced the first version of [telemetry tracing](https://github.com/kyma-project/kyma/blob/release-2.10/docs/01-overview/main-areas/telemetry/telemetry-03-traces.md), which enables you to [perform a custom Jaeger installation](https://github.com/kyma-project/examples/tree/main/jaeger). Besides that, you can also start integrating any other trace backend based on native OTLP.
 
 ## The Future
 

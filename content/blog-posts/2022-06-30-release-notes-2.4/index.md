@@ -67,7 +67,7 @@ With Kyma 1.23, we announced the [deprecation of Service Catalog](https://github
 
 - Rafter
 
-Note that your Service Catalog resources will not be migrated to any other solution. As mentioned in the [Service Catalog deprecation update](https://github.com/kyma-project/website/blob/main/content/blog-posts/2021-12-07-release-notes-2.0/index.md#service-management), we recommend you to use [service operators for Service Management in Kyma](https://kyma-project.io/docs/kyma/main/01-overview/main-areas/service-management/smgt-01-overview/).
+Note that your Service Catalog resources will not be migrated to any other solution. As mentioned in the [Service Catalog deprecation update](https://github.com/kyma-project/website/blob/main/content/blog-posts/2021-12-07-release-notes-2.0/index.md#service-management), we recommend you to use [service operators for Service Management in Kyma](https://github.com/kyma-project/kyma/blob/release-2.4/docs/01-overview/main-areas/service-management/smgt-01-overview.md).
 
 If you already switched to another solution and want to remove the obsolete CRDs from your cluster, run Service Catalog cleanup script provided in the [Migration Guide](https://github.com/kyma-project/kyma/blob/release-2.4/docs/migration-guide-2.3-2.4.md#service-catalog-cleanup-script) **after** you upgrade from Kyma 2.3 to 2.4.
 
