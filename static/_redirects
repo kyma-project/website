@@ -24,3 +24,4 @@
 /blog/2021/12/7/release-notes-20 https://github.com/kyma-project/kyma/releases/tag/2.0.0 301
 /blog/:year/:month/:date/release-notes-* https://github.com/kyma-project/kyma/releases/ 301
 /blog/* https://community.sap.com/topics/kyma?lng=en&tab=content 301
+/docs/kyma/latest/01-overview/main-areas/* /docs/kyma/latest/01-overview/:splat 301
