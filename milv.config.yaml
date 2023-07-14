@@ -9,25 +9,26 @@ files-to-ignore:
   - node_modules
   - content/docs
   - content/community
+  - content/blog-posts
 files-to-ignore-internal-links-in:
-  - ./website/src/blog-posts/
-  - ./website/content/blog-posts/
+  - ./src/blog-posts/
+  - ./content/blog-posts/
 timeout: 60
 request-repeats: 5
 backoff: 5s
 files:
-  - path: "./website/.github/ISSUE_TEMPLATE/security-vulnerability.md"
+  - path: "./.github/ISSUE_TEMPLATE/security-vulnerability.md"
     config:
       internal-links-to-ignore: ["{CVSS"]
       external-links-to-ignore:
         [
           "https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:L/A:N",
         ]
-  - path: ./website/docs/banner-modification.md
+  - path: ./docs/banner-modification.md
     config:
       internal-links-to-ignore:
         - ../src/banner/assets
-  - path: ./website/docs/write-blog-posts.md
+  - path: ./docs/write-blog-posts.md
     config:
       external-links-to-ignore:
         - https://kyma-project.io/blog/some-address
