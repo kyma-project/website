@@ -9,6 +9,7 @@ files-to-ignore:
   - node_modules
   - content/docs
   - content/community
+  - content/blog-posts
 files-to-ignore-internal-links-in:
   - ./src/blog-posts/
   - ./content/blog-posts/
