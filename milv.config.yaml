@@ -10,8 +10,8 @@ files-to-ignore:
   - content/docs
   - content/community
 files-to-ignore-internal-links-in:
-  - ./website/src/blog-posts/
-  - ./website/content/blog-posts/
+  - ./src/blog-posts/
+  - ./content/blog-posts/
 timeout: 60
 request-repeats: 5
 backoff: 5s
