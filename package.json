@@ -127,7 +127,7 @@
     "@types/typography": "^0.16.2",
     "@types/verror": "^1.10.3",
     "await-to-js": "^2.1.1",
-    "axios": "^0.19.0",
+    "axios": "^1.6.5",
     "babel-preset-gatsby": "^0.1.6",
     "compare-versions": "^3.5.1",
     "front-matter": "^3.0.2",
